@@ -86,53 +86,59 @@ export const Hero: React.FC = () => {
       <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 flex-1 flex flex-col justify-center py-8 sm:py-12">
         
         {/* Monumental Asymmetric Typographic Statement with 3D Depth Layers */}
-        <div className="space-y-2 sm:space-y-4 select-none">
+        <h1 className="space-y-2 sm:space-y-4 select-none m-0 font-normal">
           
           {/* Line 1: Depth Layer 1 — First Name */}
-          <div
-            ref={line1Ref}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 cursor-default will-change-transform opacity-0"
-            data-interactive
-          >
-            <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-              Juan Pablo
+          <span className="block">
+            <span
+              ref={line1Ref}
+              className="inline-block text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 cursor-default will-change-transform opacity-0"
+              data-interactive
+            >
+              <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
+                Juan Pablo
+              </span>
             </span>
-          </div>
+          </span>
 
           {/* Line 2: Depth Layer 2 — Last Name with Asymmetric Indent */}
-          <div
-            ref={line2Ref}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 sm:pl-14 md:pl-20 lg:pl-28 cursor-default will-change-transform opacity-0"
-            data-interactive
-          >
-            <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-              Chacón.
+          <span className="block sm:pl-14 md:pl-20 lg:pl-28">
+            <span
+              ref={line2Ref}
+              className="inline-block text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 cursor-default will-change-transform opacity-0"
+              data-interactive
+            >
+              <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
+                Chacón.
+              </span>
             </span>
-          </div>
+          </span>
 
           {/* Line 3: Depth Layer 3 — Core Dual Discipline Statement */}
-          <div
-            ref={line3Ref}
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.2vw] font-light font-display tracking-[-0.01em] text-black/50 hover:text-black/80 leading-[1.08] sm:leading-[1.12] pb-1 pt-2 sm:pt-4 sm:pl-2 cursor-default will-change-transform opacity-0 transition-colors duration-500"
-            data-interactive
-          >
-            <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-              Design <span className="italic font-light text-black/35">&</span> Production Code.
+          <span className="block pt-2 sm:pt-4 sm:pl-2">
+            <span
+              ref={line3Ref}
+              className="inline-block text-3xl sm:text-5xl md:text-6xl lg:text-[4.2vw] font-light font-display tracking-[-0.01em] text-black/65 hover:text-black/90 leading-[1.08] sm:leading-[1.12] pb-1 cursor-default will-change-transform opacity-0 transition-colors duration-500"
+              data-interactive
+            >
+              <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
+                Design <span className="italic font-light text-black/35">&</span> Production Code.
+              </span>
             </span>
-          </div>
-        </div>
+          </span>
+        </h1>
 
       </div>
 
       {/* Clean Bottom Orientation Bar (Pure Dignified Telemetry, Zero Hand-Holding) */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 pb-8 sm:pb-10 flex items-center justify-between text-xs font-mono text-black/60 select-none">
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 pb-8 sm:pb-10 flex items-center justify-between text-xs font-mono text-black/70 select-none">
         <div className="flex items-center gap-2.5">
           <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
           <span>{siteConfig.profile.location}</span>
           <span className="text-black/20">•</span>
-          <span className="text-black/50">Independent Studio</span>
+          <span className="text-black/60">Independent Studio</span>
         </div>
-        <div className="text-black/40 font-mono text-[11px]">
+        <div className="text-black/65 font-mono text-[11px]">
           {siteConfig.profile.role}
         </div>
       </div>

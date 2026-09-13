@@ -36,9 +36,17 @@
   --font-sans: 'Neue Montreal', 'Geist', system-ui, -apple-system, sans-serif;
   --font-display: 'Neue Montreal', 'Geist', sans-serif;
   --font-mono: 'Geist Mono', monospace;
+  --color-surface: #fafaf8;
+  --color-obsidian: #1C1D20;
+  --color-accent: #00C988;
 }
 
 @layer base {
+  :focus-visible {
+    outline: 2px solid #1a1a1e;
+    outline-offset: 3px;
+  }
+
   * {
     box-sizing: border-box;
   }

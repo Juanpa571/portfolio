@@ -173,6 +173,9 @@ export const Header: React.FC = () => {
 
       {/* Drawer Panel */}
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation Menu"
         className={`fixed top-0 right-0 h-full w-full sm:w-[480px] lg:w-[520px] bg-[#1C1D20] text-white z-45 shadow-[-30px_0_80px_rgba(0,0,0,0.85)] border-l border-white/10 flex flex-col justify-between p-8 sm:p-12 lg:p-14 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
@@ -186,7 +189,7 @@ export const Header: React.FC = () => {
             width={335}
             height={81}
           />
-          <div className="text-xs font-mono text-white/50">
+          <div className="text-xs font-mono text-white/70">
             <span>Cali, Colombia</span>
           </div>
         </div>
@@ -201,10 +204,10 @@ export const Header: React.FC = () => {
               className="group flex items-center justify-between py-4 border-b border-white/[0.08] hover:border-white/30 transition-all duration-300"
               data-interactive
             >
-              <span className="text-3xl sm:text-4xl lg:text-5xl font-normal font-display tracking-[-0.01em] text-white/70 group-hover:text-white group-hover:translate-x-3 transition-all duration-300">
+              <span className="text-3xl sm:text-4xl lg:text-5xl font-normal font-display tracking-[-0.01em] text-white/80 group-hover:text-white group-hover:translate-x-3 transition-all duration-300">
                 {link.label}
               </span>
-              <span className="text-lg sm:text-xl text-white/20 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300">
+              <span className="text-lg sm:text-xl text-white/40 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300">
                 ↗
               </span>
             </a>
@@ -213,7 +216,7 @@ export const Header: React.FC = () => {
 
         {/* Drawer Bottom Telemetry & Direct Actions */}
         <div className="pt-6 border-t border-white/10 space-y-4">
-          <div className="flex items-center justify-between text-xs font-mono text-white/50">
+          <div className="flex items-center justify-between text-xs font-mono text-white/70">
             <div>COT ({liveTime || 'UTC-5'})</div>
             <div className="text-emerald-400 font-medium">Available Worldwide</div>
           </div>
