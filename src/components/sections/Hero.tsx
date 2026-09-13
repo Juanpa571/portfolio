@@ -23,24 +23,14 @@ export const Hero: React.FC = () => {
             </span>
           </div>
 
-          {/* Line 2: Balanced Subtle Architectural Indent with Badge */}
+          {/* Line 2: Balanced Subtle Architectural Indent */}
           <div
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 sm:pl-8 md:pl-12 lg:pl-14 flex flex-wrap items-baseline gap-3.5 sm:gap-5 cursor-default group transition-transform duration-300 hover:translate-x-1"
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 sm:pl-8 md:pl-12 lg:pl-14 cursor-default group transition-transform duration-300 hover:translate-x-1"
             data-interactive
           >
             <span className="inline-block transition-transform duration-300 group-hover:scale-[1.01] origin-left">
               Production
             </span>
-            <a
-              href="#services"
-              className="text-xs sm:text-sm font-mono tracking-normal bg-black text-white px-3.5 py-1.5 sm:px-4.5 sm:py-2 rounded-full align-middle hover:bg-black/85 hover:scale-105 active:scale-95 transition-all duration-300 shadow-md cursor-pointer inline-flex items-center gap-2"
-              data-interactive
-              title="See our collaborative model"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-              <span>Direct partnership</span>
-              <span className="text-xs">↓</span>
-            </a>
           </div>
 
           {/* Line 3: Clean Contrast Line */}
