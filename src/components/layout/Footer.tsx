@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { siteConfig } from '../../config/site';
 import { useLiveTime } from '../../hooks/useLiveTime';
+import { TiltCard } from '../ui/TiltCard';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -8,180 +9,241 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const Footer: React.FC = () => {
   const liveTime = useLiveTime(siteConfig.profile.timezone);
-  const footerRef = useRef<HTMLElement | null>(null);
-  const curveRef = useRef<HTMLDivElement | null>(null);
-  const buttonRef = useRef<HTMLAnchorElement | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const stageRef = useRef<HTMLDivElement | null>(null);
+  const headlineRef = useRef<HTMLHeadingElement | null>(null);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(siteConfig.profile.contact.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
 
   useEffect(() => {
-    if (!curveRef.current || !footerRef.current) return;
+    if (!sectionRef.current || !stageRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Dennis Snellenberg dynamic curved transition:
-      // When entering the viewport, the white rounded shape arches down into the dark section.
-      // As the user scrolls down, the white curve shrinks from 130px to 0px, flattening out completely.
-      gsap.to(curveRef.current, {
-        height: 0,
-        ease: 'none',
+      // Cinematic Asymmetric Stage Elevation:
+      // As the user scrolls into the finale, the dark monolithic room rises from below,
+      // scaling up from 0.95 to 1.0 and expanding to command the entire viewport.
+      const stageTl = gsap.timeline({
         scrollTrigger: {
-          trigger: footerRef.current,
+          trigger: sectionRef.current,
           start: 'top bottom',
-          end: 'top 15%',
-          scrub: true,
+          end: 'top 10%',
+          scrub: 0.7,
         },
       });
-    }, footerRef);
+
+      stageTl.fromTo(
+        stageRef.current,
+        {
+          y: 120,
+          scale: 0.96,
+          borderTopLeftRadius: '48px',
+          borderTopRightRadius: '48px',
+        },
+        {
+          y: 0,
+          scale: 1,
+          borderTopLeftRadius: '0px',
+          borderTopRightRadius: '0px',
+          ease: 'power2.out',
+        }
+      );
+
+      // Monumental Typography staggered entrance
+      if (headlineRef.current) {
+        const lines = headlineRef.current.querySelectorAll('.reveal-word');
+        gsap.fromTo(
+          lines,
+          { y: 80, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            stagger: 0.12,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: headlineRef.current,
+              start: 'top 85%',
+              end: 'top 45%',
+              scrub: 0.5,
+            },
+          }
+        );
+      }
+    }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
-  // Snellenberg Magnetic Hover on Circular Action Button
-  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!buttonRef.current) return;
-    const rect = buttonRef.current.getBoundingClientRect();
-    const x = e.clientX - (rect.left + rect.width / 2);
-    const y = e.clientY - (rect.top + rect.height / 2);
-    buttonRef.current.style.transform = `translate3d(${x * 0.32}px, ${y * 0.32}px, 0) scale(1.05)`;
-  };
-
-  const handleMouseLeave = () => {
-    if (!buttonRef.current) return;
-    buttonRef.current.style.transform = `translate3d(0px, 0px, 0) scale(1)`;
-  };
-
   return (
     <footer
       id="contact"
-      ref={footerRef}
-      className="relative bg-[#1c1d20] text-white min-h-screen flex flex-col justify-between overflow-hidden select-none"
+      ref={sectionRef}
+      className="relative bg-[#fafaf8] overflow-hidden pt-8 sm:pt-16"
     >
-      {/* 1. Dennis Snellenberg Dynamic White Curve Transition */}
-      <div className="relative w-full overflow-hidden bg-[#1c1d20] pointer-events-none z-10">
-        <div
-          ref={curveRef}
-          className="w-[150%] -left-[25%] relative bg-[#fafaf8] rounded-b-[50%] shadow-[0_35px_50px_rgba(0,0,0,0.22)] will-change-[height]"
-          style={{ height: '130px' }}
-        />
-      </div>
+      {/* Cinematic Monumental Dark Stage */}
+      <div
+        ref={stageRef}
+        className="bg-[#0c0d12] text-white min-h-screen flex flex-col justify-between border-t border-white/10 shadow-[0_-30px_100px_rgba(0,0,0,0.45)] will-change-transform relative overflow-hidden"
+      >
+        {/* Subtle Ambient Grain Layer */}
+        <div className="absolute inset-0 bg-radial from-white/[0.04] to-transparent opacity-60 pointer-events-none" />
 
-      {/* 2. Full-Viewport Immersive Section */}
-      <div className="max-w-[1500px] w-full mx-auto px-6 sm:px-14 lg:px-20 pt-10 sm:pt-16 lg:pt-24 pb-10 sm:pb-14 flex-1 flex flex-col justify-between">
-        
-        {/* Top: Avatar + "Let's work together" Headline */}
-        <div className="flex justify-between items-start pt-2">
-          <div className="space-y-3 sm:space-y-5">
-            <div className="flex items-center gap-4 sm:gap-7 lg:gap-8">
+        {/* Content Container */}
+        <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 lg:px-16 pt-20 sm:pt-28 lg:pt-36 pb-12 flex-1 flex flex-col justify-between relative z-10">
+          
+          {/* Main Asymmetric Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            
+            {/* Left Column (Col 1-7): Monumental Asymmetric Headline & Direct Manifesto */}
+            <div className="lg:col-span-7 space-y-8">
               
-              {/* Circular Avatar / Headshot container */}
-              <div
-                className="w-16 h-16 sm:w-22 sm:h-22 lg:w-26 lg:h-26 rounded-full overflow-hidden bg-[#2a2b30] border border-white/20 shrink-0 relative flex items-center justify-center text-white/90 font-display font-medium text-xl sm:text-2xl shadow-xl group cursor-pointer"
-                title="Juan Pablo Chacón"
-                data-interactive
+              <h2
+                ref={headlineRef}
+                className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-bold font-display tracking-tight text-white leading-[0.88] uppercase"
               >
-                <span>JP</span>
-                {/* Solitary Vitality Beacon */}
-                <span className="absolute bottom-1 right-1 sm:bottom-1.5 sm:right-1.5 flex h-3.5 w-3.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-[#1c1d20]"></span>
-                </span>
+                <div className="overflow-hidden">
+                  <span className="reveal-word inline-block will-change-transform">
+                    Ready to build
+                  </span>
+                </div>
+                <div className="overflow-hidden sm:pl-14 lg:pl-24 pt-2">
+                  <span className="reveal-word inline-block text-white/50 hover:text-white transition-colors duration-500 will-change-transform">
+                    something real?
+                  </span>
+                </div>
+              </h2>
+
+              <p className="text-lg sm:text-xl text-white/75 max-w-xl font-normal leading-relaxed font-sans">
+                Whether you are validating an early concept, architecting a high-performance React application, or scaling production infrastructure. Direct senior collaboration with zero committees or account executives.
+              </p>
+
+              {/* Real-Time Status & Location Telemetry Strip */}
+              <div className="pt-3 flex flex-wrap items-center gap-3 text-xs font-mono text-white/60">
+                <div className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/90 font-semibold shadow-xs">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span>Accepting select builds for Q2</span>
+                </div>
+                <span className="text-white/30">•</span>
+                <span>Cali, Colombia ({liveTime || 'COT'})</span>
               </div>
 
-              <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-[6.8vw] font-normal font-sans text-white tracking-tight leading-[0.92]">
-                Let’s work
-              </h2>
             </div>
 
-            <div className="text-5xl sm:text-7xl md:text-8xl lg:text-[6.8vw] font-normal font-sans text-white tracking-tight leading-[0.92]">
-              together
-            </div>
-          </div>
+            {/* Right Column (Col 8-12): Asymmetric Interactive Action Deck */}
+            <div className="lg:col-span-5 space-y-5 lg:-translate-y-4">
+              
+              {/* WhatsApp Action Monolith with 3D Tilt & Specular Reflection */}
+              <TiltCard
+                maxTilt={4}
+                scale={1.01}
+                className="p-8 sm:p-10 rounded-3xl bg-[#14151b] text-white border border-white/10 shadow-2xl hover:border-white/30 transition-all duration-300 group cursor-pointer"
+              >
+                <a
+                  href={siteConfig.profile.contact.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block space-y-7"
+                  data-interactive
+                >
+                  <div className="flex justify-between items-start">
+                    <span className="text-xs font-mono text-white/40 tracking-wider uppercase font-semibold">
+                      DIRECT ACTION
+                    </span>
+                    <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-lg font-mono text-white group-hover:bg-white group-hover:text-black group-hover:scale-110 transition-all duration-300 shadow-sm">
+                      <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
+                        ↗
+                      </span>
+                    </div>
+                  </div>
 
-          {/* Elegant Corner Arrow */}
-          <div className="hidden sm:block text-4xl sm:text-5xl lg:text-6xl font-light text-white/30 font-mono select-none pt-2">
-            ↙
-          </div>
-        </div>
+                  <div>
+                    <div className="text-2xl sm:text-4xl font-bold font-display tracking-tight text-white mb-2 group-hover:translate-x-1 transition-transform">
+                      Chat on WhatsApp
+                    </div>
+                    <p className="text-xs sm:text-sm text-white/65 font-sans leading-relaxed">
+                      Instant direct line for project roadmaps, technical feasibility, and timelines.
+                    </p>
+                  </div>
 
-        {/* Middle: Horizontal Divider Line & Dennis Snellenberg Magnetic Blue Circle Button */}
-        <div className="relative my-16 sm:my-24 lg:my-28">
-          <div className="w-full h-px bg-white/15" />
+                  <div className="pt-2 flex items-center gap-2.5 text-xs font-mono text-white/75 border-t border-white/10">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span>+61 405667961 — Personal mobile line</span>
+                  </div>
+                </a>
+              </TiltCard>
 
-          {/* Floating Magnetic Blue Action Button */}
-          <div className="absolute right-4 sm:right-14 lg:right-28 top-1/2 -translate-y-1/2 z-20">
-            <a
-              ref={buttonRef}
-              href={siteConfig.profile.contact.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              className="w-36 h-36 sm:w-44 sm:h-44 lg:w-48 lg:h-48 rounded-full bg-[#455ce9] text-white font-sans text-base sm:text-lg font-medium flex items-center justify-center shadow-[0_20px_50px_rgba(69,92,233,0.35)] active:scale-95 transition-transform duration-300 group cursor-pointer text-center select-none"
-              style={{ transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)' }}
-              data-interactive
-            >
-              <span className="group-hover:scale-105 transition-transform duration-200">
-                Get in touch
-              </span>
-            </a>
-          </div>
-        </div>
-
-        {/* Direct Action Contact Pills */}
-        <div className="flex flex-wrap items-center gap-3.5 sm:gap-5">
-          <a
-            href={`mailto:${siteConfig.profile.contact.email}`}
-            className="px-7 sm:px-9 py-4 sm:py-5 rounded-full border border-white/20 text-white font-sans text-sm sm:text-base hover:bg-white hover:text-black hover:border-white transition-all duration-300 flex items-center justify-center cursor-pointer shadow-xs active:scale-95"
-            data-interactive
-          >
-            <span>{siteConfig.profile.contact.email}</span>
-          </a>
-
-          <a
-            href={siteConfig.profile.contact.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-7 sm:px-9 py-4 sm:py-5 rounded-full border border-white/20 text-white font-sans text-sm sm:text-base hover:bg-white hover:text-black hover:border-white transition-all duration-300 flex items-center justify-center cursor-pointer shadow-xs active:scale-95"
-            data-interactive
-          >
-            <span>+61 405667961</span>
-          </a>
-        </div>
-
-        {/* Bottom Colophon: Version, Local Time, Socials */}
-        <div className="pt-16 sm:pt-24 mt-10 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-8 text-xs font-sans text-white/50">
-          <div className="flex items-center gap-10 sm:gap-16">
-            <div>
-              <span className="text-white/35 block text-[10px] uppercase tracking-wider mb-1 font-mono">VERSION</span>
-              <span className="text-white font-medium">2026 © Edition</span>
-            </div>
-            <div>
-              <span className="text-white/35 block text-[10px] uppercase tracking-wider mb-1 font-mono">LOCAL TIME</span>
-              <span className="text-white font-medium">{liveTime || '14:25 COT'} • Cali, Colombia</span>
-            </div>
-          </div>
-
-          <div>
-            <span className="text-white/35 block text-[10px] uppercase tracking-wider mb-1 font-mono sm:text-right">SOCIALS</span>
-            <div className="flex items-center gap-6 sm:gap-7 text-white font-medium text-xs sm:text-sm">
-              <a
-                href={siteConfig.profile.contact.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white/70 transition-colors"
+              {/* Email Direct Terminal Card with Tactile Inversion State */}
+              <div
+                className="p-8 sm:p-9 rounded-3xl bg-[#14151b] border border-white/10 shadow-xl hover:border-white/25 transition-all duration-300 flex flex-col justify-between space-y-5"
                 data-interactive
               >
-                WhatsApp
-              </a>
-              <a
-                href={`mailto:${siteConfig.profile.contact.email}`}
-                className="hover:text-white/70 transition-colors"
+                <div className="flex justify-between items-center">
+                  <span className="text-xs font-mono text-white/40 uppercase tracking-wider font-semibold">
+                    ELECTRONIC MAIL
+                  </span>
+                  <button
+                    type="button"
+                    onClick={copyEmail}
+                    className={`text-xs font-mono px-4 py-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                      copied
+                        ? 'bg-white text-black font-bold scale-105 shadow-md'
+                        : 'bg-white/10 hover:bg-white hover:text-black text-white/80 active:scale-95'
+                    }`}
+                    data-interactive
+                  >
+                    {copied ? 'Copied to clipboard ✓' : 'Copy'}
+                  </button>
+                </div>
+
+                <a
+                  href={`mailto:${siteConfig.profile.contact.email}`}
+                  className="text-lg sm:text-xl font-display font-bold text-white hover:text-white/75 transition-colors block break-all"
+                  data-interactive
+                >
+                  {siteConfig.profile.contact.email}
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Bottom Colophon & Global Coordinates */}
+          <div className="pt-16 mt-16 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 text-xs font-mono text-white/40">
+            <div className="space-y-1">
+              <div className="font-bold text-white text-sm tracking-tight font-display">
+                JP STUDIOS
+              </div>
+              <div>Designed & engineered by Juan Pablo Chacón.</div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-6 text-white/60 text-[11px]">
+              <span>Cali, Colombia</span>
+              <span className="text-white/20">•</span>
+              <span>Remote Worldwide</span>
+              <span className="text-white/20">•</span>
+              <span>© 2026 Edition</span>
+              <span className="text-white/20">•</span>
+              <button
+                type="button"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="text-white hover:underline cursor-pointer flex items-center gap-1 group"
                 data-interactive
               >
-                Email
-              </a>
-              <span className="text-white/25">•</span>
-              <span className="text-white/50 font-normal">Remote Worldwide</span>
+                <span>Back to top</span>
+                <span className="group-hover:-translate-y-0.5 transition-transform">↑</span>
+              </button>
             </div>
           </div>
+
         </div>
 
       </div>
