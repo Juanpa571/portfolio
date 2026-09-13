@@ -12,7 +12,7 @@ export const Hero: React.FC = () => {
           
           {/* Line 1: Bold Left Anchor */}
           <div
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[0.9] cursor-default group transition-transform duration-300 hover:translate-x-1"
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 cursor-default group transition-transform duration-300 hover:translate-x-1"
             data-interactive
           >
             <span className="inline-block transition-transform duration-300 group-hover:scale-[1.01] origin-left">
@@ -25,7 +25,7 @@ export const Hero: React.FC = () => {
 
           {/* Line 2: Balanced Subtle Architectural Indent with Badge */}
           <div
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[0.9] sm:pl-8 md:pl-12 lg:pl-14 flex flex-wrap items-baseline gap-3.5 sm:gap-5 cursor-default group transition-transform duration-300 hover:translate-x-1"
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 sm:pl-8 md:pl-12 lg:pl-14 flex flex-wrap items-baseline gap-3.5 sm:gap-5 cursor-default group transition-transform duration-300 hover:translate-x-1"
             data-interactive
           >
             <span className="inline-block transition-transform duration-300 group-hover:scale-[1.01] origin-left">
@@ -45,7 +45,7 @@ export const Hero: React.FC = () => {
 
           {/* Line 3: Clean Contrast Line */}
           <div
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black/55 hover:text-black leading-[0.9] cursor-default transition-all duration-500 hover:translate-x-1"
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black/55 hover:text-black leading-[1.06] sm:leading-[1.1] pb-1 cursor-default transition-all duration-500 hover:translate-x-1"
             data-interactive
           >
             <span className="inline-block hover:scale-[1.01] origin-left transition-transform duration-300">

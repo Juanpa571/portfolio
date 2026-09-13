@@ -112,7 +112,7 @@ export const ProjectList: React.FC = () => {
           className="mb-16 pb-8 border-b border-black/10"
           onMouseEnter={() => setActiveProject(null)}
         >
-          <h2 className="text-5xl sm:text-7xl lg:text-8xl font-normal font-display text-black tracking-[-0.01em] leading-[0.92]">
+          <h2 className="text-5xl sm:text-7xl lg:text-8xl font-normal font-display text-black tracking-[-0.01em] leading-[1.06] sm:leading-[1.1] pb-1">
             Selected<br />
             <span className="sm:pl-16 lg:pl-24 inline-block text-black/55 hover:text-black transition-colors duration-500">
               Works.
@@ -169,7 +169,7 @@ export const ProjectList: React.FC = () => {
 
                   {/* Monumental Asymmetric Project Title (Col 4-11) */}
                   <div className="md:col-span-8 z-10">
-                    <h3 className={`font-bold font-display tracking-tight text-black group-hover:text-black/75 group-hover:translate-x-3 transition-all duration-300 ${
+                    <h3 className={`font-normal font-display tracking-tight text-black group-hover:text-black/75 group-hover:translate-x-3 transition-all duration-300 ${
                       idx === 0
                         ? 'text-4xl sm:text-5xl lg:text-6xl'
                         : 'text-3xl sm:text-4xl lg:text-5xl'

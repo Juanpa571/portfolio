@@ -97,8 +97,8 @@ export const VelocityTicker: React.FC = () => {
           <span
             className={`transition-colors duration-300 ${
               item.filled
-                ? 'text-black font-extrabold'
-                : 'text-transparent font-bold [-webkit-text-stroke:1.2px_rgba(0,0,0,0.4)] hover:[-webkit-text-stroke:1.2px_rgba(0,0,0,0.85)]'
+                ? 'text-black font-medium'
+                : 'text-transparent font-normal [-webkit-text-stroke:1px_rgba(0,0,0,0.35)] hover:[-webkit-text-stroke:1px_rgba(0,0,0,0.8)]'
             }`}
           >
             {item.text}
@@ -117,7 +117,7 @@ export const VelocityTicker: React.FC = () => {
     >
       <div className="space-y-4 sm:space-y-6">
         {/* Row 1: Flowing Left */}
-        <div className="overflow-hidden whitespace-nowrap will-change-transform">
+        <div className="overflow-hidden whitespace-nowrap will-change-transform py-2">
           <div
             ref={row1Ref}
             className="inline-flex items-center text-2xl sm:text-4xl lg:text-5xl font-display tracking-tight"
@@ -128,7 +128,7 @@ export const VelocityTicker: React.FC = () => {
         </div>
 
         {/* Row 2: Flowing Right (Inverted Flow) */}
-        <div className="overflow-hidden whitespace-nowrap will-change-transform">
+        <div className="overflow-hidden whitespace-nowrap will-change-transform py-2">
           <div
             ref={row2Ref}
             className="inline-flex items-center text-2xl sm:text-4xl lg:text-5xl font-display tracking-tight"

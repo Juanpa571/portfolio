@@ -91,7 +91,7 @@ export const Footer: React.FC = () => {
           <div className="w-full pb-12 sm:pb-16 lg:pb-20">
             <h2
               ref={headlineRef}
-              className="text-3xl sm:text-5xl md:text-6xl lg:text-[5vw] xl:text-[5.5rem] font-normal font-display tracking-[-0.01em] text-white leading-[0.95] select-none"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-[5vw] xl:text-[5.5rem] font-normal font-display tracking-[-0.01em] text-white leading-[1.08] sm:leading-[1.12] select-none"
             >
               <div className="py-1">
                 <span className="reveal-word inline-block will-change-transform sm:whitespace-nowrap">

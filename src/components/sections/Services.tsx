@@ -67,9 +67,9 @@ export const Services: React.FC = () => {
         {/* Asymmetric Section Header with Refokus-Style Kinetic Morph */}
         <div ref={headerRef} className="relative mb-12 lg:mb-16 pb-6">
           <div className="space-y-3 max-w-4xl">
-            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-normal font-display tracking-[-0.01em] leading-[0.95]">
+            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-normal font-display tracking-[-0.01em] leading-[1.12] sm:leading-[1.15]">
               {/* Line 1: Built on trust. */}
-              <div className="relative inline-block overflow-hidden">
+              <div className="relative inline-block pb-1">
                 <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
                   Built on trust.
                 </span>
@@ -83,7 +83,7 @@ export const Services: React.FC = () => {
               </div>
               <br />
               {/* Line 2: Shaped by craft. (Asymmetric indent) */}
-              <div className="relative inline-block sm:pl-12 lg:pl-20 overflow-hidden">
+              <div className="relative inline-block sm:pl-12 lg:pl-20 pb-1">
                 <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
                   Shaped by craft.
                 </span>
@@ -124,7 +124,7 @@ export const Services: React.FC = () => {
 
               <div className="flex items-center justify-between gap-6 my-auto">
                 <div className="space-y-1.5">
-                  <h3 className="text-2xl sm:text-3xl font-bold font-display text-black tracking-tight group-hover:translate-x-1 transition-transform">
+                  <h3 className="text-2xl sm:text-3xl font-normal sm:font-medium font-display text-black tracking-tight group-hover:translate-x-1 transition-transform">
                     {siteConfig.services[0].title}
                   </h3>
                   <p className="text-xs sm:text-sm text-black/75 font-sans">
@@ -172,7 +172,7 @@ export const Services: React.FC = () => {
 
               <div className="flex items-center justify-between gap-6 my-auto">
                 <div className="space-y-1.5">
-                  <h3 className="text-2xl sm:text-3xl font-bold font-display text-white tracking-tight group-hover:translate-x-1 transition-transform">
+                  <h3 className="text-2xl sm:text-3xl font-normal sm:font-medium font-display text-white tracking-tight group-hover:translate-x-1 transition-transform">
                     {siteConfig.services[1].title}
                   </h3>
                   <p className="text-xs sm:text-sm text-white/80 font-sans">
@@ -222,7 +222,7 @@ export const Services: React.FC = () => {
 
               <div className="flex items-center justify-between gap-6 my-auto">
                 <div className="space-y-1.5">
-                  <h3 className="text-2xl sm:text-3xl font-bold font-display text-black tracking-tight group-hover:translate-x-1 transition-transform">
+                  <h3 className="text-2xl sm:text-3xl font-normal sm:font-medium font-display text-black tracking-tight group-hover:translate-x-1 transition-transform">
                     {siteConfig.services[2].title}
                   </h3>
                   <p className="text-xs sm:text-sm text-black/75 font-sans">
@@ -275,7 +275,7 @@ export const Services: React.FC = () => {
 
               <div className="flex items-center justify-between gap-6 my-auto">
                 <div className="space-y-1.5">
-                  <h3 className="text-2xl sm:text-3xl font-bold font-display text-black tracking-tight group-hover:translate-x-1 transition-transform">
+                  <h3 className="text-2xl sm:text-3xl font-normal sm:font-medium font-display text-black tracking-tight group-hover:translate-x-1 transition-transform">
                     {siteConfig.services[3].title}
                   </h3>
                   <p className="text-xs sm:text-sm text-black/75 font-sans">
