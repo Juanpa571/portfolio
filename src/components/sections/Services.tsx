@@ -113,15 +113,9 @@ export const Services: React.FC = () => {
             <TiltCard
               maxTilt={3}
               scale={1.01}
-              className="p-6 sm:p-8 rounded-3xl bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-300 flex flex-col justify-between h-full group cursor-pointer"
+              className="p-6 sm:p-8 rounded-3xl bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-300 flex flex-col justify-center h-full group cursor-pointer"
               data-interactive
             >
-              <div className="flex justify-between items-center mb-6">
-                <span className="text-xs font-mono text-black/60 group-hover:text-black transition-colors font-semibold">
-                  001
-                </span>
-              </div>
-
               <div className="flex items-center justify-between gap-6 my-auto">
                 <div className="space-y-1.5">
                   <h3 className="text-2xl sm:text-3xl font-normal sm:font-medium font-display text-black tracking-tight group-hover:translate-x-1 transition-transform">
@@ -161,15 +155,9 @@ export const Services: React.FC = () => {
             <TiltCard
               maxTilt={3}
               scale={1.01}
-              className="p-6 sm:p-8 rounded-3xl bg-[#1C1D20] text-white border border-white/10 shadow-xl hover:shadow-2xl hover:border-white/25 transition-all duration-300 flex flex-col justify-between h-full group cursor-pointer"
+              className="p-6 sm:p-8 rounded-3xl bg-[#1C1D20] text-white border border-white/10 shadow-xl hover:shadow-2xl hover:border-white/25 transition-all duration-300 flex flex-col justify-center h-full group cursor-pointer"
               data-interactive
             >
-              <div className="flex justify-between items-center mb-6">
-                <span className="text-xs font-mono text-white/60 group-hover:text-white transition-colors font-semibold">
-                  002
-                </span>
-              </div>
-
               <div className="flex items-center justify-between gap-6 my-auto">
                 <div className="space-y-1.5">
                   <h3 className="text-2xl sm:text-3xl font-normal sm:font-medium font-display text-white tracking-tight group-hover:translate-x-1 transition-transform">
@@ -211,15 +199,9 @@ export const Services: React.FC = () => {
             <TiltCard
               maxTilt={3}
               scale={1.01}
-              className="p-6 sm:p-8 rounded-3xl bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-300 flex flex-col justify-between h-full group cursor-pointer"
+              className="p-6 sm:p-8 rounded-3xl bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-300 flex flex-col justify-center h-full group cursor-pointer"
               data-interactive
             >
-              <div className="flex justify-between items-center mb-6">
-                <span className="text-xs font-mono text-black/60 group-hover:text-black transition-colors font-semibold">
-                  003
-                </span>
-              </div>
-
               <div className="flex items-center justify-between gap-6 my-auto">
                 <div className="space-y-1.5">
                   <h3 className="text-2xl sm:text-3xl font-normal sm:font-medium font-display text-black tracking-tight group-hover:translate-x-1 transition-transform">
@@ -257,13 +239,11 @@ export const Services: React.FC = () => {
             <TiltCard
               maxTilt={3}
               scale={1.01}
-              className="p-6 sm:p-8 rounded-3xl bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-300 flex flex-col justify-between h-full group cursor-pointer"
+              className="p-6 sm:p-8 rounded-3xl bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-300 flex flex-col justify-center h-full group cursor-pointer relative"
               data-interactive
             >
-              <div className="flex justify-between items-center mb-6">
-                <span className="text-xs font-mono text-black/60 group-hover:text-black transition-colors font-semibold">
-                  004
-                </span>
+              {/* Active Retainer Status Badge */}
+              <div className="absolute top-6 right-6 sm:top-8 sm:right-8">
                 <span className="text-[11px] font-mono px-3 py-0.5 rounded-full bg-emerald-50 text-emerald-900 border border-emerald-300 font-semibold flex items-center gap-1.5">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
