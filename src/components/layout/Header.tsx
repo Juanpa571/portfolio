@@ -60,7 +60,7 @@ export const Header: React.FC = () => {
   return (
     <>
       {/* 1. Unboxed Editorial Top Header (Completely integrated into page, zero pill/box/shadow) */}
-      <header className="absolute top-0 left-0 right-0 w-full max-w-[1400px] mx-auto px-6 sm:px-12 pt-8 sm:pt-10 pb-4 flex items-center justify-between z-30 select-none pointer-events-none [&_a]:pointer-events-auto [&_button]:pointer-events-auto">
+      <header className="relative w-full max-w-[1400px] mx-auto px-6 sm:px-12 pt-8 sm:pt-10 pb-4 flex items-center justify-between z-30 select-none">
         {/* Left: Brand Identity & Telemetry */}
         <div className="flex items-center gap-3 sm:gap-5">
           <a
@@ -96,7 +96,7 @@ export const Header: React.FC = () => {
         </div>
 
         {/* Right: Clean Editorial Links (Dennis Snellenberg Style) */}
-        <nav className="flex items-center gap-6 sm:gap-8 text-sm font-sans font-medium text-black pr-16 sm:pr-20">
+        <nav className="flex items-center gap-6 sm:gap-8 text-sm font-sans font-medium text-black">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -114,7 +114,7 @@ export const Header: React.FC = () => {
             href={siteConfig.profile.contact.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:flex px-4 py-1.5 rounded-full bg-black text-white text-xs font-sans font-semibold hover:bg-black/80 active:scale-95 transition-all items-center gap-1.5 shadow-sm group"
+            className="px-4 py-1.5 rounded-full bg-black text-white text-xs font-sans font-semibold hover:bg-black/80 active:scale-95 transition-all flex items-center gap-1.5 shadow-sm group"
             data-interactive
           >
             <span>Chat</span>
@@ -123,17 +123,18 @@ export const Header: React.FC = () => {
         </nav>
       </header>
 
-      {/* 2. Floating Corner Menu Trigger Button (Signature 3-line vault icon in top-right corner) */}
+      {/* 2. Floating Corner Menu Trigger Button (Appears only on scroll, sits comfortably in top-right corner) */}
       <div
-        className={`fixed top-6 right-6 sm:top-8 sm:right-8 z-50 transition-transform duration-300 ease-out ${
-          isScrolled ? 'scale-100' : 'scale-95'
+        className={`fixed top-6 right-6 sm:top-8 sm:right-8 z-50 transition-all duration-500 ease-out ${
+          isScrolled
+            ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
+            : 'opacity-0 scale-75 -translate-y-3 pointer-events-none'
         }`}
       >
         <button
-          id="corner-menu-btn"
           type="button"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex flex-col items-center justify-center gap-1.5 cursor-pointer shadow-2xl transition-colors duration-300 group ${
+          className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex flex-col items-center justify-center gap-1.5 cursor-pointer shadow-2xl transition-all duration-300 group ${
             isMenuOpen
               ? 'bg-white text-black hover:scale-105'
               : 'bg-[#1C1D20] border border-white/20 text-white hover:scale-110 hover:border-white/40'
@@ -141,26 +142,19 @@ export const Header: React.FC = () => {
           aria-label={isMenuOpen ? 'Close Menu' : 'Open Navigation Menu'}
           data-interactive
         >
-          {/* Animated 3-Line Hamburger / Close Morphing Lines */}
+          {/* Animated Hamburger / Close Morphing Lines */}
           <span
-            className={`w-5 sm:w-6 h-[1.8px] rounded-full transition-all duration-300 origin-center ${
+            className={`w-5 sm:w-6 h-[2px] rounded-full transition-all duration-300 ${
               isMenuOpen
-                ? 'bg-black rotate-45 translate-y-[5.5px]'
-                : 'bg-white group-hover:w-6.5'
-            }`}
-          />
-          <span
-            className={`w-3.5 sm:w-4.5 h-[1.8px] rounded-full transition-all duration-300 ${
-              isMenuOpen
-                ? 'opacity-0 scale-x-0'
+                ? 'bg-black rotate-45 translate-y-[4px]'
                 : 'bg-white group-hover:w-6'
             }`}
           />
           <span
-            className={`w-5 sm:w-6 h-[1.8px] rounded-full transition-all duration-300 origin-center ${
+            className={`w-5 sm:w-6 h-[2px] rounded-full transition-all duration-300 ${
               isMenuOpen
-                ? 'bg-black -rotate-45 -translate-y-[5.5px]'
-                : 'bg-white group-hover:w-5.5'
+                ? 'bg-black -rotate-45 -translate-y-[4px]'
+                : 'bg-white group-hover:w-4'
             }`}
           />
         </button>
