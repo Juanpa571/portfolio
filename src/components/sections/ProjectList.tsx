@@ -139,6 +139,10 @@ export const ProjectList: React.FC = () => {
               Works.
             </span>
           </h2>
+          <div className="pt-4 flex items-center gap-2.5 text-xs font-mono text-black/65 select-none">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Curated case studies currently in production • Releasing Soon</span>
+          </div>
         </div>
 
         {/* Asymmetric Diagonal Project List with strict hover boundary & Focus Dimming */}
@@ -227,9 +231,9 @@ export const ProjectList: React.FC = () => {
                     />
                     <div className="text-xs font-mono text-black/75 flex items-center justify-between pt-2 border-t border-black/5">
                       <span>{project.tech}</span>
-                      <span className="text-black font-semibold flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                        Ready for Production ↗
+                      <span className="text-black font-semibold flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span>In Development // Soon</span>
                       </span>
                     </div>
                   </div>
@@ -277,15 +281,15 @@ export const ProjectList: React.FC = () => {
               <div className="flex items-center justify-between text-[11px] font-mono text-black/75 pt-0.5">
                 <span className="truncate max-w-[200px]">{displayedProject.tech}</span>
                 <span className="text-black font-semibold flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                  <span>Production Ready</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span>In Development</span>
                 </span>
               </div>
             </div>
 
             {/* Floating Snellenberg View Badge */}
             <div className="absolute -bottom-3 -right-3 w-16 h-16 rounded-full bg-[#1C1D20] text-white flex items-center justify-center text-xs font-mono font-medium shadow-2xl border border-white/20 animate-in zoom-in-75 duration-300">
-              <span>View ↗</span>
+              <span>Soon...</span>
             </div>
           </div>
         )}
