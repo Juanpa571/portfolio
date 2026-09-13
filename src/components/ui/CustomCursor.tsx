@@ -17,9 +17,41 @@ export const CustomCursor: React.FC = () => {
       return;
     }
 
+    let isRunning = false;
+
+    // Smooth lerp loop for cursor trailing (sleeps when stationary)
+    const loop = () => {
+      const ease = 0.22;
+      const dx = mousePos.current.x - currentPos.current.x;
+      const dy = mousePos.current.y - currentPos.current.y;
+
+      currentPos.current.x += dx * ease;
+      currentPos.current.y += dy * ease;
+
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate3d(${currentPos.current.x}px, ${currentPos.current.y}px, 0) translate(-50%, -50%)`;
+      }
+
+      // Continue animating until settled to sub-pixel threshold
+      if (Math.abs(dx) > 0.05 || Math.abs(dy) > 0.05) {
+        animFrameId.current = requestAnimationFrame(loop);
+      } else {
+        isRunning = false;
+        animFrameId.current = null;
+      }
+    };
+
+    const wakeLoop = () => {
+      if (!isRunning) {
+        isRunning = true;
+        animFrameId.current = requestAnimationFrame(loop);
+      }
+    };
+
     const handleMouseMove = (e: MouseEvent) => {
       mousePos.current = { x: e.clientX, y: e.clientY };
       if (!isVisible) setIsVisible(true);
+      wakeLoop();
 
       const target = e.target as HTMLElement | null;
       const isOverProjects = Boolean(target?.closest('#work'));
@@ -43,20 +75,7 @@ export const CustomCursor: React.FC = () => {
     document.addEventListener('mouseleave', handleMouseLeave);
     document.addEventListener('mouseenter', handleMouseEnter);
 
-    // Smooth lerp loop for cursor trailing
-    const loop = () => {
-      const ease = 0.22;
-      currentPos.current.x += (mousePos.current.x - currentPos.current.x) * ease;
-      currentPos.current.y += (mousePos.current.y - currentPos.current.y) * ease;
-
-      if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate3d(${currentPos.current.x}px, ${currentPos.current.y}px, 0) translate(-50%, -50%)`;
-      }
-
-      animFrameId.current = requestAnimationFrame(loop);
-    };
-
-    animFrameId.current = requestAnimationFrame(loop);
+    wakeLoop();
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);

@@ -52,7 +52,28 @@ export const ProjectList: React.FC = () => {
     window.addEventListener('blur', handleBlur);
     document.addEventListener('mouseleave', handleDocLeave);
 
-    // Smooth lerp loop for floating projected card
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('blur', handleBlur);
+      document.removeEventListener('mouseleave', handleDocLeave);
+    };
+  }, []);
+
+  // Run the floating preview lerp loop strictly when hovering or active
+  useEffect(() => {
+    if (!isHoveringSection && !activeProject) {
+      if (animFrameId.current) {
+        cancelAnimationFrame(animFrameId.current);
+        animFrameId.current = null;
+      }
+      return;
+    }
+
+    if (typeof window === 'undefined' || !window.matchMedia('(pointer: fine)').matches) {
+      return;
+    }
+
     const loop = () => {
       const ease = 0.16;
       currentPos.current.x += (mousePos.current.x - currentPos.current.x) * ease;
@@ -68,13 +89,12 @@ export const ProjectList: React.FC = () => {
     animFrameId.current = requestAnimationFrame(loop);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('blur', handleBlur);
-      document.removeEventListener('mouseleave', handleDocLeave);
-      if (animFrameId.current) cancelAnimationFrame(animFrameId.current);
+      if (animFrameId.current) {
+        cancelAnimationFrame(animFrameId.current);
+        animFrameId.current = null;
+      }
     };
-  }, []);
+  }, [isHoveringSection, activeProject]);
 
   const toggleMobile = (id: string) => {
     setExpandedMobileId(expandedMobileId === id ? null : id);
