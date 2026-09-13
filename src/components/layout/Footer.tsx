@@ -162,7 +162,7 @@ export const Footer: React.FC = () => {
                 className="px-7 py-4 sm:px-9 sm:py-5 rounded-full border border-white/20 hover:border-white text-white text-sm sm:text-base font-sans font-medium transition-all duration-300 hover:bg-white hover:text-black active:scale-95 inline-flex items-center justify-center cursor-pointer"
                 data-interactive
               >
-                +61 405667961
+                WhatsApp (+61 405 667 961) ↗
               </a>
             </Magnetic>
           </div>
@@ -183,15 +183,14 @@ export const Footer: React.FC = () => {
               <span className="text-white/20">•</span>
               <span>© 2026 Edition</span>
               <span className="text-white/20">•</span>
-              <button
-                type="button"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              <a
+                href="#top"
                 className="text-white hover:underline cursor-pointer flex items-center gap-1 group"
                 data-interactive
               >
                 <span>Back to top</span>
                 <span className="group-hover:-translate-y-0.5 transition-transform">↑</span>
-              </button>
+              </a>
             </div>
           </div>
 

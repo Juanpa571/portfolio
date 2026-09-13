@@ -23,7 +23,7 @@ export const siteConfig = {
   profile: {
     brandName: 'JP Studios',
     founderName: 'Juan Pablo Chacón',
-    role: 'Full Stack Freelancer',
+    role: 'Full-Stack Designer & Developer',
     location: 'Cali, Colombia',
     timezone: 'America/Bogota',
     headline: 'Design, code, and dependable partnership. Handled directly with you.',

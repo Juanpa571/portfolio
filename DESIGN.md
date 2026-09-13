@@ -1,6 +1,6 @@
 ---
 name: JP Studios
-description: Juan Pablo Chacón — Full Stack Freelancer. Design, production code, and dependable web products.
+description: Juan Pablo Chacón — Full-Stack Designer & Developer. Design, production code, and dependable web products.
 colors:
   surface: "#fafaf8"
   obsidian: "#1C1D20"

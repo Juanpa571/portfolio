@@ -84,6 +84,7 @@ export const Header: React.FC = () => {
           <button
             type="button"
             onClick={handleTimeClick}
+            aria-label={copiedTime ? 'Local time copied to clipboard' : `Local time in Cali: ${liveTime || '14:07 COT'}. Click to copy`}
             className="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full bg-black/[0.03] hover:bg-black/[0.06] text-[11px] font-mono text-black/70 hover:text-black transition-all cursor-pointer group"
             title="Click to copy local COT time"
             data-interactive
