@@ -3,20 +3,20 @@ import { siteConfig } from '../../config/site';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Magnetic } from '../ui/Magnetic';
+import { KineticText } from '../ui/KineticText';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const Footer: React.FC = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const curvePathRef = useRef<SVGPathElement | null>(null);
-  const headlineRef = useRef<HTMLHeadingElement | null>(null);
+  const headlineRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
       // 1. Dynamic SVG Horizon Morph (Snellenberg-inspired geometric curve)
-      // As the footer enters the viewport, the white curve smoothly flattens from 100px to 0px
       if (curvePathRef.current) {
         const updateCurve = (h: number) => {
           if (curvePathRef.current) {
@@ -39,16 +39,16 @@ export const Footer: React.FC = () => {
         });
       }
 
-      // 2. Monumental Typography staggered entrance
+      // 2. Monumental Typography entrance on container lines (clean separation from letter physics)
       if (headlineRef.current) {
-        const lines = headlineRef.current.querySelectorAll('.reveal-word');
+        const lines = headlineRef.current.querySelectorAll('.headline-line');
         gsap.fromTo(
           lines,
-          { y: 60, opacity: 0 },
+          { y: 50, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            stagger: 0.12,
+            stagger: 0.15,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: headlineRef.current,
@@ -90,21 +90,29 @@ export const Footer: React.FC = () => {
           
           {/* Monumental Headline (Full Width - Zero clipping) */}
           <div className="w-full pb-12 sm:pb-16 lg:pb-20">
-            <h2
+            <div
               ref={headlineRef}
-              className="text-3xl sm:text-5xl md:text-6xl lg:text-[5vw] xl:text-[5.5rem] font-normal font-display tracking-[-0.01em] text-white leading-[1.08] sm:leading-[1.12] select-none"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-[5vw] xl:text-[5.5rem] font-normal font-display tracking-[-0.01em] text-white leading-[1.08] sm:leading-[1.12]"
             >
-              <div className="py-1">
-                <span className="reveal-word inline-block will-change-transform sm:whitespace-nowrap">
-                  Ready to build
-                </span>
+              <div className="headline-line py-1 overflow-visible">
+                <KineticText
+                  text="Ready to build"
+                  as="h2"
+                  maxDisplacement={38}
+                  radius={240}
+                  letterClassName="text-white"
+                />
               </div>
-              <div className="sm:pl-8 md:pl-16 lg:pl-24 py-1">
-                <span className="reveal-word inline-block text-white/50 hover:text-white transition-colors duration-500 will-change-transform sm:whitespace-nowrap">
-                  something real?
-                </span>
+              <div className="headline-line sm:pl-8 md:pl-16 lg:pl-24 py-1 overflow-visible">
+                <KineticText
+                  text="something real?"
+                  as="h2"
+                  maxDisplacement={38}
+                  radius={240}
+                  letterClassName="text-white/60 hover:text-white transition-colors duration-300"
+                />
               </div>
-            </h2>
+            </div>
           </div>
 
           {/* Minimalist Action Pills with Magnetic Physics (Dennis Snellenberg Style) */}
