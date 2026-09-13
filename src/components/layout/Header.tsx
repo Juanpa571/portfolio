@@ -52,9 +52,9 @@ export const Header: React.FC = () => {
   };
 
   const navLinks = [
-    { label: 'Capabilities', href: '#services', num: '01' },
-    { label: 'Works', href: '#work', num: '02' },
-    { label: 'Contact', href: '#contact', num: '03' },
+    { label: 'Capabilities', href: '#services' },
+    { label: 'Works', href: '#work' },
+    { label: 'Contact', href: '#contact' },
   ];
 
   return (
@@ -178,31 +178,28 @@ export const Header: React.FC = () => {
       >
         {/* Drawer Header */}
         <div className="flex items-center justify-between pt-2 border-b border-white/10 pb-6">
-          <div className="flex items-center gap-2 text-xs font-mono text-white/50 tracking-wider">
-            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-            <span>JP Studios // Navigation</span>
+          <div className="flex items-center gap-2.5 text-xs font-mono text-white/60">
+            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span className="font-medium text-white tracking-tight">JP Studios</span>
+            <span className="text-white/20">•</span>
+            <span>Cali, Colombia</span>
           </div>
         </div>
 
-        {/* Drawer Monumental Nav Links */}
-        <nav className="my-auto py-8 space-y-4 sm:space-y-6">
+        {/* Drawer Editorial Nav Links */}
+        <nav className="my-auto py-8 space-y-2 sm:space-y-3">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setIsMenuOpen(false)}
-              className="group flex items-center justify-between py-3 border-b border-white/5 hover:border-white/20 transition-colors"
+              className="group flex items-center justify-between py-4 border-b border-white/[0.08] hover:border-white/30 transition-all duration-300"
               data-interactive
             >
-              <div className="flex items-baseline gap-4">
-                <span className="text-xs font-mono text-white/40 group-hover:text-white transition-colors">
-                  {link.num}
-                </span>
-                <span className="text-3xl sm:text-5xl font-bold font-display tracking-tight text-white/80 group-hover:text-white group-hover:translate-x-2 transition-all duration-300">
-                  {link.label}
-                </span>
-              </div>
-              <span className="text-xl sm:text-2xl text-white/30 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300">
+              <span className="text-3xl sm:text-4xl lg:text-5xl font-normal font-display tracking-[-0.01em] text-white/70 group-hover:text-white group-hover:translate-x-3 transition-all duration-300">
+                {link.label}
+              </span>
+              <span className="text-lg sm:text-xl text-white/20 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300">
                 ↗
               </span>
             </a>
@@ -210,25 +207,25 @@ export const Header: React.FC = () => {
         </nav>
 
         {/* Drawer Bottom Telemetry & Direct Actions */}
-        <div className="pt-6 border-t border-white/10 space-y-5">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono text-white/60">
-            <div>Cali, Colombia ({liveTime || 'COT'})</div>
-            <div className="text-emerald-400 font-semibold">Available for select Q2 builds</div>
+        <div className="pt-6 border-t border-white/10 space-y-4">
+          <div className="flex items-center justify-between text-xs font-mono text-white/50">
+            <div>COT ({liveTime || 'UTC-5'})</div>
+            <div className="text-emerald-400 font-medium">Available Worldwide</div>
           </div>
 
-          <div className="flex items-center gap-3 pt-2">
+          <div className="flex items-center gap-3 pt-1">
             <a
               href={siteConfig.profile.contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 py-3 px-4 rounded-2xl bg-white text-black text-center font-sans font-bold text-xs sm:text-sm hover:bg-white/90 active:scale-98 transition-all"
+              className="flex-1 py-3.5 px-5 rounded-full bg-white text-black text-center font-sans font-medium text-xs sm:text-sm hover:bg-white/90 active:scale-[0.98] transition-all"
               data-interactive
             >
               Chat on WhatsApp ↗
             </a>
             <a
               href={`mailto:${siteConfig.profile.contact.email}`}
-              className="py-3 px-4 rounded-2xl bg-white/10 border border-white/15 text-white text-center font-mono text-xs hover:bg-white/20 transition-all"
+              className="py-3.5 px-6 rounded-full border border-white/20 hover:border-white text-white text-center font-sans font-medium text-xs sm:text-sm hover:bg-white hover:text-black active:scale-[0.98] transition-all"
               data-interactive
             >
               Email
