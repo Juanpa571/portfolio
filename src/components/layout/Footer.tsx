@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { siteConfig } from '../../config/site';
-import { useLiveTime } from '../../hooks/useLiveTime';
 import { TiltCard } from '../ui/TiltCard';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -8,7 +7,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export const Footer: React.FC = () => {
-  const liveTime = useLiveTime(siteConfig.profile.timezone);
   const [copied, setCopied] = useState(false);
 
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -104,9 +102,8 @@ export const Footer: React.FC = () => {
           {/* Main Asymmetric Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
-            {/* Left Column (Col 1-7): Monumental Asymmetric Headline & Direct Manifesto */}
-            <div className="lg:col-span-7 space-y-8">
-              
+            {/* Left Column (Col 1-7): Monumental Asymmetric Headline */}
+            <div className="lg:col-span-7">
               <h2
                 ref={headlineRef}
                 className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-bold font-display tracking-tight text-white leading-[0.88] uppercase"
@@ -122,24 +119,6 @@ export const Footer: React.FC = () => {
                   </span>
                 </div>
               </h2>
-
-              <p className="text-lg sm:text-xl text-white/75 max-w-xl font-normal leading-relaxed font-sans">
-                Whether you are validating an early concept, architecting a high-performance React application, or scaling production infrastructure. Direct senior collaboration with zero committees or account executives.
-              </p>
-
-              {/* Real-Time Status & Location Telemetry Strip */}
-              <div className="pt-3 flex flex-wrap items-center gap-3 text-xs font-mono text-white/60">
-                <div className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/90 font-semibold shadow-xs">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
-                  <span>Accepting select builds for Q2</span>
-                </div>
-                <span className="text-white/30">•</span>
-                <span>Cali, Colombia ({liveTime || 'COT'})</span>
-              </div>
-
             </div>
 
             {/* Right Column (Col 8-12): Asymmetric Interactive Action Deck */}
