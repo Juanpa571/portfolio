@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
             </h2>
 
             <p className="text-lg sm:text-xl text-black/80 max-w-xl font-normal leading-relaxed">
-              Whether you have an early concept sketched out, a Figma file ready for high-performance React code, or an existing architecture that needs a senior overhaul.
+              Whether you are launching a new vision from scratch or refining an existing product, I'm here to build alongside you with clarity, honesty, and craft.
             </p>
 
             <div className="pt-2 text-xs font-mono text-black/75 flex flex-wrap items-center gap-3">

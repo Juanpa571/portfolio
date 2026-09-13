@@ -68,31 +68,31 @@ export const Services: React.FC = () => {
         <div ref={headerRef} className="relative mb-12 lg:mb-16 pb-6">
           <div className="space-y-3 max-w-4xl">
             <h2 className="text-4xl sm:text-6xl lg:text-7xl font-bold font-display tracking-tight leading-[0.95] uppercase">
-              {/* Line 1: No committees. */}
+              {/* Line 1: Built on trust. */}
               <div className="relative inline-block overflow-hidden">
                 <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
-                  No committees.
+                  Built on trust.
                 </span>
                 <span
                   ref={line1FillRef}
                   className="absolute inset-0 text-black select-none will-change-transform"
                   style={{ clipPath: 'inset(0 100% 0 0)' }}
                 >
-                  No committees.
+                  Built on trust.
                 </span>
               </div>
               <br />
-              {/* Line 2: Direct craft. (Asymmetric indent) */}
+              {/* Line 2: Shaped by craft. (Asymmetric indent) */}
               <div className="relative inline-block sm:pl-12 lg:pl-20 overflow-hidden">
                 <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
-                  Direct craft.
+                  Shaped by craft.
                 </span>
                 <span
                   ref={line2FillRef}
                   className="absolute inset-0 sm:pl-12 lg:pl-20 text-black select-none will-change-transform"
                   style={{ clipPath: 'inset(0 100% 0 0)' }}
                 >
-                  Direct craft.
+                  Shaped by craft.
                 </span>
               </div>
             </h2>

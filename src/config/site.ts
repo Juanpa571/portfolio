@@ -25,8 +25,8 @@ export const siteConfig = {
     founderName: 'Juan Pablo Chacón',
     location: 'Cali, Colombia',
     timezone: 'America/Bogota',
-    headline: 'Design, code, and continuous maintenance. Handled by one engineer.',
-    description: 'I build production-grade web products from initial UI design to backend architecture and cloud deployment. High agency quality without the agency overhead.',
+    headline: 'Design, code, and dependable partnership. Handled directly with you.',
+    description: 'I build production-grade web products from initial UI design to backend architecture and cloud deployment. Senior craftsmanship with transparent, direct collaboration.',
     contact: {
       email: 'juanpablochaconusa@gmail.com',
       whatsapp: 'https://wa.me/61405667961?text=Hi%20Juan%20Pablo,%20I%20would%20like%20to%20discuss%20a%20project',
@@ -53,7 +53,7 @@ export const siteConfig = {
       number: '003',
       title: 'Full-Stack & APIs',
       subtitle: 'Resilience that scales.',
-      description: 'Connecting databases, payment gateways (Stripe), webhooks, and secure cloud functions without relying on external agencies.'
+      description: 'Connecting databases, payment gateways (Stripe), webhooks, and secure cloud infrastructure designed for reliability and scale.'
     },
     {
       id: 'support',

@@ -8,17 +8,17 @@ const TRACK_1 = [
   { text: 'PRODUCTION CODE', filled: true },
   { text: 'BESPOKE DESIGN', filled: false },
   { text: 'SYSTEM ARCHITECTURE', filled: true },
-  { text: 'DIRECT 1:1 CRAFT', filled: false },
-  { text: 'ZERO HANDOFFS', filled: true },
+  { text: 'CLEAR COMMUNICATION', filled: false },
+  { text: 'DEPENDABLE ARCHITECTURE', filled: true },
   { text: 'HIGH-FIDELITY INTERFACES', filled: false },
   { text: 'SCALABLE CLOUD', filled: true },
   { text: 'FIGMA TO PRODUCTION', filled: false },
 ];
 
 const TRACK_2 = [
-  { text: 'NO COMMITTEE BOTTLENECKS', filled: false },
+  { text: 'TRANSPARENT PROCESS', filled: false },
   { text: 'CALI / REMOTE WORLDWIDE', filled: true },
-  { text: 'DIRECT ENGINEER ACCESS', filled: false },
+  { text: 'HONEST COLLABORATION', filled: false },
   { text: 'RADICAL SIMPLICITY', filled: true },
   { text: 'WEEKLY DEPLOYMENTS', filled: false },
   { text: 'MEASURABLE PERFORMANCE', filled: true },

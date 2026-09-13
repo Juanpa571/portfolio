@@ -35,10 +35,10 @@ export const Hero: React.FC = () => {
               href="#services"
               className="text-xs sm:text-sm font-mono tracking-normal uppercase bg-black text-white px-3.5 py-1.5 sm:px-4.5 sm:py-2 rounded-full align-middle hover:bg-black/85 hover:scale-105 active:scale-95 transition-all duration-300 shadow-md cursor-pointer inline-flex items-center gap-2"
               data-interactive
-              title="See our direct model"
+              title="See our collaborative model"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-              <span>Zero handoffs</span>
+              <span>Direct partnership</span>
               <span className="text-xs">↓</span>
             </a>
           </div>
@@ -60,7 +60,7 @@ export const Hero: React.FC = () => {
           {/* Left Column: Direct Human Statement (Col 1-7) */}
           <div className="lg:col-span-7">
             <p className="text-xl sm:text-2xl text-black font-sans leading-relaxed tracking-tight">
-              I build web products from creative direction to production cloud infrastructure. No account executives. No junior delegation. You talk directly with the engineer shaping your software.
+              I partner with founders and teams to design and engineer dependable web products. Honest communication, fast feedback loops, and personal dedication to shipping software that works beautifully.
             </p>
           </div>
 
