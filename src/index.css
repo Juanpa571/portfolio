@@ -1,8 +1,40 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('/fonts/NeueMontreal-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('/fonts/NeueMontreal-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('/fonts/NeueMontreal-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('/fonts/NeueMontreal-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 @theme {
-  --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
-  --font-display: 'Geist', sans-serif;
+  --font-sans: 'Neue Montreal', 'Geist', system-ui, -apple-system, sans-serif;
+  --font-display: 'Neue Montreal', 'Geist', sans-serif;
   --font-mono: 'Geist Mono', monospace;
 }
 
