@@ -37,6 +37,8 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       // Brief pause at 100% before curtain sweep
       const exitTimer = setTimeout(() => {
         setIsExiting(true);
+        // Unlock body scroll immediately so the page is interactive as curtain lifts
+        document.body.style.overflow = '';
         if (onComplete) onComplete();
       }, 250);
 
@@ -44,6 +46,8 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       const goneTimer = setTimeout(() => {
         setIsGone(true);
         document.body.style.overflow = '';
+        window.dispatchEvent(new Event('resize'));
+        window.dispatchEvent(new Event('scroll'));
       }, 1050);
 
       return () => {

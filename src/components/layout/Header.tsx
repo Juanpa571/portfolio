@@ -133,7 +133,7 @@ export const Header: React.FC = () => {
           id="corner-menu-btn"
           type="button"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex flex-col items-center justify-center gap-1.5 cursor-pointer shadow-2xl transition-all duration-300 group ${
+          className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex flex-col items-center justify-center gap-1.5 cursor-pointer shadow-2xl transition-colors duration-300 group ${
             isMenuOpen
               ? 'bg-white text-black hover:scale-105'
               : 'bg-[#1C1D20] border border-white/20 text-white hover:scale-110 hover:border-white/40'
