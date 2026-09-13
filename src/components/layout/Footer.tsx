@@ -99,18 +99,18 @@ export const Footer: React.FC = () => {
       {/* Content Container with generous breathing room below sticky header */}
       <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 lg:px-16 pt-16 sm:pt-24 lg:pt-32 pb-16 flex-1 flex flex-col justify-between relative z-10">
           
-          {/* Monumental Headline (Full Width - No horizontal clipping) */}
-          <div className="w-full pb-14 sm:pb-20">
+          {/* Monumental Headline (Full Width - Zero clipping) */}
+          <div className="w-full pb-12 sm:pb-16 lg:pb-20">
             <h2
               ref={headlineRef}
-              className="text-4xl sm:text-6xl md:text-7xl lg:text-[6.8vw] xl:text-[7.2vw] font-bold font-display tracking-tight text-white leading-[0.92] uppercase select-none"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-[5vw] xl:text-[5.5rem] font-bold font-display tracking-tight text-white leading-[0.95] uppercase select-none"
             >
-              <div className="overflow-hidden py-1">
+              <div className="py-1">
                 <span className="reveal-word inline-block will-change-transform sm:whitespace-nowrap">
                   Ready to build
                 </span>
               </div>
-              <div className="overflow-hidden sm:pl-14 md:pl-24 lg:pl-32 py-1">
+              <div className="sm:pl-8 md:pl-16 lg:pl-24 py-1">
                 <span className="reveal-word inline-block text-white/50 hover:text-white transition-colors duration-500 will-change-transform sm:whitespace-nowrap">
                   something real?
                 </span>
