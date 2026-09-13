@@ -71,10 +71,10 @@ export const Header: React.FC = () => {
           >
             <img
               src="/logo-horizontal.png"
-              alt={`${siteConfig.profile.brandName} — Design × Build × Ship`}
+              alt={siteConfig.profile.brandName}
               className="h-7 sm:h-[34px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-              width={376}
-              height={80}
+              width={335}
+              height={81}
             />
           </a>
 
@@ -181,10 +181,10 @@ export const Header: React.FC = () => {
         <div className="flex items-center justify-between pt-2 border-b border-white/10 pb-6">
           <img
             src="/logo-horizontal-white.png"
-            alt="JP Studios"
+            alt={siteConfig.profile.brandName}
             className="h-6 sm:h-7 w-auto object-contain"
-            width={376}
-            height={80}
+            width={335}
+            height={81}
           />
           <div className="text-xs font-mono text-white/50">
             <span>Cali, Colombia</span>
