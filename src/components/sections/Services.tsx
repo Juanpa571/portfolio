@@ -161,7 +161,7 @@ export const Services: React.FC = () => {
             <TiltCard
               maxTilt={3}
               scale={1.01}
-              className="p-6 sm:p-8 rounded-3xl bg-[#0c0d12] text-white border border-white/10 shadow-xl hover:shadow-2xl hover:border-white/25 transition-all duration-300 flex flex-col justify-between h-full group cursor-pointer"
+              className="p-6 sm:p-8 rounded-3xl bg-[#1C1D20] text-white border border-white/10 shadow-xl hover:shadow-2xl hover:border-white/25 transition-all duration-300 flex flex-col justify-between h-full group cursor-pointer"
               data-interactive
             >
               <div className="flex justify-between items-center mb-6">

@@ -21,6 +21,8 @@ export const TiltCard: React.FC<TiltCardProps> = ({
 }) => {
   const { ref, style } = useTilt<HTMLDivElement>({ max: maxTilt, scale });
 
+  const isDark = className.includes('bg-[#0c0d12]') || className.includes('bg-[#1C1D20]');
+
   return (
     <div
       ref={ref}
@@ -30,11 +32,13 @@ export const TiltCard: React.FC<TiltCardProps> = ({
       data-interactive={isInteractive ? '' : undefined}
       {...props}
     >
-      {/* Specular Ambient Surface Light */}
+      {/* Specular Dynamic Spotlight (Adapts to light & dark surfaces) */}
       <div
         className="pointer-events-none absolute -inset-px rounded-[inherit] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
         style={{
-          background: 'radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.07), transparent 60%)',
+          background: isDark
+            ? 'radial-gradient(450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.12), transparent 70%)'
+            : 'radial-gradient(450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0,0,0,0.045), transparent 70%)',
         }}
         aria-hidden="true"
       />

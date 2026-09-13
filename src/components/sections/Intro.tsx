@@ -1,5 +1,6 @@
-﻿import React from 'react';
+import React from 'react';
 import { siteConfig } from '../../config/site';
+import { Magnetic } from '../ui/Magnetic';
 
 export const Intro: React.FC = () => {
   return (
@@ -14,33 +15,37 @@ export const Intro: React.FC = () => {
             </p>
           </div>
 
-          {/* Right Column: Direct Actions (Col 8-12) */}
+          {/* Right Column: Direct Actions with Magnetic Physics (Col 8-12) */}
           <div className="lg:col-span-5 flex flex-col gap-3.5">
-            <a
-              href={siteConfig.profile.contact.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full px-7 py-4 sm:py-5 rounded-2xl bg-[#1C1D20] text-white text-sm font-medium hover:bg-black hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.35)] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-300 text-center flex items-center justify-between group border border-white/10"
-              data-interactive
-            >
-              <span className="flex items-center gap-2.5">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            <Magnetic strength={0.3} radius={100} className="w-full">
+              <a
+                href={siteConfig.profile.contact.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full px-7 py-4 sm:py-5 rounded-2xl bg-[#1C1D20] text-white text-sm font-medium hover:bg-black hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.35)] active:scale-[0.98] transition-all duration-300 text-center flex items-center justify-between group border border-white/10"
+                data-interactive
+              >
+                <span className="flex items-center gap-2.5">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span>Start on WhatsApp</span>
                 </span>
-                <span>Start on WhatsApp</span>
-              </span>
-              <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300 font-mono text-xs">↗</span>
-            </a>
+                <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300 font-mono text-xs">↗</span>
+              </a>
+            </Magnetic>
 
-            <a
-              href={`mailto:${siteConfig.profile.contact.email}`}
-              className="w-full px-7 py-4 sm:py-5 rounded-2xl bg-white border border-black/15 text-black text-xs sm:text-sm font-mono hover:bg-[#1C1D20] hover:text-white hover:border-[#1C1D20] hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-300 flex items-center justify-between group"
-              data-interactive
-            >
-              <span className="truncate">{siteConfig.profile.contact.email}</span>
-              <span className="text-black/40 group-hover:text-white group-hover:translate-x-0.5 transition-all text-xs">Direct ↗</span>
-            </a>
+            <Magnetic strength={0.25} radius={90} className="w-full">
+              <a
+                href={`mailto:${siteConfig.profile.contact.email}`}
+                className="w-full px-7 py-4 sm:py-5 rounded-2xl bg-white border border-black/15 text-black text-xs sm:text-sm font-mono hover:bg-[#1C1D20] hover:text-white hover:border-[#1C1D20] hover:shadow-xl active:scale-[0.98] transition-all duration-300 flex items-center justify-between group"
+                data-interactive
+              >
+                <span className="truncate">{siteConfig.profile.contact.email}</span>
+                <span className="text-black/40 group-hover:text-white group-hover:translate-x-0.5 transition-all text-xs">Direct ↗</span>
+              </a>
+            </Magnetic>
           </div>
 
         </div>

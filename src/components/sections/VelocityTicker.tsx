@@ -65,19 +65,22 @@ export const VelocityTicker: React.FC = () => {
       // Row 2 flows rightwards (positive x), accelerates inversely on scroll
       x2 += baseSpeed - (velocityMultiplier >= 0 ? velocityMultiplier * 1.6 : velocityMultiplier * 0.8);
 
+      // Dynamic aerodynamic skew based on scroll velocity (clamped to +/- 8deg)
+      const currentSkew = Math.max(Math.min(velocityMultiplier * -0.65, 8), -8);
+
       // Loop thresholds based on half content width
       if (row1Ref.current) {
         const halfWidth1 = row1Ref.current.scrollWidth / 2;
         if (x1 <= -halfWidth1) x1 += halfWidth1;
         if (x1 > 0) x1 -= halfWidth1;
-        row1Ref.current.style.transform = `translate3d(${x1}px, 0, 0)`;
+        row1Ref.current.style.transform = `translate3d(${x1}px, 0, 0) skewX(${currentSkew.toFixed(2)}deg)`;
       }
 
       if (row2Ref.current) {
         const halfWidth2 = row2Ref.current.scrollWidth / 2;
         if (x2 >= 0) x2 -= halfWidth2;
         if (x2 < -halfWidth2) x2 += halfWidth2;
-        row2Ref.current.style.transform = `translate3d(${x2}px, 0, 0)`;
+        row2Ref.current.style.transform = `translate3d(${x2}px, 0, 0) skewX(${(-currentSkew).toFixed(2)}deg)`;
       }
     };
 

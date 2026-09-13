@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { siteConfig } from '../../config/site';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Magnetic } from '../ui/Magnetic';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -106,25 +107,29 @@ export const Footer: React.FC = () => {
             </h2>
           </div>
 
-          {/* Minimalist Action Pills (Dennis Snellenberg Style) */}
+          {/* Minimalist Action Pills with Magnetic Physics (Dennis Snellenberg Style) */}
           <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2 pb-8">
-            <a
-              href={`mailto:${siteConfig.profile.contact.email}`}
-              className="px-7 py-4 sm:px-9 sm:py-5 rounded-full border border-white/20 hover:border-white text-white text-sm sm:text-base font-sans font-medium transition-all duration-300 hover:bg-white hover:text-black active:scale-95 inline-flex items-center justify-center cursor-pointer"
-              data-interactive
-            >
-              {siteConfig.profile.contact.email}
-            </a>
+            <Magnetic strength={0.35} radius={90}>
+              <a
+                href={`mailto:${siteConfig.profile.contact.email}`}
+                className="px-7 py-4 sm:px-9 sm:py-5 rounded-full border border-white/20 hover:border-white text-white text-sm sm:text-base font-sans font-medium transition-all duration-300 hover:bg-white hover:text-black active:scale-95 inline-flex items-center justify-center cursor-pointer"
+                data-interactive
+              >
+                {siteConfig.profile.contact.email}
+              </a>
+            </Magnetic>
 
-            <a
-              href={siteConfig.profile.contact.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-7 py-4 sm:px-9 sm:py-5 rounded-full border border-white/20 hover:border-white text-white text-sm sm:text-base font-sans font-medium transition-all duration-300 hover:bg-white hover:text-black active:scale-95 inline-flex items-center justify-center cursor-pointer"
-              data-interactive
-            >
-              +61 405667961
-            </a>
+            <Magnetic strength={0.35} radius={90}>
+              <a
+                href={siteConfig.profile.contact.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-7 py-4 sm:px-9 sm:py-5 rounded-full border border-white/20 hover:border-white text-white text-sm sm:text-base font-sans font-medium transition-all duration-300 hover:bg-white hover:text-black active:scale-95 inline-flex items-center justify-center cursor-pointer"
+                data-interactive
+              >
+                +61 405667961
+              </a>
+            </Magnetic>
           </div>
 
           {/* Bottom Colophon & Global Coordinates */}

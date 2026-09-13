@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { siteConfig, type ProjectItem } from '../../config/site';
 import { PlaceholderImage } from '../ui/PlaceholderImage';
+import { Magnetic } from '../ui/Magnetic';
 
 export const ProjectList: React.FC = () => {
   const [activeProject, setActiveProject] = useState<ProjectItem | null>(null);
@@ -120,7 +121,7 @@ export const ProjectList: React.FC = () => {
           </h2>
         </div>
 
-        {/* Asymmetric Diagonal Project List with strict hover boundary */}
+        {/* Asymmetric Diagonal Project List with strict hover boundary & Focus Dimming */}
         <div
           className="divide-y divide-black/10 border-b border-black/10"
           onMouseLeave={() => setActiveProject(null)}
@@ -139,7 +140,11 @@ export const ProjectList: React.FC = () => {
                 }}
                 onClick={() => toggleMobile(project.id)}
                 className={`py-12 sm:py-16 transition-all duration-300 group cursor-pointer relative px-4 sm:px-6 -mx-4 sm:-mx-6 rounded-3xl ${
-                  isCurrentActive ? 'bg-black/[0.02]' : ''
+                  isCurrentActive
+                    ? 'bg-black/[0.02] opacity-100'
+                    : activeProject
+                      ? 'opacity-25 blur-[0.2px]'
+                      : 'opacity-100'
                 }`}
                 data-interactive
               >
@@ -169,22 +174,24 @@ export const ProjectList: React.FC = () => {
 
                   {/* Monumental Asymmetric Project Title (Col 4-11) */}
                   <div className="md:col-span-8 z-10">
-                    <h3 className={`font-normal font-display tracking-tight text-black group-hover:text-black/75 group-hover:translate-x-3 transition-all duration-300 ${
+                    <h3 className={`font-normal font-display tracking-tight text-black transition-all duration-300 ${
                       idx === 0
                         ? 'text-4xl sm:text-5xl lg:text-6xl'
                         : 'text-3xl sm:text-4xl lg:text-5xl'
-                    }`}>
+                    } ${isCurrentActive ? 'translate-x-4 sm:translate-x-6' : ''}`}>
                       {project.title}
                     </h3>
                   </div>
 
-                  {/* Right Action Circle (Col 12) */}
+                  {/* Right Action Circle with Magnetic Physics (Col 12) */}
                   <div className="md:col-span-1 flex justify-start md:justify-end z-10">
-                    <div className="w-12 h-12 rounded-full border border-black/15 flex items-center justify-center text-sm font-mono text-black group-hover:bg-black group-hover:text-white group-hover:border-black group-hover:scale-105 transition-all duration-300 shadow-xs">
-                      <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
-                        ↗
-                      </span>
-                    </div>
+                    <Magnetic strength={0.45} radius={60}>
+                      <div className="w-12 h-12 rounded-full border border-black/15 flex items-center justify-center text-sm font-mono text-black group-hover:bg-black group-hover:text-white group-hover:border-black group-hover:scale-105 transition-all duration-300 shadow-xs">
+                        <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
+                          ↗
+                        </span>
+                      </div>
+                    </Magnetic>
                   </div>
 
                 </div>
@@ -215,43 +222,50 @@ export const ProjectList: React.FC = () => {
 
       </div>
 
-      {/* Floating Projected Image Preview Card (Desktop Mouse Follower with subtle kinetic angle) */}
+      {/* Floating Projected Image Preview Card (Snellenberg Style Cursor Follower) */}
       <div
         ref={floatingCardRef}
         className={`hidden md:block pointer-events-none fixed z-[9999] top-0 left-0 will-change-transform transition-all duration-300 ease-out ${
-          isHoveringSection && activeProject ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
+          isHoveringSection && activeProject ? 'opacity-100 scale-100' : 'opacity-0 scale-90 pointer-events-none'
         }`}
       >
         {displayedProject && (
-          <div className="w-[390px] rounded-3xl bg-white/95 backdrop-blur-xl border border-black/10 shadow-[0_30px_80px_-15px_rgba(0,0,0,0.3)] p-5 overflow-hidden space-y-3.5 animate-in fade-in duration-200">
-            {/* Projected Card Header */}
-            <div className="flex items-center justify-between text-xs font-mono pb-2 border-b border-black/5">
-              <span className="px-2.5 py-0.5 rounded-full bg-black/5 text-black font-semibold text-[10px]">
-                {displayedProject.category}
-              </span>
-              <span className="text-black/60 text-[10px] font-semibold">
-                {displayedProject.number} / 04
-              </span>
+          <div className="relative">
+            <div className="w-[380px] rounded-3xl bg-white/95 backdrop-blur-xl border border-black/10 shadow-[0_30px_90px_-15px_rgba(0,0,0,0.35)] p-4 overflow-hidden space-y-3 animate-in fade-in duration-200">
+              {/* Card Meta Header */}
+              <div className="flex items-center justify-between text-xs font-mono pb-1.5 border-b border-black/5">
+                <span className="px-2 py-0.5 rounded-full bg-black/5 text-black font-semibold text-[10px]">
+                  {displayedProject.category}
+                </span>
+                <span className="text-black/50 text-[10px] font-mono">
+                  {displayedProject.clientTag} • {displayedProject.number}
+                </span>
+              </div>
+
+              {/* High-Craft Image Container */}
+              <div className="overflow-hidden rounded-2xl bg-[#f8f8f6] border border-black/5">
+                <PlaceholderImage
+                  id={displayedProject.id}
+                  title={displayedProject.title}
+                  recommendedAspect={displayedProject.aspectRatio}
+                  dimensions={displayedProject.dimensions}
+                  className="transform hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              {/* Card Footer */}
+              <div className="flex items-center justify-between text-[11px] font-mono text-black/75 pt-0.5">
+                <span className="truncate max-w-[200px]">{displayedProject.tech}</span>
+                <span className="text-black font-semibold flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span>Production Ready</span>
+                </span>
+              </div>
             </div>
 
-            {/* High-Craft Image Container */}
-            <div className="overflow-hidden rounded-2xl bg-[#f8f8f6] border border-black/5">
-              <PlaceholderImage
-                id={displayedProject.id}
-                title={displayedProject.title}
-                recommendedAspect={displayedProject.aspectRatio}
-                dimensions={displayedProject.dimensions}
-                className="transform hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-
-            {/* Projected Card Footer */}
-            <div className="flex items-center justify-between text-[11px] font-mono text-black/75 pt-1">
-              <span>{displayedProject.tech}</span>
-              <span className="text-black font-semibold flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                <span>View Specimen ↗</span>
-              </span>
+            {/* Floating Snellenberg View Badge */}
+            <div className="absolute -bottom-3 -right-3 w-16 h-16 rounded-full bg-[#1C1D20] text-white flex items-center justify-center text-xs font-mono font-medium shadow-2xl border border-white/20 animate-in zoom-in-75 duration-300">
+              <span>View ↗</span>
             </div>
           </div>
         )}
