@@ -98,7 +98,7 @@ export const ProjectList: React.FC = () => {
   return (
     <section
       id="work"
-      className="py-24 lg:py-36 border-b border-black/[0.08] relative overflow-hidden"
+      className="py-24 lg:py-36 relative overflow-hidden"
       onMouseEnter={() => setIsHoveringSection(true)}
       onMouseLeave={() => {
         setIsHoveringSection(false);
