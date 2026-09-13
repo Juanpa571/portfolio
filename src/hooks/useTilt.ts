@@ -25,6 +25,9 @@ export const useTilt = <T extends HTMLElement = HTMLDivElement>(options: TiltOpt
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
+    ref.current.style.setProperty('--mouse-x', `${x}px`);
+    ref.current.style.setProperty('--mouse-y', `${y}px`);
+
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 

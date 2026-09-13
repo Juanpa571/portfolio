@@ -51,11 +51,12 @@ export const Footer: React.FC = () => {
               href={siteConfig.profile.contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-8 rounded-3xl bg-[#0c0d12] text-white block border border-white/10 shadow-2xl hover:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.4)] hover:-translate-y-1 active:scale-[0.99] transition-all duration-300"
+              className="group p-8 rounded-3xl bg-[#0c0d12] text-white block border border-white/10 shadow-2xl hover:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] hover:border-white/25 hover:-translate-y-1 active:scale-[0.99] transition-all duration-300 relative overflow-hidden"
               data-interactive
             >
-              <div className="flex justify-end items-start mb-6">
-                <span className="text-white/70 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300 text-lg">↗</span>
+              <div className="flex justify-between items-start mb-6">
+                <span className="text-[11px] font-mono text-white/40 tracking-wider uppercase font-semibold">DIRECT ACCESS</span>
+                <span className="text-white/70 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300 text-xl font-bold">↗</span>
               </div>
               <div className="text-2xl sm:text-3xl font-bold font-display tracking-tight mb-2">
                 Chat on WhatsApp
@@ -68,7 +69,7 @@ export const Footer: React.FC = () => {
 
             {/* Email Copy Card with tactile state */}
             <div
-              className="p-8 rounded-3xl bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-300 flex flex-col justify-between space-y-5"
+              className="p-8 rounded-3xl bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/25 transition-all duration-300 flex flex-col justify-between space-y-5"
               data-interactive
             >
               <div className="flex justify-between items-start">
@@ -78,8 +79,8 @@ export const Footer: React.FC = () => {
                   onClick={copyEmail}
                   className={`text-xs font-mono px-3.5 py-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                     copied
-                      ? 'bg-emerald-600 text-white font-semibold scale-105 shadow-sm'
-                      : 'bg-black/5 hover:bg-black/10 text-black/80 active:scale-95'
+                      ? 'bg-black text-white font-semibold scale-105 shadow-sm'
+                      : 'bg-black/5 hover:bg-black hover:text-white text-black/80 active:scale-95'
                   }`}
                   data-interactive
                 >

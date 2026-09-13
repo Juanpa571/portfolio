@@ -71,20 +71,20 @@ export const CustomCursor: React.FC = () => {
   return (
     <div
       ref={cursorRef}
-      className="pointer-events-none fixed z-[9999] top-0 left-0 hidden lg:block will-change-transform"
+      className="pointer-events-none fixed z-[99999] top-0 left-0 hidden lg:block will-change-transform mix-blend-difference"
       style={{
         transform: `translate3d(${currentPos.current.x}px, ${currentPos.current.y}px, 0) translate(-50%, -50%)`,
       }}
     >
       <div
-        className={`flex items-center justify-center rounded-full transition-all duration-300 ease-out ${
+        className={`flex items-center justify-center rounded-full transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isSuppressed
             ? 'opacity-0 scale-0 pointer-events-none'
             : cursorText
-            ? 'w-24 h-24 bg-black text-white text-[11px] font-mono font-bold tracking-widest shadow-2xl scale-100 border border-white/20'
+            ? 'w-24 h-24 bg-white text-black text-[11px] font-mono font-bold tracking-widest scale-100'
             : isHovered
-            ? 'w-12 h-12 bg-black/15 border border-black/30 backdrop-blur-xs scale-125'
-            : 'w-3 h-3 bg-black/85 scale-100'
+            ? 'w-14 h-14 bg-white scale-100'
+            : 'w-3.5 h-3.5 bg-white scale-100'
         }`}
       >
         {cursorText && !isSuppressed && <span>{cursorText}</span>}

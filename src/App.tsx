@@ -13,7 +13,8 @@ export const App: React.FC = () => {
   useSmoothScroll();
 
   return (
-    <div className="min-h-screen bg-[#fafaf8] text-[#1a1a1e] font-sans antialiased selection:bg-black selection:text-white">
+    <div className="min-h-screen bg-[#fafaf8] text-[#1a1a1e] font-sans antialiased selection:bg-black selection:text-white relative">
+      <div className="noise-overlay" aria-hidden="true" />
       <Preloader />
       <CustomCursor />
       <Header />
