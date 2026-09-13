@@ -65,19 +65,20 @@ export const Header: React.FC = () => {
         <div className="flex items-center gap-3 sm:gap-5">
           <a
             href="#"
-            className="group flex items-center gap-2.5 text-black font-display font-bold text-sm sm:text-base tracking-tight"
+            className="group flex items-center"
             data-interactive
+            aria-label={`${siteConfig.profile.brandName} Home`}
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span className="group-hover:tracking-wider transition-all duration-300">
-              © {siteConfig.profile.brandName}
-            </span>
+            <img
+              src="/logo-horizontal.png"
+              alt={`${siteConfig.profile.brandName} — Design × Build × Ship`}
+              className="h-7 sm:h-[34px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              width={376}
+              height={80}
+            />
           </a>
 
-          <div className="hidden sm:block w-px h-3.5 bg-black/15"></div>
+          <div className="hidden sm:block w-px h-4 bg-black/15"></div>
 
           {/* Interactive Live Time Pill */}
           <button
@@ -178,10 +179,14 @@ export const Header: React.FC = () => {
       >
         {/* Drawer Header */}
         <div className="flex items-center justify-between pt-2 border-b border-white/10 pb-6">
-          <div className="flex items-center gap-2.5 text-xs font-mono text-white/60">
-            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span className="font-medium text-white tracking-tight">JP Studios</span>
-            <span className="text-white/20">•</span>
+          <img
+            src="/logo-horizontal-white.png"
+            alt="JP Studios"
+            className="h-6 sm:h-7 w-auto object-contain"
+            width={376}
+            height={80}
+          />
+          <div className="text-xs font-mono text-white/50">
             <span>Cali, Colombia</span>
           </div>
         </div>
