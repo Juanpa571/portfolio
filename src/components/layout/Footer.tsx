@@ -10,14 +10,17 @@ gsap.registerPlugin(ScrollTrigger);
 export const Footer: React.FC = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const curvePathRef = useRef<SVGPathElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
   const headlineRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      // 1. Dynamic SVG Horizon Morph (Snellenberg-inspired geometric curve)
+      // 1. Monumental SVG Horizon Morph (Aggressive, deep geometric scoop)
       if (curvePathRef.current) {
+        const MAX_CURVE_HEIGHT = 320;
+
         const updateCurve = (h: number) => {
           if (curvePathRef.current) {
             curvePathRef.current.setAttribute(
@@ -31,12 +34,33 @@ export const Footer: React.FC = () => {
           trigger: sectionRef.current,
           start: 'top bottom',
           end: 'top 20%',
-          scrub: 0.5,
+          scrub: 0.8,
           onUpdate: (self) => {
-            const currentH = (1 - self.progress) * 100;
+            // Cubic falloff for dramatic initial tension and snappy flattening
+            const progress = self.progress;
+            const currentH = Math.pow(1 - progress, 1.2) * MAX_CURVE_HEIGHT;
             updateCurve(currentH);
           },
         });
+      }
+
+      // Parallax upward slide of footer content synced with the horizon reveal
+      if (contentRef.current) {
+        gsap.fromTo(
+          contentRef.current,
+          { y: -100, opacity: 0.7 },
+          {
+            y: 0,
+            opacity: 1,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top bottom',
+              end: 'top 25%',
+              scrub: 0.8,
+            },
+          }
+        );
       }
 
       // 2. Monumental Typography entrance on container lines (clean separation from letter physics)
@@ -70,23 +94,26 @@ export const Footer: React.FC = () => {
       ref={sectionRef}
       className="relative bg-[#1C1D20] text-white min-h-screen flex flex-col justify-between overflow-hidden"
     >
-      {/* Dennis Snellenberg-inspired Morphing Geometric Horizon Curve */}
+      {/* Dennis Snellenberg-inspired Morphing Geometric Horizon Curve (Monumental Scale) */}
       <div className="relative w-full overflow-hidden bg-[#1C1D20] -mt-px pointer-events-none">
         <svg
-          viewBox="0 0 1440 100"
-          className="w-full h-16 sm:h-24 md:h-28 block"
+          viewBox="0 0 1440 320"
+          className="w-full h-36 sm:h-52 md:h-72 lg:h-80 xl:h-96 block overflow-visible"
           preserveAspectRatio="none"
         >
           <path
             ref={curvePathRef}
             fill="#fafaf8"
-            d="M 0 0 L 1440 0 L 1440 0 Q 720 100 0 0 Z"
+            d="M 0 0 L 1440 0 L 1440 0 Q 720 320 0 0 Z"
           />
         </svg>
       </div>
 
       {/* Content Container with generous breathing room below sticky header */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 lg:px-16 pt-16 sm:pt-24 lg:pt-32 pb-16 flex-1 flex flex-col justify-between relative z-10">
+      <div
+        ref={contentRef}
+        className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 lg:px-16 pt-6 sm:pt-12 lg:pt-16 pb-16 flex-1 flex flex-col justify-between relative z-10 will-change-transform"
+      >
           
           {/* Monumental Headline (Full Width - Zero clipping) */}
           <div className="w-full pb-12 sm:pb-16 lg:pb-20">
