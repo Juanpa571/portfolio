@@ -133,7 +133,7 @@ export const Hero: React.FC = () => {
           <span className="text-black/50">Independent Studio</span>
         </div>
         <div className="text-black/40 font-mono text-[11px]">
-          Creative Engineering
+          {siteConfig.profile.role}
         </div>
       </div>
 
