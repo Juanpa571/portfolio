@@ -99,42 +99,40 @@ export const Footer: React.FC = () => {
       {/* Content Container with generous breathing room below sticky header */}
       <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 lg:px-16 pt-16 sm:pt-24 lg:pt-32 pb-16 flex-1 flex flex-col justify-between relative z-10">
           
-          {/* Main Asymmetric Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            
-            {/* Left Column (Col 1-7): Monumental Asymmetric Headline */}
-            <div className="lg:col-span-7">
-              <h2
-                ref={headlineRef}
-                className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-bold font-display tracking-tight text-white leading-[0.88] uppercase"
-              >
-                <div className="overflow-hidden">
-                  <span className="reveal-word inline-block will-change-transform">
-                    Ready to build
-                  </span>
-                </div>
-                <div className="overflow-hidden sm:pl-14 lg:pl-24 pt-2">
-                  <span className="reveal-word inline-block text-white/50 hover:text-white transition-colors duration-500 will-change-transform">
-                    something real?
-                  </span>
-                </div>
-              </h2>
-            </div>
+          {/* Monumental Headline (Full Width - No horizontal clipping) */}
+          <div className="w-full pb-14 sm:pb-20">
+            <h2
+              ref={headlineRef}
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-[6.8vw] xl:text-[7.2vw] font-bold font-display tracking-tight text-white leading-[0.92] uppercase select-none"
+            >
+              <div className="overflow-hidden py-1">
+                <span className="reveal-word inline-block will-change-transform sm:whitespace-nowrap">
+                  Ready to build
+                </span>
+              </div>
+              <div className="overflow-hidden sm:pl-14 md:pl-24 lg:pl-32 py-1">
+                <span className="reveal-word inline-block text-white/50 hover:text-white transition-colors duration-500 will-change-transform sm:whitespace-nowrap">
+                  something real?
+                </span>
+              </div>
+            </h2>
+          </div>
 
-            {/* Right Column (Col 8-12): Asymmetric Interactive Action Deck */}
-            <div className="lg:col-span-5 space-y-5 lg:-translate-y-4">
-              
-              {/* WhatsApp Action Monolith with 3D Tilt & Specular Reflection */}
+          {/* Asymmetric Interactive Action Deck (Side-by-side underneath the headline) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
+            
+            {/* WhatsApp Action Monolith with 3D Tilt & Specular Reflection (Col 1-7) */}
+            <div className="lg:col-span-7">
               <TiltCard
                 maxTilt={4}
                 scale={1.01}
-                className="p-8 sm:p-10 rounded-3xl bg-[#14151b] text-white border border-white/10 shadow-2xl hover:border-white/30 transition-all duration-300 group cursor-pointer"
+                className="h-full p-8 sm:p-10 rounded-3xl bg-[#14151b] text-white border border-white/10 shadow-2xl hover:border-white/30 transition-all duration-300 group cursor-pointer flex flex-col justify-between"
               >
                 <a
                   href={siteConfig.profile.contact.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block space-y-7"
+                  className="h-full flex flex-col justify-between space-y-7"
                   data-interactive
                 >
                   <div className="flex justify-between items-start">
@@ -157,16 +155,18 @@ export const Footer: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="pt-2 flex items-center gap-2.5 text-xs font-mono text-white/75 border-t border-white/10">
+                  <div className="pt-3 flex items-center gap-2.5 text-xs font-mono text-white/75 border-t border-white/10">
                     <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
                     <span>+61 405667961 — Personal mobile line</span>
                   </div>
                 </a>
               </TiltCard>
+            </div>
 
-              {/* Email Direct Terminal Card with Tactile Inversion State */}
+            {/* Email Direct Terminal Card with Tactile Inversion State (Col 8-12) */}
+            <div className="lg:col-span-5">
               <div
-                className="p-8 sm:p-9 rounded-3xl bg-[#14151b] border border-white/10 shadow-xl hover:border-white/25 transition-all duration-300 flex flex-col justify-between space-y-5"
+                className="h-full p-8 sm:p-10 rounded-3xl bg-[#14151b] border border-white/10 shadow-xl hover:border-white/25 transition-all duration-300 flex flex-col justify-between space-y-6"
                 data-interactive
               >
                 <div className="flex justify-between items-center">
@@ -187,15 +187,21 @@ export const Footer: React.FC = () => {
                   </button>
                 </div>
 
-                <a
-                  href={`mailto:${siteConfig.profile.contact.email}`}
-                  className="text-lg sm:text-xl font-display font-bold text-white hover:text-white/75 transition-colors block break-all"
-                  data-interactive
-                >
-                  {siteConfig.profile.contact.email}
-                </a>
-              </div>
+                <div>
+                  <div className="text-xs font-mono text-white/50 mb-2">Direct Inquiries</div>
+                  <a
+                    href={`mailto:${siteConfig.profile.contact.email}`}
+                    className="text-lg sm:text-2xl font-display font-bold text-white hover:text-white/75 transition-colors block break-all"
+                    data-interactive
+                  >
+                    {siteConfig.profile.contact.email}
+                  </a>
+                </div>
 
+                <div className="text-xs font-mono text-white/40 pt-2 border-t border-white/10">
+                  Direct senior response within 24h
+                </div>
+              </div>
             </div>
 
           </div>
