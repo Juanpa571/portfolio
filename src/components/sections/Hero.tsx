@@ -88,54 +88,52 @@ export const Hero: React.FC = () => {
         {/* Monumental Asymmetric Typographic Statement with 3D Depth Layers */}
         <div className="space-y-2 sm:space-y-4 select-none">
           
-          {/* Line 1: Depth Layer 1 */}
+          {/* Line 1: Depth Layer 1 — First Name */}
           <div
             ref={line1Ref}
             className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 cursor-default will-change-transform opacity-0"
             data-interactive
           >
             <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-              Design
-            </span>{' '}
-            <span className="font-light italic text-black/45 normal-case hover:text-black/70 transition-colors duration-300">
-              meets
+              Juan Pablo
             </span>
           </div>
 
-          {/* Line 2: Depth Layer 2 */}
+          {/* Line 2: Depth Layer 2 — Last Name with Asymmetric Indent */}
           <div
             ref={line2Ref}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 sm:pl-8 md:pl-12 lg:pl-14 cursor-default will-change-transform opacity-0"
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 sm:pl-14 md:pl-20 lg:pl-28 cursor-default will-change-transform opacity-0"
             data-interactive
           >
             <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-              Production
+              Chacón.
             </span>
           </div>
 
-          {/* Line 3: Depth Layer 3 */}
+          {/* Line 3: Depth Layer 3 — Core Dual Discipline Statement */}
           <div
             ref={line3Ref}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black/55 hover:text-black leading-[1.06] sm:leading-[1.1] pb-1 cursor-default will-change-transform opacity-0 transition-colors duration-500"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.2vw] font-light font-display tracking-[-0.01em] text-black/50 hover:text-black/80 leading-[1.08] sm:leading-[1.12] pb-1 pt-2 sm:pt-4 sm:pl-2 cursor-default will-change-transform opacity-0 transition-colors duration-500"
             data-interactive
           >
             <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-              Code & Architecture.
+              Design <span className="italic font-light text-black/35">&</span> Production Code.
             </span>
           </div>
         </div>
 
       </div>
 
-      {/* Clean Bottom Orientation Bar (Within the viewport, above the fold) */}
+      {/* Clean Bottom Orientation Bar (Pure Dignified Telemetry, Zero Hand-Holding) */}
       <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 pb-8 sm:pb-10 flex items-center justify-between text-xs font-mono text-black/60 select-none">
         <div className="flex items-center gap-2.5">
           <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
           <span>{siteConfig.profile.location}</span>
+          <span className="text-black/20">•</span>
+          <span className="text-black/50">Independent Studio</span>
         </div>
-        <div className="flex items-center gap-2 text-black/40 hover:text-black transition-colors cursor-default">
-          <span>Scroll to explore</span>
-          <span className="inline-block animate-bounce">↓</span>
+        <div className="text-black/40 font-mono text-[11px]">
+          Creative Engineering
         </div>
       </div>
 
