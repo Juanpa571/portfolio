@@ -112,7 +112,7 @@ export const ProjectList: React.FC = () => {
           className="mb-16 pb-8 border-b border-black/10"
           onMouseEnter={() => setActiveProject(null)}
         >
-          <h2 className="text-5xl sm:text-7xl lg:text-8xl font-bold font-display text-black tracking-tighter uppercase leading-[0.92]">
+          <h2 className="text-5xl sm:text-7xl lg:text-8xl font-normal font-display text-black tracking-[-0.01em] leading-[0.92]">
             Selected<br />
             <span className="sm:pl-16 lg:pl-24 inline-block text-black/55 hover:text-black transition-colors duration-500">
               Works.

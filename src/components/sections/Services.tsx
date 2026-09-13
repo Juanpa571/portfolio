@@ -67,7 +67,7 @@ export const Services: React.FC = () => {
         {/* Asymmetric Section Header with Refokus-Style Kinetic Morph */}
         <div ref={headerRef} className="relative mb-12 lg:mb-16 pb-6">
           <div className="space-y-3 max-w-4xl">
-            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-bold font-display tracking-tight leading-[0.95] uppercase">
+            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-normal font-display tracking-[-0.01em] leading-[0.95]">
               {/* Line 1: Built on trust. */}
               <div className="relative inline-block overflow-hidden">
                 <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">

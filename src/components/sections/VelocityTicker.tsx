@@ -5,25 +5,25 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const TRACK_1 = [
-  { text: 'PRODUCTION CODE', filled: true },
-  { text: 'BESPOKE DESIGN', filled: false },
-  { text: 'SYSTEM ARCHITECTURE', filled: true },
-  { text: 'CLEAR COMMUNICATION', filled: false },
-  { text: 'DEPENDABLE ARCHITECTURE', filled: true },
-  { text: 'HIGH-FIDELITY INTERFACES', filled: false },
-  { text: 'SCALABLE CLOUD', filled: true },
-  { text: 'FIGMA TO PRODUCTION', filled: false },
+  { text: 'Production Code', filled: true },
+  { text: 'Bespoke Design', filled: false },
+  { text: 'System Architecture', filled: true },
+  { text: 'Clear Communication', filled: false },
+  { text: 'Dependable Engineering', filled: true },
+  { text: 'High-Fidelity Interfaces', filled: false },
+  { text: 'Scalable Cloud', filled: true },
+  { text: 'Figma to Production', filled: false },
 ];
 
 const TRACK_2 = [
-  { text: 'TRANSPARENT PROCESS', filled: false },
-  { text: 'CALI / REMOTE WORLDWIDE', filled: true },
-  { text: 'HONEST COLLABORATION', filled: false },
-  { text: 'RADICAL SIMPLICITY', filled: true },
-  { text: 'WEEKLY DEPLOYMENTS', filled: false },
-  { text: 'MEASURABLE PERFORMANCE', filled: true },
-  { text: 'FULL-STACK CRAFT', filled: false },
-  { text: 'CONTINUOUS ITERATION', filled: true },
+  { text: 'Transparent Process', filled: false },
+  { text: 'Cali / Remote Worldwide', filled: true },
+  { text: 'Honest Collaboration', filled: false },
+  { text: 'Radical Simplicity', filled: true },
+  { text: 'Weekly Deployments', filled: false },
+  { text: 'Measurable Performance', filled: true },
+  { text: 'Full-Stack Craft', filled: false },
+  { text: 'Continuous Iteration', filled: true },
 ];
 
 export const VelocityTicker: React.FC = () => {
@@ -120,7 +120,7 @@ export const VelocityTicker: React.FC = () => {
         <div className="overflow-hidden whitespace-nowrap will-change-transform">
           <div
             ref={row1Ref}
-            className="inline-flex items-center text-2xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight"
+            className="inline-flex items-center text-2xl sm:text-4xl lg:text-5xl font-display tracking-tight"
             style={{ willChange: 'transform' }}
           >
             {renderItems(TRACK_1)}
@@ -131,7 +131,7 @@ export const VelocityTicker: React.FC = () => {
         <div className="overflow-hidden whitespace-nowrap will-change-transform">
           <div
             ref={row2Ref}
-            className="inline-flex items-center text-2xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight"
+            className="inline-flex items-center text-2xl sm:text-4xl lg:text-5xl font-display tracking-tight"
             style={{ willChange: 'transform' }}
           >
             {renderItems(TRACK_2)}
