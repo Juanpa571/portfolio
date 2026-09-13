@@ -1,0 +1,152 @@
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const TRACK_1 = [
+  { text: 'PRODUCTION CODE', filled: true },
+  { text: 'BESPOKE DESIGN', filled: false },
+  { text: 'SYSTEM ARCHITECTURE', filled: true },
+  { text: 'DIRECT 1:1 CRAFT', filled: false },
+  { text: 'ZERO HANDOFFS', filled: true },
+  { text: 'HIGH-FIDELITY INTERFACES', filled: false },
+  { text: 'SCALABLE CLOUD', filled: true },
+  { text: 'FIGMA TO PRODUCTION', filled: false },
+];
+
+const TRACK_2 = [
+  { text: 'NO COMMITTEE BOTTLENECKS', filled: false },
+  { text: 'CALI / REMOTE WORLDWIDE', filled: true },
+  { text: 'DIRECT ENGINEER ACCESS', filled: false },
+  { text: 'RADICAL SIMPLICITY', filled: true },
+  { text: 'WEEKLY DEPLOYMENTS', filled: false },
+  { text: 'MEASURABLE PERFORMANCE', filled: true },
+  { text: 'FULL-STACK CRAFT', filled: false },
+  { text: 'CONTINUOUS ITERATION', filled: true },
+];
+
+export const VelocityTicker: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const row1Ref = useRef<HTMLDivElement | null>(null);
+  const row2Ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!containerRef.current || !row1Ref.current || !row2Ref.current) return;
+
+    let x1 = 0;
+    let x2 = -1500; // Offset initial position for opposing flow
+    let velocityMultiplier = 0;
+    let targetVelocity = 0;
+
+    // Listen to scroll velocity via ScrollTrigger
+    const scrollTrigger = ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: 'top bottom',
+      end: 'bottom top',
+      onUpdate: (self) => {
+        // self.getVelocity() returns pixels per second
+        const v = self.getVelocity();
+        // Normalize and clamp velocity impact
+        targetVelocity = Math.max(Math.min(v * 0.0035, 14), -14);
+      },
+    });
+
+    const updateTicker = () => {
+      // Lerp velocity back towards 0 smoothly (inertial damping)
+      targetVelocity *= 0.92;
+      velocityMultiplier += (targetVelocity - velocityMultiplier) * 0.12;
+
+      // Base cruise speed
+      const baseSpeed = 1.1;
+
+      // Row 1 flows leftwards (negative x), accelerates on scroll
+      x1 -= baseSpeed + (velocityMultiplier >= 0 ? velocityMultiplier * 1.6 : velocityMultiplier * 0.8);
+      // Row 2 flows rightwards (positive x), accelerates inversely on scroll
+      x2 += baseSpeed - (velocityMultiplier >= 0 ? velocityMultiplier * 1.6 : velocityMultiplier * 0.8);
+
+      // Loop thresholds based on half content width
+      if (row1Ref.current) {
+        const halfWidth1 = row1Ref.current.scrollWidth / 2;
+        if (x1 <= -halfWidth1) x1 += halfWidth1;
+        if (x1 > 0) x1 -= halfWidth1;
+        row1Ref.current.style.transform = `translate3d(${x1}px, 0, 0)`;
+      }
+
+      if (row2Ref.current) {
+        const halfWidth2 = row2Ref.current.scrollWidth / 2;
+        if (x2 >= 0) x2 -= halfWidth2;
+        if (x2 < -halfWidth2) x2 += halfWidth2;
+        row2Ref.current.style.transform = `translate3d(${x2}px, 0, 0)`;
+      }
+    };
+
+    gsap.ticker.add(updateTicker);
+
+    return () => {
+      gsap.ticker.remove(updateTicker);
+      scrollTrigger.kill();
+    };
+  }, []);
+
+  // Duplicate items 4 times to ensure infinite seamless loop on any screen width
+  const renderItems = (items: typeof TRACK_1) => (
+    <>
+      {[...items, ...items, ...items, ...items].map((item, idx) => (
+        <span key={idx} className="inline-flex items-center shrink-0">
+          <span
+            className={`transition-colors duration-300 ${
+              item.filled
+                ? 'text-black font-extrabold'
+                : 'text-transparent font-bold [-webkit-text-stroke:1.2px_rgba(0,0,0,0.4)] hover:[-webkit-text-stroke:1.2px_rgba(0,0,0,0.85)]'
+            }`}
+          >
+            {item.text}
+          </span>
+          <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-emerald-500 mx-5 sm:mx-8 shadow-xs shrink-0" />
+        </span>
+      ))}
+    </>
+  );
+
+  return (
+    <section
+      ref={containerRef}
+      className="py-10 sm:py-14 border-b border-black/[0.08] bg-[#fafaf8] overflow-hidden select-none relative"
+      aria-hidden="true"
+    >
+      {/* Top Telemetry strip */}
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-12 mb-6 flex justify-between items-center text-[10px] sm:text-[11px] font-mono text-black/60 uppercase tracking-widest">
+        <div className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <span>Velocity Field • Dual Contraflow</span>
+        </div>
+        <div>Kinetic Scroll Scrub • 60 FPS</div>
+      </div>
+
+      <div className="space-y-4 sm:space-y-6">
+        {/* Row 1: Flowing Left */}
+        <div className="overflow-hidden whitespace-nowrap will-change-transform">
+          <div
+            ref={row1Ref}
+            className="inline-flex items-center text-2xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight"
+            style={{ willChange: 'transform' }}
+          >
+            {renderItems(TRACK_1)}
+          </div>
+        </div>
+
+        {/* Row 2: Flowing Right (Inverted Flow) */}
+        <div className="overflow-hidden whitespace-nowrap will-change-transform">
+          <div
+            ref={row2Ref}
+            className="inline-flex items-center text-2xl sm:text-4xl lg:text-5xl font-display uppercase tracking-tight"
+            style={{ willChange: 'transform' }}
+          >
+            {renderItems(TRACK_2)}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
