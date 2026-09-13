@@ -1,23 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { siteConfig } from '../../config/site';
-import { TiltCard } from '../ui/TiltCard';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const Footer: React.FC = () => {
-  const [copied, setCopied] = useState(false);
-
   const sectionRef = useRef<HTMLElement | null>(null);
   const curvePathRef = useRef<SVGPathElement | null>(null);
   const headlineRef = useRef<HTMLHeadingElement | null>(null);
-
-  const copyEmail = () => {
-    navigator.clipboard.writeText(siteConfig.profile.contact.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
-  };
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -118,92 +109,25 @@ export const Footer: React.FC = () => {
             </h2>
           </div>
 
-          {/* Asymmetric Interactive Action Deck (Side-by-side underneath the headline) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
-            
-            {/* WhatsApp Action Monolith with 3D Tilt & Specular Reflection (Col 1-7) */}
-            <div className="lg:col-span-7">
-              <TiltCard
-                maxTilt={4}
-                scale={1.01}
-                className="h-full p-8 sm:p-10 rounded-3xl bg-[#14151b] text-white border border-white/10 shadow-2xl hover:border-white/30 transition-all duration-300 group cursor-pointer flex flex-col justify-between"
-              >
-                <a
-                  href={siteConfig.profile.contact.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="h-full flex flex-col justify-between space-y-7"
-                  data-interactive
-                >
-                  <div className="flex justify-between items-start">
-                    <span className="text-xs font-mono text-white/40 tracking-wider uppercase font-semibold">
-                      DIRECT ACTION
-                    </span>
-                    <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-lg font-mono text-white group-hover:bg-white group-hover:text-black group-hover:scale-110 transition-all duration-300 shadow-sm">
-                      <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
-                        ↗
-                      </span>
-                    </div>
-                  </div>
+          {/* Minimalist Action Pills (Dennis Snellenberg Style) */}
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2 pb-8">
+            <a
+              href={`mailto:${siteConfig.profile.contact.email}`}
+              className="px-7 py-4 sm:px-9 sm:py-5 rounded-full border border-white/20 hover:border-white text-white text-sm sm:text-base font-sans font-medium transition-all duration-300 hover:bg-white hover:text-black active:scale-95 inline-flex items-center justify-center cursor-pointer"
+              data-interactive
+            >
+              {siteConfig.profile.contact.email}
+            </a>
 
-                  <div>
-                    <div className="text-2xl sm:text-4xl font-bold font-display tracking-tight text-white mb-2 group-hover:translate-x-1 transition-transform">
-                      Chat on WhatsApp
-                    </div>
-                    <p className="text-xs sm:text-sm text-white/65 font-sans leading-relaxed">
-                      Instant direct line for project roadmaps, technical feasibility, and timelines.
-                    </p>
-                  </div>
-
-                  <div className="pt-3 flex items-center gap-2.5 text-xs font-mono text-white/75 border-t border-white/10">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                    <span>+61 405667961 — Personal mobile line</span>
-                  </div>
-                </a>
-              </TiltCard>
-            </div>
-
-            {/* Email Direct Terminal Card with Tactile Inversion State (Col 8-12) */}
-            <div className="lg:col-span-5">
-              <div
-                className="h-full p-8 sm:p-10 rounded-3xl bg-[#14151b] border border-white/10 shadow-xl hover:border-white/25 transition-all duration-300 flex flex-col justify-between space-y-6"
-                data-interactive
-              >
-                <div className="flex justify-between items-center">
-                  <span className="text-xs font-mono text-white/40 uppercase tracking-wider font-semibold">
-                    ELECTRONIC MAIL
-                  </span>
-                  <button
-                    type="button"
-                    onClick={copyEmail}
-                    className={`text-xs font-mono px-4 py-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                      copied
-                        ? 'bg-white text-black font-bold scale-105 shadow-md'
-                        : 'bg-white/10 hover:bg-white hover:text-black text-white/80 active:scale-95'
-                    }`}
-                    data-interactive
-                  >
-                    {copied ? 'Copied to clipboard ✓' : 'Copy'}
-                  </button>
-                </div>
-
-                <div>
-                  <div className="text-xs font-mono text-white/50 mb-2">Direct Inquiries</div>
-                  <a
-                    href={`mailto:${siteConfig.profile.contact.email}`}
-                    className="text-lg sm:text-2xl font-display font-bold text-white hover:text-white/75 transition-colors block break-all"
-                    data-interactive
-                  >
-                    {siteConfig.profile.contact.email}
-                  </a>
-                </div>
-
-                <div className="text-xs font-mono text-white/40 pt-2 border-t border-white/10">
-                  Direct senior response within 24h
-                </div>
-              </div>
-            </div>
-
+            <a
+              href={siteConfig.profile.contact.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-7 py-4 sm:px-9 sm:py-5 rounded-full border border-white/20 hover:border-white text-white text-sm sm:text-base font-sans font-medium transition-all duration-300 hover:bg-white hover:text-black active:scale-95 inline-flex items-center justify-center cursor-pointer"
+              data-interactive
+            >
+              +61 405667961
+            </a>
           </div>
 
           {/* Bottom Colophon & Global Coordinates */}
