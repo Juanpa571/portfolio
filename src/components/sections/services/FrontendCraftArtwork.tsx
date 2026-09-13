@@ -4,31 +4,37 @@ export const FrontendCraftArtwork: React.FC = () => {
   const frontBeadRef = useRef<SVGCircleElement | null>(null);
   const backBeadRef = useRef<SVGCircleElement | null>(null);
   const animFrameId = useRef<number | null>(null);
-  const angleRef = useRef<number>(0); // Starts at right vertex (3 o'clock)
+  const angleRef = useRef<number>(0);
   const isHoveredRef = useRef<boolean>(false);
 
   useEffect(() => {
-    const cx = 70;
-    const cy = 52;
-    const rx = 52;
-    const ry = 14;
+    const cx = 72;
+    const cy = 50;
+    const rx = 54;
+    const ry = 15;
+    // Orbital inclination of -12 degrees for dynamic cosmic asymmetry
+    const theta = -12 * (Math.PI / 180);
+    const cosTheta = Math.cos(theta);
+    const sinTheta = Math.sin(theta);
 
     const animate = () => {
-      // Smooth continuous angular progression; accelerates gently on hover
       const targetSpeed = isHoveredRef.current ? 0.028 : 0.012;
       angleRef.current = (angleRef.current + targetSpeed) % (Math.PI * 2);
 
       const angle = angleRef.current;
-      const x = cx + rx * Math.cos(angle);
-      const y = cy + ry * Math.sin(angle);
+      const u = rx * Math.cos(angle);
+      const v = ry * Math.sin(angle);
 
-      // In perspective: sin(angle) < 0 is back (y < cy), sin(angle) >= 0 is front (y >= cy)
+      // Rotated coordinates in inclined 3D plane
+      const x = cx + u * cosTheta - v * sinTheta;
+      const y = cy + u * sinTheta + v * cosTheta;
+
       const sinVal = Math.sin(angle);
-      const depthFactor = (sinVal + 1) / 2; // 0 (deepest back) to 1 (forefront)
-      const r = 2.4 + depthFactor * 1.3;
+      const depthFactor = (sinVal + 1) / 2; // 0 (back) to 1 (front)
+      const r = 2.4 + depthFactor * 1.4;
 
       if (sinVal < 0) {
-        // Bead is in back half: show back bead, hide front bead
+        // Back half: hidden behind window
         if (backBeadRef.current) {
           backBeadRef.current.style.display = 'block';
           backBeadRef.current.setAttribute('cx', x.toFixed(2));
@@ -40,13 +46,13 @@ export const FrontendCraftArtwork: React.FC = () => {
           frontBeadRef.current.style.display = 'none';
         }
       } else {
-        // Bead is in front half: show front bead, hide back bead
+        // Front half: visible crossing foreground
         if (frontBeadRef.current) {
           frontBeadRef.current.style.display = 'block';
           frontBeadRef.current.setAttribute('cx', x.toFixed(2));
           frontBeadRef.current.setAttribute('cy', y.toFixed(2));
           frontBeadRef.current.setAttribute('r', r.toFixed(2));
-          frontBeadRef.current.setAttribute('opacity', (0.75 + depthFactor * 0.25).toFixed(2));
+          frontBeadRef.current.setAttribute('opacity', (0.8 + depthFactor * 0.2).toFixed(2));
         }
         if (backBeadRef.current) {
           backBeadRef.current.style.display = 'none';
@@ -65,69 +71,70 @@ export const FrontendCraftArtwork: React.FC = () => {
 
   return (
     <div
-      className="w-28 h-20 sm:w-36 sm:h-24 shrink-0 flex items-center justify-center relative select-none"
+      className="w-32 h-24 sm:w-40 sm:h-28 shrink-0 flex items-center justify-center relative select-none"
       onMouseEnter={() => { isHoveredRef.current = true; }}
       onMouseLeave={() => { isHoveredRef.current = false; }}
     >
       <svg
-        viewBox="0 0 140 90"
+        viewBox="0 0 144 96"
         className="w-full h-full overflow-visible"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* Orbital Perspective Ring (Back Half & Full Track) */}
+        {/* Inclined 3D Orbital Perspective Ring (-12deg inclination) */}
         <ellipse
-          cx="70"
-          cy="52"
-          rx="52"
-          ry="14"
+          cx="72"
+          cy="50"
+          rx="54"
+          ry="15"
+          transform="rotate(-12 72 50)"
           className="stroke-white/35 transition-colors duration-500 group-hover:stroke-white/60"
           strokeWidth="1.2"
         />
 
-        {/* Back Bead Layer (Rendered physically BEHIND window for true 3D occlusion) */}
+        {/* Back Bead Layer (Occluded behind window body) */}
         <circle
           ref={backBeadRef}
-          cx="70"
-          cy="38"
+          cx="72"
+          cy="36"
           r="2.5"
           fill="white"
           style={{ display: 'none' }}
         />
 
-        {/* Central Browser Window Wireframe (Opaque background cleanly occludes the back orbit) */}
-        <g className="transition-transform duration-500 ease-out group-hover:scale-[1.03] origin-[70px_42px]">
-          {/* Browser Window Body */}
+        {/* Central Browser Window Wireframe (Subtly angled with organic poise) */}
+        <g className="transition-transform duration-500 ease-out group-hover:rotate-0 group-hover:scale-[1.03] origin-[72px_44px] rotate-[-1.5deg]">
+          {/* Browser Window Body (Opaque #1C1D20 cleanly masks back orbit) */}
           <rect
-            x="36"
+            x="38"
             y="18"
             width="68"
             height="48"
-            rx="7"
+            rx="8"
             className="stroke-white/80 fill-[#1C1D20] shadow-2xl transition-colors duration-300 group-hover:stroke-white"
             strokeWidth="1.2"
           />
 
-          {/* Browser Header Bar Divider */}
+          {/* Header Bar Divider */}
           <line
-            x1="36"
+            x1="38"
             y1="30"
-            x2="104"
+            x2="106"
             y2="30"
             className="stroke-white/20 transition-colors duration-300 group-hover:stroke-white/35"
             strokeWidth="1.1"
           />
 
           {/* 3 Window Control Dots */}
-          <circle cx="43" cy="24" r="1.4" className="fill-white/80" />
-          <circle cx="48" cy="24" r="1.4" className="fill-white/80" />
-          <circle cx="53" cy="24" r="1.4" className="fill-white/80" />
+          <circle cx="45" cy="24" r="1.4" className="fill-white/80" />
+          <circle cx="50" cy="24" r="1.4" className="fill-white/80" />
+          <circle cx="55" cy="24" r="1.4" className="fill-white/80" />
 
           {/* Centered Code Symbol < / > */}
           <g className="transition-transform duration-300">
             {/* Left Bracket < */}
             <path
-              d="M 57 44 L 51 49 L 57 54"
+              d="M 59 44 L 53 49 L 59 54"
               stroke="white"
               strokeWidth="1.6"
               strokeLinecap="round"
@@ -136,7 +143,7 @@ export const FrontendCraftArtwork: React.FC = () => {
             />
             {/* Center Slash / */}
             <path
-              d="M 67 43 L 63 55"
+              d="M 69 43 L 65 55"
               stroke="white"
               strokeWidth="1.6"
               strokeLinecap="round"
@@ -144,7 +151,7 @@ export const FrontendCraftArtwork: React.FC = () => {
             />
             {/* Right Bracket > */}
             <path
-              d="M 73 44 L 79 49 L 73 54"
+              d="M 75 44 L 81 49 L 75 54"
               stroke="white"
               strokeWidth="1.6"
               strokeLinecap="round"
@@ -154,14 +161,14 @@ export const FrontendCraftArtwork: React.FC = () => {
           </g>
         </g>
 
-        {/* Front Bead Layer (Rendered physically IN FRONT of window) */}
+        {/* Front Bead Layer (Crossing foreground in full 3D) */}
         <circle
           ref={frontBeadRef}
-          cx="122"
-          cy="52"
-          r="3.5"
+          cx="124"
+          cy="50"
+          r="3.6"
           fill="white"
-          className="shadow-sm filter drop-shadow-[0_0_4px_rgba(255,255,255,0.7)]"
+          className="shadow-sm filter drop-shadow-[0_0_5px_rgba(255,255,255,0.75)]"
         />
       </svg>
     </div>
