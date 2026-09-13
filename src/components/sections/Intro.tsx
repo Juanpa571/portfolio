@@ -4,7 +4,7 @@ import { Magnetic } from '../ui/Magnetic';
 
 export const Intro: React.FC = () => {
   return (
-    <section className="relative z-10 py-20 sm:py-28 lg:py-36 border-b border-black/[0.08] bg-[#fafaf8]">
+    <section className="py-20 sm:py-28 lg:py-36 border-b border-black/[0.08] bg-[#fafaf8]">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           

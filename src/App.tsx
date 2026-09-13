@@ -9,14 +9,13 @@ import { Footer } from './components/layout/Footer';
 import { CustomCursor } from './components/ui/CustomCursor';
 import { Preloader } from './components/ui/Preloader';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export const App: React.FC = () => {
   useSmoothScroll();
 
   return (
     <div className="min-h-screen bg-[#fafaf8] text-[#1a1a1e] font-sans antialiased selection:bg-black selection:text-white relative">
-      <Preloader onComplete={() => ScrollTrigger.refresh()} />
+      <Preloader />
       <CustomCursor />
       <Header />
       <main>
