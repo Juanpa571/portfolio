@@ -10,52 +10,21 @@ export const Footer: React.FC = () => {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const principles = [
-    'Direct Access to Engineer',
-    'Figma to Production Code',
-    'Zero Agency Overhead',
-    'Transparent Scopes',
-    'Post-Launch Maintenance'
-  ];
-
   return (
     <footer id="contact" className="bg-[#f4f4f1] border-t border-black/[0.08] text-black overflow-hidden">
       
-      {/* Studio Operating Principles Strip */}
-      <div className="border-b border-black/[0.06] py-5 overflow-x-auto">
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 flex flex-wrap items-center justify-between gap-6 text-xs font-mono text-black/70">
-          {principles.map((item, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-2 group cursor-default transition-all duration-200 hover:text-black"
-              data-interactive
-            >
-              <span className="text-[10px] text-black/55 group-hover:text-black font-semibold">0{i + 1}</span>
-              <span className="w-1 h-1 rounded-full bg-black/30 group-hover:bg-black transition-all"></span>
-              <span className="font-medium tracking-tight text-black/85 group-hover:text-black">{item}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Main Asymmetric Contact Module */}
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 py-24 sm:py-36">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Left Column: Monumental Asymmetric Headline & Manifesto (Col 1-7) */}
           <div className="lg:col-span-7 space-y-8">
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <span className="w-2.5 h-2.5 rounded-full bg-black"></span>
-                <span className="text-xs font-mono uppercase tracking-widest text-black/65 font-semibold">Initiate Dialogue</span>
-              </div>
-              <h2 className="text-5xl sm:text-7xl lg:text-8xl font-bold font-display tracking-tighter text-black leading-[0.88] uppercase">
-                Let’s build<br />
-                <span className="sm:pl-16 lg:pl-28 inline-block text-black/55 hover:text-black transition-colors duration-500">
-                  something real.
-                </span>
-              </h2>
-            </div>
+            <h2 className="text-5xl sm:text-7xl lg:text-8xl font-bold font-display tracking-tighter text-black leading-[0.88] uppercase">
+              Let’s build<br />
+              <span className="sm:pl-16 lg:pl-28 inline-block text-black/55 hover:text-black transition-colors duration-500">
+                something real.
+              </span>
+            </h2>
 
             <p className="text-lg sm:text-xl text-black/80 max-w-xl font-normal leading-relaxed">
               Whether you have an early concept sketched out, a Figma file ready for high-performance React code, or an existing architecture that needs a senior overhaul.
@@ -85,10 +54,7 @@ export const Footer: React.FC = () => {
               className="group p-8 rounded-3xl bg-[#0c0d12] text-white block border border-white/10 shadow-2xl hover:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.4)] hover:-translate-y-1 active:scale-[0.99] transition-all duration-300"
               data-interactive
             >
-              <div className="flex justify-between items-start mb-6">
-                <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-white/10 text-white/85 tracking-wider font-semibold">
-                  FASTEST RESPONSE
-                </span>
+              <div className="flex justify-end items-start mb-6">
                 <span className="text-white/70 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300 text-lg">↗</span>
               </div>
               <div className="text-2xl sm:text-3xl font-bold font-display tracking-tight mb-2">
@@ -96,7 +62,7 @@ export const Footer: React.FC = () => {
               </div>
               <div className="text-xs font-mono text-white/70 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                <span>+61 405667961 — Direct line, replies within hours</span>
+                <span>+61 405667961 — Direct line</span>
               </div>
             </a>
 
@@ -106,7 +72,7 @@ export const Footer: React.FC = () => {
               data-interactive
             >
               <div className="flex justify-between items-start">
-                <span className="text-xs font-mono text-black/60 uppercase tracking-wider font-semibold">DIRECT EMAIL</span>
+                <span className="text-xs font-mono text-black/60 uppercase tracking-wider font-semibold">EMAIL</span>
                 <button
                   type="button"
                   onClick={copyEmail}
@@ -127,9 +93,6 @@ export const Footer: React.FC = () => {
               >
                 {siteConfig.profile.contact.email}
               </a>
-              <div className="text-xs font-mono text-black/70 border-t border-black/[0.05] pt-3">
-                Send a brief, wireframes, or engineering scope.
-              </div>
             </div>
 
 

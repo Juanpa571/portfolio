@@ -11,7 +11,6 @@ export const Services: React.FC = () => {
   const line1FillRef = useRef<HTMLSpanElement | null>(null);
   const line2FillRef = useRef<HTMLSpanElement | null>(null);
   const rulerRef = useRef<HTMLDivElement | null>(null);
-  const metaRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!headerRef.current) return;
@@ -55,16 +54,6 @@ export const Services: React.FC = () => {
           0.2
         );
       }
-
-      // Meta counter sliding in
-      if (metaRef.current) {
-        tl.fromTo(
-          metaRef.current,
-          { opacity: 0.2, x: 25 },
-          { opacity: 1, x: 0, ease: 'power1.out', duration: 0.7 },
-          0.25
-        );
-      }
     }, headerRef);
 
     return () => ctx.revert();
@@ -77,53 +66,42 @@ export const Services: React.FC = () => {
         
         {/* Asymmetric Section Header with Refokus-Style Kinetic Morph */}
         <div ref={headerRef} className="relative mb-12 lg:mb-16 pb-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
-            <div className="space-y-3 max-w-2xl">
-              <div className="flex items-center gap-3">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span className="text-xs font-mono uppercase tracking-widest text-black/70 font-semibold">Capabilities</span>
+          <div className="space-y-3 max-w-4xl">
+            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-bold font-display tracking-tight leading-[0.95] uppercase">
+              {/* Line 1: No committees. */}
+              <div className="relative inline-block overflow-hidden">
+                <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
+                  No committees.
+                </span>
+                <span
+                  ref={line1FillRef}
+                  className="absolute inset-0 text-black select-none will-change-transform"
+                  style={{ clipPath: 'inset(0 100% 0 0)' }}
+                >
+                  No committees.
+                </span>
               </div>
-
-              <h2 className="text-4xl sm:text-6xl lg:text-7xl font-bold font-display tracking-tight leading-[0.95] uppercase">
-                {/* Line 1: No committees. */}
-                <div className="relative inline-block overflow-hidden">
-                  <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
-                    No committees.
-                  </span>
-                  <span
-                    ref={line1FillRef}
-                    className="absolute inset-0 text-black select-none will-change-transform"
-                    style={{ clipPath: 'inset(0 100% 0 0)' }}
-                  >
-                    No committees.
-                  </span>
-                </div>
-                <br />
-                {/* Line 2: Direct craft. (Asymmetric indent) */}
-                <div className="relative inline-block sm:pl-12 lg:pl-20 overflow-hidden">
-                  <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
-                    Direct craft.
-                  </span>
-                  <span
-                    ref={line2FillRef}
-                    className="absolute inset-0 sm:pl-12 lg:pl-20 text-black select-none will-change-transform"
-                    style={{ clipPath: 'inset(0 100% 0 0)' }}
-                  >
-                    Direct craft.
-                  </span>
-                </div>
-              </h2>
-            </div>
-
-            <div ref={metaRef} className="text-xs font-mono text-black/75 text-left sm:text-right tracking-tight font-medium">
-              Design & Full-Stack Engineering • 01 — 04
-            </div>
+              <br />
+              {/* Line 2: Direct craft. (Asymmetric indent) */}
+              <div className="relative inline-block sm:pl-12 lg:pl-20 overflow-hidden">
+                <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
+                  Direct craft.
+                </span>
+                <span
+                  ref={line2FillRef}
+                  className="absolute inset-0 sm:pl-12 lg:pl-20 text-black select-none will-change-transform"
+                  style={{ clipPath: 'inset(0 100% 0 0)' }}
+                >
+                  Direct craft.
+                </span>
+              </div>
+            </h2>
           </div>
 
           {/* Animated Ruler Line drawn on scroll */}
           <div
             ref={rulerRef}
-            className="w-full h-[1px] bg-black/[0.08] mt-6 origin-left will-change-transform"
+            className="w-full h-[1px] bg-black/[0.08] mt-8 origin-left will-change-transform"
           />
         </div>
 
@@ -141,9 +119,6 @@ export const Services: React.FC = () => {
               <div className="flex justify-between items-center mb-6">
                 <span className="text-xs font-mono text-black/60 group-hover:text-black transition-colors font-semibold">
                   001
-                </span>
-                <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-black/5 text-black font-semibold">
-                  FIGMA TO PRODUCTION
                 </span>
               </div>
 
@@ -192,9 +167,6 @@ export const Services: React.FC = () => {
               <div className="flex justify-between items-center mb-6">
                 <span className="text-xs font-mono text-white/60 group-hover:text-white transition-colors font-semibold">
                   002
-                </span>
-                <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-white/10 text-white font-semibold">
-                  REACT 19 + TS
                 </span>
               </div>
 
@@ -245,9 +217,6 @@ export const Services: React.FC = () => {
               <div className="flex justify-between items-center mb-6">
                 <span className="text-xs font-mono text-black/60 group-hover:text-black transition-colors font-semibold">
                   003
-                </span>
-                <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-black/5 text-black/80 font-semibold">
-                  SQL • APIS • STRIPE
                 </span>
               </div>
 

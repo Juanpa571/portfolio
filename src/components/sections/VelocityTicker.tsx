@@ -112,18 +112,9 @@ export const VelocityTicker: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="py-10 sm:py-14 border-b border-black/[0.08] bg-[#fafaf8] overflow-hidden select-none relative"
+      className="py-12 sm:py-16 border-b border-black/[0.08] bg-[#fafaf8] overflow-hidden select-none relative"
       aria-hidden="true"
     >
-      {/* Top Telemetry strip */}
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-12 mb-6 flex justify-between items-center text-[10px] sm:text-[11px] font-mono text-black/60 uppercase tracking-widest">
-        <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span>Velocity Field • Dual Contraflow</span>
-        </div>
-        <div>Kinetic Scroll Scrub • 60 FPS</div>
-      </div>
-
       <div className="space-y-4 sm:space-y-6">
         {/* Row 1: Flowing Left */}
         <div className="overflow-hidden whitespace-nowrap will-change-transform">

@@ -109,25 +109,15 @@ export const ProjectList: React.FC = () => {
         
         {/* Asymmetric Section Header with Monumental Scale Contrast */}
         <div
-          className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-20 pb-8 border-b border-black/10"
+          className="mb-16 pb-8 border-b border-black/10"
           onMouseEnter={() => setActiveProject(null)}
         >
-          <div className="space-y-3 max-w-2xl">
-            <div className="flex items-center gap-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-black"></span>
-              <span className="text-xs font-mono uppercase tracking-widest text-black/65 font-semibold">Production Artifacts</span>
-            </div>
-            <h2 className="text-5xl sm:text-7xl lg:text-8xl font-bold font-display text-black tracking-tighter uppercase leading-[0.92]">
-              Selected<br />
-              <span className="sm:pl-16 lg:pl-24 inline-block text-black/55 hover:text-black transition-colors duration-500">
-                Works.
-              </span>
-            </h2>
-          </div>
-          <div className="text-xs font-mono text-black/70 text-left sm:text-right tracking-tight space-y-1">
-            <div className="font-semibold text-black">2025 — 2026 Index</div>
-            <div className="text-black/60">Hover row to project specimen</div>
-          </div>
+          <h2 className="text-5xl sm:text-7xl lg:text-8xl font-bold font-display text-black tracking-tighter uppercase leading-[0.92]">
+            Selected<br />
+            <span className="sm:pl-16 lg:pl-24 inline-block text-black/55 hover:text-black transition-colors duration-500">
+              Works.
+            </span>
+          </h2>
         </div>
 
         {/* Asymmetric Diagonal Project List with strict hover boundary */}

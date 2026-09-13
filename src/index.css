@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
+  --font-display: 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
 }
 
 @layer base {
