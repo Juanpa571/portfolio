@@ -46,11 +46,39 @@ export const Hero: React.FC = () => {
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         const btn = document.getElementById('corner-menu-btn');
 
+        // Dynamic vector calculator to the exact center of the 3-line hamburger button
+        const getDeltas = () => {
+          const btnRect = btn?.getBoundingClientRect();
+          const targetX = btnRect ? btnRect.left + btnRect.width / 2 : window.innerWidth - (window.innerWidth < 640 ? 52 : 64);
+          const targetY = btnRect ? btnRect.top + btnRect.height / 2 : (window.innerWidth < 640 ? 52 : 64);
+
+          const r1 = s1.getBoundingClientRect();
+          const r2 = s2.getBoundingClientRect();
+          const r3 = s3.getBoundingClientRect();
+
+          return {
+            d1: {
+              x: targetX - (r1.left + r1.width / 2),
+              y: targetY - (r1.top + r1.height / 2),
+            },
+            d2: {
+              x: targetX - (r2.left + r2.width / 2),
+              y: targetY - (r2.top + r2.height / 2),
+            },
+            d3: {
+              x: targetX - (r3.left + r3.width / 2),
+              y: targetY - (r3.top + r3.height / 2),
+            },
+          };
+        };
+
+        const { d1, d2, d3 } = getDeltas();
+
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: container,
             start: 'top top',
-            end: '+=70%',
+            end: '+=85%',
             pin: true,
             anticipatePin: 1,
             scrub: 0.8,
@@ -58,28 +86,11 @@ export const Hero: React.FC = () => {
           },
         });
 
-        // Function to calculate exact target vector to the 3-line button center
-        const getDelta = (element: HTMLElement) => {
-          const btnRect = btn?.getBoundingClientRect();
-          const targetX = btnRect ? btnRect.left + btnRect.width / 2 : window.innerWidth - 60;
-          const targetY = btnRect ? btnRect.top + btnRect.height / 2 : 60;
-
-          const elRect = element.getBoundingClientRect();
-          return {
-            x: targetX - (elRect.left + elRect.width * 0.45),
-            y: targetY - (elRect.top + elRect.height / 2),
-          };
-        };
-
-        const d3 = getDelta(s3);
-        const d2 = getDelta(s2);
-        const d1 = getDelta(s1);
-
-        // A. Bottom telemetry bar fades and tucks out
+        // A. Bottom telemetry bar fades and tucks away
         tl.to(
           telemetry,
           {
-            y: -25,
+            y: -28,
             opacity: 0,
             scale: 0.9,
             duration: 0.25,
@@ -87,63 +98,60 @@ export const Hero: React.FC = () => {
           },
           0
         )
-        // B. Line 3 ("Design & Production Code.") gets sucked in first
+        // B. Line 3 ("Design & Production Code.") gets sucked in first along a curved path
         .to(
           s3,
           {
             x: d3.x,
             y: d3.y,
-            scale: 0.025,
-            rotate: 16,
+            scale: 0.015,
+            rotate: 14,
             opacity: 0,
             filter: 'blur(4px)',
-            transformOrigin: 'center center',
             duration: 0.65,
-            ease: 'power3.in',
+            ease: 'power2.in',
           },
           0.05
         )
-        // C. Line 2 ("Chacón.") follows right behind, curving towards the top right
+        // C. Line 2 ("Chacón.") curves and accelerates towards the 3-line icon
         .to(
           s2,
           {
             x: d2.x,
             y: d2.y,
-            scale: 0.025,
-            rotate: 20,
+            scale: 0.015,
+            rotate: 18,
             opacity: 0,
             filter: 'blur(5px)',
-            transformOrigin: 'center center',
             duration: 0.7,
-            ease: 'power3.in',
+            ease: 'power2.in',
           },
-          0.15
+          0.18
         )
-        // D. Line 1 ("Juan Pablo") plunges straight into the center of the 3-line icon
+        // D. Line 1 ("Juan Pablo") plunges straight into the center of the 3 lines
         .to(
           s1,
           {
             x: d1.x,
             y: d1.y,
-            scale: 0.02,
-            rotate: 24,
+            scale: 0.015,
+            rotate: 22,
             opacity: 0,
             filter: 'blur(6px)',
-            transformOrigin: 'center center',
             duration: 0.75,
-            ease: 'power3.in',
+            ease: 'power2.in',
           },
-          0.25
+          0.30
         );
 
-        // E. The 3-Line Corner Button Absorption Reaction
+        // E. 3-Line Corner Button Absorption Pulse (expands and settles as text enters)
         if (btn) {
           tl.fromTo(
             btn,
             { scale: 1 },
             {
-              scale: 1.22,
-              boxShadow: '0 0 35px rgba(255, 255, 255, 0.6), 0 20px 40px rgba(0, 0, 0, 0.45)',
+              scale: 1.25,
+              boxShadow: '0 0 35px rgba(255, 255, 255, 0.7), 0 20px 40px rgba(0, 0, 0, 0.5)',
               borderColor: 'rgba(255, 255, 255, 0.9)',
               duration: 0.15,
               ease: 'power2.out',
@@ -154,7 +162,7 @@ export const Hero: React.FC = () => {
             btn,
             {
               scale: 1,
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4)',
+              boxShadow: '0 20px 50px rgba(0, 0, 0, 0.3)',
               borderColor: 'rgba(255, 255, 255, 0.2)',
               duration: 0.2,
               ease: 'power2.inOut',
@@ -209,7 +217,7 @@ export const Hero: React.FC = () => {
       }
     }, containerRef);
 
-    // Ensure ScrollTrigger triggers recalculate properly after mount
+    // Refresh ScrollTrigger after initial mount and font rendering
     const timer = setTimeout(() => {
       ScrollTrigger.refresh();
     }, 600);
@@ -223,52 +231,59 @@ export const Hero: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[calc(100vh-5.5rem)] min-h-[calc(100dvh-5.5rem)] flex flex-col justify-between bg-[#fafaf8] border-b border-black/[0.08] overflow-hidden"
+      className="relative w-full min-h-screen min-h-[100dvh] flex flex-col justify-between pt-28 sm:pt-32 pb-8 sm:pb-10 bg-[#fafaf8] border-b border-black/[0.08] overflow-visible"
     >
       {/* Centered Monumental Content Area */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 flex-1 flex flex-col justify-center py-8 sm:py-12">
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 flex-1 flex flex-col justify-center py-6 sm:py-10">
         
         {/* Monumental Asymmetric Typographic Statement with 3D Depth Layers */}
         <div className="space-y-2 sm:space-y-4 select-none">
           
           {/* Line 1: Suction Wrapper -> Depth Layer 1 — First Name */}
-          <div ref={suction1Ref} className="will-change-transform">
-            <div
-              ref={line1Ref}
-              className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 cursor-default will-change-transform opacity-0"
-              data-interactive
-            >
-              <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                Juan Pablo
-              </span>
+          <div>
+            <div ref={suction1Ref} className="inline-block origin-center will-change-transform">
+              <div
+                ref={line1Ref}
+                className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 cursor-default will-change-transform opacity-0"
+                data-interactive
+              >
+                <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
+                  Juan Pablo
+                </span>
+              </div>
             </div>
           </div>
 
           {/* Line 2: Suction Wrapper -> Depth Layer 2 — Last Name with Asymmetric Indent */}
-          <div ref={suction2Ref} className="will-change-transform sm:pl-14 md:pl-20 lg:pl-28">
-            <div
-              ref={line2Ref}
-              className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 cursor-default will-change-transform opacity-0"
-              data-interactive
-            >
-              <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                Chacón.
-              </span>
+          <div className="sm:pl-14 md:pl-20 lg:pl-28">
+            <div ref={suction2Ref} className="inline-block origin-center will-change-transform">
+              <div
+                ref={line2Ref}
+                className="text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 cursor-default will-change-transform opacity-0"
+                data-interactive
+              >
+                <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
+                  Chacón.
+                </span>
+              </div>
             </div>
           </div>
 
           {/* Line 3: Suction Wrapper -> Depth Layer 3 — Core Dual Discipline Statement */}
-          <div ref={suction3Ref} className="will-change-transform sm:pl-2">
-            <div
-              ref={line3Ref}
-              className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.2vw] font-light font-display tracking-[-0.01em] text-black/50 hover:text-black/80 leading-[1.08] sm:leading-[1.12] pb-1 pt-2 sm:pt-4 cursor-default will-change-transform opacity-0 transition-colors duration-500"
-              data-interactive
-            >
-              <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                Design <span className="italic font-light text-black/35">&</span> Production Code.
-              </span>
+          <div className="sm:pl-2 pt-2 sm:pt-4">
+            <div ref={suction3Ref} className="inline-block origin-center will-change-transform">
+              <div
+                ref={line3Ref}
+                className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.2vw] font-light font-display tracking-[-0.01em] text-black/50 hover:text-black/80 leading-[1.08] sm:leading-[1.12] pb-1 cursor-default will-change-transform opacity-0 transition-colors duration-500"
+                data-interactive
+              >
+                <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
+                  Design <span className="italic font-light text-black/35">&</span> Production Code.
+                </span>
+              </div>
             </div>
           </div>
+
         </div>
 
       </div>

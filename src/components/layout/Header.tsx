@@ -60,7 +60,7 @@ export const Header: React.FC = () => {
   return (
     <>
       {/* 1. Unboxed Editorial Top Header (Completely integrated into page, zero pill/box/shadow) */}
-      <header className="relative w-full max-w-[1400px] mx-auto px-6 sm:px-12 pt-8 sm:pt-10 pb-4 flex items-center justify-between z-30 select-none">
+      <header className="absolute top-0 left-0 right-0 w-full max-w-[1400px] mx-auto px-6 sm:px-12 pt-8 sm:pt-10 pb-4 flex items-center justify-between z-30 select-none pointer-events-none [&_a]:pointer-events-auto [&_button]:pointer-events-auto">
         {/* Left: Brand Identity & Telemetry */}
         <div className="flex items-center gap-3 sm:gap-5">
           <a
