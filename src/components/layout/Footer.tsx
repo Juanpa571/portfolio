@@ -67,10 +67,10 @@ export const Footer: React.FC = () => {
     <footer
       id="contact"
       ref={sectionRef}
-      className="relative bg-[#0c0d12] text-white min-h-screen flex flex-col justify-between overflow-hidden"
+      className="relative bg-[#1C1D20] text-white min-h-screen flex flex-col justify-between overflow-hidden"
     >
       {/* Dennis Snellenberg-inspired Morphing Geometric Horizon Curve */}
-      <div className="relative w-full overflow-hidden bg-[#0c0d12] -mt-px pointer-events-none">
+      <div className="relative w-full overflow-hidden bg-[#1C1D20] -mt-px pointer-events-none">
         <svg
           viewBox="0 0 1440 100"
           className="w-full h-16 sm:h-24 md:h-28 block"
@@ -83,9 +83,6 @@ export const Footer: React.FC = () => {
           />
         </svg>
       </div>
-
-      {/* Subtle Ambient Grain Layer */}
-      <div className="absolute inset-0 bg-radial from-white/[0.04] to-transparent opacity-60 pointer-events-none" />
 
       {/* Content Container with generous breathing room below sticky header */}
       <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 lg:px-16 pt-16 sm:pt-24 lg:pt-32 pb-16 flex-1 flex flex-col justify-between relative z-10">

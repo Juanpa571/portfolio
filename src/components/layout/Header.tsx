@@ -137,7 +137,7 @@ export const Header: React.FC = () => {
           className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex flex-col items-center justify-center gap-1.5 cursor-pointer shadow-2xl transition-all duration-300 group ${
             isMenuOpen
               ? 'bg-white text-black hover:scale-105'
-              : 'bg-[#0c0d12]/95 backdrop-blur-xl border border-white/20 text-white hover:scale-110 hover:border-white/40'
+              : 'bg-[#1C1D20] border border-white/20 text-white hover:scale-110 hover:border-white/40'
           }`}
           aria-label={isMenuOpen ? 'Close Menu' : 'Open Navigation Menu'}
           data-interactive
@@ -172,13 +172,13 @@ export const Header: React.FC = () => {
 
       {/* Drawer Panel */}
       <div
-        className={`fixed top-0 right-0 h-full w-full sm:w-[480px] lg:w-[520px] bg-[#0e0f14] text-white z-45 shadow-[-30px_0_80px_rgba(0,0,0,0.85)] border-l border-white/10 flex flex-col justify-between p-8 sm:p-12 lg:p-14 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+        className={`fixed top-0 right-0 h-full w-full sm:w-[480px] lg:w-[520px] bg-[#1C1D20] text-white z-45 shadow-[-30px_0_80px_rgba(0,0,0,0.85)] border-l border-white/10 flex flex-col justify-between p-8 sm:p-12 lg:p-14 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Drawer Header */}
         <div className="flex items-center justify-between pt-2 border-b border-white/10 pb-6">
-          <div className="flex items-center gap-2 text-xs font-mono text-white/50 tracking-wider uppercase">
+          <div className="flex items-center gap-2 text-xs font-mono text-white/50 tracking-wider">
             <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
             <span>JP Studios // Navigation</span>
           </div>
