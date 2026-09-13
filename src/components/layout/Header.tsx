@@ -96,7 +96,7 @@ export const Header: React.FC = () => {
         </div>
 
         {/* Right: Clean Editorial Links (Dennis Snellenberg Style) */}
-        <nav className="flex items-center gap-6 sm:gap-8 text-sm font-sans font-medium text-black">
+        <nav className="flex items-center gap-6 sm:gap-8 text-sm font-sans font-medium text-black pr-16 sm:pr-20">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -114,7 +114,7 @@ export const Header: React.FC = () => {
             href={siteConfig.profile.contact.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-1.5 rounded-full bg-black text-white text-xs font-sans font-semibold hover:bg-black/80 active:scale-95 transition-all flex items-center gap-1.5 shadow-sm group"
+            className="hidden sm:flex px-4 py-1.5 rounded-full bg-black text-white text-xs font-sans font-semibold hover:bg-black/80 active:scale-95 transition-all items-center gap-1.5 shadow-sm group"
             data-interactive
           >
             <span>Chat</span>
@@ -123,15 +123,14 @@ export const Header: React.FC = () => {
         </nav>
       </header>
 
-      {/* 2. Floating Corner Menu Trigger Button (Appears only on scroll, sits comfortably in top-right corner) */}
+      {/* 2. Floating Corner Menu Trigger Button (Signature 3-line vault icon in top-right corner) */}
       <div
-        className={`fixed top-6 right-6 sm:top-8 sm:right-8 z-50 transition-all duration-500 ease-out ${
-          isScrolled
-            ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
-            : 'opacity-0 scale-75 -translate-y-3 pointer-events-none'
+        className={`fixed top-6 right-6 sm:top-8 sm:right-8 z-50 transition-transform duration-300 ease-out ${
+          isScrolled ? 'scale-100' : 'scale-95'
         }`}
       >
         <button
+          id="corner-menu-btn"
           type="button"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex flex-col items-center justify-center gap-1.5 cursor-pointer shadow-2xl transition-all duration-300 group ${
@@ -142,19 +141,26 @@ export const Header: React.FC = () => {
           aria-label={isMenuOpen ? 'Close Menu' : 'Open Navigation Menu'}
           data-interactive
         >
-          {/* Animated Hamburger / Close Morphing Lines */}
+          {/* Animated 3-Line Hamburger / Close Morphing Lines */}
           <span
-            className={`w-5 sm:w-6 h-[2px] rounded-full transition-all duration-300 ${
+            className={`w-5 sm:w-6 h-[1.8px] rounded-full transition-all duration-300 origin-center ${
               isMenuOpen
-                ? 'bg-black rotate-45 translate-y-[4px]'
+                ? 'bg-black rotate-45 translate-y-[5.5px]'
+                : 'bg-white group-hover:w-6.5'
+            }`}
+          />
+          <span
+            className={`w-3.5 sm:w-4.5 h-[1.8px] rounded-full transition-all duration-300 ${
+              isMenuOpen
+                ? 'opacity-0 scale-x-0'
                 : 'bg-white group-hover:w-6'
             }`}
           />
           <span
-            className={`w-5 sm:w-6 h-[2px] rounded-full transition-all duration-300 ${
+            className={`w-5 sm:w-6 h-[1.8px] rounded-full transition-all duration-300 origin-center ${
               isMenuOpen
-                ? 'bg-black -rotate-45 -translate-y-[4px]'
-                : 'bg-white group-hover:w-4'
+                ? 'bg-black -rotate-45 -translate-y-[5.5px]'
+                : 'bg-white group-hover:w-5.5'
             }`}
           />
         </button>
