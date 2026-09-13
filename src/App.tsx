@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header } from './components/layout/Header';
 import { Hero } from './components/sections/Hero';
+import { Intro } from './components/sections/Intro';
 import { VelocityTicker } from './components/sections/VelocityTicker';
 import { Services } from './components/sections/Services';
 import { ProjectList } from './components/sections/ProjectList';
@@ -19,6 +20,7 @@ export const App: React.FC = () => {
       <Header />
       <main>
         <Hero />
+        <Intro />
         <VelocityTicker />
         <Services />
         <ProjectList />
