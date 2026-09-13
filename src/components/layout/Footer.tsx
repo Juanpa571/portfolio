@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
   const [copied, setCopied] = useState(false);
 
   const sectionRef = useRef<HTMLElement | null>(null);
-  const stageRef = useRef<HTMLDivElement | null>(null);
+  const curvePathRef = useRef<SVGPathElement | null>(null);
   const headlineRef = useRef<HTMLHeadingElement | null>(null);
 
   const copyEmail = () => {
@@ -22,44 +22,39 @@ export const Footer: React.FC = () => {
   };
 
   useEffect(() => {
-    if (!sectionRef.current || !stageRef.current) return;
+    if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Cinematic Asymmetric Stage Elevation:
-      // As the user scrolls into the finale, the dark monolithic room rises from below,
-      // scaling up from 0.95 to 1.0 and expanding to command the entire viewport.
-      const stageTl = gsap.timeline({
-        scrollTrigger: {
+      // 1. Dynamic SVG Horizon Morph (Snellenberg-inspired geometric curve)
+      // As the footer enters the viewport, the white curve smoothly flattens from 100px to 0px
+      if (curvePathRef.current) {
+        const updateCurve = (h: number) => {
+          if (curvePathRef.current) {
+            curvePathRef.current.setAttribute(
+              'd',
+              `M 0 0 L 1440 0 L 1440 0 Q 720 ${Math.max(0, h)} 0 0 Z`
+            );
+          }
+        };
+
+        ScrollTrigger.create({
           trigger: sectionRef.current,
           start: 'top bottom',
-          end: 'top 10%',
-          scrub: 0.7,
-        },
-      });
+          end: 'top 20%',
+          scrub: 0.5,
+          onUpdate: (self) => {
+            const currentH = (1 - self.progress) * 100;
+            updateCurve(currentH);
+          },
+        });
+      }
 
-      stageTl.fromTo(
-        stageRef.current,
-        {
-          y: 120,
-          scale: 0.96,
-          borderTopLeftRadius: '48px',
-          borderTopRightRadius: '48px',
-        },
-        {
-          y: 0,
-          scale: 1,
-          borderTopLeftRadius: '0px',
-          borderTopRightRadius: '0px',
-          ease: 'power2.out',
-        }
-      );
-
-      // Monumental Typography staggered entrance
+      // 2. Monumental Typography staggered entrance
       if (headlineRef.current) {
         const lines = headlineRef.current.querySelectorAll('.reveal-word');
         gsap.fromTo(
           lines,
-          { y: 80, opacity: 0 },
+          { y: 60, opacity: 0 },
           {
             y: 0,
             opacity: 1,
@@ -83,18 +78,28 @@ export const Footer: React.FC = () => {
     <footer
       id="contact"
       ref={sectionRef}
-      className="relative bg-[#fafaf8] overflow-hidden pt-8 sm:pt-16"
+      className="relative bg-[#0c0d12] text-white min-h-screen flex flex-col justify-between overflow-hidden"
     >
-      {/* Cinematic Monumental Dark Stage */}
-      <div
-        ref={stageRef}
-        className="bg-[#0c0d12] text-white min-h-screen flex flex-col justify-between border-t border-white/10 shadow-[0_-30px_100px_rgba(0,0,0,0.45)] will-change-transform relative overflow-hidden"
-      >
-        {/* Subtle Ambient Grain Layer */}
-        <div className="absolute inset-0 bg-radial from-white/[0.04] to-transparent opacity-60 pointer-events-none" />
+      {/* Dennis Snellenberg-inspired Morphing Geometric Horizon Curve */}
+      <div className="relative w-full overflow-hidden bg-[#0c0d12] -mt-px pointer-events-none">
+        <svg
+          viewBox="0 0 1440 100"
+          className="w-full h-16 sm:h-24 md:h-28 block"
+          preserveAspectRatio="none"
+        >
+          <path
+            ref={curvePathRef}
+            fill="#fafaf8"
+            d="M 0 0 L 1440 0 L 1440 0 Q 720 100 0 0 Z"
+          />
+        </svg>
+      </div>
 
-        {/* Content Container */}
-        <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 lg:px-16 pt-20 sm:pt-28 lg:pt-36 pb-12 flex-1 flex flex-col justify-between relative z-10">
+      {/* Subtle Ambient Grain Layer */}
+      <div className="absolute inset-0 bg-radial from-white/[0.04] to-transparent opacity-60 pointer-events-none" />
+
+      {/* Content Container with generous breathing room below sticky header */}
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 lg:px-16 pt-16 sm:pt-24 lg:pt-32 pb-16 flex-1 flex flex-col justify-between relative z-10">
           
           {/* Main Asymmetric Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -245,8 +250,6 @@ export const Footer: React.FC = () => {
           </div>
 
         </div>
-
-      </div>
     </footer>
   );
 };

@@ -7,6 +7,7 @@ export const Header: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [copiedTime, setCopiedTime] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isOverDark, setIsOverDark] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('');
 
   useEffect(() => {
@@ -19,6 +20,16 @@ export const Header: React.FC = () => {
       if (totalScroll > 0) {
         const progress = (currentScroll / totalScroll) * 100;
         setScrollProgress(Math.min(100, Math.max(0, progress)));
+      }
+
+      // Check if sticky header is currently overlapping the dark contact section
+      const contactEl = document.getElementById('contact');
+      if (contactEl) {
+        const rect = contactEl.getBoundingClientRect();
+        // Header sits at ~16px-70px from viewport top
+        setIsOverDark(rect.top <= 65 && rect.bottom >= 65);
+      } else {
+        setIsOverDark(false);
       }
 
       // Accurate active section scrollspy
@@ -57,16 +68,20 @@ export const Header: React.FC = () => {
     <div className="sticky top-4 sm:top-6 z-50 w-full px-4 sm:px-8 pointer-events-none flex justify-center">
       <header
         className={`pointer-events-auto relative max-w-6xl w-full flex items-center justify-between gap-3 sm:gap-6 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full border transition-all duration-500 ease-out overflow-hidden ${
-          isScrolled
-            ? 'bg-[#fafaf8]/90 backdrop-blur-2xl border-black/[0.12] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.12)] scale-[0.99]'
-            : 'bg-[#fafaf8]/70 backdrop-blur-lg border-black/[0.07] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)]'
+          isOverDark
+            ? 'bg-[#0c0d12]/85 backdrop-blur-2xl border-white/15 text-white shadow-[0_20px_50px_rgba(0,0,0,0.8)] scale-[0.99]'
+            : isScrolled
+            ? 'bg-[#fafaf8]/90 backdrop-blur-2xl border-black/[0.12] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.12)] scale-[0.99] text-black'
+            : 'bg-[#fafaf8]/70 backdrop-blur-lg border-black/[0.07] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] text-black'
         }`}
       >
         {/* Left Lockup: Brand & Telemetry Capsule */}
         <div className="flex items-center gap-3 sm:gap-4">
           <a
             href="#"
-            className="group flex items-center gap-2.5 text-black font-display font-bold text-sm tracking-tight"
+            className={`group flex items-center gap-2.5 font-display font-bold text-sm tracking-tight transition-colors duration-300 ${
+              isOverDark ? 'text-white' : 'text-black'
+            }`}
             data-interactive
           >
             <span className="relative flex h-2 w-2">
@@ -78,19 +93,23 @@ export const Header: React.FC = () => {
             </span>
           </a>
 
-          <div className="hidden md:block w-px h-3.5 bg-black/15"></div>
+          <div className={`hidden md:block w-px h-3.5 transition-colors duration-300 ${isOverDark ? 'bg-white/20' : 'bg-black/15'}`} />
 
           {/* Interactive Live Time Pill */}
           <button
             type="button"
             onClick={handleTimeClick}
-            className="hidden md:flex items-center gap-2 px-2.5 py-1 rounded-full bg-black/[0.03] hover:bg-black/[0.07] border border-black/[0.04] text-[11px] font-mono text-black/70 hover:text-black transition-all cursor-pointer group"
+            className={`hidden md:flex items-center gap-2 px-2.5 py-1 rounded-full border text-[11px] font-mono transition-all cursor-pointer group ${
+              isOverDark
+                ? 'bg-white/[0.07] hover:bg-white/[0.14] border-white/10 text-white/70 hover:text-white'
+                : 'bg-black/[0.03] hover:bg-black/[0.07] border-black/[0.04] text-black/70 hover:text-black'
+            }`}
             title="Click to copy local COT time"
             data-interactive
           >
             <span>Cali</span>
-            <span className="text-black/40">•</span>
-            <span className="font-semibold text-black/90">
+            <span className={isOverDark ? 'text-white/40' : 'text-black/40'}>•</span>
+            <span className={`font-semibold ${isOverDark ? 'text-white' : 'text-black/90'}`}>
               {copiedTime ? 'Copied ✓' : (liveTime || '14:07 COT')}
             </span>
           </button>
@@ -102,7 +121,11 @@ export const Header: React.FC = () => {
             href="#services"
             className={`px-3 py-1.5 rounded-full transition-all duration-300 ${
               activeSection === 'services'
-                ? 'bg-black text-white font-medium shadow-xs'
+                ? isOverDark
+                  ? 'bg-white text-black font-semibold shadow-xs'
+                  : 'bg-black text-white font-medium shadow-xs'
+                : isOverDark
+                ? 'text-white/70 hover:text-white hover:bg-white/10'
                 : 'text-black/70 hover:text-black hover:bg-black/[0.04]'
             }`}
             data-interactive
@@ -113,7 +136,11 @@ export const Header: React.FC = () => {
             href="#work"
             className={`px-3 py-1.5 rounded-full transition-all duration-300 ${
               activeSection === 'work'
-                ? 'bg-black text-white font-medium shadow-xs'
+                ? isOverDark
+                  ? 'bg-white text-black font-semibold shadow-xs'
+                  : 'bg-black text-white font-medium shadow-xs'
+                : isOverDark
+                ? 'text-white/70 hover:text-white hover:bg-white/10'
                 : 'text-black/70 hover:text-black hover:bg-black/[0.04]'
             }`}
             data-interactive
@@ -124,7 +151,11 @@ export const Header: React.FC = () => {
             href="#contact"
             className={`hidden sm:inline-block px-3 py-1.5 rounded-full transition-all duration-300 ${
               activeSection === 'contact'
-                ? 'bg-black text-white font-medium shadow-xs'
+                ? isOverDark
+                  ? 'bg-white text-black font-semibold shadow-xs'
+                  : 'bg-black text-white font-medium shadow-xs'
+                : isOverDark
+                ? 'text-white/70 hover:text-white hover:bg-white/10'
                 : 'text-black/70 hover:text-black hover:bg-black/[0.04]'
             }`}
             data-interactive
@@ -133,8 +164,10 @@ export const Header: React.FC = () => {
           </a>
 
           {/* Reading Gauge / Micro Progress Counter */}
-          <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-mono text-black/40 border-l border-black/10 ml-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-black/20"></span>
+          <div className={`hidden lg:flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-mono border-l ml-2 transition-colors duration-300 ${
+            isOverDark ? 'text-white/40 border-white/15' : 'text-black/40 border-black/10'
+          }`}>
+            <span className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 ${isOverDark ? 'bg-white/30' : 'bg-black/20'}`}></span>
             <span>{Math.round(scrollProgress)}%</span>
           </div>
 
@@ -143,7 +176,11 @@ export const Header: React.FC = () => {
             href={siteConfig.profile.contact.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-1 sm:ml-2 px-4 py-1.5 sm:py-2 rounded-full bg-black text-white text-xs font-sans font-semibold hover:bg-black/80 active:scale-95 transition-all flex items-center gap-1.5 group shadow-sm"
+            className={`ml-1 sm:ml-2 px-4 py-1.5 sm:py-2 rounded-full text-xs font-sans font-semibold active:scale-95 transition-all flex items-center gap-1.5 group shadow-sm ${
+              isOverDark
+                ? 'bg-white text-black hover:bg-white/90 font-bold'
+                : 'bg-black text-white hover:bg-black/80'
+            }`}
             data-interactive
           >
             <span>Chat</span>
@@ -152,9 +189,9 @@ export const Header: React.FC = () => {
         </nav>
 
         {/* Integrated Capsule Scroll Indicator */}
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-black/[0.04]">
+        <div className={`absolute bottom-0 left-0 right-0 h-[2px] transition-colors duration-300 ${isOverDark ? 'bg-white/10' : 'bg-black/[0.04]'}`}>
           <div
-            className="h-full bg-black/80 transition-[width] duration-150 ease-out"
+            className={`h-full transition-[width] duration-150 ease-out ${isOverDark ? 'bg-white/90' : 'bg-black/80'}`}
             style={{ width: `${scrollProgress}%` }}
           />
         </div>
