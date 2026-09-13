@@ -242,16 +242,6 @@ export const Services: React.FC = () => {
               className="p-6 sm:p-8 rounded-3xl bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-300 flex flex-col justify-center h-full group cursor-pointer relative"
               data-interactive
             >
-              {/* Active Retainer Status Badge */}
-              <div className="absolute top-6 right-6 sm:top-8 sm:right-8">
-                <span className="text-[11px] font-mono px-3 py-0.5 rounded-full bg-emerald-50 text-emerald-900 border border-emerald-300 font-semibold flex items-center gap-1.5">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
-                  Active Retainer
-                </span>
-              </div>
 
               <div className="flex items-center justify-between gap-6 my-auto">
                 <div className="space-y-1.5">
