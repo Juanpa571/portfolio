@@ -217,7 +217,7 @@ export const ContactForm: React.FC = () => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Juan Pérez — Hotel Boutique"
-                  className="w-full px-8 py-5 sm:py-6 rounded-full bg-white border border-black/10 text-base sm:text-xl text-black placeholder:text-black/30 focus:outline-none focus:border-[#1C1D20] focus:ring-1 focus:ring-[#1C1D20] transition-all shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
+                  className="w-full px-8 py-5 sm:py-6 rounded-full bg-white border border-black/10 text-base sm:text-xl leading-normal text-black placeholder:text-black/30 focus:outline-none focus:border-[#1C1D20] focus:ring-1 focus:ring-[#1C1D20] transition-all shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
                   data-interactive
                 />
               </div>
@@ -241,7 +241,7 @@ export const ContactForm: React.FC = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="contacto@tunegocio.com"
-                  className="w-full px-8 py-5 sm:py-6 rounded-full bg-white border border-black/10 text-base sm:text-xl text-black placeholder:text-black/30 focus:outline-none focus:border-[#1C1D20] focus:ring-1 focus:ring-[#1C1D20] transition-all shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
+                  className="w-full px-8 py-5 sm:py-6 rounded-full bg-white border border-black/10 text-base sm:text-xl leading-normal text-black placeholder:text-black/30 focus:outline-none focus:border-[#1C1D20] focus:ring-1 focus:ring-[#1C1D20] transition-all shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
                   data-interactive
                 />
               </div>
@@ -265,7 +265,7 @@ export const ContactForm: React.FC = () => {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Cuéntame sobre tu negocio, tu web actual (si tienes) o los objetivos que buscas lograr..."
-                  className="w-full p-8 sm:p-10 rounded-3xl sm:rounded-[32px] bg-white border border-black/10 text-base sm:text-xl text-black placeholder:text-black/30 focus:outline-none focus:border-[#1C1D20] focus:ring-1 focus:ring-[#1C1D20] transition-all resize-none shadow-[0_4px_20px_rgba(0,0,0,0.02)] min-h-[200px]"
+                  className="w-full p-8 sm:p-10 rounded-3xl sm:rounded-[32px] bg-white border border-black/10 text-base sm:text-xl leading-normal text-black placeholder:text-black/30 focus:outline-none focus:border-[#1C1D20] focus:ring-1 focus:ring-[#1C1D20] transition-all resize-none shadow-[0_4px_20px_rgba(0,0,0,0.02)] min-h-[200px]"
                   data-interactive
                 />
               </div>
@@ -284,7 +284,7 @@ export const ContactForm: React.FC = () => {
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="px-10 sm:px-14 py-5 sm:py-6 rounded-full bg-[#1C1D20] hover:bg-black text-white text-base sm:text-xl font-normal tracking-[-0.01em] transition-all duration-300 shadow-xl active:scale-95 inline-flex items-center gap-4 cursor-pointer group disabled:opacity-60"
+                  className="px-10 sm:px-14 py-5 sm:py-6 rounded-full bg-[#1C1D20] hover:bg-black text-white text-base sm:text-xl font-normal leading-normal tracking-[-0.01em] transition-all duration-300 shadow-xl active:scale-95 inline-flex items-center gap-4 cursor-pointer group disabled:opacity-60"
                   data-interactive
                 >
                   <span>{status === 'submitting' ? 'Enviando...' : 'Enviar consulta'}</span>
