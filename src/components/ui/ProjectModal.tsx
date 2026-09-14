@@ -92,6 +92,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               title={project.title}
               recommendedAspect={project.aspectRatio}
               dimensions={project.dimensions}
+              src={project.image}
             />
           </div>
 

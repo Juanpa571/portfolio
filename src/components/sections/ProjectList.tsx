@@ -250,6 +250,7 @@ export const ProjectList: React.FC = () => {
                   title={displayedProject.title}
                   recommendedAspect={displayedProject.aspectRatio}
                   dimensions={displayedProject.dimensions}
+                  src={displayedProject.image}
                   className="transform hover:scale-105 transition-transform duration-500"
                 />
               </div>

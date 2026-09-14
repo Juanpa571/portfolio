@@ -17,6 +17,7 @@ export interface ProjectItem {
   description: string;
   aspectRatio: string;
   dimensions: string;
+  image?: string;
 }
 
 export const siteConfig = {
@@ -70,13 +71,14 @@ export const siteConfig = {
       id: 'habitat',
       number: '01',
       clientTag: 'HÁBITAT',
-      title: 'Hábitat Architectural Studio',
+      title: 'Hábitat',
       category: 'Editorial Architecture',
       location: 'Colombia',
       tech: 'React 19 • Tailwind • Editorial Storytelling',
       description: 'Bioclimatic architecture atelier web experience with asymmetric typography and fluid digital storytelling.',
       aspectRatio: '16/10',
-      dimensions: '1920x1200 px'
+      dimensions: '1920x1200 px',
+      image: '/projects/habitat.jpg'
     },
     {
       id: 'aura',
