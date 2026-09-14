@@ -142,14 +142,15 @@ export const ProjectList: React.FC = () => {
           </div>
         </div>
 
-        {/* Asymmetric Diagonal Project List with strict hover boundary & Focus Dimming */}
+        {/* Asymmetric Diagonal Project List with bespoke themed rows */}
         <div
-          className="divide-y divide-black/10 border-b border-black/10"
+          className="flex flex-col gap-5 border-b border-black/10 pb-6"
           onMouseLeave={() => setActiveProject(null)}
         >
           {siteConfig.projects.map((project, idx) => {
             const isCurrentActive = activeProject?.id === project.id;
             const indentClass = getAsymmetricIndent(idx);
+            const theme = project.theme;
 
             return (
               <div
@@ -159,46 +160,86 @@ export const ProjectList: React.FC = () => {
                   setActiveProject(project);
                 }}
                 onClick={() => setModalProject(project)}
-                className={`py-12 sm:py-16 transition-all duration-300 group cursor-pointer relative px-4 sm:px-6 -mx-4 sm:-mx-6 rounded-3xl ${
+                style={{
+                  backgroundColor: isCurrentActive
+                    ? theme?.hoverBg || 'rgba(0,0,0,0.03)'
+                    : theme?.cardBg || 'rgba(0,0,0,0.01)',
+                  borderColor: isCurrentActive
+                    ? theme?.borderColor || 'rgba(0,0,0,0.2)'
+                    : theme?.borderColor || 'rgba(0,0,0,0.08)',
+                  boxShadow: isCurrentActive && theme
+                    ? `0 20px 45px -15px ${theme.glowColor}`
+                    : 'none',
+                }}
+                className={`py-10 sm:py-14 transition-all duration-500 group cursor-pointer relative px-6 sm:px-10 rounded-[2rem] border ${
                   isCurrentActive
-                    ? 'bg-black/[0.02] opacity-100'
+                    ? 'opacity-100 scale-[1.008]'
                     : activeProject
-                      ? 'opacity-25 blur-[0.2px]'
-                      : 'opacity-100'
+                    ? 'opacity-35 blur-[0.2px]'
+                    : 'opacity-100'
                 }`}
                 data-interactive
               >
-                {/* Subtle Background Watermark Number */}
-                <div className="absolute top-4 right-8 text-7xl sm:text-9xl font-display font-bold text-black/[0.03] group-hover:text-black/[0.07] transition-colors pointer-events-none select-none">
+                {/* Subtle Background Watermark Number tinted with accent color */}
+                <div
+                  className="absolute top-4 right-8 text-7xl sm:text-9xl font-display font-bold transition-all duration-500 pointer-events-none select-none"
+                  style={{
+                    color: theme?.accentColor || 'currentColor',
+                    opacity: isCurrentActive ? 0.14 : 0.04,
+                  }}
+                >
                   {project.number}
                 </div>
 
                 <div className={`grid grid-cols-1 md:grid-cols-12 gap-6 items-center ${indentClass} transition-all duration-500`}>
                   
                   {/* Client Identifier & Meta Badges (Col 1-3) */}
-                  <div className="md:col-span-3 space-y-1.5 z-10">
+                  <div className="md:col-span-4 lg:col-span-3 space-y-2 z-10">
                     <div className="flex items-center gap-2.5">
-                      <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-black/5 text-black font-bold tracking-wider group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                        {project.clientTag}
+                      <span
+                        className="text-xs font-mono px-3 py-1 rounded-full font-bold tracking-wider transition-all duration-300 border flex items-center gap-2"
+                        style={{
+                          backgroundColor: isCurrentActive
+                            ? theme?.buttonHoverBg || '#000000'
+                            : theme?.badgeBg || 'rgba(0,0,0,0.05)',
+                          color: isCurrentActive
+                            ? theme?.buttonHoverText || '#ffffff'
+                            : theme?.badgeText || '#000000',
+                          borderColor: theme?.badgeBorder || 'transparent',
+                        }}
+                      >
+                        <span
+                          className="w-1.5 h-1.5 rounded-full"
+                          style={{
+                            backgroundColor: isCurrentActive
+                              ? theme?.accentColor || '#10b981'
+                              : theme?.accentColor || '#000000',
+                          }}
+                        ></span>
+                        <span>{project.clientTag}</span>
                       </span>
-                      <span className="text-xs font-mono text-black/60 font-semibold">
+                      <span className="text-xs font-mono text-black/50 font-semibold">
                         {project.number}
                       </span>
                     </div>
-                    <div className="flex items-center gap-2 text-[11px] font-mono text-black/70 pt-0.5 font-medium">
-                      <span>{project.category}</span>
-                      <span>•</span>
-                      <span>{project.location}</span>
+
+                    <div className="text-[11px] font-mono text-black/65 pt-0.5 space-y-0.5">
+                      <div className="font-semibold text-black/85">
+                        {theme?.tagline || project.category}
+                      </div>
+                      <div className="text-black/50">
+                        {project.location}
+                      </div>
                     </div>
                   </div>
 
                   {/* Monumental Asymmetric Project Title (Col 4-11) */}
-                  <div className="md:col-span-8 z-10">
+                  <div className="md:col-span-7 lg:col-span-8 z-10">
                     <h3 className={`font-normal font-display tracking-tight text-black transition-all duration-300 ${
                       idx === 0
                         ? 'text-4xl sm:text-5xl lg:text-6xl'
                         : 'text-3xl sm:text-4xl lg:text-5xl'
-                    } ${isCurrentActive ? 'translate-x-4 sm:translate-x-6' : ''}`}>
+                    } ${isCurrentActive ? 'translate-x-3 sm:translate-x-5' : ''}`}>
                       {project.title}
                     </h3>
                   </div>
@@ -206,7 +247,20 @@ export const ProjectList: React.FC = () => {
                   {/* Right Action Circle with Magnetic Physics (Col 12) */}
                   <div className="md:col-span-1 flex justify-start md:justify-end z-10">
                     <Magnetic strength={0.45} radius={60}>
-                      <div className="w-12 h-12 rounded-full border border-black/15 flex items-center justify-center text-sm font-mono text-black group-hover:bg-black group-hover:text-white group-hover:border-black group-hover:scale-105 transition-all duration-300 shadow-xs">
+                      <div
+                        className="w-12 h-12 rounded-full border flex items-center justify-center text-sm font-mono transition-all duration-300 shadow-xs"
+                        style={{
+                          backgroundColor: isCurrentActive
+                            ? theme?.buttonHoverBg || '#000000'
+                            : '#ffffff',
+                          color: isCurrentActive
+                            ? theme?.buttonHoverText || '#ffffff'
+                            : '#000000',
+                          borderColor: isCurrentActive
+                            ? theme?.buttonHoverBg || '#000000'
+                            : theme?.borderColor || 'rgba(0,0,0,0.15)',
+                        }}
+                      >
                         <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
                           ↗
                         </span>

@@ -6,6 +6,20 @@ export interface ServiceItem {
   description: string;
 }
 
+export interface ProjectTheme {
+  accentColor: string;
+  cardBg: string;
+  hoverBg: string;
+  borderColor: string;
+  badgeBg: string;
+  badgeText: string;
+  badgeBorder: string;
+  tagline: string;
+  buttonHoverBg: string;
+  buttonHoverText: string;
+  glowColor: string;
+}
+
 export interface ProjectItem {
   id: string;
   number: string;
@@ -18,6 +32,7 @@ export interface ProjectItem {
   aspectRatio: string;
   dimensions: string;
   image?: string;
+  theme?: ProjectTheme;
 }
 
 export const siteConfig = {
@@ -78,7 +93,20 @@ export const siteConfig = {
       description: 'High-complexity 24/7 veterinary hospital and emergency care center. Digital presence designed for immediate triage clarity, calm clinical authority, and rapid patient intake.',
       aspectRatio: '16/10',
       dimensions: '1920x1200 px',
-      image: '/projects/habitat.jpg'
+      image: '/projects/habitat.jpg',
+      theme: {
+        accentColor: '#C89D66',
+        cardBg: 'rgba(243, 239, 231, 0.45)',
+        hoverBg: '#F5F1E8',
+        borderColor: 'rgba(196, 178, 153, 0.35)',
+        badgeBg: '#EAE3D5',
+        badgeText: '#3B332A',
+        badgeBorder: 'rgba(180, 160, 130, 0.45)',
+        tagline: '24/7 Clinical & Emergency Architecture',
+        buttonHoverBg: '#23201C',
+        buttonHoverText: '#F7F4EE',
+        glowColor: 'rgba(200, 157, 102, 0.15)',
+      }
     },
     {
       id: 'sai-seven',
@@ -91,7 +119,20 @@ export const siteConfig = {
       description: 'Ultra-luxury Caribbean beachfront sanctuary digital presence featuring immersive coastal typography, fluid storytelling, and effortless booking journeys.',
       aspectRatio: '16/10',
       dimensions: '1920x1200 px',
-      image: '/projects/sai-seven.jpg'
+      image: '/projects/sai-seven.jpg',
+      theme: {
+        accentColor: '#00A896',
+        cardBg: 'rgba(226, 246, 246, 0.45)',
+        hoverBg: '#E8F7F7',
+        borderColor: 'rgba(0, 168, 150, 0.35)',
+        badgeBg: '#D6F2F2',
+        badgeText: '#084854',
+        badgeBorder: 'rgba(0, 168, 150, 0.45)',
+        tagline: 'Caribbean Coastal Sanctuary & Resort',
+        buttonHoverBg: '#093642',
+        buttonHoverText: '#E6FAF9',
+        glowColor: 'rgba(0, 168, 150, 0.15)',
+      }
     }
   ] as ProjectItem[]
 };

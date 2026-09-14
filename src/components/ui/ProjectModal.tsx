@@ -47,15 +47,26 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Top Header Bar */}
         <div className="flex items-center justify-between px-6 sm:px-10 pt-7 pb-4 border-b border-black/[0.08] select-none shrink-0">
           <div className="flex items-center gap-3">
-            <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-black text-white font-bold tracking-wider">
-              {project.clientTag}
+            <span
+              className="text-xs font-mono px-3 py-1 rounded-full font-bold tracking-wider border flex items-center gap-2"
+              style={{
+                backgroundColor: project.theme?.badgeBg || '#000000',
+                color: project.theme?.badgeText || '#ffffff',
+                borderColor: project.theme?.badgeBorder || 'transparent',
+              }}
+            >
+              <span
+                className="w-1.5 h-1.5 rounded-full"
+                style={{ backgroundColor: project.theme?.accentColor || '#10b981' }}
+              ></span>
+              <span>{project.clientTag}</span>
             </span>
-            <span className="text-xs font-mono text-black/50">
-              Project {project.number}
+            <span className="text-xs font-mono text-black/50 font-semibold">
+              {project.number}
             </span>
             <span className="text-black/20">•</span>
             <span className="text-xs font-mono text-black/65">
-              {project.category}
+              {project.theme?.tagline || project.category}
             </span>
           </div>
 
@@ -112,7 +123,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Bottom Sticky Action Bar */}
         <div className="px-6 sm:px-10 py-5 bg-white border-t border-black/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 select-none shrink-0">
           <div className="flex items-center gap-2 text-xs font-mono text-black/60">
-            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span
+              className="w-2 h-2 rounded-full"
+              style={{ backgroundColor: project.theme?.accentColor || '#10b981' }}
+            ></span>
             <span>Available for custom commissions</span>
           </div>
 
@@ -122,7 +136,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 href={whatsappInquiryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#1C1D20] text-white text-xs font-sans font-medium hover:bg-black transition-all flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-6 py-3 rounded-full text-xs font-sans font-medium transition-all flex items-center justify-center gap-2 shadow-xs"
+                style={{
+                  backgroundColor: project.theme?.buttonHoverBg || '#1C1D20',
+                  color: project.theme?.buttonHoverText || '#ffffff',
+                }}
                 data-interactive
               >
                 <span>Discuss a similar project</span>
