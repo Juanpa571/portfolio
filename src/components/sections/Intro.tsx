@@ -11,7 +11,7 @@ export const Intro: React.FC = () => {
           {/* Left Column: Direct Human Statement (Col 1-7) */}
           <div className="lg:col-span-7">
             <p className="text-2xl sm:text-3xl lg:text-4xl text-black font-sans font-normal leading-snug tracking-tight">
-              I partner with founders and teams to design and engineer dependable web products. Honest communication, fast feedback loops, and personal dedication to shipping software that works beautifully.
+              I partner with founders, studios, and modern brands to design and deliver high-craft web experiences. Honest communication, fast turnaround, and personal dedication to launching digital presences that stand out.
             </p>
           </div>
 

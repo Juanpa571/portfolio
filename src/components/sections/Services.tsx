@@ -160,7 +160,7 @@ export const Services: React.FC = () => {
             </TiltCard>
           </div>
 
-          {/* Card 003: Full-Stack & APIs — Compact Engine (5 cols, Counter-Staggered -8px) */}
+          {/* Card 003: Turnkey Launch — Compact Engine (5 cols, Counter-Staggered -8px) */}
           <div className="md:col-span-12 lg:col-span-5 lg:-translate-y-2">
             <TiltCard
               maxTilt={3}

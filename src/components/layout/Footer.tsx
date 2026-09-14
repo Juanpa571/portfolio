@@ -173,7 +173,7 @@ export const Footer: React.FC = () => {
               <div className="font-bold text-white text-sm tracking-tight font-display">
                 JP STUDIOS
               </div>
-              <div>Designed & engineered by Juan Pablo Chacón.</div>
+              <div>Designed & crafted by Juan Pablo Chacón.</div>
             </div>
 
             <div className="flex flex-wrap items-center gap-6 text-white/60 text-[11px]">

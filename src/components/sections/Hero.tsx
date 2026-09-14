@@ -122,7 +122,7 @@ export const Hero: React.FC = () => {
               data-interactive
             >
               <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                Design <span className="italic font-light text-black/35">&</span> Production Code.
+                Design <span className="italic font-light text-black/35">&</span> Web Craft.
               </span>
             </span>
           </span>

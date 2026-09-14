@@ -5,14 +5,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const TRACK_1 = [
-  { text: 'Production Code', filled: true },
-  { text: 'Bespoke Design', filled: false },
-  { text: 'System Architecture', filled: true },
+  { text: 'Bespoke Design', filled: true },
+  { text: 'Tactile Motion', filled: false },
+  { text: 'Speed to Market', filled: true },
   { text: 'Clear Communication', filled: false },
-  { text: 'Dependable Engineering', filled: true },
+  { text: 'Turnkey Launch', filled: true },
   { text: 'High-Fidelity Interfaces', filled: false },
-  { text: 'Scalable Cloud', filled: true },
-  { text: 'Figma to Production', filled: false },
+  { text: 'Fast Turnaround', filled: true },
+  { text: 'Figma to Web', filled: false },
 ];
 
 const TRACK_2 = [
@@ -20,10 +20,10 @@ const TRACK_2 = [
   { text: 'Cali / Remote Worldwide', filled: true },
   { text: 'Honest Collaboration', filled: false },
   { text: 'Radical Simplicity', filled: true },
-  { text: 'Weekly Deployments', filled: false },
-  { text: 'Measurable Performance', filled: true },
-  { text: 'Full-Stack Craft', filled: false },
-  { text: 'Continuous Iteration', filled: true },
+  { text: 'Sub-Second Loading', filled: false },
+  { text: 'Editorial Typography', filled: true },
+  { text: 'Bespoke Web Craft', filled: false },
+  { text: 'Continuous Evolution', filled: true },
 ];
 
 export const VelocityTicker: React.FC = () => {
