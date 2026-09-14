@@ -13,6 +13,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
   useEffect(() => {
     if (!project) return;
 
+    const lenis = (window as any).__lenis;
+    lenis?.stop();
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         onClose();
@@ -23,6 +26,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
+      lenis?.start();
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
     };
@@ -37,11 +41,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-project-title"
-      className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200"
+      data-lenis-prevent
+      onWheel={(e) => e.stopPropagation()}
+      className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200 overscroll-contain"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl max-h-[90vh] bg-[#fafaf8] text-black rounded-[2rem] border border-black/10 shadow-2xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-300"
+        data-lenis-prevent
+        onWheel={(e) => e.stopPropagation()}
+        className="relative w-full max-w-3xl max-h-[90vh] bg-[#fafaf8] text-black rounded-[2rem] border border-black/10 shadow-2xl flex flex-col overflow-hidden animate-in zoom-in-95 duration-300 overscroll-contain"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Header Bar */}
@@ -82,7 +90,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         </div>
 
         {/* Scrollable Content Body */}
-        <div className="p-6 sm:p-10 overflow-y-auto space-y-8 flex-1">
+        <div
+          data-lenis-prevent
+          onWheel={(e) => e.stopPropagation()}
+          className="p-6 sm:p-10 overflow-y-auto overscroll-contain space-y-8 flex-1 touch-pan-y"
+        >
           {/* Main Title & Tagline */}
           <div className="space-y-3">
             <h3

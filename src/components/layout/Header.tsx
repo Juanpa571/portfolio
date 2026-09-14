@@ -30,14 +30,18 @@ export const Header: React.FC = () => {
     };
   }, []);
 
-  // Lock body scroll when off-canvas drawer is open
+  // Lock body scroll and pause Lenis when off-canvas drawer is open
   useEffect(() => {
+    const lenis = (window as any).__lenis;
     if (isMenuOpen) {
+      lenis?.stop();
       document.body.style.overflow = 'hidden';
     } else {
+      lenis?.start();
       document.body.style.overflow = '';
     }
     return () => {
+      lenis?.start();
       document.body.style.overflow = '';
     };
   }, [isMenuOpen]);
@@ -165,9 +169,11 @@ export const Header: React.FC = () => {
       {/* 3. Off-Canvas Cinematic Drawer Navigation Menu */}
       {/* Backdrop */}
       <div
+        data-lenis-prevent
+        onWheel={(e) => e.stopPropagation()}
         onClick={() => setIsMenuOpen(false)}
         className={`fixed inset-0 bg-black/60 backdrop-blur-xs z-40 transition-opacity duration-500 ${
-          isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          isMenuOpen ? 'opacity-100 pointer-events-auto visible' : 'opacity-0 pointer-events-none invisible'
         }`}
         aria-hidden="true"
       />
@@ -177,8 +183,12 @@ export const Header: React.FC = () => {
         role="dialog"
         aria-modal="true"
         aria-label="Navigation Menu"
-        className={`fixed top-0 right-0 h-full w-full sm:w-[480px] lg:w-[520px] bg-[#1C1D20] text-white z-45 shadow-[-30px_0_80px_rgba(0,0,0,0.85)] border-l border-white/10 flex flex-col justify-between p-8 sm:p-12 lg:p-14 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        data-lenis-prevent
+        onWheel={(e) => e.stopPropagation()}
+        className={`fixed top-0 right-0 h-full w-full sm:w-[480px] lg:w-[520px] bg-[#1C1D20] text-white z-45 border-l border-white/10 flex flex-col justify-between p-8 sm:p-12 lg:p-14 overflow-y-auto overscroll-contain transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+          isMenuOpen
+            ? 'translate-x-0 shadow-2xl opacity-100 visible pointer-events-auto'
+            : 'translate-x-full shadow-none opacity-0 invisible pointer-events-none'
         }`}
       >
         {/* Drawer Header */}
