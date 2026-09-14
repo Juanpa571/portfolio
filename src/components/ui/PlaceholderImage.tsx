@@ -26,7 +26,7 @@ export const PlaceholderImage: React.FC<PlaceholderImageProps> = ({
         <img
           src={src}
           alt={title}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-contain rounded-xl"
           decoding="async"
           loading="lazy"
         />
