@@ -3,6 +3,7 @@ import type { ProjectItem } from '../../config/site';
 import { siteConfig } from '../../config/site';
 import { PlaceholderImage } from './PlaceholderImage';
 import { Magnetic } from './Magnetic';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface ProjectModalProps {
   project: ProjectItem | null;
@@ -10,6 +11,8 @@ interface ProjectModalProps {
 }
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+  const { t } = useLanguage();
+
   useEffect(() => {
     if (!project) return;
 
@@ -34,7 +37,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
   if (!project) return null;
 
-  const whatsappInquiryUrl = `${siteConfig.profile.contact.whatsapp}%20similar%20a%20${encodeURIComponent(project.title)}`;
+  const localizedProject = t.projects.items[project.id];
+  const projectTitle = localizedProject?.title || project.title;
+  const projectTagline = localizedProject?.tagline || project.theme?.tagline || project.category;
+  const projectDescription = localizedProject?.description || project.description;
+  const projectTech = localizedProject?.tech || project.tech;
+
+  const whatsappInquiryUrl = `${siteConfig.profile.contact.whatsapp}%20similar%20a%20${encodeURIComponent(projectTitle)}`;
 
   return (
     <div
@@ -74,14 +83,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </span>
             <span className="text-black/20">•</span>
             <span className="text-xs font-mono text-black/65">
-              {project.theme?.tagline || project.category}
+              {projectTagline}
             </span>
           </div>
 
           <button
             type="button"
             onClick={onClose}
-            aria-label="Close modal"
+            aria-label={t.projects.modal.closeAria}
             className="w-9 h-9 rounded-full bg-black/5 hover:bg-black hover:text-white flex items-center justify-center text-sm font-mono text-black transition-all cursor-pointer"
             data-interactive
           >
@@ -101,10 +110,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               id="modal-project-title"
               className="text-3xl sm:text-4xl md:text-5xl font-normal font-display tracking-tight text-black leading-tight"
             >
-              {project.title}
+              {projectTitle}
             </h3>
             <p className="text-base sm:text-lg text-black/75 font-sans leading-relaxed max-w-2xl">
-              {project.description}
+              {projectDescription}
             </p>
           </div>
 
@@ -112,7 +121,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           <div className="rounded-2xl border border-black/10 bg-white p-3 sm:p-4 shadow-xs overflow-hidden">
             <PlaceholderImage
               id={project.id}
-              title={project.title}
+              title={projectTitle}
               recommendedAspect={project.aspectRatio}
               dimensions={project.dimensions}
               src={project.image}
@@ -135,11 +144,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </span>
             <div className="space-y-1">
               <div className="font-semibold text-black/90 flex items-center gap-2">
-                <span>Future Vision Demo</span>
-                <span className="text-[10px] text-black/40 font-normal">• Speculative Concept Study</span>
+                <span>{t.projects.futureVisionDemo}</span>
+                <span className="text-[10px] text-black/40 font-normal">• {t.projects.modal.speculativeStudy}</span>
               </div>
               <p className="text-black/65 leading-relaxed font-sans text-xs">
-                This project is an interactive design demonstration showcasing how modern web architecture, editorial typography, and high-speed motion could elevate {project.title}&apos;s digital brand authority and client conversion in the future.
+                {t.projects.modal.disclosureText(projectTitle)}
               </p>
             </div>
           </div>
@@ -147,12 +156,18 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {/* Metadata & Specs Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-2 border-t border-black/[0.08] text-xs font-mono">
             <div className="space-y-1.5">
-              <span className="text-black/40 uppercase tracking-wider text-[10px]">Location & Scope</span>
-              <p className="text-black/85 font-medium">{project.location} • Bespoke Web Architecture</p>
+              <span className="text-black/40 uppercase tracking-wider text-[10px]">
+                {t.projects.modal.locationScopeLabel}
+              </span>
+              <p className="text-black/85 font-medium">
+                {project.location} • {t.projects.modal.locationScopeValue}
+              </p>
             </div>
             <div className="space-y-1.5">
-              <span className="text-black/40 uppercase tracking-wider text-[10px]">Core Stack & Craft</span>
-              <p className="text-black/85 font-medium">{project.tech}</p>
+              <span className="text-black/40 uppercase tracking-wider text-[10px]">
+                {t.projects.modal.coreStackLabel}
+              </span>
+              <p className="text-black/85 font-medium">{projectTech}</p>
             </div>
           </div>
         </div>
@@ -164,7 +179,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               className="w-2 h-2 rounded-full"
               style={{ backgroundColor: project.theme?.accentColor || '#10b981' }}
             ></span>
-            <span>Available for custom commissions</span>
+            <span>{t.projects.modal.availableCommissions}</span>
           </div>
 
           <div className="flex items-center gap-3 w-full sm:w-auto">
@@ -180,7 +195,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 }}
                 data-interactive
               >
-                <span>Discuss a similar project</span>
+                <span>{t.projects.modal.discussProject}</span>
                 <span className="font-mono">↗</span>
               </a>
             </Magnetic>

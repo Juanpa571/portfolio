@@ -1,32 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLanguage } from '../../context/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TRACK_1 = [
-  { text: 'Bespoke Design', filled: true },
-  { text: 'Tactile Motion', filled: false },
-  { text: 'Speed to Market', filled: true },
-  { text: 'Clear Communication', filled: false },
-  { text: 'Turnkey Launch', filled: true },
-  { text: 'High-Fidelity Interfaces', filled: false },
-  { text: 'Fast Turnaround', filled: true },
-  { text: 'Figma to Web', filled: false },
-];
-
-const TRACK_2 = [
-  { text: 'Transparent Process', filled: false },
-  { text: 'Cali / Remote Worldwide', filled: true },
-  { text: 'Honest Collaboration', filled: false },
-  { text: 'Radical Simplicity', filled: true },
-  { text: 'Sub-Second Loading', filled: false },
-  { text: 'Editorial Typography', filled: true },
-  { text: 'Bespoke Web Craft', filled: false },
-  { text: 'Continuous Evolution', filled: true },
-];
-
 export const VelocityTicker: React.FC = () => {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement | null>(null);
   const row1Ref = useRef<HTMLDivElement | null>(null);
   const row2Ref = useRef<HTMLDivElement | null>(null);
@@ -93,7 +73,7 @@ export const VelocityTicker: React.FC = () => {
   }, []);
 
   // Duplicate items 4 times to ensure infinite seamless loop on any screen width
-  const renderItems = (items: typeof TRACK_1) => (
+  const renderItems = (items: Array<{ text: string; filled: boolean }>) => (
     <>
       {[...items, ...items, ...items, ...items].map((item, idx) => (
         <span key={idx} className="inline-flex items-center shrink-0">
@@ -126,7 +106,7 @@ export const VelocityTicker: React.FC = () => {
             className="inline-flex items-center text-2xl sm:text-4xl lg:text-5xl font-display tracking-tight"
             style={{ willChange: 'transform' }}
           >
-            {renderItems(TRACK_1)}
+            {renderItems(t.ticker.track1)}
           </div>
         </div>
 
@@ -137,7 +117,7 @@ export const VelocityTicker: React.FC = () => {
             className="inline-flex items-center text-2xl sm:text-4xl lg:text-5xl font-display tracking-tight"
             style={{ willChange: 'transform' }}
           >
-            {renderItems(TRACK_2)}
+            {renderItems(t.ticker.track2)}
           </div>
         </div>
       </div>

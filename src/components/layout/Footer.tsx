@@ -4,10 +4,12 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Magnetic } from '../ui/Magnetic';
 import { KineticText } from '../ui/KineticText';
+import { useLanguage } from '../../context/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const Footer: React.FC = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement | null>(null);
   const curvePathRef = useRef<SVGPathElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
@@ -123,7 +125,7 @@ export const Footer: React.FC = () => {
             >
               <div className="headline-line py-1 overflow-visible">
                 <KineticText
-                  text="Ready to build"
+                  text={t.footer.headlineLine1}
                   as="h2"
                   maxDisplacement={38}
                   radius={240}
@@ -132,7 +134,7 @@ export const Footer: React.FC = () => {
               </div>
               <div className="headline-line sm:pl-8 md:pl-16 lg:pl-24 py-1 overflow-visible">
                 <KineticText
-                  text="something real?"
+                  text={t.footer.headlineLine2}
                   as="h2"
                   maxDisplacement={38}
                   radius={240}
@@ -162,7 +164,7 @@ export const Footer: React.FC = () => {
                 className="px-7 py-4 sm:px-9 sm:py-5 rounded-full border border-white/20 hover:border-white text-white text-sm sm:text-base font-sans font-medium transition-all duration-300 hover:bg-white hover:text-black active:scale-95 inline-flex items-center justify-center cursor-pointer"
                 data-interactive
               >
-                WhatsApp ({siteConfig.profile.contact.whatsappDisplay || '+57 317 737 1301'}) ↗
+                {t.footer.whatsappButton(siteConfig.profile.contact.whatsappDisplay || '+57 317 737 1301')}
               </a>
             </Magnetic>
           </div>
@@ -171,24 +173,24 @@ export const Footer: React.FC = () => {
           <div className="pt-16 mt-16 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 text-xs font-mono text-white/40">
             <div className="space-y-1">
               <div className="font-bold text-white text-sm tracking-tight font-display">
-                JP STUDIOS
+                {t.footer.brandName}
               </div>
-              <div>Designed & crafted by Juan Pablo Chacón.</div>
+              <div>{t.footer.craftedBy}</div>
             </div>
 
             <div className="flex flex-wrap items-center gap-6 text-white/60 text-[11px]">
-              <span>Cali, Colombia</span>
+              <span>{t.footer.location}</span>
               <span className="text-white/20">•</span>
-              <span>Remote Worldwide</span>
+              <span>{t.footer.remoteWorldwide}</span>
               <span className="text-white/20">•</span>
-              <span>© 2026 Edition</span>
+              <span>{t.footer.edition}</span>
               <span className="text-white/20">•</span>
               <a
                 href="#top"
                 className="text-white hover:underline cursor-pointer flex items-center gap-1 group"
                 data-interactive
               >
-                <span>Back to top</span>
+                <span>{t.footer.backToTop}</span>
                 <span className="group-hover:-translate-y-0.5 transition-transform">↑</span>
               </a>
             </div>

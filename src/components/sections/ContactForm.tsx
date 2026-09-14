@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Magnetic } from '../ui/Magnetic';
 import { siteConfig } from '../../config/site';
+import { useLanguage } from '../../context/LanguageContext';
 
-type ProjectType = 'sprint' | 'general';
+type ProjectType = 'new_project' | 'general';
 
 interface FormState {
   projectType: ProjectType;
@@ -12,8 +13,9 @@ interface FormState {
 }
 
 export const ContactForm: React.FC = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState<FormState>({
-    projectType: 'sprint',
+    projectType: 'new_project',
     name: '',
     email: '',
     message: '',
@@ -26,7 +28,7 @@ export const ContactForm: React.FC = () => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       setStatus('error');
-      setErrorMessage('Por favor completa todos los campos requeridos.');
+      setErrorMessage(t.contact.validationError);
       return;
     }
 
@@ -39,8 +41,16 @@ export const ContactForm: React.FC = () => {
       formPayload.append('from_name', 'JP Studios Web');
       formPayload.append('name', formData.name);
       formPayload.append('email', formData.email);
-      formPayload.append('subject', `Nuevo mensaje de ${formData.name} [${formData.projectType === 'sprint' ? 'Sprint 7 Días' : 'Consulta General'}]`);
-      formPayload.append('tipo_de_proyecto', formData.projectType === 'sprint' ? 'Nuevo Proyecto (Sprint 7 Días)' : 'Consulta General / Otros');
+      formPayload.append(
+        'subject',
+        `Nuevo mensaje de ${formData.name} [${
+          formData.projectType === 'new_project' ? 'Nuevo Proyecto' : 'Consulta General'
+        }]`
+      );
+      formPayload.append(
+        'tipo_de_proyecto',
+        formData.projectType === 'new_project' ? 'Nuevo Proyecto' : 'Consulta General / Otros'
+      );
       formPayload.append('message', formData.message);
 
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -53,17 +63,17 @@ export const ContactForm: React.FC = () => {
         setStatus('success');
       } else {
         setStatus('error');
-        setErrorMessage(data.message || 'Error al enviar el mensaje. Por favor intenta de nuevo.');
+        setErrorMessage(data.message || t.contact.networkError);
       }
     } catch {
       setStatus('error');
-      setErrorMessage('Hubo un problema de conexión al enviar. Por favor contáctame por WhatsApp.');
+      setErrorMessage(t.contact.networkError);
     }
   };
 
   const resetForm = () => {
     setFormData({
-      projectType: 'sprint',
+      projectType: 'new_project',
       name: '',
       email: '',
       message: '',
@@ -82,14 +92,14 @@ export const ContactForm: React.FC = () => {
         <div className="space-y-3 max-w-2xl">
           <div className="flex items-center gap-2.5 text-xs font-mono tracking-widest text-black/40 uppercase">
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Direct Inquiries</span>
+            <span>{t.contact.sectionTag}</span>
           </div>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-[-0.02em] text-[#1a1a1e] leading-[1.08]">
-            Iniciar un Proyecto
+            {t.contact.title}
           </h2>
         </div>
         <p className="text-sm sm:text-base text-black/60 max-w-md font-sans leading-relaxed">
-          Cuéntame sobre tu marca o negocio. Respondo directamente en menos de 24 horas hábiles a tu correo o WhatsApp.
+          {t.contact.description}
         </p>
       </div>
 
@@ -102,15 +112,14 @@ export const ContactForm: React.FC = () => {
             </div>
             <div className="space-y-2">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1a1a1e] tracking-tight">
-                Mensaje recibido con éxito
+                {t.contact.successTitle}
               </h3>
               <p className="text-black/60 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-                Gracias, <span className="text-black font-medium">{formData.name}</span>. He recibido tu solicitud para{' '}
-                <span className="text-black font-medium">
-                  {formData.projectType === 'sprint' ? 'Nuevo Proyecto (Sprint 7 Días)' : 'Consulta General'}
-                </span>
-                . Me pondré en contacto contigo en{' '}
-                <span className="text-black font-medium">{formData.email}</span> lo antes posible.
+                {t.contact.successMessage(
+                  formData.name,
+                  formData.projectType === 'new_project' ? t.contact.newProject : t.contact.generalInquiry,
+                  formData.email
+                )}
               </p>
             </div>
             <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
@@ -120,7 +129,7 @@ export const ContactForm: React.FC = () => {
                 className="px-6 py-3.5 rounded-full border border-black/15 hover:border-black text-xs sm:text-sm font-sans font-medium transition-all"
                 data-interactive
               >
-                Enviar otro mensaje
+                {t.contact.sendAnother}
               </button>
               <a
                 href={siteConfig.profile.contact.whatsapp}
@@ -129,7 +138,7 @@ export const ContactForm: React.FC = () => {
                 className="px-6 py-3.5 rounded-full bg-[#1C1D20] text-white hover:bg-black text-xs sm:text-sm font-sans font-medium transition-all"
                 data-interactive
               >
-                Abrir chat en WhatsApp ↗
+                {t.contact.openWhatsApp}
               </a>
             </div>
           </div>
@@ -139,17 +148,17 @@ export const ContactForm: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-10 items-center">
               <div className="lg:col-span-4 flex items-center gap-3">
                 <span className="px-2.5 py-0.5 rounded-full bg-[#1C1D20] text-white text-[11px] font-mono font-medium tracking-wider uppercase">
-                  Requerido
+                  {t.contact.required}
                 </span>
                 <label className="text-base sm:text-lg font-normal text-black/90">
-                  Tipo de consulta
+                  {t.contact.inquiryType}
                 </label>
               </div>
               <div className="lg:col-span-8 flex flex-col sm:flex-row gap-3">
                 <label
-                  onClick={() => setFormData({ ...formData, projectType: 'sprint' })}
+                  onClick={() => setFormData({ ...formData, projectType: 'new_project' })}
                   className={`flex-1 flex items-center gap-3.5 px-6 py-3.5 sm:py-4 rounded-full cursor-pointer border transition-all select-none ${
-                    formData.projectType === 'sprint'
+                    formData.projectType === 'new_project'
                       ? 'bg-white border-[#1C1D20] shadow-xs'
                       : 'bg-white/70 border-black/10 hover:border-black/25'
                   }`}
@@ -157,17 +166,17 @@ export const ContactForm: React.FC = () => {
                 >
                   <div
                     className={`w-4 h-4 rounded-full border flex items-center justify-center transition-colors ${
-                      formData.projectType === 'sprint'
+                      formData.projectType === 'new_project'
                         ? 'border-[#1C1D20]'
                         : 'border-black/25'
                     }`}
                   >
-                    {formData.projectType === 'sprint' && (
+                    {formData.projectType === 'new_project' && (
                       <div className="w-2 h-2 rounded-full bg-[#1C1D20]"></div>
                     )}
                   </div>
                   <span className="text-xs sm:text-sm lg:text-base font-normal text-black/90">
-                    Nuevo Proyecto (Sprint 7 Días)
+                    {t.contact.newProject}
                   </span>
                 </label>
 
@@ -192,7 +201,7 @@ export const ContactForm: React.FC = () => {
                     )}
                   </div>
                   <span className="text-xs sm:text-sm lg:text-base font-normal text-black/90">
-                    Consulta General / Otro
+                    {t.contact.generalInquiry}
                   </span>
                 </label>
               </div>
@@ -202,10 +211,10 @@ export const ContactForm: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-10 items-center">
               <div className="lg:col-span-4 flex items-center gap-3">
                 <span className="px-2.5 py-0.5 rounded-full bg-[#1C1D20] text-white text-[11px] font-mono font-medium tracking-wider uppercase">
-                  Requerido
+                  {t.contact.required}
                 </span>
                 <label htmlFor="contact-name" className="text-base sm:text-lg font-normal text-black/90">
-                  Nombre o negocio
+                  {t.contact.nameLabel}
                 </label>
               </div>
               <div className="lg:col-span-8">
@@ -215,7 +224,7 @@ export const ContactForm: React.FC = () => {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="Juan Pérez — Hotel Boutique"
+                  placeholder={t.contact.namePlaceholder}
                   className="w-full px-7 py-3.5 sm:py-4 rounded-full bg-white border border-black/10 text-sm sm:text-base leading-normal text-black placeholder:text-black/30 focus:outline-none focus:border-[#1C1D20] focus:ring-1 focus:ring-[#1C1D20] transition-all shadow-[0_2px_12px_rgba(0,0,0,0.02)]"
                   data-interactive
                 />
@@ -226,10 +235,10 @@ export const ContactForm: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-10 items-center">
               <div className="lg:col-span-4 flex items-center gap-3">
                 <span className="px-2.5 py-0.5 rounded-full bg-[#1C1D20] text-white text-[11px] font-mono font-medium tracking-wider uppercase">
-                  Requerido
+                  {t.contact.required}
                 </span>
                 <label htmlFor="contact-email" className="text-base sm:text-lg font-normal text-black/90">
-                  Correo electrónico
+                  {t.contact.emailLabel}
                 </label>
               </div>
               <div className="lg:col-span-8">
@@ -239,7 +248,7 @@ export const ContactForm: React.FC = () => {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="contacto@tunegocio.com"
+                  placeholder={t.contact.emailPlaceholder}
                   className="w-full px-7 py-3.5 sm:py-4 rounded-full bg-white border border-black/10 text-sm sm:text-base leading-normal text-black placeholder:text-black/30 focus:outline-none focus:border-[#1C1D20] focus:ring-1 focus:ring-[#1C1D20] transition-all shadow-[0_2px_12px_rgba(0,0,0,0.02)]"
                   data-interactive
                 />
@@ -250,10 +259,10 @@ export const ContactForm: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-10 items-start">
               <div className="lg:col-span-4 flex items-center gap-3 pt-3">
                 <span className="px-2.5 py-0.5 rounded-full bg-[#1C1D20] text-white text-[11px] font-mono font-medium tracking-wider uppercase">
-                  Requerido
+                  {t.contact.required}
                 </span>
                 <label htmlFor="contact-message" className="text-base sm:text-lg font-normal text-black/90">
-                  Detalles del proyecto
+                  {t.contact.messageLabel}
                 </label>
               </div>
               <div className="lg:col-span-8">
@@ -263,7 +272,7 @@ export const ContactForm: React.FC = () => {
                   rows={3}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Cuéntame sobre tu negocio, tu web actual (si tienes) o los objetivos que buscas lograr..."
+                  placeholder={t.contact.messagePlaceholder}
                   className="w-full p-6 sm:p-7 rounded-2xl sm:rounded-3xl bg-white border border-black/10 text-sm sm:text-base leading-normal text-black placeholder:text-black/30 focus:outline-none focus:border-[#1C1D20] focus:ring-1 focus:ring-[#1C1D20] transition-all resize-none shadow-[0_2px_12px_rgba(0,0,0,0.02)] min-h-[120px]"
                   data-interactive
                 />
@@ -286,7 +295,7 @@ export const ContactForm: React.FC = () => {
                   className="px-9 sm:px-12 py-3.5 sm:py-4 rounded-full bg-[#1C1D20] hover:bg-black text-white text-sm sm:text-base font-normal leading-normal tracking-[-0.01em] transition-all duration-300 shadow-md active:scale-95 inline-flex items-center gap-3.5 cursor-pointer group disabled:opacity-60"
                   data-interactive
                 >
-                  <span>{status === 'submitting' ? 'Enviando...' : 'Enviar consulta'}</span>
+                  <span>{status === 'submitting' ? t.contact.submitSending : t.contact.submitIdle}</span>
                   <span className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center text-xs text-white group-hover:bg-white group-hover:text-black transition-all">
                     →
                   </span>

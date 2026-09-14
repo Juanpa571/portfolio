@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { siteConfig } from '../../config/site';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const Hero: React.FC = () => {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLElement | null>(null);
   const line1Ref = useRef<HTMLDivElement | null>(null);
   const line2Ref = useRef<HTMLDivElement | null>(null);
@@ -122,7 +124,7 @@ export const Hero: React.FC = () => {
               data-interactive
             >
               <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                Design <span className="italic font-light text-black/35">&</span> Web Craft.
+                {t.hero.disciplineLine1} <span className="italic font-light text-black/35">{t.hero.disciplineAnd}</span> {t.hero.disciplineLine2}
               </span>
             </span>
           </span>
@@ -136,10 +138,10 @@ export const Hero: React.FC = () => {
           <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
           <span>{siteConfig.profile.location}</span>
           <span className="text-black/20">•</span>
-          <span className="text-black/60">Independent Studio</span>
+          <span className="text-black/60">{t.hero.studioType}</span>
         </div>
         <div className="text-black/65 font-mono text-[11px]">
-          {siteConfig.profile.role}
+          {t.hero.role}
         </div>
       </div>
 

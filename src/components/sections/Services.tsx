@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { siteConfig } from '../../config/site';
+import { useLanguage } from '../../context/LanguageContext';
 import { TiltCard } from '../ui/TiltCard';
 import { UiUxArtwork } from './services/UiUxArtwork';
 import { FrontendCraftArtwork } from './services/FrontendCraftArtwork';
@@ -11,6 +11,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export const Services: React.FC = () => {
+  const { t } = useLanguage();
   const headerRef = useRef<HTMLDivElement | null>(null);
   const line1FillRef = useRef<HTMLSpanElement | null>(null);
   const line2FillRef = useRef<HTMLSpanElement | null>(null);
@@ -75,28 +76,28 @@ export const Services: React.FC = () => {
               {/* Line 1: Built on trust. */}
               <div className="relative inline-block pb-1">
                 <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
-                  Built on trust.
+                  {t.services.headerLine1}
                 </span>
                 <span
                   ref={line1FillRef}
                   className="absolute inset-0 text-black select-none will-change-transform"
                   style={{ clipPath: 'inset(0 100% 0 0)' }}
                 >
-                  Built on trust.
+                  {t.services.headerLine1}
                 </span>
               </div>
               <br />
               {/* Line 2: Shaped by craft. (Asymmetric indent) */}
               <div className="relative inline-block sm:pl-12 lg:pl-20 pb-1">
                 <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
-                  Shaped by craft.
+                  {t.services.headerLine2}
                 </span>
                 <span
                   ref={line2FillRef}
                   className="absolute inset-0 sm:pl-12 lg:pl-20 text-black select-none will-change-transform"
                   style={{ clipPath: 'inset(0 100% 0 0)' }}
                 >
-                  Shaped by craft.
+                  {t.services.headerLine2}
                 </span>
               </div>
             </h2>
@@ -123,10 +124,10 @@ export const Services: React.FC = () => {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8 my-auto">
                 <div className="space-y-2 max-w-sm">
                   <h3 className="text-3xl sm:text-4xl font-normal font-display text-black tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
-                    {siteConfig.services[0].title}
+                    {t.services.items[0].title}
                   </h3>
                   <p className="text-sm sm:text-base text-black/65 font-sans leading-relaxed">
-                    {siteConfig.services[0].subtitle}
+                    {t.services.items[0].subtitle}
                   </p>
                 </div>
 
@@ -146,10 +147,10 @@ export const Services: React.FC = () => {
               <div className="flex flex-col justify-between h-full gap-8 my-auto">
                 <div className="space-y-2">
                   <h3 className="text-2xl sm:text-3xl font-normal font-display text-white tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
-                    {siteConfig.services[1].title}
+                    {t.services.items[1].title}
                   </h3>
                   <p className="text-xs sm:text-sm text-white/70 font-sans leading-relaxed">
-                    {siteConfig.services[1].subtitle}
+                    {t.services.items[1].subtitle}
                   </p>
                 </div>
 
@@ -171,10 +172,10 @@ export const Services: React.FC = () => {
               <div className="flex items-center justify-between gap-6 my-auto">
                 <div className="space-y-1.5 max-w-[55%]">
                   <h3 className="text-2xl sm:text-3xl font-normal font-display text-black tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
-                    {siteConfig.services[2].title}
+                    {t.services.items[2].title}
                   </h3>
                   <p className="text-xs sm:text-sm text-black/65 font-sans leading-relaxed">
-                    {siteConfig.services[2].subtitle}
+                    {t.services.items[2].subtitle}
                   </p>
                 </div>
 
@@ -194,10 +195,10 @@ export const Services: React.FC = () => {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8 my-auto">
                 <div className="space-y-2 max-w-sm">
                   <h3 className="text-3xl sm:text-4xl font-normal font-display text-black tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
-                    {siteConfig.services[3].title}
+                    {t.services.items[3].title}
                   </h3>
                   <p className="text-sm sm:text-base text-black/65 font-sans leading-relaxed">
-                    {siteConfig.services[3].subtitle}
+                    {t.services.items[3].subtitle}
                   </p>
                 </div>
 

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { siteConfig } from '../../config/site';
 import { useLiveTime } from '../../hooks/useLiveTime';
+import { useLanguage } from '../../context/LanguageContext';
+import { LanguageToggle } from '../ui/LanguageToggle';
 
 export const Header: React.FC = () => {
+  const { t } = useLanguage();
   const liveTime = useLiveTime(siteConfig.profile.timezone);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -56,9 +59,9 @@ export const Header: React.FC = () => {
   };
 
   const navLinks = [
-    { label: 'Capabilities', href: '#services' },
-    { label: 'Works', href: '#work' },
-    { label: 'Contact', href: '#contact' },
+    { label: t.nav.capabilities, href: '#services' },
+    { label: t.nav.works, href: '#work' },
+    { label: t.nav.contact, href: '#contact' },
   ];
 
   return (
@@ -88,21 +91,21 @@ export const Header: React.FC = () => {
           <button
             type="button"
             onClick={handleTimeClick}
-            aria-label={copiedTime ? 'Local time copied to clipboard' : `Local time in Cali: ${liveTime || '14:07 COT'}. Click to copy`}
+            aria-label={copiedTime ? t.nav.copied : `${t.nav.timeLabel}: ${liveTime || '14:07 COT'}`}
             className="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full bg-black/[0.03] hover:bg-black/[0.06] text-[11px] font-mono text-black/70 hover:text-black transition-all cursor-pointer group"
-            title="Click to copy local COT time"
+            title={t.nav.timeLabel}
             data-interactive
           >
             <span>Cali</span>
             <span className="text-black/30">•</span>
             <span className="font-semibold text-black/90">
-              {copiedTime ? 'Copied ✓' : (liveTime || '14:07 COT')}
+              {copiedTime ? t.nav.copied : (liveTime || '14:07 COT')}
             </span>
           </button>
         </div>
 
-        {/* Right: Clean Editorial Links (Dennis Snellenberg Style) */}
-        <nav className="flex items-center gap-6 sm:gap-8 text-sm font-sans font-medium text-black">
+        {/* Right: Clean Editorial Links, Language Switcher & WhatsApp Direct Action */}
+        <nav className="flex items-center gap-4 sm:gap-6 lg:gap-8 text-sm font-sans font-medium text-black">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -115,6 +118,9 @@ export const Header: React.FC = () => {
             </a>
           ))}
 
+          {/* Minimalist Language Switcher Pill */}
+          <LanguageToggle theme="light" />
+
           {/* WhatsApp Direct Action */}
           <a
             href={siteConfig.profile.contact.whatsapp}
@@ -123,7 +129,7 @@ export const Header: React.FC = () => {
             className="px-4 py-1.5 rounded-full bg-black text-white text-xs font-sans font-semibold hover:bg-black/80 active:scale-95 transition-all flex items-center gap-1.5 shadow-sm group"
             data-interactive
           >
-            <span>Chat</span>
+            <span>{t.nav.chat}</span>
             <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">↗</span>
           </a>
         </nav>
@@ -200,8 +206,11 @@ export const Header: React.FC = () => {
             width={335}
             height={81}
           />
-          <div className="text-xs font-mono text-white/70">
-            <span>Cali, Colombia</span>
+          <div className="flex items-center gap-4">
+            <LanguageToggle theme="dark" />
+            <span className="hidden sm:inline text-xs font-mono text-white/70">
+              Cali, Colombia
+            </span>
           </div>
         </div>
 
@@ -229,7 +238,7 @@ export const Header: React.FC = () => {
         <div className="pt-6 border-t border-white/10 space-y-4">
           <div className="flex items-center justify-between text-xs font-mono text-white/70">
             <div>COT ({liveTime || 'UTC-5'})</div>
-            <div className="text-emerald-400 font-medium">Available Worldwide</div>
+            <div className="text-emerald-400 font-medium">{t.nav.availableWorldwide}</div>
           </div>
 
           <div className="flex items-center gap-3 pt-1">
@@ -240,14 +249,14 @@ export const Header: React.FC = () => {
               className="flex-1 py-3.5 px-5 rounded-full bg-white text-black text-center font-sans font-medium text-xs sm:text-sm hover:bg-white/90 active:scale-[0.98] transition-all"
               data-interactive
             >
-              Chat on WhatsApp ↗
+              {t.nav.chatOnWhatsApp} ↗
             </a>
             <a
               href={`mailto:${siteConfig.profile.contact.email}`}
               className="py-3.5 px-6 rounded-full border border-white/20 hover:border-white text-white text-center font-sans font-medium text-xs sm:text-sm hover:bg-white hover:text-black active:scale-[0.98] transition-all"
               data-interactive
             >
-              Email
+              {t.nav.email}
             </a>
           </div>
         </div>

@@ -3,8 +3,10 @@ import { siteConfig, type ProjectItem } from '../../config/site';
 import { PlaceholderImage } from '../ui/PlaceholderImage';
 import { Magnetic } from '../ui/Magnetic';
 import { ProjectModal } from '../ui/ProjectModal';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const ProjectList: React.FC = () => {
+  const { t } = useLanguage();
   const [activeProject, setActiveProject] = useState<ProjectItem | null>(null);
   const [displayedProject, setDisplayedProject] = useState<ProjectItem | null>(null);
   const [modalProject, setModalProject] = useState<ProjectItem | null>(null);
@@ -131,18 +133,18 @@ export const ProjectList: React.FC = () => {
           onMouseEnter={() => setActiveProject(null)}
         >
           <h2 className="text-5xl sm:text-7xl lg:text-8xl font-normal font-display text-black tracking-[-0.01em] leading-[1.06] sm:leading-[1.1] pb-1">
-            Selected<br />
+            {t.projects.headerLine1}<br />
             <span className="sm:pl-16 lg:pl-24 inline-block text-black/55 hover:text-black transition-colors duration-500">
-              Works.
+              {t.projects.headerLine2}
             </span>
           </h2>
           <div className="pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono text-black/65 select-none">
             <div className="flex items-center gap-2.5">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>Concept Prototypes & Future Visions • Click to explore</span>
+              <span>{t.projects.tagline}</span>
             </div>
             <div className="text-black/45 text-[11px]">
-              Interactive demonstrations of how client platforms can look and convert
+              {t.projects.subtagline}
             </div>
           </div>
         </div>
@@ -227,13 +229,13 @@ export const ProjectList: React.FC = () => {
                         {project.number}
                       </span>
                       <span className="text-[9px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-black/5 text-black/55 font-semibold">
-                        Concept Demo
+                        {t.projects.conceptDemoBadge}
                       </span>
                     </div>
 
                     <div className="text-[11px] font-mono text-black/65 pt-0.5 space-y-0.5">
                       <div className="font-semibold text-black/85">
-                        {theme?.tagline || project.category}
+                        {t.projects.items[project.id]?.tagline || theme?.tagline || project.category}
                       </div>
                       <div className="text-black/50">
                         {project.location}
@@ -248,7 +250,7 @@ export const ProjectList: React.FC = () => {
                         ? 'text-4xl sm:text-5xl lg:text-6xl'
                         : 'text-3xl sm:text-4xl lg:text-5xl'
                     } ${isCurrentActive ? 'translate-x-3 sm:translate-x-5' : ''}`}>
-                      {project.title}
+                      {t.projects.items[project.id]?.title || project.title}
                     </h3>
                   </div>
 
@@ -298,7 +300,7 @@ export const ProjectList: React.FC = () => {
               {/* Card Meta Header */}
               <div className="flex items-center justify-between text-xs font-mono pb-1.5 border-b border-black/5">
                 <span className="px-2 py-0.5 rounded-full bg-black/5 text-black font-semibold text-[10px]">
-                  {displayedProject.category}
+                  {t.projects.items[displayedProject.id]?.category || displayedProject.category}
                 </span>
                 <span className="text-black/50 text-[10px] font-mono">
                   {displayedProject.clientTag} • {displayedProject.number}
@@ -309,7 +311,7 @@ export const ProjectList: React.FC = () => {
               <div className="overflow-hidden rounded-2xl bg-[#f8f8f6] border border-black/5">
                 <PlaceholderImage
                   id={displayedProject.id}
-                  title={displayedProject.title}
+                  title={t.projects.items[displayedProject.id]?.title || displayedProject.title}
                   recommendedAspect={displayedProject.aspectRatio}
                   dimensions={displayedProject.dimensions}
                   src={displayedProject.image}
@@ -319,17 +321,17 @@ export const ProjectList: React.FC = () => {
 
               {/* Card Footer */}
               <div className="flex items-center justify-between text-[11px] font-mono text-black/75 pt-0.5">
-                <span className="truncate max-w-[200px]">{displayedProject.tech}</span>
+                <span className="truncate max-w-[200px]">{t.projects.items[displayedProject.id]?.tech || displayedProject.tech}</span>
                 <span className="text-black font-semibold flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span>Future Vision Demo</span>
+                  <span>{t.projects.futureVisionDemo}</span>
                 </span>
               </div>
             </div>
 
             {/* Floating Snellenberg View Badge */}
             <div className="absolute -bottom-3 -right-3 w-16 h-16 rounded-full bg-[#1C1D20] text-white flex items-center justify-center text-xs font-mono font-medium shadow-2xl border border-white/20 animate-in zoom-in-75 duration-300">
-              <span>Demo</span>
+              <span>{t.projects.demoButton}</span>
             </div>
           </div>
         )}

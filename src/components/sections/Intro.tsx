@@ -1,8 +1,11 @@
 import React from 'react';
 import { siteConfig } from '../../config/site';
 import { Magnetic } from '../ui/Magnetic';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const Intro: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="py-20 sm:py-28 lg:py-36 border-b border-black/[0.08] bg-[#fafaf8]">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
@@ -11,7 +14,7 @@ export const Intro: React.FC = () => {
           {/* Left Column: Direct Human Statement (Col 1-7) */}
           <div className="lg:col-span-7">
             <p className="text-2xl sm:text-3xl lg:text-4xl text-black font-sans font-normal leading-snug tracking-tight">
-              I partner with founders, studios, and modern brands to design and deliver high-craft web experiences. Honest communication, fast turnaround, and personal dedication to launching digital presences that stand out.
+              {t.intro.statement}
             </p>
           </div>
 
@@ -30,7 +33,7 @@ export const Intro: React.FC = () => {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
-                  <span>Start on WhatsApp</span>
+                  <span>{t.intro.startOnWhatsApp}</span>
                 </span>
                 <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300 font-mono text-xs">↗</span>
               </a>
@@ -43,7 +46,7 @@ export const Intro: React.FC = () => {
                 data-interactive
               >
                 <span className="truncate">{siteConfig.profile.contact.email}</span>
-                <span className="text-black/40 group-hover:text-white group-hover:translate-x-0.5 transition-all text-xs">Direct ↗</span>
+                <span className="text-black/40 group-hover:text-white group-hover:translate-x-0.5 transition-all text-xs">{t.intro.direct}</span>
               </a>
             </Magnetic>
           </div>
