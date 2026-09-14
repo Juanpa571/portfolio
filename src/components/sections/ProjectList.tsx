@@ -2,12 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { siteConfig, type ProjectItem } from '../../config/site';
 import { PlaceholderImage } from '../ui/PlaceholderImage';
 import { Magnetic } from '../ui/Magnetic';
+import { ProjectModal } from '../ui/ProjectModal';
 
 export const ProjectList: React.FC = () => {
   const [activeProject, setActiveProject] = useState<ProjectItem | null>(null);
   const [displayedProject, setDisplayedProject] = useState<ProjectItem | null>(null);
+  const [modalProject, setModalProject] = useState<ProjectItem | null>(null);
   const [isHoveringSection, setIsHoveringSection] = useState(false);
-  const [expandedMobileId, setExpandedMobileId] = useState<string | null>(null);
 
   const mousePos = useRef({ x: -200, y: -200 });
   const currentPos = useRef({ x: -200, y: -200 });
@@ -96,10 +97,6 @@ export const ProjectList: React.FC = () => {
     };
   }, [isHoveringSection, activeProject]);
 
-  const toggleMobile = (id: string) => {
-    setExpandedMobileId(expandedMobileId === id ? null : id);
-  };
-
   // Asymmetric indentation classes per project index for deliberate diagonal tension
   const getAsymmetricIndent = (index: number) => {
     switch (index) {
@@ -141,7 +138,7 @@ export const ProjectList: React.FC = () => {
           </h2>
           <div className="pt-4 flex items-center gap-2.5 text-xs font-mono text-black/65 select-none">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Curated case studies currently in production • Releasing Soon</span>
+            <span>Curated visual archive & design explorations • Click to explore</span>
           </div>
         </div>
 
@@ -152,7 +149,6 @@ export const ProjectList: React.FC = () => {
         >
           {siteConfig.projects.map((project, idx) => {
             const isCurrentActive = activeProject?.id === project.id;
-            const isMobileOpen = expandedMobileId === project.id;
             const indentClass = getAsymmetricIndent(idx);
 
             return (
@@ -162,7 +158,7 @@ export const ProjectList: React.FC = () => {
                   setIsHoveringSection(true);
                   setActiveProject(project);
                 }}
-                onClick={() => toggleMobile(project.id)}
+                onClick={() => setModalProject(project)}
                 className={`py-12 sm:py-16 transition-all duration-300 group cursor-pointer relative px-4 sm:px-6 -mx-4 sm:-mx-6 rounded-3xl ${
                   isCurrentActive
                     ? 'bg-black/[0.02] opacity-100'
@@ -220,25 +216,6 @@ export const ProjectList: React.FC = () => {
 
                 </div>
 
-                {/* Inline Mobile Fallback Preview (Shown on Tap for Phones/Touch Devices) */}
-                <div className={`md:hidden overflow-hidden transition-all duration-300 ${isMobileOpen ? 'max-h-[420px] mt-6 pt-4 border-t border-black/10' : 'max-h-0'}`}>
-                  <div className="rounded-2xl border border-black/10 bg-white p-4 shadow-sm space-y-3">
-                    <PlaceholderImage
-                      id={project.id}
-                      title={project.title}
-                      recommendedAspect={project.aspectRatio}
-                      dimensions={project.dimensions}
-                    />
-                    <div className="text-xs font-mono text-black/75 flex items-center justify-between pt-2 border-t border-black/5">
-                      <span>{project.tech}</span>
-                      <span className="text-black font-semibold flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span>In Development // Soon</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
               </div>
             );
           })}
@@ -282,18 +259,24 @@ export const ProjectList: React.FC = () => {
                 <span className="truncate max-w-[200px]">{displayedProject.tech}</span>
                 <span className="text-black font-semibold flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span>In Development</span>
+                  <span>Concept Direction</span>
                 </span>
               </div>
             </div>
 
             {/* Floating Snellenberg View Badge */}
             <div className="absolute -bottom-3 -right-3 w-16 h-16 rounded-full bg-[#1C1D20] text-white flex items-center justify-center text-xs font-mono font-medium shadow-2xl border border-white/20 animate-in zoom-in-75 duration-300">
-              <span>Soon...</span>
+              <span>View</span>
             </div>
           </div>
         )}
       </div>
+
+      {/* Interactive Concept Case Study Modal */}
+      <ProjectModal
+        project={modalProject}
+        onClose={() => setModalProject(null)}
+      />
 
     </section>
   );
