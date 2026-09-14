@@ -41,7 +41,7 @@ export const ContactForm: React.FC = () => {
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          access_key: '02dfecba-8e7c-473d-bc67-0c7da79ff7fa',
+          access_key: 'd8b435e9-81f7-4483-abe5-1962a54053ca',
           from_name: formData.name,
           email: formData.email,
           subject: `Nuevo mensaje de ${formData.name} [${formData.projectType === 'sprint' ? 'Sprint 7 Días' : 'Consulta General'}]`,
