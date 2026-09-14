@@ -45,8 +45,9 @@ export const siteConfig = {
     headline: 'Bespoke web design, fluid interactions, and rapid launch. Handled directly with you.',
     description: 'I design and craft high-performance web experiences for founders, studios, and modern brands. Editorial typography, tactile interactions, and turnkey delivery.',
     contact: {
-      email: 'juanpablochaconusa@gmail.com',
-      whatsapp: 'https://wa.me/61405667961?text=Hi%20Juan%20Pablo,%20I%20would%20like%20to%20discuss%20a%20project',
+      email: 'hola@jpchacon.com',
+      whatsapp: 'https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto',
+      whatsappDisplay: '+57 317 737 1301',
     }
   },
 

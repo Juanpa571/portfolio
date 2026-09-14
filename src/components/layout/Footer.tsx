@@ -162,7 +162,7 @@ export const Footer: React.FC = () => {
                 className="px-7 py-4 sm:px-9 sm:py-5 rounded-full border border-white/20 hover:border-white text-white text-sm sm:text-base font-sans font-medium transition-all duration-300 hover:bg-white hover:text-black active:scale-95 inline-flex items-center justify-center cursor-pointer"
                 data-interactive
               >
-                WhatsApp (+61 405 667 961) ↗
+                WhatsApp ({siteConfig.profile.contact.whatsappDisplay || '+57 317 737 1301'}) ↗
               </a>
             </Magnetic>
           </div>

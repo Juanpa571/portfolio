@@ -34,7 +34,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
   if (!project) return null;
 
-  const whatsappInquiryUrl = `${siteConfig.profile.contact.whatsapp}%20regarding%20a%20project%20like%20${encodeURIComponent(project.title)}`;
+  const whatsappInquiryUrl = `${siteConfig.profile.contact.whatsapp}%20similar%20a%20${encodeURIComponent(project.title)}`;
 
   return (
     <div
