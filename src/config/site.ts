@@ -81,40 +81,17 @@ export const siteConfig = {
       image: '/projects/habitat.jpg'
     },
     {
-      id: 'aura',
+      id: 'sai-seven',
       number: '02',
-      clientTag: 'AURA',
-      title: 'Aura Goods & Objects',
-      category: 'Boutique Catalog & Brand',
-      location: 'Australia',
-      tech: 'React • Digital Showcase • Micro-interactions',
-      description: 'Machined titanium goods boutique showcase. Minimalist digital catalog with tactile interactions and sub-second navigation.',
+      clientTag: 'SAI SEVEN',
+      title: 'Sai Seven',
+      category: 'Luxury Hospitality & Resort',
+      location: 'San Andrés, Colombia',
+      tech: 'React 19 • Motion • Coastal Storytelling',
+      description: 'Ultra-luxury Caribbean beachfront sanctuary digital presence featuring immersive coastal typography, fluid storytelling, and effortless booking journeys.',
       aspectRatio: '16/10',
-      dimensions: '1920x1200 px'
-    },
-    {
-      id: 'kroma',
-      number: '03',
-      clientTag: 'KROMA',
-      title: 'Kroma Design Systems',
-      category: 'Design Engineering',
-      location: 'United States',
-      tech: 'Design System • Typography • UI Tokens',
-      description: 'A multi-brand digital showcase unifying UI tokens and responsive typography across modern interfaces.',
-      aspectRatio: '16/10',
-      dimensions: '1920x1200 px'
-    },
-    {
-      id: 'vanguard',
-      number: '04',
-      clientTag: 'VANGUARD',
-      title: 'Vanguard Capital & Advisory',
-      category: 'Corporate & Consulting',
-      location: 'United Kingdom',
-      tech: 'High-Speed Web • Responsive • Analytics',
-      description: 'Editorial web presence for a strategic advisory group, featuring responsive layouts, fluid data displays, and sub-second load times.',
-      aspectRatio: '16/10',
-      dimensions: '1920x1200 px'
+      dimensions: '1920x1200 px',
+      image: '/projects/sai-seven.jpg'
     }
   ] as ProjectItem[]
 };
