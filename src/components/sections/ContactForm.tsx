@@ -34,31 +34,30 @@ export const ContactForm: React.FC = () => {
     setErrorMessage('');
 
     try {
+      const formPayload = new FormData();
+      formPayload.append('access_key', 'd8b435e9-81f7-4483-abe5-1962a54053ca');
+      formPayload.append('from_name', 'JP Studios Web');
+      formPayload.append('name', formData.name);
+      formPayload.append('email', formData.email);
+      formPayload.append('subject', `Nuevo mensaje de ${formData.name} [${formData.projectType === 'sprint' ? 'Sprint 7 Días' : 'Consulta General'}]`);
+      formPayload.append('tipo_de_proyecto', formData.projectType === 'sprint' ? 'Nuevo Proyecto (Sprint 7 Días)' : 'Consulta General / Otros');
+      formPayload.append('message', formData.message);
+
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: 'd8b435e9-81f7-4483-abe5-1962a54053ca',
-          from_name: formData.name,
-          email: formData.email,
-          subject: `Nuevo mensaje de ${formData.name} [${formData.projectType === 'sprint' ? 'Sprint 7 Días' : 'Consulta General'}]`,
-          message: formData.message,
-          project_type: formData.projectType === 'sprint' ? 'Nuevo Proyecto (Sprint 7 Días)' : 'Consulta General / Otros',
-          to_email: siteConfig.profile.contact.email,
-        }),
+        body: formPayload,
       });
 
       const data = await response.json();
-      if (data.success || response.ok) {
+      if (data.success) {
         setStatus('success');
       } else {
-        setStatus('success');
+        setStatus('error');
+        setErrorMessage(data.message || 'Error al enviar el mensaje. Por favor intenta de nuevo.');
       }
     } catch {
-      setStatus('success');
+      setStatus('error');
+      setErrorMessage('Hubo un problema de conexión al enviar. Por favor contáctame por WhatsApp.');
     }
   };
 
