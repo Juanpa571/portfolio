@@ -73,38 +73,38 @@ export const ContactForm: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="relative w-full max-w-[1400px] mx-auto px-6 sm:px-12 py-28 sm:py-40 scroll-mt-20">
+    <section id="contact" className="relative w-full max-w-[1400px] mx-auto px-6 sm:px-12 py-16 sm:py-20 lg:py-24 scroll-mt-16 flex flex-col justify-center">
       {/* Top Hairline Divider */}
-      <div className="w-full h-px bg-black/[0.08] mb-20 sm:mb-28"></div>
+      <div className="w-full h-px bg-black/[0.08] mb-12 sm:mb-16"></div>
 
-      {/* Section Header: Monumental & Confident */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 sm:mb-28 gap-8">
-        <div className="space-y-4 max-w-2xl">
-          <div className="flex items-center gap-3 text-xs sm:text-sm font-mono tracking-widest text-black/40 uppercase">
+      {/* Section Header: Balanced & Architectural */}
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-14 gap-6">
+        <div className="space-y-3 max-w-2xl">
+          <div className="flex items-center gap-2.5 text-xs font-mono tracking-widest text-black/40 uppercase">
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             <span>Direct Inquiries</span>
           </div>
-          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-normal tracking-[-0.02em] text-[#1a1a1e] leading-[1.06]">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-[-0.02em] text-[#1a1a1e] leading-[1.08]">
             Iniciar un Proyecto
           </h2>
         </div>
-        <p className="text-base sm:text-xl text-black/60 max-w-lg font-sans leading-relaxed">
+        <p className="text-sm sm:text-base text-black/60 max-w-md font-sans leading-relaxed">
           Cuéntame sobre tu marca o negocio. Respondo directamente en menos de 24 horas hábiles a tu correo o WhatsApp.
         </p>
       </div>
 
-      {/* Form Container: Full Width, Expansive & Architectural */}
+      {/* Form Container: Full Width with Screen-Fit Proportions */}
       <div className="w-full">
         {status === 'success' ? (
-          <div className="p-12 sm:p-20 rounded-3xl sm:rounded-[36px] bg-white border border-black/10 text-center space-y-8 shadow-sm">
-            <div className="w-20 h-20 mx-auto rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl font-mono">
+          <div className="p-10 sm:p-16 rounded-3xl bg-white border border-black/10 text-center space-y-6 shadow-sm">
+            <div className="w-16 h-16 mx-auto rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl font-mono">
               ✓
             </div>
-            <div className="space-y-3">
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1a1a1e] tracking-tight">
+            <div className="space-y-2">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1a1a1e] tracking-tight">
                 Mensaje recibido con éxito
               </h3>
-              <p className="text-black/60 text-base sm:text-xl max-w-2xl mx-auto leading-relaxed">
+              <p className="text-black/60 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
                 Gracias, <span className="text-black font-medium">{formData.name}</span>. He recibido tu solicitud para{' '}
                 <span className="text-black font-medium">
                   {formData.projectType === 'sprint' ? 'Nuevo Proyecto (Sprint 7 Días)' : 'Consulta General'}
@@ -113,11 +113,11 @@ export const ContactForm: React.FC = () => {
                 <span className="text-black font-medium">{formData.email}</span> lo antes posible.
               </p>
             </div>
-            <div className="pt-6 flex flex-wrap items-center justify-center gap-5">
+            <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
               <button
                 type="button"
                 onClick={resetForm}
-                className="px-8 py-4.5 rounded-full border border-black/15 hover:border-black text-sm sm:text-base font-sans font-medium transition-all"
+                className="px-6 py-3.5 rounded-full border border-black/15 hover:border-black text-xs sm:text-sm font-sans font-medium transition-all"
                 data-interactive
               >
                 Enviar otro mensaje
@@ -126,7 +126,7 @@ export const ContactForm: React.FC = () => {
                 href={siteConfig.profile.contact.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4.5 rounded-full bg-[#1C1D20] text-white hover:bg-black text-sm sm:text-base font-sans font-medium transition-all"
+                className="px-6 py-3.5 rounded-full bg-[#1C1D20] text-white hover:bg-black text-xs sm:text-sm font-sans font-medium transition-all"
                 data-interactive
               >
                 Abrir chat en WhatsApp ↗
@@ -134,64 +134,64 @@ export const ContactForm: React.FC = () => {
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-12 sm:space-y-16">
+          <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-7">
             {/* Row 1: Tipo de Consulta (Radio Pills) */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-12 items-start">
-              <div className="lg:col-span-4 flex items-center gap-3.5 pt-3">
-                <span className="px-3 py-1 rounded-full bg-[#1C1D20] text-white text-xs font-mono font-medium tracking-wider uppercase">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-10 items-center">
+              <div className="lg:col-span-4 flex items-center gap-3">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#1C1D20] text-white text-[11px] font-mono font-medium tracking-wider uppercase">
                   Requerido
                 </span>
-                <label className="text-lg sm:text-xl font-normal text-black/90">
+                <label className="text-base sm:text-lg font-normal text-black/90">
                   Tipo de consulta
                 </label>
               </div>
-              <div className="lg:col-span-8 flex flex-col sm:flex-row gap-4">
+              <div className="lg:col-span-8 flex flex-col sm:flex-row gap-3">
                 <label
                   onClick={() => setFormData({ ...formData, projectType: 'sprint' })}
-                  className={`flex-1 flex items-center gap-4 px-7 py-5 sm:py-6 rounded-full cursor-pointer border transition-all select-none ${
+                  className={`flex-1 flex items-center gap-3.5 px-6 py-3.5 sm:py-4 rounded-full cursor-pointer border transition-all select-none ${
                     formData.projectType === 'sprint'
-                      ? 'bg-white border-[#1C1D20] shadow-sm'
+                      ? 'bg-white border-[#1C1D20] shadow-xs'
                       : 'bg-white/70 border-black/10 hover:border-black/25'
                   }`}
                   data-interactive
                 >
                   <div
-                    className={`w-5 h-5 rounded-full border flex items-center justify-center transition-colors ${
+                    className={`w-4 h-4 rounded-full border flex items-center justify-center transition-colors ${
                       formData.projectType === 'sprint'
                         ? 'border-[#1C1D20]'
                         : 'border-black/25'
                     }`}
                   >
                     {formData.projectType === 'sprint' && (
-                      <div className="w-2.5 h-2.5 rounded-full bg-[#1C1D20]"></div>
+                      <div className="w-2 h-2 rounded-full bg-[#1C1D20]"></div>
                     )}
                   </div>
-                  <span className="text-sm sm:text-base lg:text-lg font-normal text-black/90">
+                  <span className="text-xs sm:text-sm lg:text-base font-normal text-black/90">
                     Nuevo Proyecto (Sprint 7 Días)
                   </span>
                 </label>
 
                 <label
                   onClick={() => setFormData({ ...formData, projectType: 'general' })}
-                  className={`flex-1 flex items-center gap-4 px-7 py-5 sm:py-6 rounded-full cursor-pointer border transition-all select-none ${
+                  className={`flex-1 flex items-center gap-3.5 px-6 py-3.5 sm:py-4 rounded-full cursor-pointer border transition-all select-none ${
                     formData.projectType === 'general'
-                      ? 'bg-white border-[#1C1D20] shadow-sm'
+                      ? 'bg-white border-[#1C1D20] shadow-xs'
                       : 'bg-white/70 border-black/10 hover:border-black/25'
                   }`}
                   data-interactive
                 >
                   <div
-                    className={`w-5 h-5 rounded-full border flex items-center justify-center transition-colors ${
+                    className={`w-4 h-4 rounded-full border flex items-center justify-center transition-colors ${
                       formData.projectType === 'general'
                         ? 'border-[#1C1D20]'
                         : 'border-black/25'
                     }`}
                   >
                     {formData.projectType === 'general' && (
-                      <div className="w-2.5 h-2.5 rounded-full bg-[#1C1D20]"></div>
+                      <div className="w-2 h-2 rounded-full bg-[#1C1D20]"></div>
                     )}
                   </div>
-                  <span className="text-sm sm:text-base lg:text-lg font-normal text-black/90">
+                  <span className="text-xs sm:text-sm lg:text-base font-normal text-black/90">
                     Consulta General / Otro
                   </span>
                 </label>
@@ -199,12 +199,12 @@ export const ContactForm: React.FC = () => {
             </div>
 
             {/* Row 2: Nombre Completo */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-12 items-center">
-              <div className="lg:col-span-4 flex items-center gap-3.5">
-                <span className="px-3 py-1 rounded-full bg-[#1C1D20] text-white text-xs font-mono font-medium tracking-wider uppercase">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-10 items-center">
+              <div className="lg:col-span-4 flex items-center gap-3">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#1C1D20] text-white text-[11px] font-mono font-medium tracking-wider uppercase">
                   Requerido
                 </span>
-                <label htmlFor="contact-name" className="text-lg sm:text-xl font-normal text-black/90">
+                <label htmlFor="contact-name" className="text-base sm:text-lg font-normal text-black/90">
                   Nombre o negocio
                 </label>
               </div>
@@ -216,19 +216,19 @@ export const ContactForm: React.FC = () => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Juan Pérez — Hotel Boutique"
-                  className="w-full px-8 py-5 sm:py-6 rounded-full bg-white border border-black/10 text-base sm:text-xl leading-normal text-black placeholder:text-black/30 focus:outline-none focus:border-[#1C1D20] focus:ring-1 focus:ring-[#1C1D20] transition-all shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
+                  className="w-full px-7 py-3.5 sm:py-4 rounded-full bg-white border border-black/10 text-sm sm:text-base leading-normal text-black placeholder:text-black/30 focus:outline-none focus:border-[#1C1D20] focus:ring-1 focus:ring-[#1C1D20] transition-all shadow-[0_2px_12px_rgba(0,0,0,0.02)]"
                   data-interactive
                 />
               </div>
             </div>
 
             {/* Row 3: Correo Electrónico */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-12 items-center">
-              <div className="lg:col-span-4 flex items-center gap-3.5">
-                <span className="px-3 py-1 rounded-full bg-[#1C1D20] text-white text-xs font-mono font-medium tracking-wider uppercase">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-10 items-center">
+              <div className="lg:col-span-4 flex items-center gap-3">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#1C1D20] text-white text-[11px] font-mono font-medium tracking-wider uppercase">
                   Requerido
                 </span>
-                <label htmlFor="contact-email" className="text-lg sm:text-xl font-normal text-black/90">
+                <label htmlFor="contact-email" className="text-base sm:text-lg font-normal text-black/90">
                   Correo electrónico
                 </label>
               </div>
@@ -240,19 +240,19 @@ export const ContactForm: React.FC = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="contacto@tunegocio.com"
-                  className="w-full px-8 py-5 sm:py-6 rounded-full bg-white border border-black/10 text-base sm:text-xl leading-normal text-black placeholder:text-black/30 focus:outline-none focus:border-[#1C1D20] focus:ring-1 focus:ring-[#1C1D20] transition-all shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
+                  className="w-full px-7 py-3.5 sm:py-4 rounded-full bg-white border border-black/10 text-sm sm:text-base leading-normal text-black placeholder:text-black/30 focus:outline-none focus:border-[#1C1D20] focus:ring-1 focus:ring-[#1C1D20] transition-all shadow-[0_2px_12px_rgba(0,0,0,0.02)]"
                   data-interactive
                 />
               </div>
             </div>
 
             {/* Row 4: Mensaje / Detalles */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-12 items-start">
-              <div className="lg:col-span-4 flex items-center gap-3.5 pt-4">
-                <span className="px-3 py-1 rounded-full bg-[#1C1D20] text-white text-xs font-mono font-medium tracking-wider uppercase">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-10 items-start">
+              <div className="lg:col-span-4 flex items-center gap-3 pt-3">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#1C1D20] text-white text-[11px] font-mono font-medium tracking-wider uppercase">
                   Requerido
                 </span>
-                <label htmlFor="contact-message" className="text-lg sm:text-xl font-normal text-black/90">
+                <label htmlFor="contact-message" className="text-base sm:text-lg font-normal text-black/90">
                   Detalles del proyecto
                 </label>
               </div>
@@ -260,11 +260,11 @@ export const ContactForm: React.FC = () => {
                 <textarea
                   id="contact-message"
                   required
-                  rows={5}
+                  rows={3}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Cuéntame sobre tu negocio, tu web actual (si tienes) o los objetivos que buscas lograr..."
-                  className="w-full p-8 sm:p-10 rounded-3xl sm:rounded-[32px] bg-white border border-black/10 text-base sm:text-xl leading-normal text-black placeholder:text-black/30 focus:outline-none focus:border-[#1C1D20] focus:ring-1 focus:ring-[#1C1D20] transition-all resize-none shadow-[0_4px_20px_rgba(0,0,0,0.02)] min-h-[200px]"
+                  className="w-full p-6 sm:p-7 rounded-2xl sm:rounded-3xl bg-white border border-black/10 text-sm sm:text-base leading-normal text-black placeholder:text-black/30 focus:outline-none focus:border-[#1C1D20] focus:ring-1 focus:ring-[#1C1D20] transition-all resize-none shadow-[0_2px_12px_rgba(0,0,0,0.02)] min-h-[120px]"
                   data-interactive
                 />
               </div>
@@ -272,22 +272,22 @@ export const ContactForm: React.FC = () => {
 
             {/* Error banner if any */}
             {errorMessage && (
-              <div className="text-red-600 text-sm font-mono text-right">
+              <div className="text-red-600 text-xs font-mono text-right">
                 {errorMessage}
               </div>
             )}
 
-            {/* Row 5: Action Button (Generous Monumental Pill) */}
-            <div className="flex justify-end pt-4">
-              <Magnetic strength={0.25} radius={90}>
+            {/* Row 5: Action Button (Proportionate Monumental Pill) */}
+            <div className="flex justify-end pt-2">
+              <Magnetic strength={0.25} radius={80}>
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="px-10 sm:px-14 py-5 sm:py-6 rounded-full bg-[#1C1D20] hover:bg-black text-white text-base sm:text-xl font-normal leading-normal tracking-[-0.01em] transition-all duration-300 shadow-xl active:scale-95 inline-flex items-center gap-4 cursor-pointer group disabled:opacity-60"
+                  className="px-9 sm:px-12 py-3.5 sm:py-4 rounded-full bg-[#1C1D20] hover:bg-black text-white text-sm sm:text-base font-normal leading-normal tracking-[-0.01em] transition-all duration-300 shadow-md active:scale-95 inline-flex items-center gap-3.5 cursor-pointer group disabled:opacity-60"
                   data-interactive
                 >
                   <span>{status === 'submitting' ? 'Enviando...' : 'Enviar consulta'}</span>
-                  <span className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center text-sm text-white group-hover:bg-white group-hover:text-black transition-all">
+                  <span className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center text-xs text-white group-hover:bg-white group-hover:text-black transition-all">
                     →
                   </span>
                 </button>
