@@ -90,7 +90,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer
-      id="contact"
+      id="footer"
       ref={sectionRef}
       className="relative bg-[#1C1D20] text-white min-h-screen flex flex-col justify-between overflow-hidden"
     >

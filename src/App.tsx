@@ -5,6 +5,7 @@ import { Intro } from './components/sections/Intro';
 import { VelocityTicker } from './components/sections/VelocityTicker';
 import { Services } from './components/sections/Services';
 import { ProjectList } from './components/sections/ProjectList';
+import { ContactForm } from './components/sections/ContactForm';
 import { Footer } from './components/layout/Footer';
 import { CustomCursor } from './components/ui/CustomCursor';
 import { Preloader } from './components/ui/Preloader';
@@ -24,6 +25,7 @@ export const App: React.FC = () => {
         <VelocityTicker />
         <Services />
         <ProjectList />
+        <ContactForm />
       </main>
       <Footer />
     </div>
