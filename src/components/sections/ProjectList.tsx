@@ -136,9 +136,14 @@ export const ProjectList: React.FC = () => {
               Works.
             </span>
           </h2>
-          <div className="pt-4 flex items-center gap-2.5 text-xs font-mono text-black/65 select-none">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Curated visual archive & design explorations • Click to explore</span>
+          <div className="pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono text-black/65 select-none">
+            <div className="flex items-center gap-2.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Concept Prototypes & Future Visions • Click to explore</span>
+            </div>
+            <div className="text-black/45 text-[11px]">
+              Interactive demonstrations of how client platforms can look and convert
+            </div>
           </div>
         </div>
 
@@ -218,8 +223,11 @@ export const ProjectList: React.FC = () => {
                         ></span>
                         <span>{project.clientTag}</span>
                       </span>
-                      <span className="text-xs font-mono text-black/50 font-semibold">
+                      <span className="text-xs font-mono text-black/40 font-semibold">
                         {project.number}
+                      </span>
+                      <span className="text-[9px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-black/5 text-black/55 font-semibold">
+                        Concept Demo
                       </span>
                     </div>
 
@@ -314,14 +322,14 @@ export const ProjectList: React.FC = () => {
                 <span className="truncate max-w-[200px]">{displayedProject.tech}</span>
                 <span className="text-black font-semibold flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span>Concept Direction</span>
+                  <span>Future Vision Demo</span>
                 </span>
               </div>
             </div>
 
             {/* Floating Snellenberg View Badge */}
             <div className="absolute -bottom-3 -right-3 w-16 h-16 rounded-full bg-[#1C1D20] text-white flex items-center justify-center text-xs font-mono font-medium shadow-2xl border border-white/20 animate-in zoom-in-75 duration-300">
-              <span>View</span>
+              <span>Demo</span>
             </div>
           </div>
         )}

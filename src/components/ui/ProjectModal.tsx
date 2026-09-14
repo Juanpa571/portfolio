@@ -107,6 +107,31 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             />
           </div>
 
+          {/* Transparent Concept Demo Disclosure Box */}
+          <div
+            className="p-4 sm:p-5 rounded-2xl border flex items-start gap-3.5 text-xs font-mono select-none"
+            style={{
+              backgroundColor: project.theme?.cardBg || 'rgba(0,0,0,0.02)',
+              borderColor: project.theme?.borderColor || 'rgba(0,0,0,0.08)',
+            }}
+          >
+            <span
+              className="text-sm font-bold shrink-0 mt-0.5"
+              style={{ color: project.theme?.accentColor || '#000000' }}
+            >
+              ◈
+            </span>
+            <div className="space-y-1">
+              <div className="font-semibold text-black/90 flex items-center gap-2">
+                <span>Future Vision Demo</span>
+                <span className="text-[10px] text-black/40 font-normal">• Speculative Concept Study</span>
+              </div>
+              <p className="text-black/65 leading-relaxed font-sans text-xs">
+                This project is an interactive design demonstration showcasing how modern web architecture, editorial typography, and high-speed motion could elevate {project.title}&apos;s digital brand authority and client conversion in the future.
+              </p>
+            </div>
+          </div>
+
           {/* Metadata & Specs Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-2 border-t border-black/[0.08] text-xs font-mono">
             <div className="space-y-1.5">
