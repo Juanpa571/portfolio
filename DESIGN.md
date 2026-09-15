@@ -167,6 +167,19 @@ JP Studios rejects artificial drop shadows and blurred colorful backdrops. Depth
 - **Behavior:** Responsive preview card that floats dynamically alongside the cursor on fine pointer devices (`translate3d(x + 35px, y - 140px, 0)`).
 - **Optimization:** Pure reactive sleep state; rAF loop activates only upon hover over project list items and halts at 0% idle CPU.
 
+### Language Switcher (`LanguageToggle`)
+- **Geometry:** Micro-pill capsule (`rounded-full`) with dual selector `[ EN | ES ]`.
+- **Theming:**
+  - `Light`: Semi-transparent dark track (`bg-black/[0.05] border border-black/[0.08]`) with solid obsidian active badge (`bg-[#1C1D20] text-white`).
+  - `Dark`: Translucent light track (`bg-white/[0.08] border border-white/15`) with crisp white active badge (`bg-white text-black`).
+- **Typography:** `font-mono text-[11px] tracking-wider`.
+- **State:** Persistent via `localStorage` (`jp_portfolio_lang`) with zero layout shift or hydration flicker.
+
+### Contact Form (`ContactForm`)
+- **Grid:** Asymmetric 12-column layout aligning field labels with input containers.
+- **Project Selection:** Simplified dual radio pill selector ("New Project" / "General Inquiry") with zero internal jargon.
+- **Inputs:** Pill-shaped fields with solid white surface, subtle 1px border (`border-black/10`), active focus ring, and spacious inner padding (`px-7 py-4`).
+
 ## Do's and Don'ts
 
 ### Do:
