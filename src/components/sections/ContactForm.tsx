@@ -94,7 +94,7 @@ export const ContactForm: React.FC = () => {
             {t.contact.title}
           </h2>
         </div>
-        <p className="text-sm sm:text-base text-black/60 max-w-md font-sans leading-relaxed">
+        <p className="text-base sm:text-lg text-[#555557] max-w-md font-sans leading-relaxed">
           {t.contact.description}
         </p>
       </div>
