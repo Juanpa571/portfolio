@@ -89,11 +89,7 @@ export const ContactForm: React.FC = () => {
 
       {/* Section Header: Balanced & Architectural */}
       <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-14 gap-6">
-        <div className="space-y-3 max-w-2xl">
-          <div className="flex items-center gap-2.5 text-xs font-mono tracking-widest text-black/40 uppercase">
-            <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>{t.contact.sectionTag}</span>
-          </div>
+        <div className="max-w-2xl">
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-[-0.02em] text-[#1a1a1e] leading-[1.08]">
             {t.contact.title}
           </h2>
@@ -144,12 +140,9 @@ export const ContactForm: React.FC = () => {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-7">
-            {/* Row 1: Tipo de Consulta (Radio Pills) */}
+            {/* Row 1: Tipo de Consulta */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-10 items-center">
-              <div className="lg:col-span-4 flex items-center gap-3">
-                <span className="px-2.5 py-0.5 rounded-full bg-[#1C1D20] text-white text-[11px] font-mono font-medium tracking-wider uppercase">
-                  {t.contact.required}
-                </span>
+              <div className="lg:col-span-4">
                 <label className="text-base sm:text-lg font-normal text-black/90">
                   {t.contact.inquiryType}
                 </label>
@@ -209,10 +202,7 @@ export const ContactForm: React.FC = () => {
 
             {/* Row 2: Nombre Completo */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-10 items-center">
-              <div className="lg:col-span-4 flex items-center gap-3">
-                <span className="px-2.5 py-0.5 rounded-full bg-[#1C1D20] text-white text-[11px] font-mono font-medium tracking-wider uppercase">
-                  {t.contact.required}
-                </span>
+              <div className="lg:col-span-4">
                 <label htmlFor="contact-name" className="text-base sm:text-lg font-normal text-black/90">
                   {t.contact.nameLabel}
                 </label>
@@ -233,10 +223,7 @@ export const ContactForm: React.FC = () => {
 
             {/* Row 3: Correo Electrónico */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-10 items-center">
-              <div className="lg:col-span-4 flex items-center gap-3">
-                <span className="px-2.5 py-0.5 rounded-full bg-[#1C1D20] text-white text-[11px] font-mono font-medium tracking-wider uppercase">
-                  {t.contact.required}
-                </span>
+              <div className="lg:col-span-4">
                 <label htmlFor="contact-email" className="text-base sm:text-lg font-normal text-black/90">
                   {t.contact.emailLabel}
                 </label>
@@ -257,10 +244,7 @@ export const ContactForm: React.FC = () => {
 
             {/* Row 4: Mensaje / Detalles */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-10 items-start">
-              <div className="lg:col-span-4 flex items-center gap-3 pt-3">
-                <span className="px-2.5 py-0.5 rounded-full bg-[#1C1D20] text-white text-[11px] font-mono font-medium tracking-wider uppercase">
-                  {t.contact.required}
-                </span>
+              <div className="lg:col-span-4 pt-3">
                 <label htmlFor="contact-message" className="text-base sm:text-lg font-normal text-black/90">
                   {t.contact.messageLabel}
                 </label>
