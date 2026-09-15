@@ -87,18 +87,18 @@ export const Header: React.FC = () => {
 
           <div className="hidden sm:block w-px h-4 bg-black/15"></div>
 
-          {/* Interactive Live Time Pill */}
+          {/* Interactive Live Time */}
           <button
             type="button"
             onClick={handleTimeClick}
             aria-label={copiedTime ? t.nav.copied : `${t.nav.timeLabel}: ${liveTime || '14:07 COT'}`}
-            className="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full bg-black/[0.03] hover:bg-black/[0.06] text-[11px] font-mono text-black/70 hover:text-black transition-all cursor-pointer group"
+            className="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full bg-black/[0.03] hover:bg-black/[0.06] text-xs font-sans text-black/70 hover:text-black transition-all cursor-pointer group"
             title={t.nav.timeLabel}
             data-interactive
           >
             <span>Cali</span>
             <span className="text-black/30">•</span>
-            <span className="font-semibold text-black/90">
+            <span className="font-medium text-black">
               {copiedTime ? t.nav.copied : (liveTime || '14:07 COT')}
             </span>
           </button>
@@ -208,7 +208,7 @@ export const Header: React.FC = () => {
           />
           <div className="flex items-center gap-4">
             <LanguageToggle theme="dark" />
-            <span className="hidden sm:inline text-xs font-mono text-white/70">
+            <span className="hidden sm:inline text-xs font-sans text-white/60">
               Cali, Colombia
             </span>
           </div>
@@ -235,8 +235,8 @@ export const Header: React.FC = () => {
         </nav>
 
         {/* Drawer Bottom Telemetry & Direct Actions */}
-        <div className="pt-6 border-t border-white/10 space-y-4">
-          <div className="flex items-center justify-between text-xs font-mono text-white/70">
+        <div className="pt-6 border-t border-white/10 space-y-4 font-sans">
+          <div className="flex items-center justify-between text-xs text-white/70">
             <div>COT ({liveTime || 'UTC-5'})</div>
             <div className="text-emerald-400 font-medium">{t.nav.availableWorldwide}</div>
           </div>

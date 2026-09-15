@@ -132,15 +132,14 @@ export const Hero: React.FC = () => {
 
       </div>
 
-      {/* Clean Bottom Orientation Bar (Pure Dignified Telemetry, Zero Hand-Holding) */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 pb-8 sm:pb-10 flex items-center justify-between text-xs font-mono text-black/70 select-none">
-        <div className="flex items-center gap-2.5">
-          <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+      {/* Clean Bottom Orientation Bar */}
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 pb-8 sm:pb-10 flex items-center justify-between text-xs font-sans text-black/60 select-none">
+        <div className="flex items-center gap-2">
           <span>{siteConfig.profile.location}</span>
-          <span className="text-black/20">•</span>
-          <span className="text-black/60">{t.hero.studioType}</span>
+          <span className="text-black/25">•</span>
+          <span className="text-black/45">{t.hero.studioType}</span>
         </div>
-        <div className="text-black/65 font-mono text-[11px]">
+        <div className="text-black/50 font-sans text-xs">
           {t.hero.role}
         </div>
       </div>

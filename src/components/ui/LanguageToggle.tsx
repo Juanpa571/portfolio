@@ -30,7 +30,7 @@ export const LanguageToggle: React.FC<LanguageToggleProps> = ({
         type="button"
         onClick={() => setLanguage('en')}
         aria-pressed={language === 'en'}
-        className={`relative px-2.5 py-1 rounded-full text-[11px] font-mono tracking-wider transition-all duration-300 cursor-pointer ${
+        className={`relative px-2.5 py-0.5 rounded-full text-xs font-sans transition-all duration-300 cursor-pointer ${
           language === 'en'
             ? isLight
               ? 'bg-[#1C1D20] text-white font-medium shadow-xs'
@@ -57,7 +57,7 @@ export const LanguageToggle: React.FC<LanguageToggleProps> = ({
         type="button"
         onClick={() => setLanguage('es')}
         aria-pressed={language === 'es'}
-        className={`relative px-2.5 py-1 rounded-full text-[11px] font-mono tracking-wider transition-all duration-300 cursor-pointer ${
+        className={`relative px-2.5 py-0.5 rounded-full text-xs font-sans transition-all duration-300 cursor-pointer ${
           language === 'es'
             ? isLight
               ? 'bg-[#1C1D20] text-white font-medium shadow-xs'

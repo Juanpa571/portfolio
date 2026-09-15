@@ -63,26 +63,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
       >
         {/* Top Header Bar */}
         <div className="flex items-center justify-between px-6 sm:px-10 pt-7 pb-4 border-b border-black/[0.08] select-none shrink-0">
-          <div className="flex items-center gap-3">
-            <span
-              className="text-xs font-mono px-3 py-1 rounded-full font-bold tracking-wider border flex items-center gap-2"
-              style={{
-                backgroundColor: project.theme?.badgeBg || '#000000',
-                color: project.theme?.badgeText || '#ffffff',
-                borderColor: project.theme?.badgeBorder || 'transparent',
-              }}
-            >
-              <span
-                className="w-1.5 h-1.5 rounded-full"
-                style={{ backgroundColor: project.theme?.accentColor || '#10b981' }}
-              ></span>
-              <span>{project.clientTag}</span>
+          <div className="flex items-center gap-2.5 text-xs sm:text-sm font-sans">
+            <span className="font-medium text-black">
+              {projectTitle}
             </span>
-            <span className="text-xs font-mono text-black/50 font-semibold">
+            <span className="text-black/25">•</span>
+            <span className="text-black/40 font-normal">
               {project.number}
             </span>
-            <span className="text-black/20">•</span>
-            <span className="text-xs font-mono text-black/65">
+            <span className="text-black/25">•</span>
+            <span className="text-black/60 font-normal truncate max-w-[280px] sm:max-w-none">
               {projectTagline}
             </span>
           </div>
@@ -91,7 +81,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             type="button"
             onClick={onClose}
             aria-label={t.projects.modal.closeAria}
-            className="w-9 h-9 rounded-full bg-black/5 hover:bg-black hover:text-white flex items-center justify-center text-sm font-mono text-black transition-all cursor-pointer"
+            className="w-9 h-9 rounded-full bg-black/5 hover:bg-black hover:text-white flex items-center justify-center text-sm font-sans text-black transition-all cursor-pointer"
             data-interactive
           >
             ✕
@@ -130,7 +120,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
           {/* Transparent Concept Demo Disclosure Box */}
           <div
-            className="p-4 sm:p-5 rounded-2xl border flex items-start gap-3.5 text-xs font-mono select-none"
+            className="p-4 sm:p-5 rounded-2xl border flex items-start gap-3.5 text-xs font-sans select-none"
             style={{
               backgroundColor: project.theme?.cardBg || 'rgba(0,0,0,0.02)',
               borderColor: project.theme?.borderColor || 'rgba(0,0,0,0.08)',
@@ -145,7 +135,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             <div className="space-y-1">
               <div className="font-semibold text-black/90 flex items-center gap-2">
                 <span>{t.projects.futureVisionDemo}</span>
-                <span className="text-[10px] text-black/40 font-normal">• {t.projects.modal.speculativeStudy}</span>
+                <span className="text-[11px] text-black/45 font-normal">• {t.projects.modal.speculativeStudy}</span>
               </div>
               <p className="text-black/65 leading-relaxed font-sans text-xs">
                 {t.projects.modal.disclosureText(projectTitle)}
@@ -154,17 +144,17 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           </div>
 
           {/* Metadata & Specs Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-2 border-t border-black/[0.08] text-xs font-mono">
-            <div className="space-y-1.5">
-              <span className="text-black/40 uppercase tracking-wider text-[10px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 pt-2 border-t border-black/[0.08] text-xs font-sans">
+            <div className="space-y-1">
+              <span className="text-black/45 text-[11px] font-normal">
                 {t.projects.modal.locationScopeLabel}
               </span>
               <p className="text-black/85 font-medium">
                 {project.location} • {t.projects.modal.locationScopeValue}
               </p>
             </div>
-            <div className="space-y-1.5">
-              <span className="text-black/40 uppercase tracking-wider text-[10px]">
+            <div className="space-y-1">
+              <span className="text-black/45 text-[11px] font-normal">
                 {t.projects.modal.coreStackLabel}
               </span>
               <p className="text-black/85 font-medium">{projectTech}</p>
@@ -173,8 +163,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         </div>
 
         {/* Bottom Sticky Action Bar */}
-        <div className="px-6 sm:px-10 py-5 bg-white border-t border-black/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 select-none shrink-0">
-          <div className="flex items-center gap-2 text-xs font-mono text-black/60">
+        <div className="px-6 sm:px-10 py-5 bg-white border-t border-black/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 select-none shrink-0 font-sans">
+          <div className="flex items-center gap-2 text-xs text-black/60">
             <span
               className="w-2 h-2 rounded-full"
               style={{ backgroundColor: project.theme?.accentColor || '#10b981' }}
@@ -182,24 +172,21 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             <span>{t.projects.modal.availableCommissions}</span>
           </div>
 
-          <div className="flex items-center gap-3 w-full sm:w-auto">
-            <Magnetic strength={0.3} radius={60}>
-              <a
-                href={whatsappInquiryUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-3 rounded-full text-xs font-sans font-medium transition-all flex items-center justify-center gap-2 shadow-xs"
-                style={{
-                  backgroundColor: project.theme?.buttonHoverBg || '#1C1D20',
-                  color: project.theme?.buttonHoverText || '#ffffff',
-                }}
-                data-interactive
-              >
-                <span>{t.projects.modal.discussProject}</span>
-                <span className="font-mono">↗</span>
-              </a>
-            </Magnetic>
-          </div>
+          <Magnetic strength={0.2} radius={60} className="w-full sm:w-auto">
+            <a
+              href={whatsappInquiryUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-6 py-3 rounded-full text-xs sm:text-sm font-sans font-medium text-white transition-all duration-300 flex items-center justify-center gap-2 shadow-sm hover:opacity-90 active:scale-98 cursor-pointer"
+              style={{
+                backgroundColor: project.theme?.accentColor || '#000000',
+              }}
+              data-interactive
+            >
+              <span>{t.projects.modal.discussProject}</span>
+              <span>↗</span>
+            </a>
+          </Magnetic>
         </div>
 
       </div>

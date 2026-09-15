@@ -62,43 +62,28 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       }`}
     >
       {/* Top Telemetry Header */}
-      <div className="flex items-center justify-between text-xs font-mono text-white/50 tracking-wider">
-        <div className="flex items-center gap-2.5">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span className="text-white font-semibold">JP STUDIOS</span>
+      <div className="flex items-center justify-between text-xs font-sans text-white/60">
+        <div className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span className="text-white font-medium">JP Studios</span>
         </div>
         <div>
-          <span>CALI, COLOMBIA (UTC-5)</span>
+          <span>Cali, Colombia</span>
         </div>
       </div>
 
-      {/* Center Monumental Counter & Status */}
-      <div className="my-auto space-y-4">
-        <div className="text-8xl sm:text-[14vw] font-bold font-display tracking-tighter text-white leading-none">
-          {progress}<span className="text-white/30 text-5xl sm:text-[6vw] font-light font-mono">%</span>
-        </div>
-        <div className="text-xs sm:text-sm font-mono text-white/60 tracking-tight flex items-center gap-3">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-          <span>
-            {progress < 30
-              ? 'Calibrating typography & viewport...'
-              : progress < 75
-              ? 'Compiling production architecture...'
-              : progress < 100
-              ? 'Initializing hardware acceleration...'
-              : 'Stage ready.'}
-          </span>
+      {/* Center Monumental Counter */}
+      <div className="my-auto">
+        <div className="text-8xl sm:text-[14vw] font-light font-display tracking-tight text-white leading-none">
+          {progress}<span className="text-white/30 text-5xl sm:text-[6vw] font-light font-sans">%</span>
         </div>
       </div>
 
       {/* Bottom Progress Hairline */}
       <div className="space-y-4">
-        <div className="flex justify-between text-[11px] font-mono text-white/40">
-          <span>Solo Creative Studio</span>
-          <span>Design & Engineering</span>
+        <div className="flex justify-between text-xs font-sans text-white/40">
+          <span>Creative Web Studio</span>
+          <span>Design & Craft</span>
         </div>
         <div className="w-full h-[1.5px] bg-white/10 overflow-hidden rounded-full">
           <div
