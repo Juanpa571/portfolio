@@ -6,7 +6,7 @@ import { ProjectModal } from '../ui/ProjectModal';
 import { useLanguage } from '../../context/LanguageContext';
 
 export const ProjectList: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activeProject, setActiveProject] = useState<ProjectItem | null>(null);
   const [displayedProject, setDisplayedProject] = useState<ProjectItem | null>(null);
   const [modalProject, setModalProject] = useState<ProjectItem | null>(null);
@@ -16,6 +16,7 @@ export const ProjectList: React.FC = () => {
   const currentPos = useRef({ x: -200, y: -200 });
   const floatingCardRef = useRef<HTMLDivElement>(null);
   const animFrameId = useRef<number | null>(null);
+
 
   useEffect(() => {
     if (activeProject) {
@@ -132,32 +133,45 @@ export const ProjectList: React.FC = () => {
           onMouseLeave={() => setActiveProject(null)}
         >
           {siteConfig.projects.map((project) => {
-            const isCurrentActive = activeProject?.id === project.id;
+            const isInteractive = !project.isCta && project.id !== 'next-project';
+            const isCurrentActive = isInteractive && activeProject?.id === project.id;
             const theme = project.theme;
 
             return (
               <div
                 key={project.id}
                 onMouseEnter={() => {
-                  setIsHoveringSection(true);
-                  setActiveProject(project);
+                  if (isInteractive) {
+                    setIsHoveringSection(true);
+                    setActiveProject(project);
+                  } else {
+                    setActiveProject(null);
+                  }
                 }}
-                onClick={() => setModalProject(project)}
-                className={`py-12 sm:py-16 lg:py-20 border-b border-black/10 transition-all duration-500 group cursor-pointer relative px-4 sm:px-8 -mx-4 sm:-mx-8 rounded-3xl ${
-                  isCurrentActive
-                    ? 'bg-black/[0.02]'
-                    : 'bg-transparent'
+                onClick={() => {
+                  if (isInteractive) {
+                    setModalProject(project);
+                  }
+                }}
+                className={`py-12 sm:py-16 lg:py-20 border-b border-black/10 transition-all duration-500 relative px-4 sm:px-8 -mx-4 sm:-mx-8 rounded-3xl ${
+                  isInteractive
+                    ? 'group cursor-pointer ' + (isCurrentActive ? 'bg-black/[0.02]' : 'bg-transparent')
+                    : 'cursor-default bg-transparent opacity-85'
                 }`}
-                data-interactive
+                {...(isInteractive ? { 'data-interactive': true } : {})}
               >
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 sm:gap-8">
                   
                   {/* Left: Index Number & Monumental Title */}
                   <div className="flex items-baseline gap-6 sm:gap-10">
-                    <span className="text-sm sm:text-base font-light font-display text-black/35 group-hover:text-black transition-colors duration-300 select-none">
+                    <span className="text-sm sm:text-base font-light font-display text-black/35 select-none">
                       {project.number}
                     </span>
-                    <h3 className="text-4xl sm:text-6xl lg:text-7xl font-light font-display tracking-[-0.01em] text-black group-hover:translate-x-3 transition-transform duration-500 ease-out">
+                    <h3 className={`text-4xl sm:text-6xl lg:text-7xl font-light font-display tracking-[-0.01em] ${
+                      isInteractive
+                        ? 'text-black group-hover:translate-x-3 transition-transform duration-500 ease-out'
+                        : 'text-black/50'
+                    }`}>
                       {t.projects.items[project.id]?.title || project.title}
                     </h3>
                   </div>
@@ -169,33 +183,52 @@ export const ProjectList: React.FC = () => {
                         {t.projects.items[project.id]?.category || project.category}
                       </div>
                       <div className="text-xs sm:text-sm font-sans text-black/45 flex items-center lg:justify-end gap-2">
-                        <span>{project.location}</span>
-                        <span className="text-black/25">•</span>
-                        <span>{t.projects.conceptDemoBadge}</span>
+                        {isInteractive ? (
+                          <>
+                            <span>{project.location}</span>
+                            <span className="text-black/25">•</span>
+                            <span>{t.projects.conceptDemoBadge}</span>
+                          </>
+                        ) : (
+                          <span className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-black/30" />
+                            <span>
+                              {language === 'es'
+                                ? 'Espacio reservado para tu marca'
+                                : 'Reserved spot for your brand'}
+                            </span>
+                          </span>
+                        )}
                       </div>
                     </div>
 
-                    {/* Circular Magnetic Action Icon */}
-                    <Magnetic strength={0.4} radius={60}>
-                      <div
-                        className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-black/15 bg-white flex items-center justify-center text-sm font-sans transition-all duration-300 shadow-xs group-hover:bg-black group-hover:text-white group-hover:border-black"
-                        style={{
-                          backgroundColor: isCurrentActive
-                            ? theme?.accentColor || '#000000'
-                            : undefined,
-                          color: isCurrentActive
-                            ? '#ffffff'
-                            : undefined,
-                          borderColor: isCurrentActive
-                            ? theme?.accentColor || '#000000'
-                            : undefined,
-                        }}
-                      >
-                        <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
-                          ↗
-                        </span>
+                    {/* Circular Magnetic Action Icon or Reserved Indicator */}
+                    {isInteractive ? (
+                      <Magnetic strength={0.4} radius={60}>
+                        <div
+                          className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-black/15 bg-white flex items-center justify-center text-sm font-sans transition-all duration-300 shadow-xs group-hover:bg-black group-hover:text-white group-hover:border-black"
+                          style={{
+                            backgroundColor: isCurrentActive
+                              ? theme?.accentColor || '#000000'
+                              : undefined,
+                            color: isCurrentActive
+                              ? '#ffffff'
+                              : undefined,
+                            borderColor: isCurrentActive
+                              ? theme?.accentColor || '#000000'
+                              : undefined,
+                          }}
+                        >
+                          <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
+                            ↗
+                          </span>
+                        </div>
+                      </Magnetic>
+                    ) : (
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-dashed border-black/20 bg-transparent flex items-center justify-center text-sm font-sans select-none">
+                        <span className="text-black/30 text-xs font-mono tracking-wider">—</span>
                       </div>
-                    </Magnetic>
+                    )}
                   </div>
 
                 </div>

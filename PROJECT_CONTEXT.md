@@ -17,7 +17,7 @@ Documento de referencia para el agente de IA. Leer este archivo al iniciar cualq
 - **Framework:** React 19 + TypeScript + Vite
 - **Estilos:** Tailwind CSS v4 + variables de tema personalizadas
 - **Animaciones:** motion/react (Framer Motion)
-- **Despliegue:** GitHub (main) sincronizado con Netlify en https://jpchacon.com/
+- **Despliegue:** GitHub (main) sincronizado con Cloudflare Pages en https://jpchacon.com/
 
 ---
 
@@ -26,8 +26,10 @@ Documento de referencia para el agente de IA. Leer este archivo al iniciar cualq
    - El usuario aprobó explícitamente mantener la cinta de velocidad tal como está. **NO BORRAR NI SIMPLIFICAR**. Tiene personalidad y encaja con la web.
 2. **El Ampersand (&) en cursiva en el Hero:**
    - El contraste tipográfico del & en cursiva en el Hero está expresamente aprobado. **MANTENERLO**.
-3. **Problema de fuentes cortadas al 100% de zoom:**
-   - **PROHIBIDO GASTAR TIEMPO O TOKENS INTENTANDO ARREGLARLO.** El usuario dio la orden explícita de dejarlo así y no tocarlo más.
+3. **Baneo Total de Neue Montreal y Estandarización de Geist Sans (Aprobado por el Usuario):**
+   - Se eliminó y baneó por completo `Neue Montreal` en toda la página web (cabeceras, títulos monumentales, subtítulos, preguntas de FAQ, servicios y cuerpo de texto).
+   - La tipografía oficial y definitiva de todo el sitio web es **Geist Sans** (`--font-display` y `--font-sans`), respaldada por **Inter** y **Geist Mono** para datos técnicos.
+   - Esto erradica al 100% el aplanado y corte superior de letras minúsculas (`o`, `e`, `a`, `c`, `s`, `n`, etc.) en Windows DirectWrite / 96 DPI, conservando una estética suiza contemporánea de máxima nitidez y precisión técnica.
 4. **Cero etiquetas decorativas de IA:**
    - Se eliminaron todas las etiquetas con barras diagonales (tipo // SELECTED WORKS), sellos vacíos (● 100% INDEPENDENT) y pastillas de 'REQUERIDO' en el formulario de contacto. Mantener el diseño limpio, editorial y sin adornos vacíos.
 5. **Tipografía y Jerarquía:**
@@ -39,6 +41,9 @@ Documento de referencia para el agente de IA. Leer este archivo al iniciar cualq
    - **PROHIBIDO subir cambios directamente a `main` o desplegar a producción sin aprobación previa del usuario.**
    - Todo cambio, nueva sección, ajuste visual o refactor debe desarrollarse siempre en una rama local aislada (ej. `dev` o `feature/...`) y revisarse primero en el servidor de desarrollo local (`http://localhost:5173/`).
    - Únicamente tras recibir el **visto bueno y aprobación explícita del usuario**, se hace merge a `main` y push a GitHub para lanzar a Netlify/Cloudflare.
+8. **Estructura de Proyectos en Portafolio:**
+   - **01 Hábitat:** Caso de estudio principal interactivo con demo/modal.
+   - **02 Soon...:** Espacio reservado para el proyecto del cliente (`Tu Proyecto Aquí` / `Your Project Here`). Fila intencionalmente **no interactiva** (cursor default, sin hover preview flotante, sin clic y sin abrir modal/panel) para actuar como una invitación sutil y elegante a trabajar juntos.
 
 ---
 
@@ -60,12 +65,3 @@ Documento de referencia para el agente de IA. Leer este archivo al iniciar cualq
 - ContactForm.tsx: Formulario de contacto directo sin micro-labels.
 - Footer.tsx: Cierre con enlaces y créditos de autoría.
 - LanguageToggle.tsx: Alternador de idiomas (ES / EN).
-
----
-
-## 6. Metodología para Proyectos de Clientes de Gran Envergadura (Wireframing y Arquitectura)
-- Cuando ingrese un proyecto de cliente que requiera una arquitectura web amplia (múltiples páginas, catálogos, embudos de conversión o reservas):
-  1. **Fase 1 · Arquitectura de Información y Sitemap:** Definición del árbol de páginas, jerarquía de navegación y recorridos de usuario (*user flows*) con enfoque de conversión.
-  2. **Fase 2 · Wireframing Estructural con Copywriting Real:** Estructura modular de cada página con redacción comercial directa y real adaptada al negocio del cliente (cero 'Lorem ipsum' o bloques cliché tipo Relume).
-  3. **Fase 3 · Prototipado Interactivo Rápido:** Despliegue de prototipo navegable en React/Tailwind para revisión y aprobación directa del cliente antes de implementar la dirección de arte y micro-interacciones definitivas.
-- **Ventaja Estratégica:** Cero dependencia de suscripciones externas (Figma/Relume/Webflow), libertad total de diseño a medida y código base que se convierte directamente en el producto final.

@@ -21,7 +21,10 @@ export const TiltCard: React.FC<TiltCardProps> = ({
 }) => {
   const { ref, style } = useTilt<HTMLDivElement>({ max: maxTilt, scale });
 
-  const isDark = className.includes('bg-[#0c0d12]') || className.includes('bg-[#1C1D20]');
+  const isDark =
+    className.includes('bg-[#0c0d12]') ||
+    className.includes('bg-[#1C1D20]') ||
+    className.includes('bg-[#0e382b]');
 
   return (
     <div

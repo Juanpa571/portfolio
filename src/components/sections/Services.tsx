@@ -111,102 +111,104 @@ export const Services: React.FC = () => {
         </div>
 
         {/* Asymmetric Bento Architecture with Organic Masonry Stagger */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 lg:gap-7 items-stretch">
-          
-          {/* Card 001: UI/UX Design — Panoramic Editorial Canvas (7 cols) */}
-          <div className="md:col-span-12 lg:col-span-7">
-            <TiltCard
-              maxTilt={3}
-              scale={1.01}
-              className="p-7 sm:p-10 rounded-[2rem] bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-500 flex flex-col justify-between h-full group cursor-pointer"
-              data-interactive
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8 my-auto">
-                <div className="space-y-2 max-w-sm">
-                  <h3 className="text-3xl sm:text-4xl font-normal font-display text-black tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
-                    {t.services.items[0].title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-black/65 font-sans leading-relaxed">
-                    {t.services.items[0].subtitle}
-                  </p>
+        <div className="space-y-5 lg:space-y-7">
+          {/* Row 1: Cards 001 and 002 */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 lg:gap-7 items-stretch">
+            {/* Card 001: UI/UX Design (7 cols) */}
+            <div className="md:col-span-12 lg:col-span-7">
+              <TiltCard
+                maxTilt={3}
+                scale={1.01}
+                className="p-7 sm:p-9 rounded-[2rem] bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-500 flex flex-col justify-center h-full group cursor-pointer"
+                data-interactive
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 my-auto">
+                  <div className="space-y-1.5 max-w-sm">
+                    <h3 className="text-2xl sm:text-3xl font-normal font-display text-black tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
+                      {t.services.items[0].title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-black/65 font-sans leading-relaxed">
+                      {t.services.items[0].subtitle}
+                    </p>
+                  </div>
+
+                  <UiUxArtwork />
                 </div>
+              </TiltCard>
+            </div>
 
-                <UiUxArtwork />
-              </div>
-            </TiltCard>
-          </div>
+            {/* Card 002: Frontend Craft — Inverted Dark Monolith (5 cols) */}
+            <div className="md:col-span-12 lg:col-span-5">
+              <TiltCard
+                maxTilt={3.5}
+                scale={1.01}
+                className="p-7 sm:p-9 rounded-[2rem] bg-[#1C1D20] text-white border border-white/10 shadow-xl hover:shadow-2xl hover:border-white/25 transition-all duration-500 flex flex-col justify-center h-full group cursor-pointer relative overflow-hidden"
+                data-interactive
+              >
+                <div className="flex items-center justify-between gap-6 my-auto">
+                  <div className="space-y-1.5 max-w-[65%]">
+                    <h3 className="text-2xl sm:text-3xl font-normal font-display text-white tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
+                      {t.services.items[1].title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-white/70 font-sans leading-relaxed">
+                      {t.services.items[1].subtitle}
+                    </p>
+                  </div>
 
-          {/* Card 002: Frontend Craft — Inverted Dark Monolith (5 cols, Vertical Composition, Staggered +16px) */}
-          <div className="md:col-span-12 lg:col-span-5 lg:translate-y-4">
-            <TiltCard
-              maxTilt={3.5}
-              scale={1.01}
-              className="p-7 sm:p-10 rounded-[2rem] bg-[#1C1D20] text-white border border-white/10 shadow-xl hover:shadow-2xl hover:border-white/25 transition-all duration-500 flex flex-col justify-between h-full group cursor-pointer relative overflow-hidden"
-              data-interactive
-            >
-              <div className="flex flex-col justify-between h-full gap-8 my-auto">
-                <div className="space-y-2">
-                  <h3 className="text-2xl sm:text-3xl font-normal font-display text-white tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
-                    {t.services.items[1].title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-white/70 font-sans leading-relaxed">
-                    {t.services.items[1].subtitle}
-                  </p>
-                </div>
-
-                <div className="flex justify-end pt-2">
                   <FrontendCraftArtwork />
                 </div>
-              </div>
-            </TiltCard>
+              </TiltCard>
+            </div>
           </div>
 
-          {/* Card 003: Turnkey Launch — Compact Engine (5 cols, Counter-Staggered -8px) */}
-          <div className="md:col-span-12 lg:col-span-5 lg:-translate-y-2">
-            <TiltCard
-              maxTilt={3}
-              scale={1.01}
-              className="p-7 sm:p-9 rounded-[2rem] bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-500 flex flex-col justify-center h-full group cursor-pointer"
-              data-interactive
-            >
-              <div className="flex items-center justify-between gap-6 my-auto">
-                <div className="space-y-1.5 max-w-[55%]">
-                  <h3 className="text-2xl sm:text-3xl font-normal font-display text-black tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
-                    {t.services.items[2].title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-black/65 font-sans leading-relaxed">
-                    {t.services.items[2].subtitle}
-                  </p>
+          {/* Row 2: Cards 003 and 004 */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 lg:gap-7 items-stretch">
+            {/* Card 003: Turnkey Launch — Compact Engine (5 cols) */}
+            <div className="md:col-span-12 lg:col-span-5">
+              <TiltCard
+                maxTilt={3}
+                scale={1.01}
+                className="p-7 sm:p-9 rounded-[2rem] bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-500 flex flex-col justify-center h-full group cursor-pointer"
+                data-interactive
+              >
+                <div className="flex items-center justify-between gap-6 my-auto">
+                  <div className="space-y-1.5 max-w-[55%]">
+                    <h3 className="text-2xl sm:text-3xl font-normal font-display text-black tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
+                      {t.services.items[2].title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-black/65 font-sans leading-relaxed">
+                      {t.services.items[2].subtitle}
+                    </p>
+                  </div>
+
+                  <FullStackArtwork />
                 </div>
+              </TiltCard>
+            </div>
 
-                <FullStackArtwork />
-              </div>
-            </TiltCard>
-          </div>
+            {/* Card 004: Ongoing Support — Panoramic Sanctuary (7 cols) */}
+            <div className="md:col-span-12 lg:col-span-7">
+              <TiltCard
+                maxTilt={3}
+                scale={1.01}
+                className="p-7 sm:p-9 rounded-[2rem] bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-500 flex flex-col justify-center h-full group cursor-pointer relative"
+                data-interactive
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8 my-auto">
+                  <div className="space-y-1.5 max-w-sm">
+                    <h3 className="text-3xl sm:text-4xl font-normal font-display text-black tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
+                      {t.services.items[3].title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-black/65 font-sans leading-relaxed">
+                      {t.services.items[3].subtitle}
+                    </p>
+                  </div>
 
-          {/* Card 004: Ongoing Support — Panoramic Sanctuary (7 cols) */}
-          <div className="md:col-span-12 lg:col-span-7">
-            <TiltCard
-              maxTilt={3}
-              scale={1.01}
-              className="p-7 sm:p-10 rounded-[2rem] bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-500 flex flex-col justify-center h-full group cursor-pointer relative"
-              data-interactive
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-8 my-auto">
-                <div className="space-y-2 max-w-sm">
-                  <h3 className="text-3xl sm:text-4xl font-normal font-display text-black tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
-                    {t.services.items[3].title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-black/65 font-sans leading-relaxed">
-                    {t.services.items[3].subtitle}
-                  </p>
+                  <SupportArtwork />
                 </div>
-
-                <SupportArtwork />
-              </div>
-            </TiltCard>
+              </TiltCard>
+            </div>
           </div>
-
         </div>
 
       </div>

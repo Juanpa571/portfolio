@@ -32,6 +32,7 @@ export interface ProjectItem {
   aspectRatio: string;
   dimensions: string;
   image?: string;
+  isCta?: boolean;
   theme?: ProjectTheme;
 }
 
@@ -112,27 +113,28 @@ export const siteConfig = {
     {
       id: 'sai-seven',
       number: '02',
-      clientTag: 'SAI SEVEN',
-      title: 'Sai Seven',
-      category: 'Luxury Hospitality & Resort',
+      clientTag: 'SAI',
+      title: 'SAI — San Andrés Island',
+      category: 'Hospedaje • Naturaleza • Cultura • Caribe',
       location: 'San Andrés, Colombia',
-      tech: 'React 19 • Motion • Coastal Storytelling',
-      description: 'Ultra-luxury Caribbean beachfront sanctuary digital presence featuring immersive coastal typography, fluid storytelling, and effortless booking journeys.',
+      tech: 'Arquitectura de Reserva Directa • Cero Comisiones OTA',
+      description: 'Resort y descanso frente al mar en San Andrés. Arquitectura digital diseñada para captar reservas directas de alto valor sin intermediarios.',
       aspectRatio: '16/10',
       dimensions: '1920x1200 px',
-      image: '/projects/sai-seven.jpg',
+      image: '/projects/arrecife-hero.jpg',
+      isCta: false,
       theme: {
-        accentColor: '#00A896',
-        cardBg: 'rgba(226, 246, 246, 0.45)',
-        hoverBg: '#E8F7F7',
-        borderColor: 'rgba(0, 168, 150, 0.35)',
-        badgeBg: '#D6F2F2',
-        badgeText: '#084854',
-        badgeBorder: 'rgba(0, 168, 150, 0.45)',
-        tagline: 'Caribbean Coastal Sanctuary & Resort',
-        buttonHoverBg: '#093642',
-        buttonHoverText: '#E6FAF9',
-        glowColor: 'rgba(0, 168, 150, 0.15)',
+        accentColor: '#0B2532',
+        cardBg: 'rgba(250, 249, 246, 0.7)',
+        hoverBg: '#FAF9F6',
+        borderColor: 'rgba(11, 37, 50, 0.2)',
+        badgeBg: '#E6EFF2',
+        badgeText: '#0B2532',
+        badgeBorder: 'rgba(11, 37, 50, 0.3)',
+        tagline: 'Arquitectura para Reservas Directas sin Comisiones',
+        buttonHoverBg: '#0B2532',
+        buttonHoverText: '#FFFFFF',
+        glowColor: 'rgba(23, 162, 184, 0.15)',
       }
     }
   ] as ProjectItem[]

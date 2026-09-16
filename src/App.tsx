@@ -5,7 +5,9 @@ import { Hero } from './components/sections/Hero';
 import { Intro } from './components/sections/Intro';
 import { VelocityTicker } from './components/sections/VelocityTicker';
 import { Services } from './components/sections/Services';
+import { Process } from './components/sections/Process';
 import { ProjectList } from './components/sections/ProjectList';
+import { Faq } from './components/sections/Faq';
 import { ContactForm } from './components/sections/ContactForm';
 import { Footer } from './components/layout/Footer';
 import { CustomCursor } from './components/ui/CustomCursor';
@@ -26,7 +28,9 @@ export const App: React.FC = () => {
           <Intro />
           <VelocityTicker />
           <Services />
+          <Process />
           <ProjectList />
+          <Faq />
           <ContactForm />
         </main>
         <Footer />

@@ -3,7 +3,9 @@ export type Language = 'en' | 'es';
 export interface Translations {
   nav: {
     capabilities: string;
+    process: string;
     works: string;
+    faq: string;
     contact: string;
     chat: string;
     location: string;
@@ -42,6 +44,18 @@ export interface Translations {
       description: string;
     }>;
   };
+  process: {
+    headerLine1: string;
+    headerLine2: string;
+    tagline: string;
+    steps: Array<{
+      number: string;
+      title: string;
+      timeframe: string;
+      description: string;
+      deliverable: string;
+    }>;
+  };
   projects: {
     headerLine1: string;
     headerLine2: string;
@@ -70,6 +84,15 @@ export interface Translations {
       disclosureText: (name: string) => string;
       closeAria: string;
     };
+  };
+  faq: {
+    headerLine1: string;
+    headerLine2: string;
+    tagline: string;
+    items: Array<{
+      question: string;
+      answer: string;
+    }>;
   };
   contact: {
     sectionTag: string;
@@ -111,7 +134,9 @@ export const translations: Record<Language, Translations> = {
   en: {
     nav: {
       capabilities: 'Capabilities',
+      process: 'Process',
       works: 'Works',
+      faq: 'FAQ',
       contact: 'Contact',
       chat: 'Chat',
       location: 'Cali, Colombia',
@@ -132,7 +157,7 @@ export const translations: Record<Language, Translations> = {
     },
     intro: {
       statement:
-        'I partner with founders, studios, and modern brands to design and deliver high-craft web experiences. Honest communication, fast turnaround, and personal dedication to launching digital presences that stand out.',
+        'I partner with founders, private practices, and ambitious brands to design and deliver high-craft web experiences. Direct communication, fast turnaround, and personal dedication to launching digital presences that convert visitors into clients.',
       startOnWhatsApp: 'Start on WhatsApp',
       direct: 'Direct ↗',
     },
@@ -166,61 +191,92 @@ export const translations: Record<Language, Translations> = {
           id: 'ux-design',
           number: '001',
           title: 'UI/UX & Art Direction',
-          subtitle: 'Clarity, hierarchy, and detail.',
+          subtitle: 'Authority, hierarchy, and client conversion.',
           description:
-            'Translating your vision into an arresting visual identity and intuitive layouts that command attention and drive conversion.',
+            'Translating your practice into an arresting visual identity. Clean layouts structured to command prestige and guide prospects directly toward scheduling an appointment or consultation.',
         },
         {
           id: 'frontend',
           number: '002',
           title: 'Frontend Craft',
-          subtitle: 'Precision code that feels native.',
+          subtitle: 'Sub-second speed that feels native.',
           description:
-            'Modern React 19, TypeScript, and clean styling. Fast, responsive, and tactile web applications built with zero unnecessary bloat.',
+            'Engineered with modern React 19, TypeScript, and zero bloat. Lightning-fast mobile performance with zero slow loading screens or broken responsive layouts.',
         },
         {
           id: 'launch',
           number: '003',
           title: 'Turnkey Launch',
-          subtitle: 'Global deployment and custom domain setup.',
+          subtitle: 'Custom domain, SSL, and direct routing.',
           description:
-            'Lightning-fast edge hosting, DNS configuration, and contact integrations ready to receive high-value inquiries with zero technical friction.',
+            'Global edge hosting with 99.9% uptime, DNS setup, one-tap WhatsApp integration, and optimized Google Maps presence ready to capture high-value clients immediately.',
         },
         {
           id: 'support',
           number: '004',
           title: 'Ongoing Evolution',
-          subtitle: 'Peace of mind post-launch.',
+          subtitle: 'Total peace of mind post-launch.',
           description:
-            'Fast iterations, seasonal content updates, and dedicated visual refinements so your digital presence always stays ahead.',
+            'Optional ongoing care including continuous speed audits, automated backups, and monthly content updates so your digital presence always stays ahead without technical headaches.',
+        },
+      ],
+    },
+    process: {
+      headerLine1: 'Structured execution.',
+      headerLine2: 'Zero surprises.',
+      tagline: 'From strategic diagnosis to turnkey launch in under 14 days',
+      steps: [
+        {
+          number: '01',
+          title: 'Strategic Diagnosis & Architecture',
+          timeframe: '48 Hours',
+          description:
+            'We study your business model, high-ticket services, and competitive landscape. We map the site structure and messaging strategy without burdening your team with writing copy from scratch.',
+          deliverable: 'Strategic architecture & content blueprint',
+        },
+        {
+          number: '02',
+          title: 'Interactive Craft & Live Testing',
+          timeframe: 'Days 3 to 10',
+          description:
+            'We build your bespoke web presence with sub-second responsiveness and tactile elegance. You test the complete experience live on your own smartphone before anything goes public.',
+          deliverable: 'Private live staging link for review',
+        },
+        {
+          number: '03',
+          title: 'Turnkey Launch & Handover',
+          timeframe: 'Days 11 to 14',
+          description:
+            'We connect your corporate domain, deploy SSL security, configure one-tap WhatsApp routing, and optimize your Google Business profile. You receive 100% full ownership of your assets.',
+          deliverable: 'Live production launch & full ownership transfer',
         },
       ],
     },
     projects: {
-      headerLine1: 'Selected',
-      headerLine2: 'Works.',
-      tagline: 'Concept Prototypes & Future Visions • Click to explore',
+      headerLine1: 'Live',
+      headerLine2: 'Demos.',
+      tagline: 'Visual Benchmark & Live Demos • Click to test the interactive experience',
       subtagline:
-        'Interactive demonstrations of how client platforms can look and convert',
-      conceptDemoBadge: 'Concept Demo',
-      futureVisionDemo: 'Future Vision Demo',
-      demoButton: 'Demo',
+        'Interactive demonstrations of how bespoke web architecture commands authority and converts',
+      conceptDemoBadge: 'Live Demo',
+      futureVisionDemo: 'Interactive Vision Demo',
+      demoButton: 'Open Live Demo ↗',
       items: {
         habitat: {
           title: 'Hábitat',
           category: 'Veterinary Hospital & Emergency',
           tagline: '24/7 Clinical & Emergency Architecture',
           description:
-            'High-complexity 24/7 veterinary hospital and emergency care center. Digital presence designed for immediate triage clarity, calm clinical authority, and rapid patient intake.',
-          tech: 'React 19 • Motion • Triage Direction',
+            'High-complexity 24/7 veterinary hospital and emergency care center. Digital presence designed for urgent triage clarity: one-tap emergency call and Google Maps directions optimized for nighttime mobile panic.',
+          tech: 'React 19 • Emergency Triage UX • Sub-Second Mobile',
         },
-        'sai-seven': {
-          title: 'Sai Seven',
-          category: 'Luxury Hospitality & Resort',
-          tagline: 'Caribbean Coastal Sanctuary & Resort',
+        'next-project': {
+          title: 'Soon...',
+          category: 'Your Project Here',
+          tagline: 'Reserved Space for Your Brand',
           description:
-            'Ultra-luxury Caribbean beachfront sanctuary digital presence featuring immersive coastal typography, fluid storytelling, and effortless booking journeys.',
-          tech: 'React 19 • Motion • Coastal Storytelling',
+            'This space is reserved for your company. We design and develop bespoke digital experiences engineered to command immediate authority and turn visitors into direct clients.',
+          tech: 'Bespoke Engineering • High-Impact Conversion',
         },
       },
       modal: {
@@ -231,9 +287,41 @@ export const translations: Record<Language, Translations> = {
         coreStackLabel: 'Core Stack & Craft',
         speculativeStudy: 'Speculative Concept Study',
         disclosureText: (name: string) =>
-          `This project is an interactive design demonstration showcasing how modern web architecture, editorial typography, and high-speed motion could elevate ${name}'s digital brand authority and client conversion in the future.`,
+          `This project is an interactive design demonstration showcasing how modern web architecture, editorial typography, and high-speed motion elevate ${name}'s digital brand authority and client conversion.`,
         closeAria: 'Close modal',
       },
+    },
+    faq: {
+      headerLine1: 'Clear answers.',
+      headerLine2: 'Zero fine print.',
+      tagline: 'Everything you need to know before starting your project',
+      items: [
+        {
+          question: 'How long does it take to have the website live and operating?',
+          answer:
+            'Standard delivery is 7 to 14 business days from our initial kick-off. Because we handle structural strategy and copywriting upfront, we eliminate the multi-month delays typical of traditional agencies.',
+        },
+        {
+          question: 'Do I have to pay mandatory monthly fees after launch?',
+          answer:
+            'No. You can choose a single turnkey project payment with zero recurring obligations. We also offer optional monthly support and evolution plans if you prefer to delegate high-speed edge hosting, regular content updates, and Google Maps optimization.',
+        },
+        {
+          question: 'Who owns the website, domain, and code once delivered?',
+          answer:
+            'You own 100% of everything. Unlike closed platforms that lock you in, your digital presence belongs entirely to you. You maintain full access to your custom domain, hosting, and source files with zero proprietary lock-in.',
+        },
+        {
+          question: 'What do I need to provide to get started?',
+          answer:
+            'Only your logo (if available), basic contact information, and a 30-minute conversation about your highest-value services. We take care of competitive research, layout architecture, and conversion copywriting.',
+        },
+        {
+          question: 'Why choose bespoke web craft over standard WordPress or Wix templates?',
+          answer:
+            'Generic templates load dozens of bloated plugins that take 4 to 6 seconds to open on your clients’ mobile phones, causing them to leave before reading. Our custom architecture loads in under 1 second, establishes immediate prestige, and guides users directly to a phone call or WhatsApp inquiry.',
+        },
+      ],
     },
     contact: {
       sectionTag: 'Direct Inquiries',
@@ -245,12 +333,12 @@ export const translations: Record<Language, Translations> = {
       newProject: 'New Project',
       generalInquiry: 'General Inquiry / Other',
       nameLabel: 'Name or business',
-      namePlaceholder: 'John Doe — Boutique Hotel',
+      namePlaceholder: 'Dr. John Doe — Private Clinic',
       emailLabel: 'Email address',
       emailPlaceholder: 'contact@yourbrand.com',
       messageLabel: 'Project details',
       messagePlaceholder:
-        'Tell me about your business, current website (if any), or the goals you want to achieve...',
+        'Tell me about your business, your current website (if any), and the goals you want to achieve...',
       submitIdle: 'Send inquiry',
       submitSending: 'Sending...',
       validationError: 'Please complete all required fields.',
@@ -277,7 +365,9 @@ export const translations: Record<Language, Translations> = {
   es: {
     nav: {
       capabilities: 'Capacidades',
+      process: 'Proceso',
       works: 'Proyectos',
+      faq: 'Preguntas',
       contact: 'Contacto',
       chat: 'Chat',
       location: 'Cali, Colombia',
@@ -298,7 +388,7 @@ export const translations: Record<Language, Translations> = {
     },
     intro: {
       statement:
-        'Me asocio con fundadores, estudios y marcas modernas para diseñar y construir experiencias web de alto nivel. Comunicación honesta, entrega ágil y dedicación personal para lanzar presencias digitales memorables.',
+        'Me asocio con fundadores, empresas y marcas modernas para diseñar y construir experiencias web de alto nivel. Comunicación directa, entrega ágil y dedicación personal para lanzar presencias digitales memorables que convierten visitas en clientes.',
       startOnWhatsApp: 'Iniciar en WhatsApp',
       direct: 'Directo ↗',
     },
@@ -332,25 +422,25 @@ export const translations: Record<Language, Translations> = {
           id: 'ux-design',
           number: '001',
           title: 'UI/UX y Dirección de Arte',
-          subtitle: 'Claridad, jerarquía y atención al detalle.',
+          subtitle: 'Autoridad, jerarquía y captación de clientes.',
           description:
-            'Transformando tu visión en una identidad visual cautivadora y estructuras intuitivas que capturan la atención e impulsan la conversión.',
+            'Transformando tu negocio en una identidad visual cautivadora. Estructuras de alta autoridad diseñadas para empresas y marcas que buscan diferenciarse, guiando la atención del visitante directamente a agendar una consulta o cotización.',
         },
         {
           id: 'frontend',
           number: '002',
           title: 'Desarrollo Frontend',
-          subtitle: 'Código de precisión con sensación nativa.',
+          subtitle: 'Velocidad sub-segundo con sensación nativa.',
           description:
-            'React 19 moderno, TypeScript y estilos limpios. Aplicaciones web rápidas, responsivas y táctiles construidas sin código innecesario.',
+            'React 19 moderno, TypeScript y estilos optimizados. Carga instantánea en menos de 1 segundo en móviles, código ultraligero y cero pantallas en blanco o desalineaciones visuales.',
         },
         {
           id: 'launch',
           number: '003',
           title: 'Lanzamiento Llave en Mano',
-          subtitle: 'Despliegue global y configuración de dominio.',
+          subtitle: 'Dominio corporativo, SSL y WhatsApp directo.',
           description:
-            'Hosting ultrarrápido en el edge, configuración DNS e integraciones de contacto listas para captar clientes de alto valor sin fricción técnica.',
+            'Hosting de alta velocidad en el edge, certificado de seguridad SSL, configuración DNS, botón directo a WhatsApp y ficha optimizada en Google Maps lista para recibir clientes.',
         },
         {
           id: 'support',
@@ -358,35 +448,66 @@ export const translations: Record<Language, Translations> = {
           title: 'Evolución Continua',
           subtitle: 'Tranquilidad total tras el lanzamiento.',
           description:
-            'Iteraciones rápidas, actualizaciones periódicas de contenido y refinamientos visuales para que tu presencia digital siempre esté a la vanguardia.',
+            'Planes opcionales de soporte y mantenimiento: monitorización contra caídas 24/7, copias de seguridad automáticas y actualizaciones periódicas de contenido sin dolores de cabeza técnicos.',
+        },
+      ],
+    },
+    process: {
+      headerLine1: 'Ejecución estructurada.',
+      headerLine2: 'Cero sorpresas.',
+      tagline: 'Del diagnóstico inicial al lanzamiento llave en mano en menos de 14 días',
+      steps: [
+        {
+          number: '01',
+          title: 'Diagnóstico Estratégico y Estructura',
+          timeframe: '48 Horas',
+          description:
+            'Analizamos tus servicios más rentables, la competencia en tu ciudad y el comportamiento de tus clientes. Diseñamos la arquitectura y los textos de venta sin que tengas que redactar nada desde cero.',
+          deliverable: 'Arquitectura estratégica y propuesta de contenidos',
+        },
+        {
+          number: '02',
+          title: 'Maquetación Interactiva y Pruebas en Vivo',
+          timeframe: 'Días 3 al 10',
+          description:
+            'Construimos tu plataforma web con diseño de autor y velocidad sub-segundo. Pruebas la experiencia completa y los botones en tu propio móvil antes del lanzamiento oficial.',
+          deliverable: 'Enlace privado de pruebas en vivo',
+        },
+        {
+          number: '03',
+          title: 'Puesta en Marcha y Entrega Llave en Mano',
+          timeframe: 'Días 11 al 14',
+          description:
+            'Conectamos tu dominio corporativo, activamos certificado SSL, enlazamos el botón directo a WhatsApp y optimizamos tu ficha en Google Maps. Recibes el 100% de la propiedad.',
+          deliverable: 'Web en producción y propiedad total transferida',
         },
       ],
     },
     projects: {
-      headerLine1: 'Proyectos',
-      headerLine2: 'Destacados.',
-      tagline: 'Prototipos de Concepto y Visiones Futuras • Clic para explorar',
+      headerLine1: 'Demos en',
+      headerLine2: 'Vivo.',
+      tagline: 'Estándar Visual & Demos en Vivo • Clic para probar la experiencia interactiva',
       subtagline:
-        'Demostraciones interactivas de cómo pueden verse y convertir las plataformas web de clientes',
-      conceptDemoBadge: 'Demo de Concepto',
-      futureVisionDemo: 'Demo de Visión Futura',
-      demoButton: 'Demo',
+        'Demostraciones interactivas de cómo una web a medida transmite autoridad y convierte visitas en clientes',
+      conceptDemoBadge: 'Demo en Vivo',
+      futureVisionDemo: 'Demo de Visión Interactiva',
+      demoButton: 'Abrir Demo en Vivo ↗',
       items: {
         habitat: {
           title: 'Hábitat',
           category: 'Hospital Veterinario y Urgencias',
           tagline: 'Arquitectura Clínica y de Urgencias 24/7',
           description:
-            'Hospital veterinario y centro de urgencias 24/7 de alta complejidad. Presencia digital diseñada para triaje inmediato, serenidad clínica y rápida atención de pacientes.',
-          tech: 'React 19 • Motion • Dirección de Triaje',
+            'Hospital veterinario y centro de urgencias 24/7 de alta complejidad. Presencia digital diseñada para triaje inmediato: botón de llamada de urgencia en un toque y ruta de Google Maps optimizada para situaciones críticas nocturnas.',
+          tech: 'React 19 • Triaje de Urgencias UX • Carga Sub-Segundo en Móvil',
         },
-        'sai-seven': {
-          title: 'Sai Seven',
-          category: 'Hotelería y Resort de Lujo',
-          tagline: 'Santuario y Resort en la Costa Caribeña',
+        'next-project': {
+          title: 'Soon...',
+          category: 'Tu Proyecto Aquí',
+          tagline: 'Espacio Reservado para Tu Marca',
           description:
-            'Santuario frente al mar en el Caribe de ultra-lujo. Presencia digital con tipografía costera inmersiva, narrativa fluida y reservas sin esfuerzo.',
-          tech: 'React 19 • Motion • Narrativa Costera',
+            'Este espacio está reservado para tu marca o empresa. Diseñamos y desarrollamos una experiencia digital a medida pensada para transmitir autoridad inmediata y convertir visitas en clientes directos.',
+          tech: 'Arquitectura a Medida • Alta Conversión',
         },
       },
       modal: {
@@ -397,9 +518,41 @@ export const translations: Record<Language, Translations> = {
         coreStackLabel: 'Tecnología y Desarrollo',
         speculativeStudy: 'Estudio de Concepto Especulativo',
         disclosureText: (name: string) =>
-          `Este proyecto es una demostración interactiva de diseño que muestra cómo la arquitectura web moderna, la tipografía editorial y el movimiento fluido podrían elevar la autoridad de marca y la conversión de clientes para ${name} en el futuro.`,
+          `Este proyecto es una demostración interactiva de diseño que muestra cómo la arquitectura web moderna, la tipografía editorial y el movimiento fluido elevan la autoridad de marca y la conversión de clientes para ${name}.`,
         closeAria: 'Cerrar ventana',
       },
+    },
+    faq: {
+      headerLine1: 'Respuestas claras.',
+      headerLine2: 'Sin letra pequeña.',
+      tagline: 'Todo lo que necesitas saber antes de iniciar tu proyecto',
+      items: [
+        {
+          question: '¿Cuánto tiempo toma tener la página web lista para operar?',
+          answer:
+            'El plazo habitual es de 7 a 14 días laborables desde la sesión de diagnóstico inicial. Al tener una metodología cerrada y redactar nosotros la estructura estratégica, evitamos las demoras de meses que suelen ocurrir con agencias tradicionales.',
+        },
+        {
+          question: '¿Tengo que pagar mensualidades obligatorias tras el lanzamiento?',
+          answer:
+            'No. Puedes optar por entrega llave en mano con un único pago por el proyecto. Además, si prefieres delegar el alojamiento de alta velocidad, copias de seguridad, actualizaciones mensuales y optimización continua en Google Maps, ofrezco planes de evolución y soporte mensual totalmente opcionales.',
+        },
+        {
+          question: '¿Quién es dueño de la página web, el dominio y los archivos?',
+          answer:
+            'Tú al 100%. A diferencia de plataformas cerradas que te retienen como rehén, aquí la web te pertenece íntegramente. Tienes acceso completo a tu dominio, tu alojamiento y tus archivos fuente sin ataduras forzadas.',
+        },
+        {
+          question: '¿Qué necesito entregar para comenzar a trabajar?',
+          answer:
+            'Solo requerimos tu logotipo (si ya dispones de uno), tus datos de contacto básicos y una llamada o conversación de 30 minutos sobre tus servicios más rentables. Nosotros nos encargamos de investigar la competencia, estructurar la propuesta y redactar el contenido.',
+        },
+        {
+          question: '¿Por qué una web a medida supera a plantillas estándar de WordPress o Wix?',
+          answer:
+            'Las plantillas genéricas cargan decenas de plugins lentos que tardan de 4 a 6 segundos en abrir en el móvil de tus clientes, provocando que abandonen antes de leer. Nuestra arquitectura a medida carga en menos de 1 segundo, transmite autoridad inmediata y guía directamente a un contacto por WhatsApp o llamada.',
+        },
+      ],
     },
     contact: {
       sectionTag: 'Consultas Directas',
@@ -411,7 +564,7 @@ export const translations: Record<Language, Translations> = {
       newProject: 'Nuevo Proyecto',
       generalInquiry: 'Consulta General / Otro',
       nameLabel: 'Nombre o negocio',
-      namePlaceholder: 'Juan Pérez — Hotel Boutique',
+      namePlaceholder: 'Carlos Mendoza — Empresa o Negocio',
       emailLabel: 'Correo electrónico',
       emailPlaceholder: 'contacto@tunegocio.com',
       messageLabel: 'Detalles del proyecto',
