@@ -119,46 +119,46 @@ export const Hero: React.FC = () => {
       className="relative min-h-[calc(100vh-5.5rem)] min-h-[calc(100dvh-5.5rem)] flex flex-col justify-between border-b border-black/[0.08] overflow-hidden"
     >
       {/* Asymmetric Split Layout */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 flex-1 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16 py-10 sm:py-14">
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 flex-1 flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-6 sm:gap-8 lg:gap-14 py-6 sm:py-10 lg:py-12">
         
         {/* Left: Monumental Typographic Statement */}
-        <div className="flex-1 w-full flex flex-col justify-center min-w-0">
-          <h1 className="space-y-2 sm:space-y-4 select-none m-0 font-normal">
+        <div className="flex-1 w-full flex flex-col justify-center min-w-0 text-center lg:text-left">
+          <h1 className="space-y-1.5 sm:space-y-3 lg:space-y-4 select-none m-0 font-normal">
             
             {/* Line 1: First Name */}
             <span className="block">
               <span
                 ref={line1Ref}
-                className="inline-block text-5xl sm:text-7xl md:text-8xl lg:text-[4.8vw] xl:text-[5.4vw] 2xl:text-[5.8vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 cursor-default will-change-transform opacity-0"
+                className="inline-block text-4xl sm:text-6xl md:text-7xl lg:text-[5vw] xl:text-[5.5vw] 2xl:text-[5.8vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.05] sm:leading-[1.08] pb-1 cursor-default will-change-transform opacity-0"
                 data-interactive
               >
-                <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
+                <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-center lg:origin-left">
                   Juan Pablo
                 </span>
               </span>
             </span>
 
             {/* Line 2: Last Name with Indent */}
-            <span className="block sm:pl-8 md:pl-12 lg:pl-14 xl:pl-18">
+            <span className="block lg:pl-10 xl:pl-16">
               <span
                 ref={line2Ref}
-                className="inline-block text-5xl sm:text-7xl md:text-8xl lg:text-[4.8vw] xl:text-[5.4vw] 2xl:text-[5.8vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 cursor-default will-change-transform opacity-0"
+                className="inline-block text-4xl sm:text-6xl md:text-7xl lg:text-[5vw] xl:text-[5.5vw] 2xl:text-[5.8vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.05] sm:leading-[1.08] pb-1 cursor-default will-change-transform opacity-0"
                 data-interactive
               >
-                <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
+                <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-center lg:origin-left">
                   Chacón.
                 </span>
               </span>
             </span>
 
             {/* Line 3: Discipline */}
-            <span className="block pt-2 sm:pt-4 sm:pl-2">
+            <span className="block pt-1.5 sm:pt-3 lg:pt-4 sm:pl-2">
               <span
                 ref={line3Ref}
-                className="inline-block text-2.5xl sm:text-4xl md:text-5xl lg:text-[2.6vw] xl:text-[2.9vw] 2xl:text-[3.1vw] font-light font-display tracking-[-0.01em] text-black/65 hover:text-black/90 leading-[1.08] sm:leading-[1.14] pb-1 cursor-default will-change-transform opacity-0 transition-colors duration-500"
+                className="inline-block text-xl sm:text-3xl md:text-4xl lg:text-[2.6vw] xl:text-[2.8vw] font-light font-display tracking-[-0.01em] text-black/65 hover:text-black/90 leading-[1.08] sm:leading-[1.14] pb-1 cursor-default will-change-transform opacity-0 transition-colors duration-500"
                 data-interactive
               >
-                <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
+                <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-center lg:origin-left">
                   {t.hero.disciplineLine1} <span className="italic font-light text-black/35">{t.hero.disciplineAnd}</span> {t.hero.disciplineLine2}
                 </span>
               </span>
@@ -166,18 +166,18 @@ export const Hero: React.FC = () => {
           </h1>
         </div>
 
-        {/* Right: Sculpted Architectural Portrait (Bezel 3D) */}
+        {/* Right: Sculpted Architectural Portrait (Sweet-Spot Scale) */}
         <div
           ref={portraitRef}
-          className="w-full max-w-[320px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[440px] xl:max-w-[480px] 2xl:max-w-[520px] shrink-0 opacity-0 will-change-transform [perspective:1000px]"
+          className="w-full max-w-[220px] sm:max-w-[260px] md:max-w-[300px] lg:max-w-[370px] xl:max-w-[430px] 2xl:max-w-[460px] shrink-0 opacity-0 will-change-transform [perspective:1000px]"
         >
           <div className="relative group transition-transform duration-500 ease-out">
             {/* Ambient Lighting Shadow Layer */}
-            <div className="absolute -inset-2 bg-gradient-to-b from-black/[0.03] to-black/[0.1] rounded-[2.8rem] blur-xl opacity-60 group-hover:opacity-90 transition-opacity duration-700 pointer-events-none" />
+            <div className="absolute -inset-1.5 sm:-inset-2 bg-gradient-to-b from-black/[0.03] to-black/[0.1] rounded-[2.2rem] sm:rounded-[2.8rem] blur-xl opacity-60 group-hover:opacity-90 transition-opacity duration-700 pointer-events-none" />
 
             {/* Sculpted Card Bezel Frame */}
-            <div className="relative p-2.5 sm:p-3 bg-white/75 backdrop-blur-md rounded-[2.5rem] border border-black/[0.07] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.12)]">
-              <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden bg-[#141517]">
+            <div className="relative p-2 sm:p-2.5 lg:p-3 bg-white/75 backdrop-blur-md rounded-[2rem] sm:rounded-[2.5rem] border border-black/[0.07] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.12)]">
+              <div className="relative aspect-[3/4] rounded-[1.6rem] sm:rounded-[2rem] overflow-hidden bg-[#141517]">
                 <img
                   src="/hero-portrait.webp"
                   alt="Juan Pablo Chacón"
@@ -190,7 +190,7 @@ export const Hero: React.FC = () => {
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80" />
                 
                 {/* Hairline Inner Border Accent */}
-                <div className="pointer-events-none absolute inset-0 rounded-[2rem] ring-1 ring-inset ring-white/10" />
+                <div className="pointer-events-none absolute inset-0 rounded-[1.6rem] sm:rounded-[2rem] ring-1 ring-inset ring-white/10" />
               </div>
             </div>
           </div>
