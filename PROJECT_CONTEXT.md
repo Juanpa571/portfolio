@@ -35,6 +35,10 @@ Documento de referencia para el agente de IA. Leer este archivo al iniciar cualq
    - Fondos en colores sólidos oscuros elegantes (ej. #141517 / #1C1D20), sin grano ni ruido artificial SVG.
 6. **Retrato del Hero (`hero-portrait.webp`):**
    - El Hero utiliza el diseño de **Bisel Flotante 3D (Concepto 1)** con marco biselado esculpido de cristal esmerilado suave, viñeteado inferior para fundir la base nocturna y paralaje reactivo 3D con GSAP en desktop. En móvil, escala con presencia a 320px manteniendo la identidad asimétrica. Expresamente aprobado por el usuario.
+7. **Protocolo Estricto de Desarrollo y Despliegue (Staging Local Primero):**
+   - **PROHIBIDO subir cambios directamente a `main` o desplegar a producción sin aprobación previa del usuario.**
+   - Todo cambio, nueva sección, ajuste visual o refactor debe desarrollarse siempre en una rama local aislada (ej. `dev` o `feature/...`) y revisarse primero en el servidor de desarrollo local (`http://localhost:5173/`).
+   - Únicamente tras recibir el **visto bueno y aprobación explícita del usuario**, se hace merge a `main` y push a GitHub para lanzar a Netlify/Cloudflare.
 
 ---
 
