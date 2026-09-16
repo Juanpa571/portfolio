@@ -60,3 +60,12 @@ Documento de referencia para el agente de IA. Leer este archivo al iniciar cualq
 - ContactForm.tsx: Formulario de contacto directo sin micro-labels.
 - Footer.tsx: Cierre con enlaces y créditos de autoría.
 - LanguageToggle.tsx: Alternador de idiomas (ES / EN).
+
+---
+
+## 6. Metodología para Proyectos de Clientes de Gran Envergadura (Wireframing y Arquitectura)
+- Cuando ingrese un proyecto de cliente que requiera una arquitectura web amplia (múltiples páginas, catálogos, embudos de conversión o reservas):
+  1. **Fase 1 · Arquitectura de Información y Sitemap:** Definición del árbol de páginas, jerarquía de navegación y recorridos de usuario (*user flows*) con enfoque de conversión.
+  2. **Fase 2 · Wireframing Estructural con Copywriting Real:** Estructura modular de cada página con redacción comercial directa y real adaptada al negocio del cliente (cero 'Lorem ipsum' o bloques cliché tipo Relume).
+  3. **Fase 3 · Prototipado Interactivo Rápido:** Despliegue de prototipo navegable en React/Tailwind para revisión y aprobación directa del cliente antes de implementar la dirección de arte y micro-interacciones definitivas.
+- **Ventaja Estratégica:** Cero dependencia de suscripciones externas (Figma/Relume/Webflow), libertad total de diseño a medida y código base que se convierte directamente en el producto final.
