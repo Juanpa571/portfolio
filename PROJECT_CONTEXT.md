@@ -1,4 +1,4 @@
-﻿# JP Studios — Contexto y Estado del Proyecto
+# JP Studios — Contexto y Estado del Proyecto
 
 Documento de referencia para el agente de IA. Leer este archivo al iniciar cualquier sesión de trabajo para sincronizar contexto de inmediato.
 
@@ -33,6 +33,8 @@ Documento de referencia para el agente de IA. Leer este archivo al iniciar cualq
 5. **Tipografía y Jerarquía:**
    - Títulos grandes en pesos ligeros (font-light / font-normal), nunca mayúsculas sostenidas forzadas. Usar Title Case o Sentence Case natural.
    - Fondos en colores sólidos oscuros elegantes (ej. #141517 / #1C1D20), sin grano ni ruido artificial SVG.
+6. **Retrato del Hero (`hero-portrait.webp`):**
+   - El Hero utiliza el diseño de **Bisel Flotante 3D (Concepto 1)** con marco biselado esculpido de cristal esmerilado suave, viñeteado inferior para fundir la base nocturna y paralaje reactivo 3D con GSAP en desktop. En móvil, escala con presencia a 320px manteniendo la identidad asimétrica. Expresamente aprobado por el usuario.
 
 ---
 
