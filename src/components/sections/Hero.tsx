@@ -1,149 +1,57 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { siteConfig } from '../../config/site';
-import { useLanguage } from '../../context/LanguageContext';
+import React, { useState } from 'react';
+import { HeroConcept1 } from './hero/HeroConcept1';
+import { HeroConcept2 } from './hero/HeroConcept2';
+import { HeroConcept3 } from './hero/HeroConcept3';
+
+type ConceptId = '1' | '2' | '3';
 
 export const Hero: React.FC = () => {
-  const { t } = useLanguage();
-  const containerRef = useRef<HTMLElement | null>(null);
-  const line1Ref = useRef<HTMLDivElement | null>(null);
-  const line2Ref = useRef<HTMLDivElement | null>(null);
-  const line3Ref = useRef<HTMLDivElement | null>(null);
+  const [activeConcept, setActiveConcept] = useState<ConceptId>('1');
 
-  useEffect(() => {
-    const l1 = line1Ref.current;
-    const l2 = line2Ref.current;
-    const l3 = line3Ref.current;
-    const container = containerRef.current;
-    if (!l1 || !l2 || !l3 || !container) return;
-
-    // 1. Split-Line Entry Reveal on Load
-    const lines = [l1, l2, l3];
-    gsap.fromTo(
-      lines,
-      { y: 50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.1,
-        stagger: 0.14,
-        ease: 'power4.out',
-        delay: 0.15,
-      }
-    );
-
-    // 2. 3D Multi-Layer Depth Parallax on Mouse Move
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || 'ontouchstart' in window) {
-      return;
-    }
-
-    const x1 = gsap.quickTo(l1, 'x', { duration: 0.6, ease: 'power2.out' });
-    const y1 = gsap.quickTo(l1, 'y', { duration: 0.6, ease: 'power2.out' });
-
-    const x2 = gsap.quickTo(l2, 'x', { duration: 0.6, ease: 'power2.out' });
-    const y2 = gsap.quickTo(l2, 'y', { duration: 0.6, ease: 'power2.out' });
-
-    const x3 = gsap.quickTo(l3, 'x', { duration: 0.6, ease: 'power2.out' });
-    const y3 = gsap.quickTo(l3, 'y', { duration: 0.6, ease: 'power2.out' });
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const { innerWidth, innerHeight } = window;
-      const normX = (e.clientX / innerWidth - 0.5) * 2;
-      const normY = (e.clientY / innerHeight - 0.5) * 2;
-
-      x1(normX * 12);
-      y1(normY * 6);
-
-      x2(normX * 24);
-      y2(normY * 12);
-
-      x3(normX * 38);
-      y3(normY * 18);
-    };
-
-    const handleMouseLeave = () => {
-      x1(0);
-      y1(0);
-      x2(0);
-      y2(0);
-      x3(0);
-      y3(0);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    container.addEventListener('mouseleave', handleMouseLeave);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      container.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, []);
+  const concepts: { id: ConceptId; label: string; tag: string }[] = [
+    { id: '1', label: 'Bisel Flotante 3D', tag: 'Concepto 1' },
+    { id: '2', label: 'Portada Editorial', tag: 'Concepto 2' },
+    { id: '3', label: 'Portal Cinemático', tag: 'Concepto 3' },
+  ];
 
   return (
-    <section
-      ref={containerRef}
-      className="relative min-h-[calc(100vh-5.5rem)] min-h-[calc(100dvh-5.5rem)] flex flex-col justify-between border-b border-black/[0.08] overflow-hidden"
-    >
-      {/* Centered Monumental Content Area */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 flex-1 flex flex-col justify-center py-8 sm:py-12">
-        
-        {/* Monumental Asymmetric Typographic Statement with 3D Depth Layers */}
-        <h1 className="space-y-2 sm:space-y-4 select-none m-0 font-normal">
-          
-          {/* Line 1: Depth Layer 1 — First Name */}
-          <span className="block">
-            <span
-              ref={line1Ref}
-              className="inline-block text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 cursor-default will-change-transform opacity-0"
-              data-interactive
-            >
-              <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                Juan Pablo
-              </span>
-            </span>
-          </span>
-
-          {/* Line 2: Depth Layer 2 — Last Name with Asymmetric Indent */}
-          <span className="block sm:pl-14 md:pl-20 lg:pl-28">
-            <span
-              ref={line2Ref}
-              className="inline-block text-5xl sm:text-7xl md:text-8xl lg:text-[7.2vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.06] sm:leading-[1.1] pb-1 cursor-default will-change-transform opacity-0"
-              data-interactive
-            >
-              <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                Chacón.
-              </span>
-            </span>
-          </span>
-
-          {/* Line 3: Depth Layer 3 — Core Dual Discipline Statement */}
-          <span className="block pt-2 sm:pt-4 sm:pl-2">
-            <span
-              ref={line3Ref}
-              className="inline-block text-3xl sm:text-5xl md:text-6xl lg:text-[4.2vw] font-light font-display tracking-[-0.01em] text-black/65 hover:text-black/90 leading-[1.08] sm:leading-[1.12] pb-1 cursor-default will-change-transform opacity-0 transition-colors duration-500"
-              data-interactive
-            >
-              <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                {t.hero.disciplineLine1} <span className="italic font-light text-black/35">{t.hero.disciplineAnd}</span> {t.hero.disciplineLine2}
-              </span>
-            </span>
-          </span>
-        </h1>
-
+    <section className="relative min-h-[calc(100vh-5.5rem)] min-h-[calc(100dvh-5.5rem)] flex flex-col justify-between border-b border-black/[0.08] overflow-hidden">
+      
+      {/* Floating Interactive Concept Switcher Pill */}
+      <div className="absolute top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 select-none">
+        <div className="flex items-center gap-1 p-1.5 rounded-full bg-[#141517]/90 backdrop-blur-xl border border-white/10 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.3)]">
+          {concepts.map((concept) => {
+            const isActive = activeConcept === concept.id;
+            return (
+              <button
+                key={concept.id}
+                onClick={() => setActiveConcept(concept.id)}
+                className={`relative px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-sans transition-all duration-300 cursor-pointer ${
+                  isActive
+                    ? 'bg-white text-black font-medium shadow-sm'
+                    : 'text-white/70 hover:text-white hover:bg-white/10 font-normal'
+                }`}
+              >
+                <span className="flex items-center gap-2">
+                  <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-black' : 'bg-white/40'}`} />
+                  <span className="hidden sm:inline">{concept.tag}:</span>
+                  <span>{concept.label}</span>
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
-      {/* Clean Bottom Orientation Bar */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 pb-8 sm:pb-10 flex items-center justify-between text-xs font-sans text-black/60 select-none">
-        <div className="flex items-center gap-2">
-          <span>{siteConfig.profile.location}</span>
-          <span className="text-black/25">•</span>
-          <span className="text-black/45">{t.hero.studioType}</span>
-        </div>
-        <div className="text-black/50 font-sans text-xs">
-          {t.hero.role}
-        </div>
+      {/* Render Active Hero Concept */}
+      <div className="w-full flex-1 flex flex-col pt-12 sm:pt-14">
+        {activeConcept === '1' && <HeroConcept1 key="concept-1" />}
+        {activeConcept === '2' && <HeroConcept2 key="concept-2" />}
+        {activeConcept === '3' && <HeroConcept3 key="concept-3" />}
       </div>
 
     </section>
   );
 };
+
+export default Hero;
