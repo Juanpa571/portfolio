@@ -11,6 +11,7 @@ export const Faq: React.FC = () => {
   const headerRef = useRef<HTMLDivElement | null>(null);
   const line1FillRef = useRef<HTMLSpanElement | null>(null);
   const line2FillRef = useRef<HTMLSpanElement | null>(null);
+  const faqListRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!headerRef.current) return;
@@ -40,6 +41,27 @@ export const Faq: React.FC = () => {
           { clipPath: 'inset(0 100% 0 0)', scale: 1.03, x: -10 },
           { clipPath: 'inset(0 0% 0 0)', scale: 1, x: 0, ease: 'power2.out', duration: 0.9 },
           0.15
+        );
+      }
+
+      // Accordion items entrance on scroll
+      if (faqListRef.current) {
+        const items = faqListRef.current.querySelectorAll('.faq-accordion-item');
+        gsap.fromTo(
+          items,
+          { y: 25, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.55,
+            stagger: 0.06,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: faqListRef.current,
+              start: 'top 90%',
+              once: true,
+            },
+          }
         );
       }
     }, headerRef);
@@ -94,12 +116,12 @@ export const Faq: React.FC = () => {
           </div>
 
           {/* Right Column: Accordion Items (Col 6-12) */}
-          <div className="lg:col-span-7 divide-y divide-black/[0.08] border-y border-black/[0.08]">
+          <div ref={faqListRef} className="lg:col-span-7 divide-y divide-black/[0.08] border-y border-black/[0.08]">
             {t.faq.items.map((item, idx) => {
               const isOpen = openIndex === idx;
 
               return (
-                <div key={idx} className="py-6 sm:py-7 group">
+                <div key={idx} className="faq-accordion-item will-change-[transform,opacity] py-6 sm:py-7 group">
                   <button
                     type="button"
                     onClick={() => toggleItem(idx)}
@@ -140,7 +162,7 @@ export const Faq: React.FC = () => {
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="text-sm sm:text-base body-copy text-black/70 font-sans font-normal leading-relaxed pr-6 sm:pr-12">
+                      <p className="max-w-[48ch] text-sm sm:text-base body-copy text-black/70 font-sans font-normal leading-relaxed pr-6 sm:pr-12">
                         {item.answer}
                       </p>
                     </div>

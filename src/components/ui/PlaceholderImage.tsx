@@ -32,19 +32,19 @@ export const PlaceholderImage: React.FC<PlaceholderImageProps> = ({
         />
       ) : (
         <>
-          <div className="absolute top-3 left-3 text-[10px] font-mono text-black/25">
+          <div className="absolute top-3 left-3 text-[10px] font-sans text-black/25">
             [{id.toUpperCase()}]
           </div>
-          <div className="absolute top-3 right-3 text-[10px] font-mono text-black/25">
+          <div className="absolute top-3 right-3 text-[10px] font-sans text-black/25">
             {recommendedAspect}
           </div>
-          <div className="absolute bottom-3 right-3 text-[10px] font-mono text-black/25">
+          <div className="absolute bottom-3 right-3 text-[10px] font-sans text-black/25">
             {dimensions}
           </div>
 
           <div className="z-10 flex flex-col items-center gap-1.5 max-w-[90%] p-6">
             <span className="text-xs font-medium text-black/60">{title}</span>
-            <span className="text-[10px] font-mono text-black/30">
+            <span className="text-[10px] font-sans text-black/30">
               Photographic Specimen Frame
             </span>
           </div>

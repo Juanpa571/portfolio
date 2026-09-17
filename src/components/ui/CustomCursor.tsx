@@ -100,7 +100,7 @@ export const CustomCursor: React.FC = () => {
           isSuppressed
             ? 'opacity-0 scale-0 pointer-events-none'
             : cursorText
-            ? 'w-24 h-24 bg-white text-black text-[11px] font-mono font-bold tracking-widest scale-100'
+            ? 'w-24 h-24 bg-white text-black text-[11px] font-sans font-medium tracking-widest scale-100'
             : isHovered
             ? 'w-14 h-14 bg-white scale-100'
             : 'w-3.5 h-3.5 bg-white scale-100'

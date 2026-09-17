@@ -85,34 +85,8 @@ export const siteConfig = {
 
   projects: [
     {
-      id: 'habitat',
-      number: '01',
-      clientTag: 'HÁBITAT',
-      title: 'Hábitat',
-      category: 'Veterinary Hospital & Emergency',
-      location: 'Cali, Colombia',
-      tech: 'React 19 • Motion • Triage Direction',
-      description: 'High-complexity 24/7 veterinary hospital and emergency care center. Digital presence designed for immediate triage clarity, calm clinical authority, and rapid patient intake.',
-      aspectRatio: '16/10',
-      dimensions: '1920x1200 px',
-      image: '/projects/habitat.jpg',
-      theme: {
-        accentColor: '#C89D66',
-        cardBg: 'rgba(243, 239, 231, 0.45)',
-        hoverBg: '#F5F1E8',
-        borderColor: 'rgba(196, 178, 153, 0.35)',
-        badgeBg: '#EAE3D5',
-        badgeText: '#3B332A',
-        badgeBorder: 'rgba(180, 160, 130, 0.45)',
-        tagline: '24/7 Clinical & Emergency Architecture',
-        buttonHoverBg: '#23201C',
-        buttonHoverText: '#F7F4EE',
-        glowColor: 'rgba(200, 157, 102, 0.15)',
-      }
-    },
-    {
       id: 'sai-seven',
-      number: '02',
+      number: '01',
       clientTag: 'SAI',
       title: 'SAI — San Andrés Island',
       category: 'Hospedaje • Naturaleza • Cultura • Caribe',
@@ -136,6 +110,19 @@ export const siteConfig = {
         buttonHoverText: '#FFFFFF',
         glowColor: 'rgba(23, 162, 184, 0.15)',
       }
+    },
+    {
+      id: 'next-project',
+      number: '02',
+      clientTag: 'TU MARCA',
+      title: 'Próximo Proyecto',
+      category: 'Espacio disponible para tu empresa',
+      location: 'Cali / Remoto Global',
+      tech: 'Desarrollo Llave en Mano • Entrega en 14 Días',
+      description: 'Espacio reservado para tu marca. Diseñamos y desarrollamos tu plataforma web a medida para posicionar tu negocio con autoridad y captar clientes directos.',
+      aspectRatio: '16/10',
+      dimensions: '1920x1200 px',
+      isCta: true,
     }
   ] as ProjectItem[]
 };

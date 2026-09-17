@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-17T16:46:00Z",
+  "title": "Design System: JP Studios",
+  "extensions": {
+    "colorMeta": {
+      "surface": {
+        "role": "neutral-bg",
+        "displayName": "Architectural Stone",
+        "canonical": "#fafaf8",
+        "tonalRamp": ["#ffffff", "#fafaf8", "#f4f4f0", "#e8e8e2", "#dcdcd4"]
+      },
+      "obsidian": {
+        "role": "primary",
+        "displayName": "Graphite Obsidian",
+        "canonical": "#1C1D20",
+        "tonalRamp": ["#2e3035", "#242529", "#1C1D20", "#141517", "#0c0d0e"]
+      },
+      "ink": {
+        "role": "primary-container",
+        "displayName": "Typographic Ink",
+        "canonical": "#1a1a1e",
+        "tonalRamp": ["#2c2c32", "#222227", "#1a1a1e", "#121215", "#0a0a0c"]
+      },
+      "accent-emerald": {
+        "role": "accent",
+        "displayName": "Telemetry Emerald",
+        "canonical": "#00C988",
+        "tonalRamp": ["#a7f3d0", "#34d399", "#00C988", "#059669", "#064e3b"]
+      }
+    },
+    "typographyMeta": {
+      "display-monumental": {
+        "displayName": "Monumental Display",
+        "purpose": "Massive editorial statement headlines and footer displays."
+      },
+      "display": {
+        "displayName": "Display Primary",
+        "purpose": "Hero and major section mastheads."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section introductions and sub-mastheads."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Case study names, service titles, and card headers."
+      },
+      "body": {
+        "displayName": "Body Sans",
+        "purpose": "Editorial descriptive paragraphs with calibrated 55-65ch line lengths."
+      },
+      "mono": {
+        "displayName": "Monospace Telemetry",
+        "purpose": "Technical index numbers, status telemetry, and dates."
+      },
+      "telemetry-micro": {
+        "displayName": "Micro Telemetry (11px)",
+        "purpose": "Precision badge captions and technical timestamps."
+      },
+      "technical-dim": {
+        "displayName": "Technical Dimensions (10px)",
+        "purpose": "Viewport aspect-ratio markers and resolution specs."
+      }
+    },
+    "shadows": [
+      {
+        "name": "subtle-dock",
+        "value": "0 2px 12px rgba(0, 0, 0, 0.03)",
+        "purpose": "Subtle grounding under form fields and interactive toggles."
+      },
+      {
+        "name": "cinematic-modal",
+        "value": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+        "purpose": "High elevation for sliding project drawers."
+      },
+      {
+        "name": "floating-action",
+        "value": "0 20px 40px -10px rgba(28, 29, 32, 0.35)",
+        "purpose": "Floating bottom-right close button elevation."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-quint",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Primary transition easing for cards, buttons, and drawer entrances."
+      },
+      {
+        "name": "duration-snappy",
+        "value": "300ms",
+        "purpose": "Hover lifts and micro-interaction states."
+      },
+      {
+        "name": "duration-editorial",
+        "value": "600ms",
+        "purpose": "Section reveal and scroll-driven entrances."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" },
+      { "name": "2xl", "value": "1536px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Action Pill",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid graphite pill button for major conversion triggers.",
+      "html": "<button class=\"ds-btn-primary\">Iniciar conversación ↗</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: #1C1D20; color: #ffffff; padding: 14px 32px; border-radius: 9999px; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 500; border: none; cursor: pointer; transition: background-color 0.2s cubic-bezier(0.22, 1, 0.36, 1), transform 0.2s cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn-primary:hover { background-color: #000000; transform: translateY(-1px); } .ds-btn-primary:active { transform: scale(0.96); }"
+    },
+    {
+      "name": "Secondary Architectural Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Clean bordered button resting softly on warm stone surface.",
+      "html": "<button class=\"ds-btn-secondary\">Ver portafolio de demos ↓</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; background-color: transparent; color: #1a1a1e; padding: 14px 32px; border-radius: 9999px; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 500; border: 1px solid rgba(0, 0, 0, 0.15); cursor: pointer; transition: border-color 0.2s, background-color 0.2s; } .ds-btn-secondary:hover { border-color: #1a1a1e; background-color: rgba(0, 0, 0, 0.02); } .ds-btn-secondary:active { transform: scale(0.96); }"
+    },
+    {
+      "name": "Form Text Input",
+      "kind": "input",
+      "refersTo": "input-text",
+      "description": "Pill text input with subtle border and focused ring.",
+      "html": "<input type=\"text\" class=\"ds-input\" placeholder=\"Tu nombre o empresa...\" />",
+      "css": ".ds-input { width: 100%; max-width: 420px; padding: 14px 24px; border-radius: 9999px; background-color: #ffffff; border: 1px solid rgba(0, 0, 0, 0.10); color: #1a1a1e; font-family: system-ui, sans-serif; font-size: 15px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; } .ds-input:focus { border-color: #1C1D20; box-shadow: 0 0 0 1px #1C1D20; } .ds-input::placeholder { color: rgba(0, 0, 0, 0.35); }"
+    },
+    {
+      "name": "Telemetry Status Chip",
+      "kind": "chip",
+      "refersTo": "chip-telemetry",
+      "description": "Monospaced status tag with live emerald indicator dot.",
+      "html": "<span class=\"ds-chip\"><span class=\"ds-chip-dot\"></span>Disponible Q2/Q3 2026</span>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 9999px; background-color: rgba(0, 0, 0, 0.03); border: 1px solid rgba(0, 0, 0, 0.08); font-family: ui-monospace, monospace; font-size: 11px; font-weight: 500; color: rgba(0, 0, 0, 0.70); letter-spacing: 0.02em; } .ds-chip-dot { width: 6px; height: 6px; border-radius: 50%; background-color: #00C988; }"
+    },
+    {
+      "name": "Editorial Specification Row",
+      "kind": "custom",
+      "refersTo": "row-editorial",
+      "description": "Two-column editorial specification row with hairline division.",
+      "html": "<div class=\"ds-row\"><div class=\"ds-row-title\">Carga instantánea sub-segundo</div><div class=\"ds-row-body\">Al compilar a código puro desplegado en la red edge de Cloudflare, la página responde en milisegundos sin pantallas blancas de carga.</div></div>",
+      "css": ".ds-row { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; padding: 36px 16px; border-top: 1px solid rgba(0, 0, 0, 0.08); } .ds-row-title { font-family: 'Geist', system-ui, sans-serif; font-size: 22px; font-weight: 400; color: #000000; line-height: 1.25; } .ds-row-body { font-family: system-ui, sans-serif; font-size: 15px; line-height: 1.6; color: rgba(0, 0, 0, 0.75); max-width: 58ch; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The High-Craft Architectural Monolith",
+    "overview": "JP Studios embodies the discipline of Dennis Snellenberg, Locomotive, and Pentagram: high-density editorial craft where typography, white space, and interaction physics lead the experience. The interface does not decorate; it builds structural confidence. Monolithic scale contrast anchors the visual identity, allowing monumental display type to command the viewport while restrained telemetry anchors orientation.",
+    "keyCharacteristics": [
+      "Monumental Slender Typography (font-normal & font-light, tracking -0.01em)",
+      "Pure solid graphite surfaces (#1C1D20) with zero artificial noise or fake grain",
+      "Hardware-accelerated physical inertia with virtual smooth scrolling and magnetic pull",
+      "Dignified editorial rhythm: zero patronizing scroll indicators, zero filler copy"
+    ],
+    "rules": [
+      {
+        "name": "The Anti-All-Caps Rule",
+        "body": "Display headlines and navigation must strictly default to natural Title Case or Sentence case. Never force headings into uppercase.",
+        "section": "typography"
+      },
+      {
+        "name": "The Slender Weight Mandate",
+        "body": "Monumental headlines must use light or normal weights (300/400). Reserve bold weights strictly for intentional micro-accents.",
+        "section": "typography"
+      },
+      {
+        "name": "The Pure Solid Surface Rule",
+        "body": "Dark themes and footers must use rich, pure solid graphite (#1C1D20). Never inject SVG grain, feTurbulence noise, or dirty radial gradients.",
+        "section": "colors"
+      },
+      {
+        "name": "The Anti-Card Rule",
+        "body": "Cards are lazy containers. Avoid nesting cards inside cards. Rely on architectural white space and hairlines instead of boxed cards.",
+        "section": "layout"
+      }
+    ],
+    "dos": [
+      "Do use natural Title Case for headlines and display text",
+      "Do use hairline borders (rgba(0,0,0,0.08)) and generous architectural whitespace",
+      "Do synchronize GSAP ScrollTrigger with Lenis virtual scroll",
+      "Do respect the user's intelligence with zero patronizing scroll prompts"
+    ],
+    "donts": [
+      "Don't force headings into ALL CAPS",
+      "Don't use artificial grain or SVG noise overlays",
+      "Don't nest cards inside cards",
+      "Don't use cliché AI landing page tropes (purple radial glows, sparkle badges)"
+    ]
+  }
+}

@@ -113,26 +113,26 @@ export const SaiSevenDemo: React.FC = () => {
           className="absolute inset-0 w-full h-full object-cover object-center scale-[1.02]"
         />
 
-        {/* Cinematic Ocean Vignette Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B2532]/90 via-[#0B2532]/30 to-[#0B2532]/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B2532]/85 via-[#0B2532]/35 to-transparent" />
+        {/* Cinematic Ocean Vignette Overlays (High Contrast Scrim) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B2532]/95 via-[#0B2532]/45 to-[#0B2532]/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B2532]/95 via-[#0B2532]/65 to-transparent" />
 
-        {/* Hero Foreground Content (Exact Copy and Typography from Boceto) */}
+        {/* Hero Foreground Content */}
         <div className="relative z-10 p-6 sm:p-12 lg:p-16 max-w-3xl space-y-4 my-auto">
           {/* Subtitle in Delicate Italic Serif */}
-          <span className="font-serif italic text-white/95 text-base sm:text-lg tracking-wide block">
+          <span className="font-serif italic text-white text-base sm:text-lg tracking-wide block drop-shadow-sm">
             Más que un destino
           </span>
 
-          {/* Monumental Classical Serif Headline */}
-          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal text-white leading-[1.04] tracking-tight">
+          {/* Monumental Classical Serif Headline with Scrim Shadow */}
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal text-white leading-[1.04] tracking-tight drop-shadow-[0_4px_20px_rgba(11,37,50,0.6)]">
             Un paraíso
             <span className="block font-serif">real</span>
           </h1>
 
-          {/* Category Spaced Text */}
-          <p className="text-[11px] sm:text-xs font-sans tracking-[0.22em] uppercase text-white/85 pt-1">
-            HOSPEDAJE • NATURALEZA • CULTURA • CARIBE
+          {/* Category Spaced Text with Optimal Contrast */}
+          <p className="text-xs sm:text-sm font-sans tracking-[0.06em] text-white/95 font-medium pt-1 drop-shadow-xs">
+            Hospedaje • Naturaleza • Cultura • Caribe
           </p>
 
           {/* Pill Button with Circle Arrow (Exact from Boceto) */}
@@ -143,19 +143,19 @@ export const SaiSevenDemo: React.FC = () => {
               className="group inline-flex items-center gap-3 px-6 sm:px-7 py-3 rounded-full bg-white text-[#0B2532] text-xs font-sans font-medium tracking-wide hover:bg-white/95 active:scale-[0.98] transition-all shadow-xl cursor-pointer"
             >
               <span>Descubre SAI</span>
-              <span className="w-5 h-5 rounded-full bg-[#0B2532] text-white flex items-center justify-center text-[10px] group-hover:translate-x-0.5 transition-transform">
+              <span className="w-5 h-5 rounded-full bg-[#0B2532] text-white flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">
                 →
               </span>
             </button>
           </div>
         </div>
 
-        {/* Bottom Right Hand-Script Signature (Exact from Boceto) */}
+        {/* Bottom Right Hand-Script Signature */}
         <div className="relative z-10 self-end p-6 sm:p-10 text-right select-none">
           <span className="font-serif italic text-3xl sm:text-4xl text-white/90 block leading-tight font-light drop-shadow-sm">
             San Andrés
           </span>
-          <span className="text-[9px] font-sans tracking-[0.28em] text-white/70 uppercase">
+          <span className="text-xs font-sans tracking-[0.15em] text-white/80">
             Colombia —
           </span>
         </div>

@@ -12,6 +12,12 @@ colors:
   text-secondary: "rgba(0, 0, 0, 0.65)"
   text-tertiary: "rgba(0, 0, 0, 0.40)"
 typography:
+  display-monumental:
+    fontFamily: "'Neue Montreal', 'Geist', sans-serif"
+    fontSize: "5.5rem"
+    fontWeight: 400
+    lineHeight: 1.05
+    letterSpacing: "-0.02em"
   display:
     fontFamily: "'Neue Montreal', 'Geist', sans-serif"
     fontSize: "clamp(3.5rem, 7.2vw, 8.5rem)"
@@ -42,6 +48,18 @@ typography:
     fontWeight: 500
     lineHeight: 1.4
     letterSpacing: "0.05em"
+  telemetry-micro:
+    fontFamily: "'Geist Mono', monospace"
+    fontSize: "11px"
+    fontWeight: 500
+    lineHeight: 1.3
+    letterSpacing: "0.05em"
+  technical-dim:
+    fontFamily: "'Geist Mono', monospace"
+    fontSize: "10px"
+    fontWeight: 500
+    lineHeight: 1.2
+    letterSpacing: "0.05em"
 rounded:
   sm: "8px"
   md: "16px"
@@ -64,6 +82,16 @@ components:
     padding: "16px 36px"
   button-primary-hover:
     backgroundColor: "{colors.obsidian}"
+  button-secondary:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.full}"
+    padding: "14px 32px"
+  input-text:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.full}"
+    padding: "16px 28px"
 ---
 
 # Design System: JP Studios

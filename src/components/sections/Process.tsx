@@ -15,6 +15,7 @@ export const Process: React.FC = () => {
   const headerRef = useRef<HTMLDivElement | null>(null);
   const line1FillRef = useRef<HTMLSpanElement | null>(null);
   const line2FillRef = useRef<HTMLSpanElement | null>(null);
+  const rowsContainerRef = useRef<HTMLDivElement | null>(null);
   const [expandedRow, setExpandedRow] = useState<number | null>(0);
 
   useEffect(() => {
@@ -45,6 +46,27 @@ export const Process: React.FC = () => {
           { clipPath: 'inset(0 100% 0 0)', scale: 1.03, x: -10 },
           { clipPath: 'inset(0 0% 0 0)', scale: 1, x: 0, ease: 'power2.out', duration: 0.9 },
           0.15
+        );
+      }
+
+      // Process ledger rows staggered reveal on scroll
+      if (rowsContainerRef.current) {
+        const rows = rowsContainerRef.current.querySelectorAll('.process-row-item');
+        gsap.fromTo(
+          rows,
+          { y: 25, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.08,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: rowsContainerRef.current,
+              start: 'top 90%',
+              once: true,
+            },
+          }
         );
       }
     }, sectionRef);
@@ -100,10 +122,10 @@ export const Process: React.FC = () => {
 
         {/* Monumental Editorial Ledger Rows */}
         <div className="space-y-12">
-          <div className="border-y border-black/[0.12] divide-y divide-black/[0.08]">
+          <div ref={rowsContainerRef} className="border-y border-black/[0.12] divide-y divide-black/[0.08]">
             {/* Row 01 */}
             <div
-              className="py-8 sm:py-10 transition-colors duration-300 group cursor-pointer"
+              className="process-row-item will-change-[transform,opacity] py-8 sm:py-10 transition-colors duration-300 group cursor-pointer"
               onClick={() => setExpandedRow(expandedRow === 0 ? null : 0)}
             >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -149,14 +171,14 @@ export const Process: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="md:col-span-4 p-5 rounded-2xl bg-white border border-black/10 shadow-xs space-y-2">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                      <span className="text-xs font-sans text-emerald-800 font-medium tracking-wide">
+                  <div className="md:col-span-4 md:pl-6 md:border-l border-black/10 space-y-2 py-1">
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      <span className="text-xs font-sans text-black/50 font-medium tracking-normal">
                         {isSpanish ? 'Entregable firmado' : 'Signed deliverable'}
                       </span>
                     </div>
-                    <h4 className="text-base sm:text-lg font-display font-medium text-black leading-snug">
+                    <h4 className="text-base sm:text-lg font-display font-normal text-black leading-snug">
                       {isSpanish ? 'Estructura Estratégica & Arquitectura Web' : 'Strategic Architecture & Content Structure'}
                     </h4>
                   </div>
@@ -166,7 +188,7 @@ export const Process: React.FC = () => {
 
             {/* Row 02 */}
             <div
-              className="py-8 sm:py-10 transition-colors duration-300 group cursor-pointer"
+              className="process-row-item will-change-[transform,opacity] py-8 sm:py-10 transition-colors duration-300 group cursor-pointer"
               onClick={() => setExpandedRow(expandedRow === 1 ? null : 1)}
             >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -212,14 +234,14 @@ export const Process: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="md:col-span-4 p-5 rounded-2xl bg-white border border-black/10 shadow-xs space-y-2">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                      <span className="text-xs font-sans text-emerald-800 font-medium tracking-wide">
+                  <div className="md:col-span-4 md:pl-6 md:border-l border-black/10 space-y-2 py-1">
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      <span className="text-xs font-sans text-black/50 font-medium tracking-normal">
                         {isSpanish ? 'Entregable firmado' : 'Signed deliverable'}
                       </span>
                     </div>
-                    <h4 className="text-base sm:text-lg font-display font-medium text-black leading-snug">
+                    <h4 className="text-base sm:text-lg font-display font-normal text-black leading-snug">
                       {isSpanish ? 'Enlace Privado de Staging en Vivo' : 'Private Live Staging Preview Link'}
                     </h4>
                   </div>
@@ -229,7 +251,7 @@ export const Process: React.FC = () => {
 
             {/* Row 03 */}
             <div
-              className="py-8 sm:py-10 transition-colors duration-300 group cursor-pointer"
+              className="process-row-item will-change-[transform,opacity] py-8 sm:py-10 transition-colors duration-300 group cursor-pointer"
               onClick={() => setExpandedRow(expandedRow === 2 ? null : 2)}
             >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -275,42 +297,19 @@ export const Process: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="md:col-span-4 p-5 rounded-2xl bg-white border border-black/10 shadow-xs space-y-2">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                      <span className="text-xs font-sans text-emerald-800 font-medium tracking-wide">
+                  <div className="md:col-span-4 md:pl-6 md:border-l border-black/10 space-y-2 py-1">
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      <span className="text-xs font-sans text-black/50 font-medium tracking-normal">
                         {isSpanish ? 'Entregable firmado' : 'Signed deliverable'}
                       </span>
                     </div>
-                    <h4 className="text-base sm:text-lg font-display font-medium text-black leading-snug">
+                    <h4 className="text-base sm:text-lg font-display font-normal text-black leading-snug">
                       {isSpanish ? 'Web en Producción & Propiedad Total Transferida' : 'Live Production Site & Full Ownership Transfer'}
                     </h4>
                   </div>
                 </div>
               )}
-            </div>
-          </div>
-
-          {/* 14-Day Delivery Sprint Commitment */}
-          <div className="p-8 sm:p-10 rounded-2xl bg-[#1C1D20] text-white flex flex-col sm:flex-row items-center justify-between gap-6 border border-white/10">
-            <div className="space-y-1 text-center sm:text-left">
-              <span className="text-xs font-sans text-emerald-400 font-medium block">
-                {isSpanish ? 'Compromiso de ejecución rigurosa' : 'Phased delivery commitment'}
-              </span>
-              <h4 className="text-xl sm:text-2xl font-normal font-display text-white">
-                {isSpanish
-                  ? 'Metodología ágil en 14 días laborables'
-                  : 'Agile 14-business-day delivery sprint'}
-              </h4>
-              <p className="text-xs sm:text-sm text-white/70 font-sans font-light max-w-xl">
-                {isSpanish
-                  ? 'Sprints cerrados con fechas exactas de revisión y entregables tangibles en cada etapa. Cero proyectos estancados ni demoras de meses típicas de agencias tradicionales.'
-                  : 'Structured sprints with clear review milestones and tangible deliverables at every phase. Zero stalled projects or multi-month agency delays.'}
-              </p>
-            </div>
-
-            <div className="px-5 py-3 rounded-xl bg-white/10 border border-white/15 text-xs font-sans text-white/90 font-medium text-center shrink-0">
-              {isSpanish ? '14 Días • 100% Llave en Mano' : '14 Days • 100% Turnkey'}
             </div>
           </div>
         </div>

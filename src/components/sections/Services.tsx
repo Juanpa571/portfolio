@@ -16,6 +16,7 @@ export const Services: React.FC = () => {
   const line1FillRef = useRef<HTMLSpanElement | null>(null);
   const line2FillRef = useRef<HTMLSpanElement | null>(null);
   const rulerRef = useRef<HTMLDivElement | null>(null);
+  const cardsContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!headerRef.current) return;
@@ -57,6 +58,27 @@ export const Services: React.FC = () => {
           { clipPath: 'inset(0 100% 0 0)', scale: 1.04, x: -12 },
           { clipPath: 'inset(0 0% 0 0)', scale: 1, x: 0, ease: 'power2.out', duration: 0.9 },
           0.2
+        );
+      }
+
+      // Bento cards staggered entrance on scroll
+      if (cardsContainerRef.current) {
+        const cards = cardsContainerRef.current.querySelectorAll('.service-card-item');
+        gsap.fromTo(
+          cards,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.08,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: cardsContainerRef.current,
+              start: 'top 90%',
+              once: true,
+            },
+          }
         );
       }
     }, headerRef);
@@ -111,11 +133,11 @@ export const Services: React.FC = () => {
         </div>
 
         {/* Asymmetric Bento Architecture with Organic Masonry Stagger */}
-        <div className="space-y-5 lg:space-y-7">
+        <div ref={cardsContainerRef} className="space-y-5 lg:space-y-7">
           {/* Row 1: Cards 001 and 002 */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-5 lg:gap-7 items-stretch">
             {/* Card 001: UI/UX Design (7 cols) */}
-            <div className="md:col-span-12 lg:col-span-7">
+            <div className="service-card-item md:col-span-12 lg:col-span-7 will-change-[transform,opacity]">
               <TiltCard
                 maxTilt={3}
                 scale={1.01}
@@ -138,7 +160,7 @@ export const Services: React.FC = () => {
             </div>
 
             {/* Card 002: Frontend Craft — Inverted Dark Monolith (5 cols) */}
-            <div className="md:col-span-12 lg:col-span-5">
+            <div className="service-card-item md:col-span-12 lg:col-span-5 will-change-[transform,opacity]">
               <TiltCard
                 maxTilt={3.5}
                 scale={1.01}
@@ -164,7 +186,7 @@ export const Services: React.FC = () => {
           {/* Row 2: Cards 003 and 004 */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-5 lg:gap-7 items-stretch">
             {/* Card 003: Turnkey Launch — Compact Engine (5 cols) */}
-            <div className="md:col-span-12 lg:col-span-5">
+            <div className="service-card-item md:col-span-12 lg:col-span-5 will-change-[transform,opacity]">
               <TiltCard
                 maxTilt={3}
                 scale={1.01}
@@ -187,7 +209,7 @@ export const Services: React.FC = () => {
             </div>
 
             {/* Card 004: Ongoing Support — Panoramic Sanctuary (7 cols) */}
-            <div className="md:col-span-12 lg:col-span-7">
+            <div className="service-card-item md:col-span-12 lg:col-span-7 will-change-[transform,opacity]">
               <TiltCard
                 maxTilt={3}
                 scale={1.01}

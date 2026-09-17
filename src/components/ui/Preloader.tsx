@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 interface PreloaderProps {
   onComplete?: () => void;
@@ -29,6 +30,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
     return () => {
       clearInterval(interval);
       document.body.style.overflow = '';
+      ScrollTrigger.refresh();
     };
   }, []);
 
@@ -44,6 +46,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       const goneTimer = setTimeout(() => {
         setIsGone(true);
         document.body.style.overflow = '';
+        ScrollTrigger.refresh();
       }, 1050);
 
       return () => {

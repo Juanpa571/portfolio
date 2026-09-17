@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { siteConfig, type ProjectItem } from '../../config/site';
-import { PlaceholderImage } from '../ui/PlaceholderImage';
 import { Magnetic } from '../ui/Magnetic';
 import { ProjectModal } from '../ui/ProjectModal';
 import { useLanguage } from '../../context/LanguageContext';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const ProjectList: React.FC = () => {
   const { t, language } = useLanguage();
@@ -12,11 +15,60 @@ export const ProjectList: React.FC = () => {
   const [modalProject, setModalProject] = useState<ProjectItem | null>(null);
   const [isHoveringSection, setIsHoveringSection] = useState(false);
 
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const headerRef = useRef<HTMLDivElement | null>(null);
+  const rowsRef = useRef<HTMLDivElement | null>(null);
+
   const mousePos = useRef({ x: -200, y: -200 });
   const currentPos = useRef({ x: -200, y: -200 });
   const floatingCardRef = useRef<HTMLDivElement>(null);
   const animFrameId = useRef<number | null>(null);
 
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 88%',
+          once: true,
+        },
+      });
+
+      if (headerRef.current) {
+        tl.fromTo(
+          headerRef.current,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.65,
+            ease: 'power3.out',
+          },
+          0
+        );
+      }
+
+      if (rowsRef.current) {
+        const rows = rowsRef.current.querySelectorAll('.project-row-item');
+        tl.fromTo(
+          rows,
+          { y: 25, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.55,
+            stagger: 0.08,
+            ease: 'power3.out',
+          },
+          0.1
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   useEffect(() => {
     if (activeProject) {
@@ -105,6 +157,7 @@ export const ProjectList: React.FC = () => {
   return (
     <section
       id="work"
+      ref={sectionRef}
       className="py-24 lg:py-36 relative overflow-hidden"
       onMouseEnter={() => setIsHoveringSection(true)}
       onMouseLeave={() => {
@@ -116,7 +169,8 @@ export const ProjectList: React.FC = () => {
         
         {/* Monumental Section Header */}
         <div
-          className="mb-12 sm:mb-20 pb-8 border-b border-black/10"
+          ref={headerRef}
+          className="mb-12 sm:mb-20 pb-8 border-b border-black/10 will-change-[transform,opacity]"
           onMouseEnter={() => setActiveProject(null)}
         >
           <h2 className="text-5xl sm:text-7xl lg:text-8xl font-normal font-display text-black tracking-[-0.01em] leading-[1.06] sm:leading-[1.1]">
@@ -129,6 +183,7 @@ export const ProjectList: React.FC = () => {
 
         {/* Clean Editorial Project Rows */}
         <div
+          ref={rowsRef}
           className="border-t border-black/10"
           onMouseLeave={() => setActiveProject(null)}
         >
@@ -151,14 +206,19 @@ export const ProjectList: React.FC = () => {
                 onClick={() => {
                   if (isInteractive) {
                     setModalProject(project);
+                  } else {
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
                   }
                 }}
-                className={`py-12 sm:py-16 lg:py-20 border-b border-black/10 transition-all duration-500 relative px-4 sm:px-8 -mx-4 sm:-mx-8 rounded-3xl ${
+                className={`project-row-item will-change-[transform,opacity] py-12 sm:py-16 lg:py-20 border-b border-black/10 transition-all duration-500 relative px-4 sm:px-8 -mx-4 sm:-mx-8 rounded-3xl cursor-pointer ${
                   isInteractive
-                    ? 'group cursor-pointer ' + (isCurrentActive ? 'bg-black/[0.02]' : 'bg-transparent')
-                    : 'cursor-default bg-transparent opacity-85'
+                    ? 'group ' + (isCurrentActive ? 'bg-black/[0.02]' : 'bg-transparent')
+                    : 'group hover:bg-black/[0.015]'
                 }`}
-                {...(isInteractive ? { 'data-interactive': true } : {})}
+                data-interactive
               >
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 sm:gap-8">
                   
@@ -167,10 +227,10 @@ export const ProjectList: React.FC = () => {
                     <span className="text-sm sm:text-base font-light font-display text-black/35 select-none">
                       {project.number}
                     </span>
-                    <h3 className={`text-4xl sm:text-6xl lg:text-7xl font-light font-display tracking-[-0.01em] ${
+                    <h3 className={`text-4xl sm:text-6xl lg:text-7xl font-light font-display tracking-[-0.01em] text-black ${
                       isInteractive
-                        ? 'text-black group-hover:translate-x-3 transition-transform duration-500 ease-out'
-                        : 'text-black/50'
+                        ? 'group-hover:translate-x-3 transition-transform duration-500 ease-out'
+                        : 'group-hover:translate-x-2 transition-transform duration-500 ease-out'
                     }`}>
                       {t.projects.items[project.id]?.title || project.title}
                     </h3>
@@ -191,18 +251,18 @@ export const ProjectList: React.FC = () => {
                           </>
                         ) : (
                           <span className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-black/30" />
-                            <span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                            <span className="text-black/60 group-hover:text-black transition-colors">
                               {language === 'es'
-                                ? 'Espacio reservado para tu marca'
-                                : 'Reserved spot for your brand'}
+                                ? 'Espacio reservado para tu marca • Clic para reservar'
+                                : 'Reserved for your brand • Click to inquire'}
                             </span>
                           </span>
                         )}
                       </div>
                     </div>
 
-                    {/* Circular Magnetic Action Icon or Reserved Indicator */}
+                    {/* Circular Magnetic Action Icon */}
                     {isInteractive ? (
                       <Magnetic strength={0.4} radius={60}>
                         <div
@@ -225,9 +285,13 @@ export const ProjectList: React.FC = () => {
                         </div>
                       </Magnetic>
                     ) : (
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-dashed border-black/20 bg-transparent flex items-center justify-center text-sm font-sans select-none">
-                        <span className="text-black/30 text-xs font-mono tracking-wider">—</span>
-                      </div>
+                      <Magnetic strength={0.3} radius={50}>
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-black/15 bg-white flex items-center justify-center text-sm font-sans transition-all duration-300 shadow-xs group-hover:bg-[#1C1D20] group-hover:text-white group-hover:border-[#1C1D20]">
+                          <span className="group-hover:translate-y-0.5 transition-transform duration-200">
+                            ↓
+                          </span>
+                        </div>
+                      </Magnetic>
                     )}
                   </div>
 
@@ -239,7 +303,7 @@ export const ProjectList: React.FC = () => {
 
       </div>
 
-      {/* Floating Projected Image Preview Card (Snellenberg Style Cursor Follower) */}
+      {/* Floating Projected Image Preview (Snellenberg Style Cursor Follower) */}
       <div
         ref={floatingCardRef}
         className={`hidden md:block pointer-events-none fixed z-[9999] top-0 left-0 will-change-transform transition-all duration-300 ease-out ${
@@ -247,43 +311,13 @@ export const ProjectList: React.FC = () => {
         }`}
       >
         {displayedProject && (
-          <div className="relative">
-            <div className="w-[420px] rounded-3xl bg-white/95 backdrop-blur-xl border border-black/10 shadow-[0_30px_90px_-15px_rgba(0,0,0,0.25)] p-4 overflow-hidden space-y-3">
-              {/* Card Meta Header */}
-              <div className="flex items-center justify-between text-xs font-sans pb-2 border-b border-black/5">
-                <span className="text-black font-medium">
-                  {t.projects.items[displayedProject.id]?.title || displayedProject.title}
-                </span>
-                <span className="text-black/45">
-                  {t.projects.items[displayedProject.id]?.category || displayedProject.category}
-                </span>
-              </div>
-
-              {/* High-Craft Image Container */}
-              <div className="overflow-hidden rounded-2xl bg-[#f8f8f6] border border-black/5">
-                <PlaceholderImage
-                  id={displayedProject.id}
-                  title={t.projects.items[displayedProject.id]?.title || displayedProject.title}
-                  recommendedAspect={displayedProject.aspectRatio}
-                  dimensions={displayedProject.dimensions}
-                  src={displayedProject.image}
-                  className="transform hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-              {/* Card Footer */}
-              <div className="flex items-center justify-between text-xs font-sans text-black/60 pt-0.5">
-                <span>{displayedProject.location}</span>
-                <span className="text-black/80 font-medium">
-                  {t.projects.futureVisionDemo}
-                </span>
-              </div>
-            </div>
-
-            {/* Floating Snellenberg View Badge */}
-            <div className="absolute -bottom-3 -right-3 w-16 h-16 rounded-full bg-[#1C1D20] text-white flex items-center justify-center text-xs font-sans font-medium shadow-2xl border border-white/20">
-              <span>{t.projects.demoButton}</span>
-            </div>
+          <div className="w-[380px] lg:w-[420px] aspect-[16/10] rounded-2xl overflow-hidden shadow-[0_30px_90px_-15px_rgba(0,0,0,0.35)] border border-black/10 bg-[#1C1D20]">
+            <img
+              src={displayedProject.image}
+              alt={t.projects.items[displayedProject.id]?.title || displayedProject.title}
+              className="w-full h-full object-cover"
+              decoding="async"
+            />
           </div>
         )}
       </div>

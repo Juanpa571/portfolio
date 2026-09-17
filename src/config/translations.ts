@@ -102,8 +102,13 @@ export interface Translations {
     inquiryType: string;
     newProject: string;
     generalInquiry: string;
+    preferredChannelLabel: string;
+    channelWhatsApp: string;
+    channelEmail: string;
     nameLabel: string;
     namePlaceholder: string;
+    whatsappLabel: string;
+    whatsappPlaceholder: string;
     emailLabel: string;
     emailPlaceholder: string;
     messageLabel: string;
@@ -113,7 +118,7 @@ export interface Translations {
     validationError: string;
     networkError: string;
     successTitle: string;
-    successMessage: (name: string, projectType: string, email: string) => string;
+    successMessage: (name: string, projectType: string, contactMethod: string) => string;
     sendAnother: string;
     openWhatsApp: string;
   };
@@ -262,21 +267,21 @@ export const translations: Record<Language, Translations> = {
       futureVisionDemo: 'Interactive Vision Demo',
       demoButton: 'Open Live Demo ↗',
       items: {
-        habitat: {
-          title: 'Hábitat',
-          category: 'Veterinary Hospital & Emergency',
-          tagline: '24/7 Clinical & Emergency Architecture',
+        'sai-seven': {
+          title: 'SAI — San Andrés Island',
+          category: 'Hospitality • Nature • Culture • Caribbean',
+          tagline: 'Architecture for Direct Bookings with Zero OTA Fees',
           description:
-            'High-complexity 24/7 veterinary hospital and emergency care center. Digital presence designed for urgent triage clarity: one-tap emergency call and Google Maps directions optimized for nighttime mobile panic.',
-          tech: 'React 19 • Emergency Triage UX • Sub-Second Mobile',
+            'Oceanfront resort and retreat in San Andrés. Digital presence engineered to capture high-value direct bookings without OTA commissions, mobile-first with sub-second loading.',
+          tech: 'React 19 • Direct Booking Architecture • Sub-Second Edge',
         },
         'next-project': {
-          title: 'Soon...',
-          category: 'Your Project Here',
-          tagline: 'Reserved Space for Your Brand',
+          title: 'Next Project',
+          category: 'Available Spot for Your Brand',
+          tagline: 'Reserved Space for Your Company',
           description:
             'This space is reserved for your company. We design and develop bespoke digital experiences engineered to command immediate authority and turn visitors into direct clients.',
-          tech: 'Bespoke Engineering • High-Impact Conversion',
+          tech: 'Turnkey Launch • High-Impact Conversion',
         },
       },
       modal: {
@@ -327,15 +332,20 @@ export const translations: Record<Language, Translations> = {
       sectionTag: 'Direct Inquiries',
       title: 'Start a Project',
       description:
-        'Tell me about your brand or business. I reply directly within 24 business hours to your email or WhatsApp.',
+        'Tell me about your brand or business. I review every inquiry personally and reply on the same business day via your preferred channel.',
       required: 'Required',
       inquiryType: 'Inquiry type',
       newProject: 'New Project',
       generalInquiry: 'General Inquiry / Other',
-      nameLabel: 'Name or business',
-      namePlaceholder: 'Dr. John Doe — Private Clinic',
+      preferredChannelLabel: 'Preferred response channel',
+      channelWhatsApp: 'WhatsApp (Fastest)',
+      channelEmail: 'Email (Formal)',
+      nameLabel: 'Your name or business',
+      namePlaceholder: 'Alex Morgan — Studio or Brand',
+      whatsappLabel: 'WhatsApp number',
+      whatsappPlaceholder: '+1 (555) 000-0000 (with country code)',
       emailLabel: 'Email address',
-      emailPlaceholder: 'contact@yourbrand.com',
+      emailPlaceholder: 'alex@yourbusiness.com',
       messageLabel: 'Project details',
       messagePlaceholder:
         'Tell me about your business, your current website (if any), and the goals you want to achieve...',
@@ -345,8 +355,8 @@ export const translations: Record<Language, Translations> = {
       networkError:
         'Connection issue while sending. Please contact me via WhatsApp.',
       successTitle: 'Message received successfully',
-      successMessage: (name: string, projectType: string, email: string) =>
-        `Thank you, ${name}. I have received your request for ${projectType}. I will get back to you at ${email} shortly.`,
+      successMessage: (name: string, projectType: string, contactMethod: string) =>
+        `Thank you, ${name}. I have received your request regarding ${projectType}. I will personally get in touch via ${contactMethod} on the same business day.`,
       sendAnother: 'Send another message',
       openWhatsApp: 'Open chat on WhatsApp ↗',
     },
@@ -493,21 +503,21 @@ export const translations: Record<Language, Translations> = {
       futureVisionDemo: 'Demo de Visión Interactiva',
       demoButton: 'Abrir Demo en Vivo ↗',
       items: {
-        habitat: {
-          title: 'Hábitat',
-          category: 'Hospital Veterinario y Urgencias',
-          tagline: 'Arquitectura Clínica y de Urgencias 24/7',
+        'sai-seven': {
+          title: 'SAI — San Andrés Island',
+          category: 'Hospedaje • Naturaleza • Cultura • Caribe',
+          tagline: 'Arquitectura para Reservas Directas sin Comisiones',
           description:
-            'Hospital veterinario y centro de urgencias 24/7 de alta complejidad. Presencia digital diseñada para triaje inmediato: botón de llamada de urgencia en un toque y ruta de Google Maps optimizada para situaciones críticas nocturnas.',
-          tech: 'React 19 • Triaje de Urgencias UX • Carga Sub-Segundo en Móvil',
+            'Resort y descanso frente al mar en San Andrés. Arquitectura digital diseñada para captar reservas directas de alto valor sin intermediarios, optimizada para móviles y con carga instantánea.',
+          tech: 'React 19 • Arquitectura de Reserva Directa • Carga Sub-Segundo',
         },
         'next-project': {
-          title: 'Soon...',
-          category: 'Tu Proyecto Aquí',
+          title: 'Próximo Proyecto',
+          category: 'Espacio disponible para tu empresa',
           tagline: 'Espacio Reservado para Tu Marca',
           description:
             'Este espacio está reservado para tu marca o empresa. Diseñamos y desarrollamos una experiencia digital a medida pensada para transmitir autoridad inmediata y convertir visitas en clientes directos.',
-          tech: 'Arquitectura a Medida • Alta Conversión',
+          tech: 'Desarrollo Llave en Mano • Alta Conversión',
         },
       },
       modal: {
@@ -558,13 +568,18 @@ export const translations: Record<Language, Translations> = {
       sectionTag: 'Consultas Directas',
       title: 'Iniciar un Proyecto',
       description:
-        'Cuéntame sobre tu marca o negocio. Respondo directamente en menos de 24 horas hábiles a tu correo o WhatsApp.',
+        'Cuéntame sobre tu marca o negocio. Reviso cada consulta personalmente y respondo el mismo día hábil por tu canal de preferencia.',
       required: 'Requerido',
       inquiryType: 'Tipo de consulta',
       newProject: 'Nuevo Proyecto',
       generalInquiry: 'Consulta General / Otro',
+      preferredChannelLabel: '¿Dónde prefieres recibir respuesta?',
+      channelWhatsApp: 'WhatsApp (Más ágil)',
+      channelEmail: 'Correo electrónico (Formal)',
       nameLabel: 'Nombre o negocio',
       namePlaceholder: 'Carlos Mendoza — Empresa o Negocio',
+      whatsappLabel: 'Número de WhatsApp',
+      whatsappPlaceholder: '+57 300 000 0000 (con código de país)',
       emailLabel: 'Correo electrónico',
       emailPlaceholder: 'contacto@tunegocio.com',
       messageLabel: 'Detalles del proyecto',
@@ -576,8 +591,8 @@ export const translations: Record<Language, Translations> = {
       networkError:
         'Hubo un problema de conexión al enviar. Por favor contáctame por WhatsApp.',
       successTitle: 'Mensaje recibido con éxito',
-      successMessage: (name: string, projectType: string, email: string) =>
-        `Gracias, ${name}. He recibido tu solicitud para ${projectType}. Me pondré en contacto contigo en ${email} lo antes posible.`,
+      successMessage: (name: string, projectType: string, contactMethod: string) =>
+        `Gracias, ${name}. He recibido tu solicitud para ${projectType}. Me pondré en contacto contigo personalmente a través de ${contactMethod} el mismo día hábil.`,
       sendAnother: 'Enviar otro mensaje',
       openWhatsApp: 'Abrir chat en WhatsApp ↗',
     },
