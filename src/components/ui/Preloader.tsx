@@ -85,8 +85,8 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       {/* Bottom Progress Hairline */}
       <div className="space-y-4">
         <div className="flex justify-between text-xs font-sans text-white/40">
-          <span>Creative Web Studio</span>
-          <span>Design & Craft</span>
+          <span>JP Studios</span>
+          <span>Diseño para Vender</span>
         </div>
         <div className="w-full h-[1.5px] bg-white/10 overflow-hidden rounded-full">
           <div

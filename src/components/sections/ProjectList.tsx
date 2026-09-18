@@ -174,7 +174,8 @@ export const ProjectList: React.FC = () => {
           onMouseEnter={() => setActiveProject(null)}
         >
           <h2 className="text-5xl sm:text-7xl lg:text-8xl font-normal font-display text-black tracking-[-0.01em] leading-[1.06] sm:leading-[1.1]">
-            {t.projects.headerLine1}<br />
+            {t.projects.headerLine1}{' '}
+            <br />
             <span className="sm:pl-16 lg:pl-24 inline-block text-black/50 hover:text-black transition-colors duration-500">
               {t.projects.headerLine2}
             </span>

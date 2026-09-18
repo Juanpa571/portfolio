@@ -84,7 +84,13 @@ export const Process: React.FC = () => {
         {/* Section Header with Refokus-style Kinetic Ink Sweep */}
         <div ref={headerRef} className="mb-14 sm:mb-20">
           <div className="space-y-2 sm:space-y-3 max-w-4xl">
-            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-normal font-display tracking-[-0.01em] leading-[1.12] sm:leading-[1.15]">
+            {/* H2 Semántico Limpio para SEO */}
+            <h2 className="sr-only">
+              {t.process.headerLine1} {t.process.headerLine2}
+            </h2>
+
+            {/* Presentación Visual Cinética */}
+            <div aria-hidden="true" className="text-4xl sm:text-6xl lg:text-7xl font-normal font-display tracking-[-0.01em] leading-[1.12] sm:leading-[1.15]">
               {/* Line 1 */}
               <div className="relative inline-block pb-1">
                 <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
@@ -112,7 +118,7 @@ export const Process: React.FC = () => {
                   {t.process.headerLine2}
                 </span>
               </div>
-            </h2>
+            </div>
 
             <p className="pt-4 text-base sm:text-lg text-black/60 max-w-2xl font-sans font-normal leading-relaxed">
               {t.process.tagline}
@@ -132,13 +138,13 @@ export const Process: React.FC = () => {
                 <div className="flex items-center gap-4 sm:gap-6">
                   <StrategyGlyph />
                   <h3 className="text-2xl sm:text-4xl font-display font-normal text-black tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
-                    {isSpanish ? 'Diagnóstico Estratégico y Propuesta' : 'Strategic Diagnosis & Architecture'}
+                    {t.process.steps[0].title}
                   </h3>
                 </div>
 
                 <div className="flex items-center gap-6 self-end md:self-auto">
                   <span className="text-xs font-sans font-medium text-black/60 px-3 py-1 rounded-full bg-black/5">
-                    48 Horas
+                    {t.process.steps[0].timeframe}
                   </span>
                   <span className="text-lg font-light text-black/40 group-hover:text-black transition-transform duration-300">
                     {expandedRow === 0 ? '—' : '+'}
@@ -154,9 +160,7 @@ export const Process: React.FC = () => {
                       {isSpanish ? 'Qué resolvemos' : 'What we solve'}
                     </h4>
                     <p className="text-sm text-black/70 font-sans leading-relaxed">
-                      {isSpanish
-                        ? 'Analizamos tus servicios más rentables, la competencia en tu sector y el comportamiento de tus clientes. Diseñamos la arquitectura de la página y organizamos tus contenidos con enfoque en conversión y claridad.'
-                        : 'We analyze your highest-value services, competitor landscape, and target clients. We structure the information architecture and refine your content messaging for maximum clarity.'}
+                      {t.process.steps[0].description}
                     </p>
                   </div>
 
@@ -175,11 +179,11 @@ export const Process: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                       <span className="text-xs font-sans text-black/50 font-medium tracking-normal">
-                        {isSpanish ? 'Entregable firmado' : 'Signed deliverable'}
+                        {isSpanish ? 'Entregable verificado' : 'Verified deliverable'}
                       </span>
                     </div>
                     <h4 className="text-base sm:text-lg font-display font-normal text-black leading-snug">
-                      {isSpanish ? 'Estructura Estratégica & Arquitectura Web' : 'Strategic Architecture & Content Structure'}
+                      {t.process.steps[0].deliverable}
                     </h4>
                   </div>
                 </div>
@@ -195,13 +199,13 @@ export const Process: React.FC = () => {
                 <div className="flex items-center gap-4 sm:gap-6">
                   <CraftGlyph />
                   <h3 className="text-2xl sm:text-4xl font-display font-normal text-black tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
-                    {isSpanish ? 'Maquetación Interactiva y Pruebas en Móvil' : 'Interactive Craft & Live Mobile Staging'}
+                    {t.process.steps[1].title}
                   </h3>
                 </div>
 
                 <div className="flex items-center gap-6 self-end md:self-auto">
                   <span className="text-xs font-sans font-medium text-black/60 px-3 py-1 rounded-full bg-black/5">
-                    Días 3 al 10
+                    {t.process.steps[1].timeframe}
                   </span>
                   <span className="text-lg font-light text-black/40 group-hover:text-black transition-transform duration-300">
                     {expandedRow === 1 ? '—' : '+'}
@@ -217,9 +221,7 @@ export const Process: React.FC = () => {
                       {isSpanish ? 'Qué resolvemos' : 'What we solve'}
                     </h4>
                     <p className="text-sm text-black/70 font-sans leading-relaxed">
-                      {isSpanish
-                        ? 'Construimos tu plataforma web con código puro en React 19 y TypeScript, sin plantillas genéricas. Carga instantánea sub-segundo, animaciones fluidas aceleradas por hardware y ruteo directo hacia tus canales de venta.'
-                        : 'We craft your bespoke web platform in pure React 19 and TypeScript—zero generic templates. Sub-second load speed, hardware-accelerated motion, and frictionless routing.'}
+                      {t.process.steps[1].description}
                     </p>
                   </div>
 
@@ -238,11 +240,11 @@ export const Process: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                       <span className="text-xs font-sans text-black/50 font-medium tracking-normal">
-                        {isSpanish ? 'Entregable firmado' : 'Signed deliverable'}
+                        {isSpanish ? 'Entregable verificado' : 'Verified deliverable'}
                       </span>
                     </div>
                     <h4 className="text-base sm:text-lg font-display font-normal text-black leading-snug">
-                      {isSpanish ? 'Enlace Privado de Staging en Vivo' : 'Private Live Staging Preview Link'}
+                      {t.process.steps[1].deliverable}
                     </h4>
                   </div>
                 </div>
@@ -258,13 +260,13 @@ export const Process: React.FC = () => {
                 <div className="flex items-center gap-4 sm:gap-6">
                   <LaunchGlyph />
                   <h3 className="text-2xl sm:text-4xl font-display font-normal text-black tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
-                    {isSpanish ? 'Puesta en Marcha y Entrega Llave en Mano' : 'Turnkey Launch & Handover'}
+                    {t.process.steps[2].title}
                   </h3>
                 </div>
 
                 <div className="flex items-center gap-6 self-end md:self-auto">
                   <span className="text-xs font-sans font-medium text-black/60 px-3 py-1 rounded-full bg-black/5">
-                    Días 11 al 14
+                    {t.process.steps[2].timeframe}
                   </span>
                   <span className="text-lg font-light text-black/40 group-hover:text-black transition-transform duration-300">
                     {expandedRow === 2 ? '—' : '+'}
@@ -280,9 +282,7 @@ export const Process: React.FC = () => {
                       {isSpanish ? 'Qué resolvemos' : 'What we solve'}
                     </h4>
                     <p className="text-sm text-black/70 font-sans leading-relaxed">
-                      {isSpanish
-                        ? 'Conectamos tu dominio corporativo, activamos certificado SSL en el edge, integramos tus canales prioritarios de contacto y configuramos el SEO técnico con indexación oficial. Recibes el 100% de la propiedad sin ataduras.'
-                        : 'We connect your corporate domain, deploy SSL security on the global edge, integrate your direct contact channels, and configure technical SEO. You receive 100% full ownership with zero lock-in.'}
+                      {t.process.steps[2].description}
                     </p>
                   </div>
 
@@ -301,11 +301,11 @@ export const Process: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                       <span className="text-xs font-sans text-black/50 font-medium tracking-normal">
-                        {isSpanish ? 'Entregable firmado' : 'Signed deliverable'}
+                        {isSpanish ? 'Entregable verificado' : 'Verified deliverable'}
                       </span>
                     </div>
                     <h4 className="text-base sm:text-lg font-display font-normal text-black leading-snug">
-                      {isSpanish ? 'Web en Producción & Propiedad Total Transferida' : 'Live Production Site & Full Ownership Transfer'}
+                      {t.process.steps[2].deliverable}
                     </h4>
                   </div>
                 </div>

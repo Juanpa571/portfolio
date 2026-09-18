@@ -94,7 +94,13 @@ export const Services: React.FC = () => {
         {/* Asymmetric Section Header with Refokus-Style Kinetic Morph */}
         <div ref={headerRef} className="relative mb-12 lg:mb-16 pb-6">
           <div className="space-y-3 max-w-4xl">
-            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-normal font-display tracking-[-0.01em] leading-[1.12] sm:leading-[1.15]">
+            {/* H2 Semántico Limpio para SEO y Lectores de Pantalla */}
+            <h2 className="sr-only">
+              {t.services.headerLine1} {t.services.headerLine2}
+            </h2>
+
+            {/* Presentación Visual Cinética */}
+            <div aria-hidden="true" className="text-4xl sm:text-6xl lg:text-7xl font-normal font-display tracking-[-0.01em] leading-[1.12] sm:leading-[1.15]">
               {/* Line 1: Built on trust. */}
               <div className="relative inline-block pb-1">
                 <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
@@ -122,7 +128,7 @@ export const Services: React.FC = () => {
                   {t.services.headerLine2}
                 </span>
               </div>
-            </h2>
+            </div>
           </div>
 
           {/* Animated Ruler Line drawn on scroll */}

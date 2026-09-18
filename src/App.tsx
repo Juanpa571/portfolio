@@ -6,7 +6,7 @@ import { Intro } from './components/sections/Intro';
 import { VelocityTicker } from './components/sections/VelocityTicker';
 import { Services } from './components/sections/Services';
 import { Process } from './components/sections/Process';
-import { ProjectList } from './components/sections/ProjectList';
+// import { ProjectList } from './components/sections/ProjectList';
 import { Faq } from './components/sections/Faq';
 import { ContactForm } from './components/sections/ContactForm';
 import { Footer } from './components/layout/Footer';
@@ -29,7 +29,7 @@ export const App: React.FC = () => {
           <VelocityTicker />
           <Services />
           <Process />
-          <ProjectList />
+          {/* ProjectList temporalmente oculto hasta integrar casos de estudio reales */}
           <Faq />
           <ContactForm />
         </main>

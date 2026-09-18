@@ -6,10 +6,12 @@ Documento de referencia para el agente de IA. Leer este archivo al iniciar cualq
 
 ## 1. Identidad, Marca y Negocio
 - **Nombre de Marca:** JP Studios
-- **Fundador:** Juan Pablo Chacón (Creative Web Designer & Producer)
+- **Fundador:** Juan Pablo Chacón (Product Engineer & Conversion Web Developer)
 - **Dominio Oficial:** https://jpchacon.com
 - **Ubicación Base:** Cali, Valle del Cauca, Colombia
-- **Enfoque:** Estudio de diseño y producción web de alto impacto. Interfaces contemporáneas, fluidez de movimiento y desarrollo llave en mano para marcas y empresas.
+- **Enfoque Principal:** Estudio Web de Alto Rendimiento, Conversión y Visibilidad en Motores de Búsqueda e IA (AEO, GEO y Local SEO).
+- **Documento Rector del Modelo de Negocio:** Ver [BUSINESS_MANIFESTO.md](file:///d:/projects/portfolio/BUSINESS_MANIFESTO.md) para el desglose íntegro de la tesis comercial, los 3 pilares de servicio, estructura de precios (Setup inicial + Retenedor mensual MRR) y compromisos éticos anti-humo.
+- **Pivote Estratégico (Septiembre 2026):** Se descarta conscientemente el término "diseño de autor". No nos vendemos como artistas gráficos, sino como un estudio técnico enfocado en resultados comerciales tangibles: captación de clientes cualificados, tiempos de carga instantáneos (React 19 + Tailwind) y datos estructurados (Schema.org JSON-LD + Answer Engine Optimization) para que negocios locales y empresas sean citados y recomendados por Google Maps, ChatGPT, Gemini y Perplexity.
 
 ---
 

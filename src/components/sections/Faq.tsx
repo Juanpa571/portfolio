@@ -82,7 +82,13 @@ export const Faq: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           {/* Left Column: Heading & Context (Col 1-5) */}
           <div ref={headerRef} className="lg:col-span-5 space-y-4">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-normal font-display tracking-[-0.01em] leading-[1.12]">
+            {/* H2 Semántico Limpio para SEO */}
+            <h2 className="sr-only">
+              {t.faq.headerLine1} {t.faq.headerLine2}
+            </h2>
+
+            {/* Presentación Visual Cinética */}
+            <div aria-hidden="true" className="text-4xl sm:text-5xl lg:text-6xl font-normal font-display tracking-[-0.01em] leading-[1.12]">
               <div className="relative inline-block pb-1">
                 <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
                   {t.faq.headerLine1}
@@ -108,7 +114,7 @@ export const Faq: React.FC = () => {
                   {t.faq.headerLine2}
                 </span>
               </div>
-            </h2>
+            </div>
 
             <p className="text-base text-black/60 font-sans font-normal leading-relaxed pt-2 max-w-md">
               {t.faq.tagline}

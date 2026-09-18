@@ -123,7 +123,10 @@ export const Hero: React.FC = () => {
         
         {/* Left: Monumental Typographic Statement */}
         <div className="flex-1 w-full flex flex-col justify-center min-w-0">
-          <h1 className="space-y-2 sm:space-y-3 lg:space-y-4 select-none m-0 font-normal">
+          <h1 
+            aria-label="Juan Pablo Chacón — Páginas Web Cali & Diseño para Vender"
+            className="space-y-2 sm:space-y-3 lg:space-y-4 select-none m-0 font-normal"
+          >
             
             {/* Line 1: First Name */}
             <span className="block">
@@ -133,7 +136,7 @@ export const Hero: React.FC = () => {
                 data-interactive
               >
                 <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                  Juan Pablo
+                  Juan Pablo{' '}
                 </span>
               </span>
             </span>
@@ -146,7 +149,7 @@ export const Hero: React.FC = () => {
                 data-interactive
               >
                 <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                  Chacón.
+                  Chacón.{' '}
                 </span>
               </span>
             </span>
@@ -180,7 +183,7 @@ export const Hero: React.FC = () => {
               <div className="relative aspect-[3/4] rounded-[1.9rem] sm:rounded-[2rem] overflow-hidden bg-[#141517]">
                 <img
                   src="/hero-portrait.webp"
-                  alt="Juan Pablo Chacón"
+                  alt="Juan Pablo Chacón — Páginas Web Cali y Diseño para Vender"
                   className="w-full h-full object-cover object-[center_22%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   loading="eager"
                   decoding="async"

@@ -98,29 +98,25 @@ export interface Translations {
     sectionTag: string;
     title: string;
     description: string;
-    required: string;
-    inquiryType: string;
-    newProject: string;
-    generalInquiry: string;
-    preferredChannelLabel: string;
-    channelWhatsApp: string;
-    channelEmail: string;
+    step1Question: string;
+    step2Question: string;
+    step3Question: string;
+    step3Subtitle: string;
+    prevButton: string;
+    nextButton: string;
+    projectOptions: Array<{ id: string; label: string; icon: string }>;
+    sectorOptions: Array<{ id: string; label: string; icon: string }>;
     nameLabel: string;
     namePlaceholder: string;
-    whatsappLabel: string;
-    whatsappPlaceholder: string;
-    emailLabel: string;
-    emailPlaceholder: string;
-    messageLabel: string;
-    messagePlaceholder: string;
+    phoneLabel: string;
+    phonePlaceholder: string;
     submitIdle: string;
     submitSending: string;
     validationError: string;
     networkError: string;
     successTitle: string;
-    successMessage: (name: string, projectType: string, contactMethod: string) => string;
-    sendAnother: string;
-    openWhatsApp: string;
+    successSubtitle: (name: string) => string;
+    resetButton: string;
   };
   footer: {
     headlineLine1: string;
@@ -153,106 +149,106 @@ export const translations: Record<Language, Translations> = {
       switchLangTooltip: 'Cambiar a español',
     },
     hero: {
-      disciplineLine1: 'Design',
+      disciplineLine1: 'Bespoke Websites',
       disciplineAnd: '&',
-      disciplineLine2: 'Web Craft.',
+      disciplineLine2: 'Design to Sell.',
       location: 'Cali, Colombia',
       studioType: 'Independent Studio',
-      role: 'Creative Web Designer & Producer',
+      role: 'Product Engineer & Conversion Web Developer',
     },
     intro: {
       statement:
-        'I partner with founders, private practices, and ambitious brands to design and deliver high-craft web experiences. Direct communication, fast turnaround, and personal dedication to launching digital presences that convert visitors into clients.',
+        'At JP Studios, led by Juan Pablo Chacón, we engineer high-performance websites in Cali and bespoke digital presences designed to sell. Modern React 19 code, local Google Maps visibility, and clear conversion paths to turn visitors into clients.',
       startOnWhatsApp: 'Start on WhatsApp',
       direct: 'Direct ↗',
     },
     ticker: {
       track1: [
-        { text: 'Bespoke Design', filled: true },
-        { text: 'Tactile Motion', filled: false },
-        { text: 'Speed to Market', filled: true },
-        { text: 'Clear Communication', filled: false },
-        { text: 'Turnkey Launch', filled: true },
-        { text: 'High-Fidelity Interfaces', filled: false },
-        { text: 'Fast Turnaround', filled: true },
-        { text: 'Figma to Web', filled: false },
+        { text: 'JP Studios', filled: true },
+        { text: 'Bespoke Websites', filled: false },
+        { text: 'Design to Sell', filled: true },
+        { text: 'Google Maps Optimization', filled: false },
+        { text: 'React 19 & TypeScript', filled: true },
+        { text: 'Sub-Second Loading', filled: false },
+        { text: 'Search & AI Ready', filled: true },
+        { text: 'Turnkey Launch', filled: false },
       ],
       track2: [
-        { text: 'Transparent Process', filled: false },
-        { text: 'Cali / Remote Worldwide', filled: true },
-        { text: 'Honest Collaboration', filled: false },
-        { text: 'Radical Simplicity', filled: true },
-        { text: 'Sub-Second Loading', filled: false },
-        { text: 'Editorial Typography', filled: true },
-        { text: 'Bespoke Web Craft', filled: false },
-        { text: 'Continuous Evolution', filled: true },
+        { text: 'JP Studios Cali', filled: true },
+        { text: 'Measurable ROI', filled: false },
+        { text: 'Structured Execution', filled: true },
+        { text: 'Direct WhatsApp Routing', filled: false },
+        { text: '99.9% Cloud Uptime', filled: true },
+        { text: 'Lead Qualification', filled: false },
+        { text: 'Bespoke Architecture', filled: true },
+        { text: 'Continuous Evolution', filled: false },
       ],
     },
     services: {
-      headerLine1: 'Built on trust.',
-      headerLine2: 'Shaped by craft.',
+      headerLine1: 'Engineered for revenue,',
+      headerLine2: 'not just decoration.',
       items: [
         {
-          id: 'ux-design',
+          id: 'performance-web',
           number: '001',
-          title: 'UI/UX & Art Direction',
-          subtitle: 'Authority, hierarchy, and client conversion.',
+          title: 'High-Performance Web Development',
+          subtitle: 'Sub-second speed that drastically minimizes visitor drop-off.',
           description:
-            'Translating your practice into an arresting visual identity. Clean layouts structured to command prestige and guide prospects directly toward scheduling an appointment or consultation.',
+            'Bespoke web architecture engineered by JP Studios with React 19, TypeScript, and modern Tailwind. Clean, ultra-fast mobile performance that loads in under 0.5s without slow plugins or template bloat.',
         },
         {
-          id: 'frontend',
+          id: 'seo-local',
           number: '002',
-          title: 'Frontend Craft',
-          subtitle: 'Sub-second speed that feels native.',
+          title: 'Local SEO & Google Maps Presence',
+          subtitle: 'Rank where your potential clients actually search on Google & Maps.',
           description:
-            'Engineered with modern React 19, TypeScript, and zero bloat. Lightning-fast mobile performance with zero slow loading screens or broken responsive layouts.',
+            'Structured Schema.org JSON-LD data graphs, Google Business Profile optimization, and direct Answer Blocks so your business gets recommended on Google Search, Maps, and AI search engines.',
         },
         {
-          id: 'launch',
+          id: 'conversion-pages',
           number: '003',
-          title: 'Turnkey Launch',
-          subtitle: 'Custom domain, SSL, and direct routing.',
+          title: 'High-Conversion Landing Pages',
+          subtitle: 'Frictionless pathways from click to client.',
           description:
-            'Global edge hosting with 99.9% uptime, DNS setup, one-tap WhatsApp integration, and optimized Google Maps presence ready to capture high-value clients immediately.',
+            'Persuasive copy and intentional layout hierarchy designed to qualify prospects and guide them directly to what drives sales: direct WhatsApp messaging, calls, or online appointment booking.',
         },
         {
           id: 'support',
           number: '004',
-          title: 'Ongoing Evolution',
-          subtitle: 'Total peace of mind post-launch.',
+          title: 'Managed Hosting & Monthly Retainer',
+          subtitle: 'Total technical peace of mind post-launch.',
           description:
-            'Optional ongoing care including continuous speed audits, automated backups, and monthly content updates so your digital presence always stays ahead without technical headaches.',
+            'Enterprise edge hosting with 99.9% uptime, SSL security, automated backups, monthly performance metrics, and continuous support managed directly by JP Studios.',
         },
       ],
     },
     process: {
-      headerLine1: 'Structured execution.',
-      headerLine2: 'Zero surprises.',
-      tagline: 'From strategic diagnosis to turnkey launch in under 14 days',
+      headerLine1: 'Live in 14 days.',
+      headerLine2: 'Zero technical friction.',
+      tagline: 'The JP Studios methodology: From commercial strategy to a production-ready web presence in under two weeks',
       steps: [
         {
           number: '01',
-          title: 'Strategic Diagnosis & Architecture',
+          title: 'Commercial Diagnosis & Keyword Research',
           timeframe: '48 Hours',
           description:
-            'We study your business model, high-ticket services, and competitive landscape. We map the site structure and messaging strategy without burdening your team with writing copy from scratch.',
+            'We analyze your direct competitors on Google and your specific target customer area. We map the site structure and high-intent commercial copy without your team having to write anything from scratch.',
           deliverable: 'Strategic architecture & content blueprint',
         },
         {
           number: '02',
-          title: 'Interactive Craft & Live Testing',
+          title: 'High-Speed Web Development & Mobile Testing',
           timeframe: 'Days 3 to 10',
           description:
-            'We build your bespoke web presence with sub-second responsiveness and tactile elegance. You test the complete experience live on your own smartphone before anything goes public.',
+            'We engineer your bespoke web presence in modern React 19 with instant sub-second loading on mobile devices. You test the complete experience and direct contact channels on your own smartphone before launch.',
           deliverable: 'Private live staging link for review',
         },
         {
           number: '03',
-          title: 'Turnkey Launch & Handover',
+          title: 'Google Maps, Search Indexing & Turnkey Launch',
           timeframe: 'Days 11 to 14',
           description:
-            'We connect your corporate domain, deploy SSL security, configure one-tap WhatsApp routing, and optimize your Google Business profile. You receive 100% full ownership of your assets.',
+            'We connect your corporate domain, deploy SSL security, structure official Schema data for Google and AI search engines, and optimize your local Google Maps profile to activate your direct client acquisition channels.',
           deliverable: 'Live production launch & full ownership transfer',
         },
       ],
@@ -302,63 +298,76 @@ export const translations: Record<Language, Translations> = {
       tagline: 'Everything you need to know before starting your project',
       items: [
         {
+          question: 'How do you get my business to rank on Google and Google Maps?',
+          answer:
+            'We optimize your Google Business Profile with precise categories, verified business data (NAP), and connect your website with structured Schema.org markup to maximize visibility in local searches in your target area and on AI response engines like ChatGPT and Gemini.',
+        },
+        {
+          question: 'How are project fees structured and are there mandatory monthly charges?',
+          answer:
+            'We work with fixed, transparent proposals tailored to your project scope (landing page, corporate site, or custom integrations). Delivery is turnkey with 100% ownership and zero mandatory retainers. Cloud edge hosting and maintenance are completely optional.',
+        },
+        {
+          question: 'What is the difference between a traditional website and a high-conversion sales page?',
+          answer:
+            'Traditional websites are often slow, cluttered, and purely informational. A website designed to sell loads in under 1 second on mobile devices, eliminates friction, and guides visitors directly toward commercial action: a WhatsApp message, a phone call, or a qualified inquiry.',
+        },
+        {
           question: 'How long does it take to have the website live and operating?',
           answer:
-            'Standard delivery is 7 to 14 business days from our initial kick-off. Because we handle structural strategy and copywriting upfront, we eliminate the multi-month delays typical of traditional agencies.',
+            'Standard delivery is 7 to 14 business days from our initial kick-off. Because we handle structural strategy and commercial copywriting upfront, we eliminate the multi-month delays typical of traditional agencies.',
         },
         {
-          question: 'Do I have to pay mandatory monthly fees after launch?',
+          question: 'Do I have to write the text and content for the website myself?',
           answer:
-            'No. You can choose a single turnkey project payment with zero recurring obligations. We also offer optional monthly support and evolution plans if you prefer to delegate high-speed edge hosting, regular content updates, and Google Maps optimization.',
+            'No. Content writing is usually the biggest bottleneck for business owners. We research your direct competitors, structure your value proposition, and write the commercial copy. You only need an initial 30-minute conversation to share your goals and approve the direction.',
         },
         {
-          question: 'Who owns the website, domain, and code once delivered?',
+          question: 'What kind of AI solutions or integrations can you incorporate into my website?',
           answer:
-            'You own 100% of everything. Unlike closed platforms that lock you in, your digital presence belongs entirely to you. You maintain full access to your custom domain, hosting, and source files with zero proprietary lock-in.',
-        },
-        {
-          question: 'What do I need to provide to get started?',
-          answer:
-            'Only your logo (if available), basic contact information, and a 30-minute conversation about your highest-value services. We take care of competitive research, layout architecture, and conversion copywriting.',
-        },
-        {
-          question: 'Why choose bespoke web craft over standard WordPress or Wix templates?',
-          answer:
-            'Generic templates load dozens of bloated plugins that take 4 to 6 seconds to open on your clients’ mobile phones, causing them to leave before reading. Our custom architecture loads in under 1 second, establishes immediate prestige, and guides users directly to a phone call or WhatsApp inquiry.',
+            'From custom AI assistants trained on your service catalog to answer inquiries and qualify leads 24/7, to instant automations that route contact details directly into your WhatsApp, email, or CRM in real time so no sales opportunity is lost.',
         },
       ],
     },
     contact: {
-      sectionTag: 'Direct Inquiries',
+      sectionTag: 'Project Estimator',
       title: 'Start a Project',
       description:
-        'Tell me about your brand or business. I review every inquiry personally and reply on the same business day via your preferred channel.',
-      required: 'Required',
-      inquiryType: 'Inquiry type',
-      newProject: 'New Project',
-      generalInquiry: 'General Inquiry / Other',
-      preferredChannelLabel: 'Preferred response channel',
-      channelWhatsApp: 'WhatsApp (Fastest)',
-      channelEmail: 'Email (Formal)',
-      nameLabel: 'Your name or business',
-      namePlaceholder: 'Alex Morgan — Studio or Brand',
-      whatsappLabel: 'WhatsApp number',
-      whatsappPlaceholder: '+1 (555) 000-0000 (with country code)',
-      emailLabel: 'Email address',
-      emailPlaceholder: 'alex@yourbusiness.com',
-      messageLabel: 'Project details',
-      messagePlaceholder:
-        'Tell me about your business, your current website (if any), and the goals you want to achieve...',
-      submitIdle: 'Send inquiry',
+        'Tell us about your project goals and we will get back to you with a tailored proposal today.',
+      step1Question: 'What type of project do you need?',
+      step2Question: 'What is your business sector?',
+      step3Question: 'Where should we send your proposal?',
+      step3Subtitle: 'We will review your inquiry and contact you personally on the same business day.',
+      prevButton: 'Previous',
+      nextButton: 'Next',
+      projectOptions: [
+        { id: 'web-scratch', label: 'Website from Scratch', icon: 'globe' },
+        { id: 'landing', label: 'Landing Page', icon: 'rocket' },
+        { id: 'seo', label: 'SEO Optimization', icon: 'search' },
+        { id: 'ai', label: 'AI Integration', icon: 'cpu' },
+        { id: 'redesign', label: 'Website Redesign', icon: 'refresh' },
+        { id: 'other', label: 'Other Service', icon: 'compass' },
+      ],
+      sectorOptions: [
+        { id: 'health', label: 'Healthcare', icon: 'heart' },
+        { id: 'services', label: 'Services', icon: 'briefcase' },
+        { id: 'retail', label: 'Retail & Food', icon: 'store' },
+        { id: 'b2b', label: 'B2B Enterprise', icon: 'layers' },
+        { id: 'property', label: 'Real Estate', icon: 'home' },
+        { id: 'other', label: 'Other Sector', icon: 'star' },
+      ],
+      nameLabel: 'Your name or company',
+      namePlaceholder: 'Alex Morgan',
+      phoneLabel: 'WhatsApp or Phone',
+      phonePlaceholder: '+1 (555) 000-0000',
+      submitIdle: 'Send and Receive Proposal',
       submitSending: 'Sending...',
-      validationError: 'Please complete all required fields.',
-      networkError:
-        'Connection issue while sending. Please contact me via WhatsApp.',
-      successTitle: 'Message received successfully',
-      successMessage: (name: string, projectType: string, contactMethod: string) =>
-        `Thank you, ${name}. I have received your request regarding ${projectType}. I will personally get in touch via ${contactMethod} on the same business day.`,
-      sendAnother: 'Send another message',
-      openWhatsApp: 'Open chat on WhatsApp ↗',
+      validationError: 'Please provide your name and phone number.',
+      networkError: 'Connection error while sending. Please contact us via WhatsApp.',
+      successTitle: 'Information received successfully',
+      successSubtitle: (name: string) =>
+        `Thank you, ${name}. We have received your project details and will get in touch on the same business day.`,
+      resetButton: 'Start over',
     },
     footer: {
       headlineLine1: 'Ready to build',
@@ -389,107 +398,107 @@ export const translations: Record<Language, Translations> = {
       switchLangTooltip: 'Switch to English',
     },
     hero: {
-      disciplineLine1: 'Diseño',
+      disciplineLine1: 'Páginas Web Cali',
       disciplineAnd: '&',
-      disciplineLine2: 'Desarrollo Web.',
+      disciplineLine2: 'Diseño para Vender.',
       location: 'Cali, Colombia',
       studioType: 'Estudio Independiente',
-      role: 'Diseñador y Desarrollador Web Creativo',
+      role: 'Ingeniería Web & Posicionamiento Local',
     },
     intro: {
       statement:
-        'Me asocio con fundadores, empresas y marcas modernas para diseñar y construir experiencias web de alto nivel. Comunicación directa, entrega ágil y dedicación personal para lanzar presencias digitales memorables que convierten visitas en clientes.',
+        'En JP Studios, liderado por Juan Pablo Chacón, desarrollamos páginas web en Cali de alto rendimiento y diseño para vender. Código limpio en React 19, presencia comercial en Google Maps y rutas directas para convertir visitas en clientes reales.',
       startOnWhatsApp: 'Iniciar en WhatsApp',
       direct: 'Directo ↗',
     },
     ticker: {
       track1: [
-        { text: 'Diseño de Autor', filled: true },
-        { text: 'Movimiento Táctil', filled: false },
-        { text: 'Velocidad de Lanzamiento', filled: true },
-        { text: 'Comunicación Clara', filled: false },
-        { text: 'Entrega Llave en Mano', filled: true },
-        { text: 'Interfaces de Alta Fidelidad', filled: false },
-        { text: 'Entrega Rápida', filled: true },
-        { text: 'De Figma a la Web', filled: false },
+        { text: 'JP Studios', filled: true },
+        { text: 'Páginas Web Cali', filled: false },
+        { text: 'Diseño para Vender', filled: true },
+        { text: 'Google Maps', filled: false },
+        { text: 'React 19 & TypeScript', filled: true },
+        { text: 'Carga Sub-Segundo', filled: false },
+        { text: 'Cero Plantillas Lentas', filled: true },
+        { text: 'Lanzamiento Llave en Mano', filled: false },
       ],
       track2: [
-        { text: 'Proceso Transparente', filled: false },
-        { text: 'Cali / Remoto Global', filled: true },
-        { text: 'Colaboración Honesta', filled: false },
-        { text: 'Simplicidad Radical', filled: true },
-        { text: 'Carga Sub-Segundo', filled: false },
-        { text: 'Tipografía Editorial', filled: true },
-        { text: 'Desarrollo Web Artesanal', filled: false },
-        { text: 'Evolución Continua', filled: true },
+        { text: 'JP Studios Cali', filled: true },
+        { text: 'Retorno de Inversión', filled: false },
+        { text: 'Interfaces para Facturar', filled: true },
+        { text: 'Ejecución Estructurada', filled: false },
+        { text: '99.9% de Disponibilidad', filled: true },
+        { text: 'Cualificación de Clientes', filled: false },
+        { text: 'Arquitectura a Medida', filled: true },
+        { text: 'Evolución Continua', filled: false },
       ],
     },
     services: {
-      headerLine1: 'Construido en confianza.',
-      headerLine2: 'Forjado con maestría.',
+      headerLine1: 'Ingeniería web diseñada para facturar,',
+      headerLine2: 'no solo para adornar.',
       items: [
         {
-          id: 'ux-design',
+          id: 'performance-web',
           number: '001',
-          title: 'UI/UX y Dirección de Arte',
-          subtitle: 'Autoridad, jerarquía y captación de clientes.',
+          title: 'Desarrollo Web de Alto Rendimiento',
+          subtitle: 'Velocidad sub-segundo que minimiza el abandono de visitas.',
           description:
-            'Transformando tu negocio en una identidad visual cautivadora. Estructuras de alta autoridad diseñadas para empresas y marcas que buscan diferenciarse, guiando la atención del visitante directamente a agendar una consulta o cotización.',
+            'Arquitectura web a medida construida por JP Studios en React 19, TypeScript y Tailwind moderno. Carga instantánea en menos de 0.5s en celulares, sin plugins pesados ni plantillas lentas de WordPress.',
         },
         {
-          id: 'frontend',
+          id: 'seo-local',
           number: '002',
-          title: 'Desarrollo Frontend',
-          subtitle: 'Velocidad sub-segundo con sensación nativa.',
+          title: 'Posicionamiento Web y Google Maps',
+          subtitle: 'Aparece exactamente donde buscan tus clientes en Google y Google Maps.',
           description:
-            'React 19 moderno, TypeScript y estilos optimizados. Carga instantánea en menos de 1 segundo en móviles, código ultraligero y cero pantallas en blanco o desalineaciones visuales.',
+            'Estructuración de datos con Schema.org JSON-LD oficial, optimización de ficha en Google Maps y bloques de respuesta directa para que Google y motores de IA (ChatGPT, Gemini) recomienden tu empresa.',
         },
         {
-          id: 'launch',
+          id: 'conversion-pages',
           number: '003',
-          title: 'Lanzamiento Llave en Mano',
-          subtitle: 'Dominio corporativo, SSL y WhatsApp directo.',
+          title: 'Páginas Web para Vender (Landing Pages)',
+          subtitle: 'Rutas directas y sin fricción de la visita al cliente.',
           description:
-            'Hosting de alta velocidad en el edge, certificado de seguridad SSL, configuración DNS, botón directo a WhatsApp y ficha optimizada en Google Maps lista para recibir clientes.',
+            'Copywriting persuasivo y diseño enfocado en cualificar prospectos y guiarlos directamente hacia la acción comercial: escribir a tu WhatsApp, llamar directamente o agendar una cita.',
         },
         {
           id: 'support',
           number: '004',
-          title: 'Evolución Continua',
-          subtitle: 'Tranquilidad total tras el lanzamiento.',
+          title: 'Hosting Cloud y Retenedor Mensual',
+          subtitle: 'Tranquilidad técnica total tras el lanzamiento.',
           description:
-            'Planes opcionales de soporte y mantenimiento: monitorización contra caídas 24/7, copias de seguridad automáticas y actualizaciones periódicas de contenido sin dolores de cabeza técnicos.',
+            'Alojamiento global de alta velocidad con 99.9% de estabilidad, certificado SSL, copias de seguridad automáticas, reporte mensual de visitas y soporte continuo gestionado directamente por JP Studios.',
         },
       ],
     },
     process: {
-      headerLine1: 'Ejecución estructurada.',
-      headerLine2: 'Cero sorpresas.',
-      tagline: 'Del diagnóstico inicial al lanzamiento llave en mano en menos de 14 días',
+      headerLine1: 'Tu web lista en 14 días.',
+      headerLine2: 'Sin enredos técnicos.',
+      tagline: 'La metodología de JP Studios: De la estrategia comercial a tu web en producción y lista para operar en menos de dos semanas',
       steps: [
         {
           number: '01',
-          title: 'Diagnóstico Estratégico y Estructura',
+          title: 'Diagnóstico Estratégico y Propuesta',
           timeframe: '48 Horas',
           description:
-            'Analizamos tus servicios más rentables, la competencia en tu ciudad y el comportamiento de tus clientes. Diseñamos la arquitectura y los textos de venta sin que tengas que redactar nada desde cero.',
-          deliverable: 'Arquitectura estratégica y propuesta de contenidos',
+            'Analizamos tu competencia directa en Google y la zona comercial donde operan tus clientes. Investigamos qué buscan exactamente tus compradores para estructurar los textos de venta sin que tengas que redactar nada desde cero.',
+          deliverable: 'Arquitectura comercial y propuesta de contenidos',
         },
         {
           number: '02',
-          title: 'Maquetación Interactiva y Pruebas en Vivo',
+          title: 'Maquetación Interactiva y Pruebas en Móvil',
           timeframe: 'Días 3 al 10',
           description:
-            'Construimos tu plataforma web con diseño de autor y velocidad sub-segundo. Pruebas la experiencia completa y los botones en tu propio móvil antes del lanzamiento oficial.',
-          deliverable: 'Enlace privado de pruebas en vivo',
+            'Construimos tu plataforma web a medida en React 19 con carga instantánea en menos de 0.5 segundos en celulares. Pruebas la experiencia completa y los botones de contacto directo en tu propio móvil antes del lanzamiento.',
+          deliverable: 'Enlace privado de pruebas en vivo en tu celular',
         },
         {
           number: '03',
           title: 'Puesta en Marcha y Entrega Llave en Mano',
           timeframe: 'Días 11 al 14',
           description:
-            'Conectamos tu dominio corporativo, activamos certificado SSL, enlazamos el botón directo a WhatsApp y optimizamos tu ficha en Google Maps. Recibes el 100% de la propiedad.',
-          deliverable: 'Web en producción y propiedad total transferida',
+            'Conectamos tu dominio corporativo, activamos certificado SSL, estructuramos los datos Schema para Google y motores de IA, y optimizamos tu ficha de Google Maps en tu zona comercial para activar tus canales de captación y contacto directo.',
+          deliverable: 'Web en Producción & Propiedad Total Transferida',
         },
       ],
     },
@@ -538,70 +547,83 @@ export const translations: Record<Language, Translations> = {
       tagline: 'Todo lo que necesitas saber antes de iniciar tu proyecto',
       items: [
         {
+          question: '¿Cómo hago para que mi negocio aparezca en Google y Google Maps?',
+          answer:
+            'Optimizamos tu perfil de Google Business Profile con categorías comerciales precisas, datos de contacto alineados (NAP) y vinculamos tu página web con datos estructurados Schema.org para maximizar la visibilidad en las búsquedas locales de tu zona y en motores de búsqueda de IA como ChatGPT y Gemini.',
+        },
+        {
+          question: '¿Cómo se definen los costos y si hay pagos mensuales obligatorios?',
+          answer:
+            'En JP Studios trabajamos con presupuestos cerrados y transparentes según el alcance de tu proyecto (landing page, sitio web corporativo o integraciones a medida). La entrega es llave en mano con propiedad 100% tuya y sin mensualidades forzadas. El servicio de hosting cloud de alta velocidad y mantenimiento es totalmente opcional.',
+        },
+        {
+          question: '¿Cuál es la diferencia entre una web tradicional y una página web para vender?',
+          answer:
+            'Una web tradicional suele ser pesada, lenta y puramente informativa. Una página web diseñada para vender carga en menos de 1 segundo en móviles, elimina distracciones y guía al visitante directamente hacia lo que genera facturación: un mensaje directo a WhatsApp, una llamada o un formulario calificado.',
+        },
+        {
           question: '¿Cuánto tiempo toma tener la página web lista para operar?',
           answer:
-            'El plazo habitual es de 7 a 14 días laborables desde la sesión de diagnóstico inicial. Al tener una metodología cerrada y redactar nosotros la estructura estratégica, evitamos las demoras de meses que suelen ocurrir con agencias tradicionales.',
+            'El plazo habitual es de 7 a 14 días hábiles desde la sesión de diagnóstico inicial. Al contar con un proceso estructurado y encargarnos nosotros de la arquitectura comercial, eliminamos las demoras de meses típicas de las agencias tradicionales.',
         },
         {
-          question: '¿Tengo que pagar mensualidades obligatorias tras el lanzamiento?',
+          question: '¿Tengo que escribir yo los textos y el contenido de la página?',
           answer:
-            'No. Puedes optar por entrega llave en mano con un único pago por el proyecto. Además, si prefieres delegar el alojamiento de alta velocidad, copias de seguridad, actualizaciones mensuales y optimización continua en Google Maps, ofrezco planes de evolución y soporte mensual totalmente opcionales.',
+            'No. La redacción suele ser el mayor cuello de botella para los dueños de negocio. En JP Studios nos encargamos de investigar a tus competidores directos, estructurar tu propuesta de valor y redactar los textos comerciales. Tú solo necesitas una sesión inicial de 30 minutos para contarnos sobre tus servicios y validar el enfoque.',
         },
         {
-          question: '¿Quién es dueño de la página web, el dominio y los archivos?',
+          question: '¿Qué tipo de soluciones o integraciones de Inteligencia Artificial pueden incorporar?',
           answer:
-            'Tú al 100%. A diferencia de plataformas cerradas que te retienen como rehén, aquí la web te pertenece íntegramente. Tienes acceso completo a tu dominio, tu alojamiento y tus archivos fuente sin ataduras forzadas.',
-        },
-        {
-          question: '¿Qué necesito entregar para comenzar a trabajar?',
-          answer:
-            'Solo requerimos tu logotipo (si ya dispones de uno), tus datos de contacto básicos y una llamada o conversación de 30 minutos sobre tus servicios más rentables. Nosotros nos encargamos de investigar la competencia, estructurar la propuesta y redactar el contenido.',
-        },
-        {
-          question: '¿Por qué una web a medida supera a plantillas estándar de WordPress o Wix?',
-          answer:
-            'Las plantillas genéricas cargan decenas de plugins lentos que tardan de 4 a 6 segundos en abrir en el móvil de tus clientes, provocando que abandonen antes de leer. Nuestra arquitectura a medida carga en menos de 1 segundo, transmite autoridad inmediata y guía directamente a un contacto por WhatsApp o llamada.',
+            'Desde asistentes inteligentes entrenados con la información de tus servicios para responder preguntas y calificar prospectos 24/7, hasta automatizaciones que envían los datos de contacto directamente a tu WhatsApp, correo o CRM en tiempo real para no perder oportunidades de venta.',
         },
       ],
     },
     contact: {
-      sectionTag: 'Consultas Directas',
+      sectionTag: 'Cotizador Rápido',
       title: 'Iniciar un Proyecto',
       description:
-        'Cuéntame sobre tu marca o negocio. Reviso cada consulta personalmente y respondo el mismo día hábil por tu canal de preferencia.',
-      required: 'Requerido',
-      inquiryType: 'Tipo de consulta',
-      newProject: 'Nuevo Proyecto',
-      generalInquiry: 'Consulta General / Otro',
-      preferredChannelLabel: '¿Dónde prefieres recibir respuesta?',
-      channelWhatsApp: 'WhatsApp (Más ágil)',
-      channelEmail: 'Correo electrónico (Formal)',
-      nameLabel: 'Nombre o negocio',
-      namePlaceholder: 'Carlos Mendoza — Empresa o Negocio',
-      whatsappLabel: 'Número de WhatsApp',
-      whatsappPlaceholder: '+57 300 000 0000 (con código de país)',
-      emailLabel: 'Correo electrónico',
-      emailPlaceholder: 'contacto@tunegocio.com',
-      messageLabel: 'Detalles del proyecto',
-      messagePlaceholder:
-        'Cuéntame sobre tu negocio, tu web actual (si tienes) o los objetivos que buscas lograr...',
-      submitIdle: 'Enviar consulta',
+        'Cuéntanos brevemente sobre tu proyecto y te responderemos con una propuesta personalizada hoy mismo.',
+      step1Question: '¿Qué tipo de proyecto buscas?',
+      step2Question: '¿Cuál es el sector de tu negocio?',
+      step3Question: '¿A dónde te enviamos la propuesta?',
+      step3Subtitle: 'Revisaremos tu consulta y te contactaremos personalmente el mismo día hábil.',
+      prevButton: 'Anterior',
+      nextButton: 'Siguiente',
+      projectOptions: [
+        { id: 'web-scratch', label: 'Página Web desde Cero', icon: 'globe' },
+        { id: 'landing', label: 'Landing Page', icon: 'rocket' },
+        { id: 'seo', label: 'Optimización SEO', icon: 'search' },
+        { id: 'ai', label: 'Integración de IA', icon: 'cpu' },
+        { id: 'redesign', label: 'Rediseño Web', icon: 'refresh' },
+        { id: 'other', label: 'Otro Servicio', icon: 'compass' },
+      ],
+      sectorOptions: [
+        { id: 'health', label: 'Salud o Clínica', icon: 'heart' },
+        { id: 'services', label: 'Servicios', icon: 'briefcase' },
+        { id: 'retail', label: 'Comercio / Comida', icon: 'store' },
+        { id: 'b2b', label: 'Empresa / B2B', icon: 'layers' },
+        { id: 'property', label: 'Inmobiliaria', icon: 'home' },
+        { id: 'other', label: 'Otro Sector', icon: 'star' },
+      ],
+      nameLabel: 'Tu nombre o empresa',
+      namePlaceholder: 'Carlos Mendoza',
+      phoneLabel: 'WhatsApp o Celular',
+      phonePlaceholder: '+57 300 000 0000',
+      submitIdle: 'Enviar y Recibir Propuesta',
       submitSending: 'Enviando...',
-      validationError: 'Por favor completa todos los campos requeridos.',
-      networkError:
-        'Hubo un problema de conexión al enviar. Por favor contáctame por WhatsApp.',
-      successTitle: 'Mensaje recibido con éxito',
-      successMessage: (name: string, projectType: string, contactMethod: string) =>
-        `Gracias, ${name}. He recibido tu solicitud para ${projectType}. Me pondré en contacto contigo personalmente a través de ${contactMethod} el mismo día hábil.`,
-      sendAnother: 'Enviar otro mensaje',
-      openWhatsApp: 'Abrir chat en WhatsApp ↗',
+      validationError: 'Por favor ingresa tu nombre y un número de contacto.',
+      networkError: 'Hubo un problema de conexión al enviar. Por favor contáctame por WhatsApp.',
+      successTitle: 'Información recibida con éxito',
+      successSubtitle: (name: string) =>
+        `Gracias, ${name}. Hemos recibido los detalles de tu proyecto y nos pondremos en contacto contigo hoy mismo.`,
+      resetButton: 'Iniciar de nuevo',
     },
     footer: {
       headlineLine1: '¿Listo para crear',
       headlineLine2: 'algo memorable?',
       whatsappButton: (display: string) => `WhatsApp (${display}) ↗`,
       brandName: 'JP STUDIOS',
-      craftedBy: 'Diseñado y desarrollado por Juan Pablo Chacón.',
+      craftedBy: 'JP Studios — Diseñado y desarrollado por Juan Pablo Chacón.',
       location: 'Cali, Colombia',
       remoteWorldwide: 'Remoto Global',
       edition: 'Edición © 2026',

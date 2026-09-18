@@ -123,23 +123,31 @@ export const Footer: React.FC = () => {
               ref={headlineRef}
               className="text-3xl sm:text-5xl md:text-6xl lg:text-[5vw] xl:text-[5.5rem] font-normal font-display tracking-[-0.01em] text-white leading-[1.08] sm:leading-[1.12]"
             >
-              <div className="headline-line py-1 overflow-visible">
-                <KineticText
-                  text={t.footer.headlineLine1}
-                  as="h2"
-                  maxDisplacement={38}
-                  radius={240}
-                  letterClassName="text-white"
-                />
-              </div>
-              <div className="headline-line sm:pl-8 md:pl-16 lg:pl-24 py-1 overflow-visible">
-                <KineticText
-                  text={t.footer.headlineLine2}
-                  as="h2"
-                  maxDisplacement={38}
-                  radius={240}
-                  letterClassName="text-white/60 hover:text-white transition-colors duration-300"
-                />
+              {/* H2 Semántico Limpio para SEO y Lectores de Pantalla */}
+              <h2 className="sr-only">
+                {t.footer.headlineLine1} {t.footer.headlineLine2}
+              </h2>
+
+              {/* Presentación Visual Cinética */}
+              <div aria-hidden="true">
+                <div className="headline-line py-1 overflow-visible">
+                  <KineticText
+                    text={t.footer.headlineLine1}
+                    as="div"
+                    maxDisplacement={38}
+                    radius={240}
+                    letterClassName="text-white"
+                  />
+                </div>
+                <div className="headline-line sm:pl-8 md:pl-16 lg:pl-24 py-1 overflow-visible">
+                  <KineticText
+                    text={t.footer.headlineLine2}
+                    as="div"
+                    maxDisplacement={38}
+                    radius={240}
+                    letterClassName="text-white/60 hover:text-white transition-colors duration-300"
+                  />
+                </div>
               </div>
             </div>
           </div>
