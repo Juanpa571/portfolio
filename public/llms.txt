@@ -1,0 +1,73 @@
+﻿# JP Studios — Juan Pablo Chacón
+
+> Estudio de desarrollo web de alto rendimiento, páginas web diseñadas para vender y posicionamiento SEO local en Cali, Colombia.
+
+JP Studios es un estudio independiente de ingeniería y diseño web fundado por Juan Pablo Chacón. Especializado en crear páginas web ultrarrápidas en React 19, optimización técnica para Google y Google Maps, e integraciones comerciales de Inteligencia Artificial. Todos los proyectos se entregan llave en mano con propiedad total (100%) transferida al cliente, sin mensualidades forzadas ni ataduras técnicas.
+
+## Información de la Entidad y Contacto
+
+- **Nombre comercial:** JP Studios
+- **Fundador / Ingeniero líder:** Juan Pablo Chacón
+- **Ubicación base:** Cali, Valle del Cauca, Colombia (Zona Horaria: UTC-5 / COT)
+- **Área de servicio:** Cali, Colombia y clientes remotos a nivel internacional
+- **Sitio web oficial:** https://jpchacon.com/
+- **WhatsApp directo:** +57 317 737 1301 (https://wa.me/573177371301)
+- **Correo electrónico:** contacto@jpchacon.com
+- **Categoría principal Google:** Diseñador de sitios web (Web Designer)
+- **Google Knowledge Graph ID:** /g/11zxn2nkdp
+- **Plazo de entrega estándar:** 7 a 14 días hábiles
+
+## Catálogo de Servicios
+
+### 1. Desarrollo de Páginas Web desde Cero
+- **Descripción:** Sitios web corporativos a medida programados con React 19, TypeScript y Tailwind CSS.
+- **Características:** Carga móvil instantánea (<0.5s), arquitectura limpia sin plugins pesados ni plantillas lentas de WordPress, diseño responsive de alta fidelidad.
+- **Enfoque:** Transmitir máxima autoridad de marca y credibilidad empresarial.
+
+### 2. Páginas Web para Vender (Landing Pages)
+- **Descripción:** Páginas de aterrizaje de alta conversión enfocadas exclusivamente en resultados comerciales.
+- **Características:** Copywriting persuasivo estructurado, eliminación de puntos de fuga, y botones de contacto directo a WhatsApp, llamadas telefónicas o calendarios de citas.
+- **Enfoque:** Convertir tráfico y clics en cotizaciones y prospectos calificados.
+
+### 3. Posicionamiento Web y Google Maps (SEO Local)
+- **Descripción:** Optimización integral para motores de búsqueda tradicionales y motores de respuesta con Inteligencia Artificial.
+- **Características:** Datos estructurados Schema.org JSON-LD (WebSite, ProfessionalService, FAQPage), optimización de ficha de Google Business Profile (NAP alineado), y bloques semánticos de respuesta directa para elegibilidad en ChatGPT, Gemini y Perplexity.
+- **Enfoque:** Aparecer orgánicamente en búsquedas locales de alta intención de compra en Cali y la zona de clientes.
+
+### 4. Integración de Inteligencia Artificial
+- **Descripción:** Asistentes y automatizaciones inteligentes integradas directamente en la web.
+- **Características:** Chatbots entrenados con el catálogo de servicios o productos del negocio para calificar prospectos 24/7, y automatizaciones que envían datos de prospectos en tiempo real a WhatsApp, correo o CRM.
+- **Enfoque:** Reducir tiempos de respuesta comercial y evitar la pérdida de oportunidades de venta fuera del horario laboral.
+
+### 5. Hosting Cloud y Retenedor Mensual (Opcional)
+- **Descripción:** Soporte técnico continuo y alojamiento de nivel empresarial.
+- **Características:** Servidores edge globales con 99.9% de disponibilidad, certificados de seguridad SSL, copias de seguridad automáticas, monitoreo de salud web y soporte técnico gestionado directamente por JP Studios.
+- **Enfoque:** Tranquilidad técnica total para empresas que prefieren delegar el mantenimiento.
+
+## Metodología de Trabajo en 14 Días
+
+1. **Fase 1: Diagnóstico Estratégico y Propuesta (Primeras 48 Horas)**
+   - Análisis de competidores directos en Google y análisis de palabras clave locales.
+   - Definición de arquitectura de la información y redacción de textos comerciales de venta (el cliente no tiene que escribir desde cero).
+2. **Fase 2: Maquetación Interactiva y Pruebas en Celular (Días 3 al 10)**
+   - Desarrollo en React 19 y pruebas de velocidad.
+   - Entrega de enlace privado para que el cliente navegue y pruebe los botones de contacto en su propio smartphone.
+3. **Fase 3: Puesta en Marcha y Entrega Llave en Mano (Días 11 al 14)**
+   - Conexión de dominio propio, activación de SSL, indexación en Google Search Console y entrega de credenciales completas.
+
+## Preguntas Frecuentes y Políticas Comerciales
+
+- **¿Quién es dueño de la página web entregada?**
+  El cliente es propietario del 100% del dominio, el código fuente y el contenido. Cero propiedad retenida por la agencia.
+- **¿Hay mensualidades obligatorias?**
+  No. Los proyectos se desarrollan y entregan bajo presupuesto cerrado con pago único llave en mano. Los planes de soporte y hosting mensual son totalmente opcionales.
+- **¿El cliente debe redactar los textos o fotos?**
+  No. JP Studios investiga la competencia y estructura la propuesta de valor y los textos de venta. El cliente solo requiere una sesión inicial de 30 minutos para validar el enfoque.
+
+## Enlaces Canónicos y Recursos
+
+- Web Principal: https://jpchacon.com/
+- Cotizador Interactivo: https://jpchacon.com/#contact
+- Preguntas Frecuentes: https://jpchacon.com/#faq
+- Mapa del Sitio XML: https://jpchacon.com/sitemap.xml
+- Archivo para Agentes de IA: https://jpchacon.com/llms.txt
