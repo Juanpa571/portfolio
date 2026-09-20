@@ -216,7 +216,7 @@ export const translations: Record<Language, Translations> = {
           id: 'support',
           number: '004',
           title: 'Cloud Hosting & Optional Support',
-          subtitle: 'Total technical peace of mind post-launch.',
+          subtitle: 'High-speed edge hosting and technical support whenever you need it.',
           description:
             'Enterprise edge hosting with 99.9% uptime, SSL security, automated backups, and optional support with zero forced monthly retainers or technical lock-in.',
         },
@@ -465,7 +465,7 @@ export const translations: Record<Language, Translations> = {
           id: 'support',
           number: '004',
           title: 'Hosting Cloud y Soporte Opcional',
-          subtitle: 'Tranquilidad técnica total tras el lanzamiento.',
+          subtitle: 'Alojamiento de alta velocidad y soporte técnico cuando lo necesites.',
           description:
             'Alojamiento global de alta velocidad con 99.9% de estabilidad, certificado SSL, copias de seguridad automáticas y soporte técnico opcional sin mensualidades forzadas ni ataduras.',
         },
