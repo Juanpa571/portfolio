@@ -56,8 +56,10 @@ export interface Translations {
     }>;
   };
   process: {
+    tag: string;
     headerLine1: string;
     headerLine2: string;
+    seoDescription: string;
     tagline: string;
     steps: Array<{
       number: string;
@@ -246,8 +248,11 @@ export const translations: Record<Language, Translations> = {
       ],
     },
     process: {
+      tag: 'Process',
       headerLine1: 'Live in 14 days.',
       headerLine2: 'Zero technical friction.',
+      seoDescription:
+        'We engineer bespoke websites and web development in Cali with a transparent 14-day workflow. From strategy to production, delivering a fast, search-ready website built to convert.',
       tagline: 'The JP Studios methodology: From commercial strategy to a production-ready web presence in under two weeks',
       steps: [
         {
@@ -507,8 +512,11 @@ export const translations: Record<Language, Translations> = {
       ],
     },
     process: {
+      tag: 'Proceso',
       headerLine1: 'Tu web lista en 14 días.',
       headerLine2: 'Sin enredos técnicos.',
+      seoDescription:
+        'Creamos sitios web y desarrollos a medida en Cali bajo un flujo estructurado de 14 días. De la estrategia comercial a tu página web en producción: rápida, optimizada para Google y lista para facturar.',
       tagline: 'La metodología de JP Studios: De la estrategia comercial a tu web en producción y lista para operar en menos de dos semanas',
       steps: [
         {
