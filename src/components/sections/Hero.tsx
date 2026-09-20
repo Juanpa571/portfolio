@@ -120,19 +120,19 @@ export const Hero: React.FC = () => {
       className="relative min-h-[calc(100vh-6.5rem)] min-h-[calc(100dvh-6.5rem)] flex flex-col justify-between border-b border-black/[0.08] overflow-hidden"
     >
       {/* Asymmetric Split Layout: Left Typography + Right Laptop on Rock */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 flex-1 flex flex-col lg:flex-row items-center justify-between gap-8 py-8 sm:py-12 lg:py-16 relative z-10">
+      <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 flex-1 flex flex-col lg:flex-row items-center justify-between gap-8 py-6 sm:py-10 lg:py-12 relative z-10">
         
         {/* Left: Monumental Typographic Statement */}
-        <div className="w-full lg:max-w-[50%] xl:max-w-[48%] flex flex-col justify-center min-w-0 pr-0 lg:pr-4 relative z-10">
+        <div className="w-full lg:w-[56%] xl:w-[54%] 2xl:w-[52%] flex flex-col justify-center min-w-0 pr-0 lg:pr-6 relative z-10">
           <h1 
             aria-label="Páginas web en Cali para liderar Google y multiplicar tus ventas — JP Studios"
-            className="space-y-1.5 sm:space-y-2 lg:space-y-3 select-none m-0 font-normal"
+            className="space-y-2.5 sm:space-y-3.5 lg:space-y-4 select-none m-0 font-normal"
           >
             {/* Line 1 */}
             <span className="block">
               <span
                 ref={line1Ref}
-                className="inline-block text-4xl sm:text-6xl md:text-7xl lg:text-[3.9vw] xl:text-[4.3vw] font-normal font-display tracking-[-0.025em] text-[#111111] leading-[1.04] sm:leading-[1.06] cursor-default will-change-transform"
+                className="inline-block text-4xl sm:text-6xl md:text-7xl lg:text-[3.2vw] xl:text-[3.5vw] 2xl:text-[3.8vw] font-normal font-display tracking-[-0.025em] text-[#111111] leading-[1.08] sm:leading-[1.10] lg:whitespace-nowrap cursor-default will-change-transform"
                 data-interactive
               >
                 <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
@@ -145,7 +145,7 @@ export const Hero: React.FC = () => {
             <span className="block">
               <span
                 ref={line2Ref}
-                className="inline-block text-4xl sm:text-6xl md:text-7xl lg:text-[3.9vw] xl:text-[4.3vw] font-normal font-display tracking-[-0.025em] text-[#111111] leading-[1.04] sm:leading-[1.06] cursor-default will-change-transform"
+                className="inline-block text-4xl sm:text-6xl md:text-7xl lg:text-[3.2vw] xl:text-[3.5vw] 2xl:text-[3.8vw] font-normal font-display tracking-[-0.025em] text-[#111111] leading-[1.08] sm:leading-[1.10] lg:whitespace-nowrap cursor-default will-change-transform"
                 data-interactive
               >
                 <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
@@ -158,7 +158,7 @@ export const Hero: React.FC = () => {
             <span className="block">
               <span
                 ref={line3Ref}
-                className="inline-block text-4xl sm:text-6xl md:text-7xl lg:text-[3.9vw] xl:text-[4.3vw] font-normal font-display tracking-[-0.025em] text-[#111111] leading-[1.04] sm:leading-[1.06] cursor-default will-change-transform"
+                className="inline-block text-4xl sm:text-6xl md:text-7xl lg:text-[3.2vw] xl:text-[3.5vw] 2xl:text-[3.8vw] font-normal font-display tracking-[-0.025em] text-[#111111] leading-[1.08] sm:leading-[1.10] lg:whitespace-nowrap cursor-default will-change-transform"
                 data-interactive
               >
                 <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
@@ -169,7 +169,7 @@ export const Hero: React.FC = () => {
           </h1>
 
           {/* Subtitle & Value Proposition */}
-          <p className="text-sm sm:text-base lg:text-lg text-black/60 font-sans leading-relaxed max-w-xl pt-6 sm:pt-7">
+          <p className="text-sm sm:text-base lg:text-[1.1rem] text-black/60 font-sans leading-relaxed max-w-xl pt-6 sm:pt-8">
             {t.hero.subtitle}
           </p>
 
@@ -212,12 +212,12 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Right Desktop Spacer Column (Content rendered in absolute layer below) */}
-        <div className="hidden lg:block lg:w-[50%] xl:w-[52%]" aria-hidden="true" />
+        <div className="hidden lg:block lg:w-[44%] xl:w-[46%] 2xl:w-[48%]" aria-hidden="true" />
 
       </div>
 
       {/* Right: Desktop Natural Photographic Layer (Laptop on Rock with Soft Left Dissolve) */}
-      <div className="hidden lg:flex absolute right-0 bottom-0 top-0 w-[58%] xl:w-[56%] 2xl:w-[54%] pointer-events-none z-0 items-end justify-end overflow-hidden select-none">
+      <div className="hidden lg:flex absolute right-0 bottom-0 top-0 w-[56%] xl:w-[54%] 2xl:w-[52%] pointer-events-none z-0 items-end justify-end overflow-hidden select-none">
         <picture className="w-full h-full flex items-end justify-end">
           <source type="image/webp" srcSet="/laptop-sobre-roca.webp" />
           <img
@@ -234,7 +234,7 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Clean Bottom Orientation Bar */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 pb-8 sm:pb-10 flex items-center justify-between text-xs font-sans select-none relative z-10">
+      <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pb-8 sm:pb-10 flex items-center justify-between text-xs font-sans select-none relative z-10">
         <div className="flex items-center gap-2 text-black/60">
           <span>{siteConfig.profile.location}</span>
           <span className="text-black/30">•</span>

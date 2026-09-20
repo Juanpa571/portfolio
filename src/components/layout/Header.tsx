@@ -88,8 +88,10 @@ export const Header: React.FC = () => {
         }`}
       >
         <div
-          className={`max-w-[1400px] mx-auto flex items-center justify-between gap-4 transition-all duration-500 ${
-            isScrolled ? 'px-4 sm:px-8 lg:px-12' : 'px-6 sm:px-12'
+          className={`w-full mx-auto flex items-center justify-between gap-4 transition-all duration-500 ${
+            isScrolled
+              ? 'max-w-[1400px] px-4 sm:px-8 lg:px-12'
+              : 'max-w-[1760px] px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20'
           }`}
         >
           
