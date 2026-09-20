@@ -176,7 +176,7 @@ export const translations: Record<Language, Translations> = {
     },
     intro: {
       statement:
-        'At JP Studios, led by Juan Pablo Chacón, we engineer high-performance websites in Cali and bespoke digital presences designed to sell. Modern React 19 code, local Google Maps visibility, and clear conversion paths to turn visitors into clients.',
+        'At JP Studios, an independent web engineering studio led by Juan Pablo Chacón, we craft high-performance websites in Cali for businesses that cannot afford to go unnoticed. Ultra-fast websites, optimized to dominate the Google ecosystem and AI search engines. Engineered to turn local discovery into real clients across your primary contact channels.',
       startOnWhatsApp: 'Start on WhatsApp',
       direct: 'Direct ↗',
     },
@@ -434,7 +434,7 @@ export const translations: Record<Language, Translations> = {
     },
     intro: {
       statement:
-        'En JP Studios, liderado por Juan Pablo Chacón, desarrollamos páginas web en Cali de alto rendimiento y diseño para vender. Código limpio en React 19, presencia comercial en Google Maps y rutas directas para convertir visitas en clientes reales.',
+        'En JP Studios, estudio independiente dirigido por Juan Pablo Chacón, diseñamos y programamos páginas web en Cali para empresas que no pueden permitirse pasar desapercibidas. Sitios ultrarrápidos, optimizados para dominar el ecosistema de Google y los chats de IA. Estructurados para convertir búsquedas locales en clientes reales por tus medios de contacto.',
       startOnWhatsApp: 'Iniciar en WhatsApp',
       direct: 'Directo ↗',
     },
