@@ -261,12 +261,12 @@ export const Header: React.FC = () => {
           {/* Center: Primary Navigation Links with Floating Active Pill */}
           <nav
             ref={navRef}
-            className="relative hidden lg:flex items-center text-sm font-sans transition-all duration-500 py-1"
+            className="relative hidden lg:flex items-center text-sm font-sans transition-all duration-500 gap-1 xl:gap-2 py-1"
           >
             {/* Sliding Magnetic Pill Indicator (Only on Active Item) */}
             <div
-              className={`absolute top-1/2 -translate-y-1/2 h-[34px] rounded-full pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                isDark ? 'bg-white/[0.14] shadow-xs' : 'bg-black/[0.06] text-black shadow-2xs'
+              className={`absolute top-1/2 -translate-y-1/2 h-[38px] rounded-full pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                isDark ? 'bg-white/[0.14] shadow-xs' : 'bg-black/[0.06] shadow-2xs'
               }`}
               style={{
                 transform: `translateX(${pillStyle.left}px)`,
@@ -285,14 +285,14 @@ export const Header: React.FC = () => {
                   }}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`relative z-10 px-4 py-1.5 rounded-full text-xs font-sans tracking-tight transition-colors duration-300 select-none cursor-pointer ${
+                  className={`relative z-10 px-5 py-2 rounded-full text-sm font-sans tracking-tight transition-colors duration-300 select-none cursor-pointer ${
                     isActive
                       ? isDark
                         ? 'text-white font-medium'
                         : 'text-[#111111] font-medium'
                       : isDark
                         ? 'text-white/60 hover:text-white font-normal'
-                        : 'text-black/60 hover:text-black font-normal'
+                        : 'text-black/65 hover:text-black font-normal'
                   }`}
                   data-interactive
                 >
