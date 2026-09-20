@@ -213,7 +213,7 @@ export const translations: Record<Language, Translations> = {
       items: [
         {
           id: 'performance-web',
-          number: '001',
+          number: '01',
           title: 'High-Performance Web Design & Development',
           subtitle: 'Fast web development loading in under 0.5s on mobile, free of slow WordPress plugins.',
           description:
@@ -221,7 +221,7 @@ export const translations: Record<Language, Translations> = {
         },
         {
           id: 'seo-local',
-          number: '002',
+          number: '02',
           title: 'Google & Google Maps Ranking',
           subtitle: 'Optimized digital presence to lead local searches in Cali or your specific business area, plus AI recommendations.',
           description:
@@ -229,7 +229,7 @@ export const translations: Record<Language, Translations> = {
         },
         {
           id: 'conversion-pages',
-          number: '003',
+          number: '03',
           title: 'Websites Designed to Sell',
           subtitle: 'High-conversion landing pages engineered to turn traffic into WhatsApp inquiries and phone calls.',
           description:
@@ -237,7 +237,7 @@ export const translations: Record<Language, Translations> = {
         },
         {
           id: 'support',
-          number: '004',
+          number: '04',
           title: 'Cloud Hosting, Domain & Maintenance',
           subtitle: 'Ultra-fast cloud infrastructure with 99.9% uptime, SSL security, and direct support without lock-in.',
           description:
@@ -474,7 +474,7 @@ export const translations: Record<Language, Translations> = {
       items: [
         {
           id: 'performance-web',
-          number: '001',
+          number: '01',
           title: 'Diseño y Desarrollo Web de Alto Rendimiento',
           subtitle: 'Desarrollo de sitios web con carga en menos de 0.5s en celulares, sin plugins lentos de WordPress.',
           description:
@@ -482,7 +482,7 @@ export const translations: Record<Language, Translations> = {
         },
         {
           id: 'seo-local',
-          number: '002',
+          number: '02',
           title: 'Posicionamiento en Google y Google Maps',
           subtitle: 'Optimizamos tu presencia digital para dominar las búsquedas locales en Cali o la zona específica de tu negocio, y recomendaciones de IA.',
           description:
@@ -490,7 +490,7 @@ export const translations: Record<Language, Translations> = {
         },
         {
           id: 'conversion-pages',
-          number: '003',
+          number: '03',
           title: 'Diseño de Páginas Web para Vender',
           subtitle: 'Landing pages de alta conversión estructuradas para transformar visitas en chats de WhatsApp y llamadas.',
           description:
@@ -498,7 +498,7 @@ export const translations: Record<Language, Translations> = {
         },
         {
           id: 'support',
-          number: '004',
+          number: '04',
           title: 'Hosting Cloud, Dominio y Mantenimiento',
           subtitle: 'Infraestructura ultrarrápida con 99.9% de estabilidad, seguridad SSL y soporte técnico directo sin ataduras.',
           description:

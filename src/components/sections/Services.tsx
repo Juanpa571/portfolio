@@ -157,7 +157,10 @@ export const Services: React.FC = () => {
               className="p-7 sm:p-9 rounded-[2rem] bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-500 flex flex-col justify-center h-full group cursor-default"
             >
               <div className="flex items-center justify-between gap-6 my-auto">
-                <div className="space-y-1.5 max-w-[65%]">
+                <div className="space-y-2 max-w-[65%]">
+                  <span className="block text-xs font-mono font-medium text-black/40 tracking-wider select-none">
+                    {t.services.items[0].number}
+                  </span>
                   <h3 className="text-2xl sm:text-3xl font-normal font-display text-black tracking-tight">
                     {t.services.items[0].title}
                   </h3>
@@ -179,7 +182,10 @@ export const Services: React.FC = () => {
               className="p-7 sm:p-9 rounded-[2rem] bg-[#1C1D20] text-white border border-white/10 shadow-xl hover:shadow-2xl hover:border-white/25 transition-all duration-500 flex flex-col justify-center h-full group cursor-default relative overflow-hidden"
             >
               <div className="flex items-center justify-between gap-6 my-auto">
-                <div className="space-y-1.5 max-w-[65%]">
+                <div className="space-y-2 max-w-[65%]">
+                  <span className="block text-xs font-mono font-medium text-white/40 tracking-wider select-none">
+                    {t.services.items[1].number}
+                  </span>
                   <h3 className="text-2xl sm:text-3xl font-normal font-display text-white tracking-tight">
                     {t.services.items[1].title}
                   </h3>
@@ -201,7 +207,10 @@ export const Services: React.FC = () => {
               className="p-7 sm:p-9 rounded-[2rem] bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-500 flex flex-col justify-center h-full group cursor-default"
             >
               <div className="flex items-center justify-between gap-6 my-auto">
-                <div className="space-y-1.5 max-w-[65%]">
+                <div className="space-y-2 max-w-[65%]">
+                  <span className="block text-xs font-mono font-medium text-black/40 tracking-wider select-none">
+                    {t.services.items[2].number}
+                  </span>
                   <h3 className="text-2xl sm:text-3xl font-normal font-display text-black tracking-tight">
                     {t.services.items[2].title}
                   </h3>
@@ -223,7 +232,10 @@ export const Services: React.FC = () => {
               className="p-7 sm:p-9 rounded-[2rem] bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-500 flex flex-col justify-center h-full group cursor-default relative"
             >
               <div className="flex items-center justify-between gap-6 my-auto">
-                <div className="space-y-1.5 max-w-[65%]">
+                <div className="space-y-2 max-w-[65%]">
+                  <span className="block text-xs font-mono font-medium text-black/40 tracking-wider select-none">
+                    {t.services.items[3].number}
+                  </span>
                   <h3 className="text-2xl sm:text-3xl font-normal font-display text-black tracking-tight">
                     {t.services.items[3].title}
                   </h3>
