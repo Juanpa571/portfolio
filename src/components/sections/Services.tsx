@@ -111,9 +111,9 @@ export const Services: React.FC = () => {
         
         {/* Clean Editorial Section Header */}
         <div ref={headerRef} className="relative mb-12 lg:mb-16 pb-6">
-          {/* Subtle Category Pill above Title */}
-          <div className="mb-4 sm:mb-6">
-            <span className="inline-block text-xs sm:text-sm font-sans font-medium text-black/60 px-3.5 py-1 rounded-full bg-black/[0.04] border border-black/[0.08] select-none">
+          {/* Editorial Category Label above Title (Clean Text, No Capsule) */}
+          <div className="mb-3 sm:mb-4">
+            <span className="text-xs sm:text-sm font-sans font-medium text-black/50 tracking-wide select-none">
               {t.services.tag}
             </span>
           </div>

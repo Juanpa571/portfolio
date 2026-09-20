@@ -209,37 +209,37 @@ export const translations: Record<Language, Translations> = {
       headerLine1: 'Engineered for revenue,',
       headerLine2: 'not just decoration.',
       seoDescription:
-        'Bespoke web development in Cali, high-speed landing pages, and Google Maps optimization. Engineered with clean code to rank your business across search engines and route qualified prospects straight to direct contact channels.',
+        'Bespoke web development in Cali, high-speed landing pages, and visibility on Google. Engineered with clean code to rank your business across search engines and route qualified prospects straight to direct contact channels.',
       items: [
         {
           id: 'performance-web',
           number: '001',
-          title: 'High-Performance Web Development',
-          subtitle: 'Sub-second speed that drastically minimizes visitor drop-off.',
+          title: 'High-Performance Web Design & Development',
+          subtitle: 'Fast web development loading in under 0.5s on mobile, free of slow WordPress plugins.',
           description:
             'Bespoke web architecture engineered by JP Studios with React 19, TypeScript, and modern Tailwind. Clean, ultra-fast mobile performance that loads in under 0.5s without slow plugins or template bloat.',
         },
         {
           id: 'seo-local',
           number: '002',
-          title: 'Local SEO & Google Maps Presence',
-          subtitle: 'Rank where your potential clients actually search on Google & Maps.',
+          title: 'Google & Google Maps Ranking',
+          subtitle: 'Optimized digital presence to lead local searches in Cali or your specific business area, plus AI recommendations.',
           description:
             'Structured Schema.org JSON-LD data graphs, Google Business Profile optimization, and direct Answer Blocks so your business gets recommended on Google Search, Maps, and AI search engines.',
         },
         {
           id: 'conversion-pages',
           number: '003',
-          title: 'High-Conversion Landing Pages',
-          subtitle: 'Frictionless pathways from click to client.',
+          title: 'Websites Designed to Sell',
+          subtitle: 'High-conversion landing pages engineered to turn traffic into WhatsApp inquiries and phone calls.',
           description:
             'Persuasive copy and intentional layout hierarchy designed to qualify prospects and guide them directly to what drives sales: direct WhatsApp messaging, calls, or online appointment booking.',
         },
         {
           id: 'support',
           number: '004',
-          title: 'Cloud Hosting & Optional Support',
-          subtitle: 'High-speed edge hosting and technical support whenever you need it.',
+          title: 'Cloud Hosting, Domain & Maintenance',
+          subtitle: 'Ultra-fast cloud infrastructure with 99.9% uptime, SSL security, and direct support without lock-in.',
           description:
             'Enterprise edge hosting with 99.9% uptime, SSL security, automated backups, and optional support with zero forced monthly retainers or technical lock-in.',
         },
@@ -470,37 +470,37 @@ export const translations: Record<Language, Translations> = {
       headerLine1: 'Ingeniería web para facturar,',
       headerLine2: 'no solo para adornar.',
       seoDescription:
-        'Desarrollo web en Cali, páginas de alta velocidad y presencia en Google Maps. Diseñamos arquitectura en código limpio optimizada para captar clientes locales y conectar directamente por WhatsApp y llamadas.',
+        'Desarrollo web en Cali, páginas de alta velocidad y presencia en Google. Diseñamos arquitectura en código limpio optimizada para captar clientes locales y conectar directamente por WhatsApp y llamadas.',
       items: [
         {
           id: 'performance-web',
           number: '001',
-          title: 'Desarrollo Web de Alto Rendimiento',
-          subtitle: 'Velocidad sub-segundo que minimiza el abandono de visitas.',
+          title: 'Diseño y Desarrollo Web de Alto Rendimiento',
+          subtitle: 'Desarrollo de sitios web con carga en menos de 0.5s en celulares, sin plugins lentos de WordPress.',
           description:
             'Arquitectura web a medida construida por JP Studios en React 19, TypeScript y Tailwind moderno. Carga instantánea en menos de 0.5s en celulares, sin plugins pesados ni plantillas lentas de WordPress.',
         },
         {
           id: 'seo-local',
           number: '002',
-          title: 'Posicionamiento Web y Google Maps',
-          subtitle: 'Aparece exactamente donde buscan tus clientes en Google y Google Maps.',
+          title: 'Posicionamiento en Google y Google Maps',
+          subtitle: 'Optimizamos tu presencia digital para dominar las búsquedas locales en Cali o la zona específica de tu negocio, y recomendaciones de IA.',
           description:
             'Estructuración de datos con Schema.org JSON-LD oficial, optimización de ficha en Google Maps y bloques de respuesta directa para que Google y motores de IA (ChatGPT, Gemini) recomienden tu empresa.',
         },
         {
           id: 'conversion-pages',
           number: '003',
-          title: 'Páginas Web para Vender (Landing Pages)',
-          subtitle: 'Rutas directas y sin fricción de la visita al cliente.',
+          title: 'Diseño de Páginas Web para Vender',
+          subtitle: 'Landing pages de alta conversión estructuradas para transformar visitas en chats de WhatsApp y llamadas.',
           description:
             'Copywriting persuasivo y diseño enfocado en cualificar prospectos y guiarlos directamente hacia la acción comercial: escribir a tu WhatsApp, llamar directamente o agendar una cita.',
         },
         {
           id: 'support',
           number: '004',
-          title: 'Hosting Cloud y Soporte Opcional',
-          subtitle: 'Alojamiento de alta velocidad y soporte técnico cuando lo necesites.',
+          title: 'Hosting Cloud, Dominio y Mantenimiento',
+          subtitle: 'Infraestructura ultrarrápida con 99.9% de estabilidad, seguridad SSL y soporte técnico directo sin ataduras.',
           description:
             'Alojamiento global de alta velocidad con 99.9% de estabilidad, certificado SSL, copias de seguridad automáticas y soporte técnico opcional sin mensualidades forzadas ni ataduras.',
         },
