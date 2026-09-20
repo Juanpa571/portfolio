@@ -34,10 +34,10 @@ export const useSmoothScroll = () => {
     gsap.ticker.add(updateTicker);
     gsap.ticker.lagSmoothing(0);
 
-    // Smooth scroll for in-page anchors
+    // Smooth scroll for in-page anchors (excluding header nav which handles its own animations)
     const handleAnchorClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement | null)?.closest('a[href^="#"]');
-      if (target) {
+      if (target && !target.closest('header')) {
         const href = target.getAttribute('href');
         if (href && href.startsWith('#')) {
           e.preventDefault();

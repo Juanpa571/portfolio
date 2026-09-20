@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { siteConfig } from '../../config/site';
 import { useLiveTime } from '../../hooks/useLiveTime';
@@ -18,6 +18,30 @@ export const Header: React.FC = () => {
   // Interactive Animation Previewer State
   const [previewMode, setPreviewMode] = useState<PreviewMode>('all');
   const [activeSection, setActiveSection] = useState<string>('services');
+  const navItemRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
+  const [pillStyle, setPillStyle] = useState<{ left: number; width: number; opacity: number }>({
+    left: 0,
+    width: 0,
+    opacity: 0,
+  });
+
+  // Update physical sliding pill position whenever activeSection or previewMode changes
+  useEffect(() => {
+    const updatePill = () => {
+      const currentEl = navItemRefs.current[activeSection];
+      if (currentEl) {
+        setPillStyle({
+          left: currentEl.offsetLeft,
+          width: currentEl.offsetWidth,
+          opacity: 1,
+        });
+      }
+    };
+    // Run immediately and after slight delay for fonts/layout
+    updatePill();
+    const timer = setTimeout(updatePill, 50);
+    return () => clearTimeout(timer);
+  }, [activeSection, previewMode, isScrolled]);
 
   // Track active section on scroll for Option 2
   useEffect(() => {
@@ -110,12 +134,21 @@ export const Header: React.FC = () => {
   ];
 
   const triggerArrivalHighlight = (el: HTMLElement) => {
-    const heading = el.querySelector('h2, h3, span');
-    if (heading) {
+    const titleEl = el.querySelector('h2');
+    const tagEl = el.querySelector('span.font-mono, [class*="tracking-[0.1"]');
+
+    if (titleEl) {
       gsap.fromTo(
-        heading,
-        { filter: 'brightness(1.4)', y: -4 },
-        { filter: 'brightness(1)', y: 0, duration: 0.75, ease: 'power2.out' }
+        titleEl,
+        { y: 16, opacity: 0.2 },
+        { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' }
+      );
+    }
+    if (tagEl) {
+      gsap.fromTo(
+        tagEl,
+        { scale: 1.1, color: '#10b981' },
+        { scale: 1, color: '', duration: 0.85, ease: 'power2.out', clearProps: 'all' }
       );
     }
   };
@@ -145,9 +178,10 @@ export const Header: React.FC = () => {
     const targetEl = document.getElementById(targetId);
     if (targetEl) {
       const isQuintic = previewMode === 'opt1' || previewMode === 'all';
-      const duration = isQuintic ? 1.5 : 1.0;
+      const duration = isQuintic ? 1.8 : 0.8;
+      // Quartic / Quintic EaseInOut curve: feather-soft start and float stop
       const easing = isQuintic
-        ? (t: number) => (t < 0.5 ? 16 * Math.pow(t, 5) : 1 - Math.pow(-2 * t + 2, 5) / 2)
+        ? (t: number) => (t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2)
         : (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t));
 
       if (lenis) {
@@ -248,12 +282,26 @@ export const Header: React.FC = () => {
             </div>
           </div>
 
-          {/* Center: 4 Primary Navigation Links with Optional Sliding Pill */}
+          {/* Center: 4 Primary Navigation Links with Physical Sliding Pill */}
           <nav
-            className={`hidden lg:flex items-center text-sm font-sans font-medium transition-all duration-500 ${
-              isScrolled ? 'gap-2 xl:gap-2.5' : 'gap-2.5 xl:gap-3'
-            }`}
+            className="relative hidden lg:flex items-center text-sm font-sans font-medium transition-all duration-500 p-1 rounded-full"
           >
+            {/* Physical Sliding Pill Background */}
+            {(previewMode === 'opt2' || previewMode === 'all') && (
+              <span
+                className={`absolute top-1/2 -translate-y-1/2 h-[34px] rounded-full transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none shadow-xs ${
+                  isDark
+                    ? 'bg-white/15 border border-white/20'
+                    : 'bg-black/[0.08] border border-black/10'
+                }`}
+                style={{
+                  left: `${pillStyle.left}px`,
+                  width: `${pillStyle.width}px`,
+                  opacity: pillStyle.opacity,
+                }}
+              />
+            )}
+
             {navLinks.map((link) => {
               const linkId = link.href.replace('#', '');
               const isActive = activeSection === linkId;
@@ -262,16 +310,19 @@ export const Header: React.FC = () => {
               return (
                 <a
                   key={link.label}
+                  ref={(el) => {
+                    navItemRefs.current[linkId] = el;
+                  }}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`relative py-1.5 px-3.5 rounded-full transition-all duration-300 flex items-center gap-1.5 cursor-pointer ${
+                  className={`relative z-10 py-1.5 px-4 rounded-full transition-colors duration-300 flex items-center gap-1.5 cursor-pointer select-none ${
                     showPill && isActive
                       ? isDark
-                        ? 'bg-white/15 text-white font-medium shadow-xs scale-[1.02]'
-                        : 'bg-black/[0.08] text-black font-medium shadow-xs scale-[1.02]'
+                        ? 'text-white font-medium'
+                        : 'text-black font-medium'
                       : isDark
-                      ? 'text-white/70 hover:text-white hover:bg-white/[0.05]'
-                      : 'text-black/70 hover:text-black hover:bg-black/[0.04]'
+                      ? 'text-white/70 hover:text-white'
+                      : 'text-black/70 hover:text-black'
                   }`}
                   data-interactive
                 >
