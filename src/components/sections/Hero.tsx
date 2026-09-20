@@ -10,6 +10,39 @@ export const Hero: React.FC = () => {
   const line2Ref = useRef<HTMLDivElement | null>(null);
   const line3Ref = useRef<HTMLDivElement | null>(null);
   const portraitRef = useRef<HTMLDivElement | null>(null);
+  const desktopOverlayRef = useRef<HTMLDivElement | null>(null);
+  const mobileOverlayRef = useRef<HTMLDivElement | null>(null);
+
+  // Scroll-driven dynamic dissolve into solid background (#fafaf8)
+  useEffect(() => {
+    let rafId: number | null = null;
+
+    const handleScroll = () => {
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        const scrollY = window.scrollY;
+        // Dissolves photo seamlessly to #fafaf8 between 0 and 260px of scroll
+        const progress = Math.min(Math.max(scrollY / 260, 0), 1);
+        if (desktopOverlayRef.current) {
+          desktopOverlayRef.current.style.opacity = progress.toString();
+        }
+        if (mobileOverlayRef.current) {
+          mobileOverlayRef.current.style.opacity = progress.toString();
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const l1 = line1Ref.current;
@@ -117,7 +150,7 @@ export const Hero: React.FC = () => {
     <section
       id="hero"
       ref={containerRef}
-      className="relative min-h-[calc(100vh-6.5rem)] min-h-[calc(100dvh-6.5rem)] flex flex-col justify-between border-b border-black/[0.08] overflow-hidden"
+      className="relative min-h-[calc(100vh-6.5rem)] min-h-[calc(100dvh-6.5rem)] flex flex-col justify-between overflow-hidden"
     >
       {/* Asymmetric Split Layout: Left Typography + Right Laptop on Rock */}
       <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 flex-1 flex flex-col lg:flex-row items-center justify-between gap-8 py-6 sm:py-10 lg:py-12 relative z-10">
@@ -196,18 +229,26 @@ export const Hero: React.FC = () => {
 
           {/* Mobile Photograph View (Visible on < lg) */}
           <div className="w-full relative mt-8 sm:mt-10 overflow-hidden lg:hidden flex justify-center z-0">
-            <picture className="w-full max-w-[540px]">
-              <source type="image/webp" srcSet="/laptop-sobre-roca.webp" />
-              <img
-                src="/laptop-sobre-roca.png"
-                alt="JP Studios — Páginas Web Cali"
-                className="w-full h-auto object-cover rounded-2xl shadow-sm"
-                width={1536}
-                height={1024}
-                loading="eager"
-                decoding="async"
+            <div className="relative w-full max-w-[540px] rounded-2xl overflow-hidden shadow-sm">
+              <picture className="w-full">
+                <source type="image/webp" srcSet="/laptop-sobre-roca.webp" />
+                <img
+                  src="/laptop-sobre-roca.png"
+                  alt="JP Studios — Páginas Web Cali"
+                  className="w-full h-auto object-cover"
+                  width={1536}
+                  height={1024}
+                  loading="eager"
+                  decoding="async"
+                />
+              </picture>
+              {/* Dynamic Scroll-driven Fade to Solid Background (#fafaf8) for Mobile */}
+              <div
+                ref={mobileOverlayRef}
+                className="absolute inset-0 bg-[#fafaf8] pointer-events-none will-change-[opacity]"
+                style={{ opacity: 0 }}
               />
-            </picture>
+            </div>
           </div>
         </div>
 
@@ -216,25 +257,40 @@ export const Hero: React.FC = () => {
 
       </div>
 
-      {/* Right: Desktop Natural Photographic Layer (Laptop on Rock with Soft Left Dissolve) */}
-      <div className="hidden lg:flex absolute right-0 bottom-0 top-0 w-[56%] xl:w-[54%] 2xl:w-[52%] pointer-events-none z-0 items-end justify-end overflow-hidden select-none">
-        <picture className="w-full h-full flex items-end justify-end">
-          <source type="image/webp" srcSet="/laptop-sobre-roca.webp" />
-          <img
-            src="/laptop-sobre-roca.png"
-            alt="JP Studios — Páginas Web Cali"
-            className="w-full h-full object-cover object-[right_bottom] [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.1)_6%,rgba(0,0,0,0.6)_18%,black_32%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.1)_6%,rgba(0,0,0,0.6)_18%,black_32%)] select-none"
-            width={1536}
-            height={1024}
-            loading="eager"
-            decoding="async"
-            fetchPriority="high"
+      {/* Right: Desktop Natural Photographic Layer (Laptop on Rock with Soft Left Dissolve & Scroll Fade) */}
+      <div 
+        ref={portraitRef}
+        className="hidden lg:flex absolute right-0 bottom-0 top-0 w-[56%] xl:w-[54%] 2xl:w-[52%] pointer-events-none z-0 items-end justify-end overflow-hidden select-none"
+      >
+        <div className="relative w-full h-full flex items-end justify-end">
+          <picture className="w-full h-full flex items-end justify-end">
+            <source type="image/webp" srcSet="/laptop-sobre-roca.webp" />
+            <img
+              src="/laptop-sobre-roca.png"
+              alt="JP Studios — Páginas Web Cali"
+              className="w-full h-full object-cover object-[right_bottom] [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.1)_6%,rgba(0,0,0,0.6)_18%,black_32%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.1)_6%,rgba(0,0,0,0.6)_18%,black_32%)] select-none"
+              width={1536}
+              height={1024}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </picture>
+
+          {/* Bottom subtle edge feather so even at rest the rock doesn't have a razor-sharp cut */}
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#fafaf8] to-transparent pointer-events-none z-10" />
+
+          {/* Dynamic Scroll-driven Fade to Solid Background (#fafaf8) */}
+          <div
+            ref={desktopOverlayRef}
+            className="absolute inset-0 bg-[#fafaf8] pointer-events-none z-20 will-change-[opacity]"
+            style={{ opacity: 0 }}
           />
-        </picture>
+        </div>
       </div>
 
       {/* Clean Bottom Orientation Bar */}
-      <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pb-8 sm:pb-10 flex items-center justify-between text-xs font-sans select-none relative z-10">
+      <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pb-8 sm:pb-10 flex items-center justify-between text-xs font-sans select-none relative z-30">
         <div className="flex items-center gap-2 text-black/60">
           <span>{siteConfig.profile.location}</span>
           <span className="text-black/30">•</span>

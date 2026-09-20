@@ -8,17 +8,20 @@ export const Header: React.FC = () => {
   const { t } = useLanguage();
   const liveTime = useLiveTime(siteConfig.profile.timezone);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isPastHero, setIsPastHero] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 20);
+
       const heroEl = document.getElementById('hero');
       if (heroEl) {
         const rect = heroEl.getBoundingClientRect();
-        // Scrolled past hero when the bottom of hero reaches near top of viewport (~100px)
-        setIsScrolled(rect.bottom <= 100);
+        setIsPastHero(rect.bottom <= 100);
       } else {
-        setIsScrolled(window.scrollY > 200);
+        setIsPastHero(scrollY > 400);
       }
     };
 
@@ -89,7 +92,7 @@ export const Header: React.FC = () => {
       >
         <div
           className={`w-full mx-auto flex items-center justify-between gap-4 transition-all duration-500 ${
-            isScrolled
+            isPastHero
               ? 'max-w-[1400px] px-4 sm:px-8 lg:px-12'
               : 'max-w-[1760px] px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20'
           }`}
