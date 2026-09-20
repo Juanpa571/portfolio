@@ -99,9 +99,12 @@ export interface Translations {
     };
   };
   faq: {
+    tag: string;
     headerLine1: string;
     headerLine2: string;
     tagline: string;
+    whatsappPrompt: string;
+    whatsappButton: string;
     items: Array<{
       question: string;
       answer: string;
@@ -321,9 +324,12 @@ export const translations: Record<Language, Translations> = {
       },
     },
     faq: {
+      tag: 'FAQ',
       headerLine1: 'Clear answers.',
       headerLine2: 'Zero fine print.',
       tagline: 'Everything you need to know before starting your project',
+      whatsappPrompt: "Can't find your answer? Reach out and I'll reply personally.",
+      whatsappButton: "Let's talk",
       items: [
         {
           question: 'How do you get my business to rank on Google and Google Maps?',
@@ -331,7 +337,7 @@ export const translations: Record<Language, Translations> = {
             'We optimize your Google Business Profile with precise categories, verified business data (NAP), and connect your website with structured Schema.org markup to maximize visibility in local searches in your target area and on AI response engines like ChatGPT and Gemini.',
         },
         {
-          question: 'How are project fees structured and are there mandatory monthly charges?',
+          question: 'What is the pricing for a website and are there mandatory monthly fees?',
           answer:
             'We work with fixed, transparent proposals tailored to your project scope (landing page, corporate site, or custom integrations). Delivery is turnkey with 100% ownership and zero mandatory retainers. Cloud edge hosting and maintenance are completely optional.',
         },
@@ -585,9 +591,12 @@ export const translations: Record<Language, Translations> = {
       },
     },
     faq: {
+      tag: 'Preguntas Frecuentes',
       headerLine1: 'Respuestas claras.',
       headerLine2: 'Sin letra pequeña.',
       tagline: 'Todo lo que necesitas saber antes de iniciar tu proyecto',
+      whatsappPrompt: '¿No encuentras tu respuesta? Escríbeme y te respondo personalmente.',
+      whatsappButton: 'Hablemos',
       items: [
         {
           question: '¿Cómo hago para que mi negocio aparezca en Google y Google Maps?',
@@ -595,7 +604,7 @@ export const translations: Record<Language, Translations> = {
             'Optimizamos tu perfil de Google Business Profile con categorías comerciales precisas, datos de contacto alineados (NAP) y vinculamos tu página web con datos estructurados Schema.org para maximizar la visibilidad en las búsquedas locales de tu zona y en motores de búsqueda de IA como ChatGPT y Gemini.',
         },
         {
-          question: '¿Cómo se definen los costos y si hay pagos mensuales obligatorios?',
+          question: '¿Cuál es el precio de una página web y si hay pagos mensuales obligatorios?',
           answer:
             'En JP Studios trabajamos con presupuestos cerrados y transparentes según el alcance de tu proyecto (landing page, sitio web corporativo o integraciones a medida). La entrega es llave en mano con propiedad 100% tuya y sin mensualidades forzadas. El servicio de hosting cloud de alta velocidad y mantenimiento es totalmente opcional.',
         },
