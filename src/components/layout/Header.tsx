@@ -73,9 +73,8 @@ export const Header: React.FC = () => {
   }, [isMenuOpen]);
 
   const navLinks = [
-    { label: t.nav.work, href: '#work' },
-    { label: t.nav.process, href: '#process' },
     { label: t.nav.services, href: '#services' },
+    { label: t.nav.process, href: '#process' },
     { label: t.nav.faq, href: '#faq' },
     { label: t.nav.contact, href: '#contact' },
   ];
@@ -87,9 +86,6 @@ export const Header: React.FC = () => {
     const targetEl = document.getElementById(targetId);
     if (targetEl) {
       targetEl.scrollIntoView({ behavior: 'smooth' });
-    } else if (targetId === 'work') {
-      // Fallback while case studies are finalized
-      document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
