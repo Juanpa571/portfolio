@@ -119,20 +119,20 @@ export const Hero: React.FC = () => {
       ref={containerRef}
       className="relative min-h-[calc(100vh-6.5rem)] min-h-[calc(100dvh-6.5rem)] flex flex-col justify-between border-b border-black/[0.08] overflow-hidden"
     >
-      {/* Asymmetric Split Layout with Open Right Column */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 flex-1 flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-10 lg:gap-14 py-8 sm:py-12 lg:py-16">
+      {/* Asymmetric Split Layout with Open Breathing Space */}
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 flex-1 flex flex-col justify-center py-10 sm:py-14 lg:py-16">
         
-        {/* Left: Monumental Business & Ranking Proposition (Option 1) */}
-        <div className="w-full lg:max-w-[68%] flex flex-col justify-center min-w-0 pr-0 lg:pr-6">
+        {/* Monumental Business & Ranking Proposition (Option 1 - Clean 3-Line Rhythm) */}
+        <div className="w-full max-w-5xl flex flex-col justify-center min-w-0">
           <h1 
             aria-label="Páginas web en Cali para liderar Google y multiplicar tus ventas — JP Studios"
             className="space-y-2 sm:space-y-3 lg:space-y-4 select-none m-0 font-normal"
           >
-            {/* Line 1 */}
+            {/* Line 1: Páginas web en Cali, */}
             <span className="block">
               <span
                 ref={line1Ref}
-                className="inline-block text-4xl sm:text-6xl md:text-7xl lg:text-[4.6vw] xl:text-[5vw] font-normal font-display tracking-[-0.02em] text-black leading-[1.04] sm:leading-[1.07] cursor-default will-change-transform"
+                className="inline-block text-3xl sm:text-5xl md:text-6xl lg:text-[3.8vw] xl:text-[4.2vw] 2xl:text-[4.5vw] font-normal font-display tracking-[-0.02em] text-black leading-[1.12] sm:leading-[1.15] cursor-default will-change-transform sm:whitespace-nowrap"
                 data-interactive
               >
                 <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
@@ -141,11 +141,11 @@ export const Hero: React.FC = () => {
               </span>
             </span>
 
-            {/* Line 2 with intentional asymmetrical indent */}
-            <span className="block pl-4 sm:pl-8 lg:pl-12 xl:pl-16">
+            {/* Line 2 with intentional asymmetrical indent: para liderar Google */}
+            <span className="block pl-4 sm:pl-10 lg:pl-16 xl:pl-20">
               <span
                 ref={line2Ref}
-                className="inline-block text-4xl sm:text-6xl md:text-7xl lg:text-[4.6vw] xl:text-[5vw] font-normal font-display tracking-[-0.02em] text-black leading-[1.04] sm:leading-[1.07] cursor-default will-change-transform"
+                className="inline-block text-3xl sm:text-5xl md:text-6xl lg:text-[3.8vw] xl:text-[4.2vw] 2xl:text-[4.5vw] font-normal font-display tracking-[-0.02em] text-black leading-[1.12] sm:leading-[1.15] cursor-default will-change-transform sm:whitespace-nowrap"
                 data-interactive
               >
                 <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
@@ -154,11 +154,11 @@ export const Hero: React.FC = () => {
               </span>
             </span>
 
-            {/* Line 3: Google impact phrase */}
+            {/* Line 3: y multiplicar tus ventas. */}
             <span className="block">
               <span
                 ref={line3Ref}
-                className="inline-block text-4xl sm:text-6xl md:text-7xl lg:text-[4.6vw] xl:text-[5vw] font-normal font-display tracking-[-0.02em] text-black leading-[1.04] sm:leading-[1.07] cursor-default will-change-transform"
+                className="inline-block text-3xl sm:text-5xl md:text-6xl lg:text-[3.8vw] xl:text-[4.2vw] 2xl:text-[4.5vw] font-normal font-display tracking-[-0.02em] text-black leading-[1.12] sm:leading-[1.15] cursor-default will-change-transform sm:whitespace-nowrap"
                 data-interactive
               >
                 <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
@@ -169,7 +169,7 @@ export const Hero: React.FC = () => {
           </h1>
 
           {/* Subtitle & Value Proposition */}
-          <p className="text-base sm:text-lg lg:text-xl text-black/75 font-sans leading-relaxed max-w-2xl pt-6 sm:pt-8">
+          <p className="text-sm sm:text-base lg:text-lg text-black/70 font-sans leading-relaxed max-w-xl pt-6 sm:pt-8">
             {t.hero.subtitle}
           </p>
 
@@ -194,9 +194,6 @@ export const Hero: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Right: Reserved Clean Open Space (Awaiting user concept) */}
-        <div className="hidden lg:block lg:w-[32%]" aria-hidden="true" />
 
       </div>
 
