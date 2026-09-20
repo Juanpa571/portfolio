@@ -2,11 +2,15 @@ export type Language = 'en' | 'es';
 
 export interface Translations {
   nav: {
-    capabilities: string;
+    work: string;
     process: string;
-    works: string;
+    services: string;
     faq: string;
     contact: string;
+    talk: string;
+    studio: string;
+    capabilities: string;
+    works: string;
     chat: string;
     location: string;
     timeLabel: string;
@@ -134,12 +138,16 @@ export interface Translations {
 export const translations: Record<Language, Translations> = {
   en: {
     nav: {
-      capabilities: 'Capabilities',
+      work: 'Work',
       process: 'Process',
-      works: 'Works',
+      services: 'Services',
       faq: 'FAQ',
       contact: 'Contact',
-      chat: 'Chat',
+      talk: "Let's talk",
+      studio: 'Independent Studio',
+      capabilities: 'Services',
+      works: 'Work',
+      chat: "Let's talk",
       location: 'Cali, Colombia',
       timeLabel: 'Local time in Cali. Click to copy',
       copied: 'Copied ✓',
@@ -383,12 +391,16 @@ export const translations: Record<Language, Translations> = {
   },
   es: {
     nav: {
-      capabilities: 'Capacidades',
+      work: 'Trabajo',
       process: 'Proceso',
-      works: 'Proyectos',
+      services: 'Servicios',
       faq: 'Preguntas',
       contact: 'Contacto',
-      chat: 'Chat',
+      talk: 'Hablemos',
+      studio: 'Estudio Independiente',
+      capabilities: 'Servicios',
+      works: 'Trabajo',
+      chat: 'Hablemos',
       location: 'Cali, Colombia',
       timeLabel: 'Hora local en Cali. Clic para copiar',
       copied: 'Copiado ✓',
