@@ -13,8 +13,7 @@ export const Process: React.FC = () => {
   const isSpanish = language === 'es';
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const headerRef = useRef<HTMLDivElement | null>(null);
-  const line1FillRef = useRef<HTMLSpanElement | null>(null);
-  const line2FillRef = useRef<HTMLSpanElement | null>(null);
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
   const rowsContainerRef = useRef<HTMLDivElement | null>(null);
   const [expandedRow, setExpandedRow] = useState<number | null>(0);
 
@@ -22,30 +21,22 @@ export const Process: React.FC = () => {
     if (!headerRef.current) return;
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 88%',
-          end: 'top 35%',
-          scrub: 0.7,
-        },
-      });
-
-      if (line1FillRef.current) {
-        tl.fromTo(
-          line1FillRef.current,
-          { clipPath: 'inset(0 100% 0 0)', scale: 1.03, y: 6 },
-          { clipPath: 'inset(0 0% 0 0)', scale: 1, y: 0, ease: 'power2.out', duration: 0.9 },
-          0
-        );
-      }
-
-      if (line2FillRef.current) {
-        tl.fromTo(
-          line2FillRef.current,
-          { clipPath: 'inset(0 100% 0 0)', scale: 1.03, x: -10 },
-          { clipPath: 'inset(0 0% 0 0)', scale: 1, x: 0, ease: 'power2.out', duration: 0.9 },
-          0.15
+      // Clean minimalist fade-and-rise animation for title
+      if (titleRef.current) {
+        gsap.fromTo(
+          titleRef.current,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: 'top 85%',
+              once: true,
+            },
+          }
         );
       }
 
@@ -81,44 +72,16 @@ export const Process: React.FC = () => {
       className="py-16 sm:py-24 lg:py-32 border-b border-black/[0.08] bg-[#fafaf8] relative overflow-hidden"
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
-        {/* Section Header with Refokus-style Kinetic Ink Sweep */}
+        {/* Clean Editorial Section Header */}
         <div ref={headerRef} className="mb-14 sm:mb-20">
           <div className="space-y-2 sm:space-y-3 max-w-4xl">
-            {/* H2 Semántico Limpio para SEO */}
-            <h2 className="sr-only">
-              {t.process.headerLine1} {t.process.headerLine2}
+            <h2
+              ref={titleRef}
+              className="text-4xl sm:text-6xl lg:text-7xl font-normal font-display tracking-[-0.02em] text-[#111111] leading-[1.12] sm:leading-[1.15] select-none"
+            >
+              <span className="block">{t.process.headerLine1}</span>
+              <span className="block sm:pl-10 lg:pl-16 text-black/60">{t.process.headerLine2}</span>
             </h2>
-
-            {/* Presentación Visual Cinética */}
-            <div aria-hidden="true" className="text-4xl sm:text-6xl lg:text-7xl font-normal font-display tracking-[-0.01em] leading-[1.12] sm:leading-[1.15]">
-              {/* Line 1 */}
-              <div className="relative inline-block pb-1">
-                <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
-                  {t.process.headerLine1}
-                </span>
-                <span
-                  ref={line1FillRef}
-                  className="absolute inset-0 text-black select-none will-change-transform"
-                  style={{ clipPath: 'inset(0 100% 0 0)' }}
-                >
-                  {t.process.headerLine1}
-                </span>
-              </div>
-              <br />
-              {/* Line 2 with asymmetric offset */}
-              <div className="relative inline-block sm:pl-10 lg:pl-16 pb-1">
-                <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
-                  {t.process.headerLine2}
-                </span>
-                <span
-                  ref={line2FillRef}
-                  className="absolute inset-0 sm:pl-10 lg:pl-16 text-black select-none will-change-transform"
-                  style={{ clipPath: 'inset(0 100% 0 0)' }}
-                >
-                  {t.process.headerLine2}
-                </span>
-              </div>
-            </div>
 
             <p className="pt-4 text-base sm:text-lg text-black/60 max-w-2xl font-sans font-normal leading-relaxed">
               {t.process.tagline}

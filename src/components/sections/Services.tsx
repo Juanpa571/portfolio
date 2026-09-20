@@ -13,8 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 export const Services: React.FC = () => {
   const { t } = useLanguage();
   const headerRef = useRef<HTMLDivElement | null>(null);
-  const line1FillRef = useRef<HTMLSpanElement | null>(null);
-  const line2FillRef = useRef<HTMLSpanElement | null>(null);
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
   const rulerRef = useRef<HTMLDivElement | null>(null);
   const cardsContainerRef = useRef<HTMLDivElement | null>(null);
 
@@ -22,42 +21,40 @@ export const Services: React.FC = () => {
     if (!headerRef.current) return;
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 88%',
-          end: 'top 32%',
-          scrub: 0.7,
-        },
-      });
+      // Clean minimalist fade-and-rise animation for title
+      if (titleRef.current) {
+        gsap.fromTo(
+          titleRef.current,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: 'top 85%',
+              once: true,
+            },
+          }
+        );
+      }
 
       // Hairline ruler drawing across
       if (rulerRef.current) {
-        tl.fromTo(
+        gsap.fromTo(
           rulerRef.current,
           { scaleX: 0, transformOrigin: 'left center' },
-          { scaleX: 1, ease: 'none', duration: 1 },
-          0
-        );
-      }
-
-      // Line 1 ink fill sweep
-      if (line1FillRef.current) {
-        tl.fromTo(
-          line1FillRef.current,
-          { clipPath: 'inset(0 100% 0 0)', scale: 1.04, y: 8 },
-          { clipPath: 'inset(0 0% 0 0)', scale: 1, y: 0, ease: 'power2.out', duration: 0.9 },
-          0.05
-        );
-      }
-
-      // Line 2 ink fill sweep staggered
-      if (line2FillRef.current) {
-        tl.fromTo(
-          line2FillRef.current,
-          { clipPath: 'inset(0 100% 0 0)', scale: 1.04, x: -12 },
-          { clipPath: 'inset(0 0% 0 0)', scale: 1, x: 0, ease: 'power2.out', duration: 0.9 },
-          0.2
+          {
+            scaleX: 1,
+            duration: 0.9,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: 'top 85%',
+              once: true,
+            },
+          }
         );
       }
 
@@ -91,44 +88,16 @@ export const Services: React.FC = () => {
       
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         
-        {/* Asymmetric Section Header with Refokus-Style Kinetic Morph */}
+        {/* Clean Editorial Section Header */}
         <div ref={headerRef} className="relative mb-12 lg:mb-16 pb-6">
-          <div className="space-y-3 max-w-5xl">
-            {/* H2 Semántico Limpio para SEO y Lectores de Pantalla */}
-            <h2 className="sr-only">
-              {t.services.headerLine1} {t.services.headerLine2}
+          <div className="max-w-5xl">
+            <h2
+              ref={titleRef}
+              className="text-3xl sm:text-5xl lg:text-6xl font-normal font-display tracking-[-0.02em] text-[#111111] leading-[1.12] sm:leading-[1.16] select-none"
+            >
+              <span className="block">{t.services.headerLine1}</span>
+              <span className="block sm:pl-10 lg:pl-16 text-black/60">{t.services.headerLine2}</span>
             </h2>
-
-            {/* Presentación Visual Cinética */}
-            <div aria-hidden="true" className="text-3xl sm:text-5xl lg:text-6xl font-normal font-display tracking-[-0.01em] leading-[1.14] sm:leading-[1.18]">
-              {/* Line 1: Built on trust. */}
-              <div className="relative inline-block pb-1">
-                <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
-                  {t.services.headerLine1}
-                </span>
-                <span
-                  ref={line1FillRef}
-                  className="absolute inset-0 text-black select-none will-change-transform"
-                  style={{ clipPath: 'inset(0 100% 0 0)' }}
-                >
-                  {t.services.headerLine1}
-                </span>
-              </div>
-              <br />
-              {/* Line 2: Shaped by craft. (Asymmetric indent) */}
-              <div className="relative inline-block sm:pl-10 lg:pl-16 pb-1">
-                <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
-                  {t.services.headerLine2}
-                </span>
-                <span
-                  ref={line2FillRef}
-                  className="absolute inset-0 sm:pl-10 lg:pl-16 text-black select-none will-change-transform"
-                  style={{ clipPath: 'inset(0 100% 0 0)' }}
-                >
-                  {t.services.headerLine2}
-                </span>
-              </div>
-            </div>
           </div>
 
           {/* Animated Ruler Line drawn on scroll */}

@@ -9,38 +9,29 @@ export const Faq: React.FC = () => {
   const { t } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const headerRef = useRef<HTMLDivElement | null>(null);
-  const line1FillRef = useRef<HTMLSpanElement | null>(null);
-  const line2FillRef = useRef<HTMLSpanElement | null>(null);
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
   const faqListRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!headerRef.current) return;
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 88%',
-          end: 'top 35%',
-          scrub: 0.7,
-        },
-      });
-
-      if (line1FillRef.current) {
-        tl.fromTo(
-          line1FillRef.current,
-          { clipPath: 'inset(0 100% 0 0)', scale: 1.03, y: 6 },
-          { clipPath: 'inset(0 0% 0 0)', scale: 1, y: 0, ease: 'power2.out', duration: 0.9 },
-          0
-        );
-      }
-
-      if (line2FillRef.current) {
-        tl.fromTo(
-          line2FillRef.current,
-          { clipPath: 'inset(0 100% 0 0)', scale: 1.03, x: -10 },
-          { clipPath: 'inset(0 0% 0 0)', scale: 1, x: 0, ease: 'power2.out', duration: 0.9 },
-          0.15
+      // Clean minimalist fade-and-rise entrance for title
+      if (titleRef.current) {
+        gsap.fromTo(
+          titleRef.current,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: 'top 85%',
+              once: true,
+            },
+          }
         );
       }
 
@@ -82,39 +73,13 @@ export const Faq: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           {/* Left Column: Heading & Context (Col 1-5) */}
           <div ref={headerRef} className="lg:col-span-5 space-y-4">
-            {/* H2 Semántico Limpio para SEO */}
-            <h2 className="sr-only">
-              {t.faq.headerLine1} {t.faq.headerLine2}
+            <h2
+              ref={titleRef}
+              className="text-4xl sm:text-5xl lg:text-6xl font-normal font-display tracking-[-0.02em] text-[#111111] leading-[1.12] select-none"
+            >
+              <span className="block">{t.faq.headerLine1}</span>
+              <span className="block sm:pl-6 lg:pl-10 text-black/60">{t.faq.headerLine2}</span>
             </h2>
-
-            {/* Presentación Visual Cinética */}
-            <div aria-hidden="true" className="text-4xl sm:text-5xl lg:text-6xl font-normal font-display tracking-[-0.01em] leading-[1.12]">
-              <div className="relative inline-block pb-1">
-                <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
-                  {t.faq.headerLine1}
-                </span>
-                <span
-                  ref={line1FillRef}
-                  className="absolute inset-0 text-black select-none will-change-transform"
-                  style={{ clipPath: 'inset(0 100% 0 0)' }}
-                >
-                  {t.faq.headerLine1}
-                </span>
-              </div>
-              <br />
-              <div className="relative inline-block sm:pl-6 lg:pl-10 pb-1">
-                <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
-                  {t.faq.headerLine2}
-                </span>
-                <span
-                  ref={line2FillRef}
-                  className="absolute inset-0 sm:pl-6 lg:pl-10 text-black select-none will-change-transform"
-                  style={{ clipPath: 'inset(0 100% 0 0)' }}
-                >
-                  {t.faq.headerLine2}
-                </span>
-              </div>
-            </div>
 
             <p className="text-base text-black/60 font-sans font-normal leading-relaxed pt-2 max-w-md">
               {t.faq.tagline}
