@@ -198,12 +198,12 @@ export const Hero: React.FC = () => {
           <div className="w-full relative mt-8 sm:mt-10 overflow-hidden lg:hidden flex justify-center z-0">
             <div className="relative w-full max-w-[540px] rounded-2xl overflow-hidden shadow-sm">
               <picture className="w-full">
-                <source type="image/webp" srcSet="/laptop-sobre-roca.webp" />
+                <source type="image/webp" srcSet="/laptop-sobre-roca-extended.webp" />
                 <img
-                  src="/laptop-sobre-roca.png"
+                  src="/laptop-sobre-roca-extended.png"
                   alt="JP Studios — Páginas Web Cali"
                   className="w-full h-auto object-cover"
-                  width={1536}
+                  width={2200}
                   height={1024}
                   loading="eager"
                   decoding="async"
@@ -221,16 +221,16 @@ export const Hero: React.FC = () => {
       {/* Right: Desktop Natural Photographic Layer (Laptop on Rock with Soft Edge Feathers) */}
       <div 
         ref={portraitRef}
-        className="hidden lg:flex absolute right-0 bottom-0 top-0 w-[56%] xl:w-[54%] 2xl:w-[52%] pointer-events-none z-0 items-end justify-end overflow-hidden select-none"
+        className="hidden lg:flex absolute right-0 bottom-0 top-0 w-[58%] xl:w-[56%] 2xl:w-[54%] pointer-events-none z-0 items-end justify-end overflow-hidden select-none"
       >
         <div className="relative w-full h-full flex items-end justify-end">
           <picture className="w-full h-full flex items-end justify-end">
-            <source type="image/webp" srcSet="/laptop-sobre-roca.webp" />
+            <source type="image/webp" srcSet="/laptop-sobre-roca-extended.webp" />
             <img
-              src="/laptop-sobre-roca.png"
+              src="/laptop-sobre-roca-extended.png"
               alt="JP Studios — Páginas Web Cali"
               className="w-full h-full object-cover object-[right_bottom] select-none"
-              width={1536}
+              width={2200}
               height={1024}
               loading="eager"
               decoding="async"
