@@ -178,7 +178,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       headlineLine1: 'Websites in Cali,',
       headlineLine2: 'engineered to rank on Google',
-      headlineLine3: 'and scale your sales.',
+      headlineLine3: 'and turn visitors into clients.',
       subtitle: 'Bespoke web design and engineering in Cali to bring your company to the top of Google.',
       signature: 'JP Studios by Juan Pablo Chacón',
       disciplineLine1: 'Bespoke Websites',
@@ -218,7 +218,7 @@ export const translations: Record<Language, Translations> = {
     },
     services: {
       tag: 'Services',
-      headerLine1: 'Engineered for revenue,',
+      headerLine1: 'Engineered to sell,',
       headerLine2: 'not just decoration.',
       seoDescription:
         'Bespoke web development in Cali, high-speed landing pages, and visibility on Google. Engineered with clean code to rank your business across search engines and route qualified prospects straight to direct contact channels.',
@@ -512,7 +512,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       headlineLine1: 'Páginas web en Cali,',
       headlineLine2: 'para liderar Google',
-      headlineLine3: 'y multiplicar tus ventas.',
+      headlineLine3: 'y convertir visitas en clientes.',
       subtitle: 'Diseño y desarrollo web basado en Cali para sacar a tu página de los sótanos de Google.',
       signature: 'JP Studios by Juan Pablo Chacón',
       disciplineLine1: 'Páginas Web Cali',
@@ -552,7 +552,7 @@ export const translations: Record<Language, Translations> = {
     },
     services: {
       tag: 'Servicios',
-      headerLine1: 'Ingeniería web para facturar,',
+      headerLine1: 'Ingeniería web para vender,',
       headerLine2: 'no solo para adornar.',
       seoDescription:
         'Desarrollo web en Cali, páginas de alta velocidad y presencia en Google. Diseñamos arquitectura en código limpio optimizada para captar clientes locales y conectar directamente por WhatsApp y llamadas.',

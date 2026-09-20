@@ -125,7 +125,7 @@ export const Hero: React.FC = () => {
         {/* Left: Monumental Typographic Statement */}
         <div className="w-full lg:w-[56%] xl:w-[54%] 2xl:w-[52%] flex flex-col justify-center min-w-0 pr-0 lg:pr-6 relative z-10">
           <h1 
-            aria-label="Páginas web en Cali para liderar Google y multiplicar tus ventas — JP Studios"
+            aria-label={`${t.hero.headlineLine1} ${t.hero.headlineLine2} ${t.hero.headlineLine3} — JP Studios`}
             className="space-y-2.5 sm:space-y-3.5 lg:space-y-4 select-none m-0 font-normal"
           >
             {/* Line 1 */}
