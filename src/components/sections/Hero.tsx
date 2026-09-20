@@ -10,39 +10,6 @@ export const Hero: React.FC = () => {
   const line2Ref = useRef<HTMLDivElement | null>(null);
   const line3Ref = useRef<HTMLDivElement | null>(null);
   const portraitRef = useRef<HTMLDivElement | null>(null);
-  const desktopOverlayRef = useRef<HTMLDivElement | null>(null);
-  const mobileOverlayRef = useRef<HTMLDivElement | null>(null);
-
-  // Scroll-driven dynamic dissolve into solid background (#fafaf8)
-  useEffect(() => {
-    let rafId: number | null = null;
-
-    const handleScroll = () => {
-      if (rafId !== null) return;
-      rafId = requestAnimationFrame(() => {
-        rafId = null;
-        const scrollY = window.scrollY;
-        // Dissolves photo seamlessly to #fafaf8 between 0 and 260px of scroll
-        const progress = Math.min(Math.max(scrollY / 260, 0), 1);
-        if (desktopOverlayRef.current) {
-          desktopOverlayRef.current.style.opacity = progress.toString();
-        }
-        if (mobileOverlayRef.current) {
-          mobileOverlayRef.current.style.opacity = progress.toString();
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (rafId !== null) {
-        cancelAnimationFrame(rafId);
-      }
-    };
-  }, []);
 
   useEffect(() => {
     const l1 = line1Ref.current;
@@ -242,12 +209,6 @@ export const Hero: React.FC = () => {
                   decoding="async"
                 />
               </picture>
-              {/* Dynamic Scroll-driven Fade to Solid Background (#fafaf8) for Mobile */}
-              <div
-                ref={mobileOverlayRef}
-                className="absolute inset-0 bg-[#fafaf8] pointer-events-none will-change-[opacity]"
-                style={{ opacity: 0 }}
-              />
             </div>
           </div>
         </div>
@@ -257,7 +218,7 @@ export const Hero: React.FC = () => {
 
       </div>
 
-      {/* Right: Desktop Natural Photographic Layer (Laptop on Rock with Soft Left Dissolve & Scroll Fade) */}
+      {/* Right: Desktop Natural Photographic Layer (Laptop on Rock with Soft Edge Feathers) */}
       <div 
         ref={portraitRef}
         className="hidden lg:flex absolute right-0 bottom-0 top-0 w-[56%] xl:w-[54%] 2xl:w-[52%] pointer-events-none z-0 items-end justify-end overflow-hidden select-none"
@@ -268,7 +229,7 @@ export const Hero: React.FC = () => {
             <img
               src="/laptop-sobre-roca.png"
               alt="JP Studios — Páginas Web Cali"
-              className="w-full h-full object-cover object-[right_bottom] [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.1)_6%,rgba(0,0,0,0.6)_18%,black_32%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.1)_6%,rgba(0,0,0,0.6)_18%,black_32%)] select-none"
+              className="w-full h-full object-cover object-[right_bottom] [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.15)_3%,rgba(0,0,0,0.75)_8%,black_14%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.15)_3%,rgba(0,0,0,0.75)_8%,black_14%)] select-none"
               width={1536}
               height={1024}
               loading="eager"
@@ -277,15 +238,11 @@ export const Hero: React.FC = () => {
             />
           </picture>
 
-          {/* Bottom subtle edge feather so even at rest the rock doesn't have a razor-sharp cut */}
-          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#fafaf8] to-transparent pointer-events-none z-10" />
+          {/* Top subtle feather where image meets the sticky bar */}
+          <div className="absolute inset-x-0 top-0 h-14 sm:h-18 bg-gradient-to-b from-[#fafaf8] via-[#fafaf8]/50 to-transparent pointer-events-none z-10" />
 
-          {/* Dynamic Scroll-driven Fade to Solid Background (#fafaf8) */}
-          <div
-            ref={desktopOverlayRef}
-            className="absolute inset-0 bg-[#fafaf8] pointer-events-none z-20 will-change-[opacity]"
-            style={{ opacity: 0 }}
-          />
+          {/* Bottom subtle feather to soften edge with body */}
+          <div className="absolute inset-x-0 bottom-0 h-10 sm:h-12 bg-gradient-to-t from-[#fafaf8] via-[#fafaf8]/40 to-transparent pointer-events-none z-10" />
         </div>
       </div>
 
