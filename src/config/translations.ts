@@ -215,10 +215,10 @@ export const translations: Record<Language, Translations> = {
         {
           id: 'support',
           number: '004',
-          title: 'Managed Hosting & Monthly Retainer',
+          title: 'Cloud Hosting & Optional Support',
           subtitle: 'Total technical peace of mind post-launch.',
           description:
-            'Enterprise edge hosting with 99.9% uptime, SSL security, automated backups, monthly performance metrics, and continuous support managed directly by JP Studios.',
+            'Enterprise edge hosting with 99.9% uptime, SSL security, automated backups, and optional support with zero forced monthly retainers or technical lock-in.',
         },
       ],
     },
@@ -464,10 +464,10 @@ export const translations: Record<Language, Translations> = {
         {
           id: 'support',
           number: '004',
-          title: 'Hosting Cloud y Retenedor Mensual',
+          title: 'Hosting Cloud y Soporte Opcional',
           subtitle: 'Tranquilidad técnica total tras el lanzamiento.',
           description:
-            'Alojamiento global de alta velocidad con 99.9% de estabilidad, certificado SSL, copias de seguridad automáticas, reporte mensual de visitas y soporte continuo gestionado directamente por JP Studios.',
+            'Alojamiento global de alta velocidad con 99.9% de estabilidad, certificado SSL, copias de seguridad automáticas y soporte técnico opcional sin mensualidades forzadas ni ataduras.',
         },
       ],
     },
