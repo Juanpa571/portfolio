@@ -371,13 +371,13 @@ export const ContactForm: React.FC = () => {
                         </div>
 
                         <div className="space-y-1.5 mt-6">
-                          <h4
+                          <p
                             className={`text-base sm:text-lg font-display font-medium leading-snug ${
                               isSelected ? 'text-white' : 'text-[#111111]'
                             }`}
                           >
                             {opt.label}
-                          </h4>
+                          </p>
                           <p
                             className={`text-xs font-sans leading-relaxed ${
                               isSelected ? 'text-white/70' : 'text-black/55'
@@ -428,13 +428,13 @@ export const ContactForm: React.FC = () => {
                         </div>
 
                         <div className="space-y-1.5 mt-6">
-                          <h4
+                          <p
                             className={`text-base sm:text-lg font-display font-medium leading-snug ${
                               isSelected ? 'text-white' : 'text-[#111111]'
                             }`}
                           >
                             {opt.label}
-                          </h4>
+                          </p>
                           <p
                             className={`text-xs font-sans leading-relaxed ${
                               isSelected ? 'text-white/70' : 'text-black/55'

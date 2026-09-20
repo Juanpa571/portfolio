@@ -193,18 +193,18 @@ export const Process: React.FC = () => {
                     <div className="min-h-0">
                       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
                         <div className="md:col-span-5 space-y-1.5">
-                          <h4 className="text-sm font-display font-medium text-black tracking-tight">
+                          <p className="text-sm font-display font-medium text-black tracking-tight">
                             {isSpanish ? 'Qué resolvemos' : 'What we solve'}
-                          </h4>
+                          </p>
                           <p className="text-xs sm:text-sm text-black/70 font-sans leading-relaxed">
                             {step.description}
                           </p>
                         </div>
 
                         <div className="md:col-span-3 space-y-1.5">
-                          <h4 className="text-sm font-display font-medium text-black tracking-tight">
+                          <p className="text-sm font-display font-medium text-black tracking-tight">
                             {isSpanish ? 'Tu tiempo invertido' : 'Your time investment'}
-                          </h4>
+                          </p>
                           <p className="text-xs sm:text-sm text-black/70 font-sans leading-relaxed">
                             {idx === 0 &&
                               (isSpanish
