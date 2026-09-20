@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Magnetic } from '../ui/Magnetic';
 import { siteConfig } from '../../config/site';
 import { useLanguage } from '../../context/LanguageContext';
 import gsap from 'gsap';
@@ -7,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const OptionIcon: React.FC<{ icon: string; className?: string }> = ({ icon, className = 'w-7 h-7' }) => {
+const OptionIcon: React.FC<{ icon: string; className?: string }> = ({ icon, className = 'w-6 h-6' }) => {
   switch (icon) {
     case 'globe':
       return (
@@ -20,13 +19,6 @@ const OptionIcon: React.FC<{ icon: string; className?: string }> = ({ icon, clas
       return (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className={className}>
           <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09zM12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6.05 11a22.35 22.35 0 0 1-3.95 2z" />
-        </svg>
-      );
-    case 'map':
-      return (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className={className}>
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-          <circle cx="12" cy="10" r="3" />
         </svg>
       );
     case 'refresh':
@@ -53,18 +45,11 @@ const OptionIcon: React.FC<{ icon: string; className?: string }> = ({ icon, clas
           <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3" />
         </svg>
       );
-    case 'building':
-      return (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className={className}>
-          <rect x="4" y="2" width="16" height="20" rx="2" />
-          <path d="M9 22v-4h6v4M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01" />
-        </svg>
-      );
     case 'compass':
       return (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className={className}>
-          <circle cx="12" cy="12" r="10" />
-          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+          <rect x="3" y="3" width="18" height="18" rx="4" />
+          <rect x="8" y="8" width="8" height="8" rx="2" />
         </svg>
       );
     case 'heart':
@@ -115,7 +100,7 @@ export const ContactForm: React.FC = () => {
   const { t, language } = useLanguage();
   const isSpanish = language === 'es';
 
-  // Step state (1: Project Type, 2: Sector, 3: Contact Info, 4: Success)
+  // Step state (1: Project Type, 2: Sector, 3: Contact Info)
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
   const [selectedProjectType, setSelectedProjectType] = useState<string>('web-scratch');
   const [selectedSector, setSelectedSector] = useState<string>('health');
@@ -166,6 +151,7 @@ export const ContactForm: React.FC = () => {
 
   const currentProjectObj =
     t.contact.projectOptions.find((p) => p.id === selectedProjectType) || t.contact.projectOptions[0];
+
   const currentSectorObj =
     t.contact.sectorOptions.find((s) => s.id === selectedSector) || t.contact.sectorOptions[0];
 
@@ -238,7 +224,7 @@ export const ContactForm: React.FC = () => {
 
   const resetForm = () => {
     setCurrentStep(1);
-    setSelectedProjectType('web');
+    setSelectedProjectType('web-scratch');
     setSelectedSector('health');
     setName('');
     setPhone('');
@@ -246,263 +232,307 @@ export const ContactForm: React.FC = () => {
     setErrorMessage('');
   };
 
-  const progressPercent = currentStep === 1 ? 33 : currentStep === 2 ? 66 : 100;
-
   return (
     <section
       id="contact"
       ref={sectionRef}
-      className="relative w-full max-w-[1400px] mx-auto px-6 sm:px-12 py-16 sm:py-20 lg:py-24 scroll-mt-16 flex flex-col justify-center"
+      className="relative w-full max-w-[1400px] mx-auto px-6 sm:px-12 py-16 sm:py-24 lg:py-32 scroll-mt-16"
     >
-      {/* Top Hairline Divider */}
-      <div className="w-full h-px bg-black/[0.08] mb-12 sm:mb-16" />
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* Left Column: Heading & WhatsApp Assistance */}
+        <div
+          ref={headerRef}
+          className="lg:col-span-4 xl:col-span-4 flex flex-col justify-between self-stretch space-y-10 sm:space-y-14"
+        >
+          <div className="space-y-3">
+            {/* Category label */}
+            <span className="block text-xs sm:text-sm font-mono tracking-[0.18em] text-black/45 uppercase select-none">
+              {t.contact.sectionTag}
+            </span>
 
-      {/* Section Header */}
-      <div
-        ref={headerRef}
-        className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-14 gap-6 will-change-[transform,opacity]"
-      >
-        <div className="max-w-2xl">
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-normal tracking-[-0.02em] text-[#1a1a1e] leading-[1.08]">
-            {t.contact.title}
-          </h2>
-        </div>
-        <p className="text-base sm:text-lg text-[#555557] max-w-md font-sans leading-relaxed">
-          {t.contact.description}
-        </p>
-      </div>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-normal font-display tracking-[-0.02em] text-[#111111] leading-[1.08] select-none">
+              {t.contact.titleLine1} <br />
+              {t.contact.titleLine2}
+            </h2>
 
-      {/* Quiz Card Container (Minimal Friction, Visual Cards Architecture) */}
-      <div ref={quizCardRef} className="max-w-2xl sm:max-w-3xl w-full mx-auto will-change-[transform,opacity]">
-        <div className="rounded-[2.2rem] sm:rounded-[2.5rem] bg-white border border-black/[0.08] shadow-sm overflow-hidden transition-all duration-300">
-          
-          {/* Top Subtle Progress Bar */}
-          <div className="w-full h-1.5 bg-black/[0.04] relative">
-            <div
-              className="h-full bg-[#1C1D20] transition-all duration-500 ease-out"
-              style={{ width: `${progressPercent}%` }}
-            />
+            <p className="text-sm sm:text-base text-black/65 font-sans font-normal leading-relaxed pt-2 max-w-sm">
+              {t.contact.description}
+            </p>
           </div>
 
-          <div className="p-7 sm:p-12 space-y-8 sm:space-y-10">
-            {status === 'success' ? (
-              /* Success Confirmation Screen */
-              <div className="py-8 sm:py-12 text-center space-y-6 animate-in fade-in duration-300">
-                <div className="w-16 h-16 mx-auto rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl font-sans">
-                  ✓
-                </div>
-                <div className="space-y-2.5 max-w-md mx-auto">
-                  <div className="text-2xl sm:text-3xl font-normal text-[#1a1a1e] tracking-tight">
-                    {t.contact.successTitle}
-                  </div>
-                  <p className="text-black/65 text-sm sm:text-base font-sans leading-relaxed">
-                    {t.contact.successSubtitle(name || 'Cliente')}
-                  </p>
-                </div>
+          {/* Bottom WhatsApp assistance block matching mockup */}
+          <div className="pt-8 border-t border-black/[0.08] space-y-3.5">
+            <div className="text-xs sm:text-sm text-black/70 font-sans leading-snug">
+              <p>{t.contact.whatsappQuestion}</p>
+              <p className="text-black font-medium">{t.contact.whatsappAction}</p>
+            </div>
+            <a
+              href={siteConfig.profile.contact.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#111111] text-white text-xs sm:text-sm font-sans font-medium hover:bg-black/85 transition-all duration-300 active:scale-95 group cursor-pointer shadow-xs"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>{t.contact.whatsappButton}</span>
+              <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
+                ↗
+              </span>
+            </a>
+          </div>
+        </div>
 
-                <div className="pt-4 flex flex-wrap items-center justify-center gap-3.5">
-                  <button
-                    type="button"
-                    onClick={resetForm}
-                    className="px-6 py-3 rounded-full border border-black/15 hover:border-black text-xs sm:text-sm font-sans font-medium transition-all cursor-pointer"
-                    data-interactive
-                  >
-                    {t.contact.resetButton}
-                  </button>
-                  <a
-                    href={siteConfig.profile.contact.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-3 rounded-full bg-[#1C1D20] text-white hover:bg-black text-xs sm:text-sm font-sans font-medium transition-all"
-                    data-interactive
-                  >
-                    {isSpanish ? 'Abrir chat en WhatsApp ↗' : 'Open WhatsApp chat ↗'}
-                  </a>
-                </div>
+        {/* Right Column: Interactive Multi-step Estimator Grid */}
+        <div ref={quizCardRef} className="lg:col-span-8 xl:col-span-8 w-full">
+          {status === 'success' ? (
+            /* Success Confirmation Screen */
+            <div className="p-8 sm:p-14 rounded-[2.2rem] bg-white border border-black/[0.08] shadow-sm text-center space-y-6 animate-in fade-in duration-300">
+              <div className="w-16 h-16 mx-auto rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl font-sans">
+                ✓
               </div>
-            ) : (
-              <div>
-                {/* Step Header */}
-                <div className="text-center space-y-2 mb-8 sm:mb-10">
-                  <span className="text-xs uppercase tracking-widest text-black/40 font-mono">
-                    {isSpanish ? `Paso ${currentStep} de 3` : `Step ${currentStep} of 3`}
-                  </span>
-                  <div className="text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1a1a1e] tracking-tight">
-                    {currentStep === 1 && t.contact.step1Question}
-                    {currentStep === 2 && t.contact.step2Question}
-                    {currentStep === 3 && t.contact.step3Question}
-                  </div>
-                  {currentStep === 3 && (
-                    <p className="text-xs sm:text-sm text-black/55 font-sans max-w-md mx-auto pt-1">
-                      {t.contact.step3Subtitle}
-                    </p>
-                  )}
+              <div className="space-y-2.5 max-w-md mx-auto">
+                <div className="text-2xl sm:text-3xl font-normal font-display text-[#111111] tracking-tight">
+                  {t.contact.successTitle}
                 </div>
+                <p className="text-black/65 text-sm sm:text-base font-sans leading-relaxed">
+                  {t.contact.successSubtitle(name || 'Cliente')}
+                </p>
+              </div>
 
-                {/* Step 1: Project Type Options Grid */}
-                {currentStep === 1 && (
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 animate-in fade-in duration-200">
-                    {t.contact.projectOptions.map((opt) => {
-                      const isSelected = selectedProjectType === opt.id;
-                      return (
-                        <div
-                          key={opt.id}
-                          onClick={() => setSelectedProjectType(opt.id)}
-                          className={`p-5 sm:p-7 rounded-2xl border transition-all duration-200 cursor-pointer flex flex-col items-center justify-center text-center gap-3.5 select-none ${
-                            isSelected
-                              ? 'bg-[#1C1D20] text-white border-[#1C1D20] shadow-md scale-[1.02]'
-                              : 'bg-white text-black/80 border-black/10 hover:border-black/30 hover:bg-black/[0.02]'
-                          }`}
-                          data-interactive
-                        >
+              <div className="pt-4 flex flex-wrap items-center justify-center gap-3.5">
+                <button
+                  type="button"
+                  onClick={resetForm}
+                  className="px-6 py-3 rounded-full border border-black/15 hover:border-black text-xs sm:text-sm font-sans font-medium transition-all cursor-pointer"
+                >
+                  {t.contact.resetButton}
+                </button>
+                <a
+                  href={siteConfig.profile.contact.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 rounded-full bg-[#111111] text-white hover:bg-black text-xs sm:text-sm font-sans font-medium transition-all"
+                >
+                  {isSpanish ? 'Abrir chat en WhatsApp ↗' : 'Open WhatsApp chat ↗'}
+                </a>
+              </div>
+            </div>
+          ) : (
+            <div>
+              {/* Step Header */}
+              <div className="space-y-1.5 mb-8 select-none">
+                <span className="text-xs font-mono tracking-[0.16em] text-black/45 uppercase font-medium block">
+                  {t.contact.stepIndicator(currentStep, 3)}
+                </span>
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal font-display tracking-[-0.02em] text-[#111111] leading-tight">
+                  {currentStep === 1 && t.contact.step1Question}
+                  {currentStep === 2 && t.contact.step2Question}
+                  {currentStep === 3 && t.contact.step3Question}
+                </h3>
+                <p className="text-xs sm:text-sm text-black/60 font-sans">
+                  {currentStep === 1 && t.contact.step1Subtitle}
+                  {currentStep === 2 && t.contact.step2Subtitle}
+                  {currentStep === 3 && t.contact.step3Subtitle}
+                </p>
+              </div>
+
+              {/* Step 1: Project Type 6-Card Grid (Exact match to Mockup) */}
+              {currentStep === 1 && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 animate-in fade-in duration-200">
+                  {t.contact.projectOptions.map((opt) => {
+                    const isSelected = selectedProjectType === opt.id;
+                    return (
+                      <div
+                        key={opt.id}
+                        onClick={() => setSelectedProjectType(opt.id)}
+                        className={`p-6 sm:p-7 rounded-[1.6rem] sm:rounded-[1.8rem] border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[175px] select-none group ${
+                          isSelected
+                            ? 'bg-[#1C1D20] border-[#1C1D20] text-white shadow-xl scale-[1.01]'
+                            : 'bg-white border-black/[0.08] text-black/80 hover:border-black/20 hover:shadow-md'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
                           <OptionIcon
                             icon={opt.icon}
-                            className={`w-7 h-7 sm:w-8 sm:h-8 transition-colors ${
-                              isSelected ? 'text-white' : 'text-black/70'
+                            className={`w-6 h-6 transition-colors duration-200 ${
+                              isSelected ? 'text-white' : 'text-black/80 group-hover:text-black'
                             }`}
                           />
-                          <span className="text-xs sm:text-sm font-medium tracking-tight">
-                            {opt.label}
-                          </span>
+                          <div
+                            className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all duration-200 ${
+                              isSelected
+                                ? 'border-emerald-500 bg-black/40'
+                                : 'border-black/20 group-hover:border-black/40'
+                            }`}
+                          >
+                            {isSelected && (
+                              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                            )}
+                          </div>
                         </div>
-                      );
-                    })}
-                  </div>
-                )}
 
-                {/* Step 2: Business Sector Options Grid */}
-                {currentStep === 2 && (
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 animate-in fade-in duration-200">
-                    {t.contact.sectorOptions.map((opt) => {
-                      const isSelected = selectedSector === opt.id;
-                      return (
-                        <div
-                          key={opt.id}
-                          onClick={() => setSelectedSector(opt.id)}
-                          className={`p-5 sm:p-7 rounded-2xl border transition-all duration-200 cursor-pointer flex flex-col items-center justify-center text-center gap-3.5 select-none ${
-                            isSelected
-                              ? 'bg-[#1C1D20] text-white border-[#1C1D20] shadow-md scale-[1.02]'
-                              : 'bg-white text-black/80 border-black/10 hover:border-black/30 hover:bg-black/[0.02]'
-                          }`}
-                          data-interactive
-                        >
+                        <div className="space-y-1.5 mt-6">
+                          <h4
+                            className={`text-base sm:text-lg font-display font-medium leading-snug ${
+                              isSelected ? 'text-white' : 'text-[#111111]'
+                            }`}
+                          >
+                            {opt.label}
+                          </h4>
+                          <p
+                            className={`text-xs font-sans leading-relaxed ${
+                              isSelected ? 'text-white/70' : 'text-black/55'
+                            }`}
+                          >
+                            {opt.description}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+
+              {/* Step 2: Business Sector 6-Card Grid */}
+              {currentStep === 2 && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 animate-in fade-in duration-200">
+                  {t.contact.sectorOptions.map((opt) => {
+                    const isSelected = selectedSector === opt.id;
+                    return (
+                      <div
+                        key={opt.id}
+                        onClick={() => setSelectedSector(opt.id)}
+                        className={`p-6 sm:p-7 rounded-[1.6rem] sm:rounded-[1.8rem] border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[175px] select-none group ${
+                          isSelected
+                            ? 'bg-[#1C1D20] border-[#1C1D20] text-white shadow-xl scale-[1.01]'
+                            : 'bg-white border-black/[0.08] text-black/80 hover:border-black/20 hover:shadow-md'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
                           <OptionIcon
                             icon={opt.icon}
-                            className={`w-7 h-7 sm:w-8 sm:h-8 transition-colors ${
-                              isSelected ? 'text-white' : 'text-black/70'
+                            className={`w-6 h-6 transition-colors duration-200 ${
+                              isSelected ? 'text-white' : 'text-black/80 group-hover:text-black'
                             }`}
                           />
-                          <span className="text-xs sm:text-sm font-medium tracking-tight">
-                            {opt.label}
-                          </span>
+                          <div
+                            className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all duration-200 ${
+                              isSelected
+                                ? 'border-emerald-500 bg-black/40'
+                                : 'border-black/20 group-hover:border-black/40'
+                            }`}
+                          >
+                            {isSelected && (
+                              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                            )}
+                          </div>
                         </div>
-                      );
-                    })}
-                  </div>
-                )}
 
-                {/* Step 3: Contact Inputs */}
-                {currentStep === 3 && (
-                  <form onSubmit={handleSubmit} id="quiz-contact-form" className="space-y-6 max-w-lg mx-auto animate-in fade-in duration-200">
-                    {/* Summary of chosen options */}
-                    <div className="flex flex-wrap items-center justify-center gap-2 pb-2">
-                      <span className="px-3.5 py-1.5 rounded-full bg-black/5 text-xs text-black/80 font-medium">
-                        {currentProjectObj.label}
-                      </span>
-                      <span className="text-black/30 text-xs">•</span>
-                      <span className="px-3.5 py-1.5 rounded-full bg-black/5 text-xs text-black/80 font-medium">
-                        {currentSectorObj.label}
-                      </span>
+                        <div className="space-y-1.5 mt-6">
+                          <h4
+                            className={`text-base sm:text-lg font-display font-medium leading-snug ${
+                              isSelected ? 'text-white' : 'text-[#111111]'
+                            }`}
+                          >
+                            {opt.label}
+                          </h4>
+                          <p
+                            className={`text-xs font-sans leading-relaxed ${
+                              isSelected ? 'text-white/70' : 'text-black/55'
+                            }`}
+                          >
+                            {opt.description}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+
+              {/* Step 3: Contact Details & Fast Proposal Dispatch */}
+              {currentStep === 3 && (
+                <div className="p-7 sm:p-10 rounded-[2rem] bg-white border border-black/[0.08] shadow-xs space-y-6 animate-in fade-in duration-200">
+                  {/* Summary of chosen options */}
+                  <div className="flex flex-wrap gap-2.5 p-4 rounded-2xl bg-black/[0.03] border border-black/[0.06] text-xs font-mono text-black/70">
+                    <span className="px-3.5 py-1.5 rounded-full bg-white border border-black/10 shadow-2xs">
+                      {currentProjectObj.label}
+                    </span>
+                    <span className="px-3.5 py-1.5 rounded-full bg-white border border-black/10 shadow-2xs">
+                      {currentSectorObj.label}
+                    </span>
+                  </div>
+
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="space-y-1.5">
+                      <label className="block text-xs font-sans font-medium text-black/70">
+                        {t.contact.nameLabel}
+                      </label>
+                      <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder={t.contact.namePlaceholder}
+                        className="w-full px-5 py-3.5 rounded-2xl bg-white border border-black/10 focus:border-black focus:outline-none text-sm text-black placeholder:text-black/30 transition-colors shadow-2xs"
+                      />
                     </div>
 
-                    <div className="space-y-4">
-                      <div>
-                        <label htmlFor="quiz-name" className="block text-xs font-medium text-black/70 mb-1.5 font-sans">
-                          {t.contact.nameLabel}
-                        </label>
-                        <input
-                          id="quiz-name"
-                          type="text"
-                          required
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          placeholder={t.contact.namePlaceholder}
-                          className="w-full px-5 py-3.5 rounded-xl sm:rounded-2xl bg-[#fafaf8] border border-black/10 text-sm sm:text-base leading-normal text-black placeholder:text-black/30 focus:outline-none focus:border-[#1C1D20] focus:ring-1 focus:ring-[#1C1D20] transition-all"
-                          data-interactive
-                        />
-                      </div>
-
-                      <div>
-                        <label htmlFor="quiz-phone" className="block text-xs font-medium text-black/70 mb-1.5 font-sans">
-                          {t.contact.phoneLabel}
-                        </label>
-                        <input
-                          id="quiz-phone"
-                          type="tel"
-                          required
-                          value={phone}
-                          onChange={(e) => setPhone(e.target.value)}
-                          placeholder={t.contact.phonePlaceholder}
-                          className="w-full px-5 py-3.5 rounded-xl sm:rounded-2xl bg-[#fafaf8] border border-black/10 text-sm sm:text-base leading-normal text-black placeholder:text-black/30 focus:outline-none focus:border-[#1C1D20] focus:ring-1 focus:ring-[#1C1D20] transition-all"
-                          data-interactive
-                        />
-                      </div>
+                    <div className="space-y-1.5">
+                      <label className="block text-xs font-sans font-medium text-black/70">
+                        {t.contact.phoneLabel}
+                      </label>
+                      <input
+                        type="tel"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        placeholder={t.contact.phonePlaceholder}
+                        className="w-full px-5 py-3.5 rounded-2xl bg-white border border-black/10 focus:border-black focus:outline-none text-sm text-black placeholder:text-black/30 transition-colors shadow-2xs"
+                      />
                     </div>
 
                     {errorMessage && (
-                      <div className="text-red-600 text-xs font-sans text-center">
-                        {errorMessage}
-                      </div>
+                      <p className="text-xs text-rose-600 font-sans">{errorMessage}</p>
                     )}
                   </form>
+                </div>
+              )}
+
+              {/* Bottom Navigation Bar */}
+              <div className="mt-8 pt-6 border-t border-black/[0.08] flex items-center justify-between">
+                {currentStep > 1 ? (
+                  <button
+                    type="button"
+                    onClick={handlePrev}
+                    className="px-6 py-3 rounded-full border border-black/15 text-xs sm:text-sm font-sans font-medium text-black/70 hover:text-black hover:border-black/40 transition-colors cursor-pointer"
+                  >
+                    ← {t.contact.prevButton}
+                  </button>
+                ) : (
+                  <div />
                 )}
 
-                {/* Bottom Navigation Buttons */}
-                <div className="pt-8 sm:pt-10 border-t border-black/[0.06] flex items-center justify-between gap-4">
-                  {currentStep > 1 ? (
-                    <button
-                      type="button"
-                      onClick={handlePrev}
-                      className="px-6 py-3 sm:px-8 sm:py-3.5 rounded-full border border-black/15 hover:border-black text-xs sm:text-sm font-medium text-black/80 hover:text-black transition-all cursor-pointer flex items-center gap-2"
-                      data-interactive
-                    >
-                      <span>‹</span>
-                      <span>{t.contact.prevButton}</span>
-                    </button>
-                  ) : (
-                    <div />
-                  )}
-
-                  {currentStep < 3 ? (
-                    <Magnetic strength={0.2} radius={60}>
-                      <button
-                        type="button"
-                        onClick={handleNext}
-                        className="px-8 py-3 sm:px-10 sm:py-3.5 rounded-full bg-[#1C1D20] text-white hover:bg-black text-xs sm:text-sm font-medium transition-all shadow-sm active:scale-95 cursor-pointer flex items-center gap-2 ml-auto"
-                        data-interactive
-                      >
-                        <span>{t.contact.nextButton}</span>
-                        <span>›</span>
-                      </button>
-                    </Magnetic>
-                  ) : (
-                    <Magnetic strength={0.2} radius={60}>
-                      <button
-                        type="submit"
-                        form="quiz-contact-form"
-                        disabled={status === 'submitting'}
-                        className="px-8 py-3.5 sm:px-10 sm:py-4 rounded-full bg-[#1C1D20] text-white hover:bg-black text-xs sm:text-sm font-medium transition-all shadow-md active:scale-95 disabled:opacity-60 cursor-pointer flex items-center gap-2.5 ml-auto"
-                        data-interactive
-                      >
-                        <span>{status === 'submitting' ? t.contact.submitSending : t.contact.submitIdle}</span>
-                        <span>→</span>
-                      </button>
-                    </Magnetic>
-                  )}
-                </div>
+                {currentStep < 3 ? (
+                  <button
+                    type="button"
+                    onClick={handleNext}
+                    className="px-7 py-3 rounded-full bg-[#111111] text-white text-xs sm:text-sm font-sans font-medium hover:bg-black/85 transition-all duration-300 active:scale-95 cursor-pointer flex items-center gap-2 shadow-xs"
+                  >
+                    <span>{t.contact.nextButton}</span>
+                    <span>→</span>
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={handleSubmit}
+                    disabled={status === 'submitting'}
+                    className="px-8 py-3.5 rounded-full bg-[#111111] text-white text-xs sm:text-sm font-sans font-medium hover:bg-black/85 transition-all duration-300 active:scale-95 cursor-pointer flex items-center gap-2 shadow-md disabled:opacity-50"
+                  >
+                    <span>{status === 'submitting' ? t.contact.submitSending : t.contact.submitIdle}</span>
+                    <span>→</span>
+                  </button>
+                )}
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

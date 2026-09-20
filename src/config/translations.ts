@@ -112,16 +112,23 @@ export interface Translations {
   };
   contact: {
     sectionTag: string;
-    title: string;
+    titleLine1: string;
+    titleLine2: string;
     description: string;
+    stepIndicator: (current: number, total: number) => string;
     step1Question: string;
+    step1Subtitle: string;
     step2Question: string;
+    step2Subtitle: string;
     step3Question: string;
     step3Subtitle: string;
+    whatsappQuestion: string;
+    whatsappAction: string;
+    whatsappButton: string;
     prevButton: string;
     nextButton: string;
-    projectOptions: Array<{ id: string; label: string; icon: string }>;
-    sectorOptions: Array<{ id: string; label: string; icon: string }>;
+    projectOptions: Array<{ id: string; label: string; description: string; icon: string }>;
+    sectorOptions: Array<{ id: string; label: string; description: string; icon: string }>;
     nameLabel: string;
     namePlaceholder: string;
     phoneLabel: string;
@@ -364,31 +371,98 @@ export const translations: Record<Language, Translations> = {
       ],
     },
     contact: {
-      sectionTag: 'Project Estimator',
-      title: 'Start a Project',
+      sectionTag: 'Project',
+      titleLine1: 'Start a',
+      titleLine2: 'Project.',
       description:
-        'Tell us about your project goals and we will get back to you with a tailored proposal today.',
-      step1Question: 'What type of project do you need?',
+        'Tell us briefly about your project goals and we will reply with a tailored proposal today.',
+      stepIndicator: (c, total) => `STEP ${c} OF ${total}`,
+      step1Question: 'What type of project are you looking for?',
+      step1Subtitle: 'Select the option that best fits your goals.',
       step2Question: 'What is your business sector?',
+      step2Subtitle: 'Select the primary category of your business activity.',
       step3Question: 'Where should we send your proposal?',
       step3Subtitle: 'We will review your inquiry and contact you personally on the same business day.',
+      whatsappQuestion: 'Have questions before starting?',
+      whatsappAction: "Let's chat on WhatsApp.",
+      whatsappButton: "Let's talk",
       prevButton: 'Previous',
       nextButton: 'Next',
       projectOptions: [
-        { id: 'web-scratch', label: 'Website from Scratch', icon: 'globe' },
-        { id: 'landing', label: 'Landing Page', icon: 'rocket' },
-        { id: 'seo', label: 'SEO Optimization', icon: 'search' },
-        { id: 'ai', label: 'AI Integration', icon: 'cpu' },
-        { id: 'redesign', label: 'Website Redesign', icon: 'refresh' },
-        { id: 'other', label: 'Other Service', icon: 'compass' },
+        {
+          id: 'web-scratch',
+          label: 'Website from Scratch',
+          description: 'A complete, custom-built website tailored for your business.',
+          icon: 'globe',
+        },
+        {
+          id: 'landing',
+          label: 'Landing Page',
+          description: 'A single high-speed page focused on converting visitors into clients.',
+          icon: 'rocket',
+        },
+        {
+          id: 'seo',
+          label: 'SEO Optimization',
+          description: 'Boost your Google presence and attract more qualified clients.',
+          icon: 'search',
+        },
+        {
+          id: 'ai',
+          label: 'AI Integration',
+          description: 'Automate workflows and empower your business with artificial intelligence.',
+          icon: 'cpu',
+        },
+        {
+          id: 'redesign',
+          label: 'Website Redesign',
+          description: 'Revitalize your website with modern, performance-driven design.',
+          icon: 'refresh',
+        },
+        {
+          id: 'other',
+          label: 'Other Service',
+          description: 'Tell us what you need and we will find the ideal solution for you.',
+          icon: 'compass',
+        },
       ],
       sectorOptions: [
-        { id: 'health', label: 'Healthcare', icon: 'heart' },
-        { id: 'services', label: 'Services', icon: 'briefcase' },
-        { id: 'retail', label: 'Retail & Food', icon: 'store' },
-        { id: 'b2b', label: 'B2B Enterprise', icon: 'layers' },
-        { id: 'property', label: 'Real Estate', icon: 'home' },
-        { id: 'other', label: 'Other Sector', icon: 'star' },
+        {
+          id: 'health',
+          label: 'Healthcare & Clinics',
+          description: 'Medical practices, clinics, dental care, and health specialists.',
+          icon: 'heart',
+        },
+        {
+          id: 'services',
+          label: 'Professional Services',
+          description: 'Consulting, legal, agencies, accounting, and advisory firms.',
+          icon: 'briefcase',
+        },
+        {
+          id: 'retail',
+          label: 'Retail & Hospitality',
+          description: 'Restaurants, physical stores, e-commerce, and food brands.',
+          icon: 'store',
+        },
+        {
+          id: 'b2b',
+          label: 'B2B & Enterprise',
+          description: 'Wholesale, distribution, logistics, and enterprise services.',
+          icon: 'layers',
+        },
+        {
+          id: 'property',
+          label: 'Real Estate',
+          description: 'Real estate agencies, property sales, and residential projects.',
+          icon: 'home',
+        },
+        {
+          id: 'other',
+          label: 'Other Sector',
+          description: 'Any other commercial business model or venture.',
+          icon: 'star',
+        },
       ],
       nameLabel: 'Your name or company',
       namePlaceholder: 'Alex Morgan',
@@ -631,31 +705,98 @@ export const translations: Record<Language, Translations> = {
       ],
     },
     contact: {
-      sectionTag: 'Cotizador Rápido',
-      title: 'Iniciar un Proyecto',
+      sectionTag: 'Proyecto',
+      titleLine1: 'Iniciar un',
+      titleLine2: 'Proyecto.',
       description:
         'Cuéntanos brevemente sobre tu proyecto y te responderemos con una propuesta personalizada hoy mismo.',
+      stepIndicator: (c, total) => `PASO ${c} DE ${total}`,
       step1Question: '¿Qué tipo de proyecto buscas?',
+      step1Subtitle: 'Selecciona la opción que mejor se ajuste a tus objetivos.',
       step2Question: '¿Cuál es el sector de tu negocio?',
+      step2Subtitle: 'Selecciona la categoría principal de tu actividad comercial.',
       step3Question: '¿A dónde te enviamos la propuesta?',
       step3Subtitle: 'Revisaremos tu consulta y te contactaremos personalmente el mismo día hábil.',
+      whatsappQuestion: '¿Tienes dudas antes de empezar?',
+      whatsappAction: 'Hablemos por WhatsApp.',
+      whatsappButton: 'Hablemos',
       prevButton: 'Anterior',
       nextButton: 'Siguiente',
       projectOptions: [
-        { id: 'web-scratch', label: 'Página Web desde Cero', icon: 'globe' },
-        { id: 'landing', label: 'Landing Page', icon: 'rocket' },
-        { id: 'seo', label: 'Optimización SEO', icon: 'search' },
-        { id: 'ai', label: 'Integración de IA', icon: 'cpu' },
-        { id: 'redesign', label: 'Rediseño Web', icon: 'refresh' },
-        { id: 'other', label: 'Otro Servicio', icon: 'compass' },
+        {
+          id: 'web-scratch',
+          label: 'Página Web desde Cero',
+          description: 'Un sitio web completo y personalizado para tu negocio.',
+          icon: 'globe',
+        },
+        {
+          id: 'landing',
+          label: 'Landing Page',
+          description: 'Una página enfocada en convertir visitas en clientes.',
+          icon: 'rocket',
+        },
+        {
+          id: 'seo',
+          label: 'Optimización SEO',
+          description: 'Mejora tu visibilidad en Google y atrae más clientes.',
+          icon: 'search',
+        },
+        {
+          id: 'ai',
+          label: 'Integración de IA',
+          description: 'Automatiza procesos y potencia tu negocio con inteligencia artificial.',
+          icon: 'cpu',
+        },
+        {
+          id: 'redesign',
+          label: 'Rediseño Web',
+          description: 'Dale una nueva vida a tu sitio con un diseño moderno y enfocado en resultados.',
+          icon: 'refresh',
+        },
+        {
+          id: 'other',
+          label: 'Otro Servicio',
+          description: 'Cuéntanos qué necesitas y encontramos la mejor solución para ti.',
+          icon: 'compass',
+        },
       ],
       sectorOptions: [
-        { id: 'health', label: 'Salud o Clínica', icon: 'heart' },
-        { id: 'services', label: 'Servicios', icon: 'briefcase' },
-        { id: 'retail', label: 'Comercio / Comida', icon: 'store' },
-        { id: 'b2b', label: 'Empresa / B2B', icon: 'layers' },
-        { id: 'property', label: 'Inmobiliaria', icon: 'home' },
-        { id: 'other', label: 'Otro Sector', icon: 'star' },
+        {
+          id: 'health',
+          label: 'Salud o Clínica',
+          description: 'Consultorios médicos, clínicas y especialistas de salud.',
+          icon: 'heart',
+        },
+        {
+          id: 'services',
+          label: 'Servicios Profesionales',
+          description: 'Consultoría, agencias, asesoría y firmas profesionales.',
+          icon: 'briefcase',
+        },
+        {
+          id: 'retail',
+          label: 'Comercio o Comida',
+          description: 'Restaurantes, tiendas físicas y marcas de consumo.',
+          icon: 'store',
+        },
+        {
+          id: 'b2b',
+          label: 'Empresa o B2B',
+          description: 'Distribuidoras, logística e industria corporativa.',
+          icon: 'layers',
+        },
+        {
+          id: 'property',
+          label: 'Inmobiliaria',
+          description: 'Venta, renta de inmuebles y proyectos residenciales.',
+          icon: 'home',
+        },
+        {
+          id: 'other',
+          label: 'Otro Sector',
+          description: 'Cualquier otro tipo de modelo comercial o negocio.',
+          icon: 'star',
+        },
       ],
       nameLabel: 'Tu nombre o empresa',
       namePlaceholder: 'Carlos Mendoza',
