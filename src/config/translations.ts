@@ -21,6 +21,11 @@ export interface Translations {
     switchLangTooltip: string;
   };
   hero: {
+    headlineLine1: string;
+    headlineLine2: string;
+    headlineLine3: string;
+    subtitle: string;
+    signature: string;
     disciplineLine1: string;
     disciplineAnd: string;
     disciplineLine2: string;
@@ -157,6 +162,11 @@ export const translations: Record<Language, Translations> = {
       switchLangTooltip: 'Cambiar a español',
     },
     hero: {
+      headlineLine1: 'Your business can',
+      headlineLine2: 'rank at the very top',
+      headlineLine3: 'of Google Search.',
+      subtitle: 'Bespoke web design and engineering in Cali to bring your company to the top of Google.',
+      signature: 'JP Studios by Juan Pablo Chacón',
       disciplineLine1: 'Bespoke Websites',
       disciplineAnd: '&',
       disciplineLine2: 'Design to Sell.',
@@ -410,6 +420,11 @@ export const translations: Record<Language, Translations> = {
       switchLangTooltip: 'Switch to English',
     },
     hero: {
+      headlineLine1: 'Tu negocio puede',
+      headlineLine2: 'ocupar los primeros',
+      headlineLine3: 'resultados de Google.',
+      subtitle: 'Diseño y desarrollo web basado en Cali para sacar a tu página de los sótanos de Google.',
+      signature: 'JP Studios by Juan Pablo Chacón',
       disciplineLine1: 'Páginas Web Cali',
       disciplineAnd: '&',
       disciplineLine2: 'Diseño para Vender.',
