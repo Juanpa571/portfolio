@@ -119,20 +119,20 @@ export const Hero: React.FC = () => {
       ref={containerRef}
       className="relative min-h-[calc(100vh-6.5rem)] min-h-[calc(100dvh-6.5rem)] flex flex-col justify-between border-b border-black/[0.08] overflow-hidden"
     >
-      {/* Asymmetric Split Layout with Open Breathing Space */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 flex-1 flex flex-col justify-center py-10 sm:py-14 lg:py-16">
+      {/* Editorial Content Container */}
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 flex-1 flex flex-col justify-center py-8 sm:py-12 lg:py-14">
         
-        {/* Monumental Business & Ranking Proposition (Option 1 - Clean 3-Line Rhythm) */}
-        <div className="w-full max-w-5xl flex flex-col justify-center min-w-0">
+        {/* Monumental Headline Block */}
+        <div className="w-full max-w-6xl flex flex-col justify-center min-w-0">
           <h1 
             aria-label="Páginas web en Cali para liderar Google y multiplicar tus ventas — JP Studios"
-            className="space-y-2 sm:space-y-3 lg:space-y-4 select-none m-0 font-normal"
+            className="space-y-1 sm:space-y-2 lg:space-y-2.5 select-none m-0 font-medium tracking-[-0.03em] text-black"
           >
             {/* Line 1: Páginas web en Cali, */}
             <span className="block">
               <span
                 ref={line1Ref}
-                className="inline-block text-3xl sm:text-5xl md:text-6xl lg:text-[3.8vw] xl:text-[4.2vw] 2xl:text-[4.5vw] font-normal font-display tracking-[-0.02em] text-black leading-[1.12] sm:leading-[1.15] cursor-default will-change-transform sm:whitespace-nowrap"
+                className="inline-block text-4xl sm:text-6xl md:text-7xl lg:text-[5.2vw] xl:text-[5.7vw] font-medium font-display leading-[1.04] sm:leading-[1.06] cursor-default will-change-transform whitespace-nowrap"
                 data-interactive
               >
                 <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
@@ -141,11 +141,11 @@ export const Hero: React.FC = () => {
               </span>
             </span>
 
-            {/* Line 2 with intentional asymmetrical indent: para liderar Google */}
-            <span className="block pl-4 sm:pl-10 lg:pl-16 xl:pl-20">
+            {/* Line 2 with asymmetric indent: para liderar Google */}
+            <span className="block pl-6 sm:pl-16 md:pl-24 lg:pl-32 xl:pl-36">
               <span
                 ref={line2Ref}
-                className="inline-block text-3xl sm:text-5xl md:text-6xl lg:text-[3.8vw] xl:text-[4.2vw] 2xl:text-[4.5vw] font-normal font-display tracking-[-0.02em] text-black leading-[1.12] sm:leading-[1.15] cursor-default will-change-transform sm:whitespace-nowrap"
+                className="inline-block text-4xl sm:text-6xl md:text-7xl lg:text-[5.2vw] xl:text-[5.7vw] font-medium font-display leading-[1.04] sm:leading-[1.06] cursor-default will-change-transform whitespace-nowrap"
                 data-interactive
               >
                 <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
@@ -158,7 +158,7 @@ export const Hero: React.FC = () => {
             <span className="block">
               <span
                 ref={line3Ref}
-                className="inline-block text-3xl sm:text-5xl md:text-6xl lg:text-[3.8vw] xl:text-[4.2vw] 2xl:text-[4.5vw] font-normal font-display tracking-[-0.02em] text-black leading-[1.12] sm:leading-[1.15] cursor-default will-change-transform sm:whitespace-nowrap"
+                className="inline-block text-4xl sm:text-6xl md:text-7xl lg:text-[5.2vw] xl:text-[5.7vw] font-medium font-display leading-[1.04] sm:leading-[1.06] cursor-default will-change-transform whitespace-nowrap"
                 data-interactive
               >
                 <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
@@ -169,17 +169,17 @@ export const Hero: React.FC = () => {
           </h1>
 
           {/* Subtitle & Value Proposition */}
-          <p className="text-sm sm:text-base lg:text-lg text-black/70 font-sans leading-relaxed max-w-xl pt-6 sm:pt-8">
+          <p className="text-sm sm:text-base md:text-[1.05rem] text-black/75 font-sans leading-relaxed max-w-lg pt-8 sm:pt-10">
             {t.hero.subtitle}
           </p>
 
           {/* Action & Author Signature Lockup */}
-          <div className="pt-8 sm:pt-10 flex flex-wrap items-center gap-4 sm:gap-6">
+          <div className="pt-6 sm:pt-8 flex flex-wrap items-center gap-4 sm:gap-5">
             <a
               href={siteConfig.profile.contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 sm:px-7 py-3.5 rounded-full bg-[#141517] hover:bg-black text-white text-xs sm:text-sm font-sans font-medium flex items-center gap-2.5 shadow-xs transition-all duration-200 active:scale-95 group"
+              className="px-6 sm:px-7 py-3 rounded-full bg-[#141517] hover:bg-black text-white text-xs sm:text-sm font-sans font-medium flex items-center gap-2 shadow-xs transition-all duration-200 active:scale-95 group"
               data-interactive
             >
               <span>{t.intro.startOnWhatsApp}</span>
@@ -189,7 +189,7 @@ export const Hero: React.FC = () => {
             </a>
 
             <div className="text-xs sm:text-sm font-sans text-black/55 font-medium flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-black/25" />
+              <span className="w-1.5 h-1.5 rounded-full bg-black/35" />
               <span>{t.hero.signature}</span>
             </div>
           </div>
@@ -198,13 +198,13 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Clean Bottom Orientation Bar */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 pb-8 sm:pb-10 flex items-center justify-between text-xs font-sans text-black/70 select-none">
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 pb-8 sm:pb-10 flex items-center justify-between text-xs font-sans text-black/55 select-none">
         <div className="flex items-center gap-2">
           <span>{siteConfig.profile.location}</span>
           <span className="text-black/30">•</span>
-          <span className="text-black/70">{t.hero.studioType}</span>
+          <span>{t.hero.studioType}</span>
         </div>
-        <div className="text-black/70 font-sans text-xs">
+        <div className="font-sans text-xs">
           {t.hero.role}
         </div>
       </div>
