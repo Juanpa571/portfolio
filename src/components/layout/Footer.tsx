@@ -178,7 +178,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Bottom Colophon & Global Coordinates */}
-          <div className="pt-16 mt-16 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 text-xs font-sans text-white/40">
+          <div className="pt-16 mt-16 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 text-xs font-sans text-white/75">
             <div className="space-y-1">
               <div className="font-bold text-white text-sm tracking-tight font-display">
                 {t.footer.brandName}
@@ -186,7 +186,7 @@ export const Footer: React.FC = () => {
               <div>{t.footer.craftedBy}</div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-6 text-white/60 text-[11px]">
+            <div className="flex flex-wrap items-center gap-6 text-white/70 text-[11px]">
               <span>{t.footer.location}</span>
               <span className="text-white/20">•</span>
               <span>{t.footer.remoteWorldwide}</span>

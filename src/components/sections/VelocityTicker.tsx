@@ -81,7 +81,7 @@ export const VelocityTicker: React.FC = () => {
             className={`transition-colors duration-300 ${
               item.filled
                 ? 'text-black font-medium'
-                : 'text-transparent font-normal [-webkit-text-stroke:1px_rgba(0,0,0,0.35)] hover:[-webkit-text-stroke:1px_rgba(0,0,0,0.8)]'
+                : 'text-black/70 font-light'
             }`}
           >
             {item.text}

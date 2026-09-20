@@ -1,4 +1,4 @@
-﻿# JP Studios — Juan Pablo Chacón
+# JP Studios — Juan Pablo Chacón
 
 > Estudio de desarrollo web de alto rendimiento, páginas web diseñadas para vender y posicionamiento SEO local en Cali, Colombia.
 
@@ -66,8 +66,9 @@ JP Studios es un estudio independiente de ingeniería y diseño web fundado por 
 
 ## Enlaces Canónicos y Recursos
 
-- Web Principal: https://jpchacon.com/
-- Cotizador Interactivo: https://jpchacon.com/#contact
-- Preguntas Frecuentes: https://jpchacon.com/#faq
-- Mapa del Sitio XML: https://jpchacon.com/sitemap.xml
-- Archivo para Agentes de IA: https://jpchacon.com/llms.txt
+- [JP Studios (Sitio Oficial)](https://jpchacon.com/): Estudio de diseño y desarrollo web en Cali, Colombia.
+- [Cotizador Interactivo](https://jpchacon.com/#contact): Cotización rápida de proyectos web y estimación de alcance sin fricción.
+- [Preguntas Frecuentes](https://jpchacon.com/#faq): Respuestas sobre tiempos de entrega (7-14 días), propiedad de código y costos.
+- [WhatsApp Directo](https://wa.me/573177371301): Canal de comunicación directa con Juan Pablo Chacón (+57 317 737 1301).
+- [Mapa del Sitio XML](https://jpchacon.com/sitemap.xml): Índice estructurado de páginas para rastreadores de búsqueda.
+- [Contexto LLM](https://jpchacon.com/llms.txt): Especificación de contexto para agentes autónomos y motores de respuesta IA.

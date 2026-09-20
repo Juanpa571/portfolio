@@ -132,7 +132,7 @@ export const Hero: React.FC = () => {
             <span className="block">
               <span
                 ref={line1Ref}
-                className="inline-block text-5xl sm:text-6xl md:text-7xl lg:text-[5vw] xl:text-[5.5vw] 2xl:text-[5.8vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.03] sm:leading-[1.08] pb-1 cursor-default will-change-transform opacity-0"
+                className="inline-block text-5xl sm:text-6xl md:text-7xl lg:text-[5vw] xl:text-[5.5vw] 2xl:text-[5.8vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.03] sm:leading-[1.08] pb-1 cursor-default will-change-transform"
                 data-interactive
               >
                 <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
@@ -145,7 +145,7 @@ export const Hero: React.FC = () => {
             <span className="block pl-6 sm:pl-10 lg:pl-12 xl:pl-16">
               <span
                 ref={line2Ref}
-                className="inline-block text-5xl sm:text-6xl md:text-7xl lg:text-[5vw] xl:text-[5.5vw] 2xl:text-[5.8vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.03] sm:leading-[1.08] pb-1 cursor-default will-change-transform opacity-0"
+                className="inline-block text-5xl sm:text-6xl md:text-7xl lg:text-[5vw] xl:text-[5.5vw] 2xl:text-[5.8vw] font-normal font-display tracking-[-0.01em] text-black leading-[1.03] sm:leading-[1.08] pb-1 cursor-default will-change-transform"
                 data-interactive
               >
                 <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
@@ -158,7 +158,7 @@ export const Hero: React.FC = () => {
             <span className="block pt-1.5 sm:pt-3 lg:pt-4 pl-1 sm:pl-2">
               <span
                 ref={line3Ref}
-                className="inline-block text-2xl sm:text-3xl md:text-4xl lg:text-[2.6vw] xl:text-[2.8vw] font-light font-display tracking-[-0.01em] text-black/65 hover:text-black/90 leading-[1.08] sm:leading-[1.14] pb-1 cursor-default will-change-transform opacity-0 transition-colors duration-500"
+                className="inline-block text-2xl sm:text-3xl md:text-4xl lg:text-[2.6vw] xl:text-[2.8vw] font-light font-display tracking-[-0.01em] text-black/65 hover:text-black/90 leading-[1.08] sm:leading-[1.14] pb-1 cursor-default will-change-transform transition-colors duration-500"
                 data-interactive
               >
                 <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
@@ -172,7 +172,7 @@ export const Hero: React.FC = () => {
         {/* Right: Sculpted Architectural Portrait (Bold Mobile Scale) */}
         <div
           ref={portraitRef}
-          className="w-full max-w-[320px] sm:max-w-[360px] md:max-w-[390px] lg:max-w-[420px] xl:max-w-[460px] 2xl:max-w-[490px] shrink-0 opacity-0 will-change-transform [perspective:1000px] my-2 lg:my-0"
+          className="w-full max-w-[320px] sm:max-w-[360px] md:max-w-[390px] lg:max-w-[420px] xl:max-w-[460px] 2xl:max-w-[490px] shrink-0 will-change-transform [perspective:1000px] my-2 lg:my-0"
         >
           <div className="relative group transition-transform duration-500 ease-out">
             {/* Ambient Lighting Shadow Layer */}
@@ -181,13 +181,20 @@ export const Hero: React.FC = () => {
             {/* Sculpted Card Bezel Frame */}
             <div className="relative p-2.5 sm:p-3 bg-white/75 backdrop-blur-md rounded-[2.4rem] sm:rounded-[2.5rem] border border-black/[0.07] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.12)]">
               <div className="relative aspect-[3/4] rounded-[1.9rem] sm:rounded-[2rem] overflow-hidden bg-[#141517]">
-                <img
-                  src="/hero-portrait.webp"
-                  alt="Juan Pablo Chacón — Páginas Web Cali y Diseño para Vender"
-                  className="w-full h-full object-cover object-[center_22%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                  loading="eager"
-                  decoding="async"
-                />
+                <picture>
+                  <source media="(max-width: 640px)" srcSet="/hero-portrait-sm.webp" type="image/webp" />
+                  <source media="(min-width: 641px)" srcSet="/hero-portrait.webp" type="image/webp" />
+                  <img
+                    src="/hero-portrait.webp"
+                    alt="Juan Pablo Chacón — Páginas Web Cali y Diseño para Vender"
+                    width="420"
+                    height="560"
+                    className="w-full h-full object-cover object-[center_22%] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority="high"
+                  />
+                </picture>
 
                 {/* Subtle Cinematic Lighting Vignette */}
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80" />
@@ -202,13 +209,13 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Clean Bottom Orientation Bar */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 pb-8 sm:pb-10 flex items-center justify-between text-xs font-sans text-black/60 select-none">
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 pb-8 sm:pb-10 flex items-center justify-between text-xs font-sans text-black/70 select-none">
         <div className="flex items-center gap-2">
           <span>{siteConfig.profile.location}</span>
-          <span className="text-black/25">•</span>
-          <span className="text-black/45">{t.hero.studioType}</span>
+          <span className="text-black/30">•</span>
+          <span className="text-black/70">{t.hero.studioType}</span>
         </div>
-        <div className="text-black/50 font-sans text-xs">
+        <div className="text-black/70 font-sans text-xs">
           {t.hero.role}
         </div>
       </div>

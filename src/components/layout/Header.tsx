@@ -78,7 +78,7 @@ export const Header: React.FC = () => {
             aria-label={`${siteConfig.profile.brandName} Home`}
           >
             <img
-              src="/logo-horizontal.png"
+              src="/logo-horizontal.webp"
               alt={siteConfig.profile.brandName}
               className="h-7 sm:h-[34px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
               width={335}
@@ -201,11 +201,13 @@ export const Header: React.FC = () => {
         {/* Drawer Header */}
         <div className="flex items-center justify-between pt-2 border-b border-white/10 pb-6">
           <img
-            src="/logo-horizontal-white.png"
+            src="/logo-horizontal-white.webp"
             alt={siteConfig.profile.brandName}
             className="h-6 sm:h-7 w-auto object-contain"
             width={335}
             height={81}
+            loading="lazy"
+            decoding="async"
           />
           <div className="flex items-center gap-4">
             <LanguageToggle theme="dark" />

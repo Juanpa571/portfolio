@@ -11,7 +11,6 @@ import { Faq } from './components/sections/Faq';
 import { ContactForm } from './components/sections/ContactForm';
 import { Footer } from './components/layout/Footer';
 import { CustomCursor } from './components/ui/CustomCursor';
-import { Preloader } from './components/ui/Preloader';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 
 export const App: React.FC = () => {
@@ -20,7 +19,6 @@ export const App: React.FC = () => {
   return (
     <LanguageProvider>
       <div id="top" className="min-h-screen bg-[#fafaf8] text-[#1a1a1e] font-sans antialiased selection:bg-black selection:text-white relative">
-        <Preloader />
         <CustomCursor />
         <Header />
         <main>
