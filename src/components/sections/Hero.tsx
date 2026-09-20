@@ -229,7 +229,7 @@ export const Hero: React.FC = () => {
             <img
               src="/laptop-sobre-roca.png"
               alt="JP Studios — Páginas Web Cali"
-              className="w-full h-full object-cover object-[right_bottom] [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.15)_3%,rgba(0,0,0,0.75)_8%,black_14%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.15)_3%,rgba(0,0,0,0.75)_8%,black_14%)] select-none"
+              className="w-full h-full object-cover object-[right_bottom] select-none"
               width={1536}
               height={1024}
               loading="eager"
@@ -240,9 +240,6 @@ export const Hero: React.FC = () => {
 
           {/* Top subtle feather where image meets the sticky bar */}
           <div className="absolute inset-x-0 top-0 h-14 sm:h-18 bg-gradient-to-b from-[#fafaf8] via-[#fafaf8]/50 to-transparent pointer-events-none z-10" />
-
-          {/* Bottom subtle feather to soften edge with body */}
-          <div className="absolute inset-x-0 bottom-0 h-10 sm:h-12 bg-gradient-to-t from-[#fafaf8] via-[#fafaf8]/40 to-transparent pointer-events-none z-10" />
         </div>
       </div>
 
