@@ -3,7 +3,6 @@ import { LanguageProvider } from './context/LanguageContext';
 import { Header } from './components/layout/Header';
 import { Hero } from './components/sections/Hero';
 import { Intro } from './components/sections/Intro';
-import { VelocityTicker } from './components/sections/VelocityTicker';
 import { Services } from './components/sections/Services';
 import { Process } from './components/sections/Process';
 // import { ProjectList } from './components/sections/ProjectList';
@@ -24,7 +23,6 @@ export const App: React.FC = () => {
         <main>
           <Hero />
           <Intro />
-          <VelocityTicker />
           <Services />
           <Process />
           {/* ProjectList temporalmente oculto hasta integrar casos de estudio reales */}
