@@ -258,19 +258,15 @@ export const Header: React.FC = () => {
             </div>
           </div>
 
-          {/* Center: Primary Navigation Links with Sliding Magnetic Pill */}
+          {/* Center: Primary Navigation Links with Floating Active Pill */}
           <nav
             ref={navRef}
-            className={`relative hidden lg:flex items-center text-sm font-sans transition-all duration-500 p-1 rounded-full ${
-              isDark
-                ? 'bg-white/[0.04] border border-white/[0.08]'
-                : 'bg-black/[0.03] border border-black/[0.06]'
-            }`}
+            className="relative hidden lg:flex items-center text-sm font-sans transition-all duration-500 py-1"
           >
-            {/* Sliding Magnetic Pill Indicator */}
+            {/* Sliding Magnetic Pill Indicator (Only on Active Item) */}
             <div
-              className={`absolute top-1 bottom-1 rounded-full pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                isDark ? 'bg-white/[0.14] shadow-xs' : 'bg-white shadow-xs border border-black/[0.06]'
+              className={`absolute top-1/2 -translate-y-1/2 h-[34px] rounded-full pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                isDark ? 'bg-white/[0.14] shadow-xs' : 'bg-black/[0.06] text-black shadow-2xs'
               }`}
               style={{
                 transform: `translateX(${pillStyle.left}px)`,
