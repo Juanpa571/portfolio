@@ -244,14 +244,11 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Clean Bottom Orientation Bar */}
-      <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pb-8 sm:pb-10 flex items-center justify-between text-xs font-sans select-none relative z-30">
+      <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pb-8 sm:pb-10 flex items-center justify-start text-xs font-sans select-none relative z-30">
         <div className="flex items-center gap-2 text-black/60">
           <span>{siteConfig.profile.location}</span>
           <span className="text-black/30">•</span>
           <span>{t.hero.studioType}</span>
-        </div>
-        <div className="text-black/60 lg:text-white/85 font-sans text-xs font-medium transition-colors duration-300">
-          {t.hero.role}
         </div>
       </div>
     </section>
