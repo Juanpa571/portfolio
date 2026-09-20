@@ -34,20 +34,27 @@ export const useSmoothScroll = () => {
     gsap.ticker.add(updateTicker);
     gsap.ticker.lagSmoothing(0);
 
-    // Smooth scroll for in-page anchors (excluding header nav which handles its own animations)
+    // Smooth scroll for in-page anchors
     const handleAnchorClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement | null)?.closest('a[href^="#"]');
-      if (target && !target.closest('header')) {
+      if (target) {
         const href = target.getAttribute('href');
         if (href && href.startsWith('#')) {
           e.preventDefault();
+          const easeInOutQuint = (t: number) =>
+            t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t;
+
           if (href === '#' || href === '#top') {
-            lenis.scrollTo(0, { duration: 1.2 });
+            lenis.scrollTo(0, { duration: 1.45, easing: easeInOutQuint });
           } else {
             const el = document.querySelector(href);
             if (el) {
               lenis.start();
-              lenis.scrollTo(el as HTMLElement, { offset: -85, duration: 1.2 });
+              lenis.scrollTo(el as HTMLElement, {
+                offset: -85,
+                duration: 1.45,
+                easing: easeInOutQuint,
+              });
             }
           }
         }
