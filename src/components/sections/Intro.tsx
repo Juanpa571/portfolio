@@ -59,13 +59,18 @@ export const Intro: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 sm:py-28 lg:py-36 bg-[#111111] text-white relative z-10 overflow-hidden">
+    <section 
+      id="intro"
+      data-theme="dark"
+      ref={sectionRef} 
+      className="py-14 sm:py-16 lg:py-20 bg-[#111111] text-white relative z-10 overflow-hidden"
+    >
       <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
           
           {/* Left Column: Juan Pablo's Portrait (Col 1-5) */}
           <div ref={photoRef} className="lg:col-span-5 flex justify-center lg:justify-start">
-            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-none aspect-[3/4] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/[0.08] group will-change-[transform,opacity]">
+            <div className="relative w-full max-w-[300px] sm:max-w-[340px] lg:max-w-[380px] xl:max-w-[410px] max-h-[58vh] aspect-[3/4] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/[0.08] group will-change-[transform,opacity]">
               <picture className="w-full h-full">
                 <source type="image/webp" srcSet="/hero-portrait.webp" />
                 <img
@@ -85,19 +90,19 @@ export const Intro: React.FC = () => {
           <div className="lg:col-span-7 flex flex-col justify-center">
             <p
               ref={statementRef}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-[2.1rem] xl:text-[2.35rem] text-white/90 font-sans font-normal leading-[1.3] tracking-[-0.015em] will-change-[transform,opacity]"
+              className="text-lg sm:text-xl md:text-2xl lg:text-[1.85rem] xl:text-[2.1rem] text-white/90 font-sans font-normal leading-[1.34] tracking-[-0.015em] will-change-[transform,opacity]"
             >
               {t.intro.statement}
             </p>
 
             {/* Contact Actions Lockup */}
-            <div ref={actionsRef} className="pt-8 sm:pt-10 lg:pt-12 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <div ref={actionsRef} className="pt-6 sm:pt-8 lg:pt-9 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
               <Magnetic strength={0.3} radius={100} className="w-full sm:w-auto">
                 <a
                   href={siteConfig.profile.contact.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-7 py-4.5 rounded-2xl bg-white text-black text-sm font-medium hover:bg-neutral-200 active:scale-[0.98] transition-all duration-300 flex items-center justify-between sm:justify-start gap-3 shadow-sm group"
+                  className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-2xl bg-white text-black text-sm font-medium hover:bg-neutral-200 active:scale-[0.98] transition-all duration-300 flex items-center justify-between sm:justify-start gap-3 shadow-sm group"
                   data-interactive
                 >
                   <span>{t.intro.startOnWhatsApp}</span>
@@ -108,7 +113,7 @@ export const Intro: React.FC = () => {
               <Magnetic strength={0.25} radius={90} className="w-full sm:w-auto">
                 <a
                   href={`mailto:${siteConfig.profile.contact.email}`}
-                  className="w-full sm:w-auto px-7 py-4.5 rounded-2xl bg-white/[0.08] hover:bg-white/[0.14] border border-white/15 text-white text-xs sm:text-sm font-sans font-medium active:scale-[0.98] transition-all duration-300 flex items-center justify-between sm:justify-start gap-4 group"
+                  className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-2xl bg-white/[0.08] hover:bg-white/[0.14] border border-white/15 text-white text-xs sm:text-sm font-sans font-medium active:scale-[0.98] transition-all duration-300 flex items-center justify-between sm:justify-start gap-4 group"
                   data-interactive
                 >
                   <span className="truncate">{siteConfig.profile.contact.email}</span>

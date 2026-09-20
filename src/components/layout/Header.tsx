@@ -9,6 +9,7 @@ export const Header: React.FC = () => {
   const liveTime = useLiveTime(siteConfig.profile.timezone);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isPastHero, setIsPastHero] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -23,6 +24,18 @@ export const Header: React.FC = () => {
       } else {
         setIsPastHero(scrollY > 400);
       }
+
+      // Check if sticky bar is currently overlapping any section marked data-theme="dark"
+      const darkSections = document.querySelectorAll<HTMLElement>('[data-theme="dark"]');
+      let overDark = false;
+      const headerCheckY = 40;
+      darkSections.forEach((sec) => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top <= headerCheckY && rect.bottom >= headerCheckY) {
+          overDark = true;
+        }
+      });
+      setIsDark(overDark);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -86,7 +99,9 @@ export const Header: React.FC = () => {
       <header
         className={`sticky top-0 z-40 w-full select-none transition-all duration-500 ease-out ${
           isScrolled
-            ? 'bg-[#fafaf8]/95 backdrop-blur-md border-b border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)] py-3 sm:py-3.5'
+            ? isDark
+              ? 'bg-[#111111]/92 backdrop-blur-md border-b border-white/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.5)] py-3 sm:py-3.5'
+              : 'bg-[#fafaf8]/95 backdrop-blur-md border-b border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)] py-3 sm:py-3.5'
             : 'bg-transparent border-b border-transparent shadow-none py-6 sm:py-8 lg:py-9'
         }`}
       >
@@ -107,7 +122,7 @@ export const Header: React.FC = () => {
               aria-label={`${siteConfig.profile.brandName} Home`}
             >
               <img
-                src="/logo-horizontal.webp"
+                src={isDark ? '/logo-horizontal-white.webp' : '/logo-horizontal.webp'}
                 alt={siteConfig.profile.brandName}
                 className={`w-auto object-contain transition-all duration-500 group-hover:scale-[1.02] ${
                   isScrolled ? 'h-6 sm:h-[28px]' : 'h-7 sm:h-[34px]'
@@ -118,7 +133,9 @@ export const Header: React.FC = () => {
             </a>
 
             <span
-              className={`hidden sm:block w-px bg-black/15 transition-all duration-500 ${
+              className={`hidden sm:block w-px transition-all duration-500 ${
+                isDark ? 'bg-white/20' : 'bg-black/15'
+              } ${
                 isScrolled ? 'h-5 mx-0.5' : 'h-7 mx-1 sm:mx-1.5'
               }`}
               aria-hidden="true"
@@ -126,14 +143,18 @@ export const Header: React.FC = () => {
 
             <div className="hidden sm:flex flex-col text-left leading-tight transition-all duration-500">
               <span
-                className={`font-bold tracking-[0.08em] text-[#141517] uppercase font-sans transition-all duration-500 ${
+                className={`font-bold tracking-[0.08em] uppercase font-sans transition-all duration-500 ${
+                  isDark ? 'text-white' : 'text-[#141517]'
+                } ${
                   isScrolled ? 'text-[9.5px]' : 'text-[10.5px] sm:text-[11px]'
                 }`}
               >
                 {t.nav.location}
               </span>
               <span
-                className={`font-medium tracking-[0.08em] text-black/50 uppercase font-sans transition-all duration-500 ${
+                className={`font-medium tracking-[0.08em] uppercase font-sans transition-all duration-500 ${
+                  isDark ? 'text-white/50' : 'text-black/50'
+                } ${
                   isScrolled ? 'text-[8px]' : 'text-[9px] sm:text-[9.5px]'
                 }`}
               >
@@ -144,7 +165,7 @@ export const Header: React.FC = () => {
 
           {/* Center: 5 Primary Navigation Links */}
           <nav
-            className={`hidden lg:flex items-center text-sm font-sans font-medium text-black/75 transition-all duration-500 ${
+            className={`hidden lg:flex items-center text-sm font-sans font-medium transition-all duration-500 ${
               isScrolled ? 'gap-6 xl:gap-8' : 'gap-7 xl:gap-9'
             }`}
           >
@@ -153,24 +174,34 @@ export const Header: React.FC = () => {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="relative py-1 text-black/70 hover:text-black transition-colors duration-200 group"
+                className={`relative py-1 transition-colors duration-200 group ${
+                  isDark ? 'text-white/70 hover:text-white' : 'text-black/70 hover:text-black'
+                }`}
                 data-interactive
               >
                 <span>{link.label}</span>
-                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-black transition-all duration-300 group-hover:w-full" />
+                <span
+                  className={`absolute bottom-0 left-0 w-0 h-[1.5px] transition-all duration-300 group-hover:w-full ${
+                    isDark ? 'bg-white' : 'bg-black'
+                  }`}
+                />
               </a>
             ))}
           </nav>
 
           {/* Right: Language Switcher Pill + Pulsing CTA Pill Button */}
           <div className="flex items-center gap-2.5 sm:gap-3.5 flex-shrink-0">
-            <LanguageToggle theme="light" />
+            <LanguageToggle theme={isDark ? 'dark' : 'light'} />
 
             <a
               href={siteConfig.profile.contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className={`rounded-full bg-[#141517] hover:bg-black text-white font-sans font-medium flex items-center gap-2 shadow-xs transition-all duration-300 active:scale-95 group ${
+              className={`rounded-full font-sans font-medium flex items-center gap-2 shadow-xs transition-all duration-300 active:scale-95 group ${
+                isDark
+                  ? 'bg-white hover:bg-neutral-200 text-black'
+                  : 'bg-[#141517] hover:bg-black text-white'
+              } ${
                 isScrolled
                   ? 'px-4 sm:px-5 py-2 text-xs sm:text-sm'
                   : 'px-5 sm:px-6 py-2.5 text-xs sm:text-sm'
@@ -193,23 +224,31 @@ export const Header: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 rounded-full hover:bg-black/[0.05] text-black transition-colors cursor-pointer"
+              className={`lg:hidden p-2 rounded-full transition-colors cursor-pointer ${
+                isDark ? 'text-white hover:bg-white/10' : 'text-black hover:bg-black/[0.05]'
+              }`}
               aria-label={isMenuOpen ? 'Close Menu' : 'Open Navigation Menu'}
               data-interactive
             >
               <div className="w-5 h-4 flex flex-col justify-between items-center">
                 <span
-                  className={`w-5 h-[1.5px] bg-black rounded-full transition-all duration-300 ${
+                  className={`w-5 h-[1.5px] rounded-full transition-all duration-300 ${
+                    isDark ? 'bg-white' : 'bg-black'
+                  } ${
                     isMenuOpen ? 'rotate-45 translate-y-[7px]' : ''
                   }`}
                 />
                 <span
-                  className={`w-5 h-[1.5px] bg-black rounded-full transition-all duration-300 ${
+                  className={`w-5 h-[1.5px] rounded-full transition-all duration-300 ${
+                    isDark ? 'bg-white' : 'bg-black'
+                  } ${
                     isMenuOpen ? 'opacity-0' : ''
                   }`}
                 />
                 <span
-                  className={`w-5 h-[1.5px] bg-black rounded-full transition-all duration-300 ${
+                  className={`w-5 h-[1.5px] rounded-full transition-all duration-300 ${
+                    isDark ? 'bg-white' : 'bg-black'
+                  } ${
                     isMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''
                   }`}
                 />

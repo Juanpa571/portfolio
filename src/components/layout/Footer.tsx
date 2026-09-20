@@ -93,11 +93,12 @@ export const Footer: React.FC = () => {
   return (
     <footer
       id="footer"
+      data-theme="dark"
       ref={sectionRef}
-      className="relative bg-[#1C1D20] text-white min-h-screen flex flex-col justify-between overflow-hidden"
+      className="relative bg-[#111111] text-white min-h-screen flex flex-col justify-between overflow-hidden"
     >
       {/* Dennis Snellenberg-inspired Morphing Geometric Horizon Curve (Monumental Scale) */}
-      <div className="relative w-full overflow-hidden bg-[#1C1D20] -mt-px pointer-events-none">
+      <div className="relative w-full overflow-hidden bg-[#111111] -mt-px pointer-events-none">
         <svg
           viewBox="0 0 1440 320"
           className="w-full h-36 sm:h-52 md:h-72 lg:h-80 xl:h-96 block overflow-visible"
