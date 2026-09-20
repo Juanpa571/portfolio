@@ -93,14 +93,14 @@ export const Services: React.FC = () => {
         
         {/* Asymmetric Section Header with Refokus-Style Kinetic Morph */}
         <div ref={headerRef} className="relative mb-12 lg:mb-16 pb-6">
-          <div className="space-y-3 max-w-4xl">
+          <div className="space-y-3 max-w-5xl">
             {/* H2 Semántico Limpio para SEO y Lectores de Pantalla */}
             <h2 className="sr-only">
               {t.services.headerLine1} {t.services.headerLine2}
             </h2>
 
             {/* Presentación Visual Cinética */}
-            <div aria-hidden="true" className="text-4xl sm:text-6xl lg:text-7xl font-normal font-display tracking-[-0.01em] leading-[1.12] sm:leading-[1.15]">
+            <div aria-hidden="true" className="text-3xl sm:text-5xl lg:text-6xl font-normal font-display tracking-[-0.01em] leading-[1.14] sm:leading-[1.18]">
               {/* Line 1: Built on trust. */}
               <div className="relative inline-block pb-1">
                 <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
@@ -116,13 +116,13 @@ export const Services: React.FC = () => {
               </div>
               <br />
               {/* Line 2: Shaped by craft. (Asymmetric indent) */}
-              <div className="relative inline-block sm:pl-12 lg:pl-20 pb-1">
+              <div className="relative inline-block sm:pl-10 lg:pl-16 pb-1">
                 <span className="text-transparent [-webkit-text-stroke:1.2px_rgba(0,0,0,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(0,0,0,0.35)] select-none">
                   {t.services.headerLine2}
                 </span>
                 <span
                   ref={line2FillRef}
-                  className="absolute inset-0 sm:pl-12 lg:pl-20 text-black select-none will-change-transform"
+                  className="absolute inset-0 sm:pl-10 lg:pl-16 text-black select-none will-change-transform"
                   style={{ clipPath: 'inset(0 100% 0 0)' }}
                 >
                   {t.services.headerLine2}
@@ -145,12 +145,11 @@ export const Services: React.FC = () => {
             <TiltCard
               maxTilt={3}
               scale={1.01}
-              className="p-7 sm:p-9 rounded-[2rem] bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-500 flex flex-col justify-center h-full group cursor-pointer"
-              data-interactive
+              className="p-7 sm:p-9 rounded-[2rem] bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-500 flex flex-col justify-center h-full group cursor-default"
             >
               <div className="flex items-center justify-between gap-6 my-auto">
                 <div className="space-y-1.5 max-w-[65%]">
-                  <h3 className="text-2xl sm:text-3xl font-normal font-display text-black tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
+                  <h3 className="text-2xl sm:text-3xl font-normal font-display text-black tracking-tight">
                     {t.services.items[0].title}
                   </h3>
                   <p className="text-xs sm:text-sm text-black/65 font-sans leading-relaxed">
@@ -168,12 +167,11 @@ export const Services: React.FC = () => {
             <TiltCard
               maxTilt={3.5}
               scale={1.01}
-              className="p-7 sm:p-9 rounded-[2rem] bg-[#1C1D20] text-white border border-white/10 shadow-xl hover:shadow-2xl hover:border-white/25 transition-all duration-500 flex flex-col justify-center h-full group cursor-pointer relative overflow-hidden"
-              data-interactive
+              className="p-7 sm:p-9 rounded-[2rem] bg-[#1C1D20] text-white border border-white/10 shadow-xl hover:shadow-2xl hover:border-white/25 transition-all duration-500 flex flex-col justify-center h-full group cursor-default relative overflow-hidden"
             >
               <div className="flex items-center justify-between gap-6 my-auto">
                 <div className="space-y-1.5 max-w-[65%]">
-                  <h3 className="text-2xl sm:text-3xl font-normal font-display text-white tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
+                  <h3 className="text-2xl sm:text-3xl font-normal font-display text-white tracking-tight">
                     {t.services.items[1].title}
                   </h3>
                   <p className="text-xs sm:text-sm text-white/70 font-sans leading-relaxed">
@@ -191,12 +189,11 @@ export const Services: React.FC = () => {
             <TiltCard
               maxTilt={3}
               scale={1.01}
-              className="p-7 sm:p-9 rounded-[2rem] bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-500 flex flex-col justify-center h-full group cursor-pointer"
-              data-interactive
+              className="p-7 sm:p-9 rounded-[2rem] bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-500 flex flex-col justify-center h-full group cursor-default"
             >
               <div className="flex items-center justify-between gap-6 my-auto">
                 <div className="space-y-1.5 max-w-[65%]">
-                  <h3 className="text-2xl sm:text-3xl font-normal font-display text-black tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
+                  <h3 className="text-2xl sm:text-3xl font-normal font-display text-black tracking-tight">
                     {t.services.items[2].title}
                   </h3>
                   <p className="text-xs sm:text-sm text-black/65 font-sans leading-relaxed">
@@ -214,12 +211,11 @@ export const Services: React.FC = () => {
             <TiltCard
               maxTilt={3}
               scale={1.01}
-              className="p-7 sm:p-9 rounded-[2rem] bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-500 flex flex-col justify-center h-full group cursor-pointer relative"
-              data-interactive
+              className="p-7 sm:p-9 rounded-[2rem] bg-white border border-black/[0.08] shadow-xs hover:shadow-xl hover:border-black/20 transition-all duration-500 flex flex-col justify-center h-full group cursor-default relative"
             >
               <div className="flex items-center justify-between gap-6 my-auto">
                 <div className="space-y-1.5 max-w-[65%]">
-                  <h3 className="text-2xl sm:text-3xl font-normal font-display text-black tracking-tight group-hover:translate-x-1.5 transition-transform duration-300">
+                  <h3 className="text-2xl sm:text-3xl font-normal font-display text-black tracking-tight">
                     {t.services.items[3].title}
                   </h3>
                   <p className="text-xs sm:text-sm text-black/65 font-sans leading-relaxed">

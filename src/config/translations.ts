@@ -434,7 +434,7 @@ export const translations: Record<Language, Translations> = {
       ],
     },
     services: {
-      headerLine1: 'Ingeniería web diseñada para facturar,',
+      headerLine1: 'Ingeniería web para facturar,',
       headerLine2: 'no solo para adornar.',
       items: [
         {
