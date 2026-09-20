@@ -178,7 +178,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       headlineLine1: 'Websites in Cali,',
       headlineLine2: 'engineered to rank on Google',
-      headlineLine3: 'and turn visitors into clients.',
+      headlineLine3: 'and scale your sales.',
       subtitle: 'Bespoke web design and engineering in Cali to bring your company to the top of Google.',
       signature: 'JP Studios by Juan Pablo Chacón',
       disciplineLine1: 'Bespoke Websites',
@@ -512,7 +512,7 @@ export const translations: Record<Language, Translations> = {
     hero: {
       headlineLine1: 'Páginas web en Cali,',
       headlineLine2: 'para liderar Google',
-      headlineLine3: 'y convertir visitas en clientes.',
+      headlineLine3: 'y multiplicar tus ventas.',
       subtitle: 'Diseño y desarrollo web basado en Cali para sacar a tu página de los sótanos de Google.',
       signature: 'JP Studios by Juan Pablo Chacón',
       disciplineLine1: 'Páginas Web Cali',
