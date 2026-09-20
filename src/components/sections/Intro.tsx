@@ -63,7 +63,7 @@ export const Intro: React.FC = () => {
       id="intro"
       data-theme="dark"
       ref={sectionRef} 
-      className="py-14 sm:py-16 lg:py-20 bg-[#111111] text-white relative z-10 overflow-hidden"
+      className="py-14 sm:py-16 lg:py-20 bg-[#111111] text-white relative z-10 overflow-hidden scroll-mt-24"
     >
       <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">

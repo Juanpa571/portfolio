@@ -105,7 +105,7 @@ export const Services: React.FC = () => {
   }, []);
 
   return (
-    <section id="services" className="py-16 lg:py-24 border-b border-black/[0.08] relative overflow-hidden">
+    <section id="services" className="py-16 lg:py-24 border-b border-black/[0.08] relative overflow-hidden scroll-mt-24">
       
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         

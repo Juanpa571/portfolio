@@ -89,7 +89,7 @@ export const Process: React.FC = () => {
     <section
       id="process"
       ref={sectionRef}
-      className="py-16 sm:py-24 lg:py-32 border-b border-black/[0.08] bg-[#fafaf8] relative overflow-hidden"
+      className="py-16 sm:py-24 lg:py-32 border-b border-black/[0.08] bg-[#fafaf8] relative overflow-hidden scroll-mt-24"
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         {/* Clean Editorial Section Header */}

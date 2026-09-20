@@ -81,11 +81,38 @@ export const Header: React.FC = () => {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
+    e.stopPropagation();
     setIsMenuOpen(false);
+
+    const lenis = (window as any).__lenis;
+    if (lenis) {
+      lenis.start();
+    }
+
+    if (href === '#' || href === '#top') {
+      if (lenis) {
+        lenis.scrollTo(0, { duration: 1.2 });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      return;
+    }
+
     const targetId = href.replace('#', '');
     const targetEl = document.getElementById(targetId);
     if (targetEl) {
-      targetEl.scrollIntoView({ behavior: 'smooth' });
+      if (lenis) {
+        // -85px offset ensures sticky header doesn't cover section title
+        lenis.scrollTo(targetEl, { offset: -85, duration: 1.2 });
+      } else {
+        const headerOffset = 85;
+        const elementPosition = targetEl.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      }
     }
   };
 
@@ -112,7 +139,8 @@ export const Header: React.FC = () => {
           {/* Left: Brand Identity + Vertical Separator + Location Lockup */}
           <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
             <a
-              href="#"
+              href="#top"
+              onClick={(e) => handleNavClick(e, '#top')}
               className="group flex items-center"
               data-interactive
               aria-label={`${siteConfig.profile.brandName} Home`}

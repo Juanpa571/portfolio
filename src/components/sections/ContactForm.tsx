@@ -236,7 +236,7 @@ export const ContactForm: React.FC = () => {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative w-full max-w-[1400px] mx-auto px-6 sm:px-12 py-16 sm:py-24 lg:py-32 scroll-mt-16"
+      className="relative w-full max-w-[1400px] mx-auto px-6 sm:px-12 py-16 sm:py-24 lg:py-32 scroll-mt-24"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column: Heading & WhatsApp Assistance */}

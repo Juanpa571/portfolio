@@ -69,7 +69,7 @@ export const Faq: React.FC = () => {
   return (
     <section
       id="faq"
-      className="py-16 sm:py-24 lg:py-32 border-b border-black/[0.08] bg-[#fafaf8] relative"
+      className="py-16 sm:py-24 lg:py-32 border-b border-black/[0.08] bg-[#fafaf8] relative scroll-mt-24"
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
