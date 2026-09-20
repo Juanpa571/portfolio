@@ -43,8 +43,10 @@ export interface Translations {
     track2: Array<{ text: string; filled: boolean }>;
   };
   services: {
+    tag: string;
     headerLine1: string;
     headerLine2: string;
+    seoDescription: string;
     items: Array<{
       id: string;
       number: string;
@@ -203,8 +205,11 @@ export const translations: Record<Language, Translations> = {
       ],
     },
     services: {
+      tag: 'Services',
       headerLine1: 'Engineered for revenue,',
       headerLine2: 'not just decoration.',
+      seoDescription:
+        'Bespoke web development in Cali, high-speed landing pages, and Google Maps optimization. Engineered with clean code to rank your business across search engines and route qualified prospects straight to direct contact channels.',
       items: [
         {
           id: 'performance-web',
@@ -461,8 +466,11 @@ export const translations: Record<Language, Translations> = {
       ],
     },
     services: {
+      tag: 'Servicios',
       headerLine1: 'Ingeniería web para facturar,',
       headerLine2: 'no solo para adornar.',
+      seoDescription:
+        'Desarrollo web en Cali, páginas de alta velocidad y presencia en Google Maps. Diseñamos arquitectura en código limpio optimizada para captar clientes locales y conectar directamente por WhatsApp y llamadas.',
       items: [
         {
           id: 'performance-web',

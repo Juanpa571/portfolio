@@ -14,6 +14,7 @@ export const Services: React.FC = () => {
   const { t } = useLanguage();
   const headerRef = useRef<HTMLDivElement | null>(null);
   const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const descRef = useRef<HTMLParagraphElement | null>(null);
   const rulerRef = useRef<HTMLDivElement | null>(null);
   const cardsContainerRef = useRef<HTMLDivElement | null>(null);
 
@@ -30,6 +31,26 @@ export const Services: React.FC = () => {
             y: 0,
             opacity: 1,
             duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: 'top 85%',
+              once: true,
+            },
+          }
+        );
+      }
+
+      // Fade-and-rise entrance for SEO description
+      if (descRef.current) {
+        gsap.fromTo(
+          descRef.current,
+          { y: 20, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.85,
+            delay: 0.1,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: headerRef.current,
@@ -90,14 +111,33 @@ export const Services: React.FC = () => {
         
         {/* Clean Editorial Section Header */}
         <div ref={headerRef} className="relative mb-12 lg:mb-16 pb-6">
-          <div className="max-w-5xl">
-            <h2
-              ref={titleRef}
-              className="text-3xl sm:text-5xl lg:text-6xl font-normal font-display tracking-[-0.02em] text-[#111111] leading-[1.12] sm:leading-[1.16] select-none"
-            >
-              <span className="block">{t.services.headerLine1}</span>
-              <span className="block sm:pl-10 lg:pl-16 text-black/60">{t.services.headerLine2}</span>
-            </h2>
+          {/* Subtle Category Pill above Title */}
+          <div className="mb-4 sm:mb-6">
+            <span className="inline-block text-xs sm:text-sm font-sans font-medium text-black/60 px-3.5 py-1 rounded-full bg-black/[0.04] border border-black/[0.08] select-none">
+              {t.services.tag}
+            </span>
+          </div>
+
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12">
+            <div className="max-w-3xl">
+              <h2
+                ref={titleRef}
+                className="text-3xl sm:text-5xl lg:text-6xl font-normal font-display tracking-[-0.02em] text-[#111111] leading-[1.12] sm:leading-[1.16] select-none"
+              >
+                <span className="block">{t.services.headerLine1}</span>
+                <span className="block sm:pl-10 lg:pl-16 text-black/60">{t.services.headerLine2}</span>
+              </h2>
+            </div>
+
+            {/* SEO Description to the right */}
+            <div className="lg:max-w-md pb-1">
+              <p
+                ref={descRef}
+                className="text-sm sm:text-base text-black/65 font-sans font-normal leading-relaxed"
+              >
+                {t.services.seoDescription}
+              </p>
+            </div>
           </div>
 
           {/* Animated Ruler Line drawn on scroll */}
