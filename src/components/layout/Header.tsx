@@ -12,31 +12,39 @@ export const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const heroEl = document.getElementById('hero');
+      if (heroEl) {
+        const rect = heroEl.getBoundingClientRect();
+        // Scrolled past hero when the bottom of hero reaches near top of viewport (~100px)
+        setIsScrolled(rect.bottom <= 100);
+      } else {
+        setIsScrolled(window.scrollY > 200);
+      }
     };
 
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
+
+  // Lock body scroll, pause Lenis, and listen for Escape when off-canvas drawer is open on mobile
+  useEffect(() => {
+    const lenis = (window as any).__lenis;
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setIsMenuOpen(false);
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('keydown', handleKeyDown);
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
-
-  // Lock body scroll and pause Lenis when off-canvas drawer is open on mobile
-  useEffect(() => {
-    const lenis = (window as any).__lenis;
     if (isMenuOpen) {
       lenis?.stop();
       document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
     } else {
       lenis?.start();
       document.body.style.overflow = '';
@@ -44,6 +52,7 @@ export const Header: React.FC = () => {
     return () => {
       lenis?.start();
       document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isMenuOpen]);
 
@@ -72,13 +81,17 @@ export const Header: React.FC = () => {
     <>
       {/* Bespoke Sticky Navigation Bar */}
       <header
-        className={`sticky top-0 z-40 w-full select-none transition-all duration-300 ${
+        className={`sticky top-0 z-40 w-full select-none transition-all duration-500 ease-out ${
           isScrolled
             ? 'bg-[#fafaf8]/95 backdrop-blur-md border-b border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)] py-3 sm:py-3.5'
-            : 'bg-[#fafaf8]/85 backdrop-blur-sm border-b border-black/[0.04] py-3.5 sm:py-4.5'
+            : 'bg-transparent border-b border-transparent shadow-none py-6 sm:py-8 lg:py-9'
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between gap-4">
+        <div
+          className={`max-w-[1400px] mx-auto flex items-center justify-between gap-4 transition-all duration-500 ${
+            isScrolled ? 'px-4 sm:px-8 lg:px-12' : 'px-6 sm:px-12'
+          }`}
+        >
           
           {/* Left: Brand Identity + Vertical Separator + Location Lockup */}
           <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
@@ -91,26 +104,45 @@ export const Header: React.FC = () => {
               <img
                 src="/logo-horizontal.webp"
                 alt={siteConfig.profile.brandName}
-                className="h-6 sm:h-[28px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                className={`w-auto object-contain transition-all duration-500 group-hover:scale-[1.02] ${
+                  isScrolled ? 'h-6 sm:h-[28px]' : 'h-7 sm:h-[34px]'
+                }`}
                 width={335}
                 height={81}
               />
             </a>
 
-            <span className="hidden sm:block h-6 w-px bg-black/15 mx-0.5" aria-hidden="true" />
+            <span
+              className={`hidden sm:block w-px bg-black/15 transition-all duration-500 ${
+                isScrolled ? 'h-5 mx-0.5' : 'h-7 mx-1 sm:mx-1.5'
+              }`}
+              aria-hidden="true"
+            />
 
-            <div className="hidden sm:flex flex-col text-left leading-tight">
-              <span className="text-[10px] font-bold tracking-[0.08em] text-[#141517] uppercase font-sans">
+            <div className="hidden sm:flex flex-col text-left leading-tight transition-all duration-500">
+              <span
+                className={`font-bold tracking-[0.08em] text-[#141517] uppercase font-sans transition-all duration-500 ${
+                  isScrolled ? 'text-[9.5px]' : 'text-[10.5px] sm:text-[11px]'
+                }`}
+              >
                 {t.nav.location}
               </span>
-              <span className="text-[8.5px] font-medium tracking-[0.08em] text-black/50 uppercase font-sans">
+              <span
+                className={`font-medium tracking-[0.08em] text-black/50 uppercase font-sans transition-all duration-500 ${
+                  isScrolled ? 'text-[8px]' : 'text-[9px] sm:text-[9.5px]'
+                }`}
+              >
                 {t.nav.studio}
               </span>
             </div>
           </div>
 
           {/* Center: 5 Primary Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-sans font-medium text-black/75">
+          <nav
+            className={`hidden lg:flex items-center text-sm font-sans font-medium text-black/75 transition-all duration-500 ${
+              isScrolled ? 'gap-6 xl:gap-8' : 'gap-7 xl:gap-9'
+            }`}
+          >
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -133,7 +165,11 @@ export const Header: React.FC = () => {
               href={siteConfig.profile.contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 sm:px-5 py-2 rounded-full bg-[#141517] hover:bg-black text-white text-xs sm:text-sm font-sans font-medium flex items-center gap-2 shadow-xs transition-all duration-200 active:scale-95 group"
+              className={`rounded-full bg-[#141517] hover:bg-black text-white font-sans font-medium flex items-center gap-2 shadow-xs transition-all duration-300 active:scale-95 group ${
+                isScrolled
+                  ? 'px-4 sm:px-5 py-2 text-xs sm:text-sm'
+                  : 'px-5 sm:px-6 py-2.5 text-xs sm:text-sm'
+              }`}
               data-interactive
               aria-label={t.nav.talk}
             >

@@ -115,8 +115,9 @@ export const Hero: React.FC = () => {
 
   return (
     <section
+      id="hero"
       ref={containerRef}
-      className="relative min-h-[calc(100vh-5.5rem)] min-h-[calc(100dvh-5.5rem)] flex flex-col justify-between border-b border-black/[0.08] overflow-hidden"
+      className="relative min-h-[calc(100vh-6.5rem)] min-h-[calc(100dvh-6.5rem)] flex flex-col justify-between border-b border-black/[0.08] overflow-hidden"
     >
       {/* Asymmetric Split Layout */}
       <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 flex-1 flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-8 sm:gap-10 lg:gap-16 py-8 sm:py-10 lg:py-14">
