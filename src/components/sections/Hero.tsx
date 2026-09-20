@@ -119,101 +119,93 @@ export const Hero: React.FC = () => {
       ref={containerRef}
       className="relative min-h-[calc(100vh-6.5rem)] min-h-[calc(100dvh-6.5rem)] flex flex-col justify-between border-b border-black/[0.08] overflow-hidden"
     >
+      {/* Immersive Right-Bleed MacBook Device & Volcanic Rock Specimen */}
+      <div
+        ref={portraitRef}
+        className="absolute right-0 top-0 bottom-0 w-full sm:w-[85%] md:w-[75%] lg:w-[64%] xl:w-[58%] 2xl:w-[54%] pointer-events-none select-none overflow-hidden z-0"
+        aria-hidden="true"
+      >
+        <img
+          src="/hero-device.webp"
+          alt="Diseño y desarrollo web en Cali — JP Studios en MacBook"
+          fetchPriority="high"
+          decoding="async"
+          className="w-full h-full object-cover object-[right_bottom] [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.05)_10%,black_28%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.05)_10%,black_28%)]"
+        />
+      </div>
+
       {/* Editorial Content Container */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 flex-1 flex flex-col justify-center py-8 sm:py-12 lg:py-14">
+      <div className="relative z-10 max-w-[1400px] w-full mx-auto px-6 sm:px-12 flex-1 flex flex-col justify-center py-8 sm:py-12 lg:py-14">
         
-        {/* Asymmetric Split: Left Text + Right Device Showcase Specimen */}
-        <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-8 xl:gap-14">
-          
-          {/* Left Column: Monumental Value & Commercial Proposition */}
-          <div className="w-full lg:w-[58%] xl:w-[60%] flex flex-col justify-center min-w-0 pr-0 lg:pr-2">
-            <h1 
-              aria-label="Páginas web en Cali para liderar Google y multiplicar tus ventas — JP Studios"
-              className="space-y-1 sm:space-y-2 lg:space-y-2.5 select-none m-0 font-medium tracking-[-0.03em] text-black"
-            >
-              {/* Line 1: Páginas web en Cali, */}
-              <span className="block">
-                <span
-                  ref={line1Ref}
-                  className="inline-block text-3xl sm:text-5xl md:text-6xl lg:text-[3.1vw] xl:text-[3.5vw] 2xl:text-[3.75rem] font-medium font-display leading-[1.04] sm:leading-[1.06] cursor-default will-change-transform whitespace-nowrap"
-                  data-interactive
-                >
-                  <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                    {t.hero.headlineLine1}
-                  </span>
-                </span>
-              </span>
-
-              {/* Line 2 with asymmetric indent: para liderar Google */}
-              <span className="block pl-[1.85em]">
-                <span
-                  ref={line2Ref}
-                  className="inline-block text-3xl sm:text-5xl md:text-6xl lg:text-[3.1vw] xl:text-[3.5vw] 2xl:text-[3.75rem] font-medium font-display leading-[1.04] sm:leading-[1.06] cursor-default will-change-transform whitespace-nowrap"
-                  data-interactive
-                >
-                  <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                    {t.hero.headlineLine2}
-                  </span>
-                </span>
-              </span>
-
-              {/* Line 3: y multiplicar tus ventas. */}
-              <span className="block">
-                <span
-                  ref={line3Ref}
-                  className="inline-block text-3xl sm:text-5xl md:text-6xl lg:text-[3.1vw] xl:text-[3.5vw] 2xl:text-[3.75rem] font-medium font-display leading-[1.04] sm:leading-[1.06] cursor-default will-change-transform whitespace-nowrap"
-                  data-interactive
-                >
-                  <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                    {t.hero.headlineLine3}
-                  </span>
-                </span>
-              </span>
-            </h1>
-
-            {/* Subtitle & Value Proposition */}
-            <p className="text-sm sm:text-base md:text-[1.05rem] text-black/75 font-sans leading-relaxed max-w-md pt-8 sm:pt-10">
-              {t.hero.subtitle}
-            </p>
-
-            {/* Action & Author Signature Lockup */}
-            <div className="pt-6 sm:pt-8 flex flex-wrap items-center gap-4 sm:gap-5">
-              <a
-                href={siteConfig.profile.contact.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 sm:px-7 py-3 rounded-full bg-[#141517] hover:bg-black text-white text-xs sm:text-sm font-sans font-medium flex items-center gap-2 shadow-xs transition-all duration-200 active:scale-95 group"
+        {/* Left Column: Monumental Value & Commercial Proposition */}
+        <div className="w-full max-w-xl lg:max-w-2xl xl:max-w-3xl flex flex-col justify-center min-w-0">
+          <h1 
+            aria-label="Páginas web en Cali para liderar Google y multiplicar tus ventas — JP Studios"
+            className="space-y-1 sm:space-y-2 lg:space-y-2.5 select-none m-0 font-medium tracking-[-0.03em] text-black"
+          >
+            {/* Line 1: Páginas web en Cali, */}
+            <span className="block">
+              <span
+                ref={line1Ref}
+                className="inline-block text-3xl sm:text-5xl md:text-6xl lg:text-[3.5vw] xl:text-[3.8vw] 2xl:text-[3.85rem] font-medium font-display leading-[1.04] sm:leading-[1.06] cursor-default will-change-transform whitespace-nowrap"
                 data-interactive
               >
-                <span>{t.intro.startOnWhatsApp}</span>
-                <span className="text-xs transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                  ↗
+                <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
+                  {t.hero.headlineLine1}
                 </span>
-              </a>
+              </span>
+            </span>
 
-              <div className="text-xs sm:text-sm font-sans text-black/55 font-medium flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-black/35" />
-                <span>{t.hero.signature}</span>
-              </div>
-            </div>
-          </div>
+            {/* Line 2 with asymmetric indent: para liderar Google */}
+            <span className="block pl-[1.85em]">
+              <span
+                ref={line2Ref}
+                className="inline-block text-3xl sm:text-5xl md:text-6xl lg:text-[3.5vw] xl:text-[3.8vw] 2xl:text-[3.85rem] font-medium font-display leading-[1.04] sm:leading-[1.06] cursor-default will-change-transform whitespace-nowrap"
+                data-interactive
+              >
+                <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
+                  {t.hero.headlineLine2}
+                </span>
+              </span>
+            </span>
 
-          {/* Right Column: Interactive Device Showcase Specimen */}
-          <div className="w-full lg:w-[42%] xl:w-[40%] flex items-center justify-center lg:justify-end mt-6 lg:mt-0">
-            <div
-              ref={portraitRef}
-              className="relative w-full max-w-[480px] lg:max-w-none rounded-2xl sm:rounded-3xl overflow-hidden border border-black/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.08)] bg-[#fafaf8] aspect-[3/2] group"
+            {/* Line 3: y multiplicar tus ventas. */}
+            <span className="block">
+              <span
+                ref={line3Ref}
+                className="inline-block text-3xl sm:text-5xl md:text-6xl lg:text-[3.5vw] xl:text-[3.8vw] 2xl:text-[3.85rem] font-medium font-display leading-[1.04] sm:leading-[1.06] cursor-default will-change-transform whitespace-nowrap"
+                data-interactive
+              >
+                <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
+                  {t.hero.headlineLine3}
+                </span>
+              </span>
+            </span>
+          </h1>
+
+          {/* Subtitle & Value Proposition */}
+          <p className="text-sm sm:text-base md:text-[1.05rem] text-black/75 font-sans leading-relaxed max-w-md pt-8 sm:pt-10">
+            {t.hero.subtitle}
+          </p>
+
+          {/* Action & Author Signature Lockup */}
+          <div className="pt-6 sm:pt-8 flex flex-wrap items-center gap-4 sm:gap-5">
+            <a
+              href={siteConfig.profile.contact.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 sm:px-7 py-3 rounded-full bg-[#141517] hover:bg-black text-white text-xs sm:text-sm font-sans font-medium flex items-center gap-2 shadow-xs transition-all duration-200 active:scale-95 group"
               data-interactive
             >
-              <img
-                src="/hero-device.webp"
-                alt="Diseño y desarrollo web en Cali — JP Studios en MacBook"
-                width={1024}
-                height={682}
-                fetchPriority="high"
-                decoding="async"
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-              />
+              <span>{t.intro.startOnWhatsApp}</span>
+              <span className="text-xs transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                ↗
+              </span>
+            </a>
+
+            <div className="text-xs sm:text-sm font-sans text-black/55 font-medium flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-black/35" />
+              <span>{t.hero.signature}</span>
             </div>
           </div>
         </div>
@@ -221,13 +213,13 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Clean Bottom Orientation Bar */}
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 pb-8 sm:pb-10 flex items-center justify-between text-xs font-sans text-black/55 select-none">
-        <div className="flex items-center gap-2">
+      <div className="relative z-10 max-w-[1400px] w-full mx-auto px-6 sm:px-12 pb-8 sm:pb-10 flex items-center justify-between text-xs font-sans select-none">
+        <div className="flex items-center gap-2 text-black/55">
           <span>{siteConfig.profile.location}</span>
           <span className="text-black/30">•</span>
           <span>{t.hero.studioType}</span>
         </div>
-        <div className="font-sans text-xs">
+        <div className="font-sans text-xs text-black/55 lg:text-white/80 transition-colors drop-shadow-xs">
           {t.hero.role}
         </div>
       </div>
