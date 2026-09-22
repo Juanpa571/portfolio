@@ -1,0 +1,10 @@
+# Cloudflare Pages Headers Configuration
+# Static assets with immutable hash cache for optimal Core Web Vitals
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Global security headers and clean handling
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
