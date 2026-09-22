@@ -117,7 +117,7 @@ export const Hero: React.FC = () => {
     <section
       id="hero"
       ref={containerRef}
-      className="relative min-h-[calc(100dvh-4.25rem)] lg:min-h-[calc(100dvh-6.5rem)] flex flex-col justify-between overflow-hidden bg-white"
+      className="relative min-h-[calc(100dvh-4.25rem)] lg:min-h-[calc(100dvh-6.5rem)] flex flex-col justify-between overflow-hidden bg-[#fafaf8]"
     >
       {/* Split Layout: Mobile is linear editorial stack, Desktop is 2-col Asymmetric */}
       <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 flex-1 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8 pt-5 sm:pt-10 lg:py-12 relative z-10">
@@ -203,8 +203,8 @@ export const Hero: React.FC = () => {
       {/* Mobile Photograph View (Visible on < lg) — Full-Bleed with subtle top feather as in mockup */}
       <div className="w-full relative mt-4 overflow-hidden lg:hidden z-0">
         <div className="relative w-full h-[270px] sm:h-[350px]">
-          {/* Top soft gradient mask to blend with white background */}
-          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white via-white/80 to-transparent pointer-events-none z-10" />
+          {/* Top soft gradient mask to blend with surface background */}
+          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#fafaf8] via-[#fafaf8]/80 to-transparent pointer-events-none z-10" />
           
           <picture className="w-full h-full">
             <source type="image/webp" srcSet="/laptop-sobre-roca.webp" />
