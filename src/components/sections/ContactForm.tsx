@@ -238,7 +238,285 @@ export const ContactForm: React.FC = () => {
       ref={sectionRef}
       className="relative w-full max-w-[1400px] mx-auto px-6 sm:px-12 py-16 sm:py-24 lg:py-32 scroll-mt-24"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      {/* Mobile Form View (lg:hidden) matching media_1790038095365.png */}
+      <div className="lg:hidden space-y-5">
+        {status === 'success' ? (
+          /* Success Confirmation Screen */
+          <div className="p-8 rounded-[2rem] bg-white border border-black/[0.08] shadow-sm text-center space-y-6 animate-in fade-in duration-300">
+            <div className="w-14 h-14 mx-auto rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl font-sans">
+              ✓
+            </div>
+            <div className="space-y-2 max-w-sm mx-auto">
+              <h3 className="text-2xl font-bold font-display text-[#111111] tracking-tight">
+                {t.contact.successTitle}
+              </h3>
+              <p className="text-black/65 text-xs font-sans leading-relaxed">
+                {t.contact.successSubtitle(name || 'Cliente')}
+              </p>
+            </div>
+
+            <div className="pt-2 flex flex-col gap-2.5">
+              <a
+                href={siteConfig.profile.contact.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 rounded-full bg-[#111111] text-white hover:bg-black text-xs font-sans font-medium transition-all"
+              >
+                {isSpanish ? 'Abrir chat en WhatsApp ↗' : 'Open WhatsApp chat ↗'}
+              </a>
+              <button
+                type="button"
+                onClick={resetForm}
+                className="w-full py-2.5 rounded-full border border-black/15 hover:border-black text-xs font-sans font-medium transition-all cursor-pointer"
+              >
+                {t.contact.resetButton}
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div>
+            {/* 1. Mobile Section Header */}
+            <div className="space-y-2">
+              <span className="block text-xs font-mono tracking-[0.18em] text-black/45 uppercase select-none">
+                {t.contact.sectionTag}
+              </span>
+              <h2 className="text-[2.55rem] font-bold font-display tracking-tight text-[#111111] leading-[1.06] select-none">
+                {t.contact.titleLine1} {t.contact.titleLine2}
+              </h2>
+              <p className="text-xs sm:text-sm text-black/65 font-sans font-normal leading-relaxed pt-1">
+                {t.contact.description}
+              </p>
+            </div>
+
+            {/* Hairline Divider */}
+            <div className="w-full h-px bg-black/[0.08] my-5" />
+
+            {/* 2. Step Header */}
+            <div className="space-y-1 mb-4 select-none">
+              <span className="text-[11px] font-mono tracking-[0.16em] text-black/45 uppercase font-semibold block">
+                {t.contact.stepIndicator(currentStep, 3)}
+              </span>
+              <h3 className="text-xl font-bold font-display text-[#111111] tracking-tight leading-tight">
+                {currentStep === 1 && t.contact.step1Question}
+                {currentStep === 2 && t.contact.step2Question}
+                {currentStep === 3 && t.contact.step3Question}
+              </h3>
+              <p className="text-xs text-black/60 font-sans">
+                {currentStep === 1 && t.contact.step1Subtitle}
+                {currentStep === 2 && t.contact.step2Subtitle}
+                {currentStep === 3 && t.contact.step3Subtitle}
+              </p>
+            </div>
+
+            {/* 3. Step Options */}
+            {currentStep === 1 && (
+              <div className="space-y-2.5">
+                {t.contact.projectOptions.map((opt) => {
+                  const isSelected = selectedProjectType === opt.id;
+                  return (
+                    <div
+                      key={opt.id}
+                      onClick={() => setSelectedProjectType(opt.id)}
+                      className={`p-3.5 rounded-2xl border transition-all duration-200 cursor-pointer flex items-center justify-between gap-3.5 select-none ${
+                        isSelected
+                          ? 'bg-[#141517] border-[#141517] text-white shadow-md'
+                          : 'bg-white border-black/[0.08] text-black hover:border-black/20'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3.5 min-w-0">
+                        <div
+                          className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                            isSelected ? 'bg-white/10 text-white' : 'bg-black/[0.04] text-black/70'
+                          }`}
+                        >
+                          <OptionIcon icon={opt.icon} className="w-5 h-5" />
+                        </div>
+                        <div className="min-w-0">
+                          <p
+                            className={`text-sm font-display font-medium leading-snug truncate ${
+                              isSelected ? 'text-white' : 'text-[#111111]'
+                            }`}
+                          >
+                            {opt.label}
+                          </p>
+                          <p
+                            className={`text-xs font-sans leading-tight mt-0.5 truncate ${
+                              isSelected ? 'text-white/70' : 'text-black/55'
+                            }`}
+                          >
+                            {opt.description}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div
+                        className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
+                          isSelected ? 'border-emerald-500 bg-emerald-500/20' : 'border-black/20'
+                        }`}
+                      >
+                        {isSelected && <span className="w-2 h-2 rounded-full bg-emerald-400" />}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            {currentStep === 2 && (
+              <div className="space-y-2.5">
+                {t.contact.sectorOptions.map((opt) => {
+                  const isSelected = selectedSector === opt.id;
+                  return (
+                    <div
+                      key={opt.id}
+                      onClick={() => setSelectedSector(opt.id)}
+                      className={`p-3.5 rounded-2xl border transition-all duration-200 cursor-pointer flex items-center justify-between gap-3.5 select-none ${
+                        isSelected
+                          ? 'bg-[#141517] border-[#141517] text-white shadow-md'
+                          : 'bg-white border-black/[0.08] text-black hover:border-black/20'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3.5 min-w-0">
+                        <div
+                          className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                            isSelected ? 'bg-white/10 text-white' : 'bg-black/[0.04] text-black/70'
+                          }`}
+                        >
+                          <OptionIcon icon={opt.icon} className="w-5 h-5" />
+                        </div>
+                        <div className="min-w-0">
+                          <p
+                            className={`text-sm font-display font-medium leading-snug truncate ${
+                              isSelected ? 'text-white' : 'text-[#111111]'
+                            }`}
+                          >
+                            {opt.label}
+                          </p>
+                          <p
+                            className={`text-xs font-sans leading-tight mt-0.5 truncate ${
+                              isSelected ? 'text-white/70' : 'text-black/55'
+                            }`}
+                          >
+                            {opt.description}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div
+                        className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
+                          isSelected ? 'border-emerald-500 bg-emerald-500/20' : 'border-black/20'
+                        }`}
+                      >
+                        {isSelected && <span className="w-2 h-2 rounded-full bg-emerald-400" />}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            {currentStep === 3 && (
+              <div className="p-5 rounded-2xl bg-white border border-black/[0.08] shadow-xs space-y-4">
+                <div className="flex flex-wrap gap-2 p-3 rounded-xl bg-black/[0.03] border border-black/[0.06] text-xs font-mono text-black/70">
+                  <span className="px-3 py-1 rounded-full bg-white border border-black/10">
+                    {currentProjectObj.label}
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-white border border-black/10">
+                    {currentSectorObj.label}
+                  </span>
+                </div>
+
+                <form onSubmit={handleSubmit} className="space-y-3">
+                  <div className="space-y-1">
+                    <label className="block text-xs font-sans font-medium text-black/70">
+                      {t.contact.nameLabel}
+                    </label>
+                    <input
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder={t.contact.namePlaceholder}
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-black/10 focus:border-black focus:outline-none text-sm text-black placeholder:text-black/30 transition-colors shadow-2xs"
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="block text-xs font-sans font-medium text-black/70">
+                      {t.contact.phoneLabel}
+                    </label>
+                    <input
+                      type="tel"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder={t.contact.phonePlaceholder}
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-black/10 focus:border-black focus:outline-none text-sm text-black placeholder:text-black/30 transition-colors shadow-2xs"
+                    />
+                  </div>
+
+                  {errorMessage && (
+                    <p className="text-xs text-rose-600 font-sans">{errorMessage}</p>
+                  )}
+                </form>
+              </div>
+            )}
+
+            {/* 4. Bottom WhatsApp Assistance Bar */}
+            <div className="flex items-center justify-between gap-3 pt-5 mt-5 border-t border-black/[0.06]">
+              <div className="text-xs text-black/70 font-sans leading-snug">
+                <p>{t.contact.whatsappQuestion}</p>
+                <p className="text-black font-bold">{t.contact.whatsappAction}</p>
+              </div>
+              <a
+                href={siteConfig.profile.contact.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#111111] text-white text-xs font-sans font-medium hover:bg-black transition-colors shrink-0 shadow-xs active:scale-95"
+              >
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>{t.contact.whatsappButton}</span>
+                <span className="text-xs">↗</span>
+              </a>
+            </div>
+
+            {/* 5. Mobile Navigation Button */}
+            <div className="mt-4 space-y-2">
+              {currentStep < 3 ? (
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  className="w-full py-3.5 rounded-full bg-[#111111] text-white text-sm font-sans font-medium hover:bg-black transition-all active:scale-[0.98] flex items-center justify-center gap-2 shadow-sm cursor-pointer"
+                >
+                  <span>{t.contact.nextButton}</span>
+                  <span>→</span>
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleSubmit}
+                  disabled={status === 'submitting'}
+                  className="w-full py-3.5 rounded-full bg-[#111111] text-white text-sm font-sans font-medium hover:bg-black transition-all active:scale-[0.98] flex items-center justify-center gap-2 shadow-sm disabled:opacity-50 cursor-pointer"
+                >
+                  <span>{status === 'submitting' ? t.contact.submitSending : t.contact.submitIdle}</span>
+                  <span>→</span>
+                </button>
+              )}
+
+              {currentStep > 1 && (
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  className="w-full py-2.5 rounded-full border border-black/15 text-xs font-sans font-medium text-black/70 hover:text-black transition-colors cursor-pointer"
+                >
+                  ← {t.contact.prevButton}
+                </button>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Desktop Layout (hidden lg:grid - 100% UNTOUCHED) */}
+      <div className="hidden lg:grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column: Heading & WhatsApp Assistance */}
         <div
           ref={headerRef}

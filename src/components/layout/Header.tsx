@@ -304,13 +304,15 @@ export const Header: React.FC = () => {
 
           {/* Right: Language Switcher Pill + Pulsing CTA Pill Button */}
           <div className="flex items-center gap-2.5 sm:gap-3.5 flex-shrink-0">
-            <LanguageToggle theme={isDark ? 'dark' : 'light'} />
+            <div className="hidden sm:block">
+              <LanguageToggle theme={isDark ? 'dark' : 'light'} />
+            </div>
 
             <a
               href={siteConfig.profile.contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className={`rounded-full font-sans font-medium flex items-center gap-2 shadow-xs transition-all duration-300 active:scale-95 group ${
+              className={`hidden sm:flex rounded-full font-sans font-medium items-center gap-2 shadow-xs transition-all duration-300 active:scale-95 group ${
                 isDark
                   ? 'bg-white hover:bg-neutral-200 text-black'
                   : 'bg-[#141517] hover:bg-black text-white'
@@ -408,15 +410,18 @@ export const Header: React.FC = () => {
             loading="lazy"
             decoding="async"
           />
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen(false)}
-            className="p-2 text-white/70 hover:text-white transition-colors cursor-pointer"
-            aria-label="Close menu"
-            data-interactive
-          >
-            ✕
-          </button>
+          <div className="flex items-center gap-3">
+            <LanguageToggle theme="dark" />
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen(false)}
+              className="p-2 text-white/70 hover:text-white transition-colors cursor-pointer"
+              aria-label="Close menu"
+              data-interactive
+            >
+              ✕
+            </button>
+          </div>
         </div>
 
         {/* Drawer Editorial Nav Links */}

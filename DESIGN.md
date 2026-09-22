@@ -36,6 +36,24 @@ typography:
     fontWeight: 400
     lineHeight: 1.2
     letterSpacing: "-0.01em"
+  mobile-monumental:
+    fontFamily: "'Neue Montreal', 'Geist', sans-serif"
+    fontSize: "2.75rem"
+    fontWeight: 700
+    lineHeight: 1.04
+    letterSpacing: "-0.02em"
+  mobile-display:
+    fontFamily: "'Neue Montreal', 'Geist', sans-serif"
+    fontSize: "2.55rem"
+    fontWeight: 700
+    lineHeight: 1.06
+    letterSpacing: "-0.02em"
+  mobile-card-title:
+    fontFamily: "'Neue Montreal', 'Geist', sans-serif"
+    fontSize: "1.45rem"
+    fontWeight: 700
+    lineHeight: 1.14
+    letterSpacing: "-0.01em"
   body:
     fontFamily: "'Neue Montreal', 'Geist', system-ui, sans-serif"
     fontSize: "1.125rem"
