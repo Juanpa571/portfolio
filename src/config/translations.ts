@@ -496,11 +496,11 @@ export const translations: Record<Language, Translations> = {
       services: 'Servicios',
       faq: 'Preguntas',
       contact: 'Contacto',
-      talk: 'Hablemos',
+      talk: 'Cotizar Proyecto',
       studio: 'Estudio Independiente',
       capabilities: 'Servicios',
       works: 'Trabajo',
-      chat: 'Hablemos',
+      chat: 'Cotizar Proyecto',
       location: 'Cali, Colombia',
       timeLabel: 'Hora local en Cali. Clic para copiar',
       copied: 'Copiado ✓',
@@ -513,7 +513,7 @@ export const translations: Record<Language, Translations> = {
       headlineLine1: 'Páginas web en Cali,',
       headlineLine2: 'para liderar Google',
       headlineLine3: 'y multiplicar tus ventas.',
-      subtitle: 'Diseño y desarrollo web basado en Cali para sacar a tu página de los sótanos de Google.',
+      subtitle: 'Diseño y desarrollo web en Cali para empresas que necesitan dejar de perder clientes en Google y empezar a cerrar ventas directas por WhatsApp.',
       signature: 'JP Studios by Juan Pablo Chacón',
       disciplineLine1: 'Páginas Web Cali',
       disciplineAnd: '&',
@@ -525,7 +525,7 @@ export const translations: Record<Language, Translations> = {
     intro: {
       statement:
         'En JP Studios, estudio independiente dirigido por Juan Pablo Chacón, diseñamos y programamos páginas web en Cali para empresas que no pueden permitirse pasar desapercibidas. Sitios ultrarrápidos, optimizados para dominar el ecosistema de Google y los chats de IA. Estructurados para convertir búsquedas locales en clientes reales por tus medios de contacto.',
-      startOnWhatsApp: 'Iniciar en WhatsApp',
+      startOnWhatsApp: 'Cotizar por WhatsApp',
       direct: 'Directo ↗',
     },
     ticker: {

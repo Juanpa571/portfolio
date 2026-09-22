@@ -126,13 +126,13 @@ export const Hero: React.FC = () => {
         <div className="w-full lg:w-[56%] xl:w-[54%] 2xl:w-[52%] flex flex-col items-start text-left justify-center min-w-0 pr-0 lg:pr-6 relative z-10">
           <h1 
             aria-label={`${t.hero.headlineLine1} ${t.hero.headlineLine2} ${t.hero.headlineLine3} — JP Studios`}
-            className="space-y-0.5 sm:space-y-1.5 lg:space-y-4 select-none m-0 font-bold sm:font-normal text-left"
+            className="space-y-0.5 sm:space-y-1.5 lg:space-y-3.5 select-none m-0 text-left"
           >
-            {/* Line 1 */}
+            {/* Line 1 - Strong Anchor Keyword */}
             <span className="block">
               <span
                 ref={line1Ref}
-                className="inline-block text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[3.2vw] xl:text-[3.5vw] 2xl:text-[3.8vw] font-bold sm:font-normal font-display tracking-tight sm:tracking-[-0.025em] text-[#111111] leading-[1.04] sm:leading-[1.10] lg:whitespace-nowrap cursor-default will-change-transform"
+                className="inline-block text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[3.2vw] xl:text-[3.5vw] 2xl:text-[3.8vw] font-semibold sm:font-semibold font-display tracking-tight sm:tracking-[-0.03em] text-[#111111] leading-[1.04] sm:leading-[1.10] lg:whitespace-nowrap cursor-default will-change-transform"
                 data-interactive
               >
                 <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
@@ -141,11 +141,11 @@ export const Hero: React.FC = () => {
               </span>
             </span>
 
-            {/* Line 2 */}
+            {/* Line 2 - Benefit */}
             <span className="block">
               <span
                 ref={line2Ref}
-                className="inline-block text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[3.2vw] xl:text-[3.5vw] 2xl:text-[3.8vw] font-bold sm:font-normal font-display tracking-tight sm:tracking-[-0.025em] text-[#111111] leading-[1.04] sm:leading-[1.10] lg:whitespace-nowrap cursor-default will-change-transform"
+                className="inline-block text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[3.2vw] xl:text-[3.5vw] 2xl:text-[3.8vw] font-normal sm:font-normal font-display tracking-tight sm:tracking-[-0.02em] text-[#1a1a1a]/85 leading-[1.04] sm:leading-[1.10] lg:whitespace-nowrap cursor-default will-change-transform"
                 data-interactive
               >
                 <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
@@ -154,11 +154,11 @@ export const Hero: React.FC = () => {
               </span>
             </span>
 
-            {/* Line 3 */}
+            {/* Line 3 - Conversion Outcome */}
             <span className="block">
               <span
                 ref={line3Ref}
-                className="inline-block text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[3.2vw] xl:text-[3.5vw] 2xl:text-[3.8vw] font-bold sm:font-normal font-display tracking-tight sm:tracking-[-0.025em] text-[#111111] leading-[1.04] sm:leading-[1.10] lg:whitespace-nowrap cursor-default will-change-transform"
+                className="inline-block text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[3.2vw] xl:text-[3.5vw] 2xl:text-[3.8vw] font-normal sm:font-normal font-display tracking-tight sm:tracking-[-0.02em] text-[#1a1a1a]/85 leading-[1.04] sm:leading-[1.10] lg:whitespace-nowrap cursor-default will-change-transform"
                 data-interactive
               >
                 <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
@@ -169,29 +169,33 @@ export const Hero: React.FC = () => {
           </h1>
 
           {/* Subtitle & Value Proposition */}
-          <p className="text-sm sm:text-base lg:text-[1.1rem] text-black/70 font-sans leading-relaxed text-left max-w-[340px] sm:max-w-md lg:max-w-xl pt-4 sm:pt-6 lg:pt-8">
+          <p className="text-sm sm:text-base lg:text-[1.1rem] text-black/75 font-sans leading-relaxed text-left max-w-[340px] sm:max-w-md lg:max-w-xl pt-4 sm:pt-6 lg:pt-7">
             {t.hero.subtitle}
           </p>
 
-          {/* Action Button */}
-          <div className="pt-5 sm:pt-6 lg:pt-9 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 w-full">
+          {/* Action Buttons: Primary WhatsApp + Secondary Smooth Scroll */}
+          <div className="pt-5 sm:pt-6 lg:pt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full">
             <a
               href={siteConfig.profile.contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full max-w-[340px] sm:w-auto px-7 py-3.5 sm:py-4 rounded-2xl bg-[#141517] hover:bg-black text-white text-sm font-medium flex items-center justify-between sm:justify-start gap-3 shadow-sm transition-all duration-300 active:scale-[0.98] group"
+              className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-[#141517] hover:bg-black text-white text-sm font-medium flex items-center justify-between sm:justify-start gap-3 shadow-sm hover:shadow-md transition-all duration-300 active:scale-[0.98] group"
               data-interactive
             >
               <span>{t.intro.startOnWhatsApp}</span>
-              <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 font-sans text-xs">
+              <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 font-sans text-xs text-emerald-400">
                 ↗
               </span>
             </a>
 
-            <div className="hidden lg:flex text-xs sm:text-sm font-sans text-black/50 font-medium items-center gap-2">
-              <span className="text-black/30">•</span>
-              <span>{t.hero.signature}</span>
-            </div>
+            <a
+              href="#services"
+              className="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-black/[0.04] hover:bg-black/[0.08] text-black/80 hover:text-black text-sm font-medium flex items-center justify-between sm:justify-start gap-2 transition-all duration-300 active:scale-[0.98] border border-black/[0.06]"
+              data-interactive
+            >
+              <span>Explorar Servicios</span>
+              <span className="font-sans text-xs text-black/50">↓</span>
+            </a>
           </div>
         </div>
 

@@ -10,7 +10,7 @@ Documento de referencia para el agente de IA. Leer este archivo al iniciar cualq
 - **Dominio Oficial:** https://jpchacon.com
 - **Ubicación Base:** Cali, Valle del Cauca, Colombia
 - **Enfoque Principal:** Estudio Web de Alto Rendimiento, Conversión y Visibilidad en Motores de Búsqueda e IA (AEO, GEO y Local SEO).
-- **Documento Rector del Modelo de Negocio:** Ver [BUSINESS_MANIFESTO.md](file:///d:/projects/portfolio/BUSINESS_MANIFESTO.md) para el desglose íntegro de la tesis comercial, los 3 pilares de servicio, estructura de precios (Setup inicial + Retenedor mensual MRR) y compromisos éticos anti-humo.
+- **Documento Rector del Modelo de Negocio:** Ver [BUSINESS_MANIFESTO.md](file:///d:/projects/docs/BUSINESS_MANIFESTO.md) para el desglose íntegro de la tesis comercial, los 3 pilares de servicio, estructura de precios (Setup inicial + Retenedor mensual MRR) y compromisos éticos anti-humo.
 - **Pivote Estratégico (Septiembre 2026):** Se descarta conscientemente el término "diseño de autor". No nos vendemos como artistas gráficos, sino como un estudio técnico enfocado en resultados comerciales tangibles: captación de clientes cualificados, tiempos de carga instantáneos (React 19 + Tailwind) y datos estructurados (Schema.org JSON-LD + Answer Engine Optimization) para que negocios locales y empresas sean citados y recomendados por Google Maps, ChatGPT, Gemini y Perplexity.
 
 ---
@@ -32,10 +32,12 @@ Documento de referencia para el agente de IA. Leer este archivo al iniciar cualq
    - Se eliminó y baneó por completo `Neue Montreal` en toda la página web (cabeceras, títulos monumentales, subtítulos, preguntas de FAQ, servicios y cuerpo de texto).
    - La tipografía oficial y definitiva de todo el sitio web es **Geist Sans** (`--font-display` y `--font-sans`), respaldada por **Inter** y **Geist Mono** para datos técnicos.
    - Esto erradica al 100% el aplanado y corte superior de letras minúsculas (`o`, `e`, `a`, `c`, `s`, `n`, etc.) en Windows DirectWrite / 96 DPI, conservando una estética suiza contemporánea de máxima nitidez y precisión técnica.
-4. **Cero etiquetas decorativas de IA:**
-   - Se eliminaron todas las etiquetas con barras diagonales (tipo // SELECTED WORKS), sellos vacíos (● 100% INDEPENDENT) y pastillas de 'REQUERIDO' en el formulario de contacto. Mantener el diseño limpio, editorial y sin adornos vacíos.
-5. **Tipografía y Jerarquía:**
-   - Títulos grandes en pesos ligeros (font-light / font-normal), nunca mayúsculas sostenidas forzadas. Usar Title Case o Sentence Case natural.
+4. **Etiquetas Funcionales y Cero Relleno Inútil:**
+   - Se eliminaron las etiquetas decorativas absurdas con barras diagonales (tipo `// SELECTED WORKS`) o sellos vacíos (`● 100% INDEPENDENT`). Se permiten y fomentan micro-etiquetas funcionales en Geist Mono o Geist Sans que aporten contexto semántico a los motores de búsqueda e IA (AEO).
+5. **Tipografía, Jerarquía y Conversión:**
+   - La tipografía base es **Geist Sans** (`--font-display` y `--font-sans`).
+   - Mantener Title Case o Sentence Case natural (evitar mayúsculas sostenidas forzadas tipo ALL CAPS).
+   - Libertad para utilizar pesos tipográficos con propósito de jerarquía y conversión (`font-normal` 400, `font-medium` 500, `font-semibold` 600) para destacar palabras clave de búsqueda y guiar la vista hacia los llamados a la acción, manteniendo un estilo tipográfico sobrio, limpio y minimalista.
    - Fondos en colores sólidos oscuros elegantes (ej. #141517 / #1C1D20), sin grano ni ruido artificial SVG.
 6. **Retrato del Hero (`hero-portrait.webp`):**
    - El Hero utiliza el diseño de **Bisel Flotante 3D (Concepto 1)** con marco biselado esculpido de cristal esmerilado suave, viñeteado inferior para fundir la base nocturna y paralaje reactivo 3D con GSAP en desktop. En móvil, escala con presencia a 320px manteniendo la identidad asimétrica. Expresamente aprobado por el usuario.

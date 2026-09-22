@@ -15,9 +15,10 @@ dist-ssr
 .env.*
 
 # Private internal tools & sales data
-prospectos-cali.md
+prospectos*
+*.py
 public/pipeline-prospectos.html
-public/audit-template.html
+__pycache__/
 
 # Editor directories and files
 .vscode/*
