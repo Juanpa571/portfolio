@@ -53,15 +53,16 @@ export const Footer: React.FC = () => {
       data-theme="dark"
       className="relative bg-[#111111] text-white w-full overflow-hidden select-none"
     >
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 lg:px-16 pt-16 sm:pt-20 lg:pt-24 pb-8 flex flex-col justify-between relative z-10">
+      {/* Expanded Container with reduced side margins to give monumental breathing room */}
+      <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pt-16 sm:pt-20 lg:pt-24 pb-8 flex flex-col justify-between relative z-10">
         
         {/* ========================================================
             PART 1: HERO ZONE (Split: Left Copy + Right Night City)
             ======================================================== */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center pb-14 sm:pb-18 lg:pb-20">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 lg:gap-8 pb-14 sm:pb-18 lg:pb-20 relative">
           
           {/* Left: Eyebrow + Monumental Question + Subtitle + Action Pills */}
-          <div className="lg:col-span-7 flex flex-col items-start justify-center space-y-6 sm:space-y-7 z-10">
+          <div className="w-full lg:w-[48%] xl:w-[46%] 2xl:w-[45%] flex flex-col items-start justify-center space-y-6 sm:space-y-7 z-10">
             
             {/* Eyebrow */}
             <span className="text-xs font-sans tracking-[0.25em] text-white/50 uppercase font-medium">
@@ -69,8 +70,8 @@ export const Footer: React.FC = () => {
             </span>
 
             {/* Headline */}
-            <h2 className="text-3xl sm:text-5xl lg:text-[4rem] xl:text-[4.25rem] font-display font-medium text-white tracking-tight leading-[1.08] m-0">
-              {t.footer.headlineLine1.trim()}{' '}
+            <h2 className="text-3xl sm:text-5xl lg:text-[3.75rem] xl:text-[4.25rem] 2xl:text-[4.6rem] font-display font-medium text-white tracking-tight leading-[1.06] m-0">
+              {t.footer.headlineLine1}
               <br />
               {t.footer.headlineLine2}
             </h2>
@@ -116,15 +117,15 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Right: Cristo Rey & Cali Nocturnal Panorama + Orientation Line */}
-          <div className="lg:col-span-5 relative w-full h-[260px] sm:h-[320px] lg:h-[380px] xl:h-[420px] flex flex-col justify-end overflow-hidden rounded-2xl lg:rounded-none">
+          <div className="w-full lg:w-[52%] xl:w-[54%] 2xl:w-[55%] relative flex flex-col justify-end min-h-[280px] sm:min-h-[360px] lg:min-h-[440px] xl:min-h-[480px] 2xl:min-h-[520px] overflow-hidden rounded-2xl lg:rounded-none">
             
-            {/* High-Resolution B&W Night Photograph with Soft Seamless Masking into #111111 */}
+            {/* High-Resolution B&W Night Photograph Matching GPT 100% with Soft Seamless Masking */}
             <picture className="absolute inset-0 w-full h-full">
               <source type="image/webp" srcSet="/cristo-rey-cali-night.webp" />
               <img
                 src="/cristo-rey-cali-night.jpg"
                 alt="Cristo Rey y panorámica nocturna de Cali, Colombia — JP Studios"
-                className="w-full h-full object-cover object-[center_30%] select-none pointer-events-none [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.3)_14%,rgba(0,0,0,0.85)_32%,black_52%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.3)_14%,rgba(0,0,0,0.85)_32%,black_52%)]"
+                className="w-full h-full object-cover object-[center_35%] select-none pointer-events-none [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.25)_10%,rgba(0,0,0,0.85)_26%,black_45%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.25)_10%,rgba(0,0,0,0.85)_26%,black_45%)]"
                 loading="lazy"
                 decoding="async"
                 width={1376}
@@ -132,17 +133,17 @@ export const Footer: React.FC = () => {
               />
             </picture>
 
-            {/* Top and Bottom soft feathers to dissolve boundaries into #111111 */}
-            <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#111111] via-[#111111]/60 to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-[#111111] via-[#111111]/80 to-transparent pointer-events-none" />
+            {/* Top and Bottom soft feathers ensuring 100% seamless blend with #111111 */}
+            <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#111111] via-[#111111]/50 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#111111] via-[#111111]/80 to-transparent pointer-events-none" />
 
             {/* Orientation Line Lockup Matching Mockup Baseline */}
-            <div className="relative z-10 flex items-center justify-between sm:justify-end gap-3.5 px-2 pb-1 text-xs font-sans text-white/70 select-none">
+            <div className="relative z-10 flex items-center justify-between sm:justify-end gap-3.5 px-2 pb-2 text-xs font-sans text-white/70 select-none">
               <div className="flex items-center gap-1.5 shrink-0 text-white/80">
                 <MapPin className="w-3.5 h-3.5 text-white/60" />
                 <span className="font-medium text-[11px] sm:text-xs">Cali, Colombia</span>
               </div>
-              <span className="h-px bg-white/20 flex-1 max-w-[120px] sm:max-w-[180px]" aria-hidden="true" />
+              <span className="h-px bg-white/20 flex-1 max-w-[140px] sm:max-w-[200px]" aria-hidden="true" />
               <span className="text-[9.5px] sm:text-[10px] tracking-[0.16em] uppercase text-white/45 font-sans whitespace-nowrap">
                 {t.footer.slogan}
               </span>
@@ -152,12 +153,12 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* ========================================================
-            PART 2: DIRECTORY GRID (5 COLUMNS)
+            PART 2: DIRECTORY GRID (5 COLUMNS BALANCED)
             ======================================================== */}
-        <div className="border-t border-white/[0.08] pt-12 sm:pt-16 pb-12 sm:pb-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6">
+        <div className="border-t border-white/[0.08] pt-12 sm:pt-16 pb-12 sm:pb-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10 xl:gap-12">
           
-          {/* Column 1: Brand & Socials (4 cols on lg) */}
-          <div className="sm:col-span-2 lg:col-span-4 space-y-4">
+          {/* Column 1: Brand & Socials */}
+          <div className="sm:col-span-2 lg:col-span-1 space-y-4">
             <a
               href="#top"
               onClick={(e) => handleNavClick(e, '#top')}
@@ -174,7 +175,7 @@ export const Footer: React.FC = () => {
               />
             </a>
 
-            <p className="text-xs text-white/60 font-sans leading-relaxed max-w-[280px]">
+            <p className="text-xs text-white/60 font-sans leading-relaxed max-w-[260px]">
               {t.footer.brandDescription}
             </p>
 
@@ -243,11 +244,11 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 2: Navegación (2 cols on lg) */}
-          <nav aria-label={t.footer.navTitle} className="lg:col-span-2 space-y-3.5">
-            <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-white">
+          {/* Column 2: Navegación */}
+          <div className="space-y-3.5">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-white">
               {t.footer.navTitle}
-            </span>
+            </h3>
             <ul className="space-y-2.5 text-xs text-white/60 font-sans">
               <li>
                 <a
@@ -290,13 +291,13 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
             </ul>
-          </nav>
+          </div>
 
-          {/* Column 3: Servicios (2 cols on lg) */}
-          <nav aria-label={t.footer.servicesTitle} className="lg:col-span-2 space-y-3.5">
-            <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-white">
+          {/* Column 3: Servicios */}
+          <div className="space-y-3.5">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-white">
               {t.footer.servicesTitle}
-            </span>
+            </h3>
             <ul className="space-y-2.5 text-xs text-white/60 font-sans">
               <li>
                 <a
@@ -339,13 +340,13 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
             </ul>
-          </nav>
+          </div>
 
-          {/* Column 4: Recursos (2 cols on lg) */}
-          <nav aria-label={t.footer.resourcesTitle} className="lg:col-span-2 space-y-3.5">
-            <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-white">
+          {/* Column 4: Recursos */}
+          <div className="space-y-3.5">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-white">
               {t.footer.resourcesTitle}
-            </span>
+            </h3>
             <ul className="space-y-2.5 text-xs text-white/60 font-sans">
               <li>
                 <a
@@ -388,13 +389,13 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
             </ul>
-          </nav>
+          </div>
 
-          {/* Column 5: Ubicación (2 cols on lg) */}
-          <div className="lg:col-span-2 space-y-3.5">
-            <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-white">
+          {/* Column 5: Ubicación */}
+          <div className="space-y-3.5">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-white">
               {t.footer.locationTitle}
-            </span>
+            </h3>
             
             <div className="space-y-3">
               <div className="flex items-start gap-2.5 text-xs">
