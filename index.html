@@ -21,7 +21,7 @@
         ['pointerdown', 'pointermove', 'scroll', 'touchstart', 'keydown'].forEach(function(ev) {
           window.addEventListener(ev, loadGtag, { once: true, passive: true });
         });
-        setTimeout(loadGtag, 3500);
+        setTimeout(loadGtag, 7000);
       })();
     </script>
 
@@ -39,11 +39,7 @@
         ['pointerdown', 'pointermove', 'scroll', 'touchstart', 'keydown'].forEach(function(ev) {
           window.addEventListener(ev, loadClarity, { once: true, passive: true });
         });
-        if (l.readyState === 'complete') {
-          setTimeout(loadClarity, 1500);
-        } else {
-          window.addEventListener('load', function() { setTimeout(loadClarity, 1500); }, { once: true });
-        }
+        setTimeout(loadClarity, 7000);
       })(window, document, "clarity", "script", "ymtog83o7w");
     </script>
     <meta charset="UTF-8" />
@@ -51,6 +47,15 @@
     <link rel="apple-touch-icon" href="favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
+    <!-- Google Fonts Fast Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
+    </noscript>
+
     <!-- Responsive Hero Image Preloads for Instant LCP -->
     <link rel="preload" as="image" href="/laptop-sobre-roca-mobile.webp" media="(max-width: 640px)" fetchpriority="high" type="image/webp" />
     <link rel="preload" as="image" href="/laptop-sobre-roca.webp" media="(min-width: 641px)" fetchpriority="high" type="image/webp" />
@@ -343,13 +348,6 @@
       ]
     }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
-    </noscript>
   </head>
   <body class="bg-[#fafaf8] text-[#1a1a1e] antialiased selection:bg-black selection:text-white">
     <div id="root"></div>
