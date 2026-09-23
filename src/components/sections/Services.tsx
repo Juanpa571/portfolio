@@ -10,7 +10,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const Services: React.FC = () => {
+interface ServicesProps {
+  onNavigateSeo?: () => void;
+}
+
+export const Services: React.FC<ServicesProps> = () => {
   const { t } = useLanguage();
   const [mobileActiveIndex, setMobileActiveIndex] = useState(0);
   const headerRef = useRef<HTMLDivElement | null>(null);
@@ -119,23 +123,16 @@ export const Services: React.FC = () => {
       
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         
-        {/* Clean Editorial Section Header */}
+        {/* Clean Section Header */}
         <div ref={headerRef} className="relative mb-6 sm:mb-12 lg:mb-16 pb-3 sm:pb-6">
-          {/* Editorial Category Label above Title (Clean Text, No Capsule) */}
-          <div className="mb-2 sm:mb-4">
-            <span className="text-xs sm:text-sm font-sans font-medium text-black/50 tracking-wide select-none">
-              {t.services.tag}
-            </span>
-          </div>
-
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 sm:gap-6 lg:gap-12">
             <div className="max-w-3xl">
               <h2
                 ref={titleRef}
-                className="text-[2.55rem] sm:text-5xl lg:text-6xl font-bold sm:font-normal font-display tracking-tight sm:tracking-[-0.02em] text-[#111111] leading-[1.06] sm:leading-[1.16] select-none"
+                className="text-[2.35rem] sm:text-4xl lg:text-[3.25rem] font-semibold tracking-tight text-[#111111] leading-[1.1] select-none"
               >
-                <span className="block">{t.services.headerLine1}</span>
-                <span className="block sm:pl-10 lg:pl-16 text-black/60">{t.services.headerLine2}</span>
+                <span className="block">{t.services.headerLine1.trim()}{' '}</span>
+                <span className="block text-[#111111]">{t.services.headerLine2}</span>
               </h2>
             </div>
 
@@ -173,36 +170,44 @@ export const Services: React.FC = () => {
             >
               {/* Mobile Layout: Vertical Editorial Flow */}
               <div className="flex flex-col justify-between h-full md:hidden">
-                <div className="flex items-center justify-between gap-4 mb-4">
-                  <span className="text-xs font-mono font-semibold tracking-widest text-black/50 select-none">
-                    {t.services.items[0].number}
-                  </span>
+                <div className="flex items-center justify-end gap-4 mb-4">
                   <div className="scale-75 origin-right shrink-0 -my-2">
                     <UiUxArtwork />
                   </div>
                 </div>
                 <div className="space-y-2 mt-auto">
-                  <h3 className="text-[1.45rem] font-bold font-display text-black tracking-tight leading-[1.14]">
+                  <div className="text-[1.45rem] font-bold font-display text-black tracking-tight leading-[1.14]">
                     {t.services.items[0].title}
-                  </h3>
+                  </div>
                   <p className="text-sm text-black/75 font-sans leading-relaxed">
                     {t.services.items[0].subtitle}
                   </p>
+                  <a
+                    href="/posicionar-web-en-google"
+                    className="pt-2 text-xs font-medium text-black/90 hover:text-black flex items-center gap-1.5 cursor-pointer"
+                  >
+                    <span>Ver servicio en Cali</span>
+                    <span>↗</span>
+                  </a>
                 </div>
               </div>
 
               {/* Desktop Layout: Classic Bento Side-by-Side (Untouched) */}
               <div className="hidden md:flex items-center justify-between gap-3 sm:gap-4 md:gap-6 my-auto">
                 <div className="space-y-1.5 md:space-y-2 flex-1 min-w-0 pr-1 md:pr-0 md:max-w-[65%]">
-                  <span className="block text-xs font-mono font-medium text-black/40 tracking-wider select-none">
-                    {t.services.items[0].number}
-                  </span>
-                  <h3 className="text-xl sm:text-xl md:text-2xl lg:text-3xl font-semibold md:font-normal font-display text-black tracking-tight leading-snug md:leading-normal">
+                  <h3 className="text-xl sm:text-xl md:text-2xl font-semibold font-display text-black tracking-tight leading-snug">
                     {t.services.items[0].title}
                   </h3>
                   <p className="text-xs md:text-sm text-black/65 font-sans leading-relaxed">
                     {t.services.items[0].subtitle}
                   </p>
+                  <a
+                    href="/posicionar-web-en-google"
+                    className="pt-1 text-xs font-medium text-black/90 hover:text-black flex items-center gap-1.5 cursor-pointer group-hover:translate-x-0.5 transition-transform"
+                  >
+                    <span>Conocer servicio en Cali</span>
+                    <span>↗</span>
+                  </a>
                 </div>
 
                 <div className="scale-75 sm:scale-90 md:scale-100 origin-right shrink-0">
@@ -221,36 +226,44 @@ export const Services: React.FC = () => {
             >
               {/* Mobile Layout: Vertical Editorial Flow */}
               <div className="flex flex-col justify-between h-full md:hidden">
-                <div className="flex items-center justify-between gap-4 mb-4">
-                  <span className="text-xs font-mono font-semibold tracking-widest text-white/50 select-none">
-                    {t.services.items[1].number}
-                  </span>
+                <div className="flex items-center justify-end gap-4 mb-4">
                   <div className="scale-75 origin-right shrink-0 -my-2">
                     <FrontendCraftArtwork />
                   </div>
                 </div>
                 <div className="space-y-2 mt-auto">
-                  <h3 className="text-[1.45rem] font-bold font-display text-white tracking-tight leading-[1.14]">
+                  <div className="text-[1.45rem] font-bold font-display text-white tracking-tight leading-[1.14]">
                     {t.services.items[1].title}
-                  </h3>
+                  </div>
                   <p className="text-sm text-white/75 font-sans leading-relaxed">
                     {t.services.items[1].subtitle}
                   </p>
+                  <a
+                    href="/posicionar-web-en-google"
+                    className="pt-2 text-xs font-medium text-white/90 hover:text-white flex items-center gap-1.5 cursor-pointer"
+                  >
+                    <span>Ver servicio en Cali</span>
+                    <span>↗</span>
+                  </a>
                 </div>
               </div>
 
               {/* Desktop Layout: Classic Bento Side-by-Side (Untouched) */}
               <div className="hidden md:flex items-center justify-between gap-3 sm:gap-4 md:gap-6 my-auto">
                 <div className="space-y-1.5 md:space-y-2 flex-1 min-w-0 pr-1 md:pr-0 md:max-w-[65%]">
-                  <span className="block text-xs font-mono font-medium text-white/40 tracking-wider select-none">
-                    {t.services.items[1].number}
-                  </span>
-                  <h3 className="text-xl sm:text-xl md:text-2xl lg:text-3xl font-semibold md:font-normal font-display text-white tracking-tight leading-snug md:leading-normal">
+                  <h3 className="text-xl sm:text-xl md:text-2xl font-semibold font-display text-white tracking-tight leading-snug">
                     {t.services.items[1].title}
                   </h3>
                   <p className="text-xs md:text-sm text-white/70 font-sans leading-relaxed">
                     {t.services.items[1].subtitle}
                   </p>
+                  <a
+                    href="/posicionar-web-en-google"
+                    className="pt-1 text-xs font-medium text-white/90 hover:text-white flex items-center gap-1.5 cursor-pointer group-hover:translate-x-0.5 transition-transform"
+                  >
+                    <span>Conocer servicio en Cali</span>
+                    <span>↗</span>
+                  </a>
                 </div>
 
                 <div className="scale-75 sm:scale-90 md:scale-100 origin-right shrink-0">
@@ -269,36 +282,44 @@ export const Services: React.FC = () => {
             >
               {/* Mobile Layout: Vertical Editorial Flow */}
               <div className="flex flex-col justify-between h-full md:hidden">
-                <div className="flex items-center justify-between gap-4 mb-4">
-                  <span className="text-xs font-mono font-semibold tracking-widest text-black/50 select-none">
-                    {t.services.items[2].number}
-                  </span>
+                <div className="flex items-center justify-end gap-4 mb-4">
                   <div className="scale-75 origin-right shrink-0 -my-2">
                     <FullStackArtwork />
                   </div>
                 </div>
                 <div className="space-y-2 mt-auto">
-                  <h3 className="text-[1.45rem] font-bold font-display text-black tracking-tight leading-[1.14]">
+                  <div className="text-[1.45rem] font-bold font-display text-black tracking-tight leading-[1.14]">
                     {t.services.items[2].title}
-                  </h3>
+                  </div>
                   <p className="text-sm text-black/75 font-sans leading-relaxed">
                     {t.services.items[2].subtitle}
                   </p>
+                  <a
+                    href="/posicionar-web-en-google"
+                    className="pt-2 text-xs font-medium text-black/90 hover:text-black flex items-center gap-1.5 cursor-pointer"
+                  >
+                    <span>Ver servicio en Cali</span>
+                    <span>↗</span>
+                  </a>
                 </div>
               </div>
 
               {/* Desktop Layout: Classic Bento Side-by-Side (Untouched) */}
               <div className="hidden md:flex items-center justify-between gap-3 sm:gap-4 md:gap-6 my-auto">
                 <div className="space-y-1.5 md:space-y-2 flex-1 min-w-0 pr-1 md:pr-0 md:max-w-[65%]">
-                  <span className="block text-xs font-mono font-medium text-black/40 tracking-wider select-none">
-                    {t.services.items[2].number}
-                  </span>
-                  <h3 className="text-xl sm:text-xl md:text-2xl lg:text-3xl font-semibold md:font-normal font-display text-black tracking-tight leading-snug md:leading-normal">
+                  <h3 className="text-xl sm:text-xl md:text-2xl font-semibold font-display text-black tracking-tight leading-snug">
                     {t.services.items[2].title}
                   </h3>
                   <p className="text-xs md:text-sm text-black/65 font-sans leading-relaxed">
                     {t.services.items[2].subtitle}
                   </p>
+                  <a
+                    href="/posicionar-web-en-google"
+                    className="pt-1 text-xs font-medium text-black/90 hover:text-black flex items-center gap-1.5 cursor-pointer group-hover:translate-x-0.5 transition-transform"
+                  >
+                    <span>Conocer servicio en Cali</span>
+                    <span>↗</span>
+                  </a>
                 </div>
 
                 <div className="scale-75 sm:scale-90 md:scale-100 origin-right shrink-0">
@@ -317,36 +338,44 @@ export const Services: React.FC = () => {
             >
               {/* Mobile Layout: Vertical Editorial Flow */}
               <div className="flex flex-col justify-between h-full md:hidden">
-                <div className="flex items-center justify-between gap-4 mb-4">
-                  <span className="text-xs font-mono font-semibold tracking-widest text-black/50 select-none">
-                    {t.services.items[3].number}
-                  </span>
+                <div className="flex items-center justify-end gap-4 mb-4">
                   <div className="scale-75 origin-right shrink-0 -my-2">
                     <SupportArtwork />
                   </div>
                 </div>
                 <div className="space-y-2 mt-auto">
-                  <h3 className="text-[1.45rem] font-bold font-display text-black tracking-tight leading-[1.14]">
+                  <div className="text-[1.45rem] font-bold font-display text-black tracking-tight leading-[1.14]">
                     {t.services.items[3].title}
-                  </h3>
+                  </div>
                   <p className="text-sm text-black/75 font-sans leading-relaxed">
                     {t.services.items[3].subtitle}
                   </p>
+                  <a
+                    href="/posicionar-web-en-google"
+                    className="pt-2 text-xs font-medium text-black/90 hover:text-black flex items-center gap-1.5 cursor-pointer"
+                  >
+                    <span>Ver servicio en Cali</span>
+                    <span>↗</span>
+                  </a>
                 </div>
               </div>
 
               {/* Desktop Layout: Classic Bento Side-by-Side (Untouched) */}
               <div className="hidden md:flex items-center justify-between gap-3 sm:gap-4 md:gap-6 my-auto">
                 <div className="space-y-1.5 md:space-y-2 flex-1 min-w-0 pr-1 md:pr-0 md:max-w-[65%]">
-                  <span className="block text-xs font-mono font-medium text-black/40 tracking-wider select-none">
-                    {t.services.items[3].number}
-                  </span>
-                  <h3 className="text-xl sm:text-xl md:text-2xl lg:text-3xl font-semibold md:font-normal font-display text-black tracking-tight leading-snug md:leading-normal">
+                  <h3 className="text-xl sm:text-xl md:text-2xl font-semibold font-display text-black tracking-tight leading-snug">
                     {t.services.items[3].title}
                   </h3>
                   <p className="text-xs md:text-sm text-black/65 font-sans leading-relaxed">
                     {t.services.items[3].subtitle}
                   </p>
+                  <a
+                    href="/posicionar-web-en-google"
+                    className="pt-1 text-xs font-medium text-black/90 hover:text-black flex items-center gap-1.5 cursor-pointer group-hover:translate-x-0.5 transition-transform"
+                  >
+                    <span>Conocer servicio en Cali</span>
+                    <span>↗</span>
+                  </a>
                 </div>
 
                 <div className="scale-75 sm:scale-90 md:scale-100 origin-right shrink-0">
@@ -362,8 +391,8 @@ export const Services: React.FC = () => {
           {[0, 1, 2, 3].map((idx) => (
             <span
               key={idx}
-              className={`h-1 rounded-full transition-all duration-300 ${
-                mobileActiveIndex === idx ? 'w-5 bg-black' : 'w-1.5 bg-black/20'
+              className={`h-1.5 w-1.5 rounded-full transition-transform duration-300 ${
+                mobileActiveIndex === idx ? 'scale-125 bg-black' : 'bg-black/25'
               }`}
             />
           ))}
