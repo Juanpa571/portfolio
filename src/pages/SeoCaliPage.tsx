@@ -188,7 +188,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                 Claridad Total
               </span>
               <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-[#111111]">
-                Preguntas frecuentes sobre posicionamiento web en Cali.
+                {highlightBrandKeywords('Preguntas frecuentes sobre posicionamiento web en Cali.')}
               </h2>
             </div>
 

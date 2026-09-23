@@ -134,7 +134,7 @@ export const Hero: React.FC = () => {
             {/* Line 2 - Benefit */}
             <span ref={line2Ref} className="block will-change-transform">
               <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                {t.hero.headlineLine2.trim()}
+                {highlightBrandKeywords(t.hero.headlineLine2.trim())}
               </span>
             </span>{' '}
 

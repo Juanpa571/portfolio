@@ -129,7 +129,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({ onNavigateHome }) =>
               className="p-4 rounded-xl bg-white border border-black/[0.08] hover:border-black/30 transition-all group"
             >
               <p className="text-xs font-display font-semibold text-[#111111] group-hover:text-black flex items-center justify-between">
-                <span>{isSpanish ? 'Diseño Web Cali' : 'Web Design Cali'}</span>
+                <span>{highlightBrandKeywords(isSpanish ? 'Diseño Web Cali' : 'Web Design Cali')}</span>
                 <span className="text-black/40 group-hover:translate-x-0.5 transition-transform">→</span>
               </p>
               <p className="text-[11px] text-black/55 font-sans mt-1 leading-snug">
