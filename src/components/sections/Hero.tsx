@@ -21,7 +21,18 @@ export const Hero: React.FC = () => {
     const container = containerRef.current;
     if (!l1 || !l2 || !l3 || !container) return;
 
-    // Smooth subtle rise without gating opacity to 0 (accelerates LCP to Green)
+    const isMobileOrReduced =
+      window.innerWidth < 1024 ||
+      'ontouchstart' in window ||
+      navigator.maxTouchPoints > 0 ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (isMobileOrReduced) {
+      // Instant static paint on mobile: zero layout latency, immediate sub-second LCP
+      return;
+    }
+
+    // Smooth subtle rise for desktop screens
     const lines = [l1, l2, l3];
     gsap.from(lines, {
       y: 24,
@@ -36,10 +47,6 @@ export const Hero: React.FC = () => {
         duration: 0.9,
         ease: 'power3.out',
       });
-    }
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || 'ontouchstart' in window) {
-      return;
     }
 
     const x1 = gsap.quickTo(l1, 'x', { duration: 0.6, ease: 'power2.out' });
@@ -192,7 +199,7 @@ export const Hero: React.FC = () => {
               width={750}
               height={500}
               loading="eager"
-              decoding="async"
+              decoding="sync"
               fetchPriority="high"
             />
           </picture>

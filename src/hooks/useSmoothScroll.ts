@@ -11,6 +11,14 @@ export const useSmoothScroll = () => {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    // Use 100% native hardware-accelerated scrolling on mobile/touch to eliminate main-thread lag
+    const isMobileTouch =
+      window.innerWidth < 1024 ||
+      'ontouchstart' in window ||
+      navigator.maxTouchPoints > 0;
+
+    if (isMobileTouch) return;
+
     const lenis = new Lenis({
       duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
