@@ -74,15 +74,15 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Expanded Container with reduced side margins to give monumental breathing room */}
-      <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pt-16 sm:pt-20 lg:pt-24 pb-8 flex flex-col justify-between relative z-10">
+      <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pt-20 sm:pt-24 lg:pt-28 pb-8 flex flex-col justify-between relative z-10">
         
         {/* ========================================================
             PART 1: HERO ZONE (Split: Left Copy + Right Panoramic Night City)
             ======================================================== */}
-        <div className="relative min-h-[460px] lg:min-h-[500px] xl:min-h-[540px] flex flex-col justify-between pb-12 sm:pb-14 lg:pb-16">
+        <div className="relative flex flex-col justify-between pt-4 sm:pt-6 lg:pt-8 pb-8 sm:pb-10 lg:pb-12">
 
           {/* Upper Content Row: Left Hero Copy */}
-          <div className="relative z-10 w-full lg:w-[48%] xl:w-[46%] 2xl:w-[44%] flex flex-col items-start justify-center space-y-6 sm:space-y-7 pt-2 lg:pt-4">
+          <div className="relative z-10 w-full lg:w-[48%] xl:w-[46%] 2xl:w-[44%] flex flex-col items-start justify-center space-y-6 sm:space-y-7 pt-4 sm:pt-6 lg:pt-8">
             
             {/* Eyebrow */}
             <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] text-white/50 uppercase font-sans">
@@ -154,7 +154,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Baseline Row: Orientation Line Lockup Matching Mockup Baseline */}
-          <div className="relative z-10 w-full flex items-center justify-between lg:justify-end gap-3.5 pt-6 lg:pt-0 text-xs font-sans text-white/70 select-none">
+          <div className="relative z-10 w-full flex items-center justify-between lg:justify-end gap-3.5 pt-6 sm:pt-8 lg:pt-8 text-xs font-sans text-white/70 select-none">
             <div className="flex items-center gap-1.5 shrink-0 text-white/80">
               <MapPin className="w-3.5 h-3.5 text-white/60" />
               <span className="font-medium text-[11px] sm:text-xs">Cali, Colombia</span>
