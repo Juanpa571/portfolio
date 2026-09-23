@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { siteConfig } from '../../config/site';
 import { useLiveTime } from '../../hooks/useLiveTime';
 import { useLanguage } from '../../context/LanguageContext';
+import { trackWhatsAppClick } from '../../utils/analytics';
 
 export const Header: React.FC = () => {
   const { t } = useLanguage();
@@ -324,6 +325,7 @@ export const Header: React.FC = () => {
               href={siteConfig.profile.contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick({ location: 'header', label: 'Header CTA Button' })}
               className={`hidden sm:flex rounded-full font-sans font-medium items-center gap-2 shadow-xs transition-all duration-300 active:scale-95 group ${
                 isDark
                   ? 'bg-white hover:bg-neutral-200 text-black'
@@ -477,6 +479,7 @@ export const Header: React.FC = () => {
               href={siteConfig.profile.contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick({ location: 'header_drawer', label: 'Mobile Drawer CTA Button' })}
               className="flex-1 py-3 px-4 rounded-full bg-white text-black text-center font-sans font-medium text-xs sm:text-sm hover:bg-white/90 active:scale-[0.98] transition-all flex items-center justify-center gap-1.5"
               data-interactive
             >

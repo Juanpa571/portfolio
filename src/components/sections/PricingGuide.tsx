@@ -3,6 +3,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { highlightBrandKeywords } from '../../utils/textHighlight';
+import { trackPricingClick } from '../../utils/analytics';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -262,6 +263,15 @@ export const PricingGuide: React.FC = () => {
                           href={whatsappUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={() => {
+                            trackPricingClick({
+                              tierId: tier.id,
+                              tierName: tier.name,
+                              tierNumber: tier.number,
+                              priceAmount: tier.priceAmount,
+                              whatsappSubject: tier.whatsappSubject,
+                            });
+                          }}
                           className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-neutral-900 hover:text-black transition-colors py-0.5 group/link"
                           data-interactive
                         >

@@ -4,6 +4,7 @@ import { MetaTags } from '../components/seo/MetaTags';
 import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
 import { highlightBrandKeywords } from '../utils/textHighlight';
+import { trackWhatsAppClick } from '../utils/analytics';
 
 interface SeoCaliPageProps {
   onNavigateHome: () => void;
@@ -59,6 +60,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                 href={siteConfig.profile.contact.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick({ location: 'seo_cali', label: 'Solicitar Auditoria Visibilidad Cali - Top CTA' })}
                 className="px-7 py-4 rounded-xl bg-[#141517] hover:bg-black text-white text-sm font-medium flex items-center justify-between sm:justify-start gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.98] group"
               >
                 <span>Solicitar Auditoría de Visibilidad en Cali</span>
@@ -87,16 +89,16 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                   La Realidad del Mercado Caleño
                 </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-[#111111] leading-tight">
-                  Google le está entregando los contratos a tu competencia directa.
+                  {highlightBrandKeywords('Google le está entregando los contratos a tu competencia directa.')}
                 </h2>
               </div>
 
               <div className="lg:col-span-7 space-y-4 text-sm sm:text-base text-black/75 leading-relaxed">
                 <p>
-                  Tener una página web no garantiza que nadie te encuentre. Si alguien abre su celular en Cali y busca tu servicio, Google no muestra webs bonitas; muestra las páginas que cargan más rápido, tienen datos estructurados oficiales y cuentan con autoridad local verificada en Google Maps.
+                  {highlightBrandKeywords('Tener una página web no garantiza que nadie te encuentre. Si alguien abre su celular en Cali y busca tu servicio, Google no muestra webs bonitas; muestra las páginas que cargan más rápido, tienen datos estructurados oficiales y cuentan con autoridad local verificada en Google Maps.')}
                 </p>
                 <p>
-                  En Cali, la mayoría de competidores tienen páginas lentas en WordPress con títulos mal configurados y fichas de Google Maps descuidadas. Con una optimización técnica seria, superarlos en la SERP local no requiere años ni trucos de magia: requiere ingeniería limpia y respuestas directas.
+                  {highlightBrandKeywords('En Cali, la mayoría de competidores tienen páginas lentas en WordPress con títulos mal configurados y fichas de Google Maps descuidadas. Con una optimización técnica seria, superarlos en la SERP local no requiere años ni trucos de magia: requiere ingeniería limpia y respuestas directas.')}
                 </p>
                 <p className="pt-2 text-black/90 font-medium">
                   Si además necesitas diseñar una plataforma completa desde cero, conoce nuestro servicio de{' '}
@@ -132,10 +134,10 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                 <div>
                   <span className="text-xs font-mono text-black/40 font-semibold mb-3 block">01 / LOCAL PACK</span>
                   <h3 className="text-xl font-semibold text-[#111111] mb-3">
-                    Google Business Profile & Google Maps
+                    {highlightBrandKeywords('Google Business Profile & Google Maps')}
                   </h3>
                   <p className="text-sm text-black/70 leading-relaxed">
-                    Optimizamos tu ficha comercial en Cali con categorías precisas, alineación NAP (Nombre, Dirección, Teléfono) y una estrategia para conseguir reseñas reales de 5 estrellas que te metan en el codiciado Local 3-Pack de Google Maps.
+                    {highlightBrandKeywords('Optimizamos tu ficha comercial en Cali con categorías precisas, alineación NAP (Nombre, Dirección, Teléfono) y una estrategia para conseguir reseñas reales de 5 estrellas que te metan en el codiciado Local 3-Pack de Google Maps.')}
                   </p>
                 </div>
                 <div className="pt-6 border-t border-black/[0.06] mt-6 text-xs font-mono text-black/60">
@@ -151,7 +153,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                     Optimización para Motores de Inteligencia Artificial
                   </h3>
                   <p className="text-sm text-black/70 leading-relaxed">
-                    Estructuramos tu contenido con bloques de respuesta concisos para que ChatGPT, Perplexity y Gemini entiendan exactamente qué vendes y citen a tu empresa cuando los usuarios pregunten por los mejores proveedores en tu sector.
+                    {highlightBrandKeywords('Estructuramos tu contenido con bloques de respuesta concisos para que ChatGPT, Perplexity y Gemini entiendan exactamente qué vendes y citen a tu empresa cuando los usuarios pregunten por los mejores proveedores en tu sector.')}
                   </p>
                 </div>
                 <div className="pt-6 border-t border-black/[0.06] mt-6 text-xs font-mono text-black/60">
@@ -167,7 +169,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                     Datos Estructurados Schema.org & Velocidad
                   </h3>
                   <p className="text-sm text-black/70 leading-relaxed">
-                    Implementamos grafos de datos oficiales (LocalBusiness, Organization, FAQPage) y eliminamos cuellos de botella de renderizado para garantizar tiempos de carga sub-segundo que premian el rastreo de Googlebot.
+                    {highlightBrandKeywords('Implementamos grafos de datos oficiales (LocalBusiness, Organization, FAQPage) y eliminamos cuellos de botella de renderizado para garantizar tiempos de carga sub-segundo que premian el rastreo de Googlebot.')}
                   </p>
                 </div>
                 <div className="pt-6 border-t border-black/[0.06] mt-6 text-xs font-mono text-black/60">
@@ -193,28 +195,28 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
             <div className="space-y-4">
               <div className="p-6 sm:p-7 rounded-2xl bg-white border border-black/[0.08]">
                 <h3 className="text-base sm:text-lg font-semibold text-[#111111] mb-2">
-                  ¿Cuánto tiempo toma ver resultados en Google con SEO local?
+                  {highlightBrandKeywords('¿Cuánto tiempo toma ver resultados en Google con SEO local?')}
                 </h3>
                 <p className="text-sm sm:text-base text-black/70 leading-relaxed">
-                  En Google Maps y búsquedas locales con baja competencia en Cali, las primeras mejoras en llamadas y visibilidad suelen verse entre la semana 3 y la semana 6 tras optimizar el perfil y publicar el Schema.org. Para el posicionamiento orgánico competitivo en Google, el tiempo de maduración promedio es de 2 a 4 meses.
+                  {highlightBrandKeywords('En Google Maps y búsquedas locales con baja competencia en Cali, las primeras mejoras en llamadas y visibilidad suelen verse entre la semana 3 y la semana 6 tras optimizar el perfil y publicar el Schema.org. Para el posicionamiento orgánico competitivo en Google, el tiempo de maduración promedio es de 2 a 4 meses.')}
                 </p>
               </div>
 
               <div className="p-6 sm:p-7 rounded-2xl bg-white border border-black/[0.08]">
                 <h3 className="text-base sm:text-lg font-semibold text-[#111111] mb-2">
-                  ¿Garantizan el puesto #1 en Google?
+                  {highlightBrandKeywords('¿Garantizan el puesto #1 en Google?')}
                 </h3>
                 <p className="text-sm sm:text-base text-black/70 leading-relaxed">
-                  No. Ninguna agencia o profesional serio puede garantizar el puesto #1 porque nadie controla los algoritmos propietarios de Google. En JP Studios garantizamos la construcción de la mejor infraestructura técnica, semántica y de contenido posible para maximizar las probabilidades reales de alcanzar el podio.
+                  {highlightBrandKeywords('No. Ninguna agencia o profesional serio puede garantizar el puesto #1 porque nadie controla los algoritmos propietarios de Google. En JP Studios garantizamos la construcción de la mejor infraestructura técnica, semántica y de contenido posible para maximizar las probabilidades reales de alcanzar el podio.')}
                 </p>
               </div>
 
               <div className="p-6 sm:p-7 rounded-2xl bg-white border border-black/[0.08]">
                 <h3 className="text-base sm:text-lg font-semibold text-[#111111] mb-2">
-                  ¿Qué diferencia hay entre pagar pauta en Google Ads y hacer SEO?
+                  {highlightBrandKeywords('¿Qué diferencia hay entre pagar pauta en Google Ads y hacer SEO?')}
                 </h3>
                 <p className="text-sm sm:text-base text-black/70 leading-relaxed">
-                  En Google Ads pagas por cada clic ($30.000 a $70.000 COP en Cali por términos de desarrollo web); en el momento en que apagas la pauta, desapareces. El posicionamiento orgánico construye un activo digital permanente: apareces de forma constante sin pagar por clic.
+                  {highlightBrandKeywords('En Google Ads pagas por cada clic ($30.000 a $70.000 COP en Cali por términos de desarrollo web); en el momento en que apagas la pauta, desapareces. El posicionamiento orgánico construye un activo digital permanente: apareces de forma constante sin pagar por clic.')}
                 </p>
               </div>
             </div>
@@ -222,7 +224,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
             {/* CTA Final de la página */}
             <div className="mt-14 sm:mt-18 p-8 sm:p-12 rounded-3xl bg-[#141517] text-white text-center flex flex-col items-center justify-center">
               <h3 className="text-2xl sm:text-3xl font-semibold mb-4 text-white">
-                ¿Quieres saber por qué tu página no aparece hoy en Google?
+                {highlightBrandKeywords('¿Quieres saber por qué tu página no aparece hoy en Google?')}
               </h3>
               <p className="text-sm sm:text-base text-white/70 max-w-xl mb-7 leading-relaxed">
                 Escríbenos directamente por WhatsApp con el enlace de tu web actual o el nombre de tu empresa. Te responderemos con un diagnóstico técnico preliminar sin ningún compromiso.
@@ -231,6 +233,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                 href={siteConfig.profile.contact.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick({ location: 'seo_cali', label: 'Diagnosticar mi Web WhatsApp - Bottom CTA' })}
                 className="px-8 py-4 rounded-xl bg-white hover:bg-neutral-100 text-black text-sm font-semibold flex items-center gap-2 shadow-sm transition-all active:scale-[0.98]"
               >
                 <span>Diagnosticar mi Web en WhatsApp</span>

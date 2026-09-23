@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { siteConfig } from '../../config/site';
 import { useLanguage } from '../../context/LanguageContext';
+import { trackDiagnosticoSubmit } from '../../utils/analytics';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -236,6 +237,11 @@ export const ContactForm: React.FC = () => {
       const data = await response.json();
       if (data.success) {
         setStatus('success');
+        trackDiagnosticoSubmit({
+          projectType: currentProjectObj.label,
+          sector: currentSectorObj.label,
+          name: name.trim(),
+        });
       } else {
         setStatus('error');
         setErrorMessage(data.message || t.contact.networkError);

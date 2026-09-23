@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { siteConfig } from '../../config/site';
 import { highlightBrandKeywords } from '../../utils/textHighlight';
+import { trackWhatsAppClick } from '../../utils/analytics';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -99,6 +100,7 @@ export const Faq: React.FC = () => {
                     href={siteConfig.profile.contact.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackWhatsAppClick({ location: 'faq', label: 'FAQ Mobile Assistance Button' })}
                     className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#111111] text-white text-xs font-sans font-medium hover:bg-black transition-colors shrink-0 shadow-xs active:scale-95"
                   >
                     <span>{t.faq.whatsappButton}</span>
@@ -117,6 +119,7 @@ export const Faq: React.FC = () => {
                 href={siteConfig.profile.contact.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick({ location: 'faq', label: 'FAQ Desktop Assistance Button' })}
                 className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#111111] text-white text-xs sm:text-sm font-sans font-medium hover:bg-black/85 transition-all duration-300 active:scale-95 group cursor-pointer shadow-xs"
               >
                 <span className="w-2 h-2 rounded-full bg-emerald-500" />

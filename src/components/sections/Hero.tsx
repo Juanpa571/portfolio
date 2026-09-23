@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { siteConfig } from '../../config/site';
 import { useLanguage } from '../../context/LanguageContext';
 import { highlightBrandKeywords } from '../../utils/textHighlight';
+import { trackWhatsAppClick } from '../../utils/analytics';
 
 export const Hero: React.FC = () => {
   const { t, language } = useLanguage();
@@ -149,6 +150,7 @@ export const Hero: React.FC = () => {
               href={siteConfig.profile.contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick({ location: 'hero', label: 'Hero Primary WhatsApp Button' })}
               className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-[#141517] hover:bg-black text-white text-sm font-medium flex items-center justify-between sm:justify-start gap-3 shadow-sm hover:shadow-md transition-all duration-300 active:scale-[0.98] group"
               data-interactive
             >

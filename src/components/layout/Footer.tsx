@@ -2,6 +2,7 @@ import React from 'react';
 import { Mail, MessageCircle, MapPin, Globe } from 'lucide-react';
 import { siteConfig } from '../../config/site';
 import { useLanguage } from '../../context/LanguageContext';
+import { trackWhatsAppClick } from '../../utils/analytics';
 
 export const Footer: React.FC = () => {
   const { t, language } = useLanguage();
@@ -119,6 +120,7 @@ export const Footer: React.FC = () => {
                 href={siteConfig.profile.contact.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick({ location: 'footer', label: 'Footer WhatsApp Button' })}
                 className="w-full sm:w-auto px-6 py-3.5 rounded-full border border-white/20 hover:border-white/60 bg-white/[0.03] hover:bg-white/[0.08] text-white text-xs sm:text-sm font-sans font-medium transition-all duration-300 flex items-center justify-center gap-2.5 active:scale-[0.98] group"
                 data-interactive
               >

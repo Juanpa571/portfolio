@@ -7,6 +7,7 @@ import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
 import { HeroPhoneMockup } from '../components/seo/HeroPhoneMockup';
 import { highlightBrandKeywords } from '../utils/textHighlight';
+import { trackWhatsAppClick } from '../utils/analytics';
 
 const easeTransition = [0.16, 1, 0.3, 1] as const;
 
@@ -236,6 +237,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
                   href={siteConfig.profile.contact.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick({ location: 'posicionar_web', label: 'Pedir Diagnostico WhatsApp - Top CTA' })}
                   className="px-7 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-[#141517] hover:bg-black text-white text-sm font-medium flex items-center justify-between sm:justify-start gap-3 shadow-sm hover:shadow-md transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/40 group"
                 >
                   <span>Pedir Diagnóstico de mi Empresa en WhatsApp</span>
@@ -547,6 +549,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
                     href={siteConfig.profile.contact.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackWhatsAppClick({ location: 'posicionar_web', label: 'Solicitar Diagnostico Gratuito WhatsApp - Bottom CTA' })}
                     className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white hover:bg-neutral-100 text-black text-sm font-semibold flex items-center justify-center sm:justify-start gap-2 shadow-sm transition-all active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 group/btn"
                   >
                     <span>Solicitar Diagnóstico Gratuito por WhatsApp</span>

@@ -4,6 +4,7 @@ import { siteConfig } from '../config/site';
 import { useLanguage } from '../context/LanguageContext';
 import { MetaTags } from '../components/seo/MetaTags';
 import { highlightBrandKeywords } from '../utils/textHighlight';
+import { trackWhatsAppClick } from '../utils/analytics';
 
 interface NotFoundPageProps {
   onNavigateHome: () => void;
@@ -153,6 +154,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({ onNavigateHome }) =>
               href={siteConfig.profile.contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick({ location: 'not_found', label: '404 Page WhatsApp Card' })}
               className="p-4 rounded-xl bg-white border border-black/[0.08] hover:border-black/30 transition-all group"
             >
               <p className="text-xs font-display font-semibold text-[#111111] group-hover:text-black flex items-center justify-between">
