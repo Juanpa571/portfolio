@@ -71,7 +71,7 @@ export const Footer: React.FC = () => {
 
             {/* Headline */}
             <h2 className="text-3xl sm:text-5xl lg:text-[3.75rem] xl:text-[4.25rem] 2xl:text-[4.6rem] font-display font-medium text-white tracking-tight leading-[1.06] m-0">
-              {t.footer.headlineLine1}
+              {t.footer.headlineLine1.trim()}{' '}
               <br />
               {t.footer.headlineLine2}
             </h2>
@@ -245,10 +245,10 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Column 2: Navegación */}
-          <div className="space-y-3.5">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-white">
+          <nav aria-label={t.footer.navTitle} className="space-y-3.5">
+            <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-white">
               {t.footer.navTitle}
-            </h3>
+            </span>
             <ul className="space-y-2.5 text-xs text-white/60 font-sans">
               <li>
                 <a
@@ -291,13 +291,13 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* Column 3: Servicios */}
-          <div className="space-y-3.5">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-white">
+          <nav aria-label={t.footer.servicesTitle} className="space-y-3.5">
+            <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-white">
               {t.footer.servicesTitle}
-            </h3>
+            </span>
             <ul className="space-y-2.5 text-xs text-white/60 font-sans">
               <li>
                 <a
@@ -340,13 +340,13 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* Column 4: Recursos */}
-          <div className="space-y-3.5">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-white">
+          <nav aria-label={t.footer.resourcesTitle} className="space-y-3.5">
+            <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-white">
               {t.footer.resourcesTitle}
-            </h3>
+            </span>
             <ul className="space-y-2.5 text-xs text-white/60 font-sans">
               <li>
                 <a
@@ -389,13 +389,13 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* Column 5: Ubicación */}
           <div className="space-y-3.5">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.08em] text-white">
+            <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-white">
               {t.footer.locationTitle}
-            </h3>
+            </span>
             
             <div className="space-y-3">
               <div className="flex items-start gap-2.5 text-xs">
