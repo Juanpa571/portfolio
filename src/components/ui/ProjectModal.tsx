@@ -128,9 +128,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           <div className="max-w-6xl mx-auto pt-10 border-t border-black/[0.08] space-y-10">
             <div className="space-y-2 max-w-2xl">
               <h3 className="text-2xl sm:text-4xl font-normal font-display tracking-tight text-black">
-                {isSpanish
-                  ? 'Cualidades de una web diseñada para convertir visitas en ventas'
-                  : 'Key traits of a website engineered to convert visitors into clients'}
+                {highlightBrandKeywords(
+                  isSpanish
+                    ? 'Cualidades de una web diseñada para convertir visitas en ventas'
+                    : 'Key traits of a website engineered to convert visitors into clients'
+                )}
               </h3>
               <p className="text-sm sm:text-base text-black/65 font-sans leading-relaxed">
                 {isSpanish
