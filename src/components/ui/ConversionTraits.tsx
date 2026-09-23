@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
+import { highlightBrandKeywords } from '../../utils/textHighlight';
 
 interface TraitData {
   id: string;
@@ -69,13 +70,13 @@ export const ConversionTraits: React.FC = () => {
                 aria-level={4}
                 className="text-xl sm:text-2xl font-normal font-display text-black leading-snug"
               >
-                {title}
+                {highlightBrandKeywords(title)}
               </div>
             </div>
 
             <div className="md:col-span-7">
               <p className="text-sm sm:text-base text-black/75 font-sans leading-relaxed font-normal max-w-[58ch]">
-                {desc}
+                {highlightBrandKeywords(desc)}
               </p>
             </div>
           </div>
