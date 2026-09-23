@@ -59,7 +59,7 @@ export const Footer: React.FC = () => {
           <source type="image/webp" srcSet="/cristo-rey-cali-night.webp" />
           <img
             src="/cristo-rey-cali-night.jpg"
-            alt="Panorámica nocturna de Cali desde Cristo Rey"
+            alt="Panorámica nocturna de Cali desde Cristo Rey — Sede de JP Studios diseño y desarrollo web"
             className="w-full h-full object-cover object-right-bottom opacity-90 transition-transform duration-1000 ease-out hover:scale-[1.01]"
             width={1376}
             height={768}
@@ -142,7 +142,7 @@ export const Footer: React.FC = () => {
               <source type="image/webp" srcSet="/cristo-rey-cali-night.webp" />
               <img
                 src="/cristo-rey-cali-night.jpg"
-                alt="Panorámica nocturna de Cali desde Cristo Rey"
+                alt="Panorámica nocturna de Cali desde Cristo Rey — Sede de JP Studios diseño y desarrollo web"
                 className="w-full h-full object-cover object-center"
                 width={1376}
                 height={768}
@@ -160,7 +160,7 @@ export const Footer: React.FC = () => {
               <span className="font-medium text-[11px] sm:text-xs">Cali, Colombia</span>
             </div>
             <span className="h-px bg-white/20 w-16 sm:w-28 lg:w-40" aria-hidden="true" />
-            <span className="text-[11px] tracking-wider text-white/60 font-sans whitespace-nowrap uppercase">
+            <span className="text-[11px] tracking-wide text-white/60 font-sans whitespace-nowrap">
               {t.footer.slogan}
             </span>
           </div>
@@ -183,7 +183,7 @@ export const Footer: React.FC = () => {
             >
               <img
                 src="/logo-horizontal-white.webp"
-                alt="JP Studios"
+                alt="JP Studios — Logotipo oficial en blanco para pie de página"
                 className="h-7 w-auto object-contain"
                 width={335}
                 height={81}
