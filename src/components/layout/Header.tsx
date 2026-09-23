@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { siteConfig } from '../../config/site';
 import { useLiveTime } from '../../hooks/useLiveTime';
 import { useLanguage } from '../../context/LanguageContext';
-import { LanguageToggle } from '../ui/LanguageToggle';
 
 export const Header: React.FC = () => {
   const { t } = useLanguage();
   const liveTime = useLiveTime(siteConfig.profile.timezone);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isPastHero, setIsPastHero] = useState(false);
+  const [isOverFooter, setIsOverFooter] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -31,6 +31,15 @@ export const Header: React.FC = () => {
         setIsPastHero(rect.bottom <= 100);
       } else {
         setIsPastHero(scrollY > 400);
+      }
+
+      // Detect if sticky bar is entering or over the footer area
+      const footerEl = document.getElementById('footer');
+      if (footerEl) {
+        const fRect = footerEl.getBoundingClientRect();
+        setIsOverFooter(fRect.top <= 85);
+      } else {
+        setIsOverFooter(false);
       }
 
       // Check if sticky bar is currently overlapping any section marked data-theme="dark"
@@ -193,15 +202,17 @@ export const Header: React.FC = () => {
       <header
         className={`sticky top-0 z-40 w-full select-none transition-all duration-500 ease-out ${
           isScrolled
-            ? isDark
-              ? 'bg-[#111111]/92 backdrop-blur-md border-b border-white/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.5)] py-3 sm:py-3.5'
-              : 'bg-[#fafaf8]/95 backdrop-blur-md border-b border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)] py-3 sm:py-3.5'
+            ? isOverFooter
+              ? 'bg-[#111111]/85 backdrop-blur-md border-b border-transparent shadow-none py-3 sm:py-3.5'
+              : isDark
+                ? 'bg-[#111111]/92 backdrop-blur-md border-b border-white/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.5)] py-3 sm:py-3.5'
+                : 'bg-[#fafaf8]/95 backdrop-blur-md border-b border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.03)] py-3 sm:py-3.5'
             : 'bg-transparent border-b border-transparent shadow-none py-6 sm:py-8 lg:py-9'
         }`}
       >
         <div
           className={`w-full mx-auto flex items-center justify-between gap-4 transition-all duration-500 ${
-            isPastHero
+            isPastHero && !isOverFooter
               ? 'max-w-[1400px] px-4 sm:px-8 lg:px-12'
               : 'max-w-[1760px] px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20'
           }`}
@@ -228,7 +239,7 @@ export const Header: React.FC = () => {
             </a>
 
             <span
-              className={`hidden sm:block w-px transition-all duration-500 ${
+              className={`hidden sm:block w-px transition-colors duration-500 ${
                 isDark ? 'bg-white/20' : 'bg-black/15'
               } ${
                 isScrolled ? 'h-5 mx-0.5' : 'h-7 mx-1 sm:mx-1.5'
@@ -236,9 +247,9 @@ export const Header: React.FC = () => {
               aria-hidden="true"
             />
 
-            <div className="hidden sm:flex flex-col text-left leading-tight transition-all duration-500">
+            <div className="hidden sm:flex flex-col text-left leading-tight transition-colors duration-500">
               <span
-                className={`font-bold tracking-[0.08em] uppercase font-sans transition-all duration-500 ${
+                className={`font-bold tracking-[0.08em] uppercase font-sans transition-colors duration-500 ${
                   isDark ? 'text-white' : 'text-[#141517]'
                 } ${
                   isScrolled ? 'text-[9.5px]' : 'text-[10.5px] sm:text-[11px]'
@@ -247,7 +258,7 @@ export const Header: React.FC = () => {
                 {t.nav.location}
               </span>
               <span
-                className={`font-medium tracking-[0.08em] uppercase font-sans transition-all duration-500 ${
+                className={`font-medium tracking-[0.08em] uppercase font-sans transition-colors duration-500 ${
                   isDark ? 'text-white/50' : 'text-black/50'
                 } ${
                   isScrolled ? 'text-[8px]' : 'text-[9px] sm:text-[9.5px]'
@@ -261,11 +272,11 @@ export const Header: React.FC = () => {
           {/* Center: Primary Navigation Links with Floating Active Pill */}
           <nav
             ref={navRef}
-            className="relative hidden lg:flex items-center text-sm font-sans transition-all duration-500 gap-1 xl:gap-2 py-1"
+            className="relative hidden lg:flex items-center text-sm font-sans transition-colors duration-500 gap-1 xl:gap-2 py-1"
           >
             {/* Sliding Magnetic Pill Indicator (Only on Active Item) */}
             <div
-              className={`absolute top-1/2 -translate-y-1/2 h-[38px] rounded-full pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`absolute top-1/2 -translate-y-1/2 h-[38px] rounded-full pointer-events-none transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 isDark ? 'bg-white/[0.14] shadow-xs' : 'bg-black/[0.06] shadow-2xs'
               }`}
               style={{
@@ -302,12 +313,8 @@ export const Header: React.FC = () => {
             })}
           </nav>
 
-          {/* Right: Language Switcher Pill + Pulsing CTA Pill Button */}
+          {/* Right: Pulsing CTA Pill Button */}
           <div className="flex items-center gap-2.5 sm:gap-3.5 flex-shrink-0">
-            <div className="hidden sm:block">
-              <LanguageToggle theme={isDark ? 'dark' : 'light'} />
-            </div>
-
             <a
               href={siteConfig.profile.contact.whatsapp}
               target="_blank"
@@ -411,7 +418,6 @@ export const Header: React.FC = () => {
             decoding="async"
           />
           <div className="flex items-center gap-3">
-            <LanguageToggle theme="dark" />
             <button
               type="button"
               onClick={() => setIsMenuOpen(false)}
@@ -440,7 +446,7 @@ export const Header: React.FC = () => {
               >
                 <div className="flex items-center gap-3">
                   {isActive && (
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-white" />
                   )}
                   <span className="text-2xl sm:text-3xl font-normal font-display tracking-[-0.01em] group-hover:translate-x-2 transition-all duration-300">
                     {link.label}
@@ -458,7 +464,7 @@ export const Header: React.FC = () => {
         <div className="pt-5 border-t border-white/10 space-y-4 font-sans">
           <div className="flex items-center justify-between text-xs text-white/70">
             <div>COT ({liveTime || 'UTC-5'})</div>
-            <div className="text-emerald-400 font-medium">{t.nav.availableWorldwide}</div>
+            <div className="text-white/80 font-medium">{t.nav.availableWorldwide}</div>
           </div>
 
           <div className="flex items-center gap-3 pt-1">

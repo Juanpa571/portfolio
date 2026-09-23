@@ -57,20 +57,40 @@ export const Footer: React.FC = () => {
       <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pt-16 sm:pt-20 lg:pt-24 pb-8 flex flex-col justify-between relative z-10">
         
         {/* ========================================================
-            PART 1: HERO ZONE (Split: Left Copy + Right Night City)
+            PART 1: HERO ZONE (Split: Left Copy + Right Panoramic Night City)
             ======================================================== */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 lg:gap-8 pb-14 sm:pb-18 lg:pb-20 relative">
+        <div className="relative min-h-[460px] lg:min-h-[500px] xl:min-h-[540px] flex flex-col justify-between pb-12 sm:pb-14 lg:pb-16">
           
-          {/* Left: Eyebrow + Monumental Question + Subtitle + Action Pills */}
-          <div className="w-full lg:w-[48%] xl:w-[46%] 2xl:w-[45%] flex flex-col items-start justify-center space-y-6 sm:space-y-7 z-10">
+          {/* Desktop Panoramic Background Layer */}
+          <div className="hidden lg:block absolute right-0 top-0 bottom-6 w-[58%] xl:w-[62%] 2xl:w-[65%] pointer-events-none select-none overflow-hidden">
+            <picture className="w-full h-full block">
+              <source type="image/webp" srcSet="/cristo-rey-cali-night.webp" />
+              <img
+                src="/cristo-rey-cali-night.jpg"
+                alt="Panorámica nocturna de Cali desde Cristo Rey"
+                className="w-full h-full object-cover object-[right_center] transition-transform duration-1000 ease-out hover:scale-[1.02]"
+                width={1376}
+                height={768}
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+            {/* Smooth edge overlays to guarantee flawless blend into #111111 */}
+            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#111111] via-[#111111]/70 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#111111] to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#111111] to-transparent pointer-events-none" />
+          </div>
+
+          {/* Upper Content Row: Left Hero Copy */}
+          <div className="relative z-10 w-full lg:w-[48%] xl:w-[46%] 2xl:w-[44%] flex flex-col items-start justify-center space-y-6 sm:space-y-7 pt-2 lg:pt-4">
             
             {/* Eyebrow */}
-            <span className="text-xs font-sans tracking-[0.25em] text-white/50 uppercase font-medium">
+            <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] text-white/50 uppercase font-sans">
               {t.footer.eyebrow}
             </span>
 
             {/* Headline */}
-            <h2 className="text-3xl sm:text-5xl lg:text-[3.75rem] xl:text-[4.25rem] 2xl:text-[4.6rem] font-display font-medium text-white tracking-tight leading-[1.06] m-0">
+            <h2 className="text-3xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] 2xl:text-[4.4rem] font-display font-medium text-white tracking-tight leading-[1.06] m-0">
               {t.footer.headlineLine1.trim()}{' '}
               <br />
               {t.footer.headlineLine2}
@@ -86,7 +106,7 @@ export const Footer: React.FC = () => {
               {/* Email Pill */}
               <a
                 href={`mailto:${t.footer.email}`}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-full border border-white/20 hover:border-white bg-white/[0.03] hover:bg-white/10 text-white text-xs sm:text-sm font-sans font-medium transition-all duration-300 flex items-center justify-center gap-2.5 active:scale-[0.98] group"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-full border border-white/20 hover:border-white/60 bg-white/[0.03] hover:bg-white/[0.08] text-white text-xs sm:text-sm font-sans font-medium transition-all duration-300 flex items-center justify-center gap-2.5 active:scale-[0.98] group"
                 data-interactive
               >
                 <Mail className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
@@ -98,7 +118,7 @@ export const Footer: React.FC = () => {
                 href={siteConfig.profile.contact.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-full border border-white/20 hover:border-white bg-white/[0.03] hover:bg-white/10 text-white text-xs sm:text-sm font-sans font-medium transition-all duration-300 flex items-center justify-center gap-2.5 active:scale-[0.98] group"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-full border border-white/20 hover:border-white/60 bg-white/[0.03] hover:bg-white/[0.08] text-white text-xs sm:text-sm font-sans font-medium transition-all duration-300 flex items-center justify-center gap-2.5 active:scale-[0.98] group"
                 data-interactive
               >
                 <MessageCircle className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
@@ -111,43 +131,38 @@ export const Footer: React.FC = () => {
 
             {/* Response Status Badge */}
             <div className="flex items-center gap-2 pt-1 text-xs text-white/60 font-sans">
-              <span className="w-2 h-2 rounded-full bg-[#00C988] shadow-[0_0_8px_rgba(0,201,136,0.8)] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>{t.footer.responseBadge}</span>
             </div>
           </div>
 
-          {/* Right: Cristo Rey & Cali Nocturnal Panorama + Orientation Line */}
-          <div className="w-full lg:w-[52%] xl:w-[54%] 2xl:w-[55%] relative flex flex-col justify-end min-h-[280px] sm:min-h-[360px] lg:min-h-[440px] xl:min-h-[480px] 2xl:min-h-[520px] overflow-hidden rounded-2xl lg:rounded-none">
-            
-            {/* High-Resolution B&W Night Photograph Matching GPT 100% with Soft Seamless Masking */}
-            <picture className="absolute inset-0 w-full h-full">
+          {/* Mobile/Tablet Fallback Photo Layer */}
+          <div className="block lg:hidden w-full relative min-h-[260px] sm:min-h-[320px] rounded-xl overflow-hidden mt-8 mb-2">
+            <picture className="w-full h-full block">
               <source type="image/webp" srcSet="/cristo-rey-cali-night.webp" />
               <img
                 src="/cristo-rey-cali-night.jpg"
-                alt="Cristo Rey y panorámica nocturna de Cali, Colombia — JP Studios"
-                className="w-full h-full object-cover object-[center_35%] select-none pointer-events-none [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.25)_10%,rgba(0,0,0,0.85)_26%,black_45%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.25)_10%,rgba(0,0,0,0.85)_26%,black_45%)]"
-                loading="lazy"
-                decoding="async"
+                alt="Panorámica nocturna de Cali desde Cristo Rey"
+                className="w-full h-full object-cover object-center"
                 width={1376}
                 height={768}
+                loading="lazy"
+                decoding="async"
               />
             </picture>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent pointer-events-none" />
+          </div>
 
-            {/* Top and Bottom soft feathers ensuring 100% seamless blend with #111111 */}
-            <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#111111] via-[#111111]/50 to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#111111] via-[#111111]/80 to-transparent pointer-events-none" />
-
-            {/* Orientation Line Lockup Matching Mockup Baseline */}
-            <div className="relative z-10 flex items-center justify-between sm:justify-end gap-3.5 px-2 pb-2 text-xs font-sans text-white/70 select-none">
-              <div className="flex items-center gap-1.5 shrink-0 text-white/80">
-                <MapPin className="w-3.5 h-3.5 text-white/60" />
-                <span className="font-medium text-[11px] sm:text-xs">Cali, Colombia</span>
-              </div>
-              <span className="h-px bg-white/20 flex-1 max-w-[140px] sm:max-w-[200px]" aria-hidden="true" />
-              <span className="text-[9.5px] sm:text-[10px] tracking-[0.16em] uppercase text-white/45 font-sans whitespace-nowrap">
-                {t.footer.slogan}
-              </span>
+          {/* Baseline Row: Orientation Line Lockup Matching Mockup Baseline */}
+          <div className="relative z-10 w-full flex items-center justify-between lg:justify-end gap-3.5 pt-6 lg:pt-0 text-xs font-sans text-white/70 select-none">
+            <div className="flex items-center gap-1.5 shrink-0 text-white/80">
+              <MapPin className="w-3.5 h-3.5 text-white/60" />
+              <span className="font-medium text-[11px] sm:text-xs">Cali, Colombia</span>
             </div>
+            <span className="h-px bg-white/20 w-16 sm:w-28 lg:w-40" aria-hidden="true" />
+            <span className="text-[11px] tracking-wider text-white/60 font-sans whitespace-nowrap uppercase">
+              {t.footer.slogan}
+            </span>
           </div>
 
         </div>

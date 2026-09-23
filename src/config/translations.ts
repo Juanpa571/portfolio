@@ -540,8 +540,8 @@ export const translations: Record<Language, Translations> = {
       switchLangTooltip: 'Switch to English',
     },
     hero: {
-      headlineLine1: 'Páginas web en Cali,',
-      headlineLine2: 'para liderar Google',
+      headlineLine1: 'Páginas web en Cali, ',
+      headlineLine2: 'para liderar Google ',
       headlineLine3: 'y multiplicar tus ventas.',
       subtitle: 'Diseño y desarrollo web en Cali para empresas que necesitan dejar de perder clientes en Google y empezar a cerrar ventas directas por WhatsApp.',
       signature: 'JP Studios by Juan Pablo Chacón',
@@ -582,7 +582,7 @@ export const translations: Record<Language, Translations> = {
     },
     services: {
       tag: 'Servicios',
-      headerLine1: 'Ingeniería web para vender,',
+      headerLine1: 'Ingeniería web para vender, ',
       headerLine2: 'no solo para adornar.',
       seoDescription:
         'Desarrollo web en Cali, páginas de alta velocidad y presencia en Google. Diseñamos arquitectura en código limpio optimizada para captar clientes locales y conectar directamente por WhatsApp y llamadas.',
@@ -623,7 +623,7 @@ export const translations: Record<Language, Translations> = {
     },
     process: {
       tag: 'Proceso',
-      headerLine1: 'Tu web lista en 14 días.',
+      headerLine1: 'Tu web lista en 14 días. ',
       headerLine2: 'Sin enredos técnicos.',
       seoDescription:
         'Creamos sitios web y desarrollos a medida en Cali bajo un flujo estructurado de 14 días. De la estrategia comercial a tu página web en producción: rápida, optimizada para Google y lista para facturar.',
@@ -696,7 +696,7 @@ export const translations: Record<Language, Translations> = {
     },
     faq: {
       tag: 'Preguntas Frecuentes',
-      headerLine1: 'Respuestas claras.',
+      headerLine1: 'Respuestas claras. ',
       headerLine2: 'Sin letra pequeña.',
       tagline: 'Todo lo que necesitas saber antes de iniciar tu proyecto',
       whatsappPrompt: '¿No encuentras tu respuesta? Escríbeme y te respondo personalmente.',
@@ -736,7 +736,7 @@ export const translations: Record<Language, Translations> = {
     },
     contact: {
       sectionTag: 'Proyecto',
-      titleLine1: 'Iniciar un',
+      titleLine1: 'Iniciar un ',
       titleLine2: 'Proyecto.',
       description:
         'Cuéntanos brevemente sobre tu proyecto y te responderemos con una propuesta personalizada hoy mismo.',
