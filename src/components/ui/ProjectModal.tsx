@@ -5,6 +5,7 @@ import { siteConfig } from '../../config/site';
 import { useLanguage } from '../../context/LanguageContext';
 import { SaiSevenDemo } from '../demos/SaiSevenDemo';
 import { ConversionTraits } from './ConversionTraits';
+import { highlightBrandKeywords } from '../../utils/textHighlight';
 
 interface ProjectModalProps {
   project: ProjectItem | null;

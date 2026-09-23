@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowUpRight, MessageCircle, Compass } from 'lucide-react';
 import { siteConfig } from '../config/site';
 import { useLanguage } from '../context/LanguageContext';
 import { MetaTags } from '../components/seo/MetaTags';
+import { highlightBrandKeywords } from '../utils/textHighlight';
 
 interface NotFoundPageProps {
   onNavigateHome: () => void;
@@ -131,7 +132,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({ onNavigateHome }) =>
                 <span className="text-black/40 group-hover:translate-x-0.5 transition-transform">→</span>
               </p>
               <p className="text-[11px] text-black/55 font-sans mt-1 leading-snug">
-                {isSpanish ? 'Sitios web para vender y convertir visitas.' : 'High-converting business websites.'}
+                {highlightBrandKeywords(isSpanish ? 'Sitios web para vender y convertir visitas.' : 'High-converting business websites.')}
               </p>
             </a>
 
@@ -140,7 +141,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({ onNavigateHome }) =>
               className="p-4 rounded-xl bg-white border border-black/[0.08] hover:border-black/30 transition-all group"
             >
               <p className="text-xs font-display font-semibold text-[#111111] group-hover:text-black flex items-center justify-between">
-                <span>{isSpanish ? 'Posicionar en Google' : 'Rank on Google'}</span>
+                <span>{highlightBrandKeywords(isSpanish ? 'Posicionar en Google' : 'Rank on Google')}</span>
                 <span className="text-black/40 group-hover:translate-x-0.5 transition-transform">→</span>
               </p>
               <p className="text-[11px] text-black/55 font-sans mt-1 leading-snug">
