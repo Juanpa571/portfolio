@@ -52,7 +52,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl text-black/75 font-sans leading-relaxed mb-8 max-w-3xl">
-              {highlightBrandKeywords('Optimizamos la infraestructura técnica, semántica y local de tu empresa para que Google, Google Maps y los motores de Inteligencia Artificial (ChatGPT, Gemini) te recomienden exactamente cuando tus clientes potenciales estén buscando contratar en Cali.')}
+              Optimizamos la infraestructura técnica, semántica y local de tu empresa para que Google, Google Maps y los motores de Inteligencia Artificial (ChatGPT, Gemini) te recomienden exactamente cuando tus clientes potenciales estén buscando contratar en Cali.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
@@ -95,10 +95,10 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
 
               <div className="lg:col-span-7 space-y-4 text-sm sm:text-base text-black/75 leading-relaxed">
                 <p>
-                  {highlightBrandKeywords('Tener una página web no garantiza que nadie te encuentre. Si alguien abre su celular en Cali y busca tu servicio, Google no muestra webs bonitas; muestra las páginas que cargan más rápido, tienen datos estructurados oficiales y cuentan con autoridad local verificada en Google Maps.')}
+                  Tener una página web no garantiza que nadie te encuentre. Si alguien abre su celular en Cali y busca tu servicio, Google no muestra webs bonitas; muestra las páginas que cargan más rápido, tienen datos estructurados oficiales y cuentan con autoridad local verificada en Google Maps.
                 </p>
                 <p>
-                  {highlightBrandKeywords('En Cali, la mayoría de competidores tienen páginas lentas en WordPress con títulos mal configurados y fichas de Google Maps descuidadas. Con una optimización técnica seria, superarlos en la SERP local no requiere años ni trucos de magia: requiere ingeniería limpia y respuestas directas.')}
+                  En Cali, la mayoría de competidores tienen páginas lentas en WordPress con títulos mal configurados y fichas de Google Maps descuidadas. Con una optimización técnica seria, superarlos en la SERP local no requiere años ni trucos de magia: requiere ingeniería limpia y respuestas directas.
                 </p>
                 <p className="pt-2 text-black/90 font-medium">
                   Si además necesitas diseñar una plataforma completa desde cero, conoce nuestro servicio de{' '}
@@ -137,7 +137,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                     {highlightBrandKeywords('Google Business Profile & Google Maps')}
                   </h3>
                   <p className="text-sm text-black/70 leading-relaxed">
-                    {highlightBrandKeywords('Optimizamos tu ficha comercial en Cali con categorías precisas, alineación NAP (Nombre, Dirección, Teléfono) y una estrategia para conseguir reseñas reales de 5 estrellas que te metan en el codiciado Local 3-Pack de Google Maps.')}
+                    Optimizamos tu ficha comercial en Cali con categorías precisas, alineación NAP (Nombre, Dirección, Teléfono) y una estrategia para conseguir reseñas reales de 5 estrellas que te metan en el codiciado Local 3-Pack de Google Maps.
                   </p>
                 </div>
                 <div className="pt-6 border-t border-black/[0.06] mt-6 text-xs font-mono text-black/60">
@@ -153,7 +153,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                     Optimización para Motores de Inteligencia Artificial
                   </h3>
                   <p className="text-sm text-black/70 leading-relaxed">
-                    {highlightBrandKeywords('Estructuramos tu contenido con bloques de respuesta concisos para que ChatGPT, Perplexity y Gemini entiendan exactamente qué vendes y citen a tu empresa cuando los usuarios pregunten por los mejores proveedores en tu sector.')}
+                    Estructuramos tu contenido con bloques de respuesta concisos para que ChatGPT, Perplexity y Gemini entiendan exactamente qué vendes y citen a tu empresa cuando los usuarios pregunten por los mejores proveedores en tu sector.
                   </p>
                 </div>
                 <div className="pt-6 border-t border-black/[0.06] mt-6 text-xs font-mono text-black/60">
@@ -169,7 +169,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                     Datos Estructurados Schema.org & Velocidad
                   </h3>
                   <p className="text-sm text-black/70 leading-relaxed">
-                    {highlightBrandKeywords('Implementamos grafos de datos oficiales (LocalBusiness, Organization, FAQPage) y eliminamos cuellos de botella de renderizado para garantizar tiempos de carga sub-segundo que premian el rastreo de Googlebot.')}
+                    Implementamos grafos de datos oficiales (LocalBusiness, Organization, FAQPage) y eliminamos cuellos de botella de renderizado para garantizar tiempos de carga sub-segundo que premian el rastreo de Googlebot.
                   </p>
                 </div>
                 <div className="pt-6 border-t border-black/[0.06] mt-6 text-xs font-mono text-black/60">
@@ -198,7 +198,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                   {highlightBrandKeywords('¿Cuánto tiempo toma ver resultados en Google con SEO local?')}
                 </h3>
                 <p className="text-sm sm:text-base text-black/70 leading-relaxed">
-                  {highlightBrandKeywords('En Google Maps y búsquedas locales con baja competencia en Cali, las primeras mejoras en llamadas y visibilidad suelen verse entre la semana 3 y la semana 6 tras optimizar el perfil y publicar el Schema.org. Para el posicionamiento orgánico competitivo en Google, el tiempo de maduración promedio es de 2 a 4 meses.')}
+                  En Google Maps y búsquedas locales con baja competencia en Cali, las primeras mejoras en llamadas y visibilidad suelen verse entre la semana 3 y la semana 6 tras optimizar el perfil y publicar el Schema.org. Para el posicionamiento orgánico competitivo en Google, el tiempo de maduración promedio es de 2 a 4 meses.
                 </p>
               </div>
 
@@ -207,7 +207,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                   {highlightBrandKeywords('¿Garantizan el puesto #1 en Google?')}
                 </h3>
                 <p className="text-sm sm:text-base text-black/70 leading-relaxed">
-                  {highlightBrandKeywords('No. Ninguna agencia o profesional serio puede garantizar el puesto #1 porque nadie controla los algoritmos propietarios de Google. En JP Studios garantizamos la construcción de la mejor infraestructura técnica, semántica y de contenido posible para maximizar las probabilidades reales de alcanzar el podio.')}
+                  No. Ninguna agencia o profesional serio puede garantizar el puesto #1 porque nadie controla los algoritmos propietarios de Google. En JP Studios garantizamos la construcción de la mejor infraestructura técnica, semántica y de contenido posible para maximizar las probabilidades reales de alcanzar el podio.
                 </p>
               </div>
 
@@ -216,7 +216,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                   {highlightBrandKeywords('¿Qué diferencia hay entre pagar pauta en Google Ads y hacer SEO?')}
                 </h3>
                 <p className="text-sm sm:text-base text-black/70 leading-relaxed">
-                  {highlightBrandKeywords('En Google Ads pagas por cada clic ($30.000 a $70.000 COP en Cali por términos de desarrollo web); en el momento en que apagas la pauta, desapareces. El posicionamiento orgánico construye un activo digital permanente: apareces de forma constante sin pagar por clic.')}
+                  En Google Ads pagas por cada clic ($30.000 a $70.000 COP en Cali por términos de desarrollo web); en el momento en que apagas la pauta, desapareces. El posicionamiento orgánico construye un activo digital permanente: apareces de forma constante sin pagar por clic.
                 </p>
               </div>
             </div>

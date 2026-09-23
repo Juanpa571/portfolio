@@ -143,7 +143,7 @@ export const Services: React.FC<ServicesProps> = () => {
                 ref={descRef}
                 className="text-sm md:text-base text-black/75 font-sans font-normal leading-relaxed pt-1 sm:pt-0"
               >
-                {highlightBrandKeywords(t.services.seoDescription)}
+                {t.services.seoDescription}
               </p>
             </div>
           </div>
@@ -181,7 +181,7 @@ export const Services: React.FC<ServicesProps> = () => {
                     {highlightBrandKeywords(t.services.items[0].title)}
                   </div>
                   <p className="text-sm text-black/75 font-sans leading-relaxed">
-                    {highlightBrandKeywords(t.services.items[0].subtitle)}
+                    {t.services.items[0].subtitle}
                   </p>
                   <a
                     href="/posicionar-web-en-google"
@@ -200,7 +200,7 @@ export const Services: React.FC<ServicesProps> = () => {
                     {highlightBrandKeywords(t.services.items[0].title)}
                   </h3>
                   <p className="text-xs md:text-sm text-black/65 font-sans leading-relaxed">
-                    {highlightBrandKeywords(t.services.items[0].subtitle)}
+                    {t.services.items[0].subtitle}
                   </p>
                   <a
                     href="/posicionar-web-en-google"
@@ -237,7 +237,7 @@ export const Services: React.FC<ServicesProps> = () => {
                     {highlightBrandKeywords(t.services.items[1].title)}
                   </div>
                   <p className="text-sm text-white/75 font-sans leading-relaxed">
-                    {highlightBrandKeywords(t.services.items[1].subtitle)}
+                    {t.services.items[1].subtitle}
                   </p>
                   <a
                     href="/posicionar-web-en-google"
@@ -256,7 +256,7 @@ export const Services: React.FC<ServicesProps> = () => {
                     {highlightBrandKeywords(t.services.items[1].title)}
                   </h3>
                   <p className="text-xs md:text-sm text-white/70 font-sans leading-relaxed">
-                    {highlightBrandKeywords(t.services.items[1].subtitle)}
+                    {t.services.items[1].subtitle}
                   </p>
                   <a
                     href="/posicionar-web-en-google"
@@ -293,7 +293,7 @@ export const Services: React.FC<ServicesProps> = () => {
                     {highlightBrandKeywords(t.services.items[2].title)}
                   </div>
                   <p className="text-sm text-black/75 font-sans leading-relaxed">
-                    {highlightBrandKeywords(t.services.items[2].subtitle)}
+                    {t.services.items[2].subtitle}
                   </p>
                   <a
                     href="/posicionar-web-en-google"
@@ -312,7 +312,7 @@ export const Services: React.FC<ServicesProps> = () => {
                     {highlightBrandKeywords(t.services.items[2].title)}
                   </h3>
                   <p className="text-xs md:text-sm text-black/65 font-sans leading-relaxed">
-                    {highlightBrandKeywords(t.services.items[2].subtitle)}
+                    {t.services.items[2].subtitle}
                   </p>
                   <a
                     href="/posicionar-web-en-google"
@@ -349,7 +349,7 @@ export const Services: React.FC<ServicesProps> = () => {
                     {highlightBrandKeywords(t.services.items[3].title)}
                   </div>
                   <p className="text-sm text-black/75 font-sans leading-relaxed">
-                    {highlightBrandKeywords(t.services.items[3].subtitle)}
+                    {t.services.items[3].subtitle}
                   </p>
                   <a
                     href="/posicionar-web-en-google"
@@ -368,7 +368,7 @@ export const Services: React.FC<ServicesProps> = () => {
                     {highlightBrandKeywords(t.services.items[3].title)}
                   </h3>
                   <p className="text-xs md:text-sm text-black/65 font-sans leading-relaxed">
-                    {highlightBrandKeywords(t.services.items[3].subtitle)}
+                    {t.services.items[3].subtitle}
                   </p>
                   <a
                     href="/posicionar-web-en-google"

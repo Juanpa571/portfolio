@@ -112,7 +112,7 @@ export const Process: React.FC = () => {
                 ref={descRef}
                 className="text-sm sm:text-base text-black/75 font-sans font-normal leading-relaxed pt-1 sm:pt-0"
               >
-                {highlightBrandKeywords(t.process.seoDescription)}
+                {t.process.seoDescription}
               </p>
             </div>
           </div>
@@ -278,7 +278,7 @@ export const Process: React.FC = () => {
                               {isSpanish ? 'Qué resolvemos' : 'What we solve'}
                             </div>
                             <p className="text-xs text-black/70 font-sans leading-relaxed">
-                              {highlightBrandKeywords(step.description)}
+                              {step.description}
                             </p>
                           </div>
                         </div>
@@ -320,7 +320,7 @@ export const Process: React.FC = () => {
                               {isSpanish ? 'Entregable verificado' : 'Verified deliverable'}
                             </span>
                             <p className="text-xs font-medium text-black">
-                              {highlightBrandKeywords(step.deliverable)}
+                              {step.deliverable}
                             </p>
                           </div>
                         </div>
@@ -333,7 +333,7 @@ export const Process: React.FC = () => {
                             {isSpanish ? 'Qué resolvemos' : 'What we solve'}
                           </h4>
                           <p className="text-xs sm:text-sm text-black/70 font-sans leading-relaxed">
-                            {highlightBrandKeywords(step.description)}
+                            {step.description}
                           </p>
                         </div>
 
@@ -365,7 +365,7 @@ export const Process: React.FC = () => {
                             </span>
                           </div>
                           <p className="text-xs sm:text-sm font-display text-black font-normal leading-snug">
-                            {highlightBrandKeywords(step.deliverable)}
+                            {step.deliverable}
                           </p>
                         </div>
                       </div>

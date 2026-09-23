@@ -133,7 +133,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({ onNavigateHome }) =>
                 <span className="text-black/40 group-hover:translate-x-0.5 transition-transform">→</span>
               </p>
               <p className="text-[11px] text-black/55 font-sans mt-1 leading-snug">
-                {highlightBrandKeywords(isSpanish ? 'Sitios web para vender y convertir visitas.' : 'High-converting business websites.')}
+                {isSpanish ? 'Sitios web para vender y convertir visitas.' : 'High-converting business websites.'}
               </p>
             </a>
 

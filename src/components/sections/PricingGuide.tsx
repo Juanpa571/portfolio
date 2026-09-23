@@ -236,7 +236,7 @@ export const PricingGuide: React.FC = () => {
                 {/* Description (Locked height so all 3 cards align down to the pixel) */}
                 <div className="h-16 sm:h-[4.5rem] flex items-start pb-2 overflow-hidden">
                   <p itemProp="description" className="text-xs sm:text-[13px] text-neutral-600 font-sans leading-relaxed">
-                    {highlightBrandKeywords(tier.description)}
+                    {tier.description}
                   </p>
                 </div>
 
@@ -250,7 +250,7 @@ export const PricingGuide: React.FC = () => {
                     {tier.features.map((feature, fIdx) => (
                       <li key={fIdx} className="flex items-center gap-2 text-xs sm:text-[13px] text-neutral-700 font-sans leading-snug">
                         <span className="text-neutral-800 font-medium text-xs">✓</span>
-                        <span>{highlightBrandKeywords(feature)}</span>
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>

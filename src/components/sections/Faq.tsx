@@ -82,7 +82,7 @@ export const Faq: React.FC = () => {
               </h2>
 
               <p className="text-sm sm:text-base text-black/70 font-sans font-normal leading-relaxed pt-2 max-w-md">
-                {highlightBrandKeywords(t.faq.tagline)}
+                {t.faq.tagline}
               </p>
 
               {/* Mobile WhatsApp Assistance Banner (lg:hidden) matching user reference */}
@@ -198,7 +198,7 @@ export const Faq: React.FC = () => {
                     >
                       <div className="overflow-hidden">
                         <p className="text-xs text-black/70 font-sans font-normal leading-relaxed">
-                          {highlightBrandKeywords(item.answer)}
+                          {item.answer}
                         </p>
                       </div>
                     </div>
@@ -289,7 +289,7 @@ export const Faq: React.FC = () => {
                     >
                       <div className="overflow-hidden pl-7 sm:pl-10">
                         <p className="max-w-[50ch] text-sm sm:text-base body-copy text-black/70 font-sans font-normal leading-relaxed pr-6 sm:pr-12">
-                          {highlightBrandKeywords(item.answer)}
+                          {item.answer}
                         </p>
                       </div>
                     </div>

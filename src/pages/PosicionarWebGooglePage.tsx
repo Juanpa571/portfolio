@@ -223,7 +223,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
                 transition={{ duration: 0.7, delay: 0.1, ease: easeTransition }}
                 className="text-base sm:text-lg lg:text-[1.15rem] text-black/75 font-sans leading-relaxed mb-8 max-w-2xl"
               >
-                {highlightBrandKeywords('Tener una página web bonita no sirve de nada si tus clientes no pueden encontrarte. Descubre el sistema técnico de SEO para empresas, autoridad local en Google Maps y optimización para Inteligencia Artificial que transforma búsquedas en llamadas y ventas reales.')}
+                Tener una página web bonita no sirve de nada si tus clientes no pueden encontrarte. Descubre el sistema técnico de SEO para empresas, autoridad local en Google Maps y optimización para Inteligencia Artificial que transforma búsquedas en llamadas y ventas reales.
               </motion.p>
 
               {/* Action Buttons */}
@@ -308,10 +308,10 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
                 className="lg:col-span-7 space-y-4 text-sm sm:text-base text-black/75 leading-relaxed pt-1 max-w-[68ch]"
               >
                 <p>
-                  {highlightBrandKeywords('Todos los días, cientos de personas en Colombia entran a su teléfono o computador buscando exactamente los servicios o productos que tú vendes. Sin embargo, si tu negocio no figura en las 3 primeras posiciones de Google o en el mapa local, ')}<strong>el 92% de esos clientes terminan contratando a tu competencia directa</strong>.
+                  Todos los días, cientos de personas en Colombia entran a su teléfono o computador buscando exactamente los servicios o productos que tú vendes. Sin embargo, si tu negocio no figura en las 3 primeras posiciones de Google o en el mapa local, <strong>el 92% de esos clientes terminan contratando a tu competencia directa</strong>.
                 </p>
                 <p>
-                  {highlightBrandKeywords('La mayoría de páginas web en el país sufren de tres problemas invisibles: fueron construidas con constructores lentos llenos de plugins (como WordPress), no tienen datos estructurados que Googlebot pueda interpretar, y su ficha de Google Maps está incompleta o sin reseñas verificadas.')}
+                  La mayoría de páginas web en el país sufren de tres problemas invisibles: fueron construidas con constructores lentos llenos de plugins (como WordPress), no tienen datos estructurados que Googlebot pueda interpretar, y su ficha de Google Maps está incompleta o sin reseñas verificadas.
                 </p>
                 <p className="pt-2 text-black/90 font-medium">
                   Para quienes además necesitan una plataforma comercial completa y veloz, en JP Studios combinamos este servicio con nuestro desarrollo de{' '}
@@ -398,7 +398,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
                           {highlightBrandKeywords(step.title)}
                         </h3>
                         <p className="text-xs sm:text-sm text-black/70 leading-relaxed mb-4">
-                          {highlightBrandKeywords(step.desc)}
+                          {step.desc}
                         </p>
                       </div>
 
@@ -408,7 +408,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
                         <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out">
                           <div className="overflow-hidden">
                             <div className="text-xs sm:text-[13px] font-sans text-black/75 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75 pt-1">
-                              <strong>{step.tag}:</strong> {highlightBrandKeywords(step.detail)}
+                              <strong>{step.tag}:</strong> {step.detail}
                             </div>
                           </div>
                         </div>
@@ -488,7 +488,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
                             className="overflow-hidden"
                           >
                             <div className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-black/75 leading-relaxed border-t border-black/[0.05]">
-                              {highlightBrandKeywords(item.answer)}
+                              {item.answer}
                             </div>
                           </motion.div>
                         )}

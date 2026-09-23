@@ -141,7 +141,7 @@ export const Hero: React.FC = () => {
 
           {/* Subtitle & Value Proposition */}
           <p className="text-base sm:text-lg lg:text-[1.125rem] text-black/75 font-sans leading-relaxed text-left max-w-[340px] sm:max-w-md lg:max-w-xl pt-5 sm:pt-6 lg:pt-7">
-            {highlightBrandKeywords(t.hero.subtitle)}
+            {t.hero.subtitle}
           </p>
 
           {/* Action Buttons: Primary WhatsApp + Secondary Smooth Scroll */}

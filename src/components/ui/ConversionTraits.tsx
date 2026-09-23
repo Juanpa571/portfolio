@@ -76,7 +76,7 @@ export const ConversionTraits: React.FC = () => {
 
             <div className="md:col-span-7">
               <p className="text-sm sm:text-base text-black/75 font-sans leading-relaxed font-normal max-w-[58ch]">
-                {highlightBrandKeywords(desc)}
+                {desc}
               </p>
             </div>
           </div>

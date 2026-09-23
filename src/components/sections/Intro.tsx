@@ -95,11 +95,11 @@ export const Intro: React.FC = () => {
             >
               {language === 'es' ? (
                 <>
-                  En <span className="text-white font-semibold">JP Studios</span>, liderado por Juan Pablo Chacón, desarrollamos <span className="text-white font-semibold">páginas web en Cali</span> para empresas y negocios que necesitan destacar y facturar. Construimos sitios web a medida en código ultrarrápido (React 19), estructurados para <span className="text-white font-semibold">liderar en <span className="text-[#174ea6]">Google</span> y motores de IA</span>, y optimizados para transformar visitas locales en <span className="text-white font-semibold"><span className="text-[#00a854]">ventas</span> directas por WhatsApp</span>.
+                  En <span className="text-white font-semibold">JP Studios</span>, liderado por Juan Pablo Chacón, desarrollamos <span className="text-white font-semibold">páginas web en Cali</span> para empresas y negocios que necesitan destacar y facturar. Construimos sitios web a medida en código ultrarrápido (React 19), estructurados para <span className="text-white font-semibold">liderar en Google y motores de IA</span>, y optimizados para transformar visitas locales en <span className="text-white font-semibold">ventas directas por WhatsApp</span>.
                 </>
               ) : (
                 <>
-                  At <span className="text-white font-semibold">JP Studios</span>, an independent web engineering studio led by Juan Pablo Chacón, we craft <span className="text-white font-semibold">high-performance websites in Cali</span> for businesses that cannot afford to go unnoticed. Ultra-fast websites, optimized to <span className="text-white font-semibold">dominate the <span className="text-[#174ea6]">Google</span> ecosystem and AI search engines</span>. Engineered to turn local discovery into <span className="text-white font-semibold">real clients across your primary contact channels</span>.
+                  At <span className="text-white font-semibold">JP Studios</span>, an independent web engineering studio led by Juan Pablo Chacón, we craft <span className="text-white font-semibold">high-performance websites in Cali</span> for businesses that cannot afford to go unnoticed. Ultra-fast websites, optimized to <span className="text-white font-semibold">dominate the Google ecosystem and AI search engines</span>. Engineered to turn local discovery into <span className="text-white font-semibold">real clients across your primary contact channels</span>.
                 </>
               )}
             </p>
