@@ -197,7 +197,7 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-4 pt-2 text-white/60">
               {/* Instagram */}
               <a
-                href="https://instagram.com/juanpablochacon"
+                href="https://www.instagram.com/juanpa_571"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors duration-200"
@@ -213,7 +213,7 @@ export const Footer: React.FC = () => {
 
               {/* LinkedIn */}
               <a
-                href="https://linkedin.com/in/juan-pablo-chacon"
+                href="https://www.linkedin.com/in/juan-pablo-chacon-034457283/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors duration-200"
@@ -229,7 +229,7 @@ export const Footer: React.FC = () => {
 
               {/* TikTok */}
               <a
-                href="https://tiktok.com/@jpchacon.studio"
+                href="https://www.tiktok.com/@juanpa.571"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white transition-colors duration-200"
