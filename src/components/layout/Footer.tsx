@@ -1,211 +1,452 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import { Mail, MessageCircle, MapPin, Globe } from 'lucide-react';
 import { siteConfig } from '../../config/site';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Magnetic } from '../ui/Magnetic';
-import { KineticText } from '../ui/KineticText';
 import { useLanguage } from '../../context/LanguageContext';
 
-gsap.registerPlugin(ScrollTrigger);
-
 export const Footer: React.FC = () => {
-  const { t } = useLanguage();
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const curvePathRef = useRef<SVGPathElement | null>(null);
-  const contentRef = useRef<HTMLDivElement | null>(null);
-  const headlineRef = useRef<HTMLDivElement | null>(null);
+  const { t, language } = useLanguage();
+  const isSpanish = language === 'es';
 
-  useEffect(() => {
-    if (!sectionRef.current) return;
+  // Smooth back-to-top handler using Lenis when available
+  const handleBackToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const lenis = (window as any).__lenis;
+    if (lenis) {
+      lenis.scrollTo(0, {
+        duration: 1.4,
+        easing: (x: number) => (x < 0.5 ? 16 * x * x * x * x * x : 1 + 16 * --x * x * x * x * x),
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
-    const ctx = gsap.context(() => {
-      // 1. Monumental SVG Horizon Morph (Aggressive, deep geometric scoop)
-      if (curvePathRef.current) {
-        const MAX_CURVE_HEIGHT = 320;
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.replace('#', '');
+      const lenis = (window as any).__lenis;
 
-        const updateCurve = (h: number) => {
-          if (curvePathRef.current) {
-            curvePathRef.current.setAttribute(
-              'd',
-              `M 0 0 L 1440 0 L 1440 0 Q 720 ${Math.max(0, h)} 0 0 Z`
-            );
-          }
-        };
-
-        ScrollTrigger.create({
-          trigger: sectionRef.current,
-          start: 'top bottom',
-          end: 'top 20%',
-          scrub: 0.8,
-          onUpdate: (self) => {
-            // Cubic falloff for dramatic initial tension and snappy flattening
-            const progress = self.progress;
-            const currentH = Math.pow(1 - progress, 1.2) * MAX_CURVE_HEIGHT;
-            updateCurve(currentH);
-          },
-        });
+      if (targetId === 'top' || targetId === '') {
+        handleBackToTop(e);
+        return;
       }
 
-      // Parallax upward slide of footer content synced with the horizon reveal
-      if (contentRef.current) {
-        gsap.fromTo(
-          contentRef.current,
-          { y: -100, opacity: 0.7 },
-          {
-            y: 0,
-            opacity: 1,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: 'top bottom',
-              end: 'top 25%',
-              scrub: 0.8,
-            },
-          }
-        );
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        if (lenis) {
+          lenis.scrollTo(targetEl, {
+            offset: -80,
+            duration: 1.2,
+            easing: (x: number) => (x < 0.5 ? 16 * x * x * x * x * x : 1 + 16 * --x * x * x * x * x),
+          });
+        } else {
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+        }
       }
-
-      // 2. Monumental Typography entrance on container lines (clean separation from letter physics)
-      if (headlineRef.current) {
-        const lines = headlineRef.current.querySelectorAll('.headline-line');
-        gsap.fromTo(
-          lines,
-          { y: 50, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            stagger: 0.15,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: headlineRef.current,
-              start: 'top 85%',
-              end: 'top 45%',
-              scrub: 0.5,
-            },
-          }
-        );
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+    }
+  };
 
   return (
     <footer
       id="footer"
       data-theme="dark"
-      ref={sectionRef}
-      className="relative bg-[#111111] text-white min-h-screen flex flex-col justify-between overflow-hidden"
+      className="relative bg-[#111111] text-white w-full overflow-hidden select-none"
     >
-      {/* Dennis Snellenberg-inspired Morphing Geometric Horizon Curve (Monumental Scale) */}
-      <div className="relative w-full overflow-hidden bg-[#111111] -mt-px pointer-events-none">
-        <svg
-          viewBox="0 0 1440 320"
-          className="w-full h-36 sm:h-52 md:h-72 lg:h-80 xl:h-96 block overflow-visible"
-          preserveAspectRatio="none"
-        >
-          <path
-            ref={curvePathRef}
-            fill="#fafaf8"
-            d="M 0 0 L 1440 0 L 1440 0 Q 720 320 0 0 Z"
-          />
-        </svg>
-      </div>
-
-      {/* Content Container with generous breathing room below sticky header */}
-      <div
-        ref={contentRef}
-        className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 lg:px-16 pt-6 sm:pt-12 lg:pt-16 pb-16 flex-1 flex flex-col justify-between relative z-10 will-change-transform"
-      >
+      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 lg:px-16 pt-16 sm:pt-20 lg:pt-24 pb-8 flex flex-col justify-between relative z-10">
+        
+        {/* ========================================================
+            PART 1: HERO ZONE (Split: Left Copy + Right Night City)
+            ======================================================== */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center pb-14 sm:pb-18 lg:pb-20">
           
-          {/* Monumental Headline (Full Width - Zero clipping) */}
-          <div className="w-full pb-12 sm:pb-16 lg:pb-20">
-            <div
-              ref={headlineRef}
-              className="text-3xl sm:text-5xl md:text-6xl lg:text-[5vw] xl:text-[5.5rem] font-normal font-display tracking-[-0.01em] text-white leading-[1.08] sm:leading-[1.12]"
-            >
-              {/* H2 Semántico Limpio para SEO y Lectores de Pantalla */}
-              <h2 className="sr-only">
-                {t.footer.headlineLine1} {t.footer.headlineLine2}
-              </h2>
+          {/* Left: Eyebrow + Monumental Question + Subtitle + Action Pills */}
+          <div className="lg:col-span-7 flex flex-col items-start justify-center space-y-6 sm:space-y-7 z-10">
+            
+            {/* Eyebrow */}
+            <span className="text-xs font-sans tracking-[0.25em] text-white/50 uppercase font-medium">
+              {t.footer.eyebrow}
+            </span>
 
-              {/* Presentación Visual Cinética */}
-              <div aria-hidden="true">
-                <div className="headline-line py-1 overflow-visible">
-                  <KineticText
-                    text={t.footer.headlineLine1}
-                    as="div"
-                    maxDisplacement={38}
-                    radius={240}
-                    letterClassName="text-white"
-                  />
-                </div>
-                <div className="headline-line sm:pl-8 md:pl-16 lg:pl-24 py-1 overflow-visible">
-                  <KineticText
-                    text={t.footer.headlineLine2}
-                    as="div"
-                    maxDisplacement={38}
-                    radius={240}
-                    letterClassName="text-white/60 hover:text-white transition-colors duration-300"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+            {/* Headline */}
+            <h2 className="text-3xl sm:text-5xl lg:text-[4rem] xl:text-[4.25rem] font-display font-medium text-white tracking-tight leading-[1.08] m-0">
+              {t.footer.headlineLine1.trim()}{' '}
+              <br />
+              {t.footer.headlineLine2}
+            </h2>
 
-          {/* Minimalist Action Pills with Magnetic Physics (Dennis Snellenberg Style) */}
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2 pb-8">
-            <Magnetic strength={0.35} radius={90}>
+            {/* Subtitle */}
+            <p className="text-sm sm:text-base text-white/70 font-sans leading-relaxed max-w-xl">
+              {t.footer.subtitle}
+            </p>
+
+            {/* Action Buttons Row */}
+            <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto">
+              {/* Email Pill */}
               <a
-                href={`mailto:${siteConfig.profile.contact.email}`}
-                className="px-7 py-4 sm:px-9 sm:py-5 rounded-full border border-white/20 hover:border-white text-white text-sm sm:text-base font-sans font-medium transition-all duration-300 hover:bg-white hover:text-black active:scale-95 inline-flex items-center justify-center cursor-pointer"
+                href={`mailto:${t.footer.email}`}
+                className="w-full sm:w-auto px-6 py-3.5 rounded-full border border-white/20 hover:border-white bg-white/[0.03] hover:bg-white/10 text-white text-xs sm:text-sm font-sans font-medium transition-all duration-300 flex items-center justify-center gap-2.5 active:scale-[0.98] group"
                 data-interactive
               >
-                {siteConfig.profile.contact.email}
+                <Mail className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
+                <span>{t.footer.email}</span>
               </a>
-            </Magnetic>
 
-            <Magnetic strength={0.35} radius={90}>
+              {/* WhatsApp Pill */}
               <a
                 href={siteConfig.profile.contact.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-7 py-4 sm:px-9 sm:py-5 rounded-full border border-white/20 hover:border-white text-white text-sm sm:text-base font-sans font-medium transition-all duration-300 hover:bg-white hover:text-black active:scale-95 inline-flex items-center justify-center cursor-pointer"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-full border border-white/20 hover:border-white bg-white/[0.03] hover:bg-white/10 text-white text-xs sm:text-sm font-sans font-medium transition-all duration-300 flex items-center justify-center gap-2.5 active:scale-[0.98] group"
                 data-interactive
               >
-                {t.footer.whatsappButton(siteConfig.profile.contact.whatsappDisplay || '+57 317 737 1301')}
+                <MessageCircle className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
+                <span>{t.footer.whatsapp}</span>
+                <span className="text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
+                  ↗
+                </span>
               </a>
-            </Magnetic>
-          </div>
-
-          {/* Bottom Colophon & Global Coordinates */}
-          <div className="pt-16 mt-16 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 text-xs font-sans text-white/75">
-            <div className="space-y-1">
-              <div className="font-bold text-white text-sm tracking-tight font-display">
-                {t.footer.brandName}
-              </div>
-              <div>{t.footer.craftedBy}</div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-6 text-white/70 text-[11px]">
-              <span>{t.footer.location}</span>
-              <span className="text-white/20">•</span>
-              <span>{t.footer.remoteWorldwide}</span>
-              <span className="text-white/20">•</span>
-              <span>{t.footer.edition}</span>
-              <span className="text-white/20">•</span>
-              <a
-                href="#top"
-                className="text-white hover:underline cursor-pointer flex items-center gap-1 group"
-                data-interactive
-              >
-                <span>{t.footer.backToTop}</span>
-                <span className="group-hover:-translate-y-0.5 transition-transform">↑</span>
-              </a>
+            {/* Response Status Badge */}
+            <div className="flex items-center gap-2 pt-1 text-xs text-white/60 font-sans">
+              <span className="w-2 h-2 rounded-full bg-[#00C988] shadow-[0_0_8px_rgba(0,201,136,0.8)] animate-pulse" />
+              <span>{t.footer.responseBadge}</span>
+            </div>
+          </div>
+
+          {/* Right: Cristo Rey & Cali Nocturnal Panorama + Orientation Line */}
+          <div className="lg:col-span-5 relative w-full h-[260px] sm:h-[320px] lg:h-[380px] xl:h-[420px] flex flex-col justify-end overflow-hidden rounded-2xl lg:rounded-none">
+            
+            {/* High-Resolution B&W Night Photograph with Soft Seamless Masking into #111111 */}
+            <picture className="absolute inset-0 w-full h-full">
+              <source type="image/webp" srcSet="/cristo-rey-cali-night.webp" />
+              <img
+                src="/cristo-rey-cali-night.jpg"
+                alt="Cristo Rey y panorámica nocturna de Cali, Colombia — JP Studios"
+                className="w-full h-full object-cover object-[center_30%] select-none pointer-events-none [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.3)_14%,rgba(0,0,0,0.85)_32%,black_52%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.3)_14%,rgba(0,0,0,0.85)_32%,black_52%)]"
+                loading="lazy"
+                decoding="async"
+                width={1376}
+                height={768}
+              />
+            </picture>
+
+            {/* Top and Bottom soft feathers to dissolve boundaries into #111111 */}
+            <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#111111] via-[#111111]/60 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-[#111111] via-[#111111]/80 to-transparent pointer-events-none" />
+
+            {/* Orientation Line Lockup Matching Mockup Baseline */}
+            <div className="relative z-10 flex items-center justify-between sm:justify-end gap-3.5 px-2 pb-1 text-xs font-sans text-white/70 select-none">
+              <div className="flex items-center gap-1.5 shrink-0 text-white/80">
+                <MapPin className="w-3.5 h-3.5 text-white/60" />
+                <span className="font-medium text-[11px] sm:text-xs">Cali, Colombia</span>
+              </div>
+              <span className="h-px bg-white/20 flex-1 max-w-[120px] sm:max-w-[180px]" aria-hidden="true" />
+              <span className="text-[9.5px] sm:text-[10px] tracking-[0.16em] uppercase text-white/45 font-sans whitespace-nowrap">
+                {t.footer.slogan}
+              </span>
             </div>
           </div>
 
         </div>
+
+        {/* ========================================================
+            PART 2: DIRECTORY GRID (5 COLUMNS)
+            ======================================================== */}
+        <div className="border-t border-white/[0.08] pt-12 sm:pt-16 pb-12 sm:pb-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6">
+          
+          {/* Column 1: Brand & Socials (4 cols on lg) */}
+          <div className="sm:col-span-2 lg:col-span-4 space-y-4">
+            <a
+              href="#top"
+              onClick={(e) => handleNavClick(e, '#top')}
+              className="inline-block"
+              aria-label="JP Studios Home"
+              data-interactive
+            >
+              <img
+                src="/logo-horizontal-white.webp"
+                alt="JP Studios"
+                className="h-7 w-auto object-contain"
+                width={335}
+                height={81}
+              />
+            </a>
+
+            <p className="text-xs text-white/60 font-sans leading-relaxed max-w-[280px]">
+              {t.footer.brandDescription}
+            </p>
+
+            {/* Social Icons (Instagram, LinkedIn, YouTube, X) */}
+            <div className="flex items-center gap-4 pt-2 text-white/60">
+              {/* Instagram */}
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors duration-200"
+                aria-label="Instagram"
+                data-interactive
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href="https://linkedin.com/in/juan-pablo-chacon"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors duration-200"
+                aria-label="LinkedIn"
+                data-interactive
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+
+              {/* YouTube */}
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors duration-200"
+                aria-label="YouTube"
+                data-interactive
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+                  <polygon points="10 15 15 12 10 9 10 15" fill="currentColor" />
+                </svg>
+              </a>
+
+              {/* X / Twitter */}
+              <a
+                href="https://x.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors duration-200"
+                aria-label="X"
+                data-interactive
+              >
+                <svg className="w-4.5 h-4.5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          {/* Column 2: Navegación (2 cols on lg) */}
+          <nav aria-label={t.footer.navTitle} className="lg:col-span-2 space-y-3.5">
+            <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-white">
+              {t.footer.navTitle}
+            </span>
+            <ul className="space-y-2.5 text-xs text-white/60 font-sans">
+              <li>
+                <a
+                  href="#services"
+                  onClick={(e) => handleNavClick(e, '#services')}
+                  className="hover:text-white transition-colors duration-200"
+                  data-interactive
+                >
+                  {isSpanish ? 'Servicios' : 'Services'}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#process"
+                  onClick={(e) => handleNavClick(e, '#process')}
+                  className="hover:text-white transition-colors duration-200"
+                  data-interactive
+                >
+                  {isSpanish ? 'Proceso' : 'Process'}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#faq"
+                  onClick={(e) => handleNavClick(e, '#faq')}
+                  className="hover:text-white transition-colors duration-200"
+                  data-interactive
+                >
+                  {isSpanish ? 'Preguntas' : 'FAQ'}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  onClick={(e) => handleNavClick(e, '#contact')}
+                  className="hover:text-white transition-colors duration-200"
+                  data-interactive
+                >
+                  {isSpanish ? 'Contacto' : 'Contact'}
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          {/* Column 3: Servicios (2 cols on lg) */}
+          <nav aria-label={t.footer.servicesTitle} className="lg:col-span-2 space-y-3.5">
+            <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-white">
+              {t.footer.servicesTitle}
+            </span>
+            <ul className="space-y-2.5 text-xs text-white/60 font-sans">
+              <li>
+                <a
+                  href="#services"
+                  onClick={(e) => handleNavClick(e, '#services')}
+                  className="hover:text-white transition-colors duration-200"
+                  data-interactive
+                >
+                  {isSpanish ? 'Diseño de páginas web' : 'Website Design'}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  onClick={(e) => handleNavClick(e, '#services')}
+                  className="hover:text-white transition-colors duration-200"
+                  data-interactive
+                >
+                  {isSpanish ? 'SEO en Google' : 'Google SEO'}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  onClick={(e) => handleNavClick(e, '#services')}
+                  className="hover:text-white transition-colors duration-200"
+                  data-interactive
+                >
+                  {isSpanish ? 'Google Maps (SEO Local)' : 'Google Maps (Local SEO)'}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  onClick={(e) => handleNavClick(e, '#services')}
+                  className="hover:text-white transition-colors duration-200"
+                  data-interactive
+                >
+                  {isSpanish ? 'Inteligencia Artificial (AEO & GEO)' : 'AI (AEO & GEO)'}
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          {/* Column 4: Recursos (2 cols on lg) */}
+          <nav aria-label={t.footer.resourcesTitle} className="lg:col-span-2 space-y-3.5">
+            <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-white">
+              {t.footer.resourcesTitle}
+            </span>
+            <ul className="space-y-2.5 text-xs text-white/60 font-sans">
+              <li>
+                <a
+                  href="#services"
+                  onClick={(e) => handleNavClick(e, '#services')}
+                  className="hover:text-white transition-colors duration-200"
+                  data-interactive
+                >
+                  {isSpanish ? 'Blog' : 'Blog'}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  onClick={(e) => handleNavClick(e, '#services')}
+                  className="hover:text-white transition-colors duration-200"
+                  data-interactive
+                >
+                  {isSpanish ? 'Casos de éxito' : 'Case Studies'}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  onClick={(e) => handleNavClick(e, '#services')}
+                  className="hover:text-white transition-colors duration-200"
+                  data-interactive
+                >
+                  {isSpanish ? 'Guías' : 'Guides'}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  onClick={(e) => handleNavClick(e, '#services')}
+                  className="hover:text-white transition-colors duration-200"
+                  data-interactive
+                >
+                  {isSpanish ? 'Plantillas' : 'Templates'}
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          {/* Column 5: Ubicación (2 cols on lg) */}
+          <div className="lg:col-span-2 space-y-3.5">
+            <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-white">
+              {t.footer.locationTitle}
+            </span>
+            
+            <div className="space-y-3">
+              <div className="flex items-start gap-2.5 text-xs">
+                <MapPin className="w-4 h-4 text-white/70 shrink-0 mt-0.5" />
+                <div className="space-y-0.5">
+                  <span className="font-medium text-white block">
+                    {t.footer.locationName}
+                  </span>
+                  <span className="text-white/50 text-[11px] block leading-snug">
+                    {t.footer.locationSubtitle}
+                  </span>
+                </div>
+              </div>
+
+              <div className="h-px bg-white/[0.08] w-full" aria-hidden="true" />
+
+              <div className="flex items-center gap-2.5 text-xs text-white/70">
+                <Globe className="w-4 h-4 text-white/60 shrink-0" />
+                <span className="font-medium text-white/80">{t.footer.remoteGlobal}</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* ========================================================
+            PART 3: BOTTOM BAR (COPYRIGHT & ATTRIBUTION)
+            ======================================================== */}
+        <div className="border-t border-white/[0.08] pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-sans text-white/50">
+          <p className="text-center sm:text-left m-0">
+            {t.footer.copyright}
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-6 text-xs text-white/60">
+            <span>{t.footer.craftedBy}</span>
+            <button
+              onClick={handleBackToTop}
+              className="inline-flex items-center gap-1.5 text-white hover:text-white/80 transition-colors duration-200 cursor-pointer group select-none"
+              data-interactive
+              aria-label="Volver arriba"
+            >
+              <span className="group-hover:-translate-y-0.5 transition-transform duration-200">
+                ↑
+              </span>
+              <span>{t.footer.backToTop}</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
     </footer>
   );
 };
+
+export default Footer;

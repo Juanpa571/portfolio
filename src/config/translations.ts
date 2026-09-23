@@ -142,15 +142,30 @@ export interface Translations {
     resetButton: string;
   };
   footer: {
+    eyebrow: string;
     headlineLine1: string;
     headlineLine2: string;
-    whatsappButton: (number: string) => string;
-    brandName: string;
+    subtitle: string;
+    email: string;
+    whatsapp: string;
+    responseBadge: string;
+    slogan: string;
+    brandDescription: string;
+    navTitle: string;
+    servicesTitle: string;
+    resourcesTitle: string;
+    locationTitle: string;
+    locationName: string;
+    locationSubtitle: string;
+    remoteGlobal: string;
+    copyright: string;
     craftedBy: string;
-    location: string;
-    remoteWorldwide: string;
-    edition: string;
     backToTop: string;
+    whatsappButton?: (number: string) => string;
+    brandName?: string;
+    location?: string;
+    remoteWorldwide?: string;
+    edition?: string;
   };
 }
 
@@ -478,15 +493,30 @@ export const translations: Record<Language, Translations> = {
       resetButton: 'Start over',
     },
     footer: {
-      headlineLine1: 'Ready to build',
-      headlineLine2: 'something real?',
+      eyebrow: "LET'S TALK",
+      headlineLine1: 'Ready to create ',
+      headlineLine2: 'something memorable?',
+      subtitle: "Tell us about your project. We're ready to help take your business to the next level.",
+      email: 'hola@jpchacon.com',
+      whatsapp: 'WhatsApp (+57 317 737 1301)',
+      responseBadge: 'Response in under 24 hours',
+      slogan: 'REAL BUSINESSES. REAL RESULTS.',
+      brandDescription: 'Web design and digital strategies for businesses that want to scale.',
+      navTitle: 'Navigation',
+      servicesTitle: 'Services',
+      resourcesTitle: 'Resources',
+      locationTitle: 'Location',
+      locationName: 'Cali, Colombia',
+      locationSubtitle: 'Working with clients worldwide.',
+      remoteGlobal: 'Global Remote',
+      copyright: '© 2026 JP Studios. All rights reserved.',
+      craftedBy: 'Designed and crafted by Juan Pablo Chacón.',
+      backToTop: 'Back to top',
       whatsappButton: (display: string) => `WhatsApp (${display}) ↗`,
       brandName: 'JP STUDIOS',
-      craftedBy: 'Designed & crafted by Juan Pablo Chacón.',
       location: 'Cali, Colombia',
       remoteWorldwide: 'Remote Worldwide',
       edition: '© 2026 Edition',
-      backToTop: 'Back to top',
     },
   },
   es: {
@@ -812,15 +842,30 @@ export const translations: Record<Language, Translations> = {
       resetButton: 'Iniciar de nuevo',
     },
     footer: {
-      headlineLine1: '¿Listo para crear',
+      eyebrow: 'HABLEMOS',
+      headlineLine1: '¿Listo para crear ',
       headlineLine2: 'algo memorable?',
+      subtitle: 'Cuéntanos tu proyecto. Estamos listos para ayudarte a llevar tu negocio al siguiente nivel.',
+      email: 'hola@jpchacon.com',
+      whatsapp: 'WhatsApp (+57 317 737 1301)',
+      responseBadge: 'Respuesta en menos de 24 horas',
+      slogan: 'NEGOCIOS REALES. RESULTADOS REALES.',
+      brandDescription: 'Diseño web y estrategias digitales para negocios que quieren crecer.',
+      navTitle: 'Navegación',
+      servicesTitle: 'Servicios',
+      resourcesTitle: 'Recursos',
+      locationTitle: 'Ubicación',
+      locationName: 'Cali, Colombia',
+      locationSubtitle: 'Trabajo con clientes en todo el mundo.',
+      remoteGlobal: 'Remoto Global',
+      copyright: '© 2026 JP Studios. Todos los derechos reservados.',
+      craftedBy: 'Diseñado y desarrollado por Juan Pablo Chacón.',
+      backToTop: 'Volver arriba',
       whatsappButton: (display: string) => `WhatsApp (${display}) ↗`,
       brandName: 'JP STUDIOS',
-      craftedBy: 'JP Studios — Diseñado y desarrollado por Juan Pablo Chacón.',
       location: 'Cali, Colombia',
       remoteWorldwide: 'Remoto Global',
       edition: 'Edición © 2026',
-      backToTop: 'Volver arriba',
     },
   },
 };
