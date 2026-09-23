@@ -3,6 +3,7 @@ import { siteConfig } from '../config/site';
 import { MetaTags } from '../components/seo/MetaTags';
 import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
+import { highlightBrandKeywords } from '../utils/textHighlight';
 
 interface SeoCaliPageProps {
   onNavigateHome: () => void;
@@ -46,11 +47,11 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
             </div>
 
             <h1 className="text-[2.6rem] sm:text-5xl lg:text-6xl font-semibold tracking-tight text-[#111111] leading-[1.08] mb-6 select-none">
-              Posicionamiento web en Cali y Google Maps para captar clientes reales.
+              {highlightBrandKeywords('Posicionamiento web en Cali y Google Maps para captar clientes reales.')}
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl text-black/75 font-sans leading-relaxed mb-8 max-w-3xl">
-              Optimizamos la infraestructura técnica, semántica y local de tu empresa para que Google, Google Maps y los motores de Inteligencia Artificial (ChatGPT, Gemini) te recomienden exactamente cuando tus clientes potenciales estén buscando contratar en Cali.
+              {highlightBrandKeywords('Optimizamos la infraestructura técnica, semántica y local de tu empresa para que Google, Google Maps y los motores de Inteligencia Artificial (ChatGPT, Gemini) te recomienden exactamente cuando tus clientes potenciales estén buscando contratar en Cali.')}
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">

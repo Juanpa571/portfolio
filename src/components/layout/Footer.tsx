@@ -2,7 +2,6 @@ import React from 'react';
 import { Mail, MessageCircle, MapPin, Globe } from 'lucide-react';
 import { siteConfig } from '../../config/site';
 import { useLanguage } from '../../context/LanguageContext';
-import { highlightBrandKeywords } from '../../utils/textHighlight';
 
 export const Footer: React.FC = () => {
   const { t, language } = useLanguage();
@@ -197,7 +196,7 @@ export const Footer: React.FC = () => {
             </a>
 
             <p className="text-xs text-white/60 font-sans leading-relaxed max-w-[280px]">
-              {highlightBrandKeywords(t.footer.brandDescription)}
+              {t.footer.brandDescription}
             </p>
 
             {/* Social Icons (Instagram, LinkedIn, TikTok, GitHub) */}
@@ -344,7 +343,7 @@ export const Footer: React.FC = () => {
                   className="hover:text-white transition-colors duration-200"
                   data-interactive
                 >
-                  {highlightBrandKeywords(isSpanish ? 'Posicionar web en Google' : 'Google SEO Ranking')}
+                  {isSpanish ? 'Posicionar web en Google' : 'Google SEO Ranking'}
                 </a>
               </li>
               <li>
@@ -353,7 +352,7 @@ export const Footer: React.FC = () => {
                   className="hover:text-white transition-colors duration-200"
                   data-interactive
                 >
-                  {highlightBrandKeywords(isSpanish ? 'Google Maps (SEO Local Cali)' : 'Google Maps (Local SEO)')}
+                  {isSpanish ? 'Google Maps (SEO Local Cali)' : 'Google Maps (Local SEO)'}
                 </a>
               </li>
               <li>

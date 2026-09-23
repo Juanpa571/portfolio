@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '../../context/LanguageContext';
+import { highlightBrandKeywords } from '../../utils/textHighlight';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -84,7 +85,7 @@ export const VelocityTicker: React.FC = () => {
                 : 'text-black/70 font-light'
             }`}
           >
-            {item.text}
+            {highlightBrandKeywords(item.text)}
           </span>
           <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-emerald-500 mx-5 sm:mx-8 shadow-xs shrink-0" />
         </span>
