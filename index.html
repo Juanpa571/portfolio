@@ -1,39 +1,37 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <!-- Analytics & Heatmaps: Google tag (gtag.js) & Microsoft Clarity (deferred load for maximum PageSpeed 100/100) -->
+    <!-- Google tag (gtag.js) deferred load on first interaction / timeout -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-JFLR4JV7GJ');
 
-      window.clarity = window.clarity || function(){(window.clarity.q=window.clarity.q||[]).push(arguments)};
-
       (function() {
-        var analyticsLoaded = false;
-        function loadAnalytics() {
-          if (analyticsLoaded) return;
-          analyticsLoaded = true;
-
-          // 1. Google Analytics 4 (G-JFLR4JV7GJ)
-          var gaScript = document.createElement('script');
-          gaScript.async = true;
-          gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JFLR4JV7GJ';
-          document.head.appendChild(gaScript);
-
-          // 2. Microsoft Clarity Heatmaps & Recordings (ymtog83o7w)
-          var clarityScript = document.createElement('script');
-          clarityScript.async = true;
-          clarityScript.src = 'https://www.clarity.ms/tag/ymtog83o7w';
-          document.head.appendChild(clarityScript);
+        var gaLoaded = false;
+        function loadGtag() {
+          if (gaLoaded) return;
+          gaLoaded = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JFLR4JV7GJ';
+          document.head.appendChild(s);
         }
-
         ['pointerdown', 'pointermove', 'scroll', 'touchstart', 'keydown'].forEach(function(ev) {
-          window.addEventListener(ev, loadAnalytics, { once: true, passive: true });
+          window.addEventListener(ev, loadGtag, { once: true, passive: true });
         });
-        setTimeout(loadAnalytics, 3500);
+        setTimeout(loadGtag, 3500);
       })();
+    </script>
+
+    <!-- Microsoft Clarity (Official Async Snippet - ymtog83o7w) -->
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "ymtog83o7w");
     </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="favicon.png" />
