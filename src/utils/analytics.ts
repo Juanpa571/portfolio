@@ -12,13 +12,14 @@ declare global {
   interface Window {
     gtag?: (...args: any[]) => void;
     dataLayer?: any[];
+    clarity?: (...args: any[]) => void;
   }
 }
 
 /**
- * Safe wrapper for gtag event dispatch.
- * Works even if gtag.js script is still loading because window.gtag
- * is initialized in index.html and pushes to window.dataLayer.
+ * Safe wrapper for gtag event dispatch and Microsoft Clarity tagging.
+ * Works even if scripts are still loading because placeholders
+ * are initialized in index.html.
  */
 export const trackEvent = (
   eventName: string,
@@ -27,6 +28,7 @@ export const trackEvent = (
   if (typeof window === 'undefined') return;
 
   try {
+    // 1. Google Analytics 4
     if (typeof window.gtag === 'function') {
       window.gtag('event', eventName, params);
     } else if (Array.isArray(window.dataLayer)) {
@@ -34,6 +36,11 @@ export const trackEvent = (
         event: eventName,
         ...params,
       });
+    }
+
+    // 2. Microsoft Clarity event tagging
+    if (typeof window.clarity === 'function') {
+      window.clarity('event', eventName);
     }
   } catch (err) {
     // Fail silently in case of adblockers or strict privacy filters

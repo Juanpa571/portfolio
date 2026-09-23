@@ -1,27 +1,38 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <!-- Google tag (gtag.js) deferred load on first interaction / timeout -->
+    <!-- Analytics & Heatmaps: Google tag (gtag.js) & Microsoft Clarity (deferred load for maximum PageSpeed 100/100) -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-JFLR4JV7GJ');
 
+      window.clarity = window.clarity || function(){(window.clarity.q=window.clarity.q||[]).push(arguments)};
+
       (function() {
-        var loaded = false;
-        function loadGtag() {
-          if (loaded) return;
-          loaded = true;
-          var s = document.createElement('script');
-          s.async = true;
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JFLR4JV7GJ';
-          document.head.appendChild(s);
+        var analyticsLoaded = false;
+        function loadAnalytics() {
+          if (analyticsLoaded) return;
+          analyticsLoaded = true;
+
+          // 1. Google Analytics 4 (G-JFLR4JV7GJ)
+          var gaScript = document.createElement('script');
+          gaScript.async = true;
+          gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-JFLR4JV7GJ';
+          document.head.appendChild(gaScript);
+
+          // 2. Microsoft Clarity Heatmaps & Recordings (ymtog83o7w)
+          var clarityScript = document.createElement('script');
+          clarityScript.async = true;
+          clarityScript.src = 'https://www.clarity.ms/tag/ymtog83o7w';
+          document.head.appendChild(clarityScript);
         }
-        ['pointerdown', 'scroll', 'touchstart', 'keydown'].forEach(function(ev) {
-          window.addEventListener(ev, loadGtag, { once: true, passive: true });
+
+        ['pointerdown', 'pointermove', 'scroll', 'touchstart', 'keydown'].forEach(function(ev) {
+          window.addEventListener(ev, loadAnalytics, { once: true, passive: true });
         });
-        setTimeout(loadGtag, 9000);
+        setTimeout(loadAnalytics, 3500);
       })();
     </script>
     <meta charset="UTF-8" />
