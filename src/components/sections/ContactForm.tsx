@@ -171,11 +171,35 @@ export const ContactForm: React.FC = () => {
     }
   };
 
+  const handlePhoneChange = (val: string) => {
+    // Only allow digits, spaces, hyphens, parentheses, and an optional single leading '+'
+    let sanitized = val.replace(/[^\d+\s\-()]/g, '');
+    if (sanitized.includes('+')) {
+      const hasLeadingPlus = sanitized.startsWith('+');
+      sanitized = (hasLeadingPlus ? '+' : '') + sanitized.replace(/\+/g, '');
+    }
+    const digitsOnly = sanitized.replace(/\D/g, '');
+    if (digitsOnly.length > 15) return;
+    setPhone(sanitized);
+    if (errorMessage) setErrorMessage('');
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !phone.trim()) {
+    if (!name.trim()) {
       setStatus('error');
       setErrorMessage(t.contact.validationError);
+      return;
+    }
+
+    const digits = phone.replace(/\D/g, '');
+    if (digits.length < 7 || digits.length > 15) {
+      setStatus('error');
+      setErrorMessage(
+        isSpanish
+          ? 'Por favor ingresa un número de teléfono o WhatsApp válido (mínimo 7 dígitos).'
+          : 'Please enter a valid phone or WhatsApp number (minimum 7 digits).'
+      );
       return;
     }
 
@@ -247,9 +271,9 @@ export const ContactForm: React.FC = () => {
               ✓
             </div>
             <div className="space-y-2 max-w-sm mx-auto">
-              <h3 className="text-2xl font-bold font-display text-[#111111] tracking-tight">
+              <div className="text-2xl font-bold font-display text-[#111111] tracking-tight">
                 {t.contact.successTitle}
-              </h3>
+              </div>
               <p className="text-black/65 text-xs font-sans leading-relaxed">
                 {t.contact.successSubtitle(name || 'Cliente')}
               </p>
@@ -277,12 +301,9 @@ export const ContactForm: React.FC = () => {
           <div>
             {/* 1. Mobile Section Header */}
             <div className="space-y-2">
-              <span className="block text-xs font-mono tracking-[0.18em] text-black/45 uppercase select-none">
-                {t.contact.sectionTag}
-              </span>
-              <h2 className="text-[2.55rem] font-bold font-display tracking-tight text-[#111111] leading-[1.06] select-none">
-                {t.contact.titleLine1} {t.contact.titleLine2}
-              </h2>
+              <div className="text-[2.55rem] font-bold font-display tracking-tight text-[#111111] leading-[1.06] select-none">
+                {t.contact.titleLine1.trim()}{' '}{t.contact.titleLine2}
+              </div>
               <p className="text-xs sm:text-sm text-black/65 font-sans font-normal leading-relaxed pt-1">
                 {t.contact.description}
               </p>
@@ -293,14 +314,11 @@ export const ContactForm: React.FC = () => {
 
             {/* 2. Step Header */}
             <div className="space-y-1 mb-4 select-none">
-              <span className="text-[11px] font-mono tracking-[0.16em] text-black/45 uppercase font-semibold block">
-                {t.contact.stepIndicator(currentStep, 3)}
-              </span>
-              <h3 className="text-xl font-bold font-display text-[#111111] tracking-tight leading-tight">
+              <div className="text-xl font-bold font-display text-[#111111] tracking-tight leading-snug">
                 {currentStep === 1 && t.contact.step1Question}
                 {currentStep === 2 && t.contact.step2Question}
                 {currentStep === 3 && t.contact.step3Question}
-              </h3>
+              </div>
               <p className="text-xs text-black/60 font-sans">
                 {currentStep === 1 && t.contact.step1Subtitle}
                 {currentStep === 2 && t.contact.step2Subtitle}
@@ -331,16 +349,16 @@ export const ContactForm: React.FC = () => {
                         >
                           <OptionIcon icon={opt.icon} className="w-5 h-5" />
                         </div>
-                        <div className="min-w-0">
+                        <div className="min-w-0 pr-1">
                           <p
-                            className={`text-sm font-display font-medium leading-snug truncate ${
+                            className={`text-sm font-display font-medium leading-snug ${
                               isSelected ? 'text-white' : 'text-[#111111]'
                             }`}
                           >
                             {opt.label}
                           </p>
                           <p
-                            className={`text-xs font-sans leading-tight mt-0.5 truncate ${
+                            className={`text-xs font-sans leading-snug mt-0.5 line-clamp-2 ${
                               isSelected ? 'text-white/70' : 'text-black/55'
                             }`}
                           >
@@ -351,10 +369,10 @@ export const ContactForm: React.FC = () => {
 
                       <div
                         className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
-                          isSelected ? 'border-emerald-500 bg-emerald-500/20' : 'border-black/20'
+                          isSelected ? 'border-white bg-white/20' : 'border-black/20'
                         }`}
                       >
-                        {isSelected && <span className="w-2 h-2 rounded-full bg-emerald-400" />}
+                        {isSelected && <span className="w-2 h-2 rounded-full bg-white" />}
                       </div>
                     </div>
                   );
@@ -384,16 +402,16 @@ export const ContactForm: React.FC = () => {
                         >
                           <OptionIcon icon={opt.icon} className="w-5 h-5" />
                         </div>
-                        <div className="min-w-0">
+                        <div className="min-w-0 pr-1">
                           <p
-                            className={`text-sm font-display font-medium leading-snug truncate ${
+                            className={`text-sm font-display font-medium leading-snug ${
                               isSelected ? 'text-white' : 'text-[#111111]'
                             }`}
                           >
                             {opt.label}
                           </p>
                           <p
-                            className={`text-xs font-sans leading-tight mt-0.5 truncate ${
+                            className={`text-xs font-sans leading-snug mt-0.5 line-clamp-2 ${
                               isSelected ? 'text-white/70' : 'text-black/55'
                             }`}
                           >
@@ -404,10 +422,10 @@ export const ContactForm: React.FC = () => {
 
                       <div
                         className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
-                          isSelected ? 'border-emerald-500 bg-emerald-500/20' : 'border-black/20'
+                          isSelected ? 'border-white bg-white/20' : 'border-black/20'
                         }`}
                       >
-                        {isSelected && <span className="w-2 h-2 rounded-full bg-emerald-400" />}
+                        {isSelected && <span className="w-2 h-2 rounded-full bg-white" />}
                       </div>
                     </div>
                   );
@@ -417,11 +435,17 @@ export const ContactForm: React.FC = () => {
 
             {currentStep === 3 && (
               <div className="p-5 rounded-2xl bg-white border border-black/[0.08] shadow-xs space-y-4">
-                <div className="flex flex-wrap gap-2 p-3 rounded-xl bg-black/[0.03] border border-black/[0.06] text-xs font-mono text-black/70">
-                  <span className="px-3 py-1 rounded-full bg-white border border-black/10">
+                {/* Summary of chosen options - No card-inside-card anti-pattern */}
+                <div className="flex flex-wrap items-center gap-2 text-xs font-sans text-black/70 pb-1">
+                  <span className="text-black/40 text-[11px] font-medium tracking-wide">
+                    {isSpanish ? 'Selección:' : 'Selected:'}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/[0.04] text-[#111111] font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                     {currentProjectObj.label}
                   </span>
-                  <span className="px-3 py-1 rounded-full bg-white border border-black/10">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/[0.04] text-[#111111] font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                     {currentSectorObj.label}
                   </span>
                 </div>
@@ -436,7 +460,7 @@ export const ContactForm: React.FC = () => {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder={t.contact.namePlaceholder}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-black/10 focus:border-black focus:outline-none text-sm text-black placeholder:text-black/30 transition-colors shadow-2xs"
+                      className="w-full px-4 py-3.5 rounded-xl bg-white border border-black/10 focus:border-black focus:outline-none text-base sm:text-sm text-black placeholder:text-black/30 transition-colors shadow-2xs min-h-[48px]"
                     />
                   </div>
 
@@ -446,10 +470,12 @@ export const ContactForm: React.FC = () => {
                     </label>
                     <input
                       type="tel"
+                      inputMode="tel"
+                      autoComplete="tel"
                       value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
+                      onChange={(e) => handlePhoneChange(e.target.value)}
                       placeholder={t.contact.phonePlaceholder}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-black/10 focus:border-black focus:outline-none text-sm text-black placeholder:text-black/30 transition-colors shadow-2xs"
+                      className="w-full px-4 py-3.5 rounded-xl bg-white border border-black/10 focus:border-black focus:outline-none text-base sm:text-sm text-black placeholder:text-black/30 transition-colors shadow-2xs min-h-[48px]"
                     />
                   </div>
 
@@ -470,9 +496,9 @@ export const ContactForm: React.FC = () => {
                 href={siteConfig.profile.contact.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#111111] text-white text-xs font-sans font-medium hover:bg-black transition-colors shrink-0 shadow-xs active:scale-95"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] rounded-full bg-[#111111] text-white text-xs font-sans font-medium hover:bg-black transition-colors shrink-0 shadow-xs active:scale-95"
               >
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
                 <span>{t.contact.whatsappButton}</span>
                 <span className="text-xs">↗</span>
               </a>
@@ -484,7 +510,7 @@ export const ContactForm: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="w-full py-3.5 rounded-full bg-[#111111] text-white text-sm font-sans font-medium hover:bg-black transition-all active:scale-[0.98] flex items-center justify-center gap-2 shadow-sm cursor-pointer"
+                  className="w-full py-3.5 min-h-[48px] rounded-full bg-[#111111] text-white text-sm font-sans font-medium hover:bg-black transition-all active:scale-[0.98] flex items-center justify-center gap-2 shadow-sm cursor-pointer"
                 >
                   <span>{t.contact.nextButton}</span>
                   <span>→</span>
@@ -494,7 +520,7 @@ export const ContactForm: React.FC = () => {
                   type="button"
                   onClick={handleSubmit}
                   disabled={status === 'submitting'}
-                  className="w-full py-3.5 rounded-full bg-[#111111] text-white text-sm font-sans font-medium hover:bg-black transition-all active:scale-[0.98] flex items-center justify-center gap-2 shadow-sm disabled:opacity-50 cursor-pointer"
+                  className="w-full py-3.5 min-h-[48px] rounded-full bg-[#111111] text-white text-sm font-sans font-medium hover:bg-black transition-all active:scale-[0.98] flex items-center justify-center gap-2 shadow-sm disabled:opacity-50 cursor-pointer"
                 >
                   <span>{status === 'submitting' ? t.contact.submitSending : t.contact.submitIdle}</span>
                   <span>→</span>
@@ -505,7 +531,7 @@ export const ContactForm: React.FC = () => {
                 <button
                   type="button"
                   onClick={handlePrev}
-                  className="w-full py-2.5 rounded-full border border-black/15 text-xs font-sans font-medium text-black/70 hover:text-black transition-colors cursor-pointer"
+                  className="w-full py-3 min-h-[44px] rounded-full border border-black/15 text-xs font-sans font-medium text-black/70 hover:text-black transition-colors cursor-pointer flex items-center justify-center"
                 >
                   ← {t.contact.prevButton}
                 </button>
@@ -523,13 +549,8 @@ export const ContactForm: React.FC = () => {
           className="lg:col-span-4 xl:col-span-4 flex flex-col justify-between self-stretch space-y-10 sm:space-y-14"
         >
           <div className="space-y-3">
-            {/* Category label */}
-            <span className="block text-xs sm:text-sm font-mono tracking-[0.18em] text-black/45 uppercase select-none">
-              {t.contact.sectionTag}
-            </span>
-
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-normal font-display tracking-[-0.02em] text-[#111111] leading-[1.08] select-none">
-              {t.contact.titleLine1} <br />
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold font-display tracking-tight text-[#111111] leading-[1.1] select-none">
+              {t.contact.titleLine1.trim()}{' '}<br />
               {t.contact.titleLine2}
             </h2>
 
@@ -550,7 +571,7 @@ export const ContactForm: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#111111] text-white text-xs sm:text-sm font-sans font-medium hover:bg-black/85 transition-all duration-300 active:scale-95 group cursor-pointer shadow-xs"
             >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
               <span>{t.contact.whatsappButton}</span>
               <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
                 ↗
@@ -598,10 +619,7 @@ export const ContactForm: React.FC = () => {
             <div>
               {/* Step Header */}
               <div className="space-y-1.5 mb-8 select-none">
-                <span className="text-xs font-mono tracking-[0.16em] text-black/45 uppercase font-medium block">
-                  {t.contact.stepIndicator(currentStep, 3)}
-                </span>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-normal font-display tracking-[-0.02em] text-[#111111] leading-tight">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold font-display tracking-tight text-[#111111] leading-snug">
                   {currentStep === 1 && t.contact.step1Question}
                   {currentStep === 2 && t.contact.step2Question}
                   {currentStep === 3 && t.contact.step3Question}
@@ -638,12 +656,12 @@ export const ContactForm: React.FC = () => {
                           <div
                             className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all duration-200 ${
                               isSelected
-                                ? 'border-emerald-500 bg-black/40'
+                                ? 'border-white bg-white/20'
                                 : 'border-black/20 group-hover:border-black/40'
                             }`}
                           >
                             {isSelected && (
-                              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                              <span className="w-2 h-2 rounded-full bg-white" />
                             )}
                           </div>
                         </div>
@@ -695,12 +713,12 @@ export const ContactForm: React.FC = () => {
                           <div
                             className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all duration-200 ${
                               isSelected
-                                ? 'border-emerald-500 bg-black/40'
+                                ? 'border-white bg-white/20'
                                 : 'border-black/20 group-hover:border-black/40'
                             }`}
                           >
                             {isSelected && (
-                              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                              <span className="w-2 h-2 rounded-full bg-white" />
                             )}
                           </div>
                         </div>
@@ -730,12 +748,17 @@ export const ContactForm: React.FC = () => {
               {/* Step 3: Contact Details & Fast Proposal Dispatch */}
               {currentStep === 3 && (
                 <div className="p-7 sm:p-10 rounded-[2rem] bg-white border border-black/[0.08] shadow-xs space-y-6 animate-in fade-in duration-200">
-                  {/* Summary of chosen options */}
-                  <div className="flex flex-wrap gap-2.5 p-4 rounded-2xl bg-black/[0.03] border border-black/[0.06] text-xs font-mono text-black/70">
-                    <span className="px-3.5 py-1.5 rounded-full bg-white border border-black/10 shadow-2xs">
+                  {/* Summary of chosen options - No card-inside-card anti-pattern */}
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-sans text-black/70 pb-1">
+                    <span className="text-black/40 text-xs font-medium tracking-wide">
+                      {isSpanish ? 'Solución seleccionada:' : 'Selected solution:'}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/[0.04] text-[#111111] font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                       {currentProjectObj.label}
                     </span>
-                    <span className="px-3.5 py-1.5 rounded-full bg-white border border-black/10 shadow-2xs">
+                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/[0.04] text-[#111111] font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                       {currentSectorObj.label}
                     </span>
                   </div>
@@ -760,8 +783,10 @@ export const ContactForm: React.FC = () => {
                       </label>
                       <input
                         type="tel"
+                        inputMode="tel"
+                        autoComplete="tel"
                         value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
+                        onChange={(e) => handlePhoneChange(e.target.value)}
                         placeholder={t.contact.phonePlaceholder}
                         className="w-full px-5 py-3.5 rounded-2xl bg-white border border-black/10 focus:border-black focus:outline-none text-sm text-black placeholder:text-black/30 transition-colors shadow-2xs"
                       />

@@ -26,7 +26,7 @@ export const HabitatDemo: React.FC = () => {
         <div className="flex items-center gap-3">
           <img
             src="/projects/habitat-emblem.png"
-            alt="Hábitat Emblema"
+            alt="Isotipo y emblema clínico de Hábitat Hospital Veterinario — Caso de estudio JP Studios"
             className="w-7 h-7 object-contain"
           />
           <div className="flex items-baseline gap-2">
@@ -85,7 +85,7 @@ export const HabitatDemo: React.FC = () => {
         {/* Daytime Architectural Facade Photograph */}
         <img
           src="/projects/habitat-hero-day.png"
-          alt="Fachada diurna de Hábitat Emergencias 24 Horas"
+          alt="Fachada arquitectónica de la clínica veterinaria Hábitat 24 Horas en Cali — Caso de posicionamiento local en Google Maps"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
 

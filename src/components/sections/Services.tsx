@@ -5,6 +5,7 @@ import { UiUxArtwork } from './services/UiUxArtwork';
 import { FrontendCraftArtwork } from './services/FrontendCraftArtwork';
 import { FullStackArtwork } from './services/FullStackArtwork';
 import { SupportArtwork } from './services/SupportArtwork';
+import { highlightBrandKeywords } from '../../utils/textHighlight';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -132,7 +133,7 @@ export const Services: React.FC<ServicesProps> = () => {
                 className="text-[2.35rem] sm:text-4xl lg:text-[3.25rem] font-semibold tracking-tight text-[#111111] leading-[1.1] select-none"
               >
                 <span className="block">{t.services.headerLine1.trim()}{' '}</span>
-                <span className="block text-[#111111]">{t.services.headerLine2}</span>
+                <span className="block text-[#111111]">{highlightBrandKeywords(t.services.headerLine2)}</span>
               </h2>
             </div>
 
@@ -142,7 +143,7 @@ export const Services: React.FC<ServicesProps> = () => {
                 ref={descRef}
                 className="text-sm md:text-base text-black/75 font-sans font-normal leading-relaxed pt-1 sm:pt-0"
               >
-                {t.services.seoDescription}
+                {highlightBrandKeywords(t.services.seoDescription)}
               </p>
             </div>
           </div>
@@ -177,10 +178,10 @@ export const Services: React.FC<ServicesProps> = () => {
                 </div>
                 <div className="space-y-2 mt-auto">
                   <div className="text-[1.45rem] font-bold font-display text-black tracking-tight leading-[1.14]">
-                    {t.services.items[0].title}
+                    {highlightBrandKeywords(t.services.items[0].title)}
                   </div>
                   <p className="text-sm text-black/75 font-sans leading-relaxed">
-                    {t.services.items[0].subtitle}
+                    {highlightBrandKeywords(t.services.items[0].subtitle)}
                   </p>
                   <a
                     href="/posicionar-web-en-google"
@@ -196,10 +197,10 @@ export const Services: React.FC<ServicesProps> = () => {
               <div className="hidden md:flex items-center justify-between gap-3 sm:gap-4 md:gap-6 my-auto">
                 <div className="space-y-1.5 md:space-y-2 flex-1 min-w-0 pr-1 md:pr-0 md:max-w-[65%]">
                   <h3 className="text-xl sm:text-xl md:text-2xl font-semibold font-display text-black tracking-tight leading-snug">
-                    {t.services.items[0].title}
+                    {highlightBrandKeywords(t.services.items[0].title)}
                   </h3>
                   <p className="text-xs md:text-sm text-black/65 font-sans leading-relaxed">
-                    {t.services.items[0].subtitle}
+                    {highlightBrandKeywords(t.services.items[0].subtitle)}
                   </p>
                   <a
                     href="/posicionar-web-en-google"
@@ -233,10 +234,10 @@ export const Services: React.FC<ServicesProps> = () => {
                 </div>
                 <div className="space-y-2 mt-auto">
                   <div className="text-[1.45rem] font-bold font-display text-white tracking-tight leading-[1.14]">
-                    {t.services.items[1].title}
+                    {highlightBrandKeywords(t.services.items[1].title)}
                   </div>
                   <p className="text-sm text-white/75 font-sans leading-relaxed">
-                    {t.services.items[1].subtitle}
+                    {highlightBrandKeywords(t.services.items[1].subtitle)}
                   </p>
                   <a
                     href="/posicionar-web-en-google"
@@ -252,10 +253,10 @@ export const Services: React.FC<ServicesProps> = () => {
               <div className="hidden md:flex items-center justify-between gap-3 sm:gap-4 md:gap-6 my-auto">
                 <div className="space-y-1.5 md:space-y-2 flex-1 min-w-0 pr-1 md:pr-0 md:max-w-[65%]">
                   <h3 className="text-xl sm:text-xl md:text-2xl font-semibold font-display text-white tracking-tight leading-snug">
-                    {t.services.items[1].title}
+                    {highlightBrandKeywords(t.services.items[1].title)}
                   </h3>
                   <p className="text-xs md:text-sm text-white/70 font-sans leading-relaxed">
-                    {t.services.items[1].subtitle}
+                    {highlightBrandKeywords(t.services.items[1].subtitle)}
                   </p>
                   <a
                     href="/posicionar-web-en-google"
@@ -289,10 +290,10 @@ export const Services: React.FC<ServicesProps> = () => {
                 </div>
                 <div className="space-y-2 mt-auto">
                   <div className="text-[1.45rem] font-bold font-display text-black tracking-tight leading-[1.14]">
-                    {t.services.items[2].title}
+                    {highlightBrandKeywords(t.services.items[2].title)}
                   </div>
                   <p className="text-sm text-black/75 font-sans leading-relaxed">
-                    {t.services.items[2].subtitle}
+                    {highlightBrandKeywords(t.services.items[2].subtitle)}
                   </p>
                   <a
                     href="/posicionar-web-en-google"
@@ -308,10 +309,10 @@ export const Services: React.FC<ServicesProps> = () => {
               <div className="hidden md:flex items-center justify-between gap-3 sm:gap-4 md:gap-6 my-auto">
                 <div className="space-y-1.5 md:space-y-2 flex-1 min-w-0 pr-1 md:pr-0 md:max-w-[65%]">
                   <h3 className="text-xl sm:text-xl md:text-2xl font-semibold font-display text-black tracking-tight leading-snug">
-                    {t.services.items[2].title}
+                    {highlightBrandKeywords(t.services.items[2].title)}
                   </h3>
                   <p className="text-xs md:text-sm text-black/65 font-sans leading-relaxed">
-                    {t.services.items[2].subtitle}
+                    {highlightBrandKeywords(t.services.items[2].subtitle)}
                   </p>
                   <a
                     href="/posicionar-web-en-google"
@@ -345,10 +346,10 @@ export const Services: React.FC<ServicesProps> = () => {
                 </div>
                 <div className="space-y-2 mt-auto">
                   <div className="text-[1.45rem] font-bold font-display text-black tracking-tight leading-[1.14]">
-                    {t.services.items[3].title}
+                    {highlightBrandKeywords(t.services.items[3].title)}
                   </div>
                   <p className="text-sm text-black/75 font-sans leading-relaxed">
-                    {t.services.items[3].subtitle}
+                    {highlightBrandKeywords(t.services.items[3].subtitle)}
                   </p>
                   <a
                     href="/posicionar-web-en-google"
@@ -364,10 +365,10 @@ export const Services: React.FC<ServicesProps> = () => {
               <div className="hidden md:flex items-center justify-between gap-3 sm:gap-4 md:gap-6 my-auto">
                 <div className="space-y-1.5 md:space-y-2 flex-1 min-w-0 pr-1 md:pr-0 md:max-w-[65%]">
                   <h3 className="text-xl sm:text-xl md:text-2xl font-semibold font-display text-black tracking-tight leading-snug">
-                    {t.services.items[3].title}
+                    {highlightBrandKeywords(t.services.items[3].title)}
                   </h3>
                   <p className="text-xs md:text-sm text-black/65 font-sans leading-relaxed">
-                    {t.services.items[3].subtitle}
+                    {highlightBrandKeywords(t.services.items[3].subtitle)}
                   </p>
                   <a
                     href="/posicionar-web-en-google"

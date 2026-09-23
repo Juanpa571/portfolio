@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export const Intro: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const sectionRef = useRef<HTMLElement | null>(null);
   const photoRef = useRef<HTMLDivElement | null>(null);
   const statementRef = useRef<HTMLParagraphElement | null>(null);
@@ -72,10 +72,11 @@ export const Intro: React.FC = () => {
           <div ref={photoRef} className="lg:col-span-5 flex justify-center lg:justify-start">
             <div className="relative w-full max-w-[300px] sm:max-w-[340px] lg:max-w-[380px] xl:max-w-[410px] max-h-[58vh] aspect-[3/4] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/[0.08] group will-change-[transform,opacity]">
               <picture className="w-full h-full">
+                <source media="(max-width: 640px)" type="image/webp" srcSet="/hero-portrait-mobile.webp" />
                 <source type="image/webp" srcSet="/hero-portrait.webp" />
                 <img
                   src="/hero-portrait.webp"
-                  alt="Juan Pablo Chacón — Lead Web Engineer & Designer"
+                  alt="Juan Pablo Chacón — Diseñador e ingeniero de software web en Cali, fundador de JP Studios"
                   className="w-full h-full object-cover object-top filter grayscale contrast-[1.03] group-hover:grayscale-0 transition-all duration-700 ease-out"
                   width={840}
                   height={1120}
@@ -90,9 +91,17 @@ export const Intro: React.FC = () => {
           <div className="lg:col-span-7 flex flex-col justify-center">
             <p
               ref={statementRef}
-              className="text-lg sm:text-xl md:text-2xl lg:text-[1.85rem] xl:text-[2.1rem] text-white/90 font-sans font-normal leading-[1.34] tracking-[-0.015em] will-change-[transform,opacity]"
+              className="text-lg sm:text-xl md:text-2xl lg:text-[1.85rem] xl:text-[2.05rem] text-white/70 font-sans font-normal leading-[1.38] tracking-tight will-change-[transform,opacity]"
             >
-              {t.intro.statement}
+              {language === 'es' ? (
+                <>
+                  En <span className="text-white font-semibold">JP Studios</span>, liderado por Juan Pablo Chacón, desarrollamos <span className="text-white font-semibold">páginas web en Cali</span> para empresas y negocios que necesitan destacar y facturar. Construimos sitios web a medida en código ultrarrápido (React 19), estructurados para <span className="text-white font-semibold">liderar en <span className="text-[#174ea6]">Google</span> y motores de IA</span>, y optimizados para transformar visitas locales en <span className="text-white font-semibold"><span className="text-[#00a854]">ventas</span> directas por WhatsApp</span>.
+                </>
+              ) : (
+                <>
+                  At <span className="text-white font-semibold">JP Studios</span>, an independent web engineering studio led by Juan Pablo Chacón, we craft <span className="text-white font-semibold">high-performance websites in Cali</span> for businesses that cannot afford to go unnoticed. Ultra-fast websites, optimized to <span className="text-white font-semibold">dominate the <span className="text-[#174ea6]">Google</span> ecosystem and AI search engines</span>. Engineered to turn local discovery into <span className="text-white font-semibold">real clients across your primary contact channels</span>.
+                </>
+              )}
             </p>
 
             {/* Contact Actions Lockup */}

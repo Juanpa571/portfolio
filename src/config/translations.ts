@@ -5,6 +5,7 @@ export interface Translations {
     work: string;
     process: string;
     services: string;
+    pricing: string;
     faq: string;
     contact: string;
     talk: string;
@@ -54,6 +55,29 @@ export interface Translations {
       subtitle: string;
       description: string;
     }>;
+  };
+  pricing: {
+    tag: string;
+    headerLine1: string;
+    headerLine2: string;
+    tagline: string;
+    currencyNote: string;
+    tiers: Array<{
+      id: string;
+      number: string;
+      name: string;
+      pricePrefix: string;
+      priceAmount: string;
+      priceCurrency: string;
+      description: string;
+      features: string[];
+      actionText: string;
+      whatsappSubject: string;
+    }>;
+    guaranteeTitle: string;
+    guaranteeSubtitle: string;
+    calculatorPrompt: string;
+    calculatorButton: string;
   };
   process: {
     tag: string;
@@ -175,6 +199,7 @@ export const translations: Record<Language, Translations> = {
       work: 'Work',
       process: 'Process',
       services: 'Services',
+      pricing: 'Pricing',
       faq: 'FAQ',
       contact: 'Contact',
       talk: "Let's talk",
@@ -191,9 +216,9 @@ export const translations: Record<Language, Translations> = {
       switchLangTooltip: 'Cambiar a español',
     },
     hero: {
-      headlineLine1: 'Websites in Cali,',
-      headlineLine2: 'engineered to rank on Google',
-      headlineLine3: 'and scale your sales.',
+      headlineLine1: 'Bespoke web design',
+      headlineLine2: 'in Cali to rank on',
+      headlineLine3: 'Google and scale sales.',
       subtitle: 'Bespoke web design and engineering in Cali to bring your company to the top of Google.',
       signature: 'JP Studios by Juan Pablo Chacón',
       disciplineLine1: 'Bespoke Websites',
@@ -271,6 +296,70 @@ export const translations: Record<Language, Translations> = {
             'Enterprise edge hosting with 99.9% uptime, SSL security, automated backups, and optional support with zero forced monthly retainers or technical lock-in.',
         },
       ],
+    },
+    pricing: {
+      tag: 'Investment & Pricing',
+      headerLine1: 'How much does a website cost? ',
+      headerLine2: 'Transparent pricing with zero hidden fees.',
+      tagline: 'Realistic investment ranges for companies in Colombia. No surprise charges, no forced maintenance retainers.',
+      currencyNote: '* All values in Colombian Pesos (COP). Turnkey one-time development fee with 100% client ownership of code and domain.',
+      tiers: [
+        {
+          id: 'landing-page',
+          number: '01',
+          name: 'Landing Page para Vender',
+          pricePrefix: 'From',
+          priceAmount: '$1.500.000',
+          priceCurrency: 'COP',
+          description: 'Engineered for businesses requiring an immediate high-impact digital presence that turns visitors into clients.',
+          features: [
+            'High-converting landing page',
+            'Mobile-first responsive design',
+            'Persuasive sales copywriting',
+            'Direct WhatsApp routing triggers',
+          ],
+          actionText: 'View details',
+          whatsappSubject: 'Hola Juan Pablo, me interesa cotizar una Landing Page para Vender (Desde $1.5M COP).',
+        },
+        {
+          id: 'corporate-seo',
+          number: '02',
+          name: 'Corporate Website & Google Ranking',
+          pricePrefix: 'From',
+          priceAmount: '$2.500.000',
+          priceCurrency: 'COP',
+          description: 'The complete solution for companies aiming to lead their sector in Cali, rank on Google, and project authority.',
+          features: [
+            'Multi-section React 19 architecture',
+            'Local Cali SEO optimization',
+            'Verified Google Business Profile setup',
+            'Structured data (Schema.org JSON-LD)',
+          ],
+          actionText: 'View details',
+          whatsappSubject: 'Hola Juan Pablo, me interesa cotizar un Sitio Corporativo con Posicionamiento en Google (Desde $2.5M COP).',
+        },
+        {
+          id: 'custom-platform',
+          number: '03',
+          name: 'Custom Platform & Automation',
+          pricePrefix: 'From',
+          priceAmount: '$4.500.000',
+          priceCurrency: 'COP',
+          description: 'For businesses with custom workflows, large catalogs, or advanced CRM & WhatsApp API integrations.',
+          features: [
+            'Bespoke web software engineering',
+            'Integrations (CRM, WhatsApp, APIs)',
+            'Dynamic database & content management',
+            'Interactive real-time calculators & funnels',
+          ],
+          actionText: 'View details',
+          whatsappSubject: 'Hola Juan Pablo, me interesa cotizar una Plataforma a Medida con Automatizaciones (Desde $4.5M COP).',
+        },
+      ],
+      guaranteeTitle: 'Why we charge a single turnkey fee with zero forced retainers',
+      guaranteeSubtitle: 'Traditional agencies trap you with months of delays and mandatory retainers of $200.000 – $300.000 COP/month for fragile WordPress plugin updates. At JP Studios, we engineer in clean code (React 19) that doesn\'t break, doesn\'t get hacked, and belongs 100% to you.',
+      calculatorPrompt: 'Need an exact estimate tailored to your requirements?',
+      calculatorButton: 'Estimate in 60 seconds ↓',
     },
     process: {
       tag: 'Process',
@@ -524,6 +613,7 @@ export const translations: Record<Language, Translations> = {
       work: 'Trabajo',
       process: 'Proceso',
       services: 'Servicios',
+      pricing: 'Precios',
       faq: 'Preguntas',
       contact: 'Contacto',
       talk: 'Cotizar Proyecto',
@@ -540,30 +630,31 @@ export const translations: Record<Language, Translations> = {
       switchLangTooltip: 'Switch to English',
     },
     hero: {
-      headlineLine1: 'Páginas web en Cali, ',
-      headlineLine2: 'para liderar Google ',
-      headlineLine3: 'y multiplicar tus ventas.',
-      subtitle: 'Diseño y desarrollo web en Cali para empresas que necesitan dejar de perder clientes en Google y empezar a cerrar ventas directas por WhatsApp.',
+      headlineLine1: 'Diseño de páginas web',
+      headlineLine2: 'en Cali para liderar en',
+      headlineLine3: 'Google y vender más.',
+      subtitle:
+        'Desarrollo web a medida y landing pages de alta conversión en Cali. Sitios ultrarrápidos (carga en 0.5s en celulares) diseñados para empresas que necesitan aparecer en Google Maps y convertir visitas en chats directos de WhatsApp.',
       signature: 'JP Studios by Juan Pablo Chacón',
-      disciplineLine1: 'Páginas Web Cali',
+      disciplineLine1: 'Diseño Web Cali',
       disciplineAnd: '&',
-      disciplineLine2: 'Diseño para Vender.',
+      disciplineLine2: 'Páginas para Negocios',
       location: 'Cali, Colombia',
       studioType: 'Estudio Independiente',
       role: 'Ingeniería Web & Posicionamiento Local',
     },
     intro: {
       statement:
-        'En JP Studios, estudio independiente dirigido por Juan Pablo Chacón, diseñamos y programamos páginas web en Cali para empresas que no pueden permitirse pasar desapercibidas. Sitios ultrarrápidos, optimizados para dominar el ecosistema de Google y los chats de IA. Estructurados para convertir búsquedas locales en clientes reales por tus medios de contacto.',
+        'En JP Studios, liderado por Juan Pablo Chacón, desarrollamos páginas web en Cali para empresas y negocios que necesitan destacar y facturar. Construimos sitios web a medida en código ultrarrápido (React 19), estructurados para liderar en Google y motores de IA, y optimizados para transformar visitas locales en ventas directas por WhatsApp.',
       startOnWhatsApp: 'Cotizar por WhatsApp',
       direct: 'Directo ↗',
     },
     ticker: {
       track1: [
         { text: 'JP Studios', filled: true },
-        { text: 'Páginas Web Cali', filled: false },
-        { text: 'Diseño para Vender', filled: true },
-        { text: 'Google Maps', filled: false },
+        { text: 'Diseño Web Cali', filled: false },
+        { text: 'Páginas Web para Empresas', filled: true },
+        { text: 'Google Maps Cali', filled: false },
         { text: 'React 19 & TypeScript', filled: true },
         { text: 'Carga Sub-Segundo', filled: false },
         { text: 'Cero Plantillas Lentas', filled: true },
@@ -571,87 +662,151 @@ export const translations: Record<Language, Translations> = {
       ],
       track2: [
         { text: 'JP Studios Cali', filled: true },
-        { text: 'Retorno de Inversión', filled: false },
-        { text: 'Interfaces para Facturar', filled: true },
+        { text: 'Páginas para Negocios', filled: false },
+        { text: 'Landing Pages para Vender', filled: true },
         { text: 'Ejecución Estructurada', filled: false },
         { text: '99.9% de Disponibilidad', filled: true },
-        { text: 'Cualificación de Clientes', filled: false },
+        { text: 'Conversión a WhatsApp', filled: false },
         { text: 'Arquitectura a Medida', filled: true },
-        { text: 'Evolución Continua', filled: false },
+        { text: 'Posicionamiento Google', filled: false },
       ],
     },
     services: {
       tag: 'Servicios',
-      headerLine1: 'Ingeniería web para vender, ',
-      headerLine2: 'no solo para adornar.',
+      headerLine1: 'Páginas web para empresas, ',
+      headerLine2: 'diseñadas para vender.',
       seoDescription:
-        'Desarrollo web en Cali, páginas de alta velocidad y presencia en Google. Diseñamos arquitectura en código limpio optimizada para captar clientes locales y conectar directamente por WhatsApp y llamadas.',
+        'Diseño y desarrollo web en Cali con arquitectura moderna en código limpio. Páginas corporativas y landing pages de alta velocidad para captar clientes en Google y conectarlos directamente a tu WhatsApp.',
       items: [
         {
           id: 'performance-web',
           number: '01',
-          title: 'Diseño y Desarrollo Web de Alto Rendimiento',
-          subtitle: 'Desarrollo de sitios web con carga en menos de 0.5s en celulares, sin plugins lentos de WordPress.',
+          title: 'Diseño de Páginas Web en Cali',
+          subtitle: 'Sitios web corporativos a medida con carga en 0.5s en celulares, sin plantillas lentas de WordPress.',
           description:
-            'Arquitectura web a medida construida por JP Studios en React 19, TypeScript y Tailwind moderno. Carga instantánea en menos de 0.5s en celulares, sin plugins pesados ni plantillas lentas de WordPress.',
+            'Desarrollo web a medida construido por JP Studios en React 19, TypeScript y Tailwind moderno. Páginas web rápidas y seguras para empresas que buscan diferenciarse de la competencia local.',
         },
         {
           id: 'seo-local',
           number: '02',
           title: 'Posicionamiento en Google y Google Maps',
-          subtitle: 'Optimizamos tu presencia digital para dominar las búsquedas locales en Cali o la zona específica de tu negocio, y recomendaciones de IA.',
+          subtitle: 'SEO local en Cali para que tu negocio aparezca cuando busquen tus servicios en Google y motores de IA.',
           description:
-            'Estructuración de datos con Schema.org JSON-LD oficial, optimización de ficha en Google Maps y bloques de respuesta directa para que Google y motores de IA (ChatGPT, Gemini) recomienden tu empresa.',
+            'Estructuración de datos con Schema.org JSON-LD oficial, optimización de ficha en Google Maps y bloques AEO para que Google, ChatGPT y Gemini recomienden tu empresa.',
         },
         {
           id: 'conversion-pages',
           number: '03',
-          title: 'Diseño de Páginas Web para Vender',
-          subtitle: 'Landing pages de alta conversión estructuradas para transformar visitas en chats de WhatsApp y llamadas.',
+          title: 'Desarrollo de Landing Pages para Vender',
+          subtitle: 'Páginas web para negocios enfocadas en convertir visitas en llamadas y chats directos de WhatsApp.',
           description:
-            'Copywriting persuasivo y diseño enfocado en cualificar prospectos y guiarlos directamente hacia la acción comercial: escribir a tu WhatsApp, llamar directamente o agendar una cita.',
+            'Copywriting persuasivo y arquitectura comercial sin distracciones. Diseñadas para cualificar prospectos y guiarlos directamente hacia la acción comercial: escribir a tu WhatsApp o llamar.',
         },
         {
           id: 'support',
           number: '04',
-          title: 'Hosting Cloud, Dominio y Mantenimiento',
-          subtitle: 'Infraestructura ultrarrápida con 99.9% de estabilidad, seguridad SSL y soporte técnico directo sin ataduras.',
+          title: 'Hosting Cloud, Dominio y Cero Ataduras',
+          subtitle: 'Entrega llave en mano con 99.9% de estabilidad, certificado SSL y propiedad 100% tuya sin mensualidades.',
           description:
-            'Alojamiento global de alta velocidad con 99.9% de estabilidad, certificado SSL, copias de seguridad automáticas y soporte técnico opcional sin mensualidades forzadas ni ataduras.',
+            'Alojamiento global de alta velocidad, certificado SSL y entrega llave en mano con código propio. Sin mensualidades forzadas de mantenimiento ni letras pequeñas.',
         },
       ],
     },
+    pricing: {
+      tag: 'Inversión Transparente',
+      headerLine1: '¿Cuánto cuesta una página web? ',
+      headerLine2: 'Precios claros, sin letra pequeña.',
+      tagline: 'Rangos de inversión reales para empresas y negocios en Colombia. Sin cobros sorpresa ni mensualidades forzadas.',
+      currencyNote: '* Todos los valores en Pesos Colombianos (COP). Pago único de desarrollo llave en mano con propiedad 100% tuya del código y dominio.',
+      tiers: [
+        {
+          id: 'landing-page',
+          number: '01',
+          name: 'Landing Page para Vender',
+          pricePrefix: 'Desde',
+          priceAmount: '$1.500.000',
+          priceCurrency: 'COP',
+          description: 'Diseñada para empresas que necesitan una presencia digital inmediata de alto impacto para convertir visitas en clientes.',
+          features: [
+            'Página de alta conversión',
+            'Optimizada para móviles',
+            'Redacción persuasiva',
+            'Botones directos a WhatsApp',
+          ],
+          actionText: 'Ver detalles',
+          whatsappSubject: 'Hola Juan Pablo, me interesa cotizar una Landing Page para Vender (Desde $1.5M COP).',
+        },
+        {
+          id: 'corporate-seo',
+          number: '02',
+          name: 'Sitio Corporativo & Posicionamiento Google',
+          pricePrefix: 'Desde',
+          priceAmount: '$2.500.000',
+          priceCurrency: 'COP',
+          description: 'La solución completa para empresas que buscan liderar su sector en Cali, posicionarse en Google y proyectar autoridad comercial.',
+          features: [
+            'Sitio web multi-sección en React 19',
+            'SEO local para Cali',
+            'Ficha de Google Maps optimizada',
+            'Datos estructurados (Schema.org)',
+          ],
+          actionText: 'Ver detalles',
+          whatsappSubject: 'Hola Juan Pablo, me interesa cotizar un Sitio Corporativo con Posicionamiento en Google (Desde $2.5M COP).',
+        },
+        {
+          id: 'custom-platform',
+          number: '03',
+          name: 'Plataforma a Medida & Automatizaciones',
+          pricePrefix: 'Desde',
+          priceAmount: '$4.500.000',
+          priceCurrency: 'COP',
+          description: 'Para negocios con procesos comerciales a medida, catálogos extensos o integraciones avanzadas con CRM, WhatsApp API y más.',
+          features: [
+            'Desarrollo a medida',
+            'Integraciones (CRM, WhatsApp, APIs)',
+            'Base de datos o gestor de contenidos',
+            'Cotizadores y formularios dinámicos',
+          ],
+          actionText: 'Ver detalles',
+          whatsappSubject: 'Hola Juan Pablo, me interesa cotizar una Plataforma a Medida con Automatizaciones (Desde $4.5M COP).',
+        },
+      ],
+      guaranteeTitle: 'Por qué cobramos un valor único llave en mano',
+      guaranteeSubtitle: 'En agencias tradicionales pagas demoras de meses y te atan a contratos mensuales de $200.000 o $300.000 COP por "mantenimiento" de plantillas lentas de WordPress. En JP Studios programamos en código limpio (React 19): tu web no se cae, no se desactualiza y es 100% de tu propiedad desde el día uno.',
+      calculatorPrompt: '¿Quieres una cotización exacta para los requerimientos de tu negocio?',
+      calculatorButton: 'Calcular en 60 segundos ↓',
+    },
     process: {
       tag: 'Proceso',
-      headerLine1: 'Tu web lista en 14 días. ',
-      headerLine2: 'Sin enredos técnicos.',
+      headerLine1: 'Tu página web lista en 14 días. ',
+      headerLine2: 'Sin demoras ni intermediarios.',
       seoDescription:
-        'Creamos sitios web y desarrollos a medida en Cali bajo un flujo estructurado de 14 días. De la estrategia comercial a tu página web en producción: rápida, optimizada para Google y lista para facturar.',
+        'Creamos páginas web para empresas en Cali bajo un flujo ágil de 14 días. De la estrategia comercial y redacción de textos a tu web en producción: rápida, optimizada para Google y lista para facturar.',
       tagline: 'La metodología de JP Studios: De la estrategia comercial a tu web en producción y lista para operar en menos de dos semanas',
       steps: [
         {
           number: '01',
-          title: 'Diagnóstico Estratégico y Propuesta',
+          title: 'Diagnóstico Comercial y Redacción',
           timeframe: '48 Horas',
           description:
-            'Analizamos tu competencia directa en Google y la zona comercial donde operan tus clientes. Investigamos qué buscan exactamente tus compradores para estructurar los textos de venta sin que tengas que redactar nada desde cero.',
-          deliverable: 'Arquitectura comercial y propuesta de contenidos',
+            'Analizamos qué buscan tus clientes en Google en Cali y redactamos los textos de venta de tu página web. Tú no tienes que redactar nada desde cero.',
+          deliverable: 'Estructura comercial y propuesta de contenidos',
         },
         {
           number: '02',
-          title: 'Maquetación Interactiva y Pruebas en Móvil',
+          title: 'Desarrollo Web a Medida y Pruebas en Móvil',
           timeframe: 'Días 3 al 10',
           description:
-            'Construimos tu plataforma web a medida en React 19 con carga instantánea en menos de 0.5 segundos en celulares. Pruebas la experiencia completa y los botones de contacto directo en tu propio móvil antes del lanzamiento.',
+            'Programamos tu web a medida en React 19 con carga sub-segundo en celulares. Pruebas la navegación y los botones de contacto directo en tu propio móvil antes del lanzamiento.',
           deliverable: 'Enlace privado de pruebas en vivo en tu celular',
         },
         {
           number: '03',
-          title: 'Puesta en Marcha y Entrega Llave en Mano',
+          title: 'Lanzamiento, SEO Local y Propiedad Total',
           timeframe: 'Días 11 al 14',
           description:
-            'Conectamos tu dominio corporativo, activamos certificado SSL, estructuramos los datos Schema para Google y motores de IA, y optimizamos tu ficha de Google Maps en tu zona comercial para activar tus canales de captación y contacto directo.',
-          deliverable: 'Web en Producción & Propiedad Total Transferida',
+            'Conectamos tu dominio corporativo, activamos certificado SSL, estructuramos datos Schema para Google y motores de IA, y optimizamos tu ficha de Google Maps. Te entregamos el sitio 100% llave en mano.',
+          deliverable: 'Web en producción y propiedad total transferida',
         },
       ],
     },
@@ -703,34 +858,34 @@ export const translations: Record<Language, Translations> = {
       whatsappButton: 'Hablemos',
       items: [
         {
-          question: '¿Cómo hago para que mi negocio aparezca en Google y Google Maps?',
+          question: '¿Cuánto cuesta una página web en Cali y cómo se cotiza?',
           answer:
-            'Optimizamos tu perfil de Google Business Profile con categorías comerciales precisas, datos de contacto alineados (NAP) y vinculamos tu página web con datos estructurados Schema.org para maximizar la visibilidad en las búsquedas locales de tu zona y en motores de búsqueda de IA como ChatGPT y Gemini.',
+            'El precio de una página web en Cali depende de la complejidad y el objetivo comercial: desde landing pages enfocadas en ventas directas hasta sitios web corporativos a medida. En JP Studios trabajamos con presupuestos cerrados y transparentes, entrega 100% llave en mano y sin cobros sorpresa ni mensualidades forzadas. Puedes cotizar tu proyecto en 1 minuto en nuestro cotizador interactivo o escribirnos directamente a WhatsApp.',
         },
         {
-          question: '¿Cuál es el precio de una página web y si hay pagos mensuales obligatorios?',
+          question: '¿Qué se necesita para tener una página web lista para mi negocio?',
           answer:
-            'En JP Studios trabajamos con presupuestos cerrados y transparentes según el alcance de tu proyecto (landing page, sitio web corporativo o integraciones a medida). La entrega es llave en mano con propiedad 100% tuya y sin mensualidades forzadas. El servicio de hosting cloud de alta velocidad y mantenimiento es totalmente opcional.',
+            'Solo necesitas una sesión inicial de 30 minutos para contarnos sobre tu empresa y tus clientes ideales. En JP Studios nos encargamos de todo el proceso técnico: investigación de competidores en Google, redacción de textos comerciales orientados a vender, diseño UI/UX de autor, desarrollo en código limpio, hosting y configuración de dominio. Tú no tienes que redactar textos técnicos ni lidiar con configuraciones complicadas.',
         },
         {
-          question: '¿Cuál es la diferencia entre una web tradicional y una página web para vender?',
+          question: '¿Cómo hago para que mi negocio aparezca de primero en Google y Google Maps en Cali?',
           answer:
-            'Una web tradicional suele ser pesada, lenta y puramente informativa. Una página web diseñada para vender carga en menos de 1 segundo en móviles, elimina distracciones y guía al visitante directamente hacia lo que genera facturación: un mensaje directo a WhatsApp, una llamada o un formulario calificado.',
+            'Optimizamos tu presencia digital combinando tres factores: 1) Marcado de datos estructurados Schema.org para que Google identifique tu empresa local en Cali, 2) Optimización de tu ficha de Google Business Profile con datos alineados (NAP), y 3) Velocidad de carga sub-segundo (Core Web Vitals en verde), factor prioritario para que Google y motores de IA (ChatGPT, Gemini) recomienden tu página por encima de sitios lentos.',
         },
         {
-          question: '¿Cuánto tiempo toma tener la página web lista para operar?',
+          question: '¿Cuánto cobran por hacer una página web y si hay pagos mensuales obligatorios?',
           answer:
-            'El plazo habitual es de 7 a 14 días hábiles desde la sesión de diagnóstico inicial. Al contar con un proceso estructurado y encargarnos nosotros de la arquitectura comercial, eliminamos las demoras de meses típicas de las agencias tradicionales.',
+            'En JP Studios cobramos un valor único de desarrollo con entrega llave en mano y propiedad 100% tuya del código y el dominio. A diferencia de agencias que cobran mensualidades obligatorias de $200.000 o $300.000 COP por "mantenimiento" de plantillas de WordPress, nuestras plataformas se programan a medida en React 19, por lo que no requieren parches constantes de seguridad. Cualquier soporte futuro es opcional y bajo demanda.',
         },
         {
-          question: '¿Tengo que escribir yo los textos y el contenido de la página?',
+          question: '¿Cuál es la diferencia entre una página web tradicional y una diseñada para vender?',
           answer:
-            'No. La redacción suele ser el mayor cuello de botella para los dueños de negocio. En JP Studios nos encargamos de investigar a tus competidores directos, estructurar tu propuesta de valor y redactar los textos comerciales. Tú solo necesitas una sesión inicial de 30 minutos para contarnos sobre tus servicios y validar el enfoque.',
+            'Una web tradicional suele ser un folleto digital pesado que tarda 4 a 6 segundos en abrir en el celular y tiene textos genéricos que nadie lee. Una página web diseñada para vender carga en menos de 0.5 segundos en celulares, comunica tu propuesta de valor en los primeros 3 segundos y guía al visitante directamente hacia lo que genera ingresos: un botón de WhatsApp directo, una llamada telefónica o un formulario calificado.',
         },
         {
-          question: '¿Qué tipo de soluciones o integraciones de Inteligencia Artificial pueden incorporar?',
+          question: '¿Por qué elegir a JP Studios en lugar de una agencia de diseño web tradicional en Cali?',
           answer:
-            'Desde asistentes inteligentes entrenados con la información de tus servicios para responder preguntas y calificar prospectos 24/7, hasta automatizaciones que envían los datos de contacto directamente a tu WhatsApp, correo o CRM en tiempo real para no perder oportunidades de venta.',
+            'En una agencia tradicional pagas los costos de oficinas, intermediarios y demoras de meses para recibir una plantilla prediseñada. En JP Studios tratas directamente con el fundador e ingeniero de software (Juan Pablo Chacón), tu proyecto se entrega en 14 días con arquitectura a medida en React 19 y recibes un trato personalizado enfocado en tu retorno de inversión.',
         },
       ],
     },

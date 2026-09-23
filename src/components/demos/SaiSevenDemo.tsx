@@ -37,7 +37,7 @@ export const SaiSevenDemo: React.FC = () => {
         >
           <img
             src="/projects/sai-logo-white.png"
-            alt="SAI San Andrés Island"
+            alt="Logotipo oficial de SAI San Andrés Island — Diseño web para hotelería y reservas directas"
             className="h-8 sm:h-9 w-auto object-contain group-hover:opacity-90 transition-opacity"
           />
         </div>
@@ -109,7 +109,7 @@ export const SaiSevenDemo: React.FC = () => {
         {/* Caribbean Turquoise Ocean Background Photograph */}
         <img
           src="/projects/arrecife-hero.jpg"
-          alt="Paraíso real en San Andrés Island"
+          alt="Fotografía aérea de arrecife y mar de los siete colores en San Andrés — Caso de estudio SAI por JP Studios"
           className="absolute inset-0 w-full h-full object-cover object-center scale-[1.02]"
         />
 

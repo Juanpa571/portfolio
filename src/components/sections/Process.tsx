@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
+import { highlightBrandKeywords } from '../../utils/textHighlight';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -14,8 +15,8 @@ export const Process: React.FC = () => {
   const descRef = useRef<HTMLParagraphElement | null>(null);
   const rowsContainerRef = useRef<HTMLDivElement | null>(null);
 
-  // Expands on hover (null by default so it opens on cursor enter and closes on cursor leave)
-  const [expandedRow, setExpandedRow] = useState<number | null>(null);
+  // Expands on hover (step 0 open by default for accessible, visible content at rest)
+  const [expandedRow, setExpandedRow] = useState<number | null>(0);
 
   useEffect(() => {
     if (!headerRef.current) return;
@@ -92,23 +93,16 @@ export const Process: React.FC = () => {
       className="py-10 sm:py-24 lg:py-32 border-b border-black/[0.08] bg-[#fafaf8] relative overflow-hidden scroll-mt-24"
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
-        {/* Clean Editorial Section Header */}
+        {/* Clean Section Header */}
         <div ref={headerRef} className="relative mb-8 sm:mb-16">
-          {/* Editorial Category Label above Title (Clean Text, No Capsule) */}
-          <div className="mb-2 sm:mb-4">
-            <span className="text-xs sm:text-sm font-sans font-medium text-black/50 tracking-wide select-none">
-              {t.process.tag}
-            </span>
-          </div>
-
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 sm:gap-6 lg:gap-12">
             <div className="max-w-3xl">
               <h2
                 ref={titleRef}
-                className="text-[2.55rem] sm:text-6xl lg:text-7xl font-bold sm:font-normal font-display tracking-tight sm:tracking-[-0.02em] text-[#111111] leading-[1.06] sm:leading-[1.15] select-none"
+                className="text-[2.35rem] sm:text-4xl lg:text-[3.25rem] font-semibold tracking-tight text-[#111111] leading-[1.1] select-none"
               >
-                <span className="block">{t.process.headerLine1}</span>
-                <span className="block sm:pl-10 lg:pl-16 text-black/60">{t.process.headerLine2}</span>
+                <span className="block">{t.process.headerLine1.trim()}{' '}</span>
+                <span className="block text-[#111111]">{highlightBrandKeywords(t.process.headerLine2)}</span>
               </h2>
             </div>
 
@@ -118,7 +112,7 @@ export const Process: React.FC = () => {
                 ref={descRef}
                 className="text-sm sm:text-base text-black/75 font-sans font-normal leading-relaxed pt-1 sm:pt-0"
               >
-                {t.process.seoDescription}
+                {highlightBrandKeywords(t.process.seoDescription)}
               </p>
             </div>
           </div>
@@ -191,8 +185,8 @@ export const Process: React.FC = () => {
                     {isOpen ? (
                       <div className="space-y-2.5">
                         <div className="flex items-center justify-between">
-                          <span className="text-[11px] font-sans font-bold tracking-wider text-black/45 uppercase select-none">
-                            {isSpanish ? `PASO ${step.number}` : `STEP ${step.number}`}
+                          <span className="text-[11px] font-sans font-medium tracking-wide text-black/50 select-none">
+                            {isSpanish ? `Paso ${step.number}` : `Step ${step.number}`}
                           </span>
                           <button
                             type="button"
@@ -211,9 +205,9 @@ export const Process: React.FC = () => {
                         </div>
 
                         <div className="flex items-start justify-between gap-3 pt-0.5">
-                          <h3 className="text-xl font-bold font-display text-[#111111] tracking-tight leading-tight">
-                            {step.title}
-                          </h3>
+                          <div className="text-xl font-bold font-display text-[#111111] tracking-tight leading-snug">
+                            {highlightBrandKeywords(step.title)}
+                          </div>
                           <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/[0.04] text-xs font-sans font-medium text-black/75 whitespace-nowrap shrink-0 mt-0.5">
                             <svg className="w-3.5 h-3.5 text-black/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
@@ -224,9 +218,9 @@ export const Process: React.FC = () => {
                       </div>
                     ) : (
                       <div className="flex items-center justify-between gap-3">
-                        <h3 className="text-lg font-display font-semibold text-[#111111] tracking-tight leading-snug">
-                          {step.title}
-                        </h3>
+                        <div className="text-lg font-display font-semibold text-[#111111] tracking-tight leading-snug">
+                          {highlightBrandKeywords(step.title)}
+                        </div>
                         <div className="flex items-center gap-2 shrink-0 pt-0.5">
                           <span className="text-[11px] font-sans font-medium text-black/60 px-2.5 py-0.5 rounded-full bg-black/[0.04] whitespace-nowrap">
                             {step.timeframe}
@@ -241,8 +235,8 @@ export const Process: React.FC = () => {
 
                   {/* Desktop Header (hidden md:flex) - 100% UNTOUCHED */}
                   <div className="hidden md:flex items-center justify-between gap-4">
-                    <h3 className="text-2xl md:text-3xl font-display font-normal text-[#111111] tracking-tight leading-snug">
-                      {step.title}
+                    <h3 className="text-xl sm:text-2xl lg:text-[1.65rem] font-display font-semibold text-[#111111] tracking-tight leading-snug">
+                      {highlightBrandKeywords(step.title)}
                     </h3>
 
                     <div className="flex items-center gap-4 shrink-0">
@@ -280,11 +274,11 @@ export const Process: React.FC = () => {
                             </svg>
                           </div>
                           <div className="space-y-1 pt-0.5">
-                            <h4 className="text-sm font-bold text-[#111111] tracking-tight">
+                            <div className="text-sm font-bold text-[#111111] tracking-tight">
                               {isSpanish ? 'Qué resolvemos' : 'What we solve'}
-                            </h4>
+                            </div>
                             <p className="text-xs text-black/70 font-sans leading-relaxed">
-                              {step.description}
+                              {highlightBrandKeywords(step.description)}
                             </p>
                           </div>
                         </div>
@@ -298,9 +292,9 @@ export const Process: React.FC = () => {
                             </svg>
                           </div>
                           <div className="space-y-1 pt-0.5">
-                            <h4 className="text-sm font-bold text-[#111111] tracking-tight">
+                            <div className="text-sm font-bold text-[#111111] tracking-tight">
                               {isSpanish ? 'Tu tiempo invertido' : 'Your time investment'}
-                            </h4>
+                            </div>
                             <p className="text-xs text-black/70 font-sans leading-relaxed">
                               {idx === 0 &&
                                 (isSpanish
@@ -326,7 +320,7 @@ export const Process: React.FC = () => {
                               {isSpanish ? 'Entregable verificado' : 'Verified deliverable'}
                             </span>
                             <p className="text-xs font-medium text-black">
-                              {step.deliverable}
+                              {highlightBrandKeywords(step.deliverable)}
                             </p>
                           </div>
                         </div>
@@ -335,18 +329,18 @@ export const Process: React.FC = () => {
                       {/* Desktop Expanded View (hidden md:grid) - 100% UNTOUCHED */}
                       <div className="hidden md:grid md:grid-cols-12 gap-4 sm:gap-6 items-start">
                         <div className="md:col-span-5 space-y-1 sm:space-y-1.5">
-                          <p className="text-xs sm:text-sm font-display font-medium text-black tracking-tight">
+                          <h4 className="text-xs sm:text-sm font-display font-medium text-black tracking-tight m-0">
                             {isSpanish ? 'Qué resolvemos' : 'What we solve'}
-                          </p>
+                          </h4>
                           <p className="text-xs sm:text-sm text-black/70 font-sans leading-relaxed">
-                            {step.description}
+                            {highlightBrandKeywords(step.description)}
                           </p>
                         </div>
 
                         <div className="md:col-span-3 space-y-1 sm:space-y-1.5">
-                          <p className="text-xs sm:text-sm font-display font-medium text-black tracking-tight">
+                          <h4 className="text-xs sm:text-sm font-display font-medium text-black tracking-tight m-0">
                             {isSpanish ? 'Tu tiempo invertido' : 'Your time investment'}
-                          </p>
+                          </h4>
                           <p className="text-xs sm:text-sm text-black/70 font-sans leading-relaxed">
                             {idx === 0 &&
                               (isSpanish
@@ -371,7 +365,7 @@ export const Process: React.FC = () => {
                             </span>
                           </div>
                           <p className="text-xs sm:text-sm font-display text-black font-normal leading-snug">
-                            {step.deliverable}
+                            {highlightBrandKeywords(step.deliverable)}
                           </p>
                         </div>
                       </div>

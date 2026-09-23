@@ -2,6 +2,7 @@ import React from 'react';
 import { Mail, MessageCircle, MapPin, Globe } from 'lucide-react';
 import { siteConfig } from '../../config/site';
 import { useLanguage } from '../../context/LanguageContext';
+import { highlightBrandKeywords } from '../../utils/textHighlight';
 
 export const Footer: React.FC = () => {
   const { t, language } = useLanguage();
@@ -33,6 +34,11 @@ export const Footer: React.FC = () => {
       }
 
       const targetEl = document.getElementById(targetId);
+      if (!targetEl && typeof window !== 'undefined' && window.location.pathname !== '/') {
+        window.location.href = '/' + href;
+        return;
+      }
+
       if (targetEl) {
         if (lenis) {
           lenis.scrollTo(targetEl, {
@@ -191,7 +197,7 @@ export const Footer: React.FC = () => {
             </a>
 
             <p className="text-xs text-white/60 font-sans leading-relaxed max-w-[280px]">
-              {t.footer.brandDescription}
+              {highlightBrandKeywords(t.footer.brandDescription)}
             </p>
 
             {/* Social Icons (Instagram, LinkedIn, TikTok, GitHub) */}
@@ -276,6 +282,16 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a
+                  href="#pricing"
+                  onClick={(e) => handleNavClick(e, '#pricing')}
+                  className="hover:text-white transition-colors duration-200"
+                  data-interactive
+                >
+                  {isSpanish ? 'Precios' : 'Pricing'}
+                </a>
+              </li>
+              <li>
+                <a
                   href="#process"
                   onClick={(e) => handleNavClick(e, '#process')}
                   className="hover:text-white transition-colors duration-200"
@@ -307,7 +323,7 @@ export const Footer: React.FC = () => {
             </ul>
           </nav>
 
-          {/* Column 3: Servicios (Todos los enlaces van a /posicionar-web-en-google) */}
+          {/* Column 3: Servicios */}
           <nav aria-label={t.footer.servicesTitle} className="space-y-3.5">
             <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-white">
               {t.footer.servicesTitle}
@@ -315,7 +331,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2.5 text-xs text-white/60 font-sans">
               <li>
                 <a
-                  href="/posicionar-web-en-google"
+                  href="/diseno-web-cali"
                   className="hover:text-white transition-colors duration-200"
                   data-interactive
                 >
@@ -328,21 +344,21 @@ export const Footer: React.FC = () => {
                   className="hover:text-white transition-colors duration-200"
                   data-interactive
                 >
-                  {isSpanish ? 'Posicionar web en Google' : 'Google SEO Ranking'}
+                  {highlightBrandKeywords(isSpanish ? 'Posicionar web en Google' : 'Google SEO Ranking')}
                 </a>
               </li>
               <li>
                 <a
-                  href="/posicionar-web-en-google"
+                  href="/posicionamiento-web-cali"
                   className="hover:text-white transition-colors duration-200"
                   data-interactive
                 >
-                  {isSpanish ? 'Google Maps (SEO Local Cali)' : 'Google Maps (Local SEO)'}
+                  {highlightBrandKeywords(isSpanish ? 'Google Maps (SEO Local Cali)' : 'Google Maps (Local SEO)')}
                 </a>
               </li>
               <li>
                 <a
-                  href="/posicionar-web-en-google"
+                  href="/posicionar-web-en-google#aeo-geo"
                   className="hover:text-white transition-colors duration-200"
                   data-interactive
                 >

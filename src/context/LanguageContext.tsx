@@ -1,4 +1,4 @@
-﻿import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { translations, type Language, type Translations } from '../config/translations';
 
 interface LanguageContextType {
@@ -13,19 +13,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const STORAGE_KEY = 'jp_portfolio_lang';
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguageState] = useState<Language>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem(STORAGE_KEY) as Language | null;
-      if (saved === 'en' || saved === 'es') {
-        return saved;
-      }
-      const browserLang = navigator.language?.toLowerCase() || '';
-      if (browserLang.startsWith('es')) {
-        return 'es';
-      }
-    }
-    return 'en';
-  });
+  const [language, setLanguageState] = useState<Language>('es');
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
@@ -43,9 +31,9 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      document.documentElement.lang = language;
+      document.documentElement.lang = 'es';
     }
-  }, [language]);
+  }, []);
 
   const value: LanguageContextType = {
     language,

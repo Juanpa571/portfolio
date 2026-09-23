@@ -17,8 +17,11 @@ dist-ssr
 # Private internal tools & sales data
 prospectos*
 *.py
+!scripts/package_netlify.py
 public/pipeline-prospectos.html
 __pycache__/
+dist-netlify.zip
+scratch_*.png
 
 # Editor directories and files
 .vscode/*

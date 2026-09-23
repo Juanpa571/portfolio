@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { siteConfig } from '../../config/site';
+import { highlightBrandKeywords } from '../../utils/textHighlight';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -37,25 +38,20 @@ export const Faq: React.FC = () => {
         );
       }
 
-      // Accordion items entrance on scroll
+      // Accordion items entrance on scroll (content visible at rest)
       if (faqListRef.current) {
         const items = faqListRef.current.querySelectorAll('.faq-accordion-item');
-        gsap.fromTo(
-          items,
-          { y: 25, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.55,
-            stagger: 0.06,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: faqListRef.current,
-              start: 'top 90%',
-              once: true,
-            },
-          }
-        );
+        gsap.from(items, {
+          y: 20,
+          duration: 0.55,
+          stagger: 0.06,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: faqListRef.current,
+            start: 'top 95%',
+            once: true,
+          },
+        });
       }
     }, headerRef);
 
@@ -76,23 +72,16 @@ export const Faq: React.FC = () => {
           {/* Left Column: Heading & WhatsApp Assistance (Col 1-5) */}
           <div ref={headerRef} className="lg:col-span-5 flex flex-col justify-between">
             <div className="space-y-3 sm:space-y-4">
-              {/* Editorial Category Label above Title (Clean Text, No Capsule) */}
-              <div className="mb-2 sm:mb-4">
-                <span className="text-xs sm:text-sm font-sans font-medium text-black/50 tracking-wide select-none">
-                  {t.faq.tag}
-                </span>
-              </div>
-
               <h2
                 ref={titleRef}
-                className="text-[2.55rem] sm:text-5xl lg:text-6xl font-bold sm:font-normal font-display tracking-tight sm:tracking-[-0.02em] text-[#111111] leading-[1.06] sm:leading-[1.12] select-none"
+                className="text-[2.35rem] sm:text-4xl lg:text-[3.25rem] font-semibold tracking-tight text-[#111111] leading-[1.1] select-none"
               >
-                <span className="block">{t.faq.headerLine1}</span>
-                <span className="block text-black/60 sm:pl-6 lg:pl-10">{t.faq.headerLine2}</span>
+                <span className="block">{t.faq.headerLine1.trim()}{' '}</span>
+                <span className="block text-[#111111]">{highlightBrandKeywords(t.faq.headerLine2)}</span>
               </h2>
 
               <p className="text-sm sm:text-base text-black/70 font-sans font-normal leading-relaxed pt-2 max-w-md">
-                {t.faq.tagline}
+                {highlightBrandKeywords(t.faq.tagline)}
               </p>
 
               {/* Mobile WhatsApp Assistance Banner (lg:hidden) matching user reference */}
@@ -130,7 +119,7 @@ export const Faq: React.FC = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#111111] text-white text-xs sm:text-sm font-sans font-medium hover:bg-black/85 transition-all duration-300 active:scale-95 group cursor-pointer shadow-xs"
               >
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
                 <span>{t.faq.whatsappButton}</span>
                 <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
                   ↗
@@ -168,9 +157,9 @@ export const Faq: React.FC = () => {
                         <span className="text-xs font-mono font-medium text-black/40 pr-3.5 mr-3.5 border-r border-black/[0.08] flex items-center shrink-0">
                           {formattedNumber}
                         </span>
-                        <h3 className="text-sm font-display font-medium text-[#111111] tracking-tight leading-snug">
-                          {item.question}
-                        </h3>
+                        <p className="text-sm font-display font-medium text-[#111111] tracking-tight leading-snug m-0">
+                          {highlightBrandKeywords(item.question)}
+                        </p>
                       </div>
 
                       <span
@@ -206,7 +195,7 @@ export const Faq: React.FC = () => {
                     >
                       <div className="overflow-hidden">
                         <p className="text-xs text-black/70 font-sans font-normal leading-relaxed">
-                          {item.answer}
+                          {highlightBrandKeywords(item.answer)}
                         </p>
                       </div>
                     </div>
@@ -256,8 +245,8 @@ export const Faq: React.FC = () => {
                         >
                           {formattedNumber}
                         </span>
-                        <h3 className="text-lg sm:text-xl font-normal font-display text-black group-hover:text-black/70 transition-colors leading-snug">
-                          {item.question}
+                        <h3 className="text-base sm:text-lg lg:text-xl font-semibold font-display text-[#111111] group-hover:text-black/80 transition-colors leading-snug">
+                          {highlightBrandKeywords(item.question)}
                         </h3>
                       </div>
 
@@ -297,7 +286,7 @@ export const Faq: React.FC = () => {
                     >
                       <div className="overflow-hidden pl-7 sm:pl-10">
                         <p className="max-w-[50ch] text-sm sm:text-base body-copy text-black/70 font-sans font-normal leading-relaxed pr-6 sm:pr-12">
-                          {item.answer}
+                          {highlightBrandKeywords(item.answer)}
                         </p>
                       </div>
                     </div>

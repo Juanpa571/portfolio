@@ -55,7 +55,7 @@ export const Header: React.FC = () => {
       setIsDark(overDark);
 
       // Active section detection for sliding magnetic indicator
-      const sectionIds = ['services', 'process', 'faq', 'contact'];
+      const sectionIds = ['services', 'pricing', 'process', 'faq', 'contact'];
       let currentActive: string | null = null;
       for (const id of sectionIds) {
         const el = document.getElementById(id);
@@ -141,6 +141,7 @@ export const Header: React.FC = () => {
 
   const navLinks = [
     { id: 'services', label: t.nav.services, href: '#services' },
+    { id: 'pricing', label: t.nav.pricing, href: '#pricing' },
     { id: 'process', label: t.nav.process, href: '#process' },
     { id: 'faq', label: t.nav.faq, href: '#faq' },
     { id: 'contact', label: t.nav.contact, href: '#contact' },
@@ -175,6 +176,10 @@ export const Header: React.FC = () => {
 
     const targetId = href.replace('#', '');
     const targetEl = document.getElementById(targetId);
+    if (!targetEl && typeof window !== 'undefined' && window.location.pathname !== '/') {
+      window.location.href = '/' + href;
+      return;
+    }
     if (targetEl) {
       setActiveSection(targetId);
       if (lenis) {
@@ -221,15 +226,19 @@ export const Header: React.FC = () => {
           {/* Left: Brand Identity + Vertical Separator + Location Lockup */}
           <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
             <a
-              href="#top"
-              onClick={(e) => handleNavClick(e, '#top')}
+              href="/"
+              onClick={(e) => {
+                if (typeof window !== 'undefined' && window.location.pathname === '/') {
+                  handleNavClick(e, '#top');
+                }
+              }}
               className="group flex items-center"
               data-interactive
               aria-label={`${siteConfig.profile.brandName} Home`}
             >
               <img
                 src={isDark ? '/logo-horizontal-white.webp' : '/logo-horizontal.webp'}
-                alt={siteConfig.profile.brandName}
+                alt="JP Studios — Logotipo oficial de diseño y desarrollo web en Cali"
                 className={`w-auto object-contain transition-all duration-500 group-hover:scale-[1.02] ${
                   isScrolled ? 'h-6 sm:h-[28px]' : 'h-7 sm:h-[34px]'
                 }`}
@@ -249,19 +258,15 @@ export const Header: React.FC = () => {
 
             <div className="hidden sm:flex flex-col text-left leading-tight transition-colors duration-500">
               <span
-                className={`font-bold tracking-[0.08em] uppercase font-sans transition-colors duration-500 ${
+                className={`font-semibold tracking-[0.08em] uppercase font-sans transition-colors duration-500 text-[11px] sm:text-xs ${
                   isDark ? 'text-white' : 'text-[#141517]'
-                } ${
-                  isScrolled ? 'text-[9.5px]' : 'text-[10.5px] sm:text-[11px]'
                 }`}
               >
                 {t.nav.location}
               </span>
               <span
-                className={`font-medium tracking-[0.08em] uppercase font-sans transition-colors duration-500 ${
+                className={`font-normal tracking-[0.08em] uppercase font-sans transition-colors duration-500 text-[11px] ${
                   isDark ? 'text-white/50' : 'text-black/50'
-                } ${
-                  isScrolled ? 'text-[8px]' : 'text-[9px] sm:text-[9.5px]'
                 }`}
               >
                 {t.nav.studio}
@@ -410,7 +415,7 @@ export const Header: React.FC = () => {
         <div className="flex items-center justify-between pt-2 border-b border-white/10 pb-5">
           <img
             src="/logo-horizontal-white.webp"
-            alt={siteConfig.profile.brandName}
+            alt="JP Studios — Menú de navegación móvil para diseño web en Cali"
             className="h-6 w-auto object-contain"
             width={335}
             height={81}

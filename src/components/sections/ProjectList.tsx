@@ -315,7 +315,7 @@ export const ProjectList: React.FC = () => {
           <div className="w-[380px] lg:w-[420px] aspect-[16/10] rounded-2xl overflow-hidden shadow-[0_30px_90px_-15px_rgba(0,0,0,0.35)] border border-black/10 bg-[#1C1D20]">
             <img
               src={displayedProject.image}
-              alt={t.projects.items[displayedProject.id]?.title || displayedProject.title}
+              alt={`Vista previa del proyecto de desarrollo web: ${t.projects.items[displayedProject.id]?.title || displayedProject.title}`}
               className="w-full h-full object-cover"
               decoding="async"
             />

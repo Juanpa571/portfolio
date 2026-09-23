@@ -2,9 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { siteConfig } from '../../config/site';
 import { useLanguage } from '../../context/LanguageContext';
+import { highlightBrandKeywords } from '../../utils/textHighlight';
 
 export const Hero: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const containerRef = useRef<HTMLElement | null>(null);
   const line1Ref = useRef<HTMLDivElement | null>(null);
   const line2Ref = useRef<HTMLDivElement | null>(null);
@@ -19,34 +20,21 @@ export const Hero: React.FC = () => {
     const container = containerRef.current;
     if (!l1 || !l2 || !l3 || !container) return;
 
-    // Split-line text entrance
+    // Smooth subtle rise without gating opacity to 0 (accelerates LCP to Green)
     const lines = [l1, l2, l3];
-    gsap.fromTo(
-      lines,
-      { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1.1,
-        stagger: 0.12,
-        ease: 'power4.out',
-        delay: 0.1,
-      }
-    );
+    gsap.from(lines, {
+      y: 24,
+      duration: 0.8,
+      stagger: 0.08,
+      ease: 'power3.out',
+    });
 
     if (portrait) {
-      gsap.fromTo(
-        portrait,
-        { y: 50, opacity: 0, scale: 0.96 },
-        {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 1.2,
-          ease: 'power4.out',
-          delay: 0.25,
-        }
-      );
+      gsap.from(portrait, {
+        y: 30,
+        duration: 0.9,
+        ease: 'power3.out',
+      });
     }
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || 'ontouchstart' in window) {
@@ -125,52 +113,34 @@ export const Hero: React.FC = () => {
         {/* Left Typography + Action Block (Mobile: left-aligned, monumental bold) */}
         <div className="w-full lg:w-[56%] xl:w-[54%] 2xl:w-[52%] flex flex-col items-start text-left justify-center min-w-0 pr-0 lg:pr-6 relative z-10">
           <h1 
-            aria-label={`${t.hero.headlineLine1} ${t.hero.headlineLine2} ${t.hero.headlineLine3} — JP Studios`}
-            className="space-y-0.5 sm:space-y-1.5 lg:space-y-3.5 select-none m-0 text-left"
+            aria-label={`${t.hero.headlineLine1.trim()} ${t.hero.headlineLine2.trim()} ${t.hero.headlineLine3.trim()} — JP Studios`}
+            className="text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[3.25vw] xl:text-[3.65vw] font-semibold tracking-tight text-[#111111] leading-[1.06] select-none m-0 text-left max-w-3xl"
           >
             {/* Line 1 - Strong Anchor Keyword */}
-            <span className="block">
-              <span
-                ref={line1Ref}
-                className="inline-block text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[3.2vw] xl:text-[3.5vw] 2xl:text-[3.8vw] font-semibold sm:font-semibold font-display tracking-tight sm:tracking-[-0.03em] text-[#111111] leading-[1.04] sm:leading-[1.10] lg:whitespace-nowrap cursor-default will-change-transform"
-                data-interactive
-              >
-                <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                  {t.hero.headlineLine1}
-                </span>
+            <span ref={line1Ref} className="block will-change-transform">
+              <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
+                {t.hero.headlineLine1.trim()}
               </span>
-            </span>
+            </span>{' '}
 
             {/* Line 2 - Benefit */}
-            <span className="block">
-              <span
-                ref={line2Ref}
-                className="inline-block text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[3.2vw] xl:text-[3.5vw] 2xl:text-[3.8vw] font-normal sm:font-normal font-display tracking-tight sm:tracking-[-0.02em] text-[#1a1a1a]/85 leading-[1.04] sm:leading-[1.10] lg:whitespace-nowrap cursor-default will-change-transform"
-                data-interactive
-              >
-                <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                  {t.hero.headlineLine2}
-                </span>
+            <span ref={line2Ref} className="block will-change-transform">
+              <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
+                {t.hero.headlineLine2.trim()}
               </span>
-            </span>
+            </span>{' '}
 
             {/* Line 3 - Conversion Outcome */}
-            <span className="block">
-              <span
-                ref={line3Ref}
-                className="inline-block text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[3.2vw] xl:text-[3.5vw] 2xl:text-[3.8vw] font-normal sm:font-normal font-display tracking-tight sm:tracking-[-0.02em] text-[#1a1a1a]/85 leading-[1.04] sm:leading-[1.10] lg:whitespace-nowrap cursor-default will-change-transform"
-                data-interactive
-              >
-                <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                  {t.hero.headlineLine3}
-                </span>
+            <span ref={line3Ref} className="block will-change-transform">
+              <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
+                {highlightBrandKeywords(t.hero.headlineLine3.trim())}
               </span>
             </span>
           </h1>
 
           {/* Subtitle & Value Proposition */}
-          <p className="text-sm sm:text-base lg:text-[1.1rem] text-black/75 font-sans leading-relaxed text-left max-w-[340px] sm:max-w-md lg:max-w-xl pt-4 sm:pt-6 lg:pt-7">
-            {t.hero.subtitle}
+          <p className="text-base sm:text-lg lg:text-[1.125rem] text-black/75 font-sans leading-relaxed text-left max-w-[340px] sm:max-w-md lg:max-w-xl pt-5 sm:pt-6 lg:pt-7">
+            {highlightBrandKeywords(t.hero.subtitle)}
           </p>
 
           {/* Action Buttons: Primary WhatsApp + Secondary Smooth Scroll */}
@@ -183,7 +153,7 @@ export const Hero: React.FC = () => {
               data-interactive
             >
               <span>{t.intro.startOnWhatsApp}</span>
-              <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 font-sans text-xs text-emerald-400">
+              <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 font-sans text-xs text-white/80 group-hover:text-white">
                 ↗
               </span>
             </a>
@@ -193,7 +163,7 @@ export const Hero: React.FC = () => {
               className="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-black/[0.04] hover:bg-black/[0.08] text-black/80 hover:text-black text-sm font-medium flex items-center justify-between sm:justify-start gap-2 transition-all duration-300 active:scale-[0.98] border border-black/[0.06]"
               data-interactive
             >
-              <span>Explorar Servicios</span>
+              <span>{language === 'es' ? 'Explorar Servicios' : 'Explore Services'}</span>
               <span className="font-sans text-xs text-black/50">↓</span>
             </a>
           </div>
@@ -211,15 +181,17 @@ export const Hero: React.FC = () => {
           <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#fafaf8] via-[#fafaf8]/80 to-transparent pointer-events-none z-10" />
           
           <picture className="w-full h-full">
+            <source media="(max-width: 640px)" type="image/webp" srcSet="/laptop-sobre-roca-mobile.webp" />
             <source type="image/webp" srcSet="/laptop-sobre-roca.webp" />
             <img
-              src="/laptop-sobre-roca.png"
-              alt="JP Studios — Páginas Web Cali"
+              src="/laptop-sobre-roca-mobile.webp"
+              alt="Mockup de computador portátil sobre roca mostrando diseño web moderno y de alta conversión en Cali — JP Studios"
               className="w-full h-full object-cover object-[center_62%]"
-              width={1536}
-              height={1024}
+              width={750}
+              height={500}
               loading="eager"
               decoding="async"
+              fetchPriority="high"
             />
           </picture>
         </div>
@@ -241,14 +213,13 @@ export const Hero: React.FC = () => {
           <picture className="w-full h-full flex items-end justify-end">
             <source type="image/webp" srcSet="/laptop-sobre-roca.webp" />
             <img
-              src="/laptop-sobre-roca.png"
-              alt="JP Studios — Páginas Web Cali"
+              src="/laptop-sobre-roca.webp"
+              alt="Mockup de computador portátil sobre roca mostrando diseño web y posicionamiento en Google en Cali — JP Studios"
               className="w-full h-full object-cover object-[right_bottom] [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.15)_3%,rgba(0,0,0,0.75)_8%,black_14%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.15)_3%,rgba(0,0,0,0.75)_8%,black_14%)] select-none"
               width={1536}
               height={1024}
-              loading="eager"
+              loading="lazy"
               decoding="async"
-              fetchPriority="high"
             />
           </picture>
 

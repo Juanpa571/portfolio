@@ -67,7 +67,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       {/* Top Telemetry Header */}
       <div className="flex items-center justify-between text-xs font-sans text-white/60">
         <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span className="w-1.5 h-1.5 rounded-full bg-white/70"></span>
           <span className="text-white font-medium">JP Studios</span>
         </div>
         <div>
@@ -86,12 +86,12 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       <div className="space-y-4">
         <div className="flex justify-between text-xs font-sans text-white/40">
           <span>JP Studios</span>
-          <span>Diseño para Vender</span>
+          <span>Diseño para <span className="text-[#00a854]">Vender</span></span>
         </div>
         <div className="w-full h-[1.5px] bg-white/10 overflow-hidden rounded-full">
           <div
-            className="h-full bg-white transition-[width] duration-75 ease-out"
-            style={{ width: `${progress}%` }}
+            className="h-full w-full bg-white origin-left transition-transform duration-75 ease-out will-change-transform"
+            style={{ transform: `scaleX(${progress / 100})` }}
           />
         </div>
       </div>
