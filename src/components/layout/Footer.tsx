@@ -53,33 +53,34 @@ export const Footer: React.FC = () => {
       data-theme="dark"
       className="relative bg-[#111111] text-white w-full overflow-hidden select-none"
     >
-      {/* Desktop Panoramic City Layer - Bleeds completely to the far right edge of the viewport with zero margins */}
-      <div className="hidden lg:block absolute right-0 top-0 h-[520px] xl:h-[560px] 2xl:h-[600px] w-[56vw] min-w-[750px] max-w-[1300px] pointer-events-none select-none overflow-hidden z-0">
-        <picture className="w-full h-full block">
-          <source type="image/webp" srcSet="/cristo-rey-cali-night.webp" />
-          <img
-            src="/cristo-rey-cali-night.jpg"
-            alt="Panorámica nocturna de Cali desde Cristo Rey — Sede de JP Studios diseño y desarrollo web"
-            className="w-full h-full object-cover object-right-bottom opacity-90 transition-transform duration-1000 ease-out hover:scale-[1.01]"
-            width={1376}
-            height={768}
-            loading="lazy"
-            decoding="async"
-          />
-        </picture>
-        {/* Soft edge overlays to ensure 100% seamless genuine blending into solid #111111 */}
-        <div className="absolute inset-y-0 left-0 w-44 xl:w-56 bg-gradient-to-r from-[#111111] via-[#111111]/85 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#111111] to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#111111] to-transparent pointer-events-none" />
-      </div>
-
-      {/* Expanded Container with reduced side margins to give monumental breathing room */}
+      {/* Expanded Container with margins aligned to the header and body content */}
       <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pt-20 sm:pt-24 lg:pt-28 pb-8 flex flex-col justify-between relative z-10">
         
         {/* ========================================================
             PART 1: HERO ZONE (Split: Left Copy + Right Panoramic Night City)
             ======================================================== */}
-        <div className="relative flex flex-col justify-between pt-4 sm:pt-6 lg:pt-8 pb-8 sm:pb-10 lg:pb-12">
+        <div className="relative flex flex-col justify-between pt-4 sm:pt-6 lg:pt-8 pb-8 sm:pb-10 lg:pb-12 min-h-[460px] lg:min-h-[500px] xl:min-h-[520px]">
+
+          {/* Desktop Panoramic City Layer — Nested inside container to preserve right margin and shift photo left */}
+          <div className="hidden lg:block absolute right-0 top-0 bottom-4 w-[58%] xl:w-[62%] 2xl:w-[65%] pointer-events-none select-none overflow-hidden z-0">
+            <picture className="w-full h-full block">
+              <source type="image/webp" srcSet="/cristo-rey-cali-night.webp" />
+              <img
+                src="/cristo-rey-cali-night.jpg"
+                alt="Panorámica nocturna de Cali desde Cristo Rey — Sede de JP Studios diseño y desarrollo web"
+                className="w-full h-full object-cover object-right-bottom opacity-90 transition-transform duration-1000 ease-out hover:scale-[1.01]"
+                width={1376}
+                height={768}
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+            {/* Soft edge overlays ensuring 100% seamless genuine blending into solid #111111 */}
+            <div className="absolute inset-y-0 left-0 w-36 xl:w-48 bg-gradient-to-r from-[#111111] via-[#111111]/85 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#111111] to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#111111] to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#111111] to-transparent pointer-events-none" />
+          </div>
 
           {/* Upper Content Row: Left Hero Copy */}
           <div className="relative z-10 w-full lg:w-[48%] xl:w-[46%] 2xl:w-[44%] flex flex-col items-start justify-center space-y-6 sm:space-y-7 pt-4 sm:pt-6 lg:pt-8">
