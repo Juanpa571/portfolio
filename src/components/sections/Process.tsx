@@ -208,8 +208,8 @@ export const Process: React.FC = () => {
                           <div className="text-xl font-bold font-display text-[#111111] tracking-tight leading-snug">
                             {highlightBrandKeywords(step.title)}
                           </div>
-                          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/[0.04] text-xs font-sans font-medium text-black/75 whitespace-nowrap shrink-0 mt-0.5">
-                            <svg className="w-3.5 h-3.5 text-black/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <div className="flex items-center gap-1.5 text-xs font-sans font-normal text-black/50 whitespace-nowrap shrink-0 mt-1">
+                            <svg className="w-3.5 h-3.5 text-black/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
                             </svg>
                             <span>{step.timeframe}</span>
@@ -221,8 +221,8 @@ export const Process: React.FC = () => {
                         <div className="text-lg font-display font-semibold text-[#111111] tracking-tight leading-snug">
                           {highlightBrandKeywords(step.title)}
                         </div>
-                        <div className="flex items-center gap-2 shrink-0 pt-0.5">
-                          <span className="text-[11px] font-sans font-medium text-black/60 px-2.5 py-0.5 rounded-full bg-black/[0.04] whitespace-nowrap">
+                        <div className="flex items-center gap-2.5 shrink-0 pt-0.5">
+                          <span className="text-xs font-sans text-black/45 whitespace-nowrap">
                             {step.timeframe}
                           </span>
                           <span className="text-base font-light text-black/40">
@@ -240,7 +240,7 @@ export const Process: React.FC = () => {
                     </h3>
 
                     <div className="flex items-center gap-4 shrink-0">
-                      <span className="text-xs font-sans font-medium text-black/60 px-3 py-1 rounded-full bg-black/[0.04] whitespace-nowrap">
+                      <span className="text-xs font-sans text-black/45 whitespace-nowrap">
                         {step.timeframe}
                       </span>
                       <span
