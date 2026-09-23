@@ -2,9 +2,10 @@ import React from 'react';
 
 /**
  * Highlights brand keywords in titles:
- * - Green (#00a854): "vender", "ventas", "venta", etc. (JP Studios conversion & sales)
- * - Blue (#174ea6): "Google", "Google Maps" (Search engine authority)
- * - Warm Amber (#d97706): "Cali" (Local territory & presence)
+ * Highlights brand keywords in titles:
+ * - Green (#057a3e): "vender", "ventas", "venta", etc. (WCAG AA compliant contrast >= 4.5:1)
+ * - Blue (#174ea6): "Google", "Google Maps" (Search engine authority, WCAG AAA compliant)
+ * - Warm Amber (#b45309): "Cali" (Local territory & presence, WCAG AA compliant >= 4.5:1)
  */
 export const highlightBrandKeywords = (
   text: string | undefined | null,
@@ -17,11 +18,11 @@ export const highlightBrandKeywords = (
   }
 ): React.ReactNode => {
   if (!text || typeof text !== 'string') return text;
-  const greenClass = options?.greenClass || 'text-[#00a854]';
+  const greenClass = options?.greenClass || 'text-[#057a3e]';
   const highlightGoogle = options?.highlightGoogle ?? true;
   const googleClass = options?.googleClass || 'text-[#174ea6]';
   const highlightCali = options?.highlightCali ?? true;
-  const caliClass = options?.caliClass || 'text-[#d97706]';
+  const caliClass = options?.caliClass || 'text-[#b45309]';
 
   // Build regex matching Google, Cali, and forms of vender/ventas/sales
   const patterns: string[] = [];

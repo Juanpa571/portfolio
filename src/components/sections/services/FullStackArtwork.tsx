@@ -21,18 +21,15 @@ export const FullStackArtwork: React.FC = () => {
             strokeLinecap="round"
           />
 
-          {/* Flowing Data Packet Stream (CSS animated dashoffset) */}
+          {/* Flowing Data Packet Stream (CSS animated dashoffset only active on hover) */}
           <path
             d="M 72 43.5 C 94 43.5, 102 38, 102 18.5"
             stroke="currentColor"
-            className="text-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            className="text-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:[animation:dashFlow_1.1s_linear_infinite]"
             strokeWidth="1.4"
             strokeDasharray="4 8"
             strokeDashoffset="24"
             strokeLinecap="round"
-            style={{
-              animation: 'dashFlow 1.1s linear infinite',
-            }}
           />
 
           {/* API Endpoint Terminal Node (Top Right with dynamic pulse) */}

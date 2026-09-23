@@ -227,7 +227,7 @@ export const PricingGuide: React.FC = () => {
                     <span className="text-2xl sm:text-[1.85rem] font-semibold text-[#111111] tracking-tight">
                       {tier.priceAmount}
                     </span>
-                    <span className="text-xs sm:text-sm text-neutral-400 font-normal">
+                    <span className="text-xs sm:text-sm text-neutral-600 font-normal">
                       {tier.priceCurrency}
                     </span>
                   </div>
@@ -263,6 +263,7 @@ export const PricingGuide: React.FC = () => {
                           href={whatsappUrl}
                           target="_blank"
                           rel="noopener noreferrer"
+                          aria-label={`Ver detalles y cotizar ${tier.name} por WhatsApp`}
                           onClick={() => {
                             trackPricingClick({
                               tierId: tier.id,

@@ -157,7 +157,7 @@ export const Faq: React.FC = () => {
                   >
                     <div className="w-full flex items-center justify-between text-left gap-3">
                       <div className="flex items-center flex-1 min-w-0">
-                        <span className="text-xs font-mono font-medium text-black/40 pr-3.5 mr-3.5 border-r border-black/[0.08] flex items-center shrink-0">
+                        <span className="text-xs font-mono font-medium text-black/70 pr-3.5 mr-3.5 border-r border-black/[0.08] flex items-center shrink-0">
                           {formattedNumber}
                         </span>
                         <p className="text-sm font-display font-medium text-[#111111] tracking-tight leading-snug m-0">
@@ -243,7 +243,7 @@ export const Faq: React.FC = () => {
                       <div className="flex items-baseline gap-4 sm:gap-6 flex-1 pr-4">
                         <span
                           className={`text-xs sm:text-sm font-mono font-medium transition-colors duration-200 ${
-                            isOpen ? 'text-black' : 'text-black/35 group-hover:text-black/60'
+                            isOpen ? 'text-black' : 'text-black/70 group-hover:text-black/90'
                           }`}
                         >
                           {formattedNumber}

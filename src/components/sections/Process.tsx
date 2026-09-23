@@ -184,8 +184,8 @@ export const Process: React.FC = () => {
             {/* Column 4: Enfoque Local */}
             <div className="flex flex-col justify-center lg:pl-7 lg:border-l border-black/[0.08] pt-1 lg:pt-0">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#00a854] shrink-0" />
-                <span className="text-[11px] font-mono font-semibold text-[#00a854] tracking-wider uppercase">
+                <span className="w-2 h-2 rounded-full bg-[#057a3e] shrink-0" />
+                <span className="text-[11px] font-mono font-semibold text-[#057a3e] tracking-wider uppercase">
                   {isSpanish ? 'ENFOQUE LOCAL' : 'LOCAL FOCUS'}
                 </span>
               </div>

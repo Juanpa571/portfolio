@@ -145,7 +145,7 @@ export const HeroPhoneMockup: React.FC = () => {
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="text-emerald-500 font-bold text-xs">✓</span>
-                <span className="text-[#00a854]">Ventas</span>
+                <span className="text-[#057a3e]">Ventas</span>
               </div>
             </div>
           </div>

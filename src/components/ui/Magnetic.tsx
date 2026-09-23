@@ -1,5 +1,4 @@
-﻿import React, { useRef, useEffect } from 'react';
-import gsap from 'gsap';
+import React, { useRef, useEffect } from 'react';
 
 interface MagneticProps {
   children: React.ReactElement;
@@ -20,43 +19,60 @@ export const Magnetic: React.FC<MagneticProps> = ({
     const el = magneticRef.current;
     if (!el) return;
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || 'ontouchstart' in window) {
+    if (
+      window.innerWidth < 1024 ||
+      'ontouchstart' in window ||
+      navigator.maxTouchPoints > 0 ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
       return;
     }
 
-    const xTo = gsap.quickTo(el, 'x', { duration: 0.8, ease: 'elastic.out(1, 0.35)' });
-    const yTo = gsap.quickTo(el, 'y', { duration: 0.8, ease: 'elastic.out(1, 0.35)' });
+    let active = true;
+    let removeListeners: (() => void) | undefined;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = el.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      const distance = Math.hypot(e.clientX - centerX, e.clientY - centerY);
+    import('gsap').then(({ default: gsap }) => {
+      if (!active || !magneticRef.current) return;
 
-      if (distance < radius) {
-        const deltaX = (e.clientX - centerX) * strength;
-        const deltaY = (e.clientY - centerY) * strength;
-        xTo(deltaX);
-        yTo(deltaY);
-      } else {
+      const xTo = gsap.quickTo(el, 'x', { duration: 0.8, ease: 'elastic.out(1, 0.35)' });
+      const yTo = gsap.quickTo(el, 'y', { duration: 0.8, ease: 'elastic.out(1, 0.35)' });
+
+      const handleMouseMove = (e: MouseEvent) => {
+        const rect = el.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const distance = Math.hypot(e.clientX - centerX, e.clientY - centerY);
+
+        if (distance < radius) {
+          const deltaX = (e.clientX - centerX) * strength;
+          const deltaY = (e.clientY - centerY) * strength;
+          xTo(deltaX);
+          yTo(deltaY);
+        } else {
+          xTo(0);
+          yTo(0);
+        }
+      };
+
+      const handleMouseLeave = () => {
         xTo(0);
         yTo(0);
-      }
-    };
+      };
 
-    const handleMouseLeave = () => {
-      xTo(0);
-      yTo(0);
-    };
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
+      el.addEventListener('mouseleave', handleMouseLeave);
 
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    el.addEventListener('mouseleave', handleMouseLeave);
+      removeListeners = () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+        el.removeEventListener('mouseleave', handleMouseLeave);
+        xTo(0);
+        yTo(0);
+      };
+    });
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      el.removeEventListener('mouseleave', handleMouseLeave);
-      xTo(0);
-      yTo(0);
+      active = false;
+      if (removeListeners) removeListeners();
     };
   }, [strength, radius]);
 

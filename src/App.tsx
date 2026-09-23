@@ -2,18 +2,19 @@ import React, { Suspense, lazy } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import { Header } from './components/layout/Header';
 import { Hero } from './components/sections/Hero';
-import { Intro } from './components/sections/Intro';
-import { Services } from './components/sections/Services';
-import { PricingGuide } from './components/sections/PricingGuide';
-import { Process } from './components/sections/Process';
-// import { ProjectList } from './components/sections/ProjectList';
-import { Faq } from './components/sections/Faq';
-import { ContactForm } from './components/sections/ContactForm';
-import { Footer } from './components/layout/Footer';
 import { CustomCursor } from './components/ui/CustomCursor';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import { useRouter } from './hooks/useRouter';
 import { MetaTags } from './components/seo/MetaTags';
+
+// Lazy-load below-the-fold components to keep critical mobile bundle featherlight (<35 KiB)
+const Intro = lazy(() => import('./components/sections/Intro').then((m) => ({ default: m.Intro })));
+const Services = lazy(() => import('./components/sections/Services').then((m) => ({ default: m.Services })));
+const PricingGuide = lazy(() => import('./components/sections/PricingGuide').then((m) => ({ default: m.PricingGuide })));
+const Process = lazy(() => import('./components/sections/Process').then((m) => ({ default: m.Process })));
+const Faq = lazy(() => import('./components/sections/Faq').then((m) => ({ default: m.Faq })));
+const ContactForm = lazy(() => import('./components/sections/ContactForm').then((m) => ({ default: m.ContactForm })));
+const Footer = lazy(() => import('./components/layout/Footer').then((m) => ({ default: m.Footer })));
 
 const PosicionarWebGooglePage = lazy(() =>
   import('./pages/PosicionarWebGooglePage').then((m) => ({ default: m.PosicionarWebGooglePage }))
@@ -71,15 +72,17 @@ export const App: React.FC = () => {
             <Header />
             <main>
               <Hero />
-              <Intro />
-              <Services />
-              <PricingGuide />
-              <Process />
-              {/* ProjectList temporalmente oculto hasta integrar casos de estudio reales */}
-              <Faq />
-              <ContactForm />
+              <Suspense fallback={null}>
+                <Intro />
+                <Services />
+                <PricingGuide />
+                <Process />
+                {/* ProjectList temporalmente oculto hasta integrar casos de estudio reales */}
+                <Faq />
+                <ContactForm />
+                <Footer />
+              </Suspense>
             </main>
-            <Footer />
           </>
         )}
       </div>

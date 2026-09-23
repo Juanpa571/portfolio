@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
 import { siteConfig } from '../../config/site';
 import { useLanguage } from '../../context/LanguageContext';
 import { highlightBrandKeywords } from '../../utils/textHighlight';
@@ -32,80 +31,93 @@ export const Hero: React.FC = () => {
       return;
     }
 
-    // Smooth subtle rise for desktop screens
-    const lines = [l1, l2, l3];
-    gsap.from(lines, {
-      y: 24,
-      duration: 0.8,
-      stagger: 0.08,
-      ease: 'power3.out',
-    });
+    let isCleanedUp = false;
+    let removeListeners: (() => void) | undefined;
 
-    if (portrait) {
-      gsap.from(portrait, {
-        y: 30,
-        duration: 0.9,
+    // Load GSAP dynamically only on desktop to keep mobile initial bundle featherlight
+    import('gsap').then(({ default: gsap }) => {
+      if (isCleanedUp) return;
+
+      // Smooth subtle rise for desktop screens
+      const lines = [l1, l2, l3];
+      gsap.from(lines, {
+        y: 24,
+        duration: 0.8,
+        stagger: 0.08,
         ease: 'power3.out',
       });
-    }
 
-    const x1 = gsap.quickTo(l1, 'x', { duration: 0.6, ease: 'power2.out' });
-    const y1 = gsap.quickTo(l1, 'y', { duration: 0.6, ease: 'power2.out' });
-
-    const x2 = gsap.quickTo(l2, 'x', { duration: 0.6, ease: 'power2.out' });
-    const y2 = gsap.quickTo(l2, 'y', { duration: 0.6, ease: 'power2.out' });
-
-    const x3 = gsap.quickTo(l3, 'x', { duration: 0.6, ease: 'power2.out' });
-    const y3 = gsap.quickTo(l3, 'y', { duration: 0.6, ease: 'power2.out' });
-
-    const xPhoto = portrait ? gsap.quickTo(portrait, 'x', { duration: 0.8, ease: 'power2.out' }) : null;
-    const yPhoto = portrait ? gsap.quickTo(portrait, 'y', { duration: 0.8, ease: 'power2.out' }) : null;
-    const rotY = portrait ? gsap.quickTo(portrait, 'rotationY', { duration: 0.8, ease: 'power2.out' }) : null;
-    const rotX = portrait ? gsap.quickTo(portrait, 'rotationX', { duration: 0.8, ease: 'power2.out' }) : null;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const { innerWidth, innerHeight } = window;
-      const normX = (e.clientX / innerWidth - 0.5) * 2;
-      const normY = (e.clientY / innerHeight - 0.5) * 2;
-
-      x1(normX * 12);
-      y1(normY * 6);
-
-      x2(normX * 22);
-      y2(normY * 11);
-
-      x3(normX * 34);
-      y3(normY * 16);
-
-      if (xPhoto && yPhoto && rotY && rotX) {
-        xPhoto(normX * -16);
-        yPhoto(normY * -10);
-        rotY(normX * 6);
-        rotX(normY * -5);
+      if (portrait) {
+        gsap.from(portrait, {
+          y: 30,
+          duration: 0.9,
+          ease: 'power3.out',
+        });
       }
-    };
 
-    const handleMouseLeave = () => {
-      x1(0);
-      y1(0);
-      x2(0);
-      y2(0);
-      x3(0);
-      y3(0);
-      if (xPhoto && yPhoto && rotY && rotX) {
-        xPhoto(0);
-        yPhoto(0);
-        rotY(0);
-        rotX(0);
-      }
-    };
+      const x1 = gsap.quickTo(l1, 'x', { duration: 0.6, ease: 'power2.out' });
+      const y1 = gsap.quickTo(l1, 'y', { duration: 0.6, ease: 'power2.out' });
 
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    container.addEventListener('mouseleave', handleMouseLeave);
+      const x2 = gsap.quickTo(l2, 'x', { duration: 0.6, ease: 'power2.out' });
+      const y2 = gsap.quickTo(l2, 'y', { duration: 0.6, ease: 'power2.out' });
+
+      const x3 = gsap.quickTo(l3, 'x', { duration: 0.6, ease: 'power2.out' });
+      const y3 = gsap.quickTo(l3, 'y', { duration: 0.6, ease: 'power2.out' });
+
+      const xPhoto = portrait ? gsap.quickTo(portrait, 'x', { duration: 0.8, ease: 'power2.out' }) : null;
+      const yPhoto = portrait ? gsap.quickTo(portrait, 'y', { duration: 0.8, ease: 'power2.out' }) : null;
+      const rotY = portrait ? gsap.quickTo(portrait, 'rotationY', { duration: 0.8, ease: 'power2.out' }) : null;
+      const rotX = portrait ? gsap.quickTo(portrait, 'rotationX', { duration: 0.8, ease: 'power2.out' }) : null;
+
+      const handleMouseMove = (e: MouseEvent) => {
+        const { innerWidth, innerHeight } = window;
+        const normX = (e.clientX / innerWidth - 0.5) * 2;
+        const normY = (e.clientY / innerHeight - 0.5) * 2;
+
+        x1(normX * 12);
+        y1(normY * 6);
+
+        x2(normX * 22);
+        y2(normY * 11);
+
+        x3(normX * 34);
+        y3(normY * 16);
+
+        if (xPhoto && yPhoto && rotY && rotX) {
+          xPhoto(normX * -16);
+          yPhoto(normY * -10);
+          rotY(normX * 6);
+          rotX(normY * -5);
+        }
+      };
+
+      const handleMouseLeave = () => {
+        x1(0);
+        y1(0);
+        x2(0);
+        y2(0);
+        x3(0);
+        y3(0);
+        if (xPhoto && yPhoto && rotY && rotX) {
+          xPhoto(0);
+          yPhoto(0);
+          rotY(0);
+          rotX(0);
+        }
+      };
+
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
+      container.addEventListener('mouseleave', handleMouseLeave);
+
+      removeListeners = () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+        container.removeEventListener('mouseleave', handleMouseLeave);
+      };
+    });
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      container.removeEventListener('mouseleave', handleMouseLeave);
+      isCleanedUp = true;
+      if (removeListeners) removeListeners();
     };
   }, []);
 
@@ -206,9 +218,9 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Mobile Orientation Footer Matching Mockup (Cali, Colombia —— Estudio Independiente) */}
-        <div className="flex items-center justify-between w-full px-6 pt-3 pb-5 text-xs font-sans text-black/50 select-none">
+        <div className="flex items-center justify-between w-full px-6 pt-3 pb-5 text-xs font-sans text-black/75 select-none">
           <span>{siteConfig.profile.location}</span>
-          <span className="h-px bg-black/15 flex-1 max-w-[120px] mx-4" aria-hidden="true" />
+          <span className="h-px bg-black/20 flex-1 max-w-[120px] mx-4" aria-hidden="true" />
           <span>{t.hero.studioType}</span>
         </div>
       </div>
@@ -239,9 +251,9 @@ export const Hero: React.FC = () => {
 
       {/* Clean Bottom Orientation Bar (Desktop Only) */}
       <div className="hidden lg:flex w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pb-8 sm:pb-10 items-center justify-start text-xs font-sans select-none relative z-30">
-        <div className="flex items-center gap-2 text-black/60">
+        <div className="flex items-center gap-2 text-black/75">
           <span>{siteConfig.profile.location}</span>
-          <span className="text-black/30">•</span>
+          <span className="text-black/50">•</span>
           <span>{t.hero.studioType}</span>
         </div>
       </div>
