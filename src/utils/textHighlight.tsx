@@ -1,43 +1,64 @@
 import React from 'react';
 
 /**
- * Highlights brand keywords in titles:
- * - Green (#057a3e): "vender", "ventas", "venta", etc. (WCAG AA compliant contrast >= 4.5:1)
- * - Blue (#174ea6): "Google", "Google Maps" (Search engine authority, WCAG AAA compliant)
+ * Highlights key emphasis keywords in titles and headings:
+ * - Pure typographic hierarchy: Bolder (font-semibold) and darker (text-black / text-[#111111]).
+ * - Zero colored noise (no green, blue, or amber), matching the bespoke editorial
+ *   typography benchmark established in the Intro statement.
  */
 export const highlightBrandKeywords = (
   text: string | undefined | null,
   options?: {
-    highlightGoogle?: boolean;
-    greenClass?: string;
-    googleClass?: string;
+    highlightClass?: string;
   }
 ): React.ReactNode => {
   if (!text || typeof text !== 'string') return text;
-  const greenClass = options?.greenClass || 'text-[#057a3e]';
-  const highlightGoogle = options?.highlightGoogle ?? true;
-  const googleClass = options?.googleClass || 'text-[#174ea6]';
+  const highlightClass = options?.highlightClass || 'text-black font-semibold';
 
-  // Build regex matching Google and forms of vender/ventas/sales
-  const patterns: string[] = [];
-  if (highlightGoogle) patterns.push('Google');
-  patterns.push('vender', 'ventas', 'venta', 'venden', 'vendes', 'vendiendo', 'vendan', 'vendedor', 'vendedora', 'vendedores', 'sell', 'sales', 'selling');
+  // Specific key phrases and words to emphasize (longer phrases first to match greedily)
+  const patterns = [
+    'Google Maps',
+    'Google',
+    'ventas directas por WhatsApp',
+    'ventas directas',
+    'vender más',
+    'vender',
+    'ventas',
+    'venta',
+    'venden',
+    'vendes',
+    'vendiendo',
+    'vendan',
+    'vendedor',
+    'vendedora',
+    'vendedores',
+    'páginas web en Cali',
+    'páginas web',
+    'página web',
+    'diseño web',
+    'desarrollo web',
+    'sitios web',
+    'sitio web',
+    'web design',
+    'websites',
+    'website',
+    'sell',
+    'sales',
+    'selling',
+  ];
 
-  const regex = new RegExp(`\\b(${patterns.join('|')})\\b`, 'gi');
+  // Escape special regex characters in phrases
+  const escapedPatterns = patterns.map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  const regex = new RegExp(`(${escapedPatterns.join('|')})`, 'gi');
   const parts = text.split(regex);
 
   return parts.map((part, idx) => {
     const lower = part.toLowerCase();
-    if (highlightGoogle && lower === 'google') {
+    const isMatch = patterns.some((p) => p.toLowerCase() === lower);
+
+    if (isMatch) {
       return (
-        <span key={idx} className={`${googleClass} transition-colors duration-300 font-inherit`}>
-          {part}
-        </span>
-      );
-    }
-    if (['vender', 'ventas', 'venta', 'venden', 'vendes', 'vendiendo', 'vendan', 'vendedor', 'vendedora', 'vendedores', 'sell', 'sales', 'selling'].includes(lower)) {
-      return (
-        <span key={idx} className={`${greenClass} transition-colors duration-300 font-inherit`}>
+        <span key={idx} className={`${highlightClass} font-inherit transition-colors duration-200`}>
           {part}
         </span>
       );

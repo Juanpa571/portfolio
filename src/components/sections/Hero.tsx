@@ -134,12 +134,12 @@ export const Hero: React.FC = () => {
         <div className="w-full lg:w-[56%] xl:w-[54%] 2xl:w-[52%] flex flex-col items-start text-left justify-center min-w-0 pr-0 lg:pr-6 relative z-10">
           <h1 
             aria-label={`${t.hero.headlineLine1.trim()} ${t.hero.headlineLine2.trim()} ${t.hero.headlineLine3.trim()} — JP Studios`}
-            className="text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[3.25vw] xl:text-[3.65vw] font-semibold tracking-tight text-[#111111] leading-[1.06] select-none m-0 text-left max-w-3xl"
+            className="text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[3.25vw] xl:text-[3.65vw] font-normal tracking-tight text-black/65 leading-[1.06] select-none m-0 text-left max-w-3xl"
           >
             {/* Line 1 - Strong Anchor Keyword */}
             <span ref={line1Ref} className="block will-change-transform">
               <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
-                {t.hero.headlineLine1.trim()}
+                {highlightBrandKeywords(t.hero.headlineLine1.trim())}
               </span>
             </span>{' '}
 

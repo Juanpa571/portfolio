@@ -99,10 +99,10 @@ export const Process: React.FC = () => {
             <div className="max-w-3xl">
               <h2
                 ref={titleRef}
-                className="text-[2.35rem] sm:text-4xl lg:text-[3.25rem] font-semibold tracking-tight text-[#111111] leading-[1.1] select-none"
+                className="text-[2.35rem] sm:text-4xl lg:text-[3.25rem] font-normal tracking-tight text-black/65 leading-[1.1] select-none"
               >
                 <span className="block">{t.process.headerLine1.trim()}{' '}</span>
-                <span className="block text-[#111111]">{highlightBrandKeywords(t.process.headerLine2)}</span>
+                <span className="block">{highlightBrandKeywords(t.process.headerLine2)}</span>
               </h2>
             </div>
 

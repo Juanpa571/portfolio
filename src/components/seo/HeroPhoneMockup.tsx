@@ -145,7 +145,7 @@ export const HeroPhoneMockup: React.FC = () => {
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="text-emerald-500 font-bold text-xs">✓</span>
-                <span className="text-[#057a3e]">Ventas</span>
+                <span className="font-semibold text-[#111111]">Ventas</span>
               </div>
             </div>
           </div>
@@ -163,7 +163,7 @@ export const HeroPhoneMockup: React.FC = () => {
         }}
       >
         <span className="w-1.5 h-1.5 rounded-full bg-[#00D26A] animate-pulse" />
-        <span>Top 1 en <span className="text-[#174ea6]">Google</span> Maps</span>
+        <span>Top 1 en <span className="font-semibold text-white">Google Maps</span></span>
       </motion.figcaption>
     </div>
   );

@@ -86,7 +86,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
       <div className="space-y-4">
         <div className="flex justify-between text-xs font-sans text-white/40">
           <span>JP Studios</span>
-          <span>Diseño para <span className="text-[#057a3e]">Vender</span></span>
+          <span>Diseño para <span className="text-white font-medium">Vender</span></span>
         </div>
         <div className="w-full h-[1.5px] bg-white/10 overflow-hidden rounded-full">
           <div
