@@ -39,6 +39,13 @@ export interface Translations {
     startOnWhatsApp: string;
     direct: string;
   };
+  metrics: {
+    items: Array<{
+      value: string;
+      title: string;
+      description: string;
+    }>;
+  };
   ticker: {
     track1: Array<{ text: string; filled: boolean }>;
     track2: Array<{ text: string; filled: boolean }>;
@@ -233,6 +240,35 @@ export const translations: Record<Language, Translations> = {
         'At JP Studios, an independent web engineering studio led by Juan Pablo Chacón, we craft high-performance websites in Cali for businesses that cannot afford to go unnoticed. Ultra-fast websites, optimized to dominate the Google ecosystem and AI search engines. Engineered to turn local discovery into real clients across your primary contact channels.',
       startOnWhatsApp: 'Start on WhatsApp',
       direct: 'Direct ↗',
+    },
+    metrics: {
+      items: [
+        {
+          value: '97/100',
+          title: 'Google PageSpeed',
+          description: 'Live mobile 4G audit · 0 ms CPU blocking time',
+        },
+        {
+          value: '<100 KB',
+          title: 'Featherweight Code',
+          description: 'Instant first paint without WordPress bloat',
+        },
+        {
+          value: '0 Breaches',
+          title: 'Cloudflare Edge',
+          description: 'Static architecture immune to CMS plugin exploits',
+        },
+        {
+          value: '100%',
+          title: 'AI Search Ready',
+          description: 'Schema.org structured for ChatGPT, Perplexity & Google',
+        },
+        {
+          value: '100/100',
+          title: 'Web Accessibility',
+          description: 'Full WCAG AA/AAA international standard compliance',
+        },
+      ],
     },
     ticker: {
       track1: [
@@ -648,6 +684,35 @@ export const translations: Record<Language, Translations> = {
         'En JP Studios, liderado por Juan Pablo Chacón, desarrollamos páginas web en Cali para empresas y negocios que necesitan destacar y facturar. Construimos sitios web a medida en código ultrarrápido (React 19), estructurados para liderar en Google y motores de IA, y optimizados para transformar visitas locales en ventas directas por WhatsApp.',
       startOnWhatsApp: 'Cotizar por WhatsApp',
       direct: 'Directo ↗',
+    },
+    metrics: {
+      items: [
+        {
+          value: '97/100',
+          title: 'Google PageSpeed',
+          description: 'Auditoría móvil real en 4G · 0 ms de bloqueo de CPU',
+        },
+        {
+          value: '<100 KB',
+          title: 'Peso de Carga Pluma',
+          description: 'Frente a los 3.5 MB de WordPress: abre de inmediato',
+        },
+        {
+          value: '0 Brechas',
+          title: 'Cero Vulnerabilidades',
+          description: 'Servido en Cloudflare Edge sin SQL ni plugins vulnerables',
+        },
+        {
+          value: '100%',
+          title: 'Estructura para IA',
+          description: 'Marcado Schema.org listo para ChatGPT, Perplexity y Google',
+        },
+        {
+          value: '100/100',
+          title: 'Accesibilidad Web',
+          description: 'Estándar WCAG AA/AAA con máxima legibilidad en celular',
+        },
+      ],
     },
     ticker: {
       track1: [

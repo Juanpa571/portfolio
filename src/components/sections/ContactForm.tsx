@@ -103,8 +103,8 @@ export const ContactForm: React.FC = () => {
 
   // Step state (1: Project Type, 2: Sector, 3: Contact Info)
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
-  const [selectedProjectType, setSelectedProjectType] = useState<string>('web-scratch');
-  const [selectedSector, setSelectedSector] = useState<string>('health');
+  const [selectedProjectType, setSelectedProjectType] = useState<string>('');
+  const [selectedSector, setSelectedSector] = useState<string>('');
 
   // Contact inputs
   const [name, setName] = useState('');
@@ -151,15 +151,17 @@ export const ContactForm: React.FC = () => {
   }, []);
 
   const currentProjectObj =
-    t.contact.projectOptions.find((p) => p.id === selectedProjectType) || t.contact.projectOptions[0];
+    t.contact.projectOptions.find((p) => p.id === selectedProjectType);
 
   const currentSectorObj =
-    t.contact.sectorOptions.find((s) => s.id === selectedSector) || t.contact.sectorOptions[0];
+    t.contact.sectorOptions.find((s) => s.id === selectedSector);
 
   const handleNext = () => {
     if (currentStep === 1) {
+      if (!selectedProjectType) return;
       setCurrentStep(2);
     } else if (currentStep === 2) {
+      if (!selectedSector) return;
       setCurrentStep(3);
     }
   };
@@ -208,25 +210,28 @@ export const ContactForm: React.FC = () => {
     setErrorMessage('');
 
     try {
+      const projectLabel = currentProjectObj?.label || (isSpanish ? 'No especificado' : 'Not specified');
+      const sectorLabel = currentSectorObj?.label || (isSpanish ? 'No especificado' : 'Not specified');
+
       const formPayload = new FormData();
       formPayload.append('access_key', 'd8b435e9-81f7-4483-abe5-1962a54053ca');
       formPayload.append('from_name', 'JP Studios Web');
       formPayload.append('name', name);
       formPayload.append('telefono_whatsapp', phone);
-      formPayload.append('tipo_de_proyecto', currentProjectObj.label);
-      formPayload.append('sector_de_negocio', currentSectorObj.label);
+      formPayload.append('tipo_de_proyecto', projectLabel);
+      formPayload.append('sector_de_negocio', sectorLabel);
       formPayload.append('email', 'notificaciones@jpchacon.com');
       formPayload.append(
         'subject',
-        `Nueva cotización de ${name} [${currentProjectObj.label} | ${currentSectorObj.label}] - Tel: ${phone}`
+        `Nueva cotización de ${name} [${projectLabel} | ${sectorLabel}] - Tel: ${phone}`
       );
       formPayload.append(
         'message',
         `Nueva solicitud recibida desde el cotizador de JP Studios:
 - Nombre / Empresa: ${name}
 - Teléfono / WhatsApp: ${phone}
-- Tipo de Solución: ${currentProjectObj.label}
-- Sector / Negocio: ${currentSectorObj.label}`
+- Tipo de Solución: ${projectLabel}
+- Sector / Negocio: ${sectorLabel}`
       );
 
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -238,8 +243,8 @@ export const ContactForm: React.FC = () => {
       if (data.success) {
         setStatus('success');
         trackDiagnosticoSubmit({
-          projectType: currentProjectObj.label,
-          sector: currentSectorObj.label,
+          projectType: projectLabel,
+          sector: sectorLabel,
           name: name.trim(),
         });
       } else {
@@ -254,8 +259,8 @@ export const ContactForm: React.FC = () => {
 
   const resetForm = () => {
     setCurrentStep(1);
-    setSelectedProjectType('web-scratch');
-    setSelectedSector('health');
+    setSelectedProjectType('');
+    setSelectedSector('');
     setName('');
     setPhone('');
     setStatus('idle');
@@ -446,14 +451,18 @@ export const ContactForm: React.FC = () => {
                   <span className="text-black/40 text-[11px] font-medium tracking-wide">
                     {isSpanish ? 'Selección:' : 'Selected:'}
                   </span>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/[0.04] text-[#111111] font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    {currentProjectObj.label}
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/[0.04] text-[#111111] font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    {currentSectorObj.label}
-                  </span>
+                  {currentProjectObj && (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/[0.04] text-[#111111] font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      {currentProjectObj.label}
+                    </span>
+                  )}
+                  {currentSectorObj && (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/[0.04] text-[#111111] font-medium">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      {currentSectorObj.label}
+                    </span>
+                  )}
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-3">
@@ -516,7 +525,8 @@ export const ContactForm: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="w-full py-3.5 min-h-[48px] rounded-full bg-[#111111] text-white text-sm font-sans font-medium hover:bg-black transition-all active:scale-[0.98] flex items-center justify-center gap-2 shadow-sm cursor-pointer"
+                  disabled={currentStep === 1 ? !selectedProjectType : !selectedSector}
+                  className="w-full py-3.5 min-h-[48px] rounded-full bg-[#111111] text-white text-sm font-sans font-medium hover:bg-black transition-all active:scale-[0.98] flex items-center justify-center gap-2 shadow-sm cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100"
                 >
                   <span>{t.contact.nextButton}</span>
                   <span>→</span>
@@ -759,14 +769,18 @@ export const ContactForm: React.FC = () => {
                     <span className="text-black/40 text-xs font-medium tracking-wide">
                       {isSpanish ? 'Solución seleccionada:' : 'Selected solution:'}
                     </span>
-                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/[0.04] text-[#111111] font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      {currentProjectObj.label}
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/[0.04] text-[#111111] font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      {currentSectorObj.label}
-                    </span>
+                    {currentProjectObj && (
+                      <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/[0.04] text-[#111111] font-medium">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                        {currentProjectObj.label}
+                      </span>
+                    )}
+                    {currentSectorObj && (
+                      <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/[0.04] text-[#111111] font-medium">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                        {currentSectorObj.label}
+                      </span>
+                    )}
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-4">
@@ -823,7 +837,8 @@ export const ContactForm: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleNext}
-                    className="px-7 py-3 rounded-full bg-[#111111] text-white text-xs sm:text-sm font-sans font-medium hover:bg-black/85 transition-all duration-300 active:scale-95 cursor-pointer flex items-center gap-2 shadow-xs"
+                    disabled={currentStep === 1 ? !selectedProjectType : !selectedSector}
+                    className="px-7 py-3 rounded-full bg-[#111111] text-white text-xs sm:text-sm font-sans font-medium hover:bg-black/85 transition-all duration-300 active:scale-95 cursor-pointer flex items-center gap-2 shadow-xs disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-[#111111] disabled:active:scale-100"
                   >
                     <span>{t.contact.nextButton}</span>
                     <span>→</span>

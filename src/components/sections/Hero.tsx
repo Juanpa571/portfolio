@@ -134,7 +134,7 @@ export const Hero: React.FC = () => {
         <div className="w-full lg:w-[56%] xl:w-[54%] 2xl:w-[52%] flex flex-col items-start text-left justify-center min-w-0 pr-0 lg:pr-6 relative z-10">
           <h1 
             aria-label={`${t.hero.headlineLine1.trim()} ${t.hero.headlineLine2.trim()} ${t.hero.headlineLine3.trim()} — JP Studios`}
-            className="text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[3.25vw] xl:text-[3.65vw] font-normal tracking-tight text-black/65 leading-[1.06] select-none m-0 text-left max-w-3xl"
+            className="text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[3.25vw] xl:text-[3.65vw] font-normal tracking-tight text-black leading-[1.06] select-none m-0 text-left max-w-3xl"
           >
             {/* Line 1 - Strong Anchor Keyword */}
             <span ref={line1Ref} className="block will-change-transform">
@@ -195,18 +195,15 @@ export const Hero: React.FC = () => {
 
       </div>
 
-      {/* Mobile Photograph View (Visible on < lg) — Full-Bleed with subtle top feather as in mockup */}
+      {/* Mobile Photograph View (Visible on < lg) */}
       <div className="w-full relative mt-4 overflow-hidden lg:hidden z-0">
         <div className="relative w-full h-[270px] sm:h-[350px]">
-          {/* Top soft gradient mask to blend with surface background */}
-          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#fafaf8] via-[#fafaf8]/80 to-transparent pointer-events-none z-10" />
-          
           <picture className="w-full h-full">
-            <source media="(max-width: 640px)" type="image/webp" srcSet="/laptop-sobre-roca-mobile.webp" />
-            <source type="image/webp" srcSet="/laptop-sobre-roca.webp" />
+            <source media="(max-width: 640px)" type="image/webp" srcSet="/portatil-hero-mobile.webp" />
+            <source type="image/webp" srcSet="/portatil-hero.webp" />
             <img
-              src="/laptop-sobre-roca-mobile.webp"
-              alt="Mockup de computador portátil sobre roca mostrando diseño web moderno y de alta conversión en Cali — JP Studios"
+              src="/portatil-hero.png"
+              alt="Mockup de computador portátil mostrando diseño web moderno y de alta conversión en Cali — JP Studios"
               className="w-full h-full object-cover object-[center_62%]"
               width={750}
               height={500}
@@ -225,28 +222,23 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Right: Desktop Natural Photographic Layer (Laptop on Rock with Soft Edge Feathers) */}
+      {/* Right: Desktop Natural Photographic Layer */}
       <div 
         ref={portraitRef}
-        className="hidden lg:flex absolute right-0 bottom-0 top-0 w-[56%] xl:w-[54%] 2xl:w-[52%] pointer-events-none z-0 items-end justify-end overflow-hidden select-none"
+        className="hidden lg:flex absolute right-0 top-0 bottom-0 pointer-events-none z-0 items-end justify-end select-none"
       >
-        <div className="relative w-full h-full flex items-end justify-end">
-          <picture className="w-full h-full flex items-end justify-end">
-            <source type="image/webp" srcSet="/laptop-sobre-roca.webp" />
-            <img
-              src="/laptop-sobre-roca.webp"
-              alt="Mockup de computador portátil sobre roca mostrando diseño web y posicionamiento en Google en Cali — JP Studios"
-              className="w-full h-full object-cover object-[right_bottom] [mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.15)_3%,rgba(0,0,0,0.75)_8%,black_14%)] [-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.15)_3%,rgba(0,0,0,0.75)_8%,black_14%)] select-none"
-              width={1536}
-              height={1024}
-              loading="lazy"
-              decoding="async"
-            />
-          </picture>
-
-          {/* Top subtle feather where image meets the sticky bar */}
-          <div className="absolute inset-x-0 top-0 h-14 sm:h-18 bg-gradient-to-b from-[#fafaf8] via-[#fafaf8]/50 to-transparent pointer-events-none z-10" />
-        </div>
+        <picture className="h-full flex items-end justify-end">
+          <source type="image/webp" srcSet="/portatil-hero.webp" />
+          <img
+            src="/portatil-hero.png"
+            alt="Mockup de computador portátil mostrando diseño web y posicionamiento en Google en Cali — JP Studios"
+            className="h-full w-auto object-contain object-right-bottom select-none"
+            width={1536}
+            height={1024}
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
       </div>
 
       {/* Clean Bottom Orientation Bar (Desktop Only) */}

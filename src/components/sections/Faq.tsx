@@ -77,9 +77,9 @@ export const Faq: React.FC = () => {
             <div className="space-y-3 sm:space-y-4">
               <h2
                 ref={titleRef}
-                className="text-[2.35rem] sm:text-4xl lg:text-[3.25rem] font-normal tracking-tight text-black/65 leading-[1.1] select-none"
+                className="text-[2.35rem] sm:text-4xl lg:text-[3.25rem] font-normal tracking-tight text-black leading-[1.1] select-none"
               >
-                <span className="block">{t.faq.headerLine1.trim()}{' '}</span>
+                <span className="block">{highlightBrandKeywords(t.faq.headerLine1.trim())}{' '}</span>
                 <span className="block">{highlightBrandKeywords(t.faq.headerLine2)}</span>
               </h2>
 

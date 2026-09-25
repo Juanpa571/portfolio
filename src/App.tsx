@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import { Header } from './components/layout/Header';
 import { Hero } from './components/sections/Hero';
-import { CustomCursor } from './components/ui/CustomCursor';
+import { MetricsStrip } from './components/sections/MetricsStrip';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import { useRouter } from './hooks/useRouter';
 import { MetaTags } from './components/seo/MetaTags';
@@ -45,7 +45,6 @@ export const App: React.FC = () => {
   return (
     <LanguageProvider>
       <div id="top" className="min-h-screen bg-[#fafaf8] text-[#1a1a1e] font-sans antialiased selection:bg-black selection:text-white relative">
-        <CustomCursor />
         {isNotFound ? (
           <Suspense fallback={<div className="min-h-screen bg-[#fafaf8]" />}>
             <NotFoundPage onNavigateHome={() => navigate('/')} />
@@ -74,6 +73,7 @@ export const App: React.FC = () => {
               <Hero />
               <Suspense fallback={null}>
                 <Intro />
+                <MetricsStrip />
                 <Services />
                 <PricingGuide />
                 <Process />

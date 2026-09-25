@@ -96,20 +96,30 @@ export const Intro: React.FC = () => {
 
           {/* Right Column: Statement Text + Contact Buttons (Col 6-12) */}
           <div className="lg:col-span-7 flex flex-col justify-center">
-            <p
+            <div
               ref={statementRef}
-              className="text-lg sm:text-xl md:text-2xl lg:text-[1.85rem] xl:text-[2.05rem] text-white/70 font-sans font-normal leading-[1.38] tracking-tight will-change-[transform,opacity]"
+              className="space-y-4 sm:space-y-5 text-lg sm:text-xl md:text-2xl lg:text-[1.85rem] xl:text-[2.05rem] text-white/80 font-sans font-normal leading-[1.52] sm:leading-[1.56] lg:leading-[1.6] tracking-tight will-change-[transform,opacity]"
             >
               {language === 'es' ? (
                 <>
-                  En <span className="text-white font-semibold">JP Studios</span>, liderado por Juan Pablo Chacón, desarrollamos <span className="text-white font-semibold">páginas web en Cali</span> para empresas y negocios que necesitan destacar y facturar. Construimos sitios web a medida en código ultrarrápido (React 19), estructurados para <span className="text-white font-semibold">liderar en Google y motores de IA</span>, y optimizados para transformar visitas locales en <span className="text-white font-semibold">ventas directas por WhatsApp</span>.
+                  <p className="m-0">
+                    En <span className="text-white font-semibold">JP Studios</span>, liderado por Juan Pablo Chacón, desarrollamos <span className="text-white font-semibold">páginas web en Cali</span> para empresas y negocios que necesitan destacar y facturar.
+                  </p>
+                  <p className="m-0">
+                    Construimos sitios web a medida en código ultrarrápido (React 19), estructurados para <span className="text-white font-semibold">liderar en Google y motores de IA</span>, y optimizados para transformar visitas locales en <span className="text-white font-semibold">ventas directas por WhatsApp</span>.
+                  </p>
                 </>
               ) : (
                 <>
-                  At <span className="text-white font-semibold">JP Studios</span>, an independent web engineering studio led by Juan Pablo Chacón, we craft <span className="text-white font-semibold">high-performance websites in Cali</span> for businesses that cannot afford to go unnoticed. Ultra-fast websites, optimized to <span className="text-white font-semibold">dominate the Google ecosystem and AI search engines</span>. Engineered to turn local discovery into <span className="text-white font-semibold">real clients across your primary contact channels</span>.
+                  <p className="m-0">
+                    At <span className="text-white font-semibold">JP Studios</span>, an independent web engineering studio led by Juan Pablo Chacón, we craft <span className="text-white font-semibold">high-performance websites in Cali</span> for businesses that cannot afford to go unnoticed.
+                  </p>
+                  <p className="m-0">
+                    Ultra-fast websites, optimized to <span className="text-white font-semibold">dominate the Google ecosystem and AI search engines</span>, engineered to turn local discovery into <span className="text-white font-semibold">real clients across your primary contact channels</span>.
+                  </p>
                 </>
               )}
-            </p>
+            </div>
 
             {/* Contact Actions Lockup */}
             <div ref={actionsRef} className="pt-6 sm:pt-8 lg:pt-9 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">

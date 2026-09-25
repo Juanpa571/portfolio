@@ -90,7 +90,7 @@ export const PricingGuide: React.FC = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-semibold tracking-tight text-[#111111] leading-tight">
             ¿Cuánto cuesta una página web?
           </h2>
-          <p className="text-xs sm:text-sm text-neutral-600 font-sans leading-relaxed pt-1.5 max-w-2xl">
+          <p className="text-xs sm:text-sm text-neutral-700 font-sans leading-relaxed pt-1.5 max-w-2xl">
             Rangos reales de inversión para empresas en Colombia. Entrega llave en mano con código 100% propio y sin mensualidades forzadas.
           </p>
         </div>
@@ -121,7 +121,7 @@ export const PricingGuide: React.FC = () => {
 
                 {/* Top Header: Number + Clean Horizontal Rule */}
                 <div className="flex items-center justify-between pb-3">
-                  <span className="text-xs sm:text-sm font-sans text-neutral-500 font-normal">
+                  <span className="text-xs sm:text-sm font-sans text-neutral-600 font-medium">
                     {tier.number}
                   </span>
                   <span className="h-px bg-neutral-200/90 flex-1 ml-4" aria-hidden="true" />
@@ -222,14 +222,14 @@ export const PricingGuide: React.FC = () => {
 
                 {/* Price Block: Desde + Amount + COP */}
                 <div className="h-16 flex flex-col justify-center pt-2 pb-1">
-                  <div className="text-xs text-neutral-500 font-sans font-normal">
+                  <div className="text-xs text-neutral-700 font-sans font-medium">
                     {tier.pricePrefix}
                   </div>
                   <div className="flex items-baseline gap-1.5 pt-0.5">
                     <span className="text-2xl sm:text-[1.85rem] font-semibold text-[#111111] tracking-tight">
                       {tier.priceAmount}
                     </span>
-                    <span className="text-xs sm:text-sm text-neutral-600 font-normal">
+                    <span className="text-xs sm:text-sm text-neutral-700 font-medium">
                       {tier.priceCurrency}
                     </span>
                   </div>
@@ -237,7 +237,7 @@ export const PricingGuide: React.FC = () => {
 
                 {/* Description (Locked height so all 3 cards align down to the pixel) */}
                 <div className="h-16 sm:h-[4.5rem] flex items-start pb-2 overflow-hidden">
-                  <p itemProp="description" className="text-xs sm:text-[13px] text-neutral-600 font-sans leading-relaxed">
+                  <p itemProp="description" className="text-xs sm:text-[13px] text-neutral-700 font-sans leading-relaxed">
                     {tier.description}
                   </p>
                 </div>

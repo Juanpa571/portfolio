@@ -106,9 +106,9 @@ export const Process: React.FC = () => {
             <div className="max-w-3xl">
               <h2
                 ref={titleRef}
-                className="text-[2.35rem] sm:text-4xl lg:text-[3.25rem] font-normal tracking-tight text-black/65 leading-[1.1] select-none"
+                className="text-[2.35rem] sm:text-4xl lg:text-[3.25rem] font-normal tracking-tight text-black leading-[1.1] select-none"
               >
-                <span className="block">{t.process.headerLine1.trim()}{' '}</span>
+                <span className="block">{highlightBrandKeywords(t.process.headerLine1.trim())}{' '}</span>
                 <span className="block">{highlightBrandKeywords(t.process.headerLine2)}</span>
               </h2>
             </div>
@@ -152,7 +152,7 @@ export const Process: React.FC = () => {
                   {/* Step number above */}
                   <span
                     className={`text-[11px] sm:text-xs font-mono transition-colors duration-300 mb-1 sm:mb-1.5 ${
-                      isOpen ? 'text-black font-semibold' : 'text-black/40 font-normal group-hover:text-black/70'
+                      isOpen ? 'text-black font-semibold' : 'text-neutral-600 font-medium group-hover:text-black'
                     }`}
                   >
                     {step.number}
@@ -192,7 +192,7 @@ export const Process: React.FC = () => {
                     {isOpen ? (
                       <div className="space-y-2.5">
                         <div className="flex items-center justify-between">
-                          <span className="text-[11px] font-sans font-medium tracking-wide text-black/50 select-none">
+                          <span className="text-[11px] font-sans font-medium tracking-wide text-neutral-600 select-none">
                             {isSpanish ? `Paso ${step.number}` : `Step ${step.number}`}
                           </span>
                           <button
@@ -201,7 +201,7 @@ export const Process: React.FC = () => {
                               e.stopPropagation();
                               setExpandedRow(null);
                             }}
-                            className="w-7 h-7 rounded-full bg-black/[0.05] flex items-center justify-center text-black/60 hover:bg-black/10 transition-colors"
+                            className="w-7 h-7 rounded-full bg-black/[0.05] flex items-center justify-center text-neutral-700 hover:bg-black/10 transition-colors"
                             aria-label="Cerrar paso"
                           >
                             <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -238,8 +238,8 @@ export const Process: React.FC = () => {
                               {highlightBrandKeywords(step.title)}
                             </div>
                           </div>
-                          <div className="flex items-center gap-1.5 text-xs font-sans font-normal text-black/50 whitespace-nowrap shrink-0 mt-1">
-                            <svg className="w-3.5 h-3.5 text-black/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <div className="flex items-center gap-1.5 text-xs font-sans font-medium text-neutral-600 whitespace-nowrap shrink-0 mt-1">
+                            <svg className="w-3.5 h-3.5 text-neutral-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
                             </svg>
                             <span>{step.timeframe}</span>
@@ -275,10 +275,10 @@ export const Process: React.FC = () => {
                           </div>
                         </div>
                         <div className="flex items-center gap-2.5 shrink-0 pt-0.5">
-                          <span className="text-xs font-sans text-black/45 whitespace-nowrap">
+                          <span className="text-xs font-sans font-medium text-neutral-600 whitespace-nowrap">
                             {step.timeframe}
                           </span>
-                          <span className="text-base font-light text-black/40">
+                          <span className="text-base font-light text-neutral-600">
                             +
                           </span>
                         </div>
@@ -316,11 +316,11 @@ export const Process: React.FC = () => {
                     </div>
 
                     <div className="flex items-center gap-4 shrink-0">
-                      <span className="text-xs font-sans text-black/45 whitespace-nowrap">
+                      <span className="text-xs font-sans font-medium text-neutral-600 whitespace-nowrap">
                         {step.timeframe}
                       </span>
                       <span
-                        className={`text-base font-light text-black/40 transition-transform duration-300 ${
+                        className={`text-base font-light text-neutral-600 transition-transform duration-300 ${
                           isOpen ? 'rotate-45 text-black' : 'group-hover:text-black'
                         }`}
                       >
@@ -352,7 +352,7 @@ export const Process: React.FC = () => {
                               {isSpanish ? 'Qué resolvemos' : 'What we solve'}
                             </div>
                           </div>
-                          <p className="text-xs text-black/70 font-sans leading-relaxed pl-6">
+                          <p className="text-xs text-neutral-700 font-sans leading-relaxed pl-6">
                             {step.description}
                           </p>
                         </div>
@@ -368,7 +368,7 @@ export const Process: React.FC = () => {
                               {isSpanish ? 'Tu tiempo invertido' : 'Your time investment'}
                             </div>
                           </div>
-                          <p className="text-xs text-black/70 font-sans leading-relaxed pl-6">
+                          <p className="text-xs text-neutral-700 font-sans leading-relaxed pl-6">
                             {idx === 0 &&
                               (isSpanish
                                 ? 'Una videollamada de 30 minutos y tus insumos básicos.'
@@ -414,7 +414,7 @@ export const Process: React.FC = () => {
                               {isSpanish ? 'Qué resolvemos' : 'What we solve'}
                             </div>
                           </div>
-                          <p className="text-xs sm:text-sm text-black/70 font-sans leading-relaxed">
+                          <p className="text-xs sm:text-sm text-neutral-700 font-sans leading-relaxed">
                             {step.description}
                           </p>
                         </div>
@@ -430,7 +430,7 @@ export const Process: React.FC = () => {
                               {isSpanish ? 'Tu tiempo invertido' : 'Your time investment'}
                             </div>
                           </div>
-                          <p className="text-xs sm:text-sm text-black/70 font-sans leading-relaxed">
+                          <p className="text-xs sm:text-sm text-neutral-700 font-sans leading-relaxed">
                             {idx === 0 &&
                               (isSpanish
                                 ? 'Una videollamada de 30 minutos y tus insumos básicos.'
