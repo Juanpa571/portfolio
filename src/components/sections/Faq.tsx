@@ -18,6 +18,8 @@ export const Faq: React.FC = () => {
 
   useEffect(() => {
     if (!headerRef.current) return;
+    const isMobile = window.innerWidth < 1024 || 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isMobile) return;
 
     const ctx = gsap.context(() => {
       // Clean minimalist fade-and-rise entrance for title

@@ -21,6 +21,13 @@ export const Process: React.FC = () => {
   useEffect(() => {
     if (!headerRef.current) return;
 
+    const isMobile =
+      window.innerWidth < 1024 ||
+      'ontouchstart' in window ||
+      navigator.maxTouchPoints > 0;
+
+    if (isMobile) return;
+
     const ctx = gsap.context(() => {
       // Clean minimalist fade-and-rise animation for title
       if (titleRef.current) {
@@ -341,9 +348,9 @@ export const Process: React.FC = () => {
                               <circle cx="11" cy="11" r="8"/>
                               <path d="m21 21-4.35-4.35"/>
                             </svg>
-                            <h4 className="text-sm font-bold text-[#111111] tracking-tight m-0">
+                            <div role="heading" aria-level={3} className="text-sm font-bold text-[#111111] tracking-tight m-0">
                               {isSpanish ? 'Qué resolvemos' : 'What we solve'}
-                            </h4>
+                            </div>
                           </div>
                           <p className="text-xs text-black/70 font-sans leading-relaxed pl-6">
                             {step.description}
@@ -357,9 +364,9 @@ export const Process: React.FC = () => {
                               <circle cx="12" cy="12" r="10"/>
                               <polyline points="12 6 12 12 16 14"/>
                             </svg>
-                            <h4 className="text-sm font-bold text-[#111111] tracking-tight m-0">
+                            <div role="heading" aria-level={3} className="text-sm font-bold text-[#111111] tracking-tight m-0">
                               {isSpanish ? 'Tu tiempo invertido' : 'Your time investment'}
-                            </h4>
+                            </div>
                           </div>
                           <p className="text-xs text-black/70 font-sans leading-relaxed pl-6">
                             {idx === 0 &&
@@ -403,9 +410,9 @@ export const Process: React.FC = () => {
                               <circle cx="11" cy="11" r="8"/>
                               <path d="m21 21-4.35-4.35"/>
                             </svg>
-                            <h4 className="text-xs sm:text-sm font-display font-semibold text-[#111111] tracking-tight m-0">
+                            <div role="heading" aria-level={3} className="text-xs sm:text-sm font-display font-semibold text-[#111111] tracking-tight m-0">
                               {isSpanish ? 'Qué resolvemos' : 'What we solve'}
-                            </h4>
+                            </div>
                           </div>
                           <p className="text-xs sm:text-sm text-black/70 font-sans leading-relaxed">
                             {step.description}
@@ -419,9 +426,9 @@ export const Process: React.FC = () => {
                               <circle cx="12" cy="12" r="10"/>
                               <polyline points="12 6 12 12 16 14"/>
                             </svg>
-                            <h4 className="text-xs sm:text-sm font-display font-semibold text-[#111111] tracking-tight m-0">
+                            <div role="heading" aria-level={3} className="text-xs sm:text-sm font-display font-semibold text-[#111111] tracking-tight m-0">
                               {isSpanish ? 'Tu tiempo invertido' : 'Your time investment'}
-                            </h4>
+                            </div>
                           </div>
                           <p className="text-xs sm:text-sm text-black/70 font-sans leading-relaxed">
                             {idx === 0 &&

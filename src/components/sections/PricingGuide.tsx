@@ -15,6 +15,8 @@ export const PricingGuide: React.FC = () => {
 
   useEffect(() => {
     if (!sectionRef.current) return;
+    const isMobile = window.innerWidth < 1024 || 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isMobile) return;
 
     const ctx = gsap.context(() => {
       if (headerRef.current) {

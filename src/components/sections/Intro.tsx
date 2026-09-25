@@ -17,6 +17,13 @@ export const Intro: React.FC = () => {
   useEffect(() => {
     if (!sectionRef.current) return;
 
+    const isMobile =
+      window.innerWidth < 1024 ||
+      'ontouchstart' in window ||
+      navigator.maxTouchPoints > 0;
+
+    if (isMobile) return;
+
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -72,7 +79,7 @@ export const Intro: React.FC = () => {
           <div ref={photoRef} className="lg:col-span-5 flex justify-center lg:justify-start">
             <div className="relative w-full max-w-[300px] sm:max-w-[340px] lg:max-w-[380px] xl:max-w-[410px] max-h-[58vh] aspect-[3/4] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/[0.08] group will-change-[transform,opacity]">
               <picture className="w-full h-full">
-                <source media="(max-width: 640px)" type="image/webp" srcSet="/hero-portrait-mobile.webp" />
+                <source media="(max-width: 640px)" type="image/webp" srcSet="/hero-portrait-sm.webp" />
                 <source type="image/webp" srcSet="/hero-portrait.webp" />
                 <img
                   src="/hero-portrait.webp"
