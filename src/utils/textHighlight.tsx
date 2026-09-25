@@ -10,10 +10,13 @@ export const highlightBrandKeywords = (
   text: string | undefined | null,
   options?: {
     highlightClass?: string;
+    isDark?: boolean;
   }
 ): React.ReactNode => {
   if (!text || typeof text !== 'string') return text;
-  const highlightClass = options?.highlightClass || 'text-black font-semibold';
+  const isDark = options?.isDark ?? false;
+  const defaultHighlight = isDark ? 'text-white font-semibold' : 'text-black font-semibold';
+  const highlightClass = options?.highlightClass || defaultHighlight;
 
   // Specific key phrases and words to emphasize (longer phrases first to match greedily)
   const patterns = [

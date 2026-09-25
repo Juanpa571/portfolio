@@ -177,7 +177,7 @@ export const Services: React.FC<ServicesProps> = () => {
                   </div>
                 </div>
                 <div className="space-y-2 mt-auto">
-                  <div className="text-[1.45rem] font-bold font-display text-black tracking-tight leading-[1.14]">
+                  <div className="text-[1.45rem] font-normal font-display text-black/65 tracking-tight leading-[1.14]">
                     {highlightBrandKeywords(t.services.items[0].title)}
                   </div>
                   <p className="text-sm text-black/75 font-sans leading-relaxed">
@@ -196,7 +196,7 @@ export const Services: React.FC<ServicesProps> = () => {
               {/* Desktop Layout: Classic Bento Side-by-Side (Untouched) */}
               <div className="hidden md:flex items-center justify-between gap-3 sm:gap-4 md:gap-6 my-auto">
                 <div className="space-y-1.5 md:space-y-2 flex-1 min-w-0 pr-1 md:pr-0 md:max-w-[65%]">
-                  <h3 className="text-xl sm:text-xl md:text-2xl font-semibold font-display text-black tracking-tight leading-snug">
+                  <h3 className="text-xl sm:text-xl md:text-2xl font-normal font-display text-black/65 tracking-tight leading-snug">
                     {highlightBrandKeywords(t.services.items[0].title)}
                   </h3>
                   <p className="text-xs md:text-sm text-black/65 font-sans leading-relaxed">
@@ -233,8 +233,8 @@ export const Services: React.FC<ServicesProps> = () => {
                   </div>
                 </div>
                 <div className="space-y-2 mt-auto">
-                  <div className="text-[1.45rem] font-bold font-display text-white tracking-tight leading-[1.14]">
-                    {highlightBrandKeywords(t.services.items[1].title)}
+                  <div className="text-[1.45rem] font-normal font-display text-white/70 tracking-tight leading-[1.14]">
+                    {highlightBrandKeywords(t.services.items[1].title, { isDark: true })}
                   </div>
                   <p className="text-sm text-white/75 font-sans leading-relaxed">
                     {t.services.items[1].subtitle}
@@ -252,8 +252,8 @@ export const Services: React.FC<ServicesProps> = () => {
               {/* Desktop Layout: Classic Bento Side-by-Side (Untouched) */}
               <div className="hidden md:flex items-center justify-between gap-3 sm:gap-4 md:gap-6 my-auto">
                 <div className="space-y-1.5 md:space-y-2 flex-1 min-w-0 pr-1 md:pr-0 md:max-w-[65%]">
-                  <h3 className="text-xl sm:text-xl md:text-2xl font-semibold font-display text-white tracking-tight leading-snug">
-                    {highlightBrandKeywords(t.services.items[1].title)}
+                  <h3 className="text-xl sm:text-xl md:text-2xl font-normal font-display text-white/70 tracking-tight leading-snug">
+                    {highlightBrandKeywords(t.services.items[1].title, { isDark: true })}
                   </h3>
                   <p className="text-xs md:text-sm text-white/70 font-sans leading-relaxed">
                     {t.services.items[1].subtitle}
