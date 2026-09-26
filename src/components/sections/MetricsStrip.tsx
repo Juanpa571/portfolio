@@ -18,7 +18,7 @@ export const MetricsStrip: React.FC = () => {
       <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20">
         
         {/* Editorial Subheader Row Matching Screenshot */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-8 sm:pb-12 select-none">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-8 sm:pb-12">
           <span className="text-[11px] sm:text-xs font-sans font-medium text-neutral-500 tracking-[0.2em] uppercase">
             {language === 'en' ? 'AUDITED PERFORMANCE STANDARDS' : 'ESTÁNDARES DE RENDIMIENTO AUDITADOS'}
           </span>

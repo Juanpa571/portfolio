@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Compass, Target, MapPin, BarChart3, ChevronDown } from 'lucide-react';
+import { Compass, Target, MapPin, BarChart3, ChevronDown, Gauge, FileCode2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { siteConfig } from '../config/site';
 import { MetaTags } from '../components/seo/MetaTags';
@@ -211,7 +211,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: easeTransition }}
-                className="text-[2.65rem] sm:text-5xl lg:text-[3.85rem] xl:text-[4.2rem] font-semibold tracking-tight text-[#111111] leading-[1.05] mb-6 select-none"
+                className="text-[2.65rem] sm:text-5xl lg:text-[3.85rem] xl:text-[4.2rem] font-semibold tracking-tight text-[#111111] leading-[1.05] mb-6"
               >
                 {highlightBrandKeywords('Posicionar web en Google: cómo hacer que tu empresa aparezca de primero en 2026.')}
               </motion.h1>
@@ -299,21 +299,73 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
                 </div>
               </motion.div>
 
-              {/* Right Column: Clear Explanatory Paragraphs (Typographic measure constrained to <80 chars) */}
+              {/* Right Column: Structured Scannable Breakdown */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.6, delay: 0.15, ease: easeTransition }}
-                className="lg:col-span-7 space-y-4 text-sm sm:text-base text-black/75 leading-relaxed pt-1 max-w-[68ch]"
+                className="lg:col-span-7 space-y-5 text-sm sm:text-base text-black/75 leading-relaxed pt-1 max-w-[68ch]"
               >
                 <p>
-                  Todos los días, cientos de personas en Colombia entran a su teléfono o computador buscando exactamente los servicios o productos que tú vendes. Sin embargo, si tu negocio no figura en las 3 primeras posiciones de Google o en el mapa local, <strong>el 92% de esos clientes terminan contratando a tu competencia directa</strong>.
+                  Todos los días, cientos de personas en Colombia entran a su teléfono o computador buscando exactamente los servicios o productos que tú vendes. Sin embargo, si tu negocio no figura en las 3 primeras posiciones de Google o en el mapa local, <strong className="font-semibold text-black">el 92% de esos clientes terminan contratando a tu competencia directa</strong>.
                 </p>
-                <p>
-                  La mayoría de páginas web en el país sufren de tres problemas invisibles: fueron construidas con constructores lentos llenos de plugins (como WordPress), no tienen datos estructurados que Googlebot pueda interpretar, y su ficha de Google Maps está incompleta o sin reseñas verificadas.
-                </p>
-                <p className="pt-2 text-black/90 font-medium">
+
+                {/* Scannable Breakdown: Los 3 obstáculos invisibles */}
+                <div className="pt-1 pb-1 space-y-3">
+                  <p className="text-xs sm:text-sm font-medium text-black/60">
+                    Los 3 obstáculos invisibles más comunes que frenan a las páginas web en Colombia:
+                  </p>
+
+                  <div className="space-y-3">
+                    {/* Obstáculo 1: Velocidad y Plugins */}
+                    <div className="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-2xl bg-white border border-black/[0.06] shadow-xs hover:border-black/15 transition-colors">
+                      <div className="w-8 h-8 rounded-xl bg-black/[0.04] text-black/75 flex items-center justify-center shrink-0 mt-0.5 border border-black/[0.04]">
+                        <Gauge className="w-4 h-4 stroke-[1.8]" />
+                      </div>
+                      <div className="space-y-0.5">
+                        <h3 className="text-sm font-semibold text-[#111111] tracking-tight">
+                          Constructores lentos y exceso de plugins
+                        </h3>
+                        <p className="text-xs sm:text-sm text-black/70 leading-relaxed">
+                          Sitios creados en WordPress o plantillas pesadas que tardan más de 3 segundos en abrir en celulares, provocando que el usuario abandone antes de leer tu oferta.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Obstáculo 2: Schema.org */}
+                    <div className="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-2xl bg-white border border-black/[0.06] shadow-xs hover:border-black/15 transition-colors">
+                      <div className="w-8 h-8 rounded-xl bg-black/[0.04] text-black/75 flex items-center justify-center shrink-0 mt-0.5 border border-black/[0.04]">
+                        <FileCode2 className="w-4 h-4 stroke-[1.8]" />
+                      </div>
+                      <div className="space-y-0.5">
+                        <h3 className="text-sm font-semibold text-[#111111] tracking-tight">
+                          Ausencia de datos estructurados (Schema.org)
+                        </h3>
+                        <p className="text-xs sm:text-sm text-black/70 leading-relaxed">
+                          Sin código semántico validado, Googlebot y los nuevos motores de IA generativa no pueden interpretar tus servicios, cobertura geográfica ni catálogo comercial.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Obstáculo 3: Google Maps */}
+                    <div className="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-2xl bg-white border border-black/[0.06] shadow-xs hover:border-black/15 transition-colors">
+                      <div className="w-8 h-8 rounded-xl bg-black/[0.04] text-black/75 flex items-center justify-center shrink-0 mt-0.5 border border-black/[0.04]">
+                        <MapPin className="w-4 h-4 stroke-[1.8]" />
+                      </div>
+                      <div className="space-y-0.5">
+                        <h3 className="text-sm font-semibold text-[#111111] tracking-tight">
+                          Ficha de Google Maps desatendida o incompleta
+                        </h3>
+                        <p className="text-xs sm:text-sm text-black/70 leading-relaxed">
+                          Perfiles locales sin categorías exactas, fotos de alta calidad ni flujo recurrente de reseñas verificadas, perdiendo los primeros lugares del mapa comercial.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="pt-1 text-black/90 font-medium">
                   Para quienes además necesitan una plataforma comercial completa y veloz, en JP Studios combinamos este servicio con nuestro desarrollo de{' '}
                   <button
                     type="button"
@@ -459,7 +511,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
                         id={`faq-trigger-${index}`}
                         type="button"
                         onClick={() => toggleFaq(index)}
-                        className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer select-none hover:bg-black/[0.01] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/40 rounded-2xl"
+                        className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-black/[0.01] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/40 rounded-2xl"
                         aria-expanded={isOpen}
                         aria-controls={`faq-panel-${index}`}
                       >

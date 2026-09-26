@@ -225,7 +225,7 @@ export const ProjectList: React.FC = () => {
                   
                   {/* Left: Index Number & Monumental Title */}
                   <div className="flex items-baseline gap-6 sm:gap-10">
-                    <span className="text-sm sm:text-base font-light font-display text-black/35 select-none">
+                    <span className="text-sm sm:text-base font-light font-display text-black/35">
                       {project.number}
                     </span>
                     <h3 className={`text-4xl sm:text-6xl lg:text-7xl font-light font-display tracking-[-0.01em] text-black ${

@@ -34,6 +34,18 @@ const pages = [
     description: 'Diseño de páginas web en Cali y desarrollo a medida en React 19. Sitios web ultrarrápidos para liderar en Google y convertir visitas en clientes reales.',
     canonical: 'https://jpchacon.com/diseno-web-cali',
   },
+  {
+    route: 'privacidad',
+    title: 'Política de Privacidad | JP Studios — Juan Pablo Chacón',
+    description: 'Política de privacidad y tratamiento de datos personales de JP Studios conforme a la Ley 1581 de 2012 de Colombia. Transparencia, seguridad y cero comercialización de datos.',
+    canonical: 'https://jpchacon.com/privacidad',
+  },
+  {
+    route: 'terminos',
+    title: 'Términos del Servicio | JP Studios — Juan Pablo Chacón',
+    description: 'Términos y condiciones de contratación y uso de los servicios de diseño web, desarrollo en React 19 y posicionamiento SEO de JP Studios. Acuerdos claros sin letra pequeña.',
+    canonical: 'https://jpchacon.com/terminos',
+  },
 ];
 
 for (const page of pages) {

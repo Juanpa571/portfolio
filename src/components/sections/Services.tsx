@@ -122,7 +122,7 @@ export const Services: React.FC<ServicesProps> = () => {
   }, []);
 
   return (
-    <section id="services" className="py-10 sm:py-16 lg:py-24 border-b border-black/[0.08] relative overflow-hidden scroll-mt-24">
+    <section id="services" className="py-10 sm:py-16 lg:py-24 border-b border-black/[0.08] relative overflow-hidden">
       
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         
@@ -132,7 +132,7 @@ export const Services: React.FC<ServicesProps> = () => {
             <div className="max-w-3xl">
               <h2
                 ref={titleRef}
-                className="text-[2.35rem] sm:text-4xl lg:text-[3.25rem] font-normal tracking-tight text-black leading-[1.1] select-none"
+                className="text-[2.35rem] sm:text-4xl lg:text-[3.25rem] font-normal tracking-tight text-black leading-[1.1]"
               >
                 <span className="block">{highlightBrandKeywords(t.services.headerLine1.trim())}{' '}</span>
                 <span className="block">{highlightBrandKeywords(t.services.headerLine2)}</span>

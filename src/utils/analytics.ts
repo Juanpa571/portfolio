@@ -53,7 +53,7 @@ export const trackEvent = (
  * Sends both standard 'generate_lead' and specific 'click_whatsapp'.
  */
 export const trackWhatsAppClick = (options: {
-  location: 'header' | 'header_drawer' | 'hero' | 'pricing' | 'faq' | 'footer' | 'posicionar_web' | 'seo_cali' | 'not_found';
+  location: 'header' | 'header_drawer' | 'hero' | 'pricing' | 'faq' | 'footer' | 'posicionar_web' | 'seo_cali' | 'not_found' | 'floating_cta';
   label?: string;
   subject?: string;
 }): void => {

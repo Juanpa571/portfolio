@@ -29,8 +29,8 @@ export const HeroVisualStage: React.FC<HeroVisualStageProps> = ({ className = ''
             className="w-full h-auto object-contain drop-shadow-lg"
             loading="eager"
             decoding="async"
-            width={1156}
-            height={996}
+            width={894}
+            height={674}
           />
         </picture>
       </div>
@@ -52,8 +52,8 @@ export const HeroVisualStage: React.FC<HeroVisualStageProps> = ({ className = ''
             className="w-full h-auto object-contain drop-shadow-lg"
             loading="eager"
             decoding="async"
-            width={930}
-            height={463}
+            width={941}
+            height={445}
           />
         </picture>
       </div>
@@ -75,8 +75,8 @@ export const HeroVisualStage: React.FC<HeroVisualStageProps> = ({ className = ''
             className="w-full h-auto object-contain drop-shadow-lg"
             loading="eager"
             decoding="async"
-            width={783}
-            height={660}
+            width={935}
+            height={690}
           />
         </picture>
       </div>
@@ -98,8 +98,8 @@ export const HeroVisualStage: React.FC<HeroVisualStageProps> = ({ className = ''
             className="w-full h-auto object-contain drop-shadow-lg"
             loading="lazy"
             decoding="async"
-            width={1691}
-            height={686}
+            width={922}
+            height={341}
           />
         </picture>
       </div>

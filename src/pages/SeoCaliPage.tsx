@@ -47,7 +47,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
               <span>Servicio Especializado • Cali & Valle del Cauca</span>
             </div>
 
-            <h1 className="text-[2.6rem] sm:text-5xl lg:text-6xl font-semibold tracking-tight text-[#111111] leading-[1.08] mb-6 select-none">
+            <h1 className="text-[2.6rem] sm:text-5xl lg:text-6xl font-semibold tracking-tight text-[#111111] leading-[1.08] mb-6">
               {highlightBrandKeywords('Posicionamiento web en Cali y Google Maps para captar clientes reales.')}
             </h1>
 

@@ -271,7 +271,7 @@ export const ContactForm: React.FC = () => {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative w-full max-w-[1400px] mx-auto px-6 sm:px-12 py-16 sm:py-24 lg:py-32 scroll-mt-24"
+      className="relative w-full max-w-[1400px] mx-auto px-6 sm:px-12 py-16 sm:py-24 lg:py-32"
     >
       {/* Mobile Form View (lg:hidden) matching media_1790038095365.png */}
       <div className="lg:hidden space-y-5">
@@ -312,7 +312,7 @@ export const ContactForm: React.FC = () => {
           <div>
             {/* 1. Mobile Section Header */}
             <div className="space-y-2">
-              <div className="text-[2.55rem] font-bold font-display tracking-tight text-[#111111] leading-[1.06] select-none">
+              <div className="text-[2.55rem] font-bold font-display tracking-tight text-[#111111] leading-[1.06]">
                 {t.contact.titleLine1.trim()}{' '}{t.contact.titleLine2}
               </div>
               <p className="text-xs sm:text-sm text-black/65 font-sans font-normal leading-relaxed pt-1">
@@ -324,7 +324,7 @@ export const ContactForm: React.FC = () => {
             <div className="w-full h-px bg-black/[0.08] my-5" />
 
             {/* 2. Step Header */}
-            <div className="space-y-1 mb-4 select-none">
+            <div className="space-y-1 mb-4">
               <div className="text-xl font-bold font-display text-[#111111] tracking-tight leading-snug">
                 {currentStep === 1 && t.contact.step1Question}
                 {currentStep === 2 && t.contact.step2Question}
@@ -565,7 +565,7 @@ export const ContactForm: React.FC = () => {
           className="lg:col-span-4 xl:col-span-4 flex flex-col justify-between self-stretch space-y-10 sm:space-y-14"
         >
           <div className="space-y-3">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold font-display tracking-tight text-[#111111] leading-[1.1] select-none">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold font-display tracking-tight text-[#111111] leading-[1.1]">
               {t.contact.titleLine1.trim()}{' '}<br />
               {t.contact.titleLine2}
             </h2>
@@ -634,7 +634,7 @@ export const ContactForm: React.FC = () => {
           ) : (
             <div>
               {/* Step Header */}
-              <div className="space-y-1.5 mb-8 select-none">
+              <div className="space-y-1.5 mb-8">
                 <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold font-display tracking-tight text-[#111111] leading-snug">
                   {currentStep === 1 && t.contact.step1Question}
                   {currentStep === 2 && t.contact.step2Question}

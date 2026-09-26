@@ -135,7 +135,7 @@ export const Hero: React.FC = () => {
         <div className="w-full lg:w-auto lg:max-w-[560px] xl:max-w-[620px] 2xl:max-w-[680px] flex-shrink-0 flex flex-col items-start text-left justify-center min-w-0 pr-0 lg:pr-6 relative z-10">
           <h1 
             aria-label={`${t.hero.headlineLine1.trim()} ${t.hero.headlineLine2.trim()} ${t.hero.headlineLine3.trim()} — JP Studios`}
-            className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[3.1vw] xl:text-[3.5vw] font-normal tracking-tight text-black leading-[1.08] select-none m-0 text-left max-w-none"
+            className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[3.1vw] xl:text-[3.5vw] font-normal tracking-tight text-black leading-[1.08] m-0 text-left max-w-none"
           >
             {/* Line 1 - Strong Anchor Keyword */}
             <span ref={line1Ref} className="block will-change-transform lg:whitespace-nowrap">
@@ -207,7 +207,7 @@ export const Hero: React.FC = () => {
         <HeroVisualStage />
 
         {/* Mobile Orientation Footer Matching Mockup (Cali, Colombia —— Estudio Independiente) */}
-        <div className="flex items-center justify-between w-full px-4 pt-3 pb-5 text-xs font-sans text-black/75 select-none">
+        <div className="flex items-center justify-between w-full px-4 pt-3 pb-5 text-xs font-sans text-black/75">
           <span>{siteConfig.profile.location}</span>
           <span className="h-px bg-black/20 flex-1 max-w-[120px] mx-4" aria-hidden="true" />
           <span>{t.hero.studioType}</span>
@@ -215,7 +215,7 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Clean Bottom Orientation Bar (Desktop Only) */}
-      <div className="hidden lg:flex w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pb-8 sm:pb-10 items-center justify-start text-xs font-sans select-none relative z-30">
+      <div className="hidden lg:flex w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pb-8 sm:pb-10 items-center justify-start text-xs font-sans relative z-30">
         <div className="flex items-center gap-2 text-black/75">
           <span>{siteConfig.profile.location}</span>
           <span className="text-black/50">•</span>

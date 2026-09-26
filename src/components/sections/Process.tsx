@@ -97,7 +97,7 @@ export const Process: React.FC = () => {
     <section
       id="process"
       ref={sectionRef}
-      className="py-10 sm:py-24 lg:py-32 border-b border-black/[0.08] bg-[#fafaf8] relative overflow-hidden scroll-mt-24"
+      className="py-10 sm:py-24 lg:py-32 border-b border-black/[0.08] bg-[#fafaf8] relative overflow-hidden"
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         {/* Clean Section Header */}
@@ -106,7 +106,7 @@ export const Process: React.FC = () => {
             <div className="max-w-3xl">
               <h2
                 ref={titleRef}
-                className="text-[2.35rem] sm:text-4xl lg:text-[3.25rem] font-normal tracking-tight text-black leading-[1.1] select-none"
+                className="text-[2.35rem] sm:text-4xl lg:text-[3.25rem] font-normal tracking-tight text-black leading-[1.1]"
               >
                 <span className="block">{highlightBrandKeywords(t.process.headerLine1.trim())}{' '}</span>
                 <span className="block">{highlightBrandKeywords(t.process.headerLine2)}</span>
@@ -192,7 +192,7 @@ export const Process: React.FC = () => {
                     {isOpen ? (
                       <div className="space-y-2.5">
                         <div className="flex items-center justify-between">
-                          <span className="text-[11px] font-sans font-medium tracking-wide text-neutral-600 select-none">
+                          <span className="text-[11px] font-sans font-medium tracking-wide text-neutral-600">
                             {isSpanish ? `Paso ${step.number}` : `Step ${step.number}`}
                           </span>
                           <button

@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
       if (targetEl) {
         if (lenis) {
           lenis.scrollTo(targetEl, {
-            offset: -80,
+            offset: 0,
             duration: 1.2,
             easing: (x: number) => (x < 0.5 ? 16 * x * x * x * x * x : 1 + 16 * --x * x * x * x * x),
           });
@@ -57,7 +57,7 @@ export const Footer: React.FC = () => {
     <footer
       id="footer"
       data-theme="dark"
-      className="relative bg-[#111111] text-white w-full overflow-hidden select-none"
+      className="relative bg-[#111111] text-white w-full overflow-hidden"
     >
       {/* Expanded Container with margins aligned to the header and body content */}
       <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 pt-20 sm:pt-24 lg:pt-28 pb-8 flex flex-col justify-between relative z-10">
@@ -157,7 +157,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Baseline Row: Orientation Line Lockup Matching Mockup Baseline */}
-          <div className="relative z-10 w-full flex items-center justify-between lg:justify-end gap-3.5 pt-6 sm:pt-8 lg:pt-8 text-xs font-sans text-white/70 select-none">
+          <div className="relative z-10 w-full flex items-center justify-between lg:justify-end gap-3.5 pt-6 sm:pt-8 lg:pt-8 text-xs font-sans text-white/70">
             <div className="flex items-center gap-1.5 shrink-0 text-white/80">
               <MapPin className="w-3.5 h-3.5 text-white/60" />
               <span className="font-medium text-[11px] sm:text-xs">Cali, Colombia</span>
@@ -400,12 +400,31 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* ========================================================
-            PART 3: BOTTOM BAR (COPYRIGHT & ATTRIBUTION)
+            PART 3: BOTTOM BAR (COPYRIGHT, LEGAL & ATTRIBUTION)
             ======================================================== */}
         <div className="border-t border-white/[0.08] pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-sans text-white/50">
-          <p className="text-center sm:text-left m-0">
-            {t.footer.copyright}
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-center sm:text-left">
+            <p className="m-0">
+              {t.footer.copyright}
+            </p>
+            <div className="flex items-center gap-3 text-white/50 text-[11px] sm:text-xs">
+              <a
+                href="/privacidad"
+                className="hover:text-white transition-colors duration-200"
+                data-interactive
+              >
+                {isSpanish ? 'Política de Privacidad' : 'Privacy Policy'}
+              </a>
+              <span className="text-white/20" aria-hidden="true">•</span>
+              <a
+                href="/terminos"
+                className="hover:text-white transition-colors duration-200"
+                data-interactive
+              >
+                {isSpanish ? 'Términos del Servicio' : 'Terms of Service'}
+              </a>
+            </div>
+          </div>
 
           <div className="flex flex-wrap items-center justify-center sm:justify-end gap-6 text-xs text-white/60">
             <span>{t.footer.craftedBy}</span>

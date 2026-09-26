@@ -24,7 +24,7 @@ export const Header: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      setIsScrolled(scrollY > 20);
+      setIsScrolled((prev) => (prev ? scrollY > 15 : scrollY > 25));
 
       const heroEl = document.getElementById('hero');
       if (heroEl) {
@@ -184,14 +184,14 @@ export const Header: React.FC = () => {
     if (targetEl) {
       setActiveSection(targetId);
       if (lenis) {
-        // -85px offset ensures sticky header doesn't cover section title
+        // Offset 0 lands the section cleanly at the top of the viewport
         lenis.scrollTo(targetEl, {
-          offset: -85,
+          offset: 0,
           duration: 1.45,
           easing: easeInOutQuint,
         });
       } else {
-        const headerOffset = 85;
+        const headerOffset = 0;
         const elementPosition = targetEl.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         window.scrollTo({
@@ -204,9 +204,12 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      {/* Bespoke Sticky Navigation Bar */}
+      {/* Static In-Flow Placeholder: Guarantees 100% constant layout height, eliminating layout shift and scroll oscillation */}
+      <div className="h-[4.25rem] lg:h-[6.5rem] w-full shrink-0 pointer-events-none" aria-hidden="true" />
+
+      {/* Bespoke Navigation Bar (Fixed to prevent document flow mutation on padding change) */}
       <header
-        className={`sticky top-0 z-40 w-full select-none transition-all duration-500 ease-out ${
+        className={`fixed top-0 left-0 z-40 w-full select-none transition-all duration-500 ease-out ${
           isScrolled
             ? isOverFooter
               ? 'bg-[#111111]/85 backdrop-blur-md border-b border-transparent shadow-none py-3 sm:py-3.5'

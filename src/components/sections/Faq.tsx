@@ -68,7 +68,7 @@ export const Faq: React.FC = () => {
   return (
     <section
       id="faq"
-      className="py-16 sm:py-24 lg:py-32 border-b border-black/[0.08] bg-[#fafaf8] relative scroll-mt-24"
+      className="py-16 sm:py-24 lg:py-32 border-b border-black/[0.08] bg-[#fafaf8] relative"
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20">
@@ -77,7 +77,7 @@ export const Faq: React.FC = () => {
             <div className="space-y-3 sm:space-y-4">
               <h2
                 ref={titleRef}
-                className="text-[2.35rem] sm:text-4xl lg:text-[3.25rem] font-normal tracking-tight text-black leading-[1.1] select-none"
+                className="text-[2.35rem] sm:text-4xl lg:text-[3.25rem] font-normal tracking-tight text-black leading-[1.1]"
               >
                 <span className="block">{highlightBrandKeywords(t.faq.headerLine1.trim())}{' '}</span>
                 <span className="block">{highlightBrandKeywords(t.faq.headerLine2)}</span>
@@ -154,7 +154,7 @@ export const Faq: React.FC = () => {
                         toggleItem(idx);
                       }
                     }}
-                    className="faq-accordion-item will-change-[transform,opacity] p-4 rounded-2xl bg-white border border-black/[0.07] shadow-xs hover:border-black/15 transition-all cursor-pointer select-none"
+                    className="faq-accordion-item will-change-[transform,opacity] p-4 rounded-2xl bg-white border border-black/[0.07] shadow-xs hover:border-black/15 transition-all cursor-pointer"
                     onClick={() => toggleItem(idx)}
                   >
                     <div className="w-full flex items-center justify-between text-left gap-3">
@@ -241,7 +241,7 @@ export const Faq: React.FC = () => {
                     }}
                     onClick={() => toggleItem(idx)}
                   >
-                    <div className="w-full flex items-center justify-between text-left gap-6 select-none">
+                    <div className="w-full flex items-center justify-between text-left gap-6">
                       <div className="flex items-baseline gap-4 sm:gap-6 flex-1 pr-4">
                         <span
                           className={`text-xs sm:text-sm font-mono font-medium transition-colors duration-200 ${

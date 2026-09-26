@@ -66,7 +66,7 @@ export const useSmoothScroll = () => {
               if (el) {
                 lenis.start();
                 lenis.scrollTo(el as HTMLElement, {
-                  offset: -85,
+                  offset: 0,
                   duration: 1.45,
                   easing: easeInOutQuint,
                 });

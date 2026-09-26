@@ -226,7 +226,8 @@ export const translations: Record<Language, Translations> = {
       headlineLine1: 'Bespoke web design',
       headlineLine2: 'in Cali to rank on',
       headlineLine3: 'Google and scale sales.',
-      subtitle: 'Bespoke web design and engineering in Cali to bring your company to the top of Google.',
+      subtitle:
+        'JP Studios is a bespoke web design studio in Cali specialized in custom corporate websites and high-conversion landing pages. Engineered to load in under 0.5s, dominate Google Search, and convert visitors into direct clients on WhatsApp.',
       signature: 'JP Studios by Juan Pablo Chacón',
       disciplineLine1: 'Bespoke Websites',
       disciplineAnd: '&',
@@ -302,7 +303,7 @@ export const translations: Record<Language, Translations> = {
         {
           id: 'performance-web',
           number: '01',
-          title: 'High-Performance Web Design & Development',
+          title: 'Corporate Websites & Digital Catalogs',
           subtitle: 'Fast web development loading in under 0.5s on mobile, free of slow WordPress plugins.',
           description:
             'Bespoke web architecture engineered by JP Studios with React 19, TypeScript, and modern Tailwind. Clean, ultra-fast mobile performance that loads in under 0.5s without slow plugins or template bloat.',
@@ -337,7 +338,7 @@ export const translations: Record<Language, Translations> = {
       tag: 'Investment & Pricing',
       headerLine1: 'How much does a website cost? ',
       headerLine2: 'Transparent pricing with zero hidden fees.',
-      tagline: 'Realistic investment ranges for companies in Colombia. No surprise charges, no forced maintenance retainers.',
+      tagline: 'The cost of a bespoke website in Cali with JP Studios starts at $1.500.000 COP for sales landing pages and $2.500.000 COP for corporate sites with SEO. Turnkey delivery with 100% code ownership and zero forced retainers.',
       currencyNote: '* All values in Colombian Pesos (COP). Turnkey one-time development fee with 100% client ownership of code and domain.',
       tiers: [
         {
@@ -399,8 +400,8 @@ export const translations: Record<Language, Translations> = {
     },
     process: {
       tag: 'Process',
-      headerLine1: 'Live in 14 days.',
-      headerLine2: 'Zero technical friction.',
+      headerLine1: 'Workflow Methodology: ',
+      headerLine2: 'web design in 14 days.',
       seoDescription:
         'We engineer bespoke websites and web development in Cali with a transparent 14-day workflow. From strategy to production, delivering a fast, search-ready website built to convert.',
       tagline: 'The JP Studios methodology: From commercial strategy to a production-ready web presence in under two weeks',
@@ -472,9 +473,9 @@ export const translations: Record<Language, Translations> = {
     },
     faq: {
       tag: 'FAQ',
-      headerLine1: 'Clear answers.',
-      headerLine2: 'Zero fine print.',
-      tagline: 'Everything you need to know before starting your project',
+      headerLine1: 'Frequently asked questions on ',
+      headerLine2: 'web design in Cali.',
+      tagline: 'Direct answers and zero fine print to everything you need to know before starting your project',
       whatsappPrompt: "Can't find your answer? Reach out and I'll reply personally.",
       whatsappButton: "Let's talk",
       items: [
@@ -512,8 +513,8 @@ export const translations: Record<Language, Translations> = {
     },
     contact: {
       sectionTag: 'Project',
-      titleLine1: 'Start a',
-      titleLine2: 'Project.',
+      titleLine1: 'Start your web ',
+      titleLine2: 'design project today.',
       description:
         'Tell us briefly about your project goals and we will reply with a tailored proposal today.',
       stepIndicator: (c, total) => `STEP ${c} OF ${total}`,
@@ -619,9 +620,9 @@ export const translations: Record<Language, Translations> = {
     },
     footer: {
       eyebrow: "LET'S TALK",
-      headlineLine1: 'Ready to create ',
-      headlineLine2: 'something memorable?',
-      subtitle: "Tell us about your project. We're ready to help take your business to the next level.",
+      headlineLine1: 'Ready to scale your ',
+      headlineLine2: 'business on Google?',
+      subtitle: "Tell us about your project. We're ready to help take your business to the next level in search and sales.",
       email: 'hola@jpchacon.com',
       whatsapp: 'WhatsApp (+57 317 737 1301)',
       responseBadge: 'Response in under 24 hours',
@@ -670,7 +671,7 @@ export const translations: Record<Language, Translations> = {
       headlineLine2: 'en Cali para liderar en',
       headlineLine3: 'Google y vender más.',
       subtitle:
-        'Desarrollo web a medida y landing pages de alta conversión en Cali. Sitios ultrarrápidos (carga en 0.5s en celulares) diseñados para empresas que necesitan aparecer en Google Maps y convertir visitas en chats directos de WhatsApp.',
+        'JP Studios es un estudio de diseño web en Cali especializado en sitios web corporativos a medida y landing pages para vender. Desarrollamos páginas ultrarrápidas (carga en 0.5s en celulares) para empresas que necesitan liderar en Google Maps y convertir visitas en clientes reales por WhatsApp.',
       signature: 'JP Studios by Juan Pablo Chacón',
       disciplineLine1: 'Diseño Web Cali',
       disciplineAnd: '&',
@@ -746,8 +747,8 @@ export const translations: Record<Language, Translations> = {
         {
           id: 'performance-web',
           number: '01',
-          title: 'Diseño de Páginas Web en Cali',
-          subtitle: 'Sitios web corporativos a medida con carga en 0.5s en celulares, sin plantillas lentas de WordPress.',
+          title: 'Sitios Web Corporativos y Catálogos',
+          subtitle: 'Sitios web a medida con carga en 0.5s en celulares, sin plantillas lentas de WordPress.',
           description:
             'Desarrollo web a medida construido por JP Studios en React 19, TypeScript y Tailwind moderno. Páginas web rápidas y seguras para empresas que buscan diferenciarse de la competencia local.',
         },
@@ -781,7 +782,7 @@ export const translations: Record<Language, Translations> = {
       tag: 'Inversión Transparente',
       headerLine1: '¿Cuánto cuesta una página web? ',
       headerLine2: 'Precios claros, sin letra pequeña.',
-      tagline: 'Rangos de inversión reales para empresas y negocios en Colombia. Sin cobros sorpresa ni mensualidades forzadas.',
+      tagline: 'El costo de una página web en Cali con JP Studios comienza en $1.500.000 COP para landing pages de venta y $2.500.000 COP para sitios corporativos con SEO. Entrega llave en mano con código 100% propio y sin mensualidades forzadas.',
       currencyNote: '* Todos los valores en Pesos Colombianos (COP). Pago único de desarrollo llave en mano con propiedad 100% tuya del código y dominio.',
       tiers: [
         {
@@ -843,8 +844,8 @@ export const translations: Record<Language, Translations> = {
     },
     process: {
       tag: 'Proceso',
-      headerLine1: 'Tu página web lista en 14 días. ',
-      headerLine2: 'Sin demoras ni intermediarios.',
+      headerLine1: 'Metodología de trabajo: ',
+      headerLine2: 'diseño web en 14 días.',
       seoDescription:
         'Creamos páginas web para empresas en Cali bajo un flujo ágil de 14 días. De la estrategia comercial y redacción de textos a tu web en producción: rápida, optimizada para Google y lista para facturar.',
       tagline: 'La metodología de JP Studios: De la estrategia comercial a tu web en producción y lista para operar en menos de dos semanas',
@@ -916,16 +917,16 @@ export const translations: Record<Language, Translations> = {
     },
     faq: {
       tag: 'Preguntas Frecuentes',
-      headerLine1: 'Respuestas claras. ',
-      headerLine2: 'Sin letra pequeña.',
-      tagline: 'Todo lo que necesitas saber antes de iniciar tu proyecto',
+      headerLine1: 'Preguntas frecuentes sobre ',
+      headerLine2: 'diseño web en Cali.',
+      tagline: 'Respuestas directas y sin letra pequeña a todo lo que necesitas saber antes de iniciar tu proyecto',
       whatsappPrompt: '¿No encuentras tu respuesta? Escríbeme y te respondo personalmente.',
       whatsappButton: 'Hablemos',
       items: [
         {
-          question: '¿Cuánto cuesta una página web en Cali y cómo se cotiza?',
+          question: '¿Cuáles son las formas de pago y cómo se cotiza un proyecto en Cali?',
           answer:
-            'El precio de una página web en Cali depende de la complejidad y el objetivo comercial: desde landing pages enfocadas en ventas directas hasta sitios web corporativos a medida. En JP Studios trabajamos con presupuestos cerrados y transparentes, entrega 100% llave en mano y sin cobros sorpresa ni mensualidades forzadas. Puedes cotizar tu proyecto en 1 minuto en nuestro cotizador interactivo o escribirnos directamente a WhatsApp.',
+            'En JP Studios dividimos la inversión en un esquema transparente de 50% de anticipo para reserva de cronograma y 50% contra entrega final a satisfacción. Puedes cotizar tu proyecto en 1 minuto en nuestro cotizador interactivo o escribirnos directamente a WhatsApp. Aceptamos transferencias bancarias (Bancolombia, Davivienda, PSE) y pagos internacionales en USD. Todos los presupuestos son cerrados, llave en mano y sin mensualidades forzadas de mantenimiento.',
         },
         {
           question: '¿Qué se necesita para tener una página web lista para mi negocio?',
@@ -940,7 +941,7 @@ export const translations: Record<Language, Translations> = {
         {
           question: '¿Cuánto cobran por hacer una página web y si hay pagos mensuales obligatorios?',
           answer:
-            'En JP Studios cobramos un valor único de desarrollo con entrega llave en mano y propiedad 100% tuya del código y el dominio. A diferencia de agencias que cobran mensualidades obligatorias de $200.000 o $300.000 COP por "mantenimiento" de plantillas de WordPress, nuestras plataformas se programan a medida en React 19, por lo que no requieren parches constantes de seguridad. Cualquier soporte futuro es opcional y bajo demanda.',
+            'El desarrollo web en JP Studios tiene un valor cerrado desde $1.500.000 COP para landing pages hasta $2.500.000 COP para sitios corporativos con SEO, con entrega 100% llave en mano y propiedad total del código y dominio. A diferencia de agencias que cobran mensualidades obligatorias de $200.000 o $300.000 COP por "mantenimiento" de plantillas de WordPress, nuestras plataformas se programan a medida en React 19, por lo que no requieren parches constantes de seguridad. Cualquier soporte futuro es opcional y bajo demanda.',
         },
         {
           question: '¿Cuál es la diferencia entre una página web tradicional y una diseñada para vender?',
@@ -956,8 +957,8 @@ export const translations: Record<Language, Translations> = {
     },
     contact: {
       sectionTag: 'Proyecto',
-      titleLine1: 'Iniciar un ',
-      titleLine2: 'Proyecto.',
+      titleLine1: 'Inicia tu proyecto ',
+      titleLine2: 'de diseño web hoy.',
       description:
         'Cuéntanos brevemente sobre tu proyecto y te responderemos con una propuesta personalizada hoy mismo.',
       stepIndicator: (c, total) => `PASO ${c} DE ${total}`,
@@ -1063,9 +1064,9 @@ export const translations: Record<Language, Translations> = {
     },
     footer: {
       eyebrow: 'HABLEMOS',
-      headlineLine1: '¿Listo para crear ',
-      headlineLine2: 'algo memorable?',
-      subtitle: 'Cuéntanos tu proyecto. Estamos listos para ayudarte a llevar tu negocio al siguiente nivel.',
+      headlineLine1: '¿Listo para escalar ',
+      headlineLine2: 'tu negocio en Google?',
+      subtitle: 'Cuéntanos tu proyecto. Estamos listos para ayudarte a llevar tu empresa al siguiente nivel en ventas.',
       email: 'hola@jpchacon.com',
       whatsapp: 'WhatsApp (+57 317 737 1301)',
       responseBadge: 'Respuesta en menos de 24 horas',

@@ -6,6 +6,7 @@ import { MetricsStrip } from './components/sections/MetricsStrip';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import { useRouter } from './hooks/useRouter';
 import { MetaTags } from './components/seo/MetaTags';
+import { WhatsAppFloatingButton } from './components/ui/WhatsAppFloatingButton';
 
 // Lazy-load below-the-fold components to keep critical mobile bundle featherlight (<35 KiB)
 const Intro = lazy(() => import('./components/sections/Intro').then((m) => ({ default: m.Intro })));
@@ -18,6 +19,14 @@ const Footer = lazy(() => import('./components/layout/Footer').then((m) => ({ de
 
 const PosicionarWebGooglePage = lazy(() =>
   import('./pages/PosicionarWebGooglePage').then((m) => ({ default: m.PosicionarWebGooglePage }))
+);
+
+const PrivacyPage = lazy(() =>
+  import('./pages/PrivacyPage').then((m) => ({ default: m.PrivacyPage }))
+);
+
+const TermsPage = lazy(() =>
+  import('./pages/TermsPage').then((m) => ({ default: m.TermsPage }))
 );
 
 const NotFoundPage = lazy(() =>
@@ -38,9 +47,17 @@ export const App: React.FC = () => {
 
   const isDisenoWebCali = normalizedPath === '/diseno-web-cali';
 
+  const isPrivacy =
+    normalizedPath === '/privacidad' || normalizedPath === '/politica-de-privacidad';
+
+  const isTerms =
+    normalizedPath === '/terminos' ||
+    normalizedPath === '/terminos-del-servicio' ||
+    normalizedPath === '/terminos-y-condiciones';
+
   const isHome = normalizedPath === '/' || normalizedPath === '';
 
-  const isNotFound = !isHome && !isDisenoWebCali && !isPosicionarWeb;
+  const isNotFound = !isHome && !isDisenoWebCali && !isPosicionarWeb && !isPrivacy && !isTerms;
 
   return (
     <LanguageProvider>
@@ -48,6 +65,14 @@ export const App: React.FC = () => {
         {isNotFound ? (
           <Suspense fallback={<div className="min-h-screen bg-[#fafaf8]" />}>
             <NotFoundPage onNavigateHome={() => navigate('/')} />
+          </Suspense>
+        ) : isPrivacy ? (
+          <Suspense fallback={<div className="min-h-screen bg-[#fafaf8]" />}>
+            <PrivacyPage onNavigateHome={() => navigate('/')} />
+          </Suspense>
+        ) : isTerms ? (
+          <Suspense fallback={<div className="min-h-screen bg-[#fafaf8]" />}>
+            <TermsPage onNavigateHome={() => navigate('/')} />
           </Suspense>
         ) : isPosicionarWeb ? (
           <Suspense fallback={<div className="min-h-screen bg-[#fafaf8]" />}>
@@ -85,6 +110,7 @@ export const App: React.FC = () => {
             </main>
           </>
         )}
+        <WhatsAppFloatingButton />
       </div>
     </LanguageProvider>
   );

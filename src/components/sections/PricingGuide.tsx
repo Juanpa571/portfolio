@@ -47,9 +47,9 @@ export const PricingGuide: React.FC = () => {
     if (contactEl) {
       const lenis = (window as any).__lenis;
       if (lenis) {
-        lenis.scrollTo(contactEl, { offset: -85, duration: 1.2 });
+        lenis.scrollTo(contactEl, { offset: 0, duration: 1.2 });
       } else {
-        const headerOffset = 85;
+        const headerOffset = 0;
         const elementPosition = contactEl.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
@@ -61,7 +61,7 @@ export const PricingGuide: React.FC = () => {
     <section
       id="pricing"
       ref={sectionRef}
-      className="py-10 sm:py-14 lg:py-16 border-b border-black/[0.08] bg-[#fafaf8] relative scroll-mt-20"
+      className="py-12 sm:py-20 lg:py-24 border-b border-black/[0.08] bg-[#fafaf8] relative"
     >
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12">
         
@@ -71,7 +71,7 @@ export const PricingGuide: React.FC = () => {
             ¿Cuánto cuesta una página web?
           </h2>
           <p className="text-xs sm:text-sm text-neutral-700 font-sans leading-relaxed pt-1.5 max-w-2xl">
-            Rangos reales de inversión para empresas en Colombia. Entrega llave en mano con código 100% propio y sin mensualidades forzadas.
+            {t.pricing.tagline}
           </p>
         </div>
 
