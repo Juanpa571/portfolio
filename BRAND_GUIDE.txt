@@ -1,0 +1,176 @@
+================================================================================
+JP STUDIOS — MANUAL DE MARCA & GUÍA DE IDENTIDAD (BRAND GUIDE)
+================================================================================
+Versión: 2.0 (Actualizado Septiembre 2026)
+Propietario: Juan Pablo Chacón
+Dominio Oficial: https://jpchacon.com
+Sede: Cali, Valle del Cauca, Colombia
+
+================================================================================
+1. IDENTIDAD, POSICIONAMIENTO Y PROPÓSITO
+================================================================================
+Nombre Comercial: JP Studios
+Identidad del Fundador: Juan Pablo Chacón (Product Engineer & Conversion Web Developer)
+Tagline Principal: Diseño de páginas web en Cali para liderar en Google y vender más.
+Propuesta de Valor: Páginas corporativas y landing pages de alta velocidad (React 19)
+optimizadas para captar clientes cualificados en Google Search, Google Maps y
+motores de Inteligencia Artificial (AEO / GEO: ChatGPT, Gemini, Perplexity).
+
+Filosofía de Negocio:
+- Se descarta conscientemente la etiqueta abstracta de "diseño de autor" o "arte digital".
+- Nos posicionamos como un estudio técnico de alto rendimiento con foco absoluto
+  en retorno de inversión (ROI), velocidad de carga instantánea (<0.5s en móviles)
+  y conversión comercial directa (WhatsApp y llamadas).
+- Compromiso ético anti-humo: código propio, presupuestos cerrados llave en mano,
+  cero mensualidades forzadas de mantenimiento y entrega garantizada en 14 días.
+
+================================================================================
+2. CANALES OFICIALES DE CONTACTO (INMUTABLES)
+================================================================================
+Sitio Web Oficial:   https://jpchacon.com
+Correo Electrónico:  hola@jpchacon.com
+WhatsApp Oficial:    +57 317 737 1301 (Enlace: https://wa.me/573177371301)
+GitHub:              https://github.com/Juanpa571
+LinkedIn:            https://www.linkedin.com/in/juan-pablo-chacon-034457283/
+Instagram:           https://www.instagram.com/juanpa_571
+TikTok:              https://www.tiktok.com/@juanpa.571
+
+REGLA ESTRICTA: El único número oficial para prospección, soporte y contacto es
++57 317 737 1301. Queda terminantemente prohibido utilizar números de relleno o ficticios.
+
+================================================================================
+3. PALETA DE COLOR OFICIAL
+================================================================================
+--- Modo Claro (Superficie Predominante) ---
+- Superficie Principal:     #fafaf8 (Blanco cálido suizo editorial, nunca #ffffff plano)
+- Texto Primario:           #111111 (Negro sólido carbón, máxima legibilidad)
+- Texto Secundario:         rgba(0, 0, 0, 0.75) / #404040 (Cuerpo de texto y explicaciones)
+- Texto Terciario / Meta:   rgba(0, 0, 0, 0.50) / #737373 (Fechas, índices mono)
+- Bordes y Líneas Hairline: rgba(0, 0, 0, 0.08) (Estructuras sutiles y separadores)
+- Tarjetas y Contenedores:  #ffffff con border rgba(0, 0, 0, 0.06) o rgba(0, 0, 0, 0.08)
+
+--- Modo Oscuro (Secciones de Fuerte Contraste e Inmersión) ---
+- Fondo Obsidiana:          #141517 (Superficie oscura arquitectónica principal)
+- Fondo Carbón Grafito:     #1C1D20 (Alternativa limpia estilo Dennis Snellenberg)
+- Fondo Negro Puro:         #111111 / #030303 (Banners de conversión y pie de página)
+- Texto Primario Claro:     #ffffff (Títulos y llamadas a la acción)
+- Texto Secundario Claro:   rgba(255, 255, 255, 0.75) / #d4d4d4
+- Bordes en Modo Oscuro:    rgba(255, 255, 255, 0.08) a rgba(255, 255, 255, 0.12)
+
+--- Colores de Acento Funcional (Uso Quirúrgico) ---
+- Verde Éxito / Performance: #00C988 (Métricas altas, 100/100 PageSpeed)
+- Verde Oficial WhatsApp:    #25D366 (Iconos oficiales y pings de disponibilidad)
+- Acento de Alerta Técnica:  #E53E3E (Errores de carga lenta, comparativas de competidores)
+
+================================================================================
+4. SISTEMA TIPOGRÁFICO
+================================================================================
+Tipografía Oficial Primaria: Geist Sans (--font-sans, --font-display)
+Tipografía Técnica / Datos:  Geist Mono (--font-mono)
+Tipografía de Respaldo:      Inter, system-ui, -apple-system, sans-serif
+
+Baneo Tipográfico Absoluto:
+- Se prohíbe el uso de "Neue Montreal" en todo el ecosistema (eliminada por
+  problemas de corte/aplanado superior en minúsculas bajo Windows DirectWrite 96 DPI).
+- Toda la web, interfaces y piezas gráficas deben utilizar Geist Sans.
+
+Pesos Tipográficos y Jerarquía:
+- font-normal (400):    Títulos monumentales en gran escala para transmitir ligereza
+                        y elegancia; párrafos de lectura larga.
+- font-medium (500):    Subtítulos, navegación, botones y etiquetas de estado.
+- font-semibold (600):  Palabras clave comerciales destacadas dentro de titulares,
+                        precios y nombres de planes.
+- font-bold (700):      Uso estrictamente restringido a índices numéricos o cifras de impacto.
+
+Reglas Tipográficas Mandatorias:
+1. Anti-ALL CAPS: Prohibido forzar titulares, menús o párrafos a mayúsculas sostenidas.
+   Utilizar siempre Title Case o Sentence Case natural.
+2. Tracking Óptico: En titulares grandes aplicar sutil tracking negativo (-0.01em a -0.02em).
+3. Suavizado de Fuente: Siempre activo (-webkit-font-smoothing: antialiased).
+
+================================================================================
+5. TONO DE VOZ Y COPYWRITING
+================================================================================
+Voz: Pragmática, técnica, directa, honesta y enfocada en negocio. Hablamos como un
+ingeniero senior de producto que entiende de ventas y conversión real.
+
+Principios de Redacción:
+1. Cero Humo y Cero Clichés de Agencia:
+   - PROHIBIDO: "Revoluciona tu presencia digital", "Impulsamos tu negocio al siguiente nivel",
+     "Diseño web que enamora", "Soluciones innovadoras y disruptivas".
+   - PERMITIDO: "Carga en 0.4 segundos", "Aparece en las 3 primeras posiciones de Google Maps",
+     "Conecta las visitas directamente a tu WhatsApp", "Sin constructores lentos de WordPress".
+2. Transparencia de Costos y Plazos:
+   - Explicar precios desde el inicio: esquemas cerrados llave en mano.
+   - Entrega en 14 días sin intermediarios ni demoras burocráticas.
+3. Enfoque Local y Geolocalizado:
+   - Posicionamiento validado: "páginas web en Cali", "SEO en Google Colombia".
+   - Verificación estricta de ciudades (prohibido cruzar Cali con Bogotá o Medellín).
+
+================================================================================
+6. CATÁLOGO DE SERVICIOS Y ESTRUCTURA DE PRECIOS
+================================================================================
+1. Landing Page para Vender:
+   - Inversión: Desde $1.500.000 COP (~$400 USD).
+   - Entrega: 7 a 10 días hábiles.
+   - Enfoque: Páginas de una sola sección de ultra-alta velocidad para campañas publicitarias
+     en Google Ads / Meta Ads. Conversión directa a WhatsApp o llamadas.
+
+2. Sitio Corporativo con Posicionamiento en Google (El Más Demandado):
+   - Inversión: Desde $2.500.000 COP (~$650 USD).
+   - Entrega: 14 días llave en mano.
+   - Enfoque: Arquitectura completa de varias secciones/páginas, indexación semántica
+     en Google Search Console, marcado Schema.org JSON-LD oficial y optimización
+     de ficha en Google Business Profile (Google Maps local).
+
+3. Plataforma a Medida con Automatizaciones:
+   - Inversión: Desde $4.500.000 COP (~$1.200 USD).
+   - Entrega: 3 a 4 semanas.
+   - Enfoque: Procesos comerciales a medida, catálogos extensos, pasarelas de pago,
+     integraciones con CRM, WhatsApp API y flujos automatizados de prospectos.
+
+Condiciones Comerciales Estándar:
+- 50% de anticipo para reserva de cronograma y 50% contra entrega a entera satisfacción.
+- Métodos de pago: Transferencia bancaria (Bancolombia, Davivienda, PSE) y USD vía Stripe/Payoneer.
+
+================================================================================
+7. MANDATOS Y DIRECTRICES TÉCNICAS ANTI-AI SLOP (PROHIBICIONES ESTRICTAS)
+================================================================================
+1. Prohibición de Cápsulas y Píldoras Flotantes (Anti-Capsule Mandate):
+   - PROHIBIDO añadir badges tipo píldora/cápsula (rounded-full con puntos verdes/azules)
+     flotando sobre encabezados o tarjetas (ej. "[● Inversión Transparente]").
+   - Los metadatos deben presentarse con tipografía pura, sobria y limpia (ej. text-xs text-black/50
+     o índices mono "01"), nunca en contenedores de chip flotante.
+
+2. Prohibición de Plantillas Cliché de IA:
+   - Cero fondos oscuros con orbes radiales morados/azules difusos.
+   - Cero iconos con brillitos o emojis decorativos (✨, 🚀, 🔥).
+   - Cero titulares con texto en gradiente blanco-a-gris de baja legibilidad.
+   - Cero cuadrículas genéricas de 3 tarjetas con iconos de rayo/escudo.
+
+3. Prohibición de Texturas de Grano Artificial (Anti-Grain):
+   - Cero filtros SVG feTurbulence o superposiciones de ruido artificial (.noise-overlay).
+   - Las superficies oscuras deben ser sólidas, pulidas y puras (#141517, #1C1D20).
+
+4. Mandato de Seleccionabilidad de Texto (Anti-select-none):
+   - Queda estrictamente PROHIBIDO aplicar user-select: none o la clase Tailwind select-none
+     sobre textos informativos: títulos (H1-H6), párrafos, preguntas frecuentes (FAQs),
+     servicios y testimonios.
+   - Todo el contenido debe ser seleccionable (Ctrl+A o cursor) para garantizar
+     accesibilidad universal (WCAG) e indexación por rastreadores de IA (AEO/GEO).
+   - select-none se reserva exclusivamente a cromo gráfico: tickers continuos, mockups y SVGs.
+
+5. Respeto a la Inteligencia del Usuario:
+   - Cero indicadores obvios de scroll (flechas parpadeantes de "Scroll down ↓").
+   - El ritmo y la jerarquía visual de la página deben guiar la navegación por sí mismos.
+
+================================================================================
+8. STACK TECNOLÓGICO Y PIPELINE DE DESPLIEGUE
+================================================================================
+- Frontend: React 19 + TypeScript + Vite 8
+- Estilos: Tailwind CSS v4 (Compilador Oxide de alto rendimiento)
+- Motion & Física: Framer Motion (motion/react) + GSAP + ScrollTrigger + Lenis
+- Hosting & CDN: Cloudflare Pages conectado a GitHub (Rama main)
+- Política de Despliegue: Trabajo local y pruebas en copia de seguridad primero.
+  PROHIBIDO ejecutar git push autónomo sin orden explícita del usuario.
+================================================================================

@@ -1,0 +1,35 @@
+{
+  "name": "JP Studios",
+  "description": "Estudio de diseño y desarrollo de páginas web en Cali. Especializado en sitios ultrarrápidos con React 19 y optimización para motores de IA.",
+  "url": "https://jpchacon.com",
+  "service_type": "Diseño y desarrollo de páginas web y optimización SEO/GEO",
+  "provider": "Juan Pablo Chacón",
+  "offers": [
+    {
+      "plan": "Landing Page para Vender",
+      "price": "1500000",
+      "priceCurrency": "COP",
+      "description": "Ideal para campañas publicitarias, captura de leads calificados y conversión directa a WhatsApp en 7 a 10 días."
+    },
+    {
+      "plan": "Sitio Corporativo & Posicionamiento Google",
+      "price": "2500000",
+      "priceCurrency": "COP",
+      "description": "Sitio web completo de autoridad con SEO local para Cali, optimización para ChatGPT y Google Maps en 12 a 15 días."
+    },
+    {
+      "plan": "Plataforma a Medida & Automatizaciones",
+      "price": "4500000",
+      "priceCurrency": "COP",
+      "description": "Desarrollo avanzado a medida con integraciones CRM, cotizadores interactivos y automatización de flujos comerciales."
+    }
+  ],
+  "features": [
+    "Tiempos de carga menores a 0.8s en dispositivos móviles",
+    "Puntuación 95-100 en Google PageSpeed Insights",
+    "Optimización para Answer Engines y ChatGPT (AEO/GEO)",
+    "Propiedad 100% del código y del dominio sin mensualidades forzadas",
+    "Integración directa con WhatsApp Business"
+  ],
+  "updated_at": "2026-09-26"
+}

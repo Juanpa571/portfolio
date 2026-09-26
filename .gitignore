@@ -15,6 +15,8 @@ dist-ssr
 .env.*
 
 # Private internal tools & sales data
+tools/
+verimierdas*
 prospectos*
 cali_50_audited.json
 *_audited.json

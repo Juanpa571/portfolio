@@ -1,0 +1,18 @@
+{
+  "name": "JP Studios",
+  "description": "Estudio de diseño y desarrollo de páginas web de alto rendimiento en Cali fundado por Juan Pablo Chacón. Especializado en sitios ultrarrápidos en React 19, posicionamiento SEO local en Google Maps y optimización para motores de Inteligencia Artificial (AEO & GEO).",
+  "url": "https://jpchacon.com",
+  "founder": "Juan Pablo Chacón",
+  "location": "Cali, Valle del Cauca, Colombia",
+  "telephone": "+57 317 737 1301",
+  "email": "hola@jpchacon.com",
+  "llms_txt": "https://jpchacon.com/llms.txt",
+  "specialties": [
+    "Diseño de Páginas Web en Cali",
+    "Desarrollo Web en React 19 y TypeScript",
+    "Posicionamiento SEO Local en Google Maps",
+    "Generative Engine Optimization (GEO)",
+    "Answer Engine Optimization (AEO)"
+  ],
+  "updated_at": "2026-09-26"
+}

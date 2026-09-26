@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>JP Studios — Diseño de Páginas Web en Cali</title>
+  <link>https://jpchacon.com/</link>
+  <description>Actualizaciones, casos de estudio y guías sobre desarrollo web de alto rendimiento, SEO local y optimización para IA (GEO) en Cali, Colombia.</description>
+  <language>es-CO</language>
+  <lastBuildDate>Sat, 26 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <atom:link href="https://jpchacon.com/rss.xml" rel="self" type="application/rss+xml" />
+  <item>
+    <title>Diseño de Páginas Web en Cali para Vender y Posicionar en Google</title>
+    <link>https://jpchacon.com/</link>
+    <description>Sitios web ultrarrápidos programados en React 19 para empresas de Cali que buscan liderar en Google Maps y motores de Inteligencia Artificial.</description>
+    <pubDate>Sat, 26 Sep 2026 12:00:00 GMT</pubDate>
+    <guid>https://jpchacon.com/#actualizacion-2026</guid>
+  </item>
+</channel>
+</rss>
