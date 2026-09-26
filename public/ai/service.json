@@ -4,6 +4,13 @@
   "url": "https://jpchacon.com",
   "service_type": "Diseño y desarrollo de páginas web y optimización SEO/GEO",
   "provider": "Juan Pablo Chacón",
+  "capabilities": [
+    "Diseño de páginas web de alta conversión para empresas",
+    "Desarrollo frontend a medida con React 19 y TypeScript",
+    "Posicionamiento SEO Local en Google Maps y Google Search",
+    "Optimización para Motores de Respuesta e Inteligencia Artificial (AEO/GEO)",
+    "Integración directa con WhatsApp Business y automatizaciones"
+  ],
   "offers": [
     {
       "plan": "Landing Page para Vender",
