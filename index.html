@@ -119,7 +119,15 @@
           "publisher": {
             "@id": "https://jpchacon.com/#organization"
           },
-          "inLanguage": ["es-CO", "es", "en"]
+          "inLanguage": ["es-CO", "es", "en"],
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://jpchacon.com/?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
         },
         {
           "@type": ["LocalBusiness", "ProfessionalService", "Organization"],
@@ -202,7 +210,9 @@
             "https://www.google.com/search?kgmid=/g/11zxn2nkdp",
             "https://www.linkedin.com/in/juanpablochacon",
             "https://github.com/Juanpa571",
-            "https://twitter.com/jpchacon"
+            "https://twitter.com/jpchacon",
+            "https://www.wikidata.org/wiki/Q51103",
+            "https://es.wikipedia.org/wiki/Cali"
           ],
           "knowsAbout": [
             "Diseño de Páginas Web en Cali",
@@ -367,6 +377,11 @@
             <a href="/" class="flex items-center gap-2.5 group">
               <span class="font-display font-medium text-lg sm:text-xl tracking-tight text-[#111111]">JP Studios</span>
             </a>
+            <nav class="hidden md:flex items-center gap-6 text-sm text-black/70">
+              <a href="/#about" class="hover:text-black transition-colors">Sobre el estudio</a>
+              <a href="#services" class="hover:text-black transition-colors">Servicios</a>
+              <a href="#pricing" class="hover:text-black transition-colors">Tarifas</a>
+            </nav>
           </div>
         </header>
         <main>
@@ -385,7 +400,7 @@
                   </span>
                 </h1>
                 <p class="text-base sm:text-lg lg:text-[1.125rem] text-black/75 font-sans leading-relaxed text-left max-w-xl lg:max-w-2xl pt-5 sm:pt-6 lg:pt-7">
-                  JP Studios es un estudio de diseño web en Cali especializado en sitios web corporativos a medida y landing pages para vender. Desarrollamos páginas ultrarrápidas y optimizadas para empresas que necesitan liderar en Google Maps y convertir visitas en clientes reales por WhatsApp.
+                  JP Studios es un estudio boutique de ingeniería web y conversión digital fundado por Juan Pablo Chacón. Desarrollamos plataformas a medida con React 19 y TypeScript para empresas que buscan liderar en resultados de búsqueda, Google Maps y convertir visitas en clientes reales por WhatsApp.
                 </p>
                 <div class="pt-5 sm:pt-6 lg:pt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full">
                   <a href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo%2C%20quiero%20cotizar%20un%20proyecto%20web%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-[#141517] hover:bg-black text-white text-sm font-medium flex items-center justify-between sm:justify-start gap-3 shadow-sm transition-all duration-300">
@@ -404,18 +419,18 @@
                 <div class="relative z-10 h-[70%] sm:h-[78%] -mr-8 sm:-mr-12 flex items-end select-none">
                   <picture class="h-full flex items-end">
                     <source type="image/webp" srcset="/celular-hero-page-mobile.webp" />
-                    <img src="/celular-hero-page.png" alt="Mockup de celular mostrando diseño web responsivo en Cali — JP Studios" class="h-full w-auto object-contain object-bottom select-none" width="310" height="465" loading="lazy" decoding="async" />
+                    <img src="/celular-hero-page.png" alt="Mockup de dispositivo móvil mostrando desarrollo web responsivo — JP Studios" class="h-full w-auto object-contain object-bottom select-none" width="310" height="465" loading="lazy" decoding="async" />
                   </picture>
                 </div>
                 <div class="relative z-0 h-[86%] sm:h-[90%] flex items-end justify-end select-none">
                   <picture class="h-full flex items-end">
                     <source type="image/webp" srcset="/laptop-hero-page-mobile.webp" />
-                    <img src="/laptop-hero-page.png" alt="Mockup de computador portátil mostrando diseño web moderno y de alta conversión en Cali — JP Studios" class="h-full w-auto object-contain object-bottom select-none" width="640" height="427" loading="eager" decoding="async" fetchpriority="high" />
+                    <img src="/laptop-hero-page.png" alt="Mockup de computador portátil mostrando ingeniería web moderna y alta conversión — JP Studios" class="h-full w-auto object-contain object-bottom select-none" width="640" height="427" loading="eager" decoding="async" fetchpriority="high" />
                   </picture>
                 </div>
               </div>
               <div class="flex items-center justify-between w-full px-6 pt-3 pb-5 text-xs font-sans text-black/75 select-none">
-                <span>Cali, Colombia</span>
+                <span>Valle del Cauca, Colombia</span>
                 <span class="h-px bg-black/20 flex-1 max-w-[120px] mx-4" aria-hidden="true"></span>
                 <span>Estudio Independiente</span>
               </div>
@@ -426,13 +441,13 @@
           <section id="about" class="max-w-7xl mx-auto px-6 py-12 border-t border-black/10">
             <h2 class="text-2xl font-normal tracking-tight text-black mb-4">Sobre JP Studios y Juan Pablo Chacón</h2>
             <p class="text-base text-black/80 leading-relaxed max-w-3xl mb-4">
-              JP Studios es un estudio boutique de ingeniería de software y diseño web fundado por Juan Pablo Chacón en Cali, Colombia. Nos especializamos en la creación de sitios corporativos y landing pages de alto impacto, programados desde cero con React 19, TypeScript y Tailwind CSS, eliminando plantillas pesadas y constructores visuales lentos para garantizar máxima velocidad y retención de usuarios.
+              El estudio boutique de ingeniería de software y desarrollo web fundado por Juan Pablo Chacón tiene sede en Cali, Colombia. Nos especializamos en la creación de sitios corporativos y plataformas digitales de alto impacto, programados desde cero con React 19, TypeScript y Tailwind CSS, eliminando constructores visuales lentos para garantizar retención comercial y máxima velocidad.
             </p>
             <p class="text-base text-black/80 leading-relaxed max-w-3xl mb-6">
-              Cada proyecto se optimiza integralmente para dos canales clave de adquisición: posicionamiento orgánico en Google Search y Google Maps (SEO Local), y visibilidad en motores de Inteligencia Artificial generativa (AEO y GEO: ChatGPT, Perplexity, Claude y Google Gemini). Esto permite que las empresas locales del Valle del Cauca y Colombia aparezcan cuando compradores cualificados buscan servicios profesionales en la web.
+              Cada proyecto se optimiza integralmente para dos canales clave de adquisición: posicionamiento orgánico en motores de búsqueda (SEO local y Google Maps), y visibilidad en sistemas de Inteligencia Artificial generativa (AEO y GEO: ChatGPT, Perplexity, Claude y Gemini). Esto permite que las organizaciones del Valle del Cauca y Colombia aparezcan cuando compradores cualificados buscan servicios profesionales.
             </p>
             <blockquote class="border-l-2 border-black pl-5 py-1 text-black/85 italic max-w-2xl my-6">
-              «No creamos folletos digitales pasivos. Desarrollamos herramientas comerciales con 0 ms de bloqueo de CPU, score de 94/100 en Google PageSpeed móvil y arquitectura en código limpio que convierte visitas en cotizaciones directas por WhatsApp.» — Juan Pablo Chacón, Fundador de JP Studios.
+              «No creamos folletos digitales pasivos. Desarrollamos herramientas comerciales con 0 ms de bloqueo de CPU, score de 94/100 en PageSpeed móvil y arquitectura en código limpio que convierte visitas en cotizaciones directas por WhatsApp.» — Juan Pablo Chacón, Fundador.
             </blockquote>
             <h3 class="text-lg font-medium text-black mb-3">Estándares de Rendimiento y Garantías Técnicas</h3>
             <p class="text-sm text-black/75 leading-relaxed max-w-3xl mb-4">
@@ -457,7 +472,7 @@
               </div>
             </div>
             <div class="pt-6 text-xs text-black/60 flex flex-wrap gap-4">
-              <span>Sede principal: Cali, Colombia</span>
+              <span>Sede principal: Santiago de Cali, Valle del Cauca</span>
               <span>•</span>
               <span>Contacto oficial: +57 317 737 1301</span>
               <span>•</span>

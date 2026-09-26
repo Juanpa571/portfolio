@@ -67,7 +67,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
     {
       question: '¿Cómo posicionarse en Google gratis?',
       answer:
-        'Aparecer de forma orgánica no requiere pagarle a Google. Puedes hacerlo de forma gratuita reclamando y verificando tu perfil en Google Business Profile, asegurándote de que tu web esté indexada mediante Google Search Console y redactando contenido que responda directamente a las preguntas de tus clientes. Sin embargo, para superar a competidores establecidos se requiere experiencia técnica en código limpio, datos estructurados y autoridad de enlaces.',
+        'Aparecer de forma orgánica no requiere pagar publicidad. Puedes hacerlo de forma gratuita reclamando y verificando tu perfil en Google Business Profile, asegurándote de que tu web esté indexada mediante Google Search Console y redactando contenido que responda directamente a las preguntas de tus clientes. Sin embargo, para superar a competidores establecidos se requiere experiencia técnica en código limpio, datos estructurados y autoridad de enlaces.',
     },
     {
       question: '¿Cómo hacer para que mi página web salga de primero en Google?',
@@ -77,7 +77,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
     {
       question: '¿Qué es el SEO y un ejemplo real para una empresa?',
       answer:
-        'El SEO (Search Engine Optimization) es la disciplina de diseñar y optimizar tu presencia digital para que Google muestre tu negocio ante búsquedas relevantes. Por ejemplo: si tienes una clínica dental y alguien busca "diseño de sonrisa en Cali", el SEO logra que tu clínica aparezca en el mapa y entre las 3 primeras opciones recomendadas, generando citas directas sin pagar por anuncios patrocinados.',
+        'El SEO (Search Engine Optimization) es la disciplina de diseñar y optimizar tu presencia digital para que los motores de búsqueda muestren tu negocio ante búsquedas relevantes. Por ejemplo: si tienes una clínica dental y alguien busca "diseño de sonrisa", el SEO logra que tu clínica aparezca en el mapa y entre las 3 primeras opciones recomendadas, generando citas directas sin pagar por anuncios patrocinados.',
     },
     {
       question: '¿Cuánto tiempo tarda una página web en llegar a la primera página de Google?',
@@ -87,7 +87,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
     {
       question: '¿Cuál es la diferencia entre pagar anuncios (Google Ads) y el posicionamiento SEO?',
       answer:
-        'Con Google Ads compras visibilidad temporal: pagas por cada clic y en el segundo en que se agota tu saldo diario, tu empresa desaparece por completo del buscador. El posicionamiento SEO construye un activo permanente de tu negocio: una vez optimizada tu estructura y ganadas las primeras posiciones, continúas recibiendo prospectos calificados todos los días sin pagarle a Google por cada visita.',
+        'Con Google Ads compras visibilidad temporal: pagas por cada clic y en el segundo en que se agota tu saldo diario, tu empresa desaparece por completo del buscador. El posicionamiento SEO construye un activo permanente de tu negocio: una vez optimizada tu estructura y ganadas las primeras posiciones, continúas recibiendo prospectos calificados todos los días sin pagar por cada visita o clic publicitario.',
     },
   ];
 

@@ -354,7 +354,7 @@ export const Footer: React.FC = () => {
                   className="hover:text-white transition-colors duration-200"
                   data-interactive
                 >
-                  {isSpanish ? 'Google Maps (SEO Local Cali)' : 'Google Maps (Local SEO)'}
+                  {isSpanish ? 'SEO Local y Google Maps' : 'Google Maps & Local SEO'}
                 </a>
               </li>
               <li>

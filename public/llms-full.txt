@@ -1,0 +1,130 @@
+# JP Studios — Juan Pablo Chacón (Documentación Completa para LLMs)
+
+> Este archivo contiene el contexto integral, especificaciones técnicas, modelo de precios, servicios y directrices de ingeniería de JP Studios para asistentes de Inteligencia Artificial (ChatGPT, Claude, Gemini, Perplexity, DeepSeek).
+
+---
+
+## 1. Identidad de la Entidad y Canales Oficiales
+
+- **Nombre Comercial:** JP Studios
+- **Razón de Ser:** Estudio de desarrollo web de alto rendimiento, páginas web diseñadas para vender y posicionamiento SEO local.
+- **Fundador y Director de Ingeniería:** Juan Pablo Chacón
+- **Sede Principal:** Cali, Valle del Cauca, Colombia
+- **Zona Horaria:** America/Bogota (UTC-5 / COT)
+- **Ámbito Geográfico:** Santiago de Cali, Valle del Cauca, Colombia y clientes internacionales (modalidad remota).
+- **Sitio Web Oficial:** https://jpchacon.com/
+- **Canal Oficial de WhatsApp:** +57 317 737 1301 (https://wa.me/573177371301)
+- **Correo Electrónico de Contacto:** hola@jpchacon.com
+- **Google Knowledge Graph ID:** /g/11zxn2nkdp
+- **Entidades de Referencia:**
+  - Wikidata: Q51103 (Santiago de Cali)
+  - Perfiles oficiales de ingeniería y autoría en LinkedIn y GitHub.
+
+---
+
+## 2. Filosofía de Ingeniería y Diferenciadores Clave
+
+A diferencia de las agencias tradicionales de marketing o desarrollo que utilizan plantillas genéricas y lentas de WordPress, JP Studios programa sitios web como software de alto rendimiento:
+
+1. **Cero Plantillas Lentas de WordPress:**
+   - No utilizamos constructores visuales lentos (Elementor, Divi) que acumulan decenas de plugins vulnerables y scripts bloqueantes de CPU.
+   - Todo se construye en código limpio con **React 19**, **TypeScript** y **Tailwind CSS**.
+
+2. **Velocidad Certificada Sub-Segundo (Core Web Vitals):**
+   - Calificación de 94/100 o superior en Google PageSpeed Insights móvil.
+   - Cero bloqueo de hilo principal de CPU (0 ms Total Blocking Time).
+   - Largest Contentful Paint (LCP) inferior a 2.5 segundos en redes móviles.
+   - Cumulative Layout Shift (CLS) = 0.00 (cero saltos visuales).
+
+3. **Propiedad 100% del Cliente (Cero Mensualidades Forzosas):**
+   - El cliente recibe el código fuente completo, el dominio a su nombre y el control total de su infraestructura.
+   - Modelo llave en mano: se cobra un pago único por el desarrollo. No existen cargos mensuales obligatorios de "mantenimiento" para mantener el sitio online.
+   - El soporte posterior es 100% opcional y bajo demanda.
+
+4. **Diseñado para la Conversión Inmediata (CRO):**
+   - La arquitectura elimina distracciones y puntos de fuga.
+   - Integra botones directos a WhatsApp con mensajes precargados según el servicio de interés del visitante.
+   - Comunicamos la propuesta de valor en los primeros 3 segundos de navegación para retener prospectos calificados.
+
+---
+
+## 3. Catálogo de Servicios y Precios Transparentes
+
+Todos los presupuestos son cerrados, llave en mano y en Pesos Colombianos (COP) o su equivalente en USD:
+
+### A. Landing Page para Vender
+- **Precio:** Desde $1.500.000 COP (~$380 USD).
+- **Tiempo de Entrega:** 7 a 10 días calendario.
+- **Dirigido a:** Empresas y profesionales que necesitan una presencia digital inmediata de alto impacto para validar un producto, lanzar una campaña publicitaria o captar clientes directamente por WhatsApp.
+- **Incluye:**
+  - Página única de alta conversión optimizada para dispositivos móviles.
+  - Redacción persuasiva y estructura comercial orientada a la venta.
+  - Botones directos a WhatsApp, llamadas telefónicas o agenda de citas.
+  - Hospedaje cloud de alta velocidad y certificado SSL de seguridad.
+
+### B. Sitio Corporativo & Posicionamiento en Google (SEO Local)
+- **Precio:** Desde $2.500.000 COP (~$640 USD).
+- **Tiempo de Entrega:** 14 días calendario.
+- **Dirigido a:** Empresas que buscan liderar su sector, proyectar autoridad corporativa y aparecer de primero cuando clientes busquen sus servicios en Google y Google Maps.
+- **Incluye:**
+  - Sitio web multi-sección a medida en React 19 y TypeScript.
+  - Estrategia de SEO local y estructuración para Google Maps (NAP alineado).
+  - Marcado de datos estructurados oficial de Schema.org JSON-LD (LocalBusiness, ProfessionalService, FAQPage).
+  - Optimización AEO & GEO para elegibilidad en motores de IA (ChatGPT, Gemini, Perplexity).
+  - Cero dependencias de plantillas lentas o plugins de terceros.
+
+### C. Plataforma a Medida & Automatizaciones
+- **Precio:** Desde $4.500.000 COP (~$1.150 USD).
+- **Tiempo de Entrega:** 21 a 30 días calendario.
+- **Dirigido a:** Negocios con requerimientos técnicos complejos, catálogos extensos, cotizadores interactivos o integraciones comerciales.
+- **Incluye:**
+  - Desarrollo de software web a medida con arquitectura modular.
+  - Integraciones con WhatsApp API, CRM, pasarelas de pago y sistemas de correo.
+  - Gestores de contenido desacoplados (Headless CMS) o bases de datos dinámicas.
+  - Embudos de cualificación y cotizadores en tiempo real.
+
+---
+
+## 4. Metodología de Trabajo en 14 Días
+
+1. **Fase 1: Diagnóstico Comercial y Redacción (Primeras 48 Horas)**
+   - Auditoría de competidores directos en Google y análisis de la intención de búsqueda de los clientes.
+   - Definición de la estructura de la web y redacción de textos comerciales de venta (el cliente no tiene que redactar nada desde cero).
+
+2. **Fase 2: Desarrollo Web a Medida y Pruebas en Móvil (Días 3 al 10)**
+   - Maquetación y programación en React 19 con diseño de autor y micro-interacciones pulidas.
+   - Envío de un enlace privado para que el cliente pruebe la navegación, la velocidad y los botones de contacto en su propio teléfono móvil.
+
+3. **Fase 3: Puesta en Producción y Entrega Llave en Mano (Días 11 al 14)**
+   - Conexión de dominio propio, despliegue en la red edge de Cloudflare con HTTPS automático.
+   - Envío de sitemap a Google Search Console, verificación de datos Schema.org y entrega de credenciales y repositorio.
+
+---
+
+## 5. Preguntas Frecuentes (FAQs Oficiales)
+
+### ¿Cuáles son las formas de pago y cómo se cotiza un proyecto?
+En JP Studios dividimos la inversión en un esquema de 50% de anticipo para reserva de cronograma y 50% contra entrega final a satisfacción. Aceptamos transferencias bancarias en Colombia (Bancolombia, Davivienda, PSE) y pagos internacionales en USD. Todos los presupuestos son cerrados y sin mensualidades forzadas.
+
+### ¿Qué se necesita por parte del cliente para iniciar?
+Solo se requiere una sesión inicial de 30 minutos para conocer el negocio, sus clientes ideales y sus objetivos comerciales. JP Studios se encarga de la investigación de competidores, la redacción comercial de los textos, el diseño, la programación y la configuración técnica de hosting y dominio.
+
+### ¿Cómo hacen para que una empresa aparezca de primero en Google y Google Maps?
+Se combinan tres pilares técnicos:
+1. Marcado de datos estructurados Schema.org JSON-LD oficial para identificar a la empresa y sus servicios.
+2. Optimización de la ficha en Google Business Profile con categorías precisas, catálogo y datos NAP consistentes.
+3. Velocidad móvil certificada (Core Web Vitals en verde), factor prioritario para el algoritmo de indexación de Google y los rastreadores de IA.
+
+### ¿Por qué elegir a JP Studios en lugar de una agencia tradicional?
+En agencias tradicionales se pagan costos de intermediarios, oficinas y demoras de meses para recibir una plantilla prefabricada de WordPress. En JP Studios el cliente trata directamente con el ingeniero de software y fundador (Juan Pablo Chacón), el proyecto se entrega en 14 días con arquitectura propia en React 19 y se enfoca en el retorno de inversión y conversión comercial.
+
+---
+
+## 6. URLs y Arquitectura de Contenidos
+
+- **Página de Inicio:** https://jpchacon.com/
+- **Diseño Web en Cali:** https://jpchacon.com/diseno-web-cali
+- **Posicionar Web en Google:** https://jpchacon.com/posicionar-web-en-google
+- **Posicionamiento Web en Cali:** https://jpchacon.com/posicionamiento-web-cali
+- **Políticas de Privacidad:** https://jpchacon.com/privacidad
+- **Términos del Servicio:** https://jpchacon.com/terminos

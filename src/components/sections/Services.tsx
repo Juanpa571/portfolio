@@ -186,10 +186,10 @@ export const Services: React.FC<ServicesProps> = () => {
                     {t.services.items[0].subtitle}
                   </p>
                   <a
-                    href="/posicionar-web-en-google"
+                    href="/diseno-web-cali"
                     className="pt-2 text-xs font-medium text-black/90 hover:text-black flex items-center gap-1.5 cursor-pointer"
                   >
-                    <span>Ver servicio en Cali</span>
+                    <span>Conocer servicio</span>
                     <span>↗</span>
                   </a>
                 </div>
@@ -205,10 +205,10 @@ export const Services: React.FC<ServicesProps> = () => {
                     {t.services.items[0].subtitle}
                   </p>
                   <a
-                    href="/posicionar-web-en-google"
+                    href="/diseno-web-cali"
                     className="pt-1 text-xs font-medium text-black/90 hover:text-black flex items-center gap-1.5 cursor-pointer group-hover:translate-x-0.5 transition-transform"
                   >
-                    <span>Conocer servicio en Cali</span>
+                    <span>Conocer servicio</span>
                     <span>↗</span>
                   </a>
                 </div>
@@ -245,7 +245,7 @@ export const Services: React.FC<ServicesProps> = () => {
                     href="/posicionar-web-en-google"
                     className="pt-2 text-xs font-medium text-white/90 hover:text-white flex items-center gap-1.5 cursor-pointer"
                   >
-                    <span>Ver servicio en Cali</span>
+                    <span>Conocer servicio</span>
                     <span>↗</span>
                   </a>
                 </div>
@@ -264,7 +264,7 @@ export const Services: React.FC<ServicesProps> = () => {
                     href="/posicionar-web-en-google"
                     className="pt-1 text-xs font-medium text-white/90 hover:text-white flex items-center gap-1.5 cursor-pointer group-hover:translate-x-0.5 transition-transform"
                   >
-                    <span>Conocer servicio en Cali</span>
+                    <span>Conocer servicio</span>
                     <span>↗</span>
                   </a>
                 </div>
@@ -298,10 +298,10 @@ export const Services: React.FC<ServicesProps> = () => {
                     {t.services.items[2].subtitle}
                   </p>
                   <a
-                    href="/posicionar-web-en-google"
+                    href="/diseno-web-cali"
                     className="pt-2 text-xs font-medium text-black/90 hover:text-black flex items-center gap-1.5 cursor-pointer"
                   >
-                    <span>Ver servicio en Cali</span>
+                    <span>Conocer servicio</span>
                     <span>↗</span>
                   </a>
                 </div>
@@ -317,10 +317,10 @@ export const Services: React.FC<ServicesProps> = () => {
                     {t.services.items[2].subtitle}
                   </p>
                   <a
-                    href="/posicionar-web-en-google"
+                    href="/diseno-web-cali"
                     className="pt-1 text-xs font-medium text-black/90 hover:text-black flex items-center gap-1.5 cursor-pointer group-hover:translate-x-0.5 transition-transform"
                   >
-                    <span>Conocer servicio en Cali</span>
+                    <span>Conocer servicio</span>
                     <span>↗</span>
                   </a>
                 </div>
@@ -354,10 +354,10 @@ export const Services: React.FC<ServicesProps> = () => {
                     {t.services.items[3].subtitle}
                   </p>
                   <a
-                    href="/posicionar-web-en-google"
+                    href="#contact"
                     className="pt-2 text-xs font-medium text-black/90 hover:text-black flex items-center gap-1.5 cursor-pointer"
                   >
-                    <span>Ver servicio en Cali</span>
+                    <span>Conocer servicio</span>
                     <span>↗</span>
                   </a>
                 </div>
@@ -373,10 +373,10 @@ export const Services: React.FC<ServicesProps> = () => {
                     {t.services.items[3].subtitle}
                   </p>
                   <a
-                    href="/posicionar-web-en-google"
+                    href="#contact"
                     className="pt-1 text-xs font-medium text-black/90 hover:text-black flex items-center gap-1.5 cursor-pointer group-hover:translate-x-0.5 transition-transform"
                   >
-                    <span>Conocer servicio en Cali</span>
+                    <span>Conocer servicio</span>
                     <span>↗</span>
                   </a>
                 </div>

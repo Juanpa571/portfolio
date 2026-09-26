@@ -210,7 +210,7 @@ export const Hero: React.FC = () => {
               <source type="image/webp" srcSet="/celular-hero-page-mobile.webp" />
               <img
                 src="/celular-hero-page.png"
-                alt="Mockup de celular mostrando diseño web responsivo en Cali — JP Studios"
+                alt="Mockup de celular mostrando diseño web responsivo — JP Studios"
                 className="h-full w-auto object-contain object-bottom select-none"
                 width={310}
                 height={465}
@@ -224,7 +224,7 @@ export const Hero: React.FC = () => {
               <source type="image/webp" srcSet="/laptop-hero-page-mobile.webp" />
               <img
                 src="/laptop-hero-page.png"
-                alt="Mockup de computador portátil mostrando diseño web moderno y de alta conversión en Cali — JP Studios"
+                alt="Mockup de computador portátil mostrando desarrollo web moderno — JP Studios"
                 className="h-full w-auto object-contain object-bottom select-none"
                 width={640}
                 height={427}

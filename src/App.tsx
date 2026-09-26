@@ -6,7 +6,6 @@ import { MetricsStrip } from './components/sections/MetricsStrip';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import { useRouter } from './hooks/useRouter';
 import { MetaTags } from './components/seo/MetaTags';
-import { WhatsAppFloatingButton } from './components/ui/WhatsAppFloatingButton';
 
 // Lazy-load below-the-fold components to keep critical mobile bundle featherlight (<35 KiB)
 const Intro = lazy(() => import('./components/sections/Intro').then((m) => ({ default: m.Intro })));
@@ -110,7 +109,6 @@ export const App: React.FC = () => {
             </main>
           </>
         )}
-        <WhatsAppFloatingButton />
       </div>
     </LanguageProvider>
   );

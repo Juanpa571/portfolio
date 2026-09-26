@@ -119,7 +119,7 @@ export const HeroVisualStage: React.FC<HeroVisualStageProps> = ({ className = ''
           <source type="image/webp" srcSet="/laptop-hero-page.webp" />
           <img
             src="/laptop-hero-page.png"
-            alt="Mockup de computador portátil mostrando diseño web y posicionamiento en Google en Cali — JP Studios"
+            alt="Mockup de computador portátil mostrando arquitectura y desarrollo web — JP Studios"
             className="w-full h-auto object-contain object-right-bottom drop-shadow-2xl select-none"
             loading="eager"
             decoding="async"
@@ -142,7 +142,7 @@ export const HeroVisualStage: React.FC<HeroVisualStageProps> = ({ className = ''
           <source type="image/webp" srcSet="/celular-hero-page.webp" />
           <img
             src="/celular-hero-page.png"
-            alt="Mockup de celular mostrando diseño web responsivo en Cali — JP Studios"
+            alt="Mockup de celular mostrando diseño web responsivo de alta velocidad — JP Studios"
             className="w-full h-auto object-contain object-bottom drop-shadow-2xl select-none"
             loading="eager"
             decoding="async"

@@ -1,4 +1,28 @@
 User-agent: *
 Allow: /
 
+# Motores de Búsqueda de Inteligencia Artificial (AEO & GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+# Sitemaps y Manifiestos LLM
 Sitemap: https://jpchacon.com/sitemap.xml
+# LLMs Context: https://jpchacon.com/llms.txt

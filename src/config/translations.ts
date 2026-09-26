@@ -283,7 +283,7 @@ export const translations: Record<Language, Translations> = {
         { text: 'Turnkey Launch', filled: false },
       ],
       track2: [
-        { text: 'JP Studios Cali', filled: true },
+        { text: 'JP Studios · Web Architecture', filled: true },
         { text: 'Measurable ROI', filled: false },
         { text: 'Structured Execution', filled: true },
         { text: 'Direct WhatsApp Routing', filled: false },
@@ -298,7 +298,7 @@ export const translations: Record<Language, Translations> = {
       headerLine1: 'Engineered to sell,',
       headerLine2: 'not just decoration.',
       seoDescription:
-        'Bespoke web development in Cali, high-speed landing pages, and visibility on Google. Engineered with clean code to rank your business across search engines and route qualified prospects straight to direct contact channels.',
+        'Bespoke web development, high-speed landing pages, and visibility on Google. Engineered with clean code to rank your business across search engines and route qualified prospects straight to direct contact channels.',
       items: [
         {
           id: 'performance-web',
@@ -312,7 +312,7 @@ export const translations: Record<Language, Translations> = {
           id: 'seo-local',
           number: '02',
           title: 'Google & Google Maps Ranking',
-          subtitle: 'Optimized digital presence to lead local searches in Cali or your specific business area, plus AI recommendations.',
+          subtitle: 'Optimized digital presence to lead search results in your target business area, plus AI recommendations.',
           description:
             'Structured Schema.org JSON-LD data graphs, Google Business Profile optimization, and direct Answer Blocks so your business gets recommended on Google Search, Maps, and AI search engines.',
         },
@@ -338,7 +338,7 @@ export const translations: Record<Language, Translations> = {
       tag: 'Investment & Pricing',
       headerLine1: 'How much does a website cost? ',
       headerLine2: 'Transparent pricing with zero hidden fees.',
-      tagline: 'The cost of a bespoke website in Cali with JP Studios starts at $1.500.000 COP for sales landing pages and $2.500.000 COP for corporate sites with SEO. Turnkey delivery with 100% code ownership and zero forced retainers.',
+      tagline: 'The cost of a bespoke website with JP Studios starts at $1.500.000 COP for sales landing pages and $2.500.000 COP for corporate sites with SEO. Turnkey delivery with 100% code ownership and zero forced retainers.',
       currencyNote: '* All values in Colombian Pesos (COP). Turnkey one-time development fee with 100% client ownership of code and domain.',
       tiers: [
         {
@@ -365,10 +365,10 @@ export const translations: Record<Language, Translations> = {
           pricePrefix: 'From',
           priceAmount: '$2.500.000',
           priceCurrency: 'COP',
-          description: 'The complete solution for companies aiming to lead their sector in Cali, rank on Google, and project authority.',
+          description: 'The complete solution for companies aiming to lead their sector, rank on Google, and project authority.',
           features: [
             'Multi-section React 19 architecture',
-            'Local Cali SEO optimization',
+            'Local SEO & Google Maps optimization',
             'Verified Google Business Profile setup',
             'Structured data (Schema.org JSON-LD)',
           ],
@@ -403,7 +403,7 @@ export const translations: Record<Language, Translations> = {
       headerLine1: 'Workflow Methodology: ',
       headerLine2: 'web design in 14 days.',
       seoDescription:
-        'We engineer bespoke websites and web development in Cali with a transparent 14-day workflow. From strategy to production, delivering a fast, search-ready website built to convert.',
+        'We engineer bespoke websites with a transparent 14-day workflow. From strategy to production, delivering a fast, search-ready website built to convert.',
       tagline: 'The JP Studios methodology: From commercial strategy to a production-ready web presence in under two weeks',
       steps: [
         {
@@ -474,7 +474,7 @@ export const translations: Record<Language, Translations> = {
     faq: {
       tag: 'FAQ',
       headerLine1: 'Frequently asked questions on ',
-      headerLine2: 'web design in Cali.',
+      headerLine2: 'web design & development.',
       tagline: 'Direct answers and zero fine print to everything you need to know before starting your project',
       whatsappPrompt: "Can't find your answer? Reach out and I'll reply personally.",
       whatsappButton: "Let's talk",
@@ -720,14 +720,14 @@ export const translations: Record<Language, Translations> = {
         { text: 'JP Studios', filled: true },
         { text: 'Diseño Web Cali', filled: false },
         { text: 'Páginas Web para Empresas', filled: true },
-        { text: 'Google Maps Cali', filled: false },
+        { text: 'Google Maps & Local SEO', filled: false },
         { text: 'React 19 & TypeScript', filled: true },
         { text: 'Carga Sub-Segundo', filled: false },
         { text: 'Cero Plantillas Lentas', filled: true },
         { text: 'Lanzamiento Llave en Mano', filled: false },
       ],
       track2: [
-        { text: 'JP Studios Cali', filled: true },
+        { text: 'JP Studios · Web Architecture', filled: true },
         { text: 'Páginas para Negocios', filled: false },
         { text: 'Landing Pages para Vender', filled: true },
         { text: 'Ejecución Estructurada', filled: false },
@@ -742,7 +742,7 @@ export const translations: Record<Language, Translations> = {
       headerLine1: 'Páginas web para empresas, ',
       headerLine2: 'diseñadas para vender.',
       seoDescription:
-        'Diseño y desarrollo web en Cali con arquitectura moderna en código limpio. Páginas corporativas y landing pages de alta velocidad para captar clientes en Google y conectarlos directamente a tu WhatsApp.',
+        'Diseño y desarrollo web con arquitectura moderna en código limpio. Páginas corporativas y landing pages de alta velocidad para captar clientes en Google y conectarlos directamente a tu WhatsApp.',
       items: [
         {
           id: 'performance-web',
@@ -756,7 +756,7 @@ export const translations: Record<Language, Translations> = {
           id: 'seo-local',
           number: '02',
           title: 'Posicionamiento en Google y Google Maps',
-          subtitle: 'SEO local en Cali para que tu negocio aparezca cuando busquen tus servicios en Google y motores de IA.',
+          subtitle: 'SEO local y posicionamiento para que tu negocio aparezca cuando busquen tus servicios en Google y motores de IA.',
           description:
             'Estructuración de datos con Schema.org JSON-LD oficial, optimización de ficha en Google Maps y bloques AEO para que Google, ChatGPT y Gemini recomienden tu empresa.',
         },
@@ -782,7 +782,7 @@ export const translations: Record<Language, Translations> = {
       tag: 'Inversión Transparente',
       headerLine1: '¿Cuánto cuesta una página web? ',
       headerLine2: 'Precios claros, sin letra pequeña.',
-      tagline: 'El costo de una página web en Cali con JP Studios comienza en $1.500.000 COP para landing pages de venta y $2.500.000 COP para sitios corporativos con SEO. Entrega llave en mano con código 100% propio y sin mensualidades forzadas.',
+      tagline: 'El costo de una página web profesional con JP Studios comienza en $1.500.000 COP para landing pages de venta y $2.500.000 COP para sitios corporativos con SEO. Entrega llave en mano con código 100% propio y sin mensualidades forzadas.',
       currencyNote: '* Todos los valores en Pesos Colombianos (COP). Pago único de desarrollo llave en mano con propiedad 100% tuya del código y dominio.',
       tiers: [
         {
@@ -809,10 +809,10 @@ export const translations: Record<Language, Translations> = {
           pricePrefix: 'Desde',
           priceAmount: '$2.500.000',
           priceCurrency: 'COP',
-          description: 'La solución completa para empresas que buscan liderar su sector en Cali, posicionarse en Google y proyectar autoridad comercial.',
+          description: 'La solución completa para empresas que buscan liderar su sector, posicionarse en Google y proyectar autoridad comercial.',
           features: [
             'Sitio web multi-sección en React 19',
-            'SEO local para Cali',
+            'SEO local y Google Maps',
             'Ficha de Google Maps optimizada',
             'Datos estructurados (Schema.org)',
           ],
@@ -847,7 +847,7 @@ export const translations: Record<Language, Translations> = {
       headerLine1: 'Metodología de trabajo: ',
       headerLine2: 'diseño web en 14 días.',
       seoDescription:
-        'Creamos páginas web para empresas en Cali bajo un flujo ágil de 14 días. De la estrategia comercial y redacción de textos a tu web en producción: rápida, optimizada para Google y lista para facturar.',
+        'Creamos páginas web de alto impacto bajo un flujo ágil de 14 días. De la estrategia comercial y redacción de textos a tu web en producción: rápida, optimizada para Google y lista para facturar.',
       tagline: 'La metodología de JP Studios: De la estrategia comercial a tu web en producción y lista para operar en menos de dos semanas',
       steps: [
         {
@@ -855,7 +855,7 @@ export const translations: Record<Language, Translations> = {
           title: 'Diagnóstico Comercial y Redacción',
           timeframe: '48 Horas',
           description:
-            'Analizamos qué buscan tus clientes en Google en Cali y redactamos los textos de venta de tu página web. Tú no tienes que redactar nada desde cero.',
+            'Analizamos qué buscan tus clientes en Google y redactamos los textos de venta de tu página web. Tú no tienes que redactar nada desde cero.',
           deliverable: 'Estructura comercial y propuesta de contenidos',
         },
         {
@@ -918,13 +918,13 @@ export const translations: Record<Language, Translations> = {
     faq: {
       tag: 'Preguntas Frecuentes',
       headerLine1: 'Preguntas frecuentes sobre ',
-      headerLine2: 'diseño web en Cali.',
+      headerLine2: 'diseño y desarrollo web.',
       tagline: 'Respuestas directas y sin letra pequeña a todo lo que necesitas saber antes de iniciar tu proyecto',
       whatsappPrompt: '¿No encuentras tu respuesta? Escríbeme y te respondo personalmente.',
       whatsappButton: 'Hablemos',
       items: [
         {
-          question: '¿Cuáles son las formas de pago y cómo se cotiza un proyecto en Cali?',
+          question: '¿Cuáles son las formas de pago y cómo se cotiza un proyecto?',
           answer:
             'En JP Studios dividimos la inversión en un esquema transparente de 50% de anticipo para reserva de cronograma y 50% contra entrega final a satisfacción. Puedes cotizar tu proyecto en 1 minuto en nuestro cotizador interactivo o escribirnos directamente a WhatsApp. Aceptamos transferencias bancarias (Bancolombia, Davivienda, PSE) y pagos internacionales en USD. Todos los presupuestos son cerrados, llave en mano y sin mensualidades forzadas de mantenimiento.',
         },
@@ -934,9 +934,9 @@ export const translations: Record<Language, Translations> = {
             'Solo necesitas una sesión inicial de 30 minutos para contarnos sobre tu empresa y tus clientes ideales. En JP Studios nos encargamos de todo el proceso técnico: investigación de competidores en Google, redacción de textos comerciales orientados a vender, diseño UI/UX de autor, desarrollo en código limpio, hosting y configuración de dominio. Tú no tienes que redactar textos técnicos ni lidiar con configuraciones complicadas.',
         },
         {
-          question: '¿Cómo hago para que mi negocio aparezca de primero en Google y Google Maps en Cali?',
+          question: '¿Cómo hago para que mi negocio aparezca en los primeros lugares de Google y Google Maps?',
           answer:
-            'Optimizamos tu presencia digital combinando tres factores: 1) Marcado de datos estructurados Schema.org para que Google identifique tu empresa local en Cali, 2) Optimización de tu ficha de Google Business Profile con datos alineados (NAP), y 3) Velocidad de carga sub-segundo (Core Web Vitals en verde), factor prioritario para que Google y motores de IA (ChatGPT, Gemini) recomienden tu página por encima de sitios lentos.',
+            'Optimizamos tu presencia digital combinando tres factores: 1) Marcado de datos estructurados Schema.org para que los motores de búsqueda identifiquen la relevancia y ubicación de tu empresa, 2) Optimización de tu ficha de Google Business Profile con datos alineados (NAP), y 3) Velocidad de carga sub-segundo (Core Web Vitals en verde), factor prioritario para que Google y motores de IA (ChatGPT, Gemini) recomienden tu página por encima de sitios lentos.',
         },
         {
           question: '¿Cuánto cobran por hacer una página web y si hay pagos mensuales obligatorios?',
@@ -949,7 +949,7 @@ export const translations: Record<Language, Translations> = {
             'Una web tradicional suele ser un folleto digital pesado que tarda 4 a 6 segundos en abrir en el celular y tiene textos genéricos que nadie lee. Una página web diseñada para vender tiene carga instantánea en celulares, comunica tu propuesta de valor en los primeros 3 segundos y guía al visitante directamente hacia lo que genera ingresos: un botón de WhatsApp directo, una llamada telefónica o un formulario calificado.',
         },
         {
-          question: '¿Por qué elegir a JP Studios en lugar de una agencia de diseño web tradicional en Cali?',
+          question: '¿Por qué elegir a JP Studios en lugar de una agencia web tradicional?',
           answer:
             'En una agencia tradicional pagas los costos de oficinas, intermediarios y demoras de meses para recibir una plantilla prediseñada. En JP Studios tratas directamente con el fundador e ingeniero de software (Juan Pablo Chacón), tu proyecto se entrega en 14 días con arquitectura a medida en React 19 y recibes un trato personalizado enfocado en tu retorno de inversión.',
         },
