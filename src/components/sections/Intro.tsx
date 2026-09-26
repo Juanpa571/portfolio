@@ -2,11 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { siteConfig } from '../../config/site';
 import { Magnetic } from '../ui/Magnetic';
 import { useLanguage } from '../../context/LanguageContext';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
-
 export const Intro: React.FC = () => {
   const { t, language } = useLanguage();
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -24,45 +19,59 @@ export const Intro: React.FC = () => {
 
     if (isMobile) return;
 
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-          once: true,
-        },
-      });
+    let ctx: any;
+    let isCancelled = false;
 
-      if (photoRef.current) {
-        tl.fromTo(
-          photoRef.current,
-          { y: 40, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
-          0
-        );
-      }
+    Promise.all([
+      import('gsap'),
+      import('gsap/ScrollTrigger')
+    ]).then(([{ default: gsap }, { ScrollTrigger }]) => {
+      if (isCancelled || !sectionRef.current) return;
+      gsap.registerPlugin(ScrollTrigger);
 
-      if (statementRef.current) {
-        tl.fromTo(
-          statementRef.current,
-          { y: 35, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' },
-          0.1
-        );
-      }
+      ctx = gsap.context(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+            once: true,
+          },
+        });
 
-      if (actionsRef.current) {
-        const buttons = actionsRef.current.children;
-        tl.fromTo(
-          buttons,
-          { y: 30, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.85, stagger: 0.12, ease: 'power3.out' },
-          0.25
-        );
-      }
-    }, sectionRef);
+        if (photoRef.current) {
+          tl.fromTo(
+            photoRef.current,
+            { y: 40, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
+            0
+          );
+        }
 
-    return () => ctx.revert();
+        if (statementRef.current) {
+          tl.fromTo(
+            statementRef.current,
+            { y: 35, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' },
+            0.1
+          );
+        }
+
+        if (actionsRef.current) {
+          const buttons = actionsRef.current.children;
+          tl.fromTo(
+            buttons,
+            { y: 30, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.85, stagger: 0.12, ease: 'power3.out' },
+            0.25
+          );
+        }
+      }, sectionRef);
+    });
+
+    return () => {
+      isCancelled = true;
+      if (ctx) ctx.revert();
+    };
   }, []);
 
   return (

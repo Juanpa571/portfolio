@@ -212,8 +212,8 @@ export const Hero: React.FC = () => {
                 src="/celular-hero-page.png"
                 alt="Mockup de celular mostrando diseño web responsivo en Cali — JP Studios"
                 className="h-full w-auto object-contain object-bottom select-none"
-                width={380}
-                height={570}
+                width={310}
+                height={465}
                 loading="lazy"
                 decoding="async"
               />
