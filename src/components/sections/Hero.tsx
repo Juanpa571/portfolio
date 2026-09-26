@@ -202,12 +202,42 @@ export const Hero: React.FC = () => {
 
       </div>
 
-      {/* Mobile Photograph View (Visible on < lg) */}
-      <div className="w-full relative mt-4 overflow-hidden lg:hidden z-0 px-2 sm:px-6">
-        <HeroVisualStage />
+      {/* Mobile Visual Stage (Optimized lightweight composition: only mobile assets, zero desktop cards) */}
+      <div className="w-full relative mt-4 overflow-hidden lg:hidden z-0">
+        <div className="relative w-full h-[260px] sm:h-[340px] flex items-end justify-center select-none overflow-hidden">
+          <div className="relative z-10 h-[70%] sm:h-[78%] -mr-8 sm:-mr-12 flex items-end select-none">
+            <picture className="h-full flex items-end">
+              <source type="image/webp" srcSet="/celular-hero-page-mobile.webp" />
+              <img
+                src="/celular-hero-page.png"
+                alt="Mockup de celular mostrando diseño web responsivo en Cali — JP Studios"
+                className="h-full w-auto object-contain object-bottom select-none"
+                width={380}
+                height={570}
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </div>
+          <div className="relative z-0 h-[86%] sm:h-[90%] flex items-end justify-end select-none">
+            <picture className="h-full flex items-end">
+              <source type="image/webp" srcSet="/laptop-hero-page-mobile.webp" />
+              <img
+                src="/laptop-hero-page.png"
+                alt="Mockup de computador portátil mostrando diseño web moderno y de alta conversión en Cali — JP Studios"
+                className="h-full w-auto object-contain object-bottom select-none"
+                width={640}
+                height={427}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+              />
+            </picture>
+          </div>
+        </div>
 
         {/* Mobile Orientation Footer Matching Mockup (Cali, Colombia —— Estudio Independiente) */}
-        <div className="flex items-center justify-between w-full px-4 pt-3 pb-5 text-xs font-sans text-black/75">
+        <div className="flex items-center justify-between w-full px-6 pt-3 pb-5 text-xs font-sans text-black/75 select-none">
           <span>{siteConfig.profile.location}</span>
           <span className="h-px bg-black/20 flex-1 max-w-[120px] mx-4" aria-hidden="true" />
           <span>{t.hero.studioType}</span>

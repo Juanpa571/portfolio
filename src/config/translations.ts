@@ -227,7 +227,7 @@ export const translations: Record<Language, Translations> = {
       headlineLine2: 'in Cali to rank on',
       headlineLine3: 'Google and scale sales.',
       subtitle:
-        'JP Studios is a bespoke web design studio in Cali specialized in custom corporate websites and high-conversion landing pages. Engineered to load in under 0.5s, dominate Google Search, and convert visitors into direct clients on WhatsApp.',
+        'JP Studios is a bespoke web design studio in Cali specialized in custom corporate websites and high-conversion landing pages. Engineered for ultra-fast loading, dominating Google Search, and converting visitors into direct clients on WhatsApp.',
       signature: 'JP Studios by Juan Pablo Chacón',
       disciplineLine1: 'Bespoke Websites',
       disciplineAnd: '&',
@@ -304,9 +304,9 @@ export const translations: Record<Language, Translations> = {
           id: 'performance-web',
           number: '01',
           title: 'Corporate Websites & Digital Catalogs',
-          subtitle: 'Fast web development loading in under 0.5s on mobile, free of slow WordPress plugins.',
+          subtitle: 'Fast web development with instant mobile loading, free of slow WordPress plugins.',
           description:
-            'Bespoke web architecture engineered by JP Studios with React 19, TypeScript, and modern Tailwind. Clean, ultra-fast mobile performance that loads in under 0.5s without slow plugins or template bloat.',
+            'Bespoke web architecture engineered by JP Studios with React 19, TypeScript, and modern Tailwind. Clean, ultra-fast mobile performance without slow plugins or template bloat.',
         },
         {
           id: 'seo-local',
@@ -671,7 +671,7 @@ export const translations: Record<Language, Translations> = {
       headlineLine2: 'en Cali para liderar en',
       headlineLine3: 'Google y vender más.',
       subtitle:
-        'JP Studios es un estudio de diseño web en Cali especializado en sitios web corporativos a medida y landing pages para vender. Desarrollamos páginas ultrarrápidas (carga en 0.5s en celulares) para empresas que necesitan liderar en Google Maps y convertir visitas en clientes reales por WhatsApp.',
+        'JP Studios es un estudio de diseño web en Cali especializado en sitios web corporativos a medida y landing pages para vender. Desarrollamos páginas ultrarrápidas y optimizadas para empresas que necesitan liderar en Google Maps y convertir visitas en clientes reales por WhatsApp.',
       signature: 'JP Studios by Juan Pablo Chacón',
       disciplineLine1: 'Diseño Web Cali',
       disciplineAnd: '&',
@@ -748,7 +748,7 @@ export const translations: Record<Language, Translations> = {
           id: 'performance-web',
           number: '01',
           title: 'Sitios Web Corporativos y Catálogos',
-          subtitle: 'Sitios web a medida con carga en 0.5s en celulares, sin plantillas lentas de WordPress.',
+          subtitle: 'Sitios web a medida con carga ultrarrápida en celulares, sin plantillas lentas de WordPress.',
           description:
             'Desarrollo web a medida construido por JP Studios en React 19, TypeScript y Tailwind moderno. Páginas web rápidas y seguras para empresas que buscan diferenciarse de la competencia local.',
         },
@@ -946,7 +946,7 @@ export const translations: Record<Language, Translations> = {
         {
           question: '¿Cuál es la diferencia entre una página web tradicional y una diseñada para vender?',
           answer:
-            'Una web tradicional suele ser un folleto digital pesado que tarda 4 a 6 segundos en abrir en el celular y tiene textos genéricos que nadie lee. Una página web diseñada para vender carga en menos de 0.5 segundos en celulares, comunica tu propuesta de valor en los primeros 3 segundos y guía al visitante directamente hacia lo que genera ingresos: un botón de WhatsApp directo, una llamada telefónica o un formulario calificado.',
+            'Una web tradicional suele ser un folleto digital pesado que tarda 4 a 6 segundos en abrir en el celular y tiene textos genéricos que nadie lee. Una página web diseñada para vender tiene carga instantánea en celulares, comunica tu propuesta de valor en los primeros 3 segundos y guía al visitante directamente hacia lo que genera ingresos: un botón de WhatsApp directo, una llamada telefónica o un formulario calificado.',
         },
         {
           question: '¿Por qué elegir a JP Studios en lugar de una agencia de diseño web tradicional en Cali?',

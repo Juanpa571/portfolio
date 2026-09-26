@@ -99,20 +99,23 @@ for (const page of pages) {
   console.log(`Generated: ${page.route}/index.html`);
 }
 
-// Ensure .well-known/ai-catalog.json and ai-catalog.json are present in dist
+// Ensure .well-known/ai-catalog.json, ard.json and ai-catalog.json are present in dist
 const publicDir = path.resolve(__dirname, '../public');
-const wellKnownSrc = path.join(publicDir, '.well-known', 'ai-catalog.json');
 const wellKnownDistDir = path.join(distDir, '.well-known');
-if (fs.existsSync(wellKnownSrc)) {
-  if (!fs.existsSync(wellKnownDistDir)) {
-    fs.mkdirSync(wellKnownDistDir, { recursive: true });
-  }
-  fs.copyFileSync(wellKnownSrc, path.join(wellKnownDistDir, 'ai-catalog.json'));
-  console.log('Copied: dist/.well-known/ai-catalog.json');
+if (!fs.existsSync(wellKnownDistDir)) {
+  fs.mkdirSync(wellKnownDistDir, { recursive: true });
 }
 
-const catalogSrc = path.join(publicDir, 'ai-catalog.json');
-if (fs.existsSync(catalogSrc)) {
-  fs.copyFileSync(catalogSrc, path.join(distDir, 'ai-catalog.json'));
-  console.log('Copied: dist/ai-catalog.json');
+for (const name of ['ai-catalog.json', 'ard.json']) {
+  const srcWellKnown = path.join(publicDir, '.well-known', name);
+  if (fs.existsSync(srcWellKnown)) {
+    fs.copyFileSync(srcWellKnown, path.join(wellKnownDistDir, name));
+    console.log(`Copied: dist/.well-known/${name}`);
+  }
+
+  const srcRoot = path.join(publicDir, name);
+  if (fs.existsSync(srcRoot)) {
+    fs.copyFileSync(srcRoot, path.join(distDir, name));
+    console.log(`Copied: dist/${name}`);
+  }
 }

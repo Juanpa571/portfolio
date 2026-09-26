@@ -29,8 +29,8 @@ export const HeroVisualStage: React.FC<HeroVisualStageProps> = ({ className = ''
             className="w-full h-auto object-contain drop-shadow-lg"
             loading="eager"
             decoding="async"
-            width={894}
-            height={674}
+            width={520}
+            height={392}
           />
         </picture>
       </div>
@@ -52,8 +52,8 @@ export const HeroVisualStage: React.FC<HeroVisualStageProps> = ({ className = ''
             className="w-full h-auto object-contain drop-shadow-lg"
             loading="eager"
             decoding="async"
-            width={941}
-            height={445}
+            width={540}
+            height={255}
           />
         </picture>
       </div>
@@ -75,8 +75,8 @@ export const HeroVisualStage: React.FC<HeroVisualStageProps> = ({ className = ''
             className="w-full h-auto object-contain drop-shadow-lg"
             loading="eager"
             decoding="async"
-            width={935}
-            height={690}
+            width={500}
+            height={369}
           />
         </picture>
       </div>
@@ -98,8 +98,8 @@ export const HeroVisualStage: React.FC<HeroVisualStageProps> = ({ className = ''
             className="w-full h-auto object-contain drop-shadow-lg"
             loading="lazy"
             decoding="async"
-            width={922}
-            height={341}
+            width={460}
+            height={170}
           />
         </picture>
       </div>
@@ -123,8 +123,8 @@ export const HeroVisualStage: React.FC<HeroVisualStageProps> = ({ className = ''
             className="w-full h-auto object-contain object-right-bottom drop-shadow-2xl select-none"
             loading="eager"
             decoding="async"
-            width={1536}
-            height={1024}
+            width={1200}
+            height={800}
           />
         </picture>
       </div>
@@ -146,8 +146,8 @@ export const HeroVisualStage: React.FC<HeroVisualStageProps> = ({ className = ''
             className="w-full h-auto object-contain object-bottom drop-shadow-2xl select-none"
             loading="eager"
             decoding="async"
-            width={1024}
-            height={1536}
+            width={512}
+            height={768}
           />
         </picture>
       </div>

@@ -462,7 +462,7 @@ export const Header: React.FC = () => {
                     {link.label}
                   </span>
                 </div>
-                <span className="text-base text-white/40 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300">
+                <span className="text-base text-white/80 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300">
                   ↗
                 </span>
               </a>

@@ -21,7 +21,7 @@ JP Studios es un estudio independiente de ingeniería y diseño web fundado por 
 
 ### 1. Desarrollo de Páginas Web desde Cero
 - **Descripción:** Sitios web corporativos a medida programados con React 19, TypeScript y Tailwind CSS.
-- **Características:** Carga móvil instantánea (<0.5s), arquitectura limpia sin plugins pesados ni plantillas lentas de WordPress, diseño responsive de alta fidelidad.
+- **Características:** Carga móvil instantánea y optimizada, arquitectura limpia sin plugins pesados ni plantillas lentas de WordPress, diseño responsive de alta fidelidad.
 - **Enfoque:** Transmitir máxima autoridad de marca y credibilidad empresarial.
 
 ### 2. Páginas Web para Vender (Landing Pages)

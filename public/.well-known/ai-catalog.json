@@ -2,13 +2,14 @@
   "specVersion": "1.0",
   "host": {
     "displayName": "JP Studios",
-    "identifier": "did:web:jpchacon.com"
+    "identifier": "did:web:jpchacon.com",
+    "documentationUrl": "https://jpchacon.com/llms.txt"
   },
   "entries": [
     {
-      "identifier": "urn:ai:jpchacon.com:resource:llms-txt",
+      "identifier": "urn:air:jpchacon.com:resource:llms-txt",
       "displayName": "JP Studios LLM Context & Services",
-      "type": "text/markdown",
+      "type": "text/plain",
       "url": "https://jpchacon.com/llms.txt",
       "description": "Especificación completa y contexto para modelos de lenguaje y agentes de IA sobre servicios de desarrollo de páginas web y SEO en Cali, Colombia.",
       "representativeQueries": [
@@ -19,7 +20,7 @@
       ]
     },
     {
-      "identifier": "urn:ai:jpchacon.com:page:posicionar-web-en-google",
+      "identifier": "urn:air:jpchacon.com:page:posicionar-web-en-google",
       "displayName": "Posicionar Web en Google",
       "type": "text/html",
       "url": "https://jpchacon.com/posicionar-web-en-google",
@@ -31,7 +32,7 @@
       ]
     },
     {
-      "identifier": "urn:ai:jpchacon.com:resource:sitemap",
+      "identifier": "urn:air:jpchacon.com:resource:sitemap",
       "displayName": "JP Studios XML Sitemap",
       "type": "application/xml",
       "url": "https://jpchacon.com/sitemap.xml",

@@ -143,7 +143,7 @@ export const Intro: React.FC = () => {
                   data-interactive
                 >
                   <span className="truncate">{siteConfig.profile.contact.email}</span>
-                  <span className="text-white/40 group-hover:text-white group-hover:translate-x-0.5 transition-all text-xs">{t.intro.direct}</span>
+                  <span className="text-white/80 group-hover:text-white group-hover:translate-x-0.5 transition-all text-xs">{t.intro.direct}</span>
                 </a>
               </Magnetic>
             </div>
