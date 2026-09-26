@@ -308,7 +308,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
                 className="lg:col-span-7 space-y-5 text-sm sm:text-base text-black/75 leading-relaxed pt-1 max-w-[68ch]"
               >
                 <p>
-                  Todos los días, cientos de personas en Colombia entran a su teléfono o computador buscando exactamente los servicios o productos que tú vendes. Sin embargo, si tu negocio no figura en las 3 primeras posiciones de Google o en el mapa local, <strong className="font-semibold text-black">el 92% de esos clientes terminan contratando a tu competencia directa</strong>.
+                  Todos los días, cientos de personas en Colombia buscan en su teléfono o computador los servicios o productos que tú vendes. Sin embargo, si tu negocio no figura en las primeras posiciones de Google o en Google Maps, <strong className="font-semibold text-black">más del 90% de los clics y llamadas comerciales se concentran en los primeros resultados de la primera página</strong> con las empresas que sí están visibles.
                 </p>
 
                 {/* Scannable Breakdown: Los 3 obstáculos invisibles */}

@@ -245,9 +245,9 @@ export const translations: Record<Language, Translations> = {
     metrics: {
       items: [
         {
-          value: '97/100',
-          title: 'Google PageSpeed',
-          description: 'Live mobile 4G audit · 0 ms CPU blocking time',
+          value: '94/100',
+          title: 'Google PageSpeed Mobile',
+          description: 'Live mobile 4G audit · 0 ms CPU blocking time · 1.8s FCP',
         },
         {
           value: '<100 KB',
@@ -689,9 +689,9 @@ export const translations: Record<Language, Translations> = {
     metrics: {
       items: [
         {
-          value: '97/100',
-          title: 'Google PageSpeed',
-          description: 'Auditoría móvil real en 4G · 0 ms de bloqueo de CPU',
+          value: '94/100',
+          title: 'Google PageSpeed Móvil',
+          description: 'Auditoría móvil real en 4G · 0 ms de bloqueo de CPU · 1.8s FCP',
         },
         {
           value: '<100 KB',
