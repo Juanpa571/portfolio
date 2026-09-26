@@ -1,0 +1,45 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "JP Studios",
+    "identifier": "did:web:jpchacon.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:ai:jpchacon.com:resource:llms-txt",
+      "displayName": "JP Studios LLM Context & Services",
+      "type": "text/markdown",
+      "url": "https://jpchacon.com/llms.txt",
+      "description": "Especificación completa y contexto para modelos de lenguaje y agentes de IA sobre servicios de desarrollo de páginas web y SEO en Cali, Colombia.",
+      "representativeQueries": [
+        "diseño de páginas web en Cali",
+        "servicios de desarrollo web en Cali",
+        "cuánto cuesta una página web en Colombia",
+        "posicionamiento web en Google y Google Maps Cali"
+      ]
+    },
+    {
+      "identifier": "urn:ai:jpchacon.com:page:posicionar-web-en-google",
+      "displayName": "Posicionar Web en Google",
+      "type": "text/html",
+      "url": "https://jpchacon.com/posicionar-web-en-google",
+      "description": "Servicio y metodología para posicionar páginas web y perfiles de Google Maps en los primeros resultados de Google.",
+      "representativeQueries": [
+        "cómo posicionar una página web en Google",
+        "cómo salir de primero en Google Maps",
+        "posicionamiento SEO en Cali"
+      ]
+    },
+    {
+      "identifier": "urn:ai:jpchacon.com:resource:sitemap",
+      "displayName": "JP Studios XML Sitemap",
+      "type": "application/xml",
+      "url": "https://jpchacon.com/sitemap.xml",
+      "description": "Índice de navegación y estructura canónica del sitio web de JP Studios.",
+      "representativeQueries": [
+        "sitemap jpchacon",
+        "páginas de JP Studios"
+      ]
+    }
+  ]
+}

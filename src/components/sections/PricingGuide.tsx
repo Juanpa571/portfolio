@@ -22,35 +22,15 @@ export const PricingGuide: React.FC = () => {
       if (headerRef.current) {
         gsap.fromTo(
           headerRef.current,
-          { y: 20, opacity: 0 },
+          { y: 15, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            duration: 0.7,
+            duration: 0.4,
             ease: 'power3.out',
             scrollTrigger: {
-              trigger: headerRef.current,
-              start: 'top 85%',
-              once: true,
-            },
-          }
-        );
-      }
-
-      if (cardsRef.current) {
-        const cards = cardsRef.current.children;
-        gsap.fromTo(
-          cards,
-          { y: 25, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.65,
-            stagger: 0.1,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: cardsRef.current,
-              start: 'top 85%',
+              trigger: sectionRef.current,
+              start: 'top 92%',
               once: true,
             },
           }

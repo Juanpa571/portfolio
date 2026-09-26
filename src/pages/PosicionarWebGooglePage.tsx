@@ -183,19 +183,19 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
           transition={{ duration: 0.5, ease: easeTransition }}
           className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 mb-6 sm:mb-8"
         >
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs sm:text-sm text-black/50">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs sm:text-sm text-neutral-700">
             <a
               href="/"
               onClick={(e) => {
                 e.preventDefault();
                 onNavigateHome();
               }}
-              className="hover:text-black transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/40 rounded-sm"
+              className="text-neutral-700 hover:text-black font-medium transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/40 rounded-sm"
             >
               Inicio
             </a>
-            <span>/</span>
-            <span className="text-black/80 font-medium">Posicionar Web en Google</span>
+            <span className="text-neutral-400" aria-hidden="true">/</span>
+            <span className="text-[#111111] font-semibold" aria-current="page">Posicionar Web en Google</span>
           </nav>
         </motion.div>
 
@@ -251,7 +251,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
                   className="px-6 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-black/[0.04] hover:bg-black/[0.08] text-black/80 hover:text-black text-sm font-medium flex items-center justify-center gap-2 border border-black/[0.06] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/40 group"
                 >
                   <span>Ver los 4 Pasos del Sistema</span>
-                  <span className="text-xs text-black/50 group-hover:translate-y-0.5 transition-transform">↓</span>
+                  <span className="text-xs text-neutral-600 group-hover:translate-y-0.5 transition-transform">↓</span>
                 </a>
               </motion.div>
             </div>
@@ -346,8 +346,8 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
                   {highlightBrandKeywords('Los 4 pasos para posicionar tu página web en Google con éxito.')}
                 </h2>
               </div>
-              <div className="text-xs sm:text-sm font-sans text-black/50 text-left md:text-right">
-                <span className="block font-medium text-black/70">Un sistema claro.</span>
+              <div className="text-xs sm:text-sm font-sans text-neutral-600 text-left md:text-right">
+                <span className="block font-medium text-neutral-800">Un sistema claro.</span>
                 <span>Resultados reales.</span>
               </div>
             </motion.div>

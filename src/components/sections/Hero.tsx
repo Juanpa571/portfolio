@@ -3,6 +3,7 @@ import { siteConfig } from '../../config/site';
 import { useLanguage } from '../../context/LanguageContext';
 import { highlightBrandKeywords } from '../../utils/textHighlight';
 import { trackWhatsAppClick } from '../../utils/analytics';
+import { HeroVisualStage } from './hero/HeroVisualStage';
 
 export const Hero: React.FC = () => {
   const { t, language } = useLanguage();
@@ -128,30 +129,30 @@ export const Hero: React.FC = () => {
       className="relative min-h-[calc(100dvh-4.25rem)] lg:min-h-[calc(100dvh-6.5rem)] flex flex-col justify-between overflow-hidden bg-[#fafaf8]"
     >
       {/* Split Layout: Mobile is linear editorial stack, Desktop is 2-col Asymmetric */}
-      <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 flex-1 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8 pt-5 sm:pt-10 lg:py-12 relative z-10">
+      <div className="w-full max-w-[1760px] mx-auto px-6 sm:px-10 lg:px-14 xl:px-16 2xl:px-20 flex-1 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8 pt-5 sm:pt-8 lg:pt-4 lg:pb-8 relative z-10">
         
-        {/* Left Typography + Action Block (Mobile: left-aligned, monumental bold) */}
-        <div className="w-full lg:w-[56%] xl:w-[54%] 2xl:w-[52%] flex flex-col items-start text-left justify-center min-w-0 pr-0 lg:pr-6 relative z-10">
+        {/* Left Typography + Action Block (Strictly Preserved Text Size & 3-Line Structure) */}
+        <div className="w-full lg:w-auto lg:max-w-[560px] xl:max-w-[620px] 2xl:max-w-[680px] flex-shrink-0 flex flex-col items-start text-left justify-center min-w-0 pr-0 lg:pr-6 relative z-10">
           <h1 
             aria-label={`${t.hero.headlineLine1.trim()} ${t.hero.headlineLine2.trim()} ${t.hero.headlineLine3.trim()} — JP Studios`}
-            className="text-[2.75rem] sm:text-5xl md:text-6xl lg:text-[3.25vw] xl:text-[3.65vw] font-normal tracking-tight text-black leading-[1.06] select-none m-0 text-left max-w-3xl"
+            className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[3.1vw] xl:text-[3.5vw] font-normal tracking-tight text-black leading-[1.08] select-none m-0 text-left max-w-none"
           >
             {/* Line 1 - Strong Anchor Keyword */}
-            <span ref={line1Ref} className="block will-change-transform">
+            <span ref={line1Ref} className="block will-change-transform lg:whitespace-nowrap">
               <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
                 {highlightBrandKeywords(t.hero.headlineLine1.trim())}
               </span>
             </span>{' '}
 
             {/* Line 2 - Benefit */}
-            <span ref={line2Ref} className="block will-change-transform">
+            <span ref={line2Ref} className="block will-change-transform lg:whitespace-nowrap">
               <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
                 {highlightBrandKeywords(t.hero.headlineLine2.trim())}
               </span>
             </span>{' '}
 
             {/* Line 3 - Conversion Outcome */}
-            <span ref={line3Ref} className="block will-change-transform">
+            <span ref={line3Ref} className="block will-change-transform lg:whitespace-nowrap">
               <span className="inline-block transition-transform duration-300 hover:scale-[1.01] origin-left">
                 {highlightBrandKeywords(t.hero.headlineLine3.trim())}
               </span>
@@ -159,7 +160,7 @@ export const Hero: React.FC = () => {
           </h1>
 
           {/* Subtitle & Value Proposition */}
-          <p className="text-base sm:text-lg lg:text-[1.125rem] text-black/75 font-sans leading-relaxed text-left max-w-[340px] sm:max-w-md lg:max-w-xl pt-5 sm:pt-6 lg:pt-7">
+          <p className="text-base sm:text-lg lg:text-[1.125rem] text-black/75 font-sans leading-relaxed text-left max-w-xl lg:max-w-2xl pt-5 sm:pt-6 lg:pt-7">
             {t.hero.subtitle}
           </p>
 
@@ -173,7 +174,7 @@ export const Hero: React.FC = () => {
               className="w-full sm:w-auto px-7 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-[#141517] hover:bg-black text-white text-sm font-medium flex items-center justify-between sm:justify-start gap-3 shadow-sm hover:shadow-md transition-all duration-300 active:scale-[0.98] group"
               data-interactive
             >
-              <span>{t.intro.startOnWhatsApp}</span>
+              <span>{language === 'es' ? 'Cotizar por WhatsApp' : 'Get Quote on WhatsApp'}</span>
               <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300 font-sans text-xs text-white/80 group-hover:text-white">
                 ↗
               </span>
@@ -190,55 +191,27 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Desktop Spacer Column (Content rendered in absolute layer below) */}
-        <div className="hidden lg:block lg:w-[44%] xl:w-[46%] 2xl:w-[48%]" aria-hidden="true" />
+        {/* Right Desktop Visual Stage (HeroVisualStage) - Substantially Enlarged */}
+        <div
+          ref={portraitRef}
+          className="hidden lg:flex flex-1 items-center justify-end relative z-10 pointer-events-auto min-w-0"
+          style={{ perspective: 1200 }}
+        >
+          <HeroVisualStage className="w-full max-w-[880px] xl:max-w-[1020px] 2xl:max-w-[1140px]" />
+        </div>
 
       </div>
 
       {/* Mobile Photograph View (Visible on < lg) */}
-      <div className="w-full relative mt-4 overflow-hidden lg:hidden z-0">
-        <div className="relative w-full h-[270px] sm:h-[350px]">
-          <picture className="w-full h-full">
-            <source media="(max-width: 640px)" type="image/webp" srcSet="/portatil-hero-mobile.webp" />
-            <source type="image/webp" srcSet="/portatil-hero.webp" />
-            <img
-              src="/portatil-hero.png"
-              alt="Mockup de computador portátil mostrando diseño web moderno y de alta conversión en Cali — JP Studios"
-              className="w-full h-full object-cover object-[center_62%]"
-              width={750}
-              height={500}
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-            />
-          </picture>
-        </div>
+      <div className="w-full relative mt-4 overflow-hidden lg:hidden z-0 px-2 sm:px-6">
+        <HeroVisualStage />
 
         {/* Mobile Orientation Footer Matching Mockup (Cali, Colombia —— Estudio Independiente) */}
-        <div className="flex items-center justify-between w-full px-6 pt-3 pb-5 text-xs font-sans text-black/75 select-none">
+        <div className="flex items-center justify-between w-full px-4 pt-3 pb-5 text-xs font-sans text-black/75 select-none">
           <span>{siteConfig.profile.location}</span>
           <span className="h-px bg-black/20 flex-1 max-w-[120px] mx-4" aria-hidden="true" />
           <span>{t.hero.studioType}</span>
         </div>
-      </div>
-
-      {/* Right: Desktop Natural Photographic Layer */}
-      <div 
-        ref={portraitRef}
-        className="hidden lg:flex absolute right-0 top-0 bottom-0 pointer-events-none z-0 items-end justify-end select-none"
-      >
-        <picture className="h-full flex items-end justify-end">
-          <source type="image/webp" srcSet="/portatil-hero.webp" />
-          <img
-            src="/portatil-hero.png"
-            alt="Mockup de computador portátil mostrando diseño web y posicionamiento en Google en Cali — JP Studios"
-            className="h-full w-auto object-contain object-right-bottom select-none"
-            width={1536}
-            height={1024}
-            loading="lazy"
-            decoding="async"
-          />
-        </picture>
       </div>
 
       {/* Clean Bottom Orientation Bar (Desktop Only) */}

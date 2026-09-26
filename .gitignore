@@ -24,6 +24,14 @@ public/pipeline-prospectos.html
 __pycache__/
 dist-netlify.zip
 scratch_*.png
+crop_*.png
+debug_*.png
+public/hero-page/ChatGPT*
+public/hero-page/current_rendered*
+public/hero-page/e3bfc700*
+public/hero-page/fda20855*
+public/hero-page/_*
+
 
 
 # Editor directories and files

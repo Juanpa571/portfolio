@@ -86,3 +86,21 @@ for (const page of pages) {
   fs.writeFileSync(targetFile, html, 'utf-8');
   console.log(`Generated: ${page.route}/index.html`);
 }
+
+// Ensure .well-known/ai-catalog.json and ai-catalog.json are present in dist
+const publicDir = path.resolve(__dirname, '../public');
+const wellKnownSrc = path.join(publicDir, '.well-known', 'ai-catalog.json');
+const wellKnownDistDir = path.join(distDir, '.well-known');
+if (fs.existsSync(wellKnownSrc)) {
+  if (!fs.existsSync(wellKnownDistDir)) {
+    fs.mkdirSync(wellKnownDistDir, { recursive: true });
+  }
+  fs.copyFileSync(wellKnownSrc, path.join(wellKnownDistDir, 'ai-catalog.json'));
+  console.log('Copied: dist/.well-known/ai-catalog.json');
+}
+
+const catalogSrc = path.join(publicDir, 'ai-catalog.json');
+if (fs.existsSync(catalogSrc)) {
+  fs.copyFileSync(catalogSrc, path.join(distDir, 'ai-catalog.json'));
+  console.log('Copied: dist/ai-catalog.json');
+}

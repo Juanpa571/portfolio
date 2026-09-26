@@ -87,3 +87,54 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Hero Floating Organic Micro-Animations */
+@keyframes heroFloatA {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes heroFloatB {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes heroFloatC {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.hero-float-a {
+  animation: heroFloatA 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hero-float-b {
+  animation: heroFloatB 6s ease-in-out infinite 0.5s;
+  will-change: transform;
+}
+
+.hero-float-c {
+  animation: heroFloatC 5.5s ease-in-out infinite 1s;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-float-a,
+  .hero-float-b,
+  .hero-float-c {
+    animation: none !important;
+  }
+}
