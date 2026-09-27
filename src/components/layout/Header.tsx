@@ -56,7 +56,7 @@ export const Header: React.FC = () => {
       setIsDark(overDark);
 
       // Active section detection for sliding magnetic indicator
-      const sectionIds = ['services', 'pricing', 'process', 'faq', 'contact'];
+      const sectionIds = ['services', 'work', 'pricing', 'process', 'faq', 'contact'];
       let currentActive: string | null = null;
       for (const id of sectionIds) {
         const el = document.getElementById(id);
@@ -142,6 +142,7 @@ export const Header: React.FC = () => {
 
   const navLinks = [
     { id: 'services', label: t.nav.services, href: '#services' },
+    { id: 'work', label: t.nav.work, href: '#work' },
     { id: 'pricing', label: t.nav.pricing, href: '#pricing' },
     { id: 'process', label: t.nav.process, href: '#process' },
     { id: 'faq', label: t.nav.faq, href: '#faq' },

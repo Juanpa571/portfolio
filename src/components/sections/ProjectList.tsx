@@ -176,7 +176,7 @@ export const ProjectList: React.FC = () => {
           <h2 className="text-5xl sm:text-7xl lg:text-8xl font-normal font-display text-black tracking-[-0.01em] leading-[1.06] sm:leading-[1.1]">
             {t.projects.headerLine1}{' '}
             <br />
-            <span className="sm:pl-16 lg:pl-24 inline-block text-black/50 hover:text-black transition-colors duration-500">
+            <span className="sm:pl-16 lg:pl-24 inline-block text-black">
               {t.projects.headerLine2}
             </span>
           </h2>
@@ -192,6 +192,7 @@ export const ProjectList: React.FC = () => {
             const isInteractive = !project.isCta && project.id !== 'next-project';
             const isCurrentActive = isInteractive && activeProject?.id === project.id;
             const theme = project.theme;
+            const isMaranatha = project.id === 'maranatha';
 
             return (
               <div
@@ -228,7 +229,11 @@ export const ProjectList: React.FC = () => {
                     <span className="text-sm sm:text-base font-light font-display text-black/35">
                       {project.number}
                     </span>
-                    <h3 className={`text-4xl sm:text-6xl lg:text-7xl font-light font-display tracking-[-0.01em] text-black ${
+                    <h3 className={`text-4xl sm:text-6xl lg:text-7xl tracking-[-0.01em] ${
+                      isMaranatha
+                        ? "font-['Pacifico',cursive] text-[#7E04A1] font-normal leading-[1.2]"
+                        : "font-light font-display text-black"
+                    } ${
                       isInteractive
                         ? 'group-hover:translate-x-3 transition-transform duration-500 ease-out'
                         : 'group-hover:translate-x-2 transition-transform duration-500 ease-out'

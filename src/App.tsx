@@ -10,6 +10,7 @@ import { MetaTags } from './components/seo/MetaTags';
 // Lazy-load below-the-fold components to keep critical mobile bundle featherlight (<35 KiB)
 const Intro = lazy(() => import('./components/sections/Intro').then((m) => ({ default: m.Intro })));
 const Services = lazy(() => import('./components/sections/Services').then((m) => ({ default: m.Services })));
+const ProjectList = lazy(() => import('./components/sections/ProjectList').then((m) => ({ default: m.ProjectList })));
 const PricingGuide = lazy(() => import('./components/sections/PricingGuide').then((m) => ({ default: m.PricingGuide })));
 const Process = lazy(() => import('./components/sections/Process').then((m) => ({ default: m.Process })));
 const Faq = lazy(() => import('./components/sections/Faq').then((m) => ({ default: m.Faq })));
@@ -99,9 +100,9 @@ export const App: React.FC = () => {
                 <Intro />
                 <MetricsStrip />
                 <Services />
+                <ProjectList />
                 <PricingGuide />
                 <Process />
-                {/* ProjectList temporalmente oculto hasta integrar casos de estudio reales */}
                 <Faq />
                 <ContactForm />
                 <Footer />

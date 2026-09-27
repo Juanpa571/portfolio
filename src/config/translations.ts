@@ -433,22 +433,22 @@ export const translations: Record<Language, Translations> = {
       ],
     },
     projects: {
-      headerLine1: 'Live',
-      headerLine2: 'Demos.',
-      tagline: 'Visual Benchmark & Live Demos • Click to test the interactive experience',
+      headerLine1: 'Selected',
+      headerLine2: 'Work.',
+      tagline: 'Real Client Case Studies • Click to inspect architecture and results',
       subtagline:
-        'Interactive demonstrations of how bespoke web architecture commands authority and converts',
-      conceptDemoBadge: 'Live Demo',
-      futureVisionDemo: 'Interactive Vision Demo',
-      demoButton: 'Open Live Demo ↗',
+        'Bespoke web platforms engineered to command authority and convert visitors',
+      conceptDemoBadge: 'Case Study',
+      futureVisionDemo: 'Case Study & Architecture',
+      demoButton: 'Visit Live Site ↗',
       items: {
-        'sai-seven': {
-          title: 'SAI — San Andrés Island',
-          category: 'Hospitality • Nature • Culture • Caribbean',
-          tagline: 'Architecture for Direct Bookings with Zero OTA Fees',
+        'maranatha': {
+          title: 'Maranatha Papelería',
+          category: 'Creative Stationery • Packaging & Events',
+          tagline: 'Digital Catalog & Direct WhatsApp Orders with Zero Friction',
           description:
-            'Oceanfront resort and retreat in San Andrés. Digital presence engineered to capture high-value direct bookings without OTA commissions, mobile-first with sub-second loading.',
-          tech: 'React 19 • Direct Booking Architecture • Sub-Second Edge',
+            'Handmade creative stationery studio in Cali. Bespoke web catalog engineered to showcase customized stickers, event packaging, and party favors with instant sub-second loading and direct WhatsApp conversion.',
+          tech: 'React 19 • Tailwind CSS • WhatsApp Catalog • Local GEO',
         },
         'next-project': {
           title: 'Next Project',
@@ -463,11 +463,11 @@ export const translations: Record<Language, Translations> = {
         availableCommissions: 'Available for custom commissions',
         discussProject: 'Discuss a similar project',
         locationScopeLabel: 'Location & Scope',
-        locationScopeValue: 'Bespoke Web Architecture',
+        locationScopeValue: 'Cali, Colombia • Global Remote',
         coreStackLabel: 'Core Stack & Craft',
-        speculativeStudy: 'Speculative Concept Study',
+        speculativeStudy: 'Official Client Case Study',
         disclosureText: (name: string) =>
-          `This project is an interactive design demonstration showcasing how modern web architecture, editorial typography, and high-speed motion elevate ${name}'s digital brand authority and client conversion.`,
+          `Official web platform engineered for ${name}. High-performance responsive catalog with instant sub-second mobile loading and direct WhatsApp conversion.`,
         closeAria: 'Close modal',
       },
     },
@@ -647,7 +647,7 @@ export const translations: Record<Language, Translations> = {
   },
   es: {
     nav: {
-      work: 'Trabajo',
+      work: 'Proyectos',
       process: 'Proceso',
       services: 'Servicios',
       pricing: 'Precios',
@@ -877,22 +877,22 @@ export const translations: Record<Language, Translations> = {
       ],
     },
     projects: {
-      headerLine1: 'Demos en',
-      headerLine2: 'Vivo.',
-      tagline: 'Estándar Visual & Demos en Vivo • Clic para probar la experiencia interactiva',
+      headerLine1: 'Proyectos',
+      headerLine2: 'Recientes.',
+      tagline: 'Casos de Estudio Reales • Clic para explorar la arquitectura y métricas',
       subtagline:
-        'Demostraciones interactivas de cómo una web a medida transmite autoridad y convierte visitas en clientes',
-      conceptDemoBadge: 'Demo en Vivo',
-      futureVisionDemo: 'Demo de Visión Interactiva',
-      demoButton: 'Abrir Demo en Vivo ↗',
+        'Plataformas web diseñadas a medida que transmiten autoridad y generan clientes reales',
+      conceptDemoBadge: 'Caso de Éxito',
+      futureVisionDemo: 'Caso de Éxito & Arquitectura',
+      demoButton: 'Visitar Sitio Web en Vivo ↗',
       items: {
-        'sai-seven': {
-          title: 'SAI — San Andrés Island',
-          category: 'Hospedaje • Naturaleza • Cultura • Caribe',
-          tagline: 'Arquitectura para Reservas Directas sin Comisiones',
+        'maranatha': {
+          title: 'Maranatha Papelería',
+          category: 'Papelería Creativa • Empaques & Eventos',
+          tagline: 'Catálogo Digital y Pedidos Directos por WhatsApp sin Fricción',
           description:
-            'Resort y descanso frente al mar en San Andrés. Arquitectura digital diseñada para captar reservas directas de alto valor sin intermediarios, optimizada para móviles y con carga instantánea.',
-          tech: 'React 19 • Arquitectura de Reserva Directa • Carga Sub-Segundo',
+            'Taller artesanal de papelería creativa en Cali. Plataforma web diseñada para exhibir catálogo de productos, stickers personalizados y empaques para eventos con carga ultrarrápida y conversión directa a WhatsApp.',
+          tech: 'React 19 • Tailwind CSS • Catálogo WhatsApp • SEO Local',
         },
         'next-project': {
           title: 'Próximo Proyecto',
@@ -907,11 +907,11 @@ export const translations: Record<Language, Translations> = {
         availableCommissions: 'Disponible para proyectos a medida',
         discussProject: 'Conversar sobre un proyecto similar',
         locationScopeLabel: 'Ubicación y Alcance',
-        locationScopeValue: 'Arquitectura Web a Medida',
+        locationScopeValue: 'Cali, Colombia • Remoto Global',
         coreStackLabel: 'Tecnología y Desarrollo',
-        speculativeStudy: 'Estudio de Concepto Especulativo',
+        speculativeStudy: 'Caso de Estudio Oficial',
         disclosureText: (name: string) =>
-          `Este proyecto es una demostración interactiva de diseño que muestra cómo la arquitectura web moderna, la tipografía editorial y el movimiento fluido elevan la autoridad de marca y la conversión de clientes para ${name}.`,
+          `Plataforma web desarrollada a medida para ${name}. Catálogo interactivo de alto rendimiento con carga instantánea en móviles y conversión directa a pedidos por WhatsApp.`,
         closeAria: 'Cerrar ventana',
       },
     },
