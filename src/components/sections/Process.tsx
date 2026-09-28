@@ -15,8 +15,8 @@ export const Process: React.FC = () => {
   const descRef = useRef<HTMLParagraphElement | null>(null);
   const rowsContainerRef = useRef<HTMLDivElement | null>(null);
 
-  // Expands on hover (step 0 open by default for accessible, visible content at rest)
-  const [expandedRow, setExpandedRow] = useState<number | null>(0);
+  // Expands on hover/tap (closed by default)
+  const [expandedRow, setExpandedRow] = useState<number | null>(null);
 
   useEffect(() => {
     if (!headerRef.current) return;
@@ -106,7 +106,7 @@ export const Process: React.FC = () => {
             <div className="max-w-3xl">
               <h2
                 ref={titleRef}
-                className="text-[2.35rem] sm:text-4xl lg:text-[3.25rem] font-normal tracking-tight text-black leading-[1.1]"
+                className="text-[1.85rem] sm:text-4xl lg:text-[3.25rem] font-normal tracking-tight text-black leading-[1.14] sm:leading-[1.1]"
               >
                 <span className="block">{highlightBrandKeywords(t.process.headerLine1.trim())}{' '}</span>
                 <span className="block">{highlightBrandKeywords(t.process.headerLine2)}</span>

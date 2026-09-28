@@ -474,9 +474,13 @@ for (const page of pages) {
     `<meta property="og:url" content="${page.canonical}" />`
   );
 
-  // Replace <main>...</main> with dedicated semantic static content for this subpage
+  // Inject or replace dedicated semantic static content for this subpage
   if (page.mainHtml) {
-    html = html.replace(/<main>[\s\S]*?<\/main>/i, `<main>${page.mainHtml}</main>`);
+    if (html.includes('<main>')) {
+      html = html.replace(/<main>[\s\S]*?<\/main>/i, `<main>${page.mainHtml}</main>`);
+    } else {
+      html = html.replace('<div id="root"></div>', `<div id="root"><main>${page.mainHtml}</main></div>`);
+    }
   }
 
   // Generate page-specific Schema.org JSON-LD (WebPage + tailored FAQPage matching visible content)

@@ -8,6 +8,7 @@ export interface Translations {
     pricing: string;
     faq: string;
     contact: string;
+    blog: string;
     talk: string;
     studio: string;
     capabilities: string;
@@ -209,6 +210,7 @@ export const translations: Record<Language, Translations> = {
       pricing: 'Pricing',
       faq: 'FAQ',
       contact: 'Contact',
+      blog: 'Blog',
       talk: "Let's talk",
       studio: 'Independent Studio',
       capabilities: 'Services',
@@ -653,6 +655,7 @@ export const translations: Record<Language, Translations> = {
       pricing: 'Precios',
       faq: 'Preguntas',
       contact: 'Contacto',
+      blog: 'Blog',
       talk: 'Cotizar Proyecto',
       studio: 'Estudio Independiente',
       capabilities: 'Servicios',

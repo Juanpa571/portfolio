@@ -176,6 +176,13 @@ export const Header: React.FC = () => {
       return;
     }
 
+    if (href.startsWith('/') && !href.startsWith('//')) {
+      const lenis = (window as any).__lenis;
+      if (lenis) lenis.start();
+      window.location.href = href;
+      return;
+    }
+
     const targetId = href.replace('#', '');
     const targetEl = document.getElementById(targetId);
     if (!targetEl && typeof window !== 'undefined' && window.location.pathname !== '/') {
@@ -400,29 +407,29 @@ export const Header: React.FC = () => {
         data-lenis-prevent
         onWheel={(e) => e.stopPropagation()}
         onClick={() => setIsMenuOpen(false)}
-        className={`fixed inset-0 bg-black/60 backdrop-blur-xs z-50 transition-opacity duration-500 lg:hidden ${
+        className={`fixed inset-0 bg-black/40 backdrop-blur-xs z-50 transition-opacity duration-500 lg:hidden ${
           isMenuOpen ? 'opacity-100 pointer-events-auto visible' : 'opacity-0 pointer-events-none invisible'
         }`}
         aria-hidden="true"
       />
 
-      {/* Drawer Panel */}
+      {/* Drawer Panel: Bespoke Crisp Studio Surface (#fafaf8) */}
       <div
         role="dialog"
         aria-modal="true"
         aria-label="Navigation Menu"
         data-lenis-prevent
         onWheel={(e) => e.stopPropagation()}
-        className={`fixed top-0 right-0 h-full w-full sm:w-[420px] bg-[#1C1D20] text-white z-55 border-l border-white/10 flex flex-col justify-between p-8 sm:p-10 overflow-y-auto overscroll-contain transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] lg:hidden ${
+        className={`fixed top-0 right-0 h-full w-full sm:w-[420px] bg-[#fafaf8] text-[#111111] z-55 border-l border-black/[0.08] flex flex-col justify-between p-8 sm:p-10 overflow-y-auto overscroll-contain transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] lg:hidden ${
           isMenuOpen
             ? 'translate-x-0 shadow-2xl opacity-100 visible pointer-events-auto'
             : 'translate-x-full shadow-none opacity-0 invisible pointer-events-none'
         }`}
       >
         {/* Drawer Top */}
-        <div className="flex items-center justify-between pt-2 border-b border-white/10 pb-5">
+        <div className="flex items-center justify-between pt-2 border-b border-black/[0.08] pb-5">
           <img
-            src="/logo-horizontal-white.webp"
+            src="/logo-horizontal.webp"
             alt="JP Studios — Menú de navegación móvil para diseño web en Cali"
             className="h-6 w-auto object-contain"
             width={335}
@@ -434,7 +441,7 @@ export const Header: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsMenuOpen(false)}
-              className="p-2 text-white/70 hover:text-white transition-colors cursor-pointer"
+              className="p-2 text-neutral-500 hover:text-black hover:bg-black/[0.04] rounded-full transition-colors cursor-pointer"
               aria-label="Close menu"
               data-interactive
             >
@@ -452,32 +459,56 @@ export const Header: React.FC = () => {
                 key={link.id}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`group flex items-center justify-between py-3.5 border-b border-white/[0.08] hover:border-white/30 transition-all duration-300 ${
-                  isActive ? 'text-white font-medium' : 'text-white/70'
+                className={`group flex items-center justify-between py-3 border-b border-black/[0.06] hover:border-black/25 transition-all duration-300 ${
+                  isActive ? 'text-black font-medium' : 'text-neutral-700'
                 }`}
                 data-interactive
               >
                 <div className="flex items-center gap-3">
                   {isActive && (
-                    <span className="w-2 h-2 rounded-full bg-white" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-black shrink-0" />
                   )}
-                  <span className="text-2xl sm:text-3xl font-normal font-display tracking-[-0.01em] group-hover:translate-x-2 transition-all duration-300">
+                  <span className="text-2xl sm:text-3xl font-light font-display tracking-tight group-hover:translate-x-1.5 transition-all duration-300">
                     {link.label}
                   </span>
                 </div>
-                <span className="text-base text-white/80 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300">
+                <span className="text-sm text-neutral-400 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300">
                   ↗
                 </span>
               </a>
             );
           })}
+
+          {/* Dedicated Subpage Blog Link */}
+          <a
+            href="/posicionar-web-en-google"
+            onClick={(e) => handleNavClick(e, '/posicionar-web-en-google')}
+            className={`group flex items-center justify-between py-3 border-b border-black/[0.06] hover:border-black/25 transition-all duration-300 ${
+              typeof window !== 'undefined' && window.location.pathname.includes('posicionar-web')
+                ? 'text-black font-medium'
+                : 'text-neutral-700'
+            }`}
+            data-interactive
+          >
+            <div className="flex items-center gap-3">
+              <span className="text-2xl sm:text-3xl font-light font-display tracking-tight group-hover:translate-x-1.5 transition-all duration-300">
+                {t.nav.blog}
+              </span>
+              <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-black/[0.05] text-neutral-600 border border-black/[0.06]">
+                SEO & Guías
+              </span>
+            </div>
+            <span className="text-sm text-neutral-400 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300">
+              ↗
+            </span>
+          </a>
         </nav>
 
         {/* Drawer Bottom Telemetry & Actions */}
-        <div className="pt-5 border-t border-white/10 space-y-4 font-sans">
-          <div className="flex items-center justify-between text-xs text-white/70">
+        <div className="pt-5 border-t border-black/[0.08] space-y-4 font-sans">
+          <div className="flex items-center justify-between text-xs text-neutral-500 font-mono">
             <div>COT ({liveTime || 'UTC-5'})</div>
-            <div className="text-white/80 font-medium">{t.nav.availableWorldwide}</div>
+            <div className="text-neutral-800 font-sans font-medium">{t.nav.availableWorldwide}</div>
           </div>
 
           <div className="flex items-center gap-3 pt-1">
@@ -486,7 +517,7 @@ export const Header: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackWhatsAppClick({ location: 'header_drawer', label: 'Mobile Drawer WhatsApp Button' })}
-              className="flex-1 py-3 px-4 rounded-full bg-white text-black text-center font-sans font-medium text-xs sm:text-sm hover:bg-white/90 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+              className="flex-1 py-3 px-4 rounded-xl bg-[#141517] hover:bg-black text-white text-center font-sans font-medium text-xs sm:text-sm active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-sm"
               data-interactive
             >
               <svg
@@ -501,7 +532,7 @@ export const Header: React.FC = () => {
             </a>
             <a
               href={`mailto:${siteConfig.profile.contact.email}`}
-              className="py-3 px-5 rounded-full border border-white/20 hover:border-white text-white text-center font-sans font-medium text-xs sm:text-sm hover:bg-white hover:text-black active:scale-[0.98] transition-all"
+              className="py-3 px-5 rounded-xl border border-black/15 hover:border-black text-neutral-800 text-center font-sans font-medium text-xs sm:text-sm hover:bg-black/[0.04] active:scale-[0.98] transition-all"
               data-interactive
             >
               {t.nav.email}

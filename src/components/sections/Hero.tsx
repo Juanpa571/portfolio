@@ -135,7 +135,7 @@ export const Hero: React.FC = () => {
         <div className="w-full lg:w-auto lg:max-w-[560px] xl:max-w-[620px] 2xl:max-w-[680px] flex-shrink-0 flex flex-col items-start text-left justify-center min-w-0 pr-0 lg:pr-6 relative z-10">
           <h1 
             aria-label={`${t.hero.headlineLine1.trim()} ${t.hero.headlineLine2.trim()} ${t.hero.headlineLine3.trim()} — JP Studios`}
-            className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[3.1vw] xl:text-[3.5vw] font-normal tracking-tight text-black leading-[1.08] m-0 text-left max-w-none"
+            className="text-[1.85rem] sm:text-5xl md:text-6xl lg:text-[3.1vw] xl:text-[3.5vw] font-normal tracking-tight text-black leading-[1.15] sm:leading-[1.08] m-0 text-left max-w-none"
           >
             {/* Line 1 - Strong Anchor Keyword */}
             <span ref={line1Ref} className="block will-change-transform lg:whitespace-nowrap">

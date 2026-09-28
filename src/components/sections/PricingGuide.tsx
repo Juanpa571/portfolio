@@ -9,9 +9,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const PricingGuide: React.FC = () => {
   const { t } = useLanguage();
+  const [mobileActiveIndex, setMobileActiveIndex] = React.useState(0);
   const sectionRef = useRef<HTMLElement | null>(null);
   const headerRef = useRef<HTMLDivElement | null>(null);
   const cardsRef = useRef<HTMLDivElement | null>(null);
+
+  const handleMobileScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const el = e.currentTarget;
+    const cardWidth = el.scrollWidth / 3;
+    if (cardWidth > 0) {
+      const index = Math.round(el.scrollLeft / cardWidth);
+      setMobileActiveIndex(Math.min(2, Math.max(0, index)));
+    }
+  };
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -75,10 +85,12 @@ export const PricingGuide: React.FC = () => {
           </p>
         </div>
 
-        {/* 3-Card Grid (Exact equal height at rest, independently expands only the hovered card with zero shift below) */}
+        {/* 3-Card Carousel on Mobile / 3-Col Grid on Desktop (Exact equal height, unified horizontal swipe on mobile) */}
         <div
           ref={cardsRef}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 items-start lg:min-h-[595px]"
+          onScroll={handleMobileScroll}
+          data-lenis-prevent
+          className="flex lg:grid lg:grid-cols-3 overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory lg:snap-none no-scrollbar gap-3.5 sm:gap-6 items-stretch -mx-6 px-6 lg:mx-0 lg:px-0 pb-2 lg:pb-0 lg:min-h-[595px]"
         >
           {t.pricing.tiers.map((tier, idx) => {
             const isCenterCard = idx === 1;
@@ -89,7 +101,7 @@ export const PricingGuide: React.FC = () => {
                 key={tier.id}
                 itemScope
                 itemType="https://schema.org/Offer"
-                className={`rounded-2xl sm:rounded-3xl p-6 sm:p-7 flex flex-col border border-neutral-200/80 transition-all duration-300 shadow-2xs hover:shadow-xl group lg:min-h-[535px] ${
+                className={`pricing-card-item shrink-0 w-[84vw] sm:w-[75vw] lg:w-auto lg:shrink snap-center lg:snap-align-none rounded-2xl sm:rounded-3xl p-6 sm:p-7 flex flex-col border border-neutral-200/80 transition-all duration-300 shadow-2xs hover:shadow-xl group lg:min-h-[535px] ${
                   isCenterCard ? 'bg-[#f4f4f2]' : 'bg-white'
                 }`}
               >
@@ -237,8 +249,8 @@ export const PricingGuide: React.FC = () => {
                     ))}
                   </ul>
 
-                  {/* Bottom Action: Physically hidden at rest (zero wasted space), smoothly expands on hover */}
-                  <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out">
+                  {/* Bottom Action: Always visible on mobile touchscreens, smoothly expands on hover on desktop */}
+                  <div className="grid grid-rows-[1fr] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out">
                     <div className="overflow-hidden">
                       <div className="pt-3.5 mt-3.5 border-t border-neutral-200/70 flex items-center">
                         <a
@@ -271,6 +283,18 @@ export const PricingGuide: React.FC = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Mobile Swipe Pagination Indicator */}
+        <div className="flex lg:hidden items-center justify-center gap-1.5 pt-4 pb-2">
+          {[0, 1, 2].map((idx) => (
+            <span
+              key={idx}
+              className={`h-1.5 w-1.5 rounded-full transition-transform duration-300 ${
+                mobileActiveIndex === idx ? 'scale-125 bg-black' : 'bg-black/25'
+              }`}
+            />
+          ))}
         </div>
 
         {/* Minimalist 1-Line Footer Note (Zero shift on card hover) */}
