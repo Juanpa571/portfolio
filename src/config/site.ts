@@ -101,7 +101,7 @@ export const siteConfig = {
       description: 'Taller de papelería creativa en Cali. Plataforma web diseñada para exhibir catálogo de productos, stickers y empaques temáticos con conversión directa a pedidos por WhatsApp.',
       aspectRatio: '16/10',
       dimensions: '1440x900 px',
-      image: '/projects/maranatha-hero.png',
+      image: '/projects/maranatha-hero.webp',
       isCta: false,
       theme: {
         accentColor: '#6B21A8',

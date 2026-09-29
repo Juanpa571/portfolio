@@ -136,10 +136,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               <div className="relative group bg-[#faf5ff] overflow-hidden">
                 <div className="relative w-full overflow-hidden">
                   <img
-                    src="/projects/maranatha-hero.png"
+                    src="/projects/maranatha-hero.webp"
                     alt="Maranatha Papelería — Captura de pantalla de la plataforma web en producción"
                     className="w-full h-auto block object-contain object-top transition-transform duration-700 ease-out group-hover:scale-[1.01]"
-                    loading="eager"
+                    loading="lazy"
+                    decoding="async"
                   />
                   {/* Hover banner to launch live site */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 sm:p-10 justify-between pointer-events-none">

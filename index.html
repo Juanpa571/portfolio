@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <!-- Google tag (gtag.js) deferred load on first interaction / timeout -->
+    <!-- Google tag (gtag.js) deferred load on first human interaction -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -18,10 +18,16 @@
           s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JFLR4JV7GJ';
           document.head.appendChild(s);
         }
-        ['pointerdown', 'pointermove', 'scroll', 'touchstart', 'keydown'].forEach(function(ev) {
+        ['pointerdown', 'touchstart', 'keydown'].forEach(function(ev) {
           window.addEventListener(ev, loadGtag, { once: true, passive: true });
         });
-        setTimeout(loadGtag, 7000);
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(function() {
+            setTimeout(loadGtag, 15000);
+          }, { timeout: 20000 });
+        } else {
+          setTimeout(loadGtag, 15000);
+        }
       })();
     </script>
 
@@ -36,10 +42,16 @@
           t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         }
-        ['pointerdown', 'pointermove', 'scroll', 'touchstart', 'keydown'].forEach(function(ev) {
+        ['pointerdown', 'touchstart', 'keydown'].forEach(function(ev) {
           window.addEventListener(ev, loadClarity, { once: true, passive: true });
         });
-        setTimeout(loadClarity, 7000);
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(function() {
+            setTimeout(loadClarity, 16000);
+          }, { timeout: 22000 });
+        } else {
+          setTimeout(loadClarity, 16000);
+        }
       })(window, document, "clarity", "script", "ymtog83o7w");
     </script>
     <meta charset="UTF-8" />
@@ -64,8 +76,9 @@
       body{margin:0;background-color:#070709;color:#f8fafc;font-family:'Geist','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased}
     </style>
 
-    <!-- Hero Image Preload for Instant LCP -->
-    <link rel="preload" as="image" href="/hero-showcase.webp" fetchpriority="high" type="image/webp" />
+    <!-- Hero Image Responsive Preload for Instant LCP (Sub-2s mobile) -->
+    <link rel="preload" as="image" href="/hero-showcase-mobile.webp" media="(max-width: 768px)" fetchpriority="high" type="image/webp" />
+    <link rel="preload" as="image" href="/hero-showcase.webp" media="(min-width: 769px)" fetchpriority="high" type="image/webp" />
     <title>Diseño de Páginas Web en Cali | Páginas Web para Vender — JP Studios</title>
     <meta name="description" content="Diseño de páginas web en Cali y desarrollo a medida en React 19. Sitios web ultrarrápidos para liderar en Google y convertir visitas en clientes reales." />
     <meta name="keywords" content="diseño de páginas web en cali, diseño web cali, desarrollo web cali, páginas web cali, páginas web para empresas, páginas web para vender, posicionamiento web cali, cómo crear una página web para mi negocio, cuánto cuesta una página web, JP Studios, Juan Pablo Chacón" />

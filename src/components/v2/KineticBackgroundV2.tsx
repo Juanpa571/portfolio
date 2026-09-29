@@ -36,13 +36,30 @@ export const KineticBackgroundV2: React.FC = () => {
     let targetMouseY = 0.5;
     let isFinePointer = false;
 
-    // Precargar el activo oficial 3D del emblema en cristal transparente (WebP)
-    const emblemImg = new Image();
-    emblemImg.src = '/jp-emblem-crystal.webp';
+    // Precarga diferida del activo oficial 3D del emblema en cristal transparente (WebP)
+    // No compite con el LCP de la imagen principal durante la carga inicial del Hero
+    let emblemImg: HTMLImageElement | null = null;
     let emblemLoaded = false;
-    emblemImg.onload = () => {
-      emblemLoaded = true;
+
+    const loadEmblem = () => {
+      if (emblemImg) return;
+      emblemImg = new Image();
+      emblemImg.src = '/jp-emblem-crystal.webp';
+      emblemImg.onload = () => {
+        emblemLoaded = true;
+        requestTick();
+      };
     };
+
+    if (typeof window !== 'undefined') {
+      if ('requestIdleCallback' in window) {
+        (window as any).requestIdleCallback(() => {
+          loadEmblem();
+        }, { timeout: 4000 });
+      } else {
+        setTimeout(loadEmblem, 3000);
+      }
+    }
 
     // Offscreen canvas dedicado para teñir el cristal sin afectar el canvas principal
     const tintCanvas = document.createElement('canvas');
@@ -120,6 +137,14 @@ export const KineticBackgroundV2: React.FC = () => {
       ctx.scale(dpr, dpr);
     };
 
+    let isRunning = false;
+    const requestTick = () => {
+      if (!isRunning) {
+        isRunning = true;
+        animationFrameId = requestAnimationFrame(render);
+      }
+    };
+
     // Medición desacoplada mediante rAF para prevenir Layout Thrashing y Forced Reflows (Regla 12)
     let measureRAFId: number | null = null;
     const measureSections = () => {
@@ -139,18 +164,24 @@ export const KineticBackgroundV2: React.FC = () => {
           projHeaderTop = projEl.getBoundingClientRect().top + scrollY;
         }
         measureRAFId = null;
+        requestTick();
       });
     };
 
     const handleScroll = () => {
       currentScrollY = window.scrollY || window.pageYOffset || 0;
       targetScrollProgress = Math.min(Math.max(currentScrollY / maxScroll, 0), 1);
+      if (currentScrollY > 40) {
+        loadEmblem();
+      }
+      requestTick();
     };
 
     const onResize = () => {
       resize();
       measureSections();
       handleScroll();
+      requestTick();
     };
 
     resize();
@@ -178,6 +209,10 @@ export const KineticBackgroundV2: React.FC = () => {
       const scrollY = typeof e.scroll === 'number' ? e.scroll : (window.scrollY || 0);
       currentScrollY = scrollY;
       targetScrollProgress = Math.min(Math.max(currentScrollY / maxScroll, 0), 1);
+      if (currentScrollY > 40) {
+        loadEmblem();
+      }
+      requestTick();
     };
 
     let cleanupLenis: (() => void) | null = null;
@@ -203,6 +238,7 @@ export const KineticBackgroundV2: React.FC = () => {
       if (!isFinePointer) return;
       targetMouseX = e.clientX / width;
       targetMouseY = e.clientY / height;
+      requestTick();
     };
 
     if (isFinePointer) {
@@ -269,7 +305,7 @@ export const KineticBackgroundV2: React.FC = () => {
 
     const render = () => {
       if (document.hidden) {
-        animationFrameId = requestAnimationFrame(render);
+        isRunning = false;
         return;
       }
 
@@ -343,7 +379,7 @@ export const KineticBackgroundV2: React.FC = () => {
       // Se revela gradualmente con desenfoque óptico profundo conforme el usuario desciende.
       const emblemFade = Math.min(Math.max((scrollProgress - 0.08) / 0.18, 0), 1);
 
-      if (emblemLoaded && emblemFade > 0 && tintCtx) {
+      if (emblemLoaded && emblemImg && emblemFade > 0 && tintCtx) {
         ctx.save();
         const brandX = width * 0.52 + mouseDx * 0.35;
         const brandY = height * 0.48 + mouseDy * 0.35;
@@ -402,15 +438,41 @@ export const KineticBackgroundV2: React.FC = () => {
       ctx.fillStyle = centerMask;
       ctx.fillRect(0, 0, width, height);
 
-      animationFrameId = requestAnimationFrame(render);
+      if (isFinePointer) {
+        animationFrameId = requestAnimationFrame(render);
+      } else {
+        const scrollDelta = Math.abs(scrollProgress - targetScrollProgress);
+        const colorDelta = Math.abs(curC1[0] - targetPalette.c1[0]) +
+                           Math.abs(curC1[1] - targetPalette.c1[1]) +
+                           Math.abs(curC2[0] - targetPalette.c2[0]) +
+                           Math.abs(curC3[0] - targetPalette.c3[0]);
+        if (scrollDelta > 0.0005 || colorDelta > 1) {
+          animationFrameId = requestAnimationFrame(render);
+        } else {
+          scrollProgress = targetScrollProgress;
+          curC1[0] = targetPalette.c1[0]; curC1[1] = targetPalette.c1[1]; curC1[2] = targetPalette.c1[2];
+          curC2[0] = targetPalette.c2[0]; curC2[1] = targetPalette.c2[1]; curC2[2] = targetPalette.c2[2];
+          curC3[0] = targetPalette.c3[0]; curC3[1] = targetPalette.c3[1]; curC3[2] = targetPalette.c3[2];
+          isRunning = false;
+        }
+      }
     };
 
-    animationFrameId = requestAnimationFrame(render);
+    // Arranque inicial controlado
+    requestTick();
+
+    const onVisibilityChange = () => {
+      if (!document.hidden) {
+        requestTick();
+      }
+    };
+    document.addEventListener('visibilitychange', onVisibilityChange);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
       if (measureRAFId !== null) cancelAnimationFrame(measureRAFId);
       if (docObserver) docObserver.disconnect();
+      document.removeEventListener('visibilitychange', onVisibilityChange);
       window.removeEventListener('resize', onResize);
       window.removeEventListener('scroll', handleScroll);
       if (cleanupLenis) cleanupLenis();

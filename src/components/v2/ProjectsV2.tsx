@@ -136,7 +136,7 @@ export const ProjectsV2: React.FC = () => {
                   {/* Aspect Ratio 1440/1000 Exacto sin zoom */}
                   <div className="aspect-[1440/1000] w-full overflow-hidden relative bg-[#060709]">
                     <img 
-                      src="/projects/maranatha-hero.png" 
+                      src="/projects/maranatha-hero.webp" 
                       alt="Catálogo web interactivo desarrollado para Maranatha Papelería Creativa en Cali"
                       width={1440}
                       height={1000}

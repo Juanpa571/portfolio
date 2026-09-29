@@ -172,13 +172,26 @@ export const HeroV2: React.FC = () => {
               className="relative w-full max-w-[760px] lg:max-w-[840px] xl:max-w-[920px] 2xl:max-w-[980px] transition-transform duration-75 ease-out will-change-transform"
             >
               <picture>
+                {/* Móvil optimizado (Pantallas hasta 768px / smartphones Retina) */}
                 <source 
+                  media="(max-width: 768px)"
+                  type="image/webp" 
+                  srcSet="/hero-showcase-mobile.webp 1x, /hero-showcase-mobile@2x.webp 2x" 
+                  width="720"
+                  height="405"
+                />
+                {/* Escritorio y pantallas grandes (Desktop / Retina 2x) */}
+                <source 
+                  media="(min-width: 769px)"
                   type="image/webp" 
                   srcSet="/hero-showcase.webp 1x, /hero-showcase@2x.webp 2x" 
+                  width="1672"
+                  height="941"
                 />
                 <img
                   src="/hero-showcase.webp"
-                  srcSet="/hero-showcase.webp 1x, /hero-showcase@2x.webp 2x"
+                  srcSet="/hero-showcase-mobile.webp 720w, /hero-showcase.webp 1672w"
+                  sizes="(max-width: 768px) 100vw, 840px"
                   alt="Sitio web y catálogo interactivo para Maranatha Papelería en Cali optimizado para vender en laptop y celular por JP Studios"
                   className="w-full h-auto object-contain cursor-default transition-all duration-300 ease-out [filter:drop-shadow(0px_10px_30px_rgba(180,80,255,0.25))_drop-shadow(0px_25px_50px_rgba(0,0,0,0.8))] hover:[filter:drop-shadow(0px_15px_40px_rgba(180,80,255,0.45))_drop-shadow(0px_0px_50px_rgba(6,182,212,0.30))_drop-shadow(0px_30px_60px_rgba(0,0,0,0.95))] hover:-translate-y-[5px]"
                   style={{
@@ -189,7 +202,7 @@ export const HeroV2: React.FC = () => {
                   height="941"
                   loading="eager"
                   fetchPriority="high"
-                  decoding="sync"
+                  decoding="async"
                 />
               </picture>
             </div>

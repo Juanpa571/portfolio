@@ -50,12 +50,13 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
               aria-label="JP Studios Inicio"
             >
               <img 
-                src="/logo-horizontal.png"
+                src="/logo-horizontal.webp"
                 alt="JP Studios"
                 width={140}
                 height={30}
                 className="h-7 w-auto object-contain filter drop-shadow-[0_2px_10px_rgba(6,182,212,0.15)]"
                 loading="lazy"
+                decoding="async"
               />
             </a>
 
