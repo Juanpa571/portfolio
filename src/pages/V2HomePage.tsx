@@ -5,13 +5,25 @@ import { HeroV2 } from '../components/v2/HeroV2';
 import { PainDiagnosisV2 } from '../components/v2/PainDiagnosisV2';
 import { KineticBackgroundV2 } from '../components/v2/KineticBackgroundV2';
 
+// Helper para reintentar la carga de chunks si ocurre un micro-desfase de red en la CDN
+function lazyWithRetry<T extends React.ComponentType<any>>(
+  factory: () => Promise<{ default: T }>
+): React.LazyExoticComponent<T> {
+  return lazy(() =>
+    factory().catch((err) => {
+      console.warn('Chunk loading retry...', err);
+      return new Promise<{ default: T }>((resolve) => setTimeout(resolve, 800)).then(factory);
+    })
+  );
+}
+
 // Carga diferida de secciones below-the-fold para máxima velocidad de carga inicial
-const ServicesV2 = lazy(() => import('../components/v2/ServicesV2').then(m => ({ default: m.ServicesV2 })));
-const ProjectsV2 = lazy(() => import('../components/v2/ProjectsV2').then(m => ({ default: m.ProjectsV2 })));
-const ProcessV2 = lazy(() => import('../components/v2/ProcessV2').then(m => ({ default: m.ProcessV2 })));
-const FaqV2 = lazy(() => import('../components/v2/FaqV2').then(m => ({ default: m.FaqV2 })));
-const ContactV2 = lazy(() => import('../components/v2/ContactV2').then(m => ({ default: m.ContactV2 })));
-const FooterV2 = lazy(() => import('../components/v2/FooterV2').then(m => ({ default: m.FooterV2 })));
+const ServicesV2 = lazyWithRetry(() => import('../components/v2/ServicesV2').then(m => ({ default: m.ServicesV2 })));
+const ProjectsV2 = lazyWithRetry(() => import('../components/v2/ProjectsV2').then(m => ({ default: m.ProjectsV2 })));
+const ProcessV2 = lazyWithRetry(() => import('../components/v2/ProcessV2').then(m => ({ default: m.ProcessV2 })));
+const FaqV2 = lazyWithRetry(() => import('../components/v2/FaqV2').then(m => ({ default: m.FaqV2 })));
+const ContactV2 = lazyWithRetry(() => import('../components/v2/ContactV2').then(m => ({ default: m.ContactV2 })));
+const FooterV2 = lazyWithRetry(() => import('../components/v2/FooterV2').then(m => ({ default: m.FooterV2 })));
 
 export const V2HomePage: React.FC = () => {
   const [showBelowFold, setShowBelowFold] = useState(false);

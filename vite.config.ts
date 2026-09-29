@@ -13,7 +13,11 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+          if (
+            id.includes('node_modules/react') ||
+            id.includes('node_modules/react-dom') ||
+            id.includes('utils/analytics')
+          ) {
             return 'vendor-framework';
           }
           if (id.includes('node_modules/gsap') || id.includes('node_modules/lenis')) {
