@@ -2,12 +2,10 @@ import React, { Suspense, lazy } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import { useRouter } from './hooks/useRouter';
+import { ErrorBoundary } from './components/ui/ErrorBoundary';
+import { V2HomePage } from './pages/V2HomePage';
 
-// Páginas de la plataforma
-const V2HomePage = lazy(() =>
-  import('./pages/V2HomePage').then((m) => ({ default: m.V2HomePage }))
-);
-
+// Subpáginas con carga diferida (lazy) para mantener el bundle ligero
 const PosicionarWebGooglePage = lazy(() =>
   import('./pages/PosicionarWebGooglePage').then((m) => ({ default: m.PosicionarWebGooglePage }))
 );
@@ -60,38 +58,39 @@ export const App: React.FC = () => {
   const isNotFound = !isHome && !isDisenoWebCali && !isPosicionarWeb && !isPrivacy && !isTerms && !isV2 && !isAuditoriaGoogle;
 
   return (
-    <LanguageProvider>
-      <div 
-        id="top" 
-        className="min-h-screen bg-[#070709] text-slate-100 selection:bg-cyan-500 selection:text-black font-sans antialiased relative"
-      >
-        {isNotFound ? (
-          <Suspense fallback={<div className="min-h-screen bg-[#070709]" />}>
-            <NotFoundPage onNavigateHome={() => navigate('/')} />
-          </Suspense>
-        ) : isPrivacy ? (
-          <Suspense fallback={<div className="min-h-screen bg-[#070709]" />}>
-            <PrivacyPage onNavigateHome={() => navigate('/')} />
-          </Suspense>
-        ) : isTerms ? (
-          <Suspense fallback={<div className="min-h-screen bg-[#070709]" />}>
-            <TermsPage onNavigateHome={() => navigate('/')} />
-          </Suspense>
-        ) : isAuditoriaGoogle ? (
-          <Suspense fallback={<div className="min-h-screen bg-[#08090C]" />}>
-            <AuditoriaGooglePage />
-          </Suspense>
-        ) : isPosicionarWeb ? (
-          <Suspense fallback={<div className="min-h-screen bg-[#070709]" />}>
-            <PosicionarWebGooglePage onNavigateHome={() => navigate('/')} />
-          </Suspense>
-        ) : (
-          <Suspense fallback={<div className="min-h-screen bg-[#070709]" />}>
+    <ErrorBoundary>
+      <LanguageProvider>
+        <div 
+          id="top" 
+          className="min-h-screen bg-[#070709] text-slate-100 selection:bg-cyan-500 selection:text-black font-sans antialiased relative"
+        >
+          {isNotFound ? (
+            <Suspense fallback={<div className="min-h-screen bg-[#070709]" />}>
+              <NotFoundPage onNavigateHome={() => navigate('/')} />
+            </Suspense>
+          ) : isPrivacy ? (
+            <Suspense fallback={<div className="min-h-screen bg-[#070709]" />}>
+              <PrivacyPage onNavigateHome={() => navigate('/')} />
+            </Suspense>
+          ) : isTerms ? (
+            <Suspense fallback={<div className="min-h-screen bg-[#070709]" />}>
+              <TermsPage onNavigateHome={() => navigate('/')} />
+            </Suspense>
+          ) : isAuditoriaGoogle ? (
+            <Suspense fallback={<div className="min-h-screen bg-[#08090C]" />}>
+              <AuditoriaGooglePage />
+            </Suspense>
+          ) : isPosicionarWeb ? (
+            <Suspense fallback={<div className="min-h-screen bg-[#070709]" />}>
+              <PosicionarWebGooglePage onNavigateHome={() => navigate('/')} />
+            </Suspense>
+          ) : (
+            /* Home Page (Renderizado directo instantáneo sin roundtrips de red) */
             <V2HomePage />
-          </Suspense>
-        )}
-      </div>
-    </LanguageProvider>
+          )}
+        </div>
+      </LanguageProvider>
+    </ErrorBoundary>
   );
 };
 

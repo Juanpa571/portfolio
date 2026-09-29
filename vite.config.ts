@@ -16,7 +16,7 @@ export default defineConfig({
             return 'vendor-framework';
           }
           if (id.includes('node_modules/gsap') || id.includes('node_modules/lenis')) {
-            return 'vendor-motion';
+            return 'vendor-smooth-scroll';
           }
           if (id.includes('node_modules/lucide-react')) {
             return 'vendor-icons';

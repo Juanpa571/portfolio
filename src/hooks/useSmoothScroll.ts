@@ -139,6 +139,8 @@ export const useSmoothScroll = () => {
         (window as any).lenis = null;
         lenis.destroy();
       };
+    }).catch((err) => {
+      console.warn('Smooth scroll non-blocking fallback (native scroll preserved):', err);
     });
 
     return () => {
