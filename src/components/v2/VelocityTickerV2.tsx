@@ -41,7 +41,9 @@ export const VelocityTickerV2: React.FC = () => {
     resizeObserver.observe(row1Ref.current);
     resizeObserver.observe(row2Ref.current);
 
+    let isInView = false;
     const updateTicker = () => {
+      if (!isInView) return;
       targetVelocity *= 0.92;
       velocityMultiplier += (targetVelocity - velocityMultiplier) * 0.12;
 
@@ -67,10 +69,25 @@ export const VelocityTickerV2: React.FC = () => {
 
     gsap.ticker.add(updateTicker);
 
+    // Pause ticker when offscreen to save main thread budget
+    let viewportObserver: IntersectionObserver | null = null;
+    if ('IntersectionObserver' in window && containerRef.current) {
+      viewportObserver = new IntersectionObserver(
+        (entries) => {
+          isInView = entries[0]?.isIntersecting ?? false;
+        },
+        { rootMargin: '100px 0px' }
+      );
+      viewportObserver.observe(containerRef.current);
+    } else {
+      isInView = true;
+    }
+
     return () => {
       gsap.ticker.remove(updateTicker);
       resizeObserver.disconnect();
       scrollTrigger.kill();
+      if (viewportObserver) viewportObserver.disconnect();
     };
   }, []);
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface KineticMetricProps {
@@ -17,12 +17,44 @@ const KineticMetric: React.FC<KineticMetricProps> = ({
   direction = 'up',
 }) => {
   const [index, setIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % values.length);
-    }, intervalMs);
-    return () => clearInterval(timer);
+    let timer: any = null;
+    let observer: IntersectionObserver | null = null;
+
+    const start = () => {
+      if (!timer) {
+        timer = setInterval(() => {
+          setIndex((prev) => (prev + 1) % values.length);
+        }, intervalMs);
+      }
+    };
+
+    const stop = () => {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    };
+
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window && containerRef.current) {
+      observer = new IntersectionObserver((entries) => {
+        if (entries[0]?.isIntersecting) {
+          start();
+        } else {
+          stop();
+        }
+      }, { threshold: 0.1 });
+      observer.observe(containerRef.current);
+    } else {
+      start();
+    }
+
+    return () => {
+      stop();
+      if (observer) observer.disconnect();
+    };
   }, [values.length, intervalMs]);
 
   const initialY = direction === 'down' ? '-100%' : '100%';
@@ -30,6 +62,7 @@ const KineticMetric: React.FC<KineticMetricProps> = ({
 
   return (
     <div 
+      ref={containerRef}
       className="h-14 sm:h-16 flex items-center overflow-hidden relative" 
       aria-label={ariaLabel}
     >

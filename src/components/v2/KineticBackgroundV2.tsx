@@ -51,15 +51,8 @@ export const KineticBackgroundV2: React.FC = () => {
       };
     };
 
-    if (typeof window !== 'undefined') {
-      if ('requestIdleCallback' in window) {
-        (window as any).requestIdleCallback(() => {
-          loadEmblem();
-        }, { timeout: 4000 });
-      } else {
-        setTimeout(loadEmblem, 3000);
-      }
-    }
+    // El emblema en cristal solo se carga bajo demanda cuando el usuario hace scroll hacia abajo (>40px)
+    // Cero consumo de ancho de banda o contención durante la carga inicial del Hero
 
     // Offscreen canvas dedicado para teñir el cristal sin afectar el canvas principal
     const tintCanvas = document.createElement('canvas');
@@ -125,10 +118,6 @@ export const KineticBackgroundV2: React.FC = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       width = window.innerWidth;
       height = window.innerHeight;
-      maxScroll = Math.max(
-        document.documentElement.scrollHeight - height,
-        1
-      );
       canvas.width = Math.floor(width * dpr);
       canvas.height = Math.floor(height * dpr);
       canvas.style.width = `${width}px`;
@@ -150,6 +139,8 @@ export const KineticBackgroundV2: React.FC = () => {
     function measureSections() {
       if (measureRAFId !== null) return;
       measureRAFId = requestAnimationFrame(() => {
+        const bodyH = document.body ? document.body.clientHeight : 4000;
+        maxScroll = Math.max(bodyH - height, 1);
         const diagEl = document.getElementById('diagnostico-header') || document.getElementById('diagnostico');
         const servEl = document.getElementById('servicios-header') || document.getElementById('servicios');
         const projEl = document.getElementById('proyectos-header') || document.getElementById('proyectos');
@@ -170,6 +161,9 @@ export const KineticBackgroundV2: React.FC = () => {
 
     function handleScroll() {
       currentScrollY = window.scrollY || window.pageYOffset || 0;
+      if (diagHeaderTop === 0) {
+        measureSections();
+      }
       targetScrollProgress = Math.min(Math.max(currentScrollY / maxScroll, 0), 1);
       if (currentScrollY > 40) {
         loadEmblem();
@@ -184,20 +178,8 @@ export const KineticBackgroundV2: React.FC = () => {
       requestTick();
     }
 
-    // Re-mediciones escalonadas tras hidratación y carga de fuentes/imágenes
-    setTimeout(measureSections, 250);
-    setTimeout(measureSections, 1000);
-    setTimeout(measureSections, 2500);
-
-    // ResizeObserver en el documento para mantener posiciones precisas si cambian alturas por imágenes
-    let docObserver: ResizeObserver | null = null;
-    if (typeof ResizeObserver !== 'undefined') {
-      docObserver = new ResizeObserver(() => {
-        measureSections();
-      });
-      docObserver.observe(document.body);
-    }
-
+    // Medición diferida: no bloquea el hilo principal durante el renderizado inicial
+    window.addEventListener('load', measureSections, { once: true, passive: true });
     window.addEventListener('resize', onResize, { passive: true });
     window.addEventListener('scroll', handleScroll, { passive: true });
 
@@ -435,23 +417,23 @@ export const KineticBackgroundV2: React.FC = () => {
       ctx.fillStyle = centerMask;
       ctx.fillRect(0, 0, width, height);
 
-      if (isFinePointer) {
+      // Convergence check: sleep when nothing is changing (desktop AND mobile)
+      const scrollDelta = Math.abs(scrollProgress - targetScrollProgress);
+      const mouseDelta = isFinePointer ? (Math.abs(mouseX - targetMouseX) + Math.abs(mouseY - targetMouseY)) : 0;
+      const colorDelta = Math.abs(curC1[0] - targetPalette.c1[0]) +
+                         Math.abs(curC1[1] - targetPalette.c1[1]) +
+                         Math.abs(curC2[0] - targetPalette.c2[0]) +
+                         Math.abs(curC3[0] - targetPalette.c3[0]);
+      if (scrollDelta > 0.0005 || colorDelta > 1 || mouseDelta > 0.001) {
         animationFrameId = requestAnimationFrame(render);
       } else {
-        const scrollDelta = Math.abs(scrollProgress - targetScrollProgress);
-        const colorDelta = Math.abs(curC1[0] - targetPalette.c1[0]) +
-                           Math.abs(curC1[1] - targetPalette.c1[1]) +
-                           Math.abs(curC2[0] - targetPalette.c2[0]) +
-                           Math.abs(curC3[0] - targetPalette.c3[0]);
-        if (scrollDelta > 0.0005 || colorDelta > 1) {
-          animationFrameId = requestAnimationFrame(render);
-        } else {
-          scrollProgress = targetScrollProgress;
-          curC1[0] = targetPalette.c1[0]; curC1[1] = targetPalette.c1[1]; curC1[2] = targetPalette.c1[2];
-          curC2[0] = targetPalette.c2[0]; curC2[1] = targetPalette.c2[1]; curC2[2] = targetPalette.c2[2];
-          curC3[0] = targetPalette.c3[0]; curC3[1] = targetPalette.c3[1]; curC3[2] = targetPalette.c3[2];
-          isRunning = false;
-        }
+        scrollProgress = targetScrollProgress;
+        mouseX = targetMouseX;
+        mouseY = targetMouseY;
+        curC1[0] = targetPalette.c1[0]; curC1[1] = targetPalette.c1[1]; curC1[2] = targetPalette.c1[2];
+        curC2[0] = targetPalette.c2[0]; curC2[1] = targetPalette.c2[1]; curC2[2] = targetPalette.c2[2];
+        curC3[0] = targetPalette.c3[0]; curC3[1] = targetPalette.c3[1]; curC3[2] = targetPalette.c3[2];
+        isRunning = false;
       }
     }
 
@@ -471,7 +453,7 @@ export const KineticBackgroundV2: React.FC = () => {
     return () => {
       cancelAnimationFrame(animationFrameId);
       if (measureRAFId !== null) cancelAnimationFrame(measureRAFId);
-      if (docObserver) docObserver.disconnect();
+      window.removeEventListener('load', measureSections);
       document.removeEventListener('visibilitychange', onVisibilityChange);
       window.removeEventListener('resize', onResize);
       window.removeEventListener('scroll', handleScroll);

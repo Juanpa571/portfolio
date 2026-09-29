@@ -94,7 +94,7 @@ export const HeaderV2: React.FC<HeaderV2Props> = ({ onNavigateHome }) => {
               height={32}
               className="h-7 sm:h-8 w-auto object-contain filter drop-shadow-[0_2px_12px_rgba(6,182,212,0.18)] transition-all"
               loading="eager"
-              fetchPriority="high"
+              decoding="async"
             />
           </picture>
         </a>

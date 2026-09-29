@@ -263,7 +263,9 @@ export const ProcessV2: React.FC = () => {
                 }`}
               >
                 {/* Contenido principal de la tarjeta */}
-                <div className={`transition-all duration-500 ${
+                <div 
+                  aria-hidden={!isUnlocked}
+                  className={`transition-all duration-500 ${
                   isUnlocked 
                     ? 'opacity-100 filter-none' 
                     : 'opacity-25 filter blur-[5px] select-none pointer-events-none'
@@ -305,7 +307,9 @@ export const ProcessV2: React.FC = () => {
                 </div>
 
                 {/* Entregable garantizado del paso */}
-                <div className={`pt-6 mt-8 border-t border-white/[0.06] transition-all duration-500 ${
+                <div 
+                  aria-hidden={!isUnlocked}
+                  className={`pt-6 mt-8 border-t border-white/[0.06] transition-all duration-500 ${
                   isUnlocked 
                     ? 'opacity-100 filter-none' 
                     : 'opacity-25 filter blur-[5px] select-none pointer-events-none'

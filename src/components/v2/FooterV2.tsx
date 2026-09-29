@@ -245,7 +245,7 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
               type="button"
               onClick={scrollToTop}
               className="inline-flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors cursor-pointer group"
-              aria-label="Volver al inicio de la página"
+              aria-label="Arriba - volver al inicio de la página"
             >
               <span>Arriba</span>
               <ArrowUp className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5" />

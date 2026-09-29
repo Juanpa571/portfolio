@@ -1,4 +1,21 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
+
+// Singleton: inject GlowingEdgeCard CSS once into <head> on first mount
+// Avoids 3× duplicated <style> blocks while keeping CSS non-render-blocking
+let glowingCardStylesInjected = false;
+function ensureGlowingCardStyles() {
+  if (glowingCardStylesInjected || typeof document === 'undefined') return;
+  glowingCardStylesInjected = true;
+  const style = document.createElement('style');
+  style.setAttribute('data-glowing-card', '');
+  style.textContent = `
+.glowing-card-mesh-border{position:absolute;inset:0;border-radius:inherit;z-index:-1;border:1px solid transparent;background:linear-gradient(var(--card-bg) 0 100%) padding-box,linear-gradient(rgb(255 255 255/0%) 0% 100%) border-box,radial-gradient(at 80% 55%,hsla(268,100%,76%,1) 0px,transparent 50%) border-box,radial-gradient(at 69% 34%,hsla(349,100%,74%,1) 0px,transparent 50%) border-box,radial-gradient(at 8% 6%,hsla(136,100%,78%,1) 0px,transparent 50%) border-box,radial-gradient(at 41% 38%,hsla(192,100%,64%,1) 0px,transparent 50%) border-box,radial-gradient(at 86% 85%,hsla(186,100%,74%,1) 0px,transparent 50%) border-box,radial-gradient(at 82% 18%,hsla(52,100%,65%,1) 0px,transparent 50%) border-box,radial-gradient(at 51% 4%,hsla(12,100%,72%,1) 0px,transparent 50%) border-box,linear-gradient(#06b6d4 0 100%) border-box;opacity:calc((var(--pointer-d) - var(--color-sens))/(100 - var(--color-sens)));mask-image:conic-gradient(from var(--pointer-deg) at center,black 25%,transparent 40%,transparent 60%,black 75%);-webkit-mask-image:conic-gradient(from var(--pointer-deg) at center,black 25%,transparent 40%,transparent 60%,black 75%);transition:opacity .25s ease-out}
+.glowing-card-mesh-bg{position:absolute;inset:0;border-radius:inherit;z-index:-1;border:1px solid transparent;background:radial-gradient(at 80% 55%,hsla(268,100%,76%,1) 0px,transparent 50%) padding-box,radial-gradient(at 69% 34%,hsla(349,100%,74%,1) 0px,transparent 50%) padding-box,radial-gradient(at 8% 6%,hsla(136,100%,78%,1) 0px,transparent 50%) padding-box,radial-gradient(at 41% 38%,hsla(192,100%,64%,1) 0px,transparent 50%) padding-box,radial-gradient(at 86% 85%,hsla(186,100%,74%,1) 0px,transparent 50%) padding-box,radial-gradient(at 82% 18%,hsla(52,100%,65%,1) 0px,transparent 50%) padding-box,radial-gradient(at 51% 4%,hsla(12,100%,72%,1) 0px,transparent 50%) padding-box,linear-gradient(#06b6d4 0 100%) padding-box;mask-image:linear-gradient(to bottom,black,black),radial-gradient(ellipse at 50% 50%,black 40%,transparent 65%),radial-gradient(ellipse at 66% 66%,black 5%,transparent 40%),radial-gradient(ellipse at 33% 33%,black 5%,transparent 40%),radial-gradient(ellipse at 66% 33%,black 5%,transparent 40%),radial-gradient(ellipse at 33% 66%,black 5%,transparent 40%),conic-gradient(from var(--pointer-deg) at center,transparent 5%,black 15%,black 85%,transparent 95%);-webkit-mask-image:linear-gradient(to bottom,black,black),radial-gradient(ellipse at 50% 50%,black 40%,transparent 65%),radial-gradient(ellipse at 66% 66%,black 5%,transparent 40%),radial-gradient(ellipse at 33% 33%,black 5%,transparent 40%),radial-gradient(ellipse at 66% 33%,black 5%,transparent 40%),radial-gradient(ellipse at 33% 66%,black 5%,transparent 40%),conic-gradient(from var(--pointer-deg) at center,transparent 5%,black 15%,black 85%,transparent 95%);mask-composite:subtract,add,add,add,add,add,add;-webkit-mask-composite:source-out,destination-over,destination-over,destination-over,destination-over,destination-over,destination-over;opacity:calc((var(--pointer-d) - var(--color-sens))/(100 - var(--color-sens)));mix-blend-mode:var(--blend);transition:opacity .25s ease-out}
+.glowing-card-glow{position:absolute;inset:-40px;pointer-events:none;z-index:1;mask-image:conic-gradient(from var(--pointer-deg) at center,black 2.5%,transparent 10%,transparent 90%,black 97.5%);-webkit-mask-image:conic-gradient(from var(--pointer-deg) at center,black 2.5%,transparent 10%,transparent 90%,black 97.5%);opacity:calc((var(--pointer-d) - var(--glow-sens))/(100 - var(--glow-sens)));mix-blend-mode:var(--glow-blend);transition:opacity .25s ease-out;border-radius:inherit}
+.glowing-card-glow::before{content:"";position:absolute;inset:40px;border-radius:inherit;box-shadow:inset 0 0 0 1px hsl(var(--glow-color)/100%),inset 0 0 1px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 60%)),inset 0 0 3px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 50%)),inset 0 0 6px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 40%)),inset 0 0 15px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 30%)),inset 0 0 25px 2px hsl(var(--glow-color)/calc(var(--glow-boost) + 20%)),inset 0 0 50px 2px hsl(var(--glow-color)/calc(var(--glow-boost) + 10%)),0 0 1px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 60%)),0 0 3px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 50%)),0 0 6px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 40%)),0 0 15px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 30%)),0 0 25px 2px hsl(var(--glow-color)/calc(var(--glow-boost) + 20%)),0 0 50px 2px hsl(var(--glow-color)/calc(var(--glow-boost) + 10%))}
+.group:not(:hover):not(.animating) .glowing-card-mesh-border,.group:not(:hover):not(.animating) .glowing-card-mesh-bg,.group:not(:hover):not(.animating) .glowing-card-glow{opacity:0!important;transition:opacity .75s ease-in-out}`;
+  document.head.appendChild(style);
+}
 
 export interface GlowingEdgeCardProps extends React.HTMLAttributes<HTMLDivElement> {
   mode?: 'dark' | 'light';
@@ -28,10 +45,12 @@ export const GlowingEdgeCard: React.FC<GlowingEdgeCardProps> = ({
   children,
   ...props 
 }) => {
+  // Inject CSS once (singleton) — not render-blocking, not 3× duplicated
+  ensureGlowingCardStyles();
+
   const cardRef = useRef<HTMLDivElement>(null);
   const rectRef = useRef<DOMRect | null>(null);
   const rAFRef = useRef<number | null>(null);
-  const [isAnimating, setIsAnimating] = useState(false);
 
   // Funciones matemáticas de precisión geométrica
   const round = (value: number, precision = 2) => Number(value.toFixed(precision));
@@ -111,11 +130,6 @@ export const GlowingEdgeCard: React.FC<GlowingEdgeCardProps> = ({
       cardRef.current.style.setProperty('--pointer-y', `${round(pery)}%`);
       cardRef.current.style.setProperty('--pointer-deg', `${round(angle)}deg`);
       cardRef.current.style.setProperty('--pointer-d', `${round(edge * 100)}`);
-      
-      if (isAnimating) {
-        setIsAnimating(false);
-        cardRef.current.classList.remove('animating');
-      }
     });
   };
 
@@ -130,69 +144,6 @@ export const GlowingEdgeCard: React.FC<GlowingEdgeCardProps> = ({
     }
   };
 
-  // Animación de bienvenida inicial
-  useEffect(() => {
-    const playAnimation = () => {
-      if (!cardRef.current) return;
-      
-      setIsAnimating(true);
-      const angleStart = 110;
-      const angleEnd = 465;
-      
-      cardRef.current.style.setProperty('--pointer-deg', `${angleStart}deg`);
-      
-      const startTime = performance.now();
-      
-      const animate = (now: number) => {
-        if (!cardRef.current || !cardRef.current.classList.contains('animating')) return;
-        
-        const elapsed = now - startTime;
-        
-        // Fase 1: Distancia (Fade in)
-        if (elapsed > 400 && elapsed < 900) {
-          const t = (elapsed - 400) / 500;
-          const ease = 1 - Math.pow(1 - t, 3);
-          cardRef.current.style.setProperty('--pointer-d', `${ease * 100}`);
-        }
-        
-        // Fase 2: Rotación 1
-        if (elapsed > 400 && elapsed < 1800) {
-          const t = (elapsed - 400) / 1400;
-          const ease = t * t * t;
-          const d = (angleEnd - angleStart) * (ease * 0.5) + angleStart;
-          cardRef.current.style.setProperty('--pointer-deg', `${d}deg`);
-        }
-        
-        // Fase 3: Rotación 2
-        if (elapsed >= 1800 && elapsed < 3800) {
-          const t = (elapsed - 1800) / 2000;
-          const ease = 1 - Math.pow(1 - t, 3);
-          const d = (angleEnd - angleStart) * (0.5 + ease * 0.5) + angleStart;
-          cardRef.current.style.setProperty('--pointer-deg', `${d}deg`);
-        }
-        
-        // Fase 4: Fade out
-        if (elapsed > 2800 && elapsed < 4000) {
-          const t = (elapsed - 2800) / 1200;
-          const ease = t * t * t;
-          cardRef.current.style.setProperty('--pointer-d', `${(1 - ease) * 100}`);
-        }
-        
-        if (elapsed < 4000) {
-          requestAnimationFrame(animate);
-        } else {
-          setIsAnimating(false);
-          cardRef.current?.classList.remove('animating');
-        }
-      };
-      
-      requestAnimationFrame(animate);
-    };
-
-    const timer = setTimeout(playAnimation, 600);
-    return () => clearTimeout(timer);
-  }, []);
-
   const defaultGlowColor = mode === 'light' ? '280deg 90% 95%' : (glowColor || '185deg 100% 70%');
 
   return (
@@ -203,7 +154,7 @@ export const GlowingEdgeCard: React.FC<GlowingEdgeCardProps> = ({
       onPointerLeave={handlePointerLeave}
       className={`relative flex flex-col rounded-[1.75rem] group transition-colors duration-300 ${
         mode === 'light' ? 'light-mode' : 'dark-mode'
-      } ${isAnimating ? 'animating' : ''} ${className}`}
+      } ${className}`}
       style={{
         '--glow-sens': `${glowSens}`,
         '--pointer-x': '50%',
@@ -222,109 +173,8 @@ export const GlowingEdgeCard: React.FC<GlowingEdgeCardProps> = ({
       } as React.CSSProperties}
       {...props}
     >
-      <style dangerouslySetInnerHTML={{__html: `
-        .glowing-card-mesh-border {
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            z-index: -1;
-            border: 1px solid transparent;
-            background:
-                linear-gradient(var(--card-bg) 0 100%) padding-box,
-                linear-gradient(rgb(255 255 255 / 0%) 0% 100%) border-box,
-                radial-gradient(at 80% 55%, hsla(268,100%,76%,1) 0px, transparent 50%) border-box,
-                radial-gradient(at 69% 34%, hsla(349,100%,74%,1) 0px, transparent 50%) border-box,
-                radial-gradient(at 8% 6%, hsla(136,100%,78%,1) 0px, transparent 50%) border-box,
-                radial-gradient(at 41% 38%, hsla(192,100%,64%,1) 0px, transparent 50%) border-box,
-                radial-gradient(at 86% 85%, hsla(186,100%,74%,1) 0px, transparent 50%) border-box,
-                radial-gradient(at 82% 18%, hsla(52,100%,65%,1) 0px, transparent 50%) border-box,
-                radial-gradient(at 51% 4%, hsla(12,100%,72%,1) 0px, transparent 50%) border-box,
-                linear-gradient(#06b6d4 0 100%) border-box;
-            opacity: calc((var(--pointer-d) - var(--color-sens)) / (100 - var(--color-sens)));
-            mask-image: conic-gradient(from var(--pointer-deg) at center, black 25%, transparent 40%, transparent 60%, black 75%);
-            -webkit-mask-image: conic-gradient(from var(--pointer-deg) at center, black 25%, transparent 40%, transparent 60%, black 75%);
-            transition: opacity 0.25s ease-out;
-        }
-        
-        .glowing-card-mesh-bg {
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            z-index: -1;
-            border: 1px solid transparent;
-            background:
-                radial-gradient(at 80% 55%, hsla(268,100%,76%,1) 0px, transparent 50%) padding-box,
-                radial-gradient(at 69% 34%, hsla(349,100%,74%,1) 0px, transparent 50%) padding-box,
-                radial-gradient(at 8% 6%, hsla(136,100%,78%,1) 0px, transparent 50%) padding-box,
-                radial-gradient(at 41% 38%, hsla(192,100%,64%,1) 0px, transparent 50%) padding-box,
-                radial-gradient(at 86% 85%, hsla(186,100%,74%,1) 0px, transparent 50%) padding-box,
-                radial-gradient(at 82% 18%, hsla(52,100%,65%,1) 0px, transparent 50%) padding-box,
-                radial-gradient(at 51% 4%, hsla(12,100%,72%,1) 0px, transparent 50%) padding-box,
-                linear-gradient(#06b6d4 0 100%) padding-box;
-            mask-image:
-                linear-gradient(to bottom, black, black),
-                radial-gradient(ellipse at 50% 50%, black 40%, transparent 65%),
-                radial-gradient(ellipse at 66% 66%, black 5%, transparent 40%),
-                radial-gradient(ellipse at 33% 33%, black 5%, transparent 40%),
-                radial-gradient(ellipse at 66% 33%, black 5%, transparent 40%),
-                radial-gradient(ellipse at 33% 66%, black 5%, transparent 40%),
-                conic-gradient(from var(--pointer-deg) at center, transparent 5%, black 15%, black 85%, transparent 95%);
-            -webkit-mask-image:
-                linear-gradient(to bottom, black, black),
-                radial-gradient(ellipse at 50% 50%, black 40%, transparent 65%),
-                radial-gradient(ellipse at 66% 66%, black 5%, transparent 40%),
-                radial-gradient(ellipse at 33% 33%, black 5%, transparent 40%),
-                radial-gradient(ellipse at 66% 33%, black 5%, transparent 40%),
-                radial-gradient(ellipse at 33% 66%, black 5%, transparent 40%),
-                conic-gradient(from var(--pointer-deg) at center, transparent 5%, black 15%, black 85%, transparent 95%);
-            mask-composite: subtract, add, add, add, add, add, add;
-            -webkit-mask-composite: source-out, destination-over, destination-over, destination-over, destination-over, destination-over, destination-over;
-            opacity: calc((var(--pointer-d) - var(--color-sens)) / (100 - var(--color-sens)));
-            mix-blend-mode: var(--blend);
-            transition: opacity 0.25s ease-out;
-        }
-        
-        .glowing-card-glow {
-            position: absolute;
-            inset: -40px;
-            pointer-events: none;
-            z-index: 1;
-            mask-image: conic-gradient(from var(--pointer-deg) at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%);
-            -webkit-mask-image: conic-gradient(from var(--pointer-deg) at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%);
-            opacity: calc((var(--pointer-d) - var(--glow-sens)) / (100 - var(--glow-sens)));
-            mix-blend-mode: var(--glow-blend);
-            transition: opacity 0.25s ease-out;
-            border-radius: inherit;
-        }
-        
-        .glowing-card-glow::before {
-            content: "";
-            position: absolute;
-            inset: 40px;
-            border-radius: inherit;
-            box-shadow: 
-                inset 0 0 0 1px hsl(var(--glow-color) / 100%),
-                inset 0 0 1px 0 hsl(var(--glow-color) / calc(var(--glow-boost) + 60%)),
-                inset 0 0 3px 0 hsl(var(--glow-color) / calc(var(--glow-boost) + 50%)),
-                inset 0 0 6px 0 hsl(var(--glow-color) / calc(var(--glow-boost) + 40%)),
-                inset 0 0 15px 0 hsl(var(--glow-color) / calc(var(--glow-boost) + 30%)),
-                inset 0 0 25px 2px hsl(var(--glow-color) / calc(var(--glow-boost) + 20%)),
-                inset 0 0 50px 2px hsl(var(--glow-color) / calc(var(--glow-boost) + 10%)),
-                0 0 1px 0 hsl(var(--glow-color) / calc(var(--glow-boost) + 60%)),
-                0 0 3px 0 hsl(var(--glow-color) / calc(var(--glow-boost) + 50%)),
-                0 0 6px 0 hsl(var(--glow-color) / calc(var(--glow-boost) + 40%)),
-                0 0 15px 0 hsl(var(--glow-color) / calc(var(--glow-boost) + 30%)),
-                0 0 25px 2px hsl(var(--glow-color) / calc(var(--glow-boost) + 20%)),
-                0 0 50px 2px hsl(var(--glow-color) / calc(var(--glow-boost) + 10%));
-        }
 
-        .group:not(:hover):not(.animating) .glowing-card-mesh-border,
-        .group:not(:hover):not(.animating) .glowing-card-mesh-bg,
-        .group:not(:hover):not(.animating) .glowing-card-glow {
-            opacity: 0 !important;
-            transition: opacity 0.75s ease-in-out;
-        }
-      `}} />
+
       
       {/* Capas de Fondo Interactivas */}
       <div className="glowing-card-mesh-border" aria-hidden="true" />
