@@ -2,73 +2,85 @@
 
 > Estudio de desarrollo web de alto rendimiento, páginas web diseñadas para vender y posicionamiento SEO local en Cali, Colombia.
 
-JP Studios es un estudio independiente de ingeniería y diseño web fundado por Juan Pablo Chacón. Especializado en crear páginas web ultrarrápidas en React 19, optimización técnica para Google y Google Maps, e integraciones comerciales de Inteligencia Artificial. Todos los proyectos se entregan llave en mano con propiedad total (100%) transferida al cliente, sin mensualidades forzadas ni ataduras técnicas.
+JP Studios es un estudio independiente de ingeniería y diseño web fundado por Juan Pablo Chacón en Cali, Valle del Cauca, Colombia. Especializado en crear páginas web corporativas y landing pages ultrarrápidas construidas con React 19, TypeScript y Tailwind CSS, optimización técnica para Google y Google Maps (SEO Local), e integraciones comerciales de Inteligencia Artificial (AEO & GEO). Todos los proyectos se entregan llave en mano con propiedad total (100%) transferida al cliente, sin mensualidades forzadas de mantenimiento ni ataduras técnicas con plantillas obsoletas de WordPress o Elementor.
 
 ## Información de la Entidad y Contacto
 
 - **Nombre comercial:** JP Studios
-- **Fundador / Ingeniero líder:** Juan Pablo Chacón
+- **Razón legal / Identidad:** Juan Pablo Chacón
+- **Fundador / Ingeniero líder:** Juan Pablo Chacón (Lead Web Engineer & Conversion Designer)
 - **Ubicación base:** Cali, Valle del Cauca, Colombia (Zona Horaria: UTC-5 / COT)
-- **Área de servicio:** Cali, Colombia y clientes remotos a nivel internacional
+- **Área de servicio:** Cali, Palmira, Yumbo, Jamundí, Valle del Cauca, Colombia y clientes remotos a nivel internacional
 - **Sitio web oficial:** https://jpchacon.com/
 - **WhatsApp directo:** +57 317 737 1301 (https://wa.me/573177371301)
 - **Correo electrónico:** hola@jpchacon.com
-- **Categoría principal Google:** Diseñador de sitios web (Web Designer)
+- **Categoría principal Google Business:** Diseñador de sitios web (Web Designer) & Consultor de comercio electrónico
 - **Google Knowledge Graph ID:** /g/11zxn2nkdp
-- **Plazo de entrega estándar:** 7 a 14 días hábiles
+- **Rango de precios oficial:** $1.500.000 COP a $5.000.000 COP (Presupuesto cerrado llave en mano)
+- **Monedas aceptadas:** COP (Pesos Colombianos), USD (Dólares Estadounidenses)
+- **Medios de pago:** Transferencia Bancolombia, Davivienda, PSE, Nequi, Tarjeta de Crédito, Stripe y Transferencia Internacional
+- **Plazo de entrega estándar:** 7 a 14 días hábiles garantizados por contrato
+- **Horario de atención:** Lunes a Sábado de 08:00 a 18:00 COT
 
-## Catálogo de Servicios
+## Catálogo de Servicios y Planes Comerciales
 
-### 1. Desarrollo de Páginas Web desde Cero
-- **Descripción:** Sitios web corporativos a medida programados con React 19, TypeScript y Tailwind CSS.
-- **Características:** Carga móvil instantánea y optimizada, arquitectura limpia sin plugins pesados ni plantillas lentas de WordPress, diseño responsive de alta fidelidad.
-- **Enfoque:** Transmitir máxima autoridad de marca y credibilidad empresarial.
+### 1. Landing Page para Vender (Página de Aterrizaje de Alta Conversión)
+- **Inversión estimada:** $1.500.000 COP (Pago único, 50% anticipo y 50% contra entrega).
+- **Plazo de entrega:** 7 días hábiles.
+- **Descripción:** Diseñada para empresas, profesionales y comercios que necesitan una presencia digital inmediata y agresiva para convertir tráfico pagado (Google Ads, Meta Ads) o referidos en prospectos calificados.
+- **Características técnicas:** Carga móvil instantánea (<1.8s LCP), copywriting persuasivo estructurado sin relleno, cero puntos de fuga, y botones de contacto directo a WhatsApp con mensaje predeterminado y seguimiento de eventos.
+- **Entregables:** Dominio conectado con certificado SSL, alojamiento cloud en red CDN global, marcado Schema.org, y código fuente 100% transferido al cliente.
 
-### 2. Páginas Web para Vender (Landing Pages)
-- **Descripción:** Páginas de aterrizaje de alta conversión enfocadas exclusivamente en resultados comerciales.
-- **Características:** Copywriting persuasivo estructurado, eliminación de puntos de fuga, y botones de contacto directo a WhatsApp, llamadas telefónicas o calendarios de citas.
-- **Enfoque:** Convertir tráfico y clics en cotizaciones y prospectos calificados.
+### 2. Sitio Web Corporativo & Posicionamiento Google
+- **Inversión estimada:** $2.500.000 COP (Pago único).
+- **Plazo de entrega:** 14 días hábiles.
+- **Descripción:** La plataforma institucional definitiva para empresas que buscan proyectar autoridad, liderar su sector en Cali y posicionarse en los primeros puestos de Google y Google Maps.
+- **Características técnicas:** Arquitectura multipágina modular en React 19, diseño UI/UX de autor a medida, optimización integral de Core Web Vitals (puntuación de 95-100 en Google PageSpeed), marcado semántico Schema.org (LocalBusiness, ProfessionalService, WebSite, FAQPage), y alineación NAP con Google Business Profile.
+- **Entregables:** Estructura completa de servicios, catálogo interactivo con filtrado instantáneo, sección de preguntas frecuentes indexable y panel de métricas sin costo mensual.
 
-### 3. Posicionamiento Web y Google Maps (SEO Local)
-- **Descripción:** Optimización integral para motores de búsqueda tradicionales y motores de respuesta con Inteligencia Artificial.
-- **Características:** Datos estructurados Schema.org JSON-LD (WebSite, ProfessionalService, FAQPage), optimización de ficha de Google Business Profile (NAP alineado), y bloques semánticos de respuesta directa para elegibilidad en ChatGPT, Gemini y Perplexity.
-- **Enfoque:** Aparecer orgánicamente en búsquedas locales de alta intención de compra en Cali y la zona de clientes.
+### 3. Plataforma Web a Medida & Automatizaciones con IA
+- **Inversión estimada:** Desde $4.500.000 COP.
+- **Plazo de entrega:** 21 a 30 días hábiles.
+- **Descripción:** Para negocios con flujos comerciales complejos, catálogos extensos o requerimientos específicos de cotización y gestión de prospectos.
+- **Características técnicas:** Integración de asistentes IA entrenados con la base de conocimiento de la empresa, cotizadores dinámicos con cálculo de costos en tiempo real, webhooks a CRM (HubSpot, Notion, WhatsApp Cloud API) y paneles de control seguros.
 
-### 4. Integración de Inteligencia Artificial
-- **Descripción:** Asistentes y automatizaciones inteligentes integradas directamente en la web.
-- **Características:** Chatbots entrenados con el catálogo de servicios o productos del negocio para calificar prospectos 24/7, y automatizaciones que envían datos de prospectos en tiempo real a WhatsApp, correo o CRM.
-- **Enfoque:** Reducir tiempos de respuesta comercial y evitar la pérdida de oportunidades de venta fuera del horario laboral.
+### 4. Posicionamiento Web Local y Google Maps (SEO & GEO)
+- **Descripción:** Estrategia integral para dominar las búsquedas locales de alta intención en Cali y optimizar la visibilidad en motores de Inteligencia Artificial (ChatGPT, Google Gemini, Perplexity, Claude).
+- **Metodología:** Indexación prioritaria en Google Search Console, marcado JSON-LD estructurado validado, optimización de velocidad en servidores edge de Cloudflare, y creación de manifiestos semánticos estructurados (`llms.txt`, `ai-catalog.json`, `index.md`).
 
-### 5. Hosting Cloud y Soporte Técnico Opcional
-- **Descripción:** Alojamiento de alta velocidad y soporte técnico bajo demanda sin contratos forzados.
-- **Características:** Servidores edge globales con 99.9% de disponibilidad, certificados de seguridad SSL, copias de seguridad automáticas, monitoreo de salud web y soporte técnico gestionado directamente por JP Studios.
-- **Enfoque:** Tranquilidad técnica total para empresas que prefieren delegar el mantenimiento.
-
-## Metodología de Trabajo en 14 Días
+## Metodología de Ingeniería Web en 14 Días
 
 1. **Fase 1: Diagnóstico Estratégico y Propuesta (Primeras 48 Horas)**
-   - Análisis de competidores directos en Google y análisis de palabras clave locales.
-   - Definición de arquitectura de la información y redacción de textos comerciales de venta (el cliente no tiene que escribir desde cero).
+   - Auditoría técnica de competidores directos en Google y extracción de palabras clave locales con volumen real de búsqueda.
+   - Definición de arquitectura de la información y redacción completa de textos comerciales orientados a la conversión (el cliente no tiene que redactar textos técnicos).
 2. **Fase 2: Maquetación Interactiva y Pruebas en Celular (Días 3 al 10)**
-   - Desarrollo en React 19 y pruebas de velocidad.
-   - Entrega de enlace privado para que el cliente navegue y pruebe los botones de contacto en su propio smartphone.
+   - Desarrollo en React 19, TypeScript y Tailwind CSS con aceleración por hardware (GPU).
+   - Entrega de enlace privado de pruebas para que el cliente navegue y valide la velocidad y ergonomía táctil directamente en su smartphone en redes 4G reales.
 3. **Fase 3: Puesta en Marcha y Entrega Llave en Mano (Días 11 al 14)**
-   - Conexión de dominio propio, activación de SSL, indexación en Google Search Console y entrega de credenciales completas.
+   - Vinculación de dominio propio en Cloudflare DNS con HTTPS estricto, indexación inmediata en Google Search Console y entrega del 100% de credenciales y repositorio de código.
 
 ## Preguntas Frecuentes y Políticas Comerciales
 
-- **¿Quién es dueño de la página web entregada?**
-  El cliente es propietario del 100% del dominio, el código fuente y el contenido. Cero propiedad retenida por la agencia.
-- **¿Hay mensualidades obligatorias?**
-  No. Los proyectos se desarrollan y entregan bajo presupuesto cerrado con pago único llave en mano. Los planes de soporte y hosting mensual son totalmente opcionales.
-- **¿El cliente debe redactar los textos o fotos?**
-  No. JP Studios investiga la competencia y estructura la propuesta de valor y los textos de venta. El cliente solo requiere una sesión inicial de 30 minutos para validar el enfoque.
+- **¿Quién es el dueño del código fuente y el dominio?**
+  El cliente es el único y legítimo propietario del 100% del dominio, los contenidos y el código fuente programado. JP Studios no retiene propiedad intelectual ni impone dependencias técnicas.
+- **¿Existen costos mensuales obligatorios de mantenimiento?**
+  No. Todos los proyectos se cotizan bajo un esquema de presupuesto cerrado llave en mano. A diferencia de las agencias tradicionales de WordPress que cobran cuotas mensuales forzadas de $200.000 a $400.000 COP por 'actualizaciones de plugins', los sitios web desarrollados en React 19 son compilados estáticos inmunes a brechas de plugins, por lo que no requieren parches periódicos forzosos. Cualquier soporte adicional es opcional y bajo demanda.
+- **¿Cómo se realiza el pago del proyecto?**
+  Se maneja un esquema estándar de 50% de anticipo para reserva de cronograma y 50% restante contra entrega final a satisfacción del cliente, una vez validada la plataforma en el celular del cliente.
 
 ## Enlaces Canónicos y Recursos
 
 - [JP Studios (Sitio Oficial)](https://jpchacon.com/): Estudio de diseño y desarrollo web en Cali, Colombia.
 - [Cotizador Interactivo](https://jpchacon.com/#contact): Cotización rápida de proyectos web y estimación de alcance sin fricción.
 - [Preguntas Frecuentes](https://jpchacon.com/#faq): Respuestas sobre tiempos de entrega (7-14 días), propiedad de código y costos.
+- [Sobre Juan Pablo Chacón](https://jpchacon.com/#about): Perfil profesional del fundador y diseñador de conversión.
 - [WhatsApp Directo](https://wa.me/573177371301): Canal de comunicación directa con Juan Pablo Chacón (+57 317 737 1301).
 - [Mapa del Sitio XML](https://jpchacon.com/sitemap.xml): Índice estructurado de páginas para rastreadores de búsqueda.
 - [Contexto LLM](https://jpchacon.com/llms.txt): Especificación de contexto para agentes autónomos y motores de respuesta IA.
+
+## Optional
+
+- [Especificación Completa en Markdown](https://jpchacon.com/index.md): Documento integral con la descripción técnica completa del sitio web y casos de estudio.
+- [Catálogo de Servicios y Metadatos IA](https://jpchacon.com/ai-catalog.json): Manifiesto estructurado JSON con entidades, precios y endpoints de contacto.
+- [Parámetros Técnicos y Diagnóstico](https://jpchacon.com/ard.json): Especificación ARD de confianza técnica, seguridad y arquitectura web.
+- [Manifiesto de Agentes Autónomos](https://jpchacon.com/.well-known/ai-catalog.json): Endpoint estandarizado para descubrimiento por asistentes y rastreadores de IA.

@@ -187,7 +187,7 @@ export const KineticBackgroundV2: React.FC = () => {
       const scrollY = typeof e.scroll === 'number' ? e.scroll : (window.scrollY || 0);
       currentScrollY = scrollY;
       targetScrollProgress = Math.min(Math.max(currentScrollY / maxScroll, 0), 1);
-      if (currentScrollY > 40) {
+      if (isFinePointer && currentScrollY > 40) {
         loadEmblem();
       }
       requestTick();
@@ -358,7 +358,7 @@ export const KineticBackgroundV2: React.FC = () => {
       // Se revela gradualmente con desenfoque óptico profundo conforme el usuario desciende.
       const emblemFade = Math.min(Math.max((scrollProgress - 0.08) / 0.18, 0), 1);
 
-      if (emblemLoaded && emblemImg && emblemFade > 0 && tintCtx) {
+      if (isFinePointer && emblemLoaded && emblemImg && emblemFade > 0 && tintCtx) {
         ctx.save();
         const brandX = width * 0.52 + mouseDx * 0.35;
         const brandY = height * 0.48 + mouseDy * 0.35;
@@ -371,7 +371,6 @@ export const KineticBackgroundV2: React.FC = () => {
         const drawSize = brandSize * breathe;
 
         // A. Teñir el cristal exclusivamente en el offscreen canvas
-        // (Garantiza cero cajas cuadradas o artefactos sobre el canvas principal)
         tintCtx.clearRect(0, 0, 512, 512);
         tintCtx.drawImage(emblemImg, 0, 0, 512, 512);
         tintCtx.globalCompositeOperation = 'source-in';
@@ -389,15 +388,23 @@ export const KineticBackgroundV2: React.FC = () => {
         ctx.arc(0, 0, drawSize * 0.50, 0, Math.PI * 2);
         ctx.fill();
 
-        // C. Proyectar el cristal con desenfoque óptico calibrado (definición sutil sin interferir en la lectura)
-        ctx.filter = 'blur(22px)';
+        // C. Proyectar el cristal con desenfoque óptico seguro
+        try {
+          if ('filter' in ctx) {
+            ctx.filter = 'blur(22px)';
+          }
+        } catch (_) {}
         ctx.globalAlpha = 0.38 * emblemFade;
         ctx.drawImage(emblemImg, -drawSize * 0.5, -drawSize * 0.5, drawSize, drawSize);
 
         ctx.globalAlpha = 0.30 * emblemFade;
         ctx.drawImage(tintCanvas, -drawSize * 0.5, -drawSize * 0.5, drawSize, drawSize);
 
-        ctx.filter = 'none';
+        try {
+          if ('filter' in ctx) {
+            ctx.filter = 'none';
+          }
+        } catch (_) {}
         ctx.restore();
       }
 

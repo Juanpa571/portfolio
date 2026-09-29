@@ -1,14 +1,26 @@
 User-agent: *
 Allow: /
 
-# Motores de Búsqueda de Inteligencia Artificial (AEO & GEO)
+# Motores de Búsqueda y Citación de IA (AEO, GEO & Search)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 User-agent: GPTBot
 Allow: /
 
 User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
 Allow: /
 
 User-agent: Google-Extended
