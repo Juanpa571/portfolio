@@ -1,8 +1,8 @@
 import React from 'react';
 import { siteConfig } from '../config/site';
 import { MetaTags } from '../components/seo/MetaTags';
-import { Header } from '../components/layout/Header';
-import { Footer } from '../components/layout/Footer';
+import { HeaderV2 } from '../components/v2/HeaderV2';
+import { FooterV2 } from '../components/v2/FooterV2';
 import { highlightBrandKeywords } from '../utils/textHighlight';
 import { trackWhatsAppClick } from '../utils/analytics';
 
@@ -20,7 +20,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
       />
 
       {/* Header reutilizable */}
-      <Header />
+      <HeaderV2 onNavigateHome={onNavigateHome} />
 
       <main className="pt-8 sm:pt-14 pb-20">
         {/* Breadcrumb / Retorno a Home */}
@@ -52,7 +52,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl text-black/75 font-sans leading-relaxed mb-8 max-w-3xl">
-              Optimizamos la infraestructura técnica, semántica y local de tu empresa para que Google, Google Maps y los motores de Inteligencia Artificial (ChatGPT, Gemini) te recomienden exactamente cuando tus clientes potenciales estén buscando contratar en Cali.
+              Optimizo la infraestructura técnica, semántica y local de tu empresa para que Google, Google Maps y los motores de Inteligencia Artificial (ChatGPT, Gemini) te recomienden exactamente cuando tus clientes potenciales estén buscando contratar en Cali.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
@@ -101,7 +101,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                   En Cali, la mayoría de competidores tienen páginas lentas en WordPress con títulos mal configurados y fichas de Google Maps descuidadas. Con una optimización técnica seria, superarlos en la SERP local no requiere años ni trucos de magia: requiere ingeniería limpia y respuestas directas.
                 </p>
                 <p className="pt-2 text-black/90 font-medium">
-                  Si además necesitas diseñar una plataforma completa desde cero, conoce nuestro servicio de{' '}
+                  Si además necesitas diseñar una plataforma completa desde cero, conoce mi servicio de{' '}
                   <button
                     type="button"
                     onClick={onNavigateHome}
@@ -137,7 +137,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                     {highlightBrandKeywords('Google Business Profile & Google Maps')}
                   </h3>
                   <p className="text-sm text-black/70 leading-relaxed">
-                    Optimizamos tu ficha comercial en Cali con categorías precisas, alineación NAP (Nombre, Dirección, Teléfono) y una estrategia para conseguir reseñas reales de 5 estrellas que te metan en el codiciado Local 3-Pack de Google Maps.
+                    Optimizo tu ficha comercial en Cali con categorías precisas, alineación NAP (Nombre, Dirección, Teléfono) y una estrategia para conseguir reseñas reales de 5 estrellas que te metan en el codiciado Local 3-Pack de Google Maps.
                   </p>
                 </div>
                 <div className="pt-6 border-t border-black/[0.06] mt-6 text-xs font-mono text-black/60">
@@ -244,7 +244,8 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
         </section>
       </main>
 
-      <Footer />
+      {/* Footer Oficial */}
+      <FooterV2 onNavigateHome={onNavigateHome} />
     </div>
   );
 };

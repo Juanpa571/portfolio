@@ -1,21 +1,12 @@
 import React, { Suspense, lazy } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
-import { Header } from './components/layout/Header';
-import { Hero } from './components/sections/Hero';
-import { MetricsStrip } from './components/sections/MetricsStrip';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import { useRouter } from './hooks/useRouter';
-import { MetaTags } from './components/seo/MetaTags';
 
-// Lazy-load below-the-fold components to keep critical mobile bundle featherlight (<35 KiB)
-const Intro = lazy(() => import('./components/sections/Intro').then((m) => ({ default: m.Intro })));
-const Services = lazy(() => import('./components/sections/Services').then((m) => ({ default: m.Services })));
-const ProjectList = lazy(() => import('./components/sections/ProjectList').then((m) => ({ default: m.ProjectList })));
-const PricingGuide = lazy(() => import('./components/sections/PricingGuide').then((m) => ({ default: m.PricingGuide })));
-const Process = lazy(() => import('./components/sections/Process').then((m) => ({ default: m.Process })));
-const Faq = lazy(() => import('./components/sections/Faq').then((m) => ({ default: m.Faq })));
-const ContactForm = lazy(() => import('./components/sections/ContactForm').then((m) => ({ default: m.ContactForm })));
-const Footer = lazy(() => import('./components/layout/Footer').then((m) => ({ default: m.Footer })));
+// Páginas de la plataforma
+const V2HomePage = lazy(() =>
+  import('./pages/V2HomePage').then((m) => ({ default: m.V2HomePage }))
+);
 
 const PosicionarWebGooglePage = lazy(() =>
   import('./pages/PosicionarWebGooglePage').then((m) => ({ default: m.PosicionarWebGooglePage }))
@@ -33,6 +24,10 @@ const NotFoundPage = lazy(() =>
   import('./pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage }))
 );
 
+const AuditoriaGooglePage = lazy(() =>
+  import('./pages/AuditoriaGooglePage').then((m) => ({ default: m.AuditoriaGooglePage }))
+);
+
 export const App: React.FC = () => {
   useSmoothScroll();
   const { currentPath, navigate } = useRouter();
@@ -41,6 +36,11 @@ export const App: React.FC = () => {
   const normalizedPath = currentPath.length > 1 && currentPath.endsWith('/')
     ? currentPath.slice(0, -1)
     : currentPath;
+
+  const isV2 = normalizedPath === '/v2';
+
+  const isAuditoriaGoogle =
+    normalizedPath === '/auditar-posicionamiento' || normalizedPath === '/auditoria-google';
 
   const isPosicionarWeb =
     normalizedPath === '/posicionar-web-en-google' || normalizedPath === '/posicionamiento-web-cali';
@@ -57,58 +57,38 @@ export const App: React.FC = () => {
 
   const isHome = normalizedPath === '/' || normalizedPath === '';
 
-  const isNotFound = !isHome && !isDisenoWebCali && !isPosicionarWeb && !isPrivacy && !isTerms;
+  const isNotFound = !isHome && !isDisenoWebCali && !isPosicionarWeb && !isPrivacy && !isTerms && !isV2 && !isAuditoriaGoogle;
 
   return (
     <LanguageProvider>
-      <div id="top" className="min-h-screen bg-[#fafaf8] text-[#1a1a1e] font-sans antialiased selection:bg-black selection:text-white relative">
+      <div 
+        id="top" 
+        className="min-h-screen bg-[#070709] text-slate-100 selection:bg-cyan-500 selection:text-black font-sans antialiased relative"
+      >
         {isNotFound ? (
-          <Suspense fallback={<div className="min-h-screen bg-[#fafaf8]" />}>
+          <Suspense fallback={<div className="min-h-screen bg-[#070709]" />}>
             <NotFoundPage onNavigateHome={() => navigate('/')} />
           </Suspense>
         ) : isPrivacy ? (
-          <Suspense fallback={<div className="min-h-screen bg-[#fafaf8]" />}>
+          <Suspense fallback={<div className="min-h-screen bg-[#070709]" />}>
             <PrivacyPage onNavigateHome={() => navigate('/')} />
           </Suspense>
         ) : isTerms ? (
-          <Suspense fallback={<div className="min-h-screen bg-[#fafaf8]" />}>
+          <Suspense fallback={<div className="min-h-screen bg-[#070709]" />}>
             <TermsPage onNavigateHome={() => navigate('/')} />
           </Suspense>
+        ) : isAuditoriaGoogle ? (
+          <Suspense fallback={<div className="min-h-screen bg-[#08090C]" />}>
+            <AuditoriaGooglePage />
+          </Suspense>
         ) : isPosicionarWeb ? (
-          <Suspense fallback={<div className="min-h-screen bg-[#fafaf8]" />}>
+          <Suspense fallback={<div className="min-h-screen bg-[#070709]" />}>
             <PosicionarWebGooglePage onNavigateHome={() => navigate('/')} />
           </Suspense>
         ) : (
-          <>
-            <MetaTags
-              title={
-                isDisenoWebCali
-                  ? "Diseño Web Cali | Páginas Web para Vender — JP Studios"
-                  : "Diseño de Páginas Web en Cali | Páginas Web para Vender — JP Studios"
-              }
-              description="Diseño de páginas web en Cali y desarrollo a medida en React 19. Sitios web ultrarrápidos para liderar en Google y convertir visitas en clientes reales."
-              canonicalUrl={
-                isDisenoWebCali
-                  ? "https://jpchacon.com/diseno-web-cali"
-                  : "https://jpchacon.com/"
-              }
-            />
-            <Header />
-            <main>
-              <Hero />
-              <Suspense fallback={null}>
-                <Intro />
-                <MetricsStrip />
-                <Services />
-                <ProjectList />
-                <PricingGuide />
-                <Process />
-                <Faq />
-                <ContactForm />
-                <Footer />
-              </Suspense>
-            </main>
-          </>
+          <Suspense fallback={<div className="min-h-screen bg-[#070709]" />}>
+            <V2HomePage />
+          </Suspense>
         )}
       </div>
     </LanguageProvider>

@@ -229,7 +229,7 @@ export const translations: Record<Language, Translations> = {
       headlineLine2: 'in Cali to rank on',
       headlineLine3: 'Google and scale sales.',
       subtitle:
-        'JP Studios is a bespoke web design studio in Cali specialized in custom corporate websites and high-conversion landing pages. Engineered for ultra-fast loading, dominating Google Search, and converting visitors into direct clients on WhatsApp.',
+        "JP Studios is Juan Pablo Chacón's independent web studio in Cali. I design and build high-performance custom websites for businesses that need to lead in Google Search and convert visitors into real clients.",
       signature: 'JP Studios by Juan Pablo Chacón',
       disciplineLine1: 'Bespoke Websites',
       disciplineAnd: '&',
@@ -240,7 +240,7 @@ export const translations: Record<Language, Translations> = {
     },
     intro: {
       statement:
-        'At JP Studios, an independent web engineering studio led by Juan Pablo Chacón, we craft high-performance websites in Cali for businesses that cannot afford to go unnoticed. Ultra-fast websites, optimized to dominate the Google ecosystem and AI search engines. Engineered to turn local discovery into real clients across your primary contact channels.',
+        'I am Juan Pablo Chacón, founder of JP Studios, an independent web engineering and search positioning practice for businesses that cannot afford to go unnoticed. I engineer bespoke websites in clean, ultra-fast code (React 19), structured to dominate Google and AI search engines, designed to turn visitors into direct clients on WhatsApp.',
       startOnWhatsApp: 'Start on WhatsApp',
       direct: 'Direct ↗',
     },
@@ -395,8 +395,8 @@ export const translations: Record<Language, Translations> = {
           whatsappSubject: 'Hola Juan Pablo, me interesa cotizar una Plataforma a Medida con Automatizaciones (Desde $4.5M COP).',
         },
       ],
-      guaranteeTitle: 'Why we charge a single turnkey fee with zero forced retainers',
-      guaranteeSubtitle: 'Traditional agencies trap you with months of delays and mandatory retainers of $200.000 – $300.000 COP/month for fragile WordPress plugin updates. At JP Studios, we engineer in clean code (React 19) that doesn\'t break, doesn\'t get hacked, and belongs 100% to you.',
+      guaranteeTitle: 'Why I charge a single turnkey fee with zero forced retainers',
+      guaranteeSubtitle: 'Traditional agencies trap you with middlemen, months of delays, and mandatory retainers of $200.000 – $300.000 COP/month for fragile WordPress plugin updates. At JP Studios, I engineer in clean code (React 19) that doesn\'t break, doesn\'t get hacked, and belongs 100% to you.',
       calculatorPrompt: 'Need an exact estimate tailored to your requirements?',
       calculatorButton: 'Estimate in 60 seconds ↓',
     },
@@ -405,7 +405,7 @@ export const translations: Record<Language, Translations> = {
       headerLine1: 'Workflow Methodology: ',
       headerLine2: 'web design in 14 days.',
       seoDescription:
-        'We engineer bespoke websites with a transparent 14-day workflow. From strategy to production, delivering a fast, search-ready website built to convert.',
+        'I engineer bespoke websites with a transparent 14-day workflow. From strategy to production, delivering a fast, search-ready website built to convert.',
       tagline: 'The JP Studios methodology: From commercial strategy to a production-ready web presence in under two weeks',
       steps: [
         {
@@ -413,7 +413,7 @@ export const translations: Record<Language, Translations> = {
           title: 'Commercial Diagnosis & Keyword Research',
           timeframe: '48 Hours',
           description:
-            'We analyze your direct competitors on Google and your specific target customer area. We map the site structure and high-intent commercial copy without your team having to write anything from scratch.',
+            'I analyze your direct competitors on Google and your specific customer search intent. I craft the site structure and commercial copy without your team having to write anything from scratch.',
           deliverable: 'Strategic architecture & content blueprint',
         },
         {
@@ -421,7 +421,7 @@ export const translations: Record<Language, Translations> = {
           title: 'High-Speed Web Development & Mobile Testing',
           timeframe: 'Days 3 to 10',
           description:
-            'We engineer your bespoke web presence in modern React 19 with instant sub-second loading on mobile devices. You test the complete experience and direct contact channels on your own smartphone before launch.',
+            'I engineer your bespoke web presence in modern React 19 with instant sub-second loading on mobile devices. You test the complete experience and direct contact channels on your own smartphone before launch.',
           deliverable: 'Private live staging link for review',
         },
         {
@@ -429,7 +429,7 @@ export const translations: Record<Language, Translations> = {
           title: 'Google Maps, Search Indexing & Turnkey Launch',
           timeframe: 'Days 11 to 14',
           description:
-            'We connect your corporate domain, deploy SSL security, structure official Schema data for Google and AI search engines, and optimize your local Google Maps profile to activate your direct client acquisition channels.',
+            'I connect your corporate domain, deploy SSL security, structure official Schema data for Google and AI search engines, and optimize your local Google Maps profile to activate your direct client acquisition channels.',
           deliverable: 'Live production launch & full ownership transfer',
         },
       ],
@@ -457,7 +457,7 @@ export const translations: Record<Language, Translations> = {
           category: 'Available Spot for Your Brand',
           tagline: 'Reserved Space for Your Company',
           description:
-            'This space is reserved for your company. We design and develop bespoke digital experiences engineered to command immediate authority and turn visitors into direct clients.',
+            'This space is reserved for your company. I design and develop bespoke digital experiences engineered to command immediate authority and turn visitors into direct clients.',
           tech: 'Turnkey Launch • High-Impact Conversion',
         },
       },
@@ -484,12 +484,12 @@ export const translations: Record<Language, Translations> = {
         {
           question: 'How do you get my business to rank on Google and Google Maps?',
           answer:
-            'We optimize your Google Business Profile with precise categories, verified business data (NAP), and connect your website with structured Schema.org markup to maximize visibility in local searches in your target area and on AI response engines like ChatGPT and Gemini.',
+            'I optimize your Google Business Profile with precise categories, verified business data (NAP), and connect your website with structured Schema.org markup to maximize visibility in local searches in your target area and on AI response engines like ChatGPT and Gemini.',
         },
         {
           question: 'What is the pricing for a website and are there mandatory monthly fees?',
           answer:
-            'We work with fixed, transparent proposals tailored to your project scope (landing page, corporate site, or custom integrations). Delivery is turnkey with 100% ownership and zero mandatory retainers. Cloud edge hosting and maintenance are completely optional.',
+            'I work with fixed, transparent proposals tailored to your project scope (landing page, corporate site, or custom integrations). Delivery is turnkey with 100% ownership and zero mandatory retainers. Cloud edge hosting and maintenance are completely optional.',
         },
         {
           question: 'What is the difference between a traditional website and a high-conversion sales page?',
@@ -499,12 +499,12 @@ export const translations: Record<Language, Translations> = {
         {
           question: 'How long does it take to have the website live and operating?',
           answer:
-            'Standard delivery is 7 to 14 business days from our initial kick-off. Because we handle structural strategy and commercial copywriting upfront, we eliminate the multi-month delays typical of traditional agencies.',
+            'Standard delivery is 7 to 14 business days from our initial kick-off. Because I handle structural strategy and commercial copywriting upfront, I eliminate the multi-month delays typical of traditional agencies.',
         },
         {
           question: 'Do I have to write the text and content for the website myself?',
           answer:
-            'No. Content writing is usually the biggest bottleneck for business owners. We research your direct competitors, structure your value proposition, and write the commercial copy. You only need an initial 30-minute conversation to share your goals and approve the direction.',
+            'No. Content writing is usually the biggest bottleneck for business owners. I research your direct competitors, structure your value proposition, and write the commercial copy. You only need an initial 30-minute conversation to share your goals and approve the direction.',
         },
         {
           question: 'What kind of AI solutions or integrations can you incorporate into my website?',
@@ -518,14 +518,14 @@ export const translations: Record<Language, Translations> = {
       titleLine1: 'Start your web ',
       titleLine2: 'design project today.',
       description:
-        'Tell us briefly about your project goals and we will reply with a tailored proposal today.',
+        'Tell me briefly about your project goals and I will reply with a tailored proposal today.',
       stepIndicator: (c, total) => `STEP ${c} OF ${total}`,
       step1Question: 'What type of project are you looking for?',
       step1Subtitle: 'Select the option that best fits your goals.',
       step2Question: 'What is your business sector?',
       step2Subtitle: 'Select the primary category of your business activity.',
       step3Question: 'Where should we send your proposal?',
-      step3Subtitle: 'We will review your inquiry and contact you personally on the same business day.',
+      step3Subtitle: 'I will review your inquiry and contact you personally on the same business day.',
       whatsappQuestion: 'Have questions before starting?',
       whatsappAction: "Let's chat on WhatsApp.",
       whatsappButton: "Let's talk",
@@ -617,14 +617,14 @@ export const translations: Record<Language, Translations> = {
       networkError: 'Connection error while sending. Please contact us via WhatsApp.',
       successTitle: 'Information received successfully',
       successSubtitle: (name: string) =>
-        `Thank you, ${name}. We have received your project details and will get in touch on the same business day.`,
+        `Thank you, ${name}. I have received your project details and will get in touch on the same business day.`,
       resetButton: 'Start over',
     },
     footer: {
       eyebrow: "LET'S TALK",
       headlineLine1: 'Ready to scale your ',
       headlineLine2: 'business on Google?',
-      subtitle: "Tell us about your project. We're ready to help take your business to the next level in search and sales.",
+      subtitle: "Tell me about your project. I am ready to help position your business at the top of Google.",
       email: 'hola@jpchacon.com',
       whatsapp: 'WhatsApp (+57 317 737 1301)',
       responseBadge: 'Response in under 24 hours',
@@ -674,7 +674,7 @@ export const translations: Record<Language, Translations> = {
       headlineLine2: 'en Cali para liderar en',
       headlineLine3: 'Google y vender más.',
       subtitle:
-        'JP Studios es un estudio de diseño web en Cali especializado en sitios web corporativos a medida y landing pages para vender. Desarrollamos páginas ultrarrápidas y optimizadas para empresas que necesitan liderar en Google Maps y convertir visitas en clientes reales por WhatsApp.',
+        'JP Studios es el estudio independiente de Juan Pablo Chacón en Cali. Diseño y desarrollo plataformas web a medida en código ultrarrápido para empresas que necesitan liderar en Google Maps y convertir visitas en clientes reales.',
       signature: 'JP Studios by Juan Pablo Chacón',
       disciplineLine1: 'Diseño Web Cali',
       disciplineAnd: '&',
@@ -685,7 +685,7 @@ export const translations: Record<Language, Translations> = {
     },
     intro: {
       statement:
-        'En JP Studios, liderado por Juan Pablo Chacón, desarrollamos páginas web en Cali para empresas y negocios que necesitan destacar y facturar. Construimos sitios web a medida en código ultrarrápido (React 19), estructurados para liderar en Google y motores de IA, y optimizados para transformar visitas locales en ventas directas por WhatsApp.',
+        'Soy Juan Pablo Chacón, fundador de JP Studios, un estudio independiente de ingeniería web y posicionamiento en Google para empresas que necesitan destacar y facturar. Construyo cada sitio web desde cero en código ultrarrápido (React 19), estructurado para liderar en Google y motores de IA, y optimizado para transformar visitas en ventas directas por WhatsApp.',
       startOnWhatsApp: 'Cotizar por WhatsApp',
       direct: 'Directo ↗',
     },
@@ -840,8 +840,8 @@ export const translations: Record<Language, Translations> = {
           whatsappSubject: 'Hola Juan Pablo, me interesa cotizar una Plataforma a Medida con Automatizaciones (Desde $4.5M COP).',
         },
       ],
-      guaranteeTitle: 'Por qué cobramos un valor único llave en mano',
-      guaranteeSubtitle: 'En agencias tradicionales pagas demoras de meses y te atan a contratos mensuales de $200.000 o $300.000 COP por "mantenimiento" de plantillas lentas de WordPress. En JP Studios programamos en código limpio (React 19): tu web no se cae, no se desactualiza y es 100% de tu propiedad desde el día uno.',
+      guaranteeTitle: 'Por qué cobro un valor único llave en mano',
+      guaranteeSubtitle: 'En agencias tradicionales pagas demoras de meses y te atan a contratos mensuales de $200.000 o $300.000 COP por "mantenimiento" de plantillas lentas de WordPress. En JP Studios programo tu web en código limpio (React 19): tu sitio no se cae, no se desactualiza y es 100% de tu propiedad desde el día uno.',
       calculatorPrompt: '¿Quieres una cotización exacta para los requerimientos de tu negocio?',
       calculatorButton: 'Calcular en 60 segundos ↓',
     },
@@ -850,7 +850,7 @@ export const translations: Record<Language, Translations> = {
       headerLine1: 'Metodología de trabajo: ',
       headerLine2: 'diseño web en 14 días.',
       seoDescription:
-        'Creamos páginas web de alto impacto bajo un flujo ágil de 14 días. De la estrategia comercial y redacción de textos a tu web en producción: rápida, optimizada para Google y lista para facturar.',
+        'Desarrollo páginas web de alto impacto bajo un flujo ágil de 14 días. De la estrategia comercial y redacción de textos a tu web en producción: rápida, optimizada para Google y lista para facturar.',
       tagline: 'La metodología de JP Studios: De la estrategia comercial a tu web en producción y lista para operar en menos de dos semanas',
       steps: [
         {
@@ -858,7 +858,7 @@ export const translations: Record<Language, Translations> = {
           title: 'Diagnóstico Comercial y Redacción',
           timeframe: '48 Horas',
           description:
-            'Analizamos qué buscan tus clientes en Google y redactamos los textos de venta de tu página web. Tú no tienes que redactar nada desde cero.',
+            'Analizo qué buscan tus clientes en Google y redacto los textos de venta de tu página web. Tú no tienes que redactar nada desde cero.',
           deliverable: 'Estructura comercial y propuesta de contenidos',
         },
         {
@@ -866,7 +866,7 @@ export const translations: Record<Language, Translations> = {
           title: 'Desarrollo Web a Medida y Pruebas en Móvil',
           timeframe: 'Días 3 al 10',
           description:
-            'Programamos tu web a medida en React 19 con carga sub-segundo en celulares. Pruebas la navegación y los botones de contacto directo en tu propio móvil antes del lanzamiento.',
+            'Programo tu web a medida en React 19 con carga sub-segundo en celulares. Pruebas la navegación y los botones de contacto directo en tu propio móvil antes del lanzamiento.',
           deliverable: 'Enlace privado de pruebas en vivo en tu celular',
         },
         {
@@ -874,7 +874,7 @@ export const translations: Record<Language, Translations> = {
           title: 'Lanzamiento, SEO Local y Propiedad Total',
           timeframe: 'Días 11 al 14',
           description:
-            'Conectamos tu dominio corporativo, activamos certificado SSL, estructuramos datos Schema para Google y motores de IA, y optimizamos tu ficha de Google Maps. Te entregamos el sitio 100% llave en mano.',
+            'Conecto tu dominio corporativo, activo certificado SSL, estructuro datos Schema para Google y motores de IA, y optimizo tu ficha de Google Maps. Te entrego el sitio 100% llave en mano.',
           deliverable: 'Web en producción y propiedad total transferida',
         },
       ],
@@ -902,7 +902,7 @@ export const translations: Record<Language, Translations> = {
           category: 'Espacio disponible para tu empresa',
           tagline: 'Espacio Reservado para Tu Marca',
           description:
-            'Este espacio está reservado para tu marca o empresa. Diseñamos y desarrollamos una experiencia digital a medida pensada para transmitir autoridad inmediata y convertir visitas en clientes directos.',
+            'Este espacio está reservado para tu marca o empresa. Diseño y desarrollo una experiencia digital a medida pensada para transmitir autoridad inmediata y convertir visitas en clientes directos.',
           tech: 'Desarrollo Llave en Mano • Alta Conversión',
         },
       },
@@ -929,22 +929,22 @@ export const translations: Record<Language, Translations> = {
         {
           question: '¿Cuáles son las formas de pago y cómo se cotiza un proyecto?',
           answer:
-            'En JP Studios dividimos la inversión en un esquema transparente de 50% de anticipo para reserva de cronograma y 50% contra entrega final a satisfacción. Puedes cotizar tu proyecto en 1 minuto en nuestro cotizador interactivo o escribirnos directamente a WhatsApp. Aceptamos transferencias bancarias (Bancolombia, Davivienda, PSE) y pagos internacionales en USD. Todos los presupuestos son cerrados, llave en mano y sin mensualidades forzadas de mantenimiento.',
+            'En JP Studios divido la inversión en un esquema transparente de 50% de anticipo para reserva de cronograma y 50% contra entrega final a satisfacción. Puedes cotizar tu proyecto en 1 minuto en mi cotizador interactivo o escribirme directamente a WhatsApp. Acepto transferencias bancarias (Bancolombia, Davivienda, PSE) y pagos internacionales en USD. Todos los presupuestos son cerrados, llave en mano y sin mensualidades forzadas de mantenimiento.',
         },
         {
           question: '¿Qué se necesita para tener una página web lista para mi negocio?',
           answer:
-            'Solo necesitas una sesión inicial de 30 minutos para contarnos sobre tu empresa y tus clientes ideales. En JP Studios nos encargamos de todo el proceso técnico: investigación de competidores en Google, redacción de textos comerciales orientados a vender, diseño UI/UX de autor, desarrollo en código limpio, hosting y configuración de dominio. Tú no tienes que redactar textos técnicos ni lidiar con configuraciones complicadas.',
+            'Solo necesitas una sesión inicial de 30 minutos para contarme sobre tu empresa y tus clientes ideales. En JP Studios me encargo personalmente de todo el proceso técnico: investigación de competidores en Google, redacción de textos comerciales orientados a vender, diseño UI/UX de autor, desarrollo en código limpio, hosting y configuración de dominio. Tú no tienes que redactar textos técnicos ni lidiar con configuraciones complicadas.',
         },
         {
           question: '¿Cómo hago para que mi negocio aparezca en los primeros lugares de Google y Google Maps?',
           answer:
-            'Optimizamos tu presencia digital combinando tres factores: 1) Marcado de datos estructurados Schema.org para que los motores de búsqueda identifiquen la relevancia y ubicación de tu empresa, 2) Optimización de tu ficha de Google Business Profile con datos alineados (NAP), y 3) Velocidad de carga sub-segundo (Core Web Vitals en verde), factor prioritario para que Google y motores de IA (ChatGPT, Gemini) recomienden tu página por encima de sitios lentos.',
+            'Optimizo tu presencia digital combinando tres factores: 1) Marcado de datos estructurados Schema.org para que los motores de búsqueda identifiquen la relevancia y ubicación de tu empresa, 2) Optimización de tu ficha de Google Business Profile con datos alineados (NAP), y 3) Velocidad de carga sub-segundo (Core Web Vitals en verde), factor prioritario para que Google y motores de IA (ChatGPT, Gemini) recomienden tu página por encima de sitios lentos.',
         },
         {
           question: '¿Cuánto cobran por hacer una página web y si hay pagos mensuales obligatorios?',
           answer:
-            'El desarrollo web en JP Studios tiene un valor cerrado desde $1.500.000 COP para landing pages hasta $2.500.000 COP para sitios corporativos con SEO, con entrega 100% llave en mano y propiedad total del código y dominio. A diferencia de agencias que cobran mensualidades obligatorias de $200.000 o $300.000 COP por "mantenimiento" de plantillas de WordPress, nuestras plataformas se programan a medida en React 19, por lo que no requieren parches constantes de seguridad. Cualquier soporte futuro es opcional y bajo demanda.',
+            'El desarrollo web en JP Studios tiene un valor cerrado desde $1.500.000 COP para landing pages hasta $2.500.000 COP para sitios corporativos con SEO, con entrega 100% llave en mano y propiedad total del código y dominio. A diferencia de agencias que cobran mensualidades obligatorias de $200.000 o $300.000 COP por "mantenimiento" de plantillas de WordPress, desarrollo cada plataforma a medida en React 19, por lo que no requieren parches constantes de seguridad. Cualquier soporte futuro es opcional y bajo demanda.',
         },
         {
           question: '¿Cuál es la diferencia entre una página web tradicional y una diseñada para vender?',
@@ -954,7 +954,7 @@ export const translations: Record<Language, Translations> = {
         {
           question: '¿Por qué elegir a JP Studios en lugar de una agencia web tradicional?',
           answer:
-            'En una agencia tradicional pagas los costos de oficinas, intermediarios y demoras de meses para recibir una plantilla prediseñada. En JP Studios tratas directamente con el fundador e ingeniero de software (Juan Pablo Chacón), tu proyecto se entrega en 14 días con arquitectura a medida en React 19 y recibes un trato personalizado enfocado en tu retorno de inversión.',
+            'En una agencia tradicional pagas los costos de oficinas, intermediarios y demoras de meses para recibir una plantilla prediseñada. En JP Studios tratas directamente conmigo (Juan Pablo Chacón), tu proyecto se entrega en 14 días con arquitectura a medida en React 19 y recibes un trato personalizado enfocado en tu retorno de inversión.',
         },
       ],
     },
@@ -963,14 +963,14 @@ export const translations: Record<Language, Translations> = {
       titleLine1: 'Inicia tu proyecto ',
       titleLine2: 'de diseño web hoy.',
       description:
-        'Cuéntanos brevemente sobre tu proyecto y te responderemos con una propuesta personalizada hoy mismo.',
+        'Cuéntame brevemente sobre tu proyecto y te responderé con una propuesta personalizada hoy mismo.',
       stepIndicator: (c, total) => `PASO ${c} DE ${total}`,
       step1Question: '¿Qué tipo de proyecto buscas?',
       step1Subtitle: 'Selecciona la opción que mejor se ajuste a tus objetivos.',
       step2Question: '¿Cuál es el sector de tu negocio?',
       step2Subtitle: 'Selecciona la categoría principal de tu actividad comercial.',
       step3Question: '¿A dónde te enviamos la propuesta?',
-      step3Subtitle: 'Revisaremos tu consulta y te contactaremos personalmente el mismo día hábil.',
+      step3Subtitle: 'Revisaré tu consulta y te contactaré personalmente el mismo día hábil.',
       whatsappQuestion: '¿Tienes dudas antes de empezar?',
       whatsappAction: 'Hablemos por WhatsApp.',
       whatsappButton: 'Hablemos',
@@ -1010,7 +1010,7 @@ export const translations: Record<Language, Translations> = {
         {
           id: 'other',
           label: 'Otro Servicio',
-          description: 'Cuéntanos qué necesitas y encontramos la mejor solución para ti.',
+          description: 'Cuéntame qué necesitas y encuentro la mejor solución para ti.',
           icon: 'compass',
         },
       ],
@@ -1062,14 +1062,14 @@ export const translations: Record<Language, Translations> = {
       networkError: 'Hubo un problema de conexión al enviar. Por favor contáctame por WhatsApp.',
       successTitle: 'Información recibida con éxito',
       successSubtitle: (name: string) =>
-        `Gracias, ${name}. Hemos recibido los detalles de tu proyecto y nos pondremos en contacto contigo hoy mismo.`,
+        `Gracias, ${name}. He recibido los detalles de tu proyecto y me pondré en contacto contigo hoy mismo.`,
       resetButton: 'Iniciar de nuevo',
     },
     footer: {
       eyebrow: 'HABLEMOS',
       headlineLine1: '¿Listo para escalar ',
       headlineLine2: 'tu negocio en Google?',
-      subtitle: 'Cuéntanos tu proyecto. Estamos listos para ayudarte a llevar tu empresa al siguiente nivel en ventas.',
+      subtitle: 'Cuéntame sobre tu proyecto. Estoy listo para ayudarte a llevar tu empresa al siguiente nivel en ventas.',
       email: 'hola@jpchacon.com',
       whatsapp: 'WhatsApp (+57 317 737 1301)',
       responseBadge: 'Respuesta en menos de 24 horas',

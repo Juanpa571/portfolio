@@ -62,21 +62,21 @@ const pages = [
           <div class="p-6 rounded-2xl bg-black/[0.02] border border-black/[0.06]">
             <h2 class="text-xl font-medium text-black mb-3">2. Estructurar contenidos para la intención de búsqueda real</h2>
             <p class="text-sm text-black/75 leading-relaxed">
-              El algoritmo descarta las páginas redactadas de manera genérica. Investigamos qué dudas específicas tienen tus compradores antes de contratar y organizamos la información en respuestas directas, tablas comparativas y argumentos sólidos que retienen la atención del visitante y aumentan el tiempo de permanencia calificado.
+              El algoritmo descarta las páginas redactadas de manera genérica. Investigo qué dudas específicas tienen tus compradores antes de contratar y organizo la información en respuestas directas, tablas comparativas y argumentos sólidos que retienen la atención del visitante y aumentan el tiempo de permanencia calificado.
             </p>
           </div>
 
           <div class="p-6 rounded-2xl bg-black/[0.02] border border-black/[0.06]">
             <h2 class="text-xl font-medium text-black mb-3">3. Consolidar la autoridad local en Google Maps</h2>
             <p class="text-sm text-black/75 leading-relaxed">
-              Para captar clientes en tu ciudad y área metropolitana, optimizamos tu ficha comercial en Google Business Profile con datos de contacto verificados, catálogo de servicios actualizado y gestión sistemática de reseñas reales. Esta es la vía más rápida para generar consultas directas por teléfono y WhatsApp sin pagar anuncios continuos.
+              Para captar clientes en tu ciudad y área metropolitana, optimizo tu ficha comercial en Google Business Profile con datos de contacto verificados, catálogo de servicios actualizado y gestión sistemática de reseñas reales. Esta es la vía más rápida para generar consultas directas por teléfono y WhatsApp sin pagar anuncios continuos.
             </p>
           </div>
 
           <div class="p-6 rounded-2xl bg-black/[0.02] border border-black/[0.06]">
             <h2 class="text-xl font-medium text-black mb-3">4. Preparación para Motores de Inteligencia Artificial (AEO & GEO)</h2>
             <p class="text-sm text-black/75 leading-relaxed">
-              Los nuevos hábitos de búsqueda integran asistentes conversacionales como ChatGPT, Perplexity y Gemini. Diseñamos la presencia digital de tu empresa con formatos indexables, archivos llms.txt y esquemas de confianza que facilitan que estos sistemas citen tu sitio web como fuente de referencia en su sector.
+              Los nuevos hábitos de búsqueda integran asistentes conversacionales como ChatGPT, Perplexity y Gemini. Diseño la presencia digital de tu empresa con formatos indexables, archivos llms.txt y esquemas de confianza que facilitan que estos sistemas citen tu sitio web como fuente de referencia en su sector.
             </p>
           </div>
         </section>
@@ -147,7 +147,7 @@ const pages = [
             Posicionamiento Web en Cali: Cómo Aparecer de Primero en el Buscador
           </h1>
           <p class="text-lg text-black/80 leading-relaxed font-sans max-w-3xl">
-            Para las empresas y profesionales en Santiago de Cali y el Valle del Cauca, la visibilidad en búsquedas geolocalizadas marca la diferencia entre recibir llamadas diarias de clientes o depender exclusivamente de recomendaciones tradicionales. Diseñamos plataformas web concebidas para dominar el mapa regional y los resultados orgánicos de mayor rentabilidad.
+            Para las empresas y profesionales en Santiago de Cali y el Valle del Cauca, la visibilidad en búsquedas geolocalizadas marca la diferencia entre recibir llamadas diarias de clientes o depender exclusivamente de recomendaciones tradicionales. Diseño plataformas web concebidas para dominar el mapa regional y los resultados orgánicos de mayor rentabilidad.
           </p>
         </header>
 
@@ -155,14 +155,14 @@ const pages = [
           <div class="p-6 rounded-2xl bg-black/[0.02] border border-black/[0.06]">
             <h2 class="text-xl font-medium text-black mb-3">SEO Local y Google Business Profile en el Valle del Cauca</h2>
             <p class="text-sm text-black/75 leading-relaxed">
-              Optimizamos cada detalle de tu ficha comercial con coordenadas exactas, horarios de atención, fotografías corporativas y citas consistentes en directorios empresariales. Cuando un usuario busca soluciones en la ciudad, Yumbo o Palmira, tu marca se posiciona en el paquete local de 3 negocios destacados.
+              Optimizo cada detalle de tu ficha comercial con coordenadas exactas, horarios de atención, fotografías corporativas y citas consistentes en directorios empresariales. Cuando un usuario busca soluciones en la ciudad, Yumbo o Palmira, tu marca se posiciona en el paquete local de 3 negocios destacados.
             </p>
           </div>
 
           <div class="p-6 rounded-2xl bg-black/[0.02] border border-black/[0.06]">
             <h2 class="text-xl font-medium text-black mb-3">Rendimiento móvil adaptado al usuario local</h2>
             <p class="text-sm text-black/75 leading-relaxed">
-              Más del 80% de las consultas locales en Colombia se realizan desde dispositivos móviles en conexiones 4G. Desarrollamos sitios ultrarrápidos con React 19 y Tailwind CSS que cargan en fracciones de segundo, garantizando que el usuario no abandone la página por lentitud y realice el contacto inmediato por WhatsApp.
+              Más del 80% de las consultas locales en Colombia se realizan desde dispositivos móviles en conexiones 4G. Desarrollo sitios ultrarrápidos con React 19 y Tailwind CSS que cargan en fracciones de segundo, garantizando que el usuario no abandone la página por lentitud y realice el contacto inmediato por WhatsApp.
             </p>
           </div>
 
@@ -176,7 +176,7 @@ const pages = [
           <div class="p-6 rounded-2xl bg-black/[0.02] border border-black/[0.06]">
             <h2 class="text-xl font-medium text-black mb-3">Estrategia de autoridad y reseñas verificadas</h2>
             <p class="text-sm text-black/75 leading-relaxed">
-              El algoritmo de Google Maps otorga una ponderación crítica a la autenticidad y recurrencia de las opiniones de clientes. Estructuramos protocolos simples para recolectar valoraciones positivas y enlaces locales en directorios de la región que consolidan tu reputación frente a la competencia.
+              El algoritmo de Google Maps otorga una ponderación crítica a la autenticidad y recurrencia de las opiniones de clientes. Estructuro protocolos simples para recolectar valoraciones positivas y enlaces locales en directorios de la región que consolidan tu reputación frente a la competencia.
             </p>
           </div>
         </section>
@@ -193,7 +193,7 @@ const pages = [
             <div class="border-b border-black/10 pb-4">
               <h3 class="text-base font-medium text-black mb-2">¿En qué ciudades del departamento aplica este servicio?</h3>
               <p class="text-sm text-black/75 leading-relaxed">
-                Optimizamos empresas ubicadas en Santiago de Cali, Yumbo, Palmira, Jamundí y toda el área metropolitana del Valle del Cauca, adaptando las palabras clave a las zonas comerciales de influencia directa.
+                Optimizo la presencia de empresas ubicadas en Santiago de Cali, Yumbo, Palmira, Jamundí y toda el área metropolitana del Valle del Cauca, adaptando las palabras clave a las zonas comerciales de influencia directa.
               </p>
             </div>
           </div>
@@ -223,7 +223,7 @@ const pages = [
       },
       {
         question: '¿Cuánto tiempo toma desarrollar una página web completa?',
-        answer: 'Nuestros proyectos estándar se entregan habitualmente en un plazo de 14 días calendario, incluyendo arquitectura, diseño de interfaces, optimización SEO y pruebas de rendimiento en producción.'
+        answer: 'Los proyectos estándar se entregan habitualmente en un plazo de 14 días calendario, incluyendo arquitectura, diseño de interfaces, optimización SEO y pruebas de rendimiento en producción.'
       }
     ],
     h1: 'Diseño de Páginas Web en Cali y Desarrollo a Medida en React 19',
@@ -237,7 +237,7 @@ const pages = [
             Diseño de Páginas Web en Cali y Desarrollo a Medida en React 19
           </h1>
           <p class="text-lg text-black/80 leading-relaxed font-sans max-w-3xl">
-            En JP Studios diseñamos sitios web corporativos y páginas de aterrizaje orientadas a la conversión comercial. Eliminamos los constructores visuales pesados como WordPress o Divi para construir en código limpio con React 19, TypeScript y Tailwind CSS, garantizando velocidad de carga de nivel mundial y propiedad total de tu activo digital.
+            En JP Studios diseño sitios web corporativos y páginas de aterrizaje orientadas a la conversión comercial. Elimino los constructores visuales pesados como WordPress o Divi para construir en código limpio con React 19, TypeScript y Tailwind CSS, garantizando velocidad de carga de nivel mundial y propiedad total de tu activo digital.
           </p>
         </header>
 
@@ -245,28 +245,28 @@ const pages = [
           <div class="p-6 rounded-2xl bg-black/[0.02] border border-black/[0.06]">
             <h2 class="text-xl font-medium text-black mb-3">Arquitectura a medida sin mensualidades ocultas</h2>
             <p class="text-sm text-black/75 leading-relaxed">
-              Tu proyecto se entrega con código fuente completo, dominio a tu nombre y hospedaje en infraestructura global de Cloudflare. No cobramos mensualidades forzosas ni te atamos a licencias de plugins vulnerables: el sitio web es 100% de tu empresa desde el primer día.
+              Tu proyecto se entrega con código fuente completo, dominio a tu nombre y hospedaje en infraestructura global de Cloudflare. No cobro mensualidades forzosas ni te ato a licencias de plugins vulnerables: el sitio web es 100% de tu empresa desde el primer día.
             </p>
           </div>
 
           <div class="p-6 rounded-2xl bg-black/[0.02] border border-black/[0.06]">
             <h2 class="text-xl font-medium text-black mb-3">Velocidad móvil certificada: 94/100 en PageSpeed</h2>
             <p class="text-sm text-black/75 leading-relaxed">
-              Aplicamos compresión moderna WebP, división de código por rutas y cero bloqueo de CPU (0 ms TBT). Esto asegura una experiencia fluida e instantánea en cualquier teléfono inteligente, mejorando directamente la tasa de conversión de cada visitante en cliente potencial.
+              Aplico compresión moderna WebP, división de código por rutas y cero bloqueo de CPU (0 ms TBT). Esto asegura una experiencia fluida e instantánea en cualquier teléfono inteligente, mejorando directamente la tasa de conversión de cada visitante en cliente potencial.
             </p>
           </div>
 
           <div class="p-6 rounded-2xl bg-black/[0.02] border border-black/[0.06]">
             <h2 class="text-xl font-medium text-black mb-3">Ruta de conversión directa a WhatsApp</h2>
             <p class="text-sm text-black/75 leading-relaxed">
-              En el mercado hispanohablante, la decisión de compra se concreta en canales directos. Integramos botones estratégicos de mensajería instantánea con mensajes preconfigurados según el servicio de interés, eliminando formularios complejos y acelerando el cierre de contratos comerciales.
+              En el mercado hispanohablante, la decisión de compra se concreta en canales directos. Integro botones estratégicos de mensajería instantánea con mensajes preconfigurados según el servicio de interés, eliminando formularios complejos y acelerando el cierre de contratos comerciales.
             </p>
           </div>
 
           <div class="p-6 rounded-2xl bg-black/[0.02] border border-black/[0.06]">
             <h2 class="text-xl font-medium text-black mb-3">Preparación para Inteligencia Artificial (AEO & GEO)</h2>
             <p class="text-sm text-black/75 leading-relaxed">
-              Estructuramos manifiestos de IA (llms.txt) y marcado semántico que permiten a ChatGPT, Gemini y Perplexity extraer información precisa sobre los servicios y ventajas de tu empresa para recomendarlos a potenciales compradores.
+              Estructuro manifiestos de IA (llms.txt) y marcado semántico que permiten a ChatGPT, Gemini y Perplexity extraer información precisa sobre los servicios y ventajas de tu empresa para recomendarlos a potenciales compradores.
             </p>
           </div>
         </section>
@@ -283,7 +283,7 @@ const pages = [
             <div class="border-b border-black/10 pb-4">
               <h3 class="text-base font-medium text-black mb-2">¿Cuánto tiempo toma desarrollar una página web completa?</h3>
               <p class="text-sm text-black/75 leading-relaxed">
-                Nuestros proyectos estándar se entregan habitualmente en un plazo de 14 días calendario, incluyendo arquitectura, diseño de interfaces, optimización SEO y pruebas de rendimiento en producción.
+                Los proyectos estándar se entregan habitualmente en un plazo de 14 días calendario, incluyendo arquitectura, diseño de interfaces, optimización SEO y pruebas de rendimiento en producción.
               </p>
             </div>
           </div>
@@ -338,21 +338,21 @@ const pages = [
           <div>
             <h2 class="text-lg font-medium text-black mb-2">3. Compromiso de No Comercialización</h2>
             <p>
-              Nuestra empresa no vende, cede, alquila ni comparte bajo ninguna circunstancia información personal o datos de contacto a terceras partes para fines publicitarios, de telemercadeo o listas masivas de correo.
+              El estudio no vende, cede, alquila ni comparte bajo ninguna circunstancia información personal o datos de contacto a terceras partes para fines publicitarios, de telemercadeo o listas masivas de correo.
             </p>
           </div>
 
           <div>
             <h2 class="text-lg font-medium text-black mb-2">4. Derechos del Titular (Habeas Data)</h2>
             <p>
-              De acuerdo con la legislación vigente en Colombia, el titular de los registros tiene derecho en todo momento a conocer, actualizar, rectificar y solicitar la supresión de sus datos de nuestras bases de contacto enviando una solicitud formal a hola@jpchacon.com.
+              De acuerdo con la legislación vigente en Colombia, el titular de los registros tiene derecho en todo momento a conocer, actualizar, rectificar y solicitar la supresión de sus datos de las bases de contacto enviando una solicitud formal a hola@jpchacon.com.
             </p>
           </div>
 
           <div>
             <h2 class="text-lg font-medium text-black mb-2">5. Medidas de Seguridad y Cifrado</h2>
             <p>
-              Implementamos protocolos modernos de protección técnica en tránsito mediante certificados SSL/TLS y cabeceras de seguridad estrictas en nuestra infraestructura de Cloudflare, evitando accesos no autorizados o interceptaciones indebidas.
+              Se implementan protocolos modernos de protección técnica en tránsito mediante certificados SSL/TLS y cabeceras de seguridad estrictas en la infraestructura de Cloudflare, evitando accesos no autorizados o interceptaciones indebidas.
             </p>
           </div>
 
@@ -425,6 +425,24 @@ const pages = [
         </footer>
       </article>
     `,
+  },
+  {
+    route: 'auditar-posicionamiento',
+    title: 'Auditor de Visibilidad en Google | Diagnóstico de Posicionamiento — JP Studios',
+    description: 'Herramienta de auditoría empírica oficial para comprobar si tu página web está indexada en Google, figura en los primeros resultados locales o es invisible para tus clientes.',
+    canonical: 'https://jpchacon.com/auditar-posicionamiento',
+    breadcrumbName: 'Auditor de Visibilidad en Google',
+    faqItems: [
+      {
+        question: '¿Qué significa que una página web no esté indexada en Google?',
+        answer: 'Significa que los robots de Google (Googlebot) no han rastreado o han descartado el sitio web, por lo que es 100% invisible para cualquier usuario que busque tus productos o servicios en el buscador.'
+      },
+      {
+        question: '¿Cómo comprobar si mi negocio aparece en Google y Google Maps?',
+        answer: 'Puedes utilizar la instrucción de búsqueda site:tudominio.com para verificar el índice de páginas registradas, o buscar tu categoría de servicio en tu zona para auditar si figuras en el paquete local de 3 negocios destacados.'
+      }
+    ],
+    h1: 'Auditor de Visibilidad en Google e Indexación Orgánica',
   },
 ];
 

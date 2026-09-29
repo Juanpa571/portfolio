@@ -46,8 +46,14 @@ Documento de referencia para el agente de IA. Leer este archivo al iniciar cualq
    - Todo cambio, nueva sección, ajuste visual o refactor debe desarrollarse siempre en una rama local aislada (ej. `dev` o `feature/...`) y revisarse primero en el servidor de desarrollo local (`http://localhost:5173/`).
    - Únicamente tras recibir el **visto bueno y aprobación explícita del usuario**, se hace merge a `main` y push a GitHub para lanzar a Netlify/Cloudflare.
 8. **Estructura de Proyectos en Portafolio:**
-   - **01 Hábitat:** Caso de estudio principal interactivo con demo/modal.
+   - **01 Maranatha:** Caso de estudio oficial y proyecto real (Maranatha Papelería Creativa en Cali). Catálogo interactivo de alto rendimiento, React + Tailwind, optimización local y Core Web Vitals.
    - **02 Soon...:** Espacio reservado para el proyecto del cliente (`Tu Proyecto Aquí` / `Your Project Here`). Fila intencionalmente **no interactiva** (cursor default, sin hover preview flotante, sin clic y sin abrir modal/panel) para actuar como una invitación sutil y elegante a trabajar juntos.
+9. **Regla Obligatoria de Propuesta de Encabezados (Keywords con Volumen y Puja):**
+   - Cada vez que se propongan oraciones para encabezados (`H1`, `H2`, `H3`), se deben listar obligatoriamente con su respectiva búsqueda mensual y puja verificadas en Google Keyword Planner entre paréntesis. Ejemplo: `diseño de páginas web en Cali (100–1.000 / $73k COP)`. Prohibido proponer encabezados sin respaldo numérico directo.
+10. **Voz y Tono: Estudio Independiente (Estricto Singular — Cero Plural de Agencia):**
+    - **JP Studios es un estudio independiente liderado y desarrollado directamente por Juan Pablo Chacón.**
+    - Queda **terminantemente prohibido** redactar copies, encabezados o descripciones en plural (ej. *"no instalamos"*, *"programamos"*, *"hacemos"*, *"diseñamos"*, *"publicamos"*).
+    - La redacción debe ser siempre en **primera persona del singular o impersonal/enfocada en el estudio/servicio** (ej. *"No instalo plantillas"*, *"Programo cada sitio desde cero"*, *"Desarrollo a la medida"*, *"Cada proyecto pasa por un protocolo de QA"*). Esto transmite responsabilidad directa, transparencia radical y cercanía de ingeniería senior sin el humo ni la burocracia de una agencia inflada.
 
 ---
 

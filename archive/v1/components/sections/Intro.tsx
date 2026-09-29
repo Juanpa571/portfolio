@@ -112,19 +112,19 @@ export const Intro: React.FC = () => {
               {language === 'es' ? (
                 <>
                   <p className="m-0">
-                    En <span className="text-white font-semibold">JP Studios</span>, liderado por Juan Pablo Chacón, desarrollamos <span className="text-white font-semibold">páginas web de alto impacto</span> para empresas y negocios que necesitan destacar y facturar.
+                    Soy <span className="text-white font-semibold">Juan Pablo Chacón</span>, fundador de <span className="text-white font-semibold">JP Studios</span>, un estudio independiente de ingeniería web y posicionamiento en Google para empresas que necesitan destacar y facturar.
                   </p>
                   <p className="m-0">
-                    Construimos sitios web a medida en código ultrarrápido (React 19), estructurados para <span className="text-white font-semibold">liderar en Google y motores de IA</span>, y optimizados para transformar visitas locales en <span className="text-white font-semibold">ventas directas por WhatsApp</span>.
+                    Construyo cada sitio web desde cero en código ultrarrápido (React 19), estructurado para <span className="text-white font-semibold">liderar en Google y motores de IA</span>, y optimizado para transformar visitas en <span className="text-white font-semibold">ventas directas por WhatsApp</span>.
                   </p>
                 </>
               ) : (
                 <>
                   <p className="m-0">
-                    At <span className="text-white font-semibold">JP Studios</span>, an independent web engineering studio led by Juan Pablo Chacón, we craft <span className="text-white font-semibold">high-performance websites</span> for businesses that cannot afford to go unnoticed.
+                    I am <span className="text-white font-semibold">Juan Pablo Chacón</span>, founder of <span className="text-white font-semibold">JP Studios</span>, an independent web engineering and search positioning practice for businesses that cannot afford to go unnoticed.
                   </p>
                   <p className="m-0">
-                    Ultra-fast websites, optimized to <span className="text-white font-semibold">dominate the Google ecosystem and AI search engines</span>, engineered to turn local discovery into <span className="text-white font-semibold">real clients across your primary contact channels</span>.
+                    I engineer bespoke websites in clean, ultra-fast code (React 19), structured to <span className="text-white font-semibold">dominate Google and AI search engines</span>, designed to turn visitors into <span className="text-white font-semibold">direct clients on WhatsApp</span>.
                   </p>
                 </>
               )}

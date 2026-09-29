@@ -15,36 +15,36 @@ const MARANATHA_TRAITS: TraitData[] = [
     titleEs: 'Catálogo directo a WhatsApp con cero comisiones de pasarela',
     titleEn: 'Direct WhatsApp catalog with zero gateway transaction fees',
     descEs:
-      'En lugar de carritos de compra engorrosos y pasarelas de pago que descuentan del 3% al 5% por transacción, estructuramos un catálogo ágil donde cada producto genera un mensaje contextual prellenado directamente al WhatsApp de la creadora en un solo toque, cerrando pedidos al instante.',
+      'En lugar de carritos de compra engorrosos y pasarelas de pago que descuentan del 3% al 5% por transacción, estructuré un catálogo ágil donde cada producto genera un mensaje contextual prellenado directamente al WhatsApp de la creadora en un solo toque, cerrando pedidos al instante.',
     descEn:
-      'Instead of cumbersome shopping carts and payment gateways taking 3% to 5% fees per transaction, we engineered an agile catalog where each product generates an instant, prefilled order inquiry directly into WhatsApp with a single tap.',
+      'Instead of cumbersome shopping carts and payment gateways taking 3% to 5% fees per transaction, I engineered an agile catalog where each product generates an instant, prefilled order inquiry directly into WhatsApp with a single tap.',
   },
   {
     id: 'mobile-speed',
     titleEs: 'Carga instantánea sub-segundo en redes móviles 4G',
     titleEn: 'Sub-second mobile loading on cellular networks',
     descEs:
-      'La papelería creativa depende de galerías y fotografías atractivas. Convertimos todos los recursos visuales a WebP ligero e implementamos carga diferida (lazy loading), permitiendo que la web completa responda en menos de un segundo en celulares sin consumir datos excesivos.',
+      'La papelería creativa depende de galerías y fotografías atractivas. Convertí todos los recursos visuales a WebP ligero e implementé carga diferida (lazy loading), permitiendo que la web completa responda en menos de un segundo en celulares sin consumir datos excesivos.',
     descEn:
-      'Creative stationery relies on heavy photography galleries. We converted all visual assets into lightweight WebP and implemented responsive lazy loading, enabling the entire catalog to load in under a second on mobile phones without data bloat.',
+      'Creative stationery relies on heavy photography galleries. I converted all visual assets into lightweight WebP and implemented responsive lazy loading, enabling the entire catalog to load in under a second on mobile phones without data bloat.',
   },
   {
     id: 'geo-seo',
     titleEs: 'SEO local en Cali y preparación para motores de IA (AEO)',
     titleEn: 'Local Cali SEO and AI search engine discovery (AEO)',
     descEs:
-      'Optimizamos la plataforma para búsquedas locales con alta intención de compra en Cali ("stickers personalizados cali", "cajas temáticas cali"), integrando marcado Schema.org LocalBusiness, catálogos en JSON y manifiestos de IA (llms.txt) para que Google Maps y ChatGPT citen al taller como referente.',
+      'Optimicé la plataforma para búsquedas locales con alta intención de compra en Cali ("stickers personalizados cali", "cajas temáticas cali"), integrando marcado Schema.org LocalBusiness, catálogos en JSON y manifiestos de IA (llms.txt) para que Google Maps y ChatGPT citen al taller como referente.',
     descEn:
-      'Optimized for high-intent commercial searches in Cali ("stickers personalizados cali", "cajas temáticas cali"), integrating LocalBusiness Schema.org data, JSON catalogs, and AI manifests (llms.txt) so Google Maps and ChatGPT cite Maranatha as the top local reference.',
+      'I optimized the platform for high-intent commercial searches in Cali ("stickers personalizados cali", "cajas temáticas cali"), integrating LocalBusiness Schema.org data, JSON catalogs, and AI manifests (llms.txt) so Google Maps and ChatGPT cite Maranatha as the top local reference.',
   },
   {
     id: 'art-direction',
     titleEs: 'Diseño de autor con estética de taller artesanal',
     titleEn: 'Bespoke art direction with artisan workshop craft',
     descEs:
-      'Rompimos con las plantillas predecibles de Shopify o WordPress. Creamos una dirección visual propia inspirada en un taller físico (notas adhesivas, paleta lila institucional, tipografía editorial y micro-interacciones suaves) que transmite calidez humana y justifica tarifas prémium.',
+      'Rompí con las plantillas predecibles de Shopify o WordPress. Creé una dirección visual propia inspirada en un taller físico (notas adhesivas, paleta lila institucional, tipografía editorial y micro-interacciones suaves) que transmite calidez humana y justifica tarifas prémium.',
     descEn:
-      'Broke away from generic e-commerce templates. Crafted a distinct visual narrative inspired by a real creative workshop (sticky notes, signature lilac palette, editorial typography, and tactile motion) that projects artisan warmth and commands premium prices.',
+      'I broke away from generic e-commerce templates, crafting a distinct visual narrative inspired by a real creative workshop (sticky notes, signature lilac palette, editorial typography, and tactile motion) that projects artisan warmth and commands premium prices.',
   },
 ];
 
@@ -81,9 +81,9 @@ const GENERIC_TRAITS: TraitData[] = [
     titleEs: 'Enrutamiento directo sin fricción',
     titleEn: 'Frictionless direct routing',
     descEs:
-      'Eliminamos los formularios de diez campos que casi ningún usuario completa en su teléfono. El prospecto conecta en tres segundos mediante enlaces directos a WhatsApp con mensajes contextuales o llamadas a recepción, reduciendo drásticamente el abandono.',
+      'Elimino los formularios de diez campos que casi ningún usuario completa en su teléfono. El prospecto conecta en tres segundos mediante enlaces directos a WhatsApp con mensajes contextuales o llamadas a recepción, reduciendo drásticamente el abandono.',
     descEn:
-      'We remove ten-field contact forms that mobile users consistently abandon. Prospects connect in seconds through direct WhatsApp routing with contextual prefilled messages, dramatically cutting drop-off.',
+      'I remove ten-field contact forms that mobile users consistently abandon. Prospects connect in seconds through direct WhatsApp routing with contextual prefilled messages, dramatically cutting drop-off.',
   },
 ];
 

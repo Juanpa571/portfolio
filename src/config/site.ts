@@ -125,7 +125,7 @@ export const siteConfig = {
       category: 'Espacio disponible para tu empresa',
       location: 'Cali / Remoto Global',
       tech: 'Desarrollo Llave en Mano • Entrega en 14 Días',
-      description: 'Espacio reservado para tu marca. Diseñamos y desarrollamos tu plataforma web a medida para posicionar tu negocio con autoridad y captar clientes directos.',
+      description: 'Espacio reservado para tu marca. Diseño y desarrollo tu plataforma web a medida para posicionar tu negocio con autoridad y captar clientes directos.',
       aspectRatio: '16/10',
       dimensions: '1920x1200 px',
       isCta: true,

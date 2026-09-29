@@ -3,8 +3,8 @@ import { Compass, Target, MapPin, BarChart3, ChevronDown, Gauge, FileCode2 } fro
 import { motion, AnimatePresence } from 'framer-motion';
 import { siteConfig } from '../config/site';
 import { MetaTags } from '../components/seo/MetaTags';
-import { Header } from '../components/layout/Header';
-import { Footer } from '../components/layout/Footer';
+import { HeaderV2 } from '../components/v2/HeaderV2';
+import { FooterV2 } from '../components/v2/FooterV2';
 import { HeroPhoneMockup } from '../components/seo/HeroPhoneMockup';
 import { highlightBrandKeywords } from '../utils/textHighlight';
 import { trackWhatsAppClick } from '../utils/analytics';
@@ -35,7 +35,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
     {
       num: '02',
       title: '2. Diseñar para la intención de búsqueda real',
-      desc: 'Repetir palabras clave como un robot ya no funciona. Investigamos exactamente qué dudas tienen tus compradores antes de contratar y estructuramos títulos H1, H2 y respuestas directas que satisfacen esa necesidad de forma transparente y convincente.',
+      desc: 'Repetir palabras clave como un robot ya no funciona. Investigo exactamente qué dudas tienen tus compradores antes de contratar y estructuro títulos H1, H2 y respuestas directas que satisfacen esa necesidad de forma transparente y convincente.',
       icon: Target,
       tag: 'Objetivo',
       detail: 'Mayor retención en la página y más señales a Google.',
@@ -43,7 +43,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
     {
       num: '03',
       title: '3. Dominar el podio local en Google Maps',
-      desc: 'Para recibir clientes en tu ciudad o región, optimizamos y construimos tu Google Business Profile (antes Google My Business), lo llenamos con información completa y gestionamos reseñas. Una ficha verificada con reseñas reales es la forma más rápida de generar llamadas directas al negocio.',
+      desc: 'Para recibir clientes en tu ciudad o región, optimizo y construyo tu Google Business Profile (antes Google My Business), lo lleno con información completa y gestiono reseñas. Una ficha verificada con reseñas reales es la forma más rápida de generar llamadas directas al negocio.',
       icon: MapPin,
       tag: 'Canal',
       detail: 'Aparición en el mapa local cuando buscan servicios cerca de ti.',
@@ -51,7 +51,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
     {
       num: '04',
       title: '4. Optimización para Inteligencia Artificial (AEO & GEO)',
-      desc: 'En 2026, miles de decisiones de compra pasan por ChatGPT, Gemini y Perplexity. Estructuramos tu sitio con contenido optimizado para que estos motores de IA interpreten tu propuesta de valor y te recomienden en temas con intención de silencio.',
+      desc: 'En 2026, miles de decisiones de compra pasan por ChatGPT, Gemini y Perplexity. Estructuro tu sitio con contenido optimizado para que estos motores de IA interpreten tu propuesta de valor y te recomienden en temas con intención de silencio.',
       icon: BarChart3,
       tag: 'Ventaja',
       detail: 'Citabilidad en respuestas conversacionales y AI Overviews.',
@@ -173,7 +173,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
       />
 
       {/* Header Oficial Reutilizable */}
-      <Header />
+      <HeaderV2 onNavigateHome={onNavigateHome} />
 
       <main className="pt-6 sm:pt-10 pb-20 overflow-hidden">
         {/* Breadcrumb Navigation */}
@@ -366,7 +366,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
                 </div>
 
                 <p className="pt-1 text-black/90 font-medium">
-                  Para quienes además necesitan una plataforma comercial completa y veloz, en JP Studios combinamos este servicio con nuestro desarrollo de{' '}
+                  Para quienes además necesitan una plataforma comercial completa y veloz, en JP Studios combino este servicio con mi desarrollo de{' '}
                   <button
                     type="button"
                     onClick={onNavigateHome}
@@ -615,7 +615,7 @@ export const PosicionarWebGooglePage: React.FC<PosicionarWebGooglePageProps> = (
       </main>
 
       {/* Footer Oficial */}
-      <Footer />
+      <FooterV2 onNavigateHome={onNavigateHome} />
     </div>
   );
 };
