@@ -50,7 +50,7 @@ export const HeroV2: React.FC = () => {
   }, []);
 
   return (
-    <section id="hero" data-ambient-theme="cyan" className="relative min-h-screen pt-32 pb-14 lg:pt-[8.5rem] lg:pb-16 overflow-hidden bg-transparent text-slate-100 flex flex-col justify-center">
+    <section id="hero" data-ambient-theme="cyan" className="relative min-h-screen pt-32 pb-16 lg:pt-[8.5rem] lg:pb-24 xl:pb-28 overflow-hidden bg-transparent text-slate-100 flex flex-col justify-center">
 
       <div className="relative z-10 w-full max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 my-auto">
         
@@ -75,7 +75,7 @@ export const HeroV2: React.FC = () => {
 
             {/* Texto de soporte calibrado */}
             <p className="text-sm sm:text-base lg:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl">
-              Estructuramos tu sitio para que aparezca tanto en Google (SEO) como en motores de inteligencia artificial (ChatGPT y Gemini), conecte con clientes interesados y multiplique sus oportunidades de venta.
+              Estructuro tu sitio para que aparezca tanto en Google (SEO) como en motores de inteligencia artificial (ChatGPT y Gemini), conecte con clientes interesados y multiplique tus oportunidades de venta.
             </p>
 
             {/* Acciones principales con foco de conversión magnético */}
@@ -84,7 +84,7 @@ export const HeroV2: React.FC = () => {
                 href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20quiero%20cotizar%20el%20dise%C3%B1o%20y%20desarrollo%20web%20para%20mi%20negocio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 rounded-lg bg-gradient-to-b from-cyan-300 via-cyan-400 to-cyan-400 hover:from-cyan-200 hover:to-cyan-300 text-slate-950 font-bold text-sm sm:text-base tracking-wide transition-all duration-200 border border-cyan-200/60 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.6),inset_0_-1px_0_0_rgba(0,0,0,0.15),0_4px_14px_-2px_rgba(6,182,212,0.45),0_12px_24px_-4px_rgba(6,182,212,0.25)] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.75),inset_0_-1px_0_0_rgba(0,0,0,0.2),0_6px_20px_-2px_rgba(6,182,212,0.6),0_16px_32px_-4px_rgba(6,182,212,0.35)] hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2.5 group cursor-pointer"
+                className="px-8 py-4 rounded-lg backdrop-blur-xl bg-cyan-400/85 hover:bg-cyan-400 text-slate-950 font-bold text-sm sm:text-base tracking-wide transition-all duration-200 border border-white/40 hover:border-white/60 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.8),inset_0_-1px_0_0_rgba(0,0,0,0.15),0_4px_16px_rgba(0,0,0,0.35)] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.95),inset_0_-1px_0_0_rgba(0,0,0,0.2),0_6px_20px_rgba(0,0,0,0.45)] hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2.5 group cursor-pointer"
               >
                 <WhatsAppIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 fill-current shrink-0" />
                 <span>Solicitar cotización</span>

@@ -153,7 +153,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                     Optimización para Motores de Inteligencia Artificial
                   </h3>
                   <p className="text-sm text-black/70 leading-relaxed">
-                    Estructuramos tu contenido con bloques de respuesta concisos para que ChatGPT, Perplexity y Gemini entiendan exactamente qué vendes y citen a tu empresa cuando los usuarios pregunten por los mejores proveedores en tu sector.
+                    Estructuro tu contenido con bloques de respuesta concisos para que ChatGPT, Perplexity y Gemini entiendan exactamente qué vendes y citen a tu empresa cuando los usuarios pregunten por los mejores proveedores en tu sector.
                   </p>
                 </div>
                 <div className="pt-6 border-t border-black/[0.06] mt-6 text-xs font-mono text-black/60">
@@ -169,7 +169,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                     Datos Estructurados Schema.org & Velocidad
                   </h3>
                   <p className="text-sm text-black/70 leading-relaxed">
-                    Implementamos grafos de datos oficiales (LocalBusiness, Organization, FAQPage) y eliminamos cuellos de botella de renderizado para garantizar tiempos de carga sub-segundo que premian el rastreo de Googlebot.
+                    Implemento grafos de datos oficiales (LocalBusiness, Organization, FAQPage) y elimino cuellos de botella de renderizado para garantizar tiempos de carga sub-segundo que premian el rastreo de Googlebot.
                   </p>
                 </div>
                 <div className="pt-6 border-t border-black/[0.06] mt-6 text-xs font-mono text-black/60">
@@ -207,7 +207,7 @@ export const SeoCaliPage: React.FC<SeoCaliPageProps> = ({ onNavigateHome }) => {
                   {highlightBrandKeywords('¿Garantizan el puesto #1 en Google?')}
                 </h3>
                 <p className="text-sm sm:text-base text-black/70 leading-relaxed">
-                  No. Ninguna agencia o profesional serio puede garantizar el puesto #1 porque nadie controla los algoritmos propietarios de Google. En JP Studios garantizamos la construcción de la mejor infraestructura técnica, semántica y de contenido posible para maximizar las probabilidades reales de alcanzar el podio.
+                  No. Ninguna agencia o profesional serio puede garantizar el puesto #1 porque nadie controla los algoritmos propietarios de Google. En JP Studios garantizo la construcción de la mejor infraestructura técnica, semántica y de contenido posible para maximizar las probabilidades reales de alcanzar el podio.
                 </p>
               </div>
 

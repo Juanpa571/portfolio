@@ -127,7 +127,7 @@ export const HeaderV2: React.FC<HeaderV2Props> = ({ onNavigateHome }) => {
             href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20quiero%20cotizar%20un%20sitio%20web%20para%20mi%20negocio"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 rounded-lg bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold text-xs sm:text-sm tracking-wide transition-all shadow-md shadow-cyan-500/15 flex items-center gap-2 group"
+            className="px-4 py-2 rounded-lg bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold text-xs sm:text-sm tracking-wide transition-all shadow-sm shadow-black/30 hover:shadow-md flex items-center gap-2 group"
           >
             <WhatsAppIcon className="w-3.5 h-3.5 fill-current shrink-0" />
             <span>Hablemos</span>

@@ -18,7 +18,13 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
   };
 
   return (
-    <footer className="relative z-10 border-t border-white/[0.08] bg-[#070709] text-slate-300 pt-16 pb-12 font-sans overflow-hidden">
+    <footer className="relative z-10 border-t border-white/10 bg-gradient-to-b from-[#070709]/95 via-[#070709] to-[#070709] backdrop-blur-xl text-slate-300 pt-20 pb-12 font-sans overflow-hidden">
+      {/* Difuminado suave de luz ambiental que conecta con la sección anterior */}
+      <div 
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[120px] bg-gradient-to-b from-cyan-500/[0.05] to-transparent blur-2xl pointer-events-none -z-0" 
+        aria-hidden="true" 
+      />
+
       {/* Luz ambiental sutil inferior */}
       <div 
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-cyan-500/[0.03] blur-[120px] pointer-events-none -z-0" 

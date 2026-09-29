@@ -29,7 +29,7 @@ export const ProcessV2: React.FC = () => {
       stageName: 'Planificación & Estructura',
       title: 'Diagnóstico y estructura',
       summary: 'Analizo tu modelo de negocio, lo que vendes y cómo buscan tus servicios en Google.',
-      description: 'Definimos los textos comerciales, las rutas de contacto para que los clientes potenciales te escriban o llamen y cerramos una cotización formal con precio fijo, sin sorpresas ni cobros imprevistos.',
+      description: 'Defino la estructura de textos comerciales, las rutas de contacto para que los clientes potenciales te escriban o llamen y entrego una cotización formal con precio fijo, sin sorpresas ni cobros imprevistos.',
       deliverable: 'Estructura de la web aprobada y propuesta técnica clara.',
       accentHex: '#38bdf8',
       accentColor: 'text-sky-400',
@@ -106,7 +106,7 @@ export const ProcessV2: React.FC = () => {
     <section 
       id="proceso" 
       data-ambient-theme="cyan"
-      className="relative py-24 sm:py-32 lg:py-36 bg-transparent text-slate-100 overflow-hidden"
+      className="relative py-28 sm:py-36 lg:py-44 xl:py-48 bg-transparent text-slate-100 overflow-hidden"
     >
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -119,7 +119,7 @@ export const ProcessV2: React.FC = () => {
           </div>
           
           <h2 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-[-0.03em] text-white leading-[1.08]">
-            Cómo trabajamos:{' '}
+            Cómo trabajo:{' '}
             <span className="text-cyan-400">
               de la idea a tu web lista en 3 pasos.
             </span>
@@ -401,7 +401,7 @@ export const ProcessV2: React.FC = () => {
 
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
                   ¿Querías saltarte directo al lanzamiento y la gloria sin pasar por la forja del código? 
-                  En este estudio no hacemos magia barata: primero estructuramos, luego programamos a medida y finalmente auditamos y desplegamos.
+                  Aquí no hago magia barata: primero estructuro, luego programo a medida y finalmente audito y despliego.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center gap-3">

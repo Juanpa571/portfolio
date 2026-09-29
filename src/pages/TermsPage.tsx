@@ -112,7 +112,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigateHome }) => {
                 Una vez liquidado el valor total pactado en la propuesta comercial, <strong className="text-white">el cliente es el dueño absoluto y exclusivo de su sitio web</strong>, incluyendo el código fuente, diseño, textos entregados e imágenes de marca.
               </p>
               <p className="text-xs text-slate-400">
-                En JP Studios no secuestramos dominios, no cobramos tarifas de rescate ni forzamos contratos de mantenimiento obligatorios. Eres libre de alojar tu proyecto donde prefieras y transferir la administración técnica cuando lo desees.
+                En JP Studios no secuestro dominios, no cobro tarifas de rescate ni fuerzo contratos de mantenimiento obligatorios. Eres libre de alojar tu proyecto donde prefieras y transferir la administración técnica cuando lo desees.
               </p>
             </div>
             <p className="text-xs text-slate-500 pt-1">
@@ -168,7 +168,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigateHome }) => {
             </p>
             <ul className="space-y-2 pl-4 list-disc text-slate-300">
               <li>
-                <strong className="text-white">Optimización PageSpeed:</strong> Entregamos páginas con arquitectura ligera que superan 90 puntos en Google PageSpeed Insights para asegurar tiempos de carga en menos de 1 segundo.
+                <strong className="text-white">Optimización PageSpeed:</strong> Entrego páginas con arquitectura ligera que superan 90 puntos en Google PageSpeed Insights para asegurar tiempos de carga en menos de 1 segundo.
               </li>
               <li>
                 <strong className="text-white">Soporte Correctivo Post-Lanzamiento:</strong> Todos los proyectos incluyen 30 días calendario de garantía técnica para solventar cualquier inconveniente técnico o ajuste atribuible al desarrollo original sin costo adicional.

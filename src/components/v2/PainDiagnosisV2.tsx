@@ -7,7 +7,7 @@ export const PainDiagnosisV2: React.FC = () => {
     <section 
       id="diagnostico" 
       data-ambient-theme="rose"
-      className="relative py-24 sm:py-32 lg:py-36 bg-transparent text-slate-100 overflow-hidden"
+      className="relative py-28 sm:py-36 lg:py-44 xl:py-48 bg-transparent text-slate-100 overflow-hidden"
     >
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -47,7 +47,7 @@ export const PainDiagnosisV2: React.FC = () => {
             <div className="p-7 sm:p-9 flex flex-col justify-between h-full">
               <div>
                 <h3 className="text-lg sm:text-xl font-extrabold text-white tracking-tight leading-snug mb-6">
-                  Velocidad de carga de tu página web
+                  Clientes perdidos por carga lenta
                 </h3>
 
                 {/* Letra capital numérica + frase destacada */}
@@ -188,7 +188,7 @@ export const PainDiagnosisV2: React.FC = () => {
             
             <div className="lg:col-span-8">
               <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                La diferencia entre un folleto decorativo y una página web para vender.
+                Folleto decorativo vs. Web para vender
               </h3>
               <p className="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">
                 Mientras una web tradicional tarda 5 segundos en cargar y espera pasivamente a que alguien llene un formulario, una web de alto rendimiento comunica valor en los primeros 3 segundos, aparece primero en Google y convierte el interés del visitante en solicitudes comerciales directas.

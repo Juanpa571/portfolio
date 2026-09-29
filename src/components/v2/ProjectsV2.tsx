@@ -16,7 +16,7 @@ export const ProjectsV2: React.FC = () => {
   return (
     <section 
       id="proyectos" 
-      className="relative py-24 sm:py-32 lg:py-36 bg-transparent text-slate-100 overflow-hidden"
+      className="relative py-28 sm:py-36 lg:py-44 xl:py-48 bg-transparent text-slate-100 overflow-hidden"
     >
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -74,7 +74,7 @@ export const ProjectsV2: React.FC = () => {
                 <div className="grid grid-cols-3 gap-4 pt-6 border-t border-white/[0.08]">
                   <div>
                     <div className="text-2xl sm:text-3xl font-black font-mono text-[#FFCC00]">
-                      &lt; 1.2s
+                      &lt; 2.6s
                     </div>
                     <div className="text-xs text-slate-400 mt-1 leading-snug">
                       Carga LCP en redes 4G móviles
@@ -185,14 +185,11 @@ export const ProjectsV2: React.FC = () => {
                 </div>
 
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                  Tu próximo proyecto aquí:{' '}
-                  <span className="text-slate-400 font-normal">
-                    una plataforma rápida para posicionar tu marca y vender más.
-                  </span>
+                  Tu próximo proyecto web
                 </h3>
 
                 <p className="mt-4 text-xs sm:text-sm text-slate-400 max-w-2xl leading-relaxed">
-                  Diseño y desarrollo sitios web de alto rendimiento programados a la medida. Sin intermediarios, sin plantillas genéricas lentas y con comunicación directa de ingeniería. Entrego tu plataforma lista para competir en Google en 14 a 21 días.
+                  Una plataforma rápida para posicionar tu marca y vender más. Diseño y desarrollo sitios web de alto rendimiento programados a la medida. Sin intermediarios, sin plantillas genéricas lentas y con comunicación directa de ingeniería. Entrego tu plataforma lista para competir en Google en 14 a 21 días.
                 </p>
               </div>
 

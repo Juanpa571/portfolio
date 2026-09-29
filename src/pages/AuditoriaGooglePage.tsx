@@ -297,7 +297,7 @@ export const AuditoriaGooglePage: React.FC = () => {
               ¿Tu página web no aparece o no convierte visitantes en clientes?
             </h2>
             <p className="text-sm sm:text-base text-slate-400 mt-3 leading-relaxed">
-              En JP Studios diseñamos y desarrollamos plataformas en React 19 concebidas desde la primera línea de código para liderar en Google y Google Maps, cargar en fracciones de segundo y convertir visitas en solicitudes comerciales directas.
+              En JP Studios diseño y desarrollo plataformas en React 19 concebidas desde la primera línea de código para liderar en Google y Google Maps, cargar en fracciones de segundo y convertir visitas en solicitudes comerciales directas.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
@@ -310,10 +310,10 @@ export const AuditoriaGooglePage: React.FC = () => {
                 <span>→</span>
               </a>
               <a
-                href="/v2"
+                href="/"
                 className="px-6 py-3.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 border border-white/10 text-sm font-medium transition-all"
               >
-                <span>Ver cómo trabajamos</span>
+                <span>Ver cómo trabajo</span>
               </a>
             </div>
           </div>

@@ -309,7 +309,7 @@ export const ContactV2: React.FC = () => {
     <section 
       id="contacto" 
       data-ambient-theme="cyan"
-      className="relative py-24 sm:py-32 lg:py-36 bg-transparent text-slate-100 overflow-hidden"
+      className="relative py-28 sm:py-36 lg:py-44 xl:py-48 bg-transparent text-slate-100 overflow-hidden"
     >
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         

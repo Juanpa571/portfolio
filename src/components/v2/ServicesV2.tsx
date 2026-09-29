@@ -56,7 +56,7 @@ export const ServicesV2: React.FC = () => {
     <section 
       id="servicios" 
       data-ambient-theme="emerald"
-      className="relative py-24 sm:py-32 lg:py-36 bg-transparent text-slate-100 overflow-hidden"
+      className="relative py-28 sm:py-36 lg:py-44 xl:py-48 bg-transparent text-slate-100 overflow-hidden"
     >
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -69,9 +69,9 @@ export const ServicesV2: React.FC = () => {
           </div>
           
           <h2 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-[-0.03em] text-white leading-[1.08]">
-            Diseño y desarrollo de páginas web{' '}
+            Desarrollo web a la medida{' '}
             <span className="text-emerald-400">
-              para vender tus productos.
+              y estructura enfocada en captar clientes.
             </span>
           </h2>
 
@@ -114,10 +114,10 @@ export const ServicesV2: React.FC = () => {
                   01 - RENDIMIENTO
                 </div>
                 <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
-                  Velocidad de carga: tu página web lista en menos de 2.5 segundos
+                  Velocidad de carga optimizada
                 </h3>
                 <p className="mt-3 text-sm text-slate-400 leading-relaxed">
-                  Cada componente se programa desde cero en React y TypeScript, sin plantillas lentas ni dependencias innecesarias. El sitio responde con fluidez en redes móviles reales y cumple los parámetros de rendimiento de Google.
+                  Tu página web lista en menos de 2.5 segundos. Cada componente se programa desde cero en React y TypeScript, sin plantillas lentas ni dependencias innecesarias. El sitio responde con fluidez en redes móviles reales y cumple los parámetros de rendimiento de Google.
                 </p>
               </div>
 
@@ -187,10 +187,10 @@ export const ServicesV2: React.FC = () => {
                   02 - ADQUISICIÓN
                 </div>
                 <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
-                  Posicionamiento web orgánico: cómo hacer que tu empresa aparezca en Google, Maps y motores de IA
+                  Posicionamiento web orgánico
                 </h3>
                 <p className="mt-3 text-sm text-slate-400 leading-relaxed">
-                  Marcado semántico Schema.org y optimización técnica para que los motores de búsqueda tradicionales y asistentes de inteligencia artificial reconozcan la ubicación, servicios y datos de contacto de tu negocio.
+                  Cómo hacer que tu empresa aparezca en Google, Maps y motores de IA. Marcado semántico Schema.org y optimización técnica para que los motores de búsqueda tradicionales y asistentes de inteligencia artificial reconozcan la ubicación, servicios y datos de contacto de tu negocio.
                 </p>
               </div>
 
@@ -260,10 +260,10 @@ export const ServicesV2: React.FC = () => {
                   03 - CONVERSIÓN
                 </div>
                 <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
-                  Páginas web a la medida para vender tus productos sin fricción
+                  Navegación y ventas sin fricción
                 </h3>
                 <p className="mt-3 text-sm text-slate-400 leading-relaxed">
-                  Diseño catálogos interactivos con búsqueda y filtros instantáneos. El prospecto encuentra lo que necesita y solicita cotización o contacto comercial directo en un solo clic, sin perder tiempo en formularios extensos.
+                  Catálogos interactivos con búsqueda y filtros instantáneos. El prospecto encuentra lo que necesita y solicita cotización o contacto comercial directo en un solo clic, sin perder tiempo en formularios extensos.
                 </p>
               </div>
 
@@ -315,15 +315,11 @@ export const ServicesV2: React.FC = () => {
                 Protocolo de Entrega & Garantía Técnica
               </div>
               <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
-                Auditoría exhaustiva antes de publicar:{' '}
-                <span className="text-slate-200">
-                  una página web certificada y lista{' '}
-                  <span className="text-emerald-400">para recibir clientes y vender.</span>
-                </span>
+                Auditoría exhaustiva antes de publicar
               </h3>
             </div>
             <p className="text-xs sm:text-sm text-slate-300 max-w-md leading-relaxed">
-              No publico ninguna página sin validar cada punto crítico. Aplico un banco de pruebas riguroso para asegurar que tu negocio reciba una herramienta comercial rápida, visible y libre de fallos técnicos.
+              Una web certificada y lista para recibir clientes y vender. No publico ninguna página sin validar cada punto crítico con un banco de pruebas riguroso para asegurar una herramienta rápida, visible y libre de fallos técnicos.
             </p>
           </div>
 

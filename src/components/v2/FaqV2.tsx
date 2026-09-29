@@ -60,14 +60,14 @@ export const FaqV2: React.FC = () => {
     {
       id: 'hosting-dominio-mensualidades',
       question: '¿Cuánto vale el hosting y el dominio en Colombia y hay que pagar mensualidades?',
-      shortAnswer: 'Un dominio cuesta entre $60.000 y $120.000 COP al año. No cobramos mensualidades forzadas; el código y el dominio son 100% de tu empresa.',
+      shortAnswer: 'Un dominio cuesta entre $60.000 y $120.000 COP al año. No cobro mensualidades forzadas; el código y el dominio son 100% de tu empresa.',
       content: (
         <div className="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
           <p>
             En Colombia, el registro anual de un dominio comercial (<code className="text-cyan-300 font-mono text-xs px-1.5 py-0.5 rounded bg-white/[0.05]">.com</code> o <code className="text-cyan-300 font-mono text-xs px-1.5 py-0.5 rounded bg-white/[0.05]">.com.co</code>) cuesta entre <strong className="text-white font-semibold">$60.000 y $120.000 COP al año</strong>, y lo pagas directamente a registradores oficiales a tu propio nombre.
           </p>
           <p>
-            En JP Studios alojamos tu página web en <strong className="text-white font-semibold">redes globales de alto rendimiento (Cloudflare Edge)</strong> con certificado de seguridad SSL incluido. <strong className="text-emerald-400 font-semibold">No cobramos mensualidades obligatorias de mantenimiento ni alquiler de código.</strong>
+            En JP Studios alojo tu página web en <strong className="text-white font-semibold">redes globales de alto rendimiento (Cloudflare Edge)</strong> con certificado de seguridad SSL incluido. <strong className="text-emerald-400 font-semibold">No cobro mensualidades obligatorias de mantenimiento ni alquiler de código.</strong>
           </p>
           <p className="text-xs sm:text-sm text-slate-400 pt-2 border-t border-white/[0.06]">
             El código fuente en React, las credenciales del servidor y la propiedad del dominio son 100% tuyos desde el día de la entrega. Sin letras pequeñas ni contratos de retención.
@@ -88,19 +88,19 @@ export const FaqV2: React.FC = () => {
             <li className="flex items-start gap-2.5">
               <span className="text-cyan-400 font-bold shrink-0 mt-0.5">✓</span>
               <span>
-                <strong className="text-white font-semibold">Velocidad de carga sub-segundo (Core Web Vitals):</strong> Google penaliza los sitios lentos de WordPress que tardan más de 3 segundos en abrir. Construimos en React 19 para superar las pruebas de PageSpeed con puntuación 90+.
+                <strong className="text-white font-semibold">Velocidad de carga sub-segundo (Core Web Vitals):</strong> Google penaliza los sitios lentos de WordPress que tardan más de 3 segundos en abrir. Desarrollo en React 19 para superar las pruebas de PageSpeed con puntuación 90+.
               </span>
             </li>
             <li className="flex items-start gap-2.5">
               <span className="text-cyan-400 font-bold shrink-0 mt-0.5">✓</span>
               <span>
-                <strong className="text-white font-semibold">Datos estructurados Schema.org JSON-LD:</strong> Inyectamos código semántico que le enseña directamente a Googlebot y a motores de IA (ChatGPT, Gemini, Perplexity) el nombre de tu empresa, ciudad sede, servicios exactos y datos de contacto.
+                <strong className="text-white font-semibold">Datos estructurados Schema.org JSON-LD:</strong> Inyecto código semántico que le enseña directamente a Googlebot y a motores de IA (ChatGPT, Gemini, Perplexity) el nombre de tu empresa, ciudad sede, servicios exactos y datos de contacto.
               </span>
             </li>
             <li className="flex items-start gap-2.5">
               <span className="text-cyan-400 font-bold shrink-0 mt-0.5">✓</span>
               <span>
-                <strong className="text-white font-semibold">Vinculación y optimización de Google Maps:</strong> Conectamos tu web oficial a tu perfil de Google Business para que aparezcas en el paquete de 3 mapas locales cuando clientes de tu ciudad busquen lo que vendes.
+                <strong className="text-white font-semibold">Vinculación y optimización de Google Maps:</strong> Conecto tu web oficial a tu perfil de Google Business para que aparezcas en el paquete de 3 mapas locales cuando clientes de tu ciudad busquen lo que vendes.
               </span>
             </li>
           </ul>
@@ -114,7 +114,7 @@ export const FaqV2: React.FC = () => {
       content: (
         <div className="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
           <p>
-            Nuestro proceso está diseñado para que no pierdas horas en reuniones innecesarias ni te compliques con aspectos técnicos. Para iniciar solo realizamos 2 pasos de onboarding:
+            El proceso de JP Studios está diseñado para que no pierdas horas en reuniones innecesarias ni te compliques con aspectos técnicos. Para iniciar solo seguimos 2 pasos de onboarding:
           </p>
           <ul className="space-y-2.5 pt-1">
             <li className="flex items-start gap-2.5">
@@ -170,7 +170,7 @@ export const FaqV2: React.FC = () => {
       data-ambient-theme="cyan"
       itemScope
       itemType="https://schema.org/FAQPage"
-      className="relative py-24 sm:py-32 lg:py-36 bg-transparent text-slate-100 overflow-hidden"
+      className="relative py-28 sm:py-36 lg:py-44 xl:py-48 bg-transparent text-slate-100 overflow-hidden"
     >
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
