@@ -138,16 +138,16 @@ export const KineticBackgroundV2: React.FC = () => {
     };
 
     let isRunning = false;
-    const requestTick = () => {
+    function requestTick() {
       if (!isRunning) {
         isRunning = true;
         animationFrameId = requestAnimationFrame(render);
       }
-    };
+    }
 
     // Medición desacoplada mediante rAF para prevenir Layout Thrashing y Forced Reflows (Regla 12)
     let measureRAFId: number | null = null;
-    const measureSections = () => {
+    function measureSections() {
       if (measureRAFId !== null) return;
       measureRAFId = requestAnimationFrame(() => {
         const diagEl = document.getElementById('diagnostico-header') || document.getElementById('diagnostico');
@@ -166,27 +166,23 @@ export const KineticBackgroundV2: React.FC = () => {
         measureRAFId = null;
         requestTick();
       });
-    };
+    }
 
-    const handleScroll = () => {
+    function handleScroll() {
       currentScrollY = window.scrollY || window.pageYOffset || 0;
       targetScrollProgress = Math.min(Math.max(currentScrollY / maxScroll, 0), 1);
       if (currentScrollY > 40) {
         loadEmblem();
       }
       requestTick();
-    };
+    }
 
-    const onResize = () => {
+    function onResize() {
       resize();
       measureSections();
       handleScroll();
       requestTick();
-    };
-
-    resize();
-    measureSections();
-    handleScroll();
+    }
 
     // Re-mediciones escalonadas tras hidratación y carga de fuentes/imágenes
     setTimeout(measureSections, 250);
@@ -303,7 +299,8 @@ export const KineticBackgroundV2: React.FC = () => {
       return THEMES.cyan;
     };
 
-    const render = () => {
+    function render() {
+      if (!ctx) return;
       if (document.hidden) {
         isRunning = false;
         return;
@@ -456,9 +453,12 @@ export const KineticBackgroundV2: React.FC = () => {
           isRunning = false;
         }
       }
-    };
+    }
 
-    // Arranque inicial controlado
+    // Arranque inicial calibrado tras declarar todas las funciones
+    resize();
+    measureSections();
+    handleScroll();
     requestTick();
 
     const onVisibilityChange = () => {
