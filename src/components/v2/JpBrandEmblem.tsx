@@ -21,7 +21,7 @@ export const JpBrandEmblem: React.FC<JpBrandEmblemProps> = ({
   if (variant === '3d') {
     return (
       <img
-        src="/jp-emblem-crystal.png"
+        src="/jp-emblem-crystal.webp"
         alt="JP Studios Emblema Oficial"
         width={typeof size === 'number' ? size : undefined}
         height={typeof size === 'number' ? size : undefined}

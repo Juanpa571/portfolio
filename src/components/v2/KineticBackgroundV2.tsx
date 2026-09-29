@@ -36,9 +36,9 @@ export const KineticBackgroundV2: React.FC = () => {
     let targetMouseY = 0.5;
     let isFinePointer = false;
 
-    // Precargar el activo oficial 3D del emblema en cristal transparente (PNG)
+    // Precargar el activo oficial 3D del emblema en cristal transparente (WebP)
     const emblemImg = new Image();
-    emblemImg.src = '/jp-emblem-crystal.png';
+    emblemImg.src = '/jp-emblem-crystal.webp';
     let emblemLoaded = false;
     emblemImg.onload = () => {
       emblemLoaded = true;
@@ -120,21 +120,26 @@ export const KineticBackgroundV2: React.FC = () => {
       ctx.scale(dpr, dpr);
     };
 
-    // Medición desacoplada del scroll para prevenir Layout Thrashing (Regla 12)
+    // Medición desacoplada mediante rAF para prevenir Layout Thrashing y Forced Reflows (Regla 12)
+    let measureRAFId: number | null = null;
     const measureSections = () => {
-      const diagEl = document.getElementById('diagnostico-header') || document.getElementById('diagnostico');
-      const servEl = document.getElementById('servicios-header') || document.getElementById('servicios');
-      const projEl = document.getElementById('proyectos-header') || document.getElementById('proyectos');
-      const scrollY = window.scrollY || window.pageYOffset || 0;
-      if (diagEl) {
-        diagHeaderTop = diagEl.getBoundingClientRect().top + scrollY;
-      }
-      if (servEl) {
-        servHeaderTop = servEl.getBoundingClientRect().top + scrollY;
-      }
-      if (projEl) {
-        projHeaderTop = projEl.getBoundingClientRect().top + scrollY;
-      }
+      if (measureRAFId !== null) return;
+      measureRAFId = requestAnimationFrame(() => {
+        const diagEl = document.getElementById('diagnostico-header') || document.getElementById('diagnostico');
+        const servEl = document.getElementById('servicios-header') || document.getElementById('servicios');
+        const projEl = document.getElementById('proyectos-header') || document.getElementById('proyectos');
+        const scrollY = window.scrollY || window.pageYOffset || 0;
+        if (diagEl) {
+          diagHeaderTop = diagEl.getBoundingClientRect().top + scrollY;
+        }
+        if (servEl) {
+          servHeaderTop = servEl.getBoundingClientRect().top + scrollY;
+        }
+        if (projEl) {
+          projHeaderTop = projEl.getBoundingClientRect().top + scrollY;
+        }
+        measureRAFId = null;
+      });
     };
 
     const handleScroll = () => {
@@ -153,9 +158,8 @@ export const KineticBackgroundV2: React.FC = () => {
     handleScroll();
 
     // Re-mediciones escalonadas tras hidratación y carga de fuentes/imágenes
-    setTimeout(measureSections, 100);
-    setTimeout(measureSections, 500);
-    setTimeout(measureSections, 1200);
+    setTimeout(measureSections, 250);
+    setTimeout(measureSections, 1000);
     setTimeout(measureSections, 2500);
 
     // ResizeObserver en el documento para mantener posiciones precisas si cambian alturas por imágenes
@@ -405,6 +409,7 @@ export const KineticBackgroundV2: React.FC = () => {
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      if (measureRAFId !== null) cancelAnimationFrame(measureRAFId);
       if (docObserver) docObserver.disconnect();
       window.removeEventListener('resize', onResize);
       window.removeEventListener('scroll', handleScroll);

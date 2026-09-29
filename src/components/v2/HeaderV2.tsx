@@ -85,15 +85,18 @@ export const HeaderV2: React.FC<HeaderV2Props> = ({ onNavigateHome }) => {
           className="group flex items-center transition-transform duration-200 hover:scale-[1.02]"
           aria-label="JP Studios Inicio"
         >
-          <img 
-            src="/logo-horizontal.png"
-            alt="JP Studios"
-            width={145}
-            height={32}
-            className="h-7 sm:h-8 w-auto object-contain filter drop-shadow-[0_2px_12px_rgba(6,182,212,0.18)] transition-all"
-            loading="eager"
-            fetchPriority="high"
-          />
+          <picture>
+            <source type="image/webp" srcSet="/logo-horizontal.webp" />
+            <img 
+              src="/logo-horizontal.webp"
+              alt="JP Studios"
+              width={145}
+              height={32}
+              className="h-7 sm:h-8 w-auto object-contain filter drop-shadow-[0_2px_12px_rgba(6,182,212,0.18)] transition-all"
+              loading="eager"
+              fetchPriority="high"
+            />
+          </picture>
         </a>
 
         {/* Minimal Adaptive Navigation */}
