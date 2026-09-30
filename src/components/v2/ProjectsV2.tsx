@@ -16,6 +16,7 @@ export const ProjectsV2: React.FC = () => {
   return (
     <section 
       id="proyectos" 
+      data-ambient-theme="platinum"
       className="relative py-28 sm:py-36 lg:py-44 xl:py-48 bg-transparent text-slate-100"
     >
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,13 +25,13 @@ export const ProjectsV2: React.FC = () => {
         {/* ENCABEZADO EDITORIAL DEL BLOQUE: LA EVIDENCIA REAL        */}
         {/* ========================================================= */}
         <div id="proyectos-header" className="max-w-3xl mb-16 sm:mb-20">
-          <div className="text-xs font-mono tracking-wider text-cyan-400 uppercase mb-4">
+          <div className="text-xs font-mono tracking-wider text-slate-300 uppercase mb-4">
             Casos de Estudio
           </div>
           
           <h2 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-[-0.03em] text-white leading-[1.08]">
             Proyectos reales en{' '}
-            <span className="text-cyan-400">producción.</span>
+            <span className="text-white">producción.</span>
           </h2>
 
           <p className="mt-6 text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
@@ -50,7 +51,7 @@ export const ProjectsV2: React.FC = () => {
               <div className="lg:col-span-6 flex flex-col justify-between h-full space-y-6">
                 <div>
                   <div className="flex items-center gap-3 text-xs font-mono text-slate-400 mb-3">
-                    <span className="text-cyan-400 font-bold">CASO 01</span>
+                    <span className="text-white font-bold">CASO 01</span>
                     <span>/</span>
                     <span>CALI, COLOMBIA</span>
                     <span>/</span>
@@ -106,7 +107,7 @@ export const ProjectsV2: React.FC = () => {
                     href="https://maranathapapeleria.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 text-xs sm:text-sm font-bold tracking-wide transition-all shadow-md shadow-cyan-500/15 group/btn"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-slate-200 text-slate-950 text-xs sm:text-sm font-bold tracking-wide transition-all shadow-md shadow-white/10 group/btn"
                   >
                     <span>Ver Sitio Web en Vivo</span>
                     <span className="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5">↗</span>
@@ -201,7 +202,7 @@ export const ProjectsV2: React.FC = () => {
                   className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/10 text-sm font-semibold transition-all flex items-center justify-center gap-2 group"
                 >
                   <span>Reservar mi proyecto</span>
-                  <svg className="w-4 h-4 text-cyan-400 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-white transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </a>

@@ -106,7 +106,7 @@ export const HeroV2: React.FC = () => {
                 href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20quiero%20cotizar%20el%20dise%C3%B1o%20y%20desarrollo%20web%20para%20mi%20negocio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 rounded-lg backdrop-blur-xl bg-cyan-400/85 hover:bg-cyan-400 text-slate-950 font-bold text-sm sm:text-base tracking-wide transition-all duration-200 border border-white/40 hover:border-white/60 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.8),inset_0_-1px_0_0_rgba(0,0,0,0.15),0_4px_16px_rgba(0,0,0,0.35)] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.95),inset_0_-1px_0_0_rgba(0,0,0,0.2),0_6px_20px_rgba(0,0,0,0.45)] hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2.5 group cursor-pointer"
+                className="px-8 py-4 rounded-lg bg-white hover:bg-slate-100 text-slate-950 font-bold text-sm sm:text-base tracking-wide transition-all duration-200 border border-white hover:border-slate-200 shadow-[0_0_24px_rgba(255,255,255,0.25)] hover:shadow-[0_0_32px_rgba(255,255,255,0.4)] hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2.5 group cursor-pointer"
               >
                 <WhatsAppIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 fill-current shrink-0" />
                 <span>Solicitar cotización</span>

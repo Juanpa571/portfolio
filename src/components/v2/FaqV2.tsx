@@ -33,19 +33,19 @@ export const FaqV2: React.FC = () => {
           </p>
           <ul className="space-y-2.5 pt-1">
             <li className="flex items-start gap-2.5">
-              <span className="text-cyan-400 font-bold shrink-0 mt-0.5 font-mono">01.</span>
+              <span className="text-slate-300 font-bold shrink-0 mt-0.5 font-mono">01.</span>
               <span>
                 <strong className="text-white font-semibold">Landing Page de venta directa (Desde $1.500.000 COP):</strong> Estructura One-Page de alta velocidad para campañas publicitarias y captación rápida en celulares.
               </span>
             </li>
             <li className="flex items-start gap-2.5">
-              <span className="text-cyan-400 font-bold shrink-0 mt-0.5 font-mono">02.</span>
+              <span className="text-slate-300 font-bold shrink-0 mt-0.5 font-mono">02.</span>
               <span>
                 <strong className="text-white font-semibold">Sitio Corporativo con Posicionamiento en Google (Desde $2.500.000 COP):</strong> Múltiples secciones, optimización para Google Maps y marcado Schema.org para captar clientes en tu ciudad.
               </span>
             </li>
             <li className="flex items-start gap-2.5">
-              <span className="text-cyan-400 font-bold shrink-0 mt-0.5 font-mono">03.</span>
+              <span className="text-slate-300 font-bold shrink-0 mt-0.5 font-mono">03.</span>
               <span>
                 <strong className="text-white font-semibold">Plataformas a medida y Catálogos Comerciales (Desde $4.500.000 COP):</strong> Para empresas que requieren catálogos extensos, filtrado de productos o integraciones con WhatsApp API y CRM.
               </span>
@@ -64,7 +64,7 @@ export const FaqV2: React.FC = () => {
       content: (
         <div className="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
           <p>
-            En Colombia, el registro anual de un dominio comercial (<code className="text-cyan-300 font-mono text-xs px-1.5 py-0.5 rounded bg-white/[0.05]">.com</code> o <code className="text-cyan-300 font-mono text-xs px-1.5 py-0.5 rounded bg-white/[0.05]">.com.co</code>) cuesta entre <strong className="text-white font-semibold">$60.000 y $120.000 COP al año</strong>, y lo pagas directamente a registradores oficiales a tu propio nombre.
+            En Colombia, el registro anual de un dominio comercial (<code className="text-slate-200 font-mono text-xs px-1.5 py-0.5 rounded bg-white/[0.05]">.com</code> o <code className="text-slate-200 font-mono text-xs px-1.5 py-0.5 rounded bg-white/[0.05]">.com.co</code>) cuesta entre <strong className="text-white font-semibold">$60.000 y $120.000 COP al año</strong>, y lo pagas directamente a registradores oficiales a tu propio nombre.
           </p>
           <p>
             En JP Studios alojo tu página web en <strong className="text-white font-semibold">redes globales de alto rendimiento (Cloudflare Edge)</strong> con certificado de seguridad SSL incluido. <strong className="text-emerald-400 font-semibold">No cobro mensualidades obligatorias de mantenimiento ni alquiler de código.</strong>
@@ -86,19 +86,19 @@ export const FaqV2: React.FC = () => {
           </p>
           <ul className="space-y-2.5 pt-1">
             <li className="flex items-start gap-2.5">
-              <span className="text-cyan-400 font-bold shrink-0 mt-0.5">✓</span>
+              <span className="text-slate-300 font-bold shrink-0 mt-0.5">✓</span>
               <span>
                 <strong className="text-white font-semibold">Velocidad de carga sub-segundo (Core Web Vitals):</strong> Google penaliza los sitios lentos de WordPress que tardan más de 3 segundos en abrir. Desarrollo en React 19 para superar las pruebas de PageSpeed con puntuación 90+.
               </span>
             </li>
             <li className="flex items-start gap-2.5">
-              <span className="text-cyan-400 font-bold shrink-0 mt-0.5">✓</span>
+              <span className="text-slate-300 font-bold shrink-0 mt-0.5">✓</span>
               <span>
                 <strong className="text-white font-semibold">Datos estructurados Schema.org JSON-LD:</strong> Inyecto código semántico que le enseña directamente a Googlebot y a motores de IA (ChatGPT, Gemini, Perplexity) el nombre de tu empresa, ciudad sede, servicios exactos y datos de contacto.
               </span>
             </li>
             <li className="flex items-start gap-2.5">
-              <span className="text-cyan-400 font-bold shrink-0 mt-0.5">✓</span>
+              <span className="text-slate-300 font-bold shrink-0 mt-0.5">✓</span>
               <span>
                 <strong className="text-white font-semibold">Vinculación y optimización de Google Maps:</strong> Conecto tu web oficial a tu perfil de Google Business para que aparezcas en el paquete de 3 mapas locales cuando clientes de tu ciudad busquen lo que vendes.
               </span>
@@ -118,13 +118,13 @@ export const FaqV2: React.FC = () => {
           </p>
           <ul className="space-y-2.5 pt-1">
             <li className="flex items-start gap-2.5">
-              <span className="text-cyan-400 font-bold shrink-0 mt-0.5 font-mono">1.</span>
+              <span className="text-slate-300 font-bold shrink-0 mt-0.5 font-mono">1.</span>
               <span>
                 <strong className="text-white font-semibold">Completar un formulario guiado (Brief):</strong> Un cuestionario corto donde defines tus servicios principales, tu cliente ideal y tus ventajas comerciales.
               </span>
             </li>
             <li className="flex items-start gap-2.5">
-              <span className="text-cyan-400 font-bold shrink-0 mt-0.5 font-mono">2.</span>
+              <span className="text-slate-300 font-bold shrink-0 mt-0.5 font-mono">2.</span>
               <span>
                 <strong className="text-white font-semibold">Cargar tu material a Google Drive:</strong> Subir tu logotipo en buena resolución, fotos de tus proyectos o productos (si cuentas con ellas) y tus números de contacto oficiales.
               </span>
@@ -147,13 +147,13 @@ export const FaqV2: React.FC = () => {
           </p>
           <ul className="space-y-2.5 pt-1">
             <li className="flex items-start gap-2.5">
-              <span className="text-cyan-400 font-bold shrink-0 mt-0.5 font-mono">•</span>
+              <span className="text-slate-300 font-bold shrink-0 mt-0.5 font-mono">•</span>
               <span>
                 <strong className="text-white font-semibold">Intención de compra vs. entretenimiento:</strong> En Instagram la gente navega para distraerse y la plataforma le muestra publicaciones de tu competencia al lado de las tuyas. En Google, el cliente escribe voluntariamente porque necesita contratar ya y tiene presupuesto listo.
               </span>
             </li>
             <li className="flex items-start gap-2.5">
-              <span className="text-cyan-400 font-bold shrink-0 mt-0.5 font-mono">•</span>
+              <span className="text-slate-300 font-bold shrink-0 mt-0.5 font-mono">•</span>
               <span>
                 <strong className="text-white font-semibold">Autoridad y filtro de prospectos:</strong> Tu web propia responde dudas frecuentes, muestra casos reales, proyecta seriedad empresarial y lleva a los clientes a tu WhatsApp con la decisión de compra prácticamente tomada, ahorrándote horas respondiendo lo mismo por mensaje.
               </span>
@@ -167,7 +167,7 @@ export const FaqV2: React.FC = () => {
   return (
     <section 
       id="faq" 
-      data-ambient-theme="cyan"
+      data-ambient-theme="platinum"
       itemScope
       itemType="https://schema.org/FAQPage"
       className="relative py-28 sm:py-36 lg:py-44 xl:py-48 bg-transparent text-slate-100"
@@ -178,13 +178,13 @@ export const FaqV2: React.FC = () => {
         {/* ENCABEZADO EDITORIAL DEL BLOQUE: DUDAS FRECUENTES         */}
         {/* ========================================================= */}
         <div id="faq-header" className="max-w-3xl mb-12 sm:mb-16">
-          <div className="text-xs font-mono tracking-wider text-cyan-400 uppercase mb-4">
+          <div className="text-xs font-mono tracking-wider text-slate-300 uppercase mb-4">
             Preguntas Frecuentes & Inversión
           </div>
           
           <h2 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-[-0.03em] text-white leading-[1.08]">
             Respuestas claras:{' '}
-            <span className="text-cyan-400">
+            <span className="text-slate-200">
               precios, tiempos y funcionamiento.
             </span>
           </h2>
@@ -221,7 +221,7 @@ export const FaqV2: React.FC = () => {
                   className="w-full text-left p-5 sm:p-7 flex items-center justify-between gap-3 sm:gap-4 cursor-pointer focus:outline-none"
                 >
                   <div className="flex items-start gap-3 sm:gap-4">
-                    <span className="text-xs font-mono text-cyan-400/80 pt-1 shrink-0 font-bold">
+                    <span className="text-xs font-mono text-slate-400 pt-1 shrink-0 font-bold">
                       0{index + 1}
                     </span>
                     <h3 
@@ -237,7 +237,7 @@ export const FaqV2: React.FC = () => {
                   {/* Icono de expansión minimalista */}
                   <div className={`w-8 h-8 rounded-xl shrink-0 flex items-center justify-center transition-all duration-300 border ${
                     isOpen 
-                      ? 'bg-cyan-400 text-slate-950 border-cyan-400 rotate-45 shadow-[0_0_15px_rgba(6,182,212,0.4)]' 
+                      ? 'bg-white text-slate-950 border-white rotate-45 shadow-[0_0_15px_rgba(255,255,255,0.4)]' 
                       : 'bg-white/[0.04] text-slate-400 border-white/10 group-hover:text-white'
                   }`}>
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -292,7 +292,7 @@ export const FaqV2: React.FC = () => {
             href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20tengo%20una%20pregunta%20sobre%20el%20dise%C3%B1o%20web%20para%20mi%20empresa"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto shrink-0 px-6 py-3.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 text-sm font-bold transition-all duration-200 flex items-center justify-center gap-2.5 group cursor-pointer shadow-[0_0_24px_rgba(6,182,212,0.3)] hover:shadow-[0_0_32px_rgba(6,182,212,0.5)] hover:-translate-y-0.5 active:translate-y-0"
+            className="w-full sm:w-auto shrink-0 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-200 text-slate-950 text-sm font-bold transition-all duration-200 flex items-center justify-center gap-2.5 group cursor-pointer shadow-[0_0_24px_rgba(255,255,255,0.2)] hover:shadow-[0_0_32px_rgba(255,255,255,0.35)] hover:-translate-y-0.5 active:translate-y-0"
           >
             <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
             <span>Hacer una pregunta por WhatsApp</span>

@@ -143,7 +143,7 @@ export const ServicesV2: React.FC = () => {
 
               {/* Columna Central: Título H3 + Explicación */}
               <div className="lg:col-span-5">
-                <div className="text-xs font-mono text-[#FFCC00] font-semibold tracking-wider mb-2">
+                <div className="text-xs font-mono text-slate-300 font-semibold tracking-wider mb-2">
                   01 - RENDIMIENTO
                 </div>
                 <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
@@ -162,15 +162,15 @@ export const ServicesV2: React.FC = () => {
                   </div>
                   <ul className="space-y-2.5 text-xs sm:text-sm text-slate-300">
                     <li className="flex items-start gap-2.5">
-                      <span className="text-[#FFCC00] font-bold shrink-0">✓</span>
+                      <span className="text-slate-300 font-bold shrink-0">✓</span>
                       <span>Core Web Vitals en rango óptimo recomendado por Google.</span>
                     </li>
                     <li className="flex items-start gap-2.5">
-                      <span className="text-[#FFCC00] font-bold shrink-0">✓</span>
+                      <span className="text-slate-300 font-bold shrink-0">✓</span>
                       <span>Alojamiento en red perimetral global (CDN ultrarrápida).</span>
                     </li>
                     <li className="flex items-start gap-2.5">
-                      <span className="text-[#FFCC00] font-bold shrink-0">✓</span>
+                      <span className="text-slate-300 font-bold shrink-0">✓</span>
                       <span>Cero plugins obsoletos ni constructores visuales pesados.</span>
                     </li>
                   </ul>
@@ -181,10 +181,10 @@ export const ServicesV2: React.FC = () => {
                     href="https://pagespeed.web.dev/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-white/[0.03] hover:bg-[#FFCC00]/10 text-slate-300 hover:text-[#FFCC00] border border-white/10 hover:border-[#FFCC00]/30 text-xs font-mono transition-all group"
+                    className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] text-slate-300 hover:text-white border border-white/10 hover:border-white/20 text-xs font-mono transition-all group"
                   >
                     <span>Medir web en Google PageSpeed</span>
-                    <span className="text-slate-400 group-hover:text-[#FFCC00] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">↗</span>
+                    <span className="text-slate-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">↗</span>
                   </a>
                 </div>
               </div>
@@ -216,7 +216,7 @@ export const ServicesV2: React.FC = () => {
 
               {/* Columna Central: Título H3 + Explicación */}
               <div className="lg:col-span-5">
-                <div className="text-xs font-mono text-sky-400 font-semibold tracking-wider mb-2">
+                <div className="text-xs font-mono text-slate-300 font-semibold tracking-wider mb-2">
                   02 - ADQUISICIÓN
                 </div>
                 <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
@@ -235,15 +235,15 @@ export const ServicesV2: React.FC = () => {
                   </div>
                   <ul className="space-y-2.5 text-xs sm:text-sm text-slate-300">
                     <li className="flex items-start gap-2.5">
-                      <span className="text-sky-400 font-bold shrink-0">✓</span>
+                      <span className="text-slate-300 font-bold shrink-0">✓</span>
                       <span>Marcado Schema.org completo (LocalBusiness y Organization).</span>
                     </li>
                     <li className="flex items-start gap-2.5">
-                      <span className="text-sky-400 font-bold shrink-0">✓</span>
+                      <span className="text-slate-300 font-bold shrink-0">✓</span>
                       <span>Estructura técnica para competir en el paquete local de Google Maps.</span>
                     </li>
                     <li className="flex items-start gap-2.5">
-                      <span className="text-sky-400 font-bold shrink-0">✓</span>
+                      <span className="text-slate-300 font-bold shrink-0">✓</span>
                       <span>Sitemap XML limpio e indexación directa en Google Search.</span>
                     </li>
                   </ul>
@@ -254,10 +254,10 @@ export const ServicesV2: React.FC = () => {
                     href="/auditar-posicionamiento"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-white/[0.03] hover:bg-sky-500/10 text-slate-300 hover:text-sky-300 border border-white/10 hover:border-sky-500/30 text-xs font-mono transition-all group"
+                    className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] text-slate-300 hover:text-white border border-white/10 hover:border-white/20 text-xs font-mono transition-all group"
                   >
                     <span>Auditar visibilidad de mi empresa</span>
-                    <span className="text-slate-400 group-hover:text-sky-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">↗</span>
+                    <span className="text-slate-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">↗</span>
                   </a>
                 </div>
               </div>
@@ -289,7 +289,7 @@ export const ServicesV2: React.FC = () => {
 
               {/* Columna Central: Título H3 + Explicación */}
               <div className="lg:col-span-5">
-                <div className="text-xs font-mono text-emerald-400 font-semibold tracking-wider mb-2">
+                <div className="text-xs font-mono text-slate-300 font-semibold tracking-wider mb-2">
                   03 - CONVERSIÓN
                 </div>
                 <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
@@ -308,15 +308,15 @@ export const ServicesV2: React.FC = () => {
                   </div>
                   <ul className="space-y-2.5 text-xs sm:text-sm text-slate-300">
                     <li className="flex items-start gap-2.5">
-                      <span className="text-emerald-400 font-bold shrink-0">✓</span>
+                      <span className="text-slate-300 font-bold shrink-0">✓</span>
                       <span>Catálogo de productos interactivo sin recargas de página.</span>
                     </li>
                     <li className="flex items-start gap-2.5">
-                      <span className="text-emerald-400 font-bold shrink-0">✓</span>
+                      <span className="text-slate-300 font-bold shrink-0">✓</span>
                       <span>Rutas directas de cotización (llamada, WhatsApp y correo B2B).</span>
                     </li>
                     <li className="flex items-start gap-2.5">
-                      <span className="text-emerald-400 font-bold shrink-0">✓</span>
+                      <span className="text-slate-300 font-bold shrink-0">✓</span>
                       <span>Jerarquía visual enfocada en la toma de decisión del cliente.</span>
                     </li>
                   </ul>
@@ -325,10 +325,10 @@ export const ServicesV2: React.FC = () => {
                 <div className="pt-6 mt-6 border-t border-white/[0.06]">
                   <a
                     href="#proyectos"
-                    className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-white/[0.03] hover:bg-emerald-500/10 text-slate-300 hover:text-emerald-300 border border-white/10 hover:border-emerald-500/30 text-xs font-mono transition-all group"
+                    className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] text-slate-300 hover:text-white border border-white/10 hover:border-white/20 text-xs font-mono transition-all group"
                   >
                     <span>Ver catálogo en caso real</span>
-                    <span className="text-slate-500 group-hover:text-emerald-400 group-hover:translate-y-0.5 transition-all">↓</span>
+                    <span className="text-slate-400 group-hover:text-white group-hover:translate-y-0.5 transition-all">↓</span>
                   </a>
                 </div>
               </div>

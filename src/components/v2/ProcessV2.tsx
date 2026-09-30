@@ -49,15 +49,15 @@ export const ProcessV2: React.FC = () => {
       summary: 'Programo tu página desde cero con código limpio en React 19, TypeScript y Tailwind CSS.',
       description: 'Sin plantillas lentas ni plugins pesados de WordPress que ralentizan la carga y se rompen con las actualizaciones. Construyo una interfaz moderna, fiel a la identidad de tu marca y optimizada para celulares y computadores.',
       deliverable: 'Enlace privado para que pruebes la navegación e interacción en vivo.',
-      accentHex: '#FFCC00',
-      accentColor: 'text-[#FFCC00]',
-      activeBorder: 'border-[#FFCC00]/40',
-      glowShadow: 'shadow-[0_0_30px_rgba(255,204,0,0.12)]',
-      badgeBorder: 'border-[#FFCC00]/25 bg-[#FFCC00]/10 text-[#FFCC00]',
-      deliverableIconColor: 'text-[#FFCC00]',
-      // Indicador Tracker (Amarillo #FFCC00)
-      indicatorActiveBorder: 'border-[#FFCC00] shadow-[0_0_15px_rgba(255,204,0,0.4)]',
-      indicatorPhaseColor: 'text-[#FFCC00]',
+      accentHex: '#38bdf8',
+      accentColor: 'text-sky-400',
+      activeBorder: 'border-sky-500/40',
+      glowShadow: 'shadow-[0_0_30px_rgba(56,189,248,0.12)]',
+      badgeBorder: 'border-sky-500/25 bg-sky-500/10 text-sky-300',
+      deliverableIconColor: 'text-sky-400',
+      // Indicador Tracker
+      indicatorActiveBorder: 'border-sky-400 shadow-[0_0_15px_rgba(56,189,248,0.4)]',
+      indicatorPhaseColor: 'text-sky-400',
     },
     {
       id: 3,
@@ -67,15 +67,15 @@ export const ProcessV2: React.FC = () => {
       summary: 'Someto la web a un protocolo exhaustivo de calidad antes de abrirla al público.',
       description: 'Audito que cargue en menos de 2.5s en redes 4G con PageSpeed. Ejecuto pruebas de control de calidad (QA) en enlaces y navegación móvil, configuro Schema.org y aplico optimización GEO para que Google Maps y buscadores de IA citen y recomienden tu negocio.',
       deliverable: 'Tu web auditada, desplegada en producción y lista para facturar.',
-      accentHex: '#10b981',
-      accentColor: 'text-emerald-400',
-      activeBorder: 'border-emerald-500/40',
-      glowShadow: 'shadow-[0_0_30px_rgba(16,185,129,0.15)]',
-      badgeBorder: 'border-emerald-500/25 bg-emerald-500/10 text-emerald-300',
-      deliverableIconColor: 'text-emerald-400',
-      // Indicador Tracker (Verde Esmeralda)
-      indicatorActiveBorder: 'border-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.4)]',
-      indicatorPhaseColor: 'text-emerald-400',
+      accentHex: '#38bdf8',
+      accentColor: 'text-sky-400',
+      activeBorder: 'border-sky-500/40',
+      glowShadow: 'shadow-[0_0_30px_rgba(56,189,248,0.12)]',
+      badgeBorder: 'border-sky-500/25 bg-sky-500/10 text-sky-300',
+      deliverableIconColor: 'text-sky-400',
+      // Indicador Tracker
+      indicatorActiveBorder: 'border-sky-400 shadow-[0_0_15px_rgba(56,189,248,0.4)]',
+      indicatorPhaseColor: 'text-sky-400',
     },
   ];
 
@@ -184,14 +184,14 @@ export const ProcessV2: React.FC = () => {
                       <div
                         className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-mono font-bold text-xs sm:text-sm transition-all duration-300 border ${
                           isCompleted
-                            ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40'
+                            ? 'bg-sky-500/20 text-sky-400 border-sky-500/40'
                             : isCurrent
                             ? `bg-white/10 text-white ${item.indicatorActiveBorder}`
                             : 'bg-white/[0.03] text-slate-500 border-white/10 hover:border-white/20'
                         }`}
                       >
                         {isCompleted ? (
-                          <svg className="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                          <svg className="w-4 h-4 text-sky-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                           </svg>
                         ) : (
@@ -201,7 +201,7 @@ export const ProcessV2: React.FC = () => {
                       
                       <div className="hidden md:block text-left">
                         <div className={`text-[10px] font-mono uppercase tracking-wider ${
-                          isCurrent ? `${item.indicatorPhaseColor} font-bold` : isCompleted ? 'text-emerald-400 font-semibold' : 'text-slate-500'
+                          isCurrent ? `${item.indicatorPhaseColor} font-bold` : isCompleted ? 'text-sky-400 font-semibold' : 'text-slate-500'
                         }`}>
                           {item.phase}
                         </div>
@@ -211,15 +211,11 @@ export const ProcessV2: React.FC = () => {
                       </div>
                     </button>
 
-                    {/* Conector lineal con gradiente cromático coordinado */}
+                    {/* Conector lineal unificado en Cian Técnico */}
                     {idx < steps.length - 1 && (
                       <div className="relative mx-3 sm:mx-4 h-[2px] flex-1 rounded-full bg-white/10 overflow-hidden">
                         <motion.div
-                          className={`absolute inset-0 origin-left ${
-                            idx === 0 
-                              ? 'bg-gradient-to-r from-sky-400 to-[#FFCC00]' 
-                              : 'bg-gradient-to-r from-[#FFCC00] to-emerald-400'
-                          }`}
+                          className="absolute inset-0 origin-left bg-sky-400"
                           initial={false}
                           animate={{ scaleX: activeStep > item.id ? 1 : 0 }}
                           transition={{ duration: 0.45, ease: [0.33, 1, 0.68, 1] }}
@@ -282,11 +278,11 @@ export const ProcessV2: React.FC = () => {
                     transition={{ duration: 0.3 }}
                     className="py-4 text-center space-y-4"
                   >
-                    <div className="w-14 h-14 mx-auto rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-bold text-2xl shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+                    <div className="w-14 h-14 mx-auto rounded-2xl bg-sky-500/10 border border-sky-500/30 text-sky-400 flex items-center justify-center font-bold text-2xl shadow-[0_0_20px_rgba(56,189,248,0.2)]">
                       ✓
                     </div>
                     <div className="space-y-1">
-                      <div className="text-[11px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">
+                      <div className="text-[11px] font-mono uppercase tracking-wider text-sky-400 font-semibold">
                         Recorrido Completado
                       </div>
                       <h3 className="text-xl font-extrabold text-white tracking-tight">
@@ -329,7 +325,7 @@ export const ProcessV2: React.FC = () => {
                           <div className={`text-2xl font-black font-mono tracking-tight ${item.accentColor}`}>
                             {item.phase}
                           </div>
-                          <span className="text-[11px] font-mono text-cyan-300 bg-cyan-500/10 border border-cyan-500/30 px-2.5 py-0.5 rounded-full font-semibold">
+                          <span className="text-[11px] font-mono text-slate-400 font-semibold uppercase tracking-wider">
                             Paso {item.id} de 3
                           </span>
                         </div>

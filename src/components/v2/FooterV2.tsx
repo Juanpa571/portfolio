@@ -21,13 +21,13 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
     <footer className="relative z-10 border-t border-white/10 bg-gradient-to-b from-[#070709]/95 via-[#070709] to-[#070709] backdrop-blur-xl text-slate-300 pt-20 pb-12 font-sans overflow-hidden">
       {/* Difuminado suave de luz ambiental que conecta con la sección anterior */}
       <div 
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[120px] bg-gradient-to-b from-cyan-500/[0.05] to-transparent blur-2xl pointer-events-none -z-0" 
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[120px] bg-gradient-to-b from-emerald-500/[0.04] to-transparent blur-2xl pointer-events-none -z-0" 
         aria-hidden="true" 
       />
 
       {/* Luz ambiental sutil inferior */}
       <div 
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-cyan-500/[0.03] blur-[120px] pointer-events-none -z-0" 
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-emerald-500/[0.02] blur-[120px] pointer-events-none -z-0" 
         aria-hidden="true" 
       />
 
@@ -50,11 +50,11 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
               aria-label="JP Studios Inicio"
             >
               <img 
-                src="/logo-horizontal.webp"
+                src="/logo-horizontal-white.webp"
                 alt="JP Studios"
                 width={140}
                 height={30}
-                className="h-7 w-auto object-contain filter drop-shadow-[0_2px_10px_rgba(6,182,212,0.15)]"
+                className="h-7 w-auto object-contain filter drop-shadow-[0_2px_10px_rgba(255,255,255,0.08)]"
                 loading="lazy"
                 decoding="async"
               />
@@ -81,7 +81,7 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
                   href="https://www.instagram.com/juanpa_571"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-cyan-400/50 text-slate-300 hover:text-cyan-300 flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-[0_0_16px_rgba(6,182,212,0.25)] group cursor-pointer"
+                  className="w-10 h-10 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-emerald-400/50 text-slate-300 hover:text-emerald-300 flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-[0_0_16px_rgba(16,185,129,0.25)] group cursor-pointer"
                   aria-label="Instagram de Juan Pablo Chacón"
                   title="Instagram (@juanpa_571)"
                 >
@@ -97,7 +97,7 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
                   href="https://www.linkedin.com/in/juan-pablo-chacon-034457283/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-cyan-400/50 text-slate-300 hover:text-cyan-300 flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-[0_0_16px_rgba(6,182,212,0.25)] group cursor-pointer"
+                  className="w-10 h-10 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-emerald-400/50 text-slate-300 hover:text-emerald-300 flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-[0_0_16px_rgba(16,185,129,0.25)] group cursor-pointer"
                   aria-label="LinkedIn de Juan Pablo Chacón"
                   title="LinkedIn (Juan Pablo Chacón)"
                 >
@@ -113,7 +113,7 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
                   href="https://www.tiktok.com/@juanpa.571"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-cyan-400/50 text-slate-300 hover:text-cyan-300 flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-[0_0_16px_rgba(6,182,212,0.25)] group cursor-pointer"
+                  className="w-10 h-10 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-emerald-400/50 text-slate-300 hover:text-emerald-300 flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-[0_0_16px_rgba(16,185,129,0.25)] group cursor-pointer"
                   aria-label="TikTok de Juan Pablo Chacón"
                   title="TikTok (@juanpa.571)"
                 >
@@ -127,7 +127,7 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
                   href="https://github.com/Juanpa571"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-cyan-400/50 text-slate-300 hover:text-cyan-300 flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-[0_0_16px_rgba(6,182,212,0.25)] group cursor-pointer"
+                  className="w-10 h-10 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-emerald-400/50 text-slate-300 hover:text-emerald-300 flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-[0_0_16px_rgba(16,185,129,0.25)] group cursor-pointer"
                   aria-label="GitHub de Juan Pablo Chacón"
                   title="GitHub (Juanpa571)"
                 >
@@ -146,27 +146,27 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href={getHashHref('#servicios')} className="text-slate-400 hover:text-cyan-400 transition-colors">
+                <a href={getHashHref('#servicios')} className="text-slate-400 hover:text-white transition-colors">
                   Servicios
                 </a>
               </li>
               <li>
-                <a href={getHashHref('#proyectos')} className="text-slate-400 hover:text-cyan-400 transition-colors">
+                <a href={getHashHref('#proyectos')} className="text-slate-400 hover:text-white transition-colors">
                   Proyectos
                 </a>
               </li>
               <li>
-                <a href={getHashHref('#proceso')} className="text-slate-400 hover:text-cyan-400 transition-colors">
+                <a href={getHashHref('#proceso')} className="text-slate-400 hover:text-white transition-colors">
                   Metodología
                 </a>
               </li>
               <li>
-                <a href={getHashHref('#faq')} className="text-slate-400 hover:text-cyan-400 transition-colors">
+                <a href={getHashHref('#faq')} className="text-slate-400 hover:text-white transition-colors">
                   Preguntas Frecuentes
                 </a>
               </li>
               <li>
-                <a href={getHashHref('#contacto')} className="text-slate-400 hover:text-cyan-400 transition-colors">
+                <a href={getHashHref('#contacto')} className="text-slate-400 hover:text-emerald-400 transition-colors">
                   Cotizador Interactivo
                 </a>
               </li>
@@ -180,12 +180,12 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/privacidad" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                <a href="/privacidad" className="text-slate-400 hover:text-white transition-colors">
                   Política de Privacidad
                 </a>
               </li>
               <li>
-                <a href="/terminos" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                <a href="/terminos" className="text-slate-400 hover:text-white transition-colors">
                   Términos del Servicio
                 </a>
               </li>
@@ -208,18 +208,18 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
                   href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20quisiera%20consultar%20sobre%20un%20proyecto%20web"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-slate-300 hover:text-cyan-400 transition-colors"
+                  className="inline-flex items-center gap-2 text-slate-300 hover:text-emerald-400 transition-colors"
                 >
-                  <WhatsAppIcon className="w-4 h-4 fill-cyan-400 shrink-0" />
+                  <WhatsAppIcon className="w-4 h-4 fill-emerald-400 shrink-0" />
                   <span>+57 317 737 1301</span>
                 </a>
               </li>
               <li>
                 <a 
                   href="mailto:hola@jpchacon.com"
-                  className="inline-flex items-center gap-2 text-slate-300 hover:text-cyan-400 transition-colors"
+                  className="inline-flex items-center gap-2 text-slate-300 hover:text-emerald-400 transition-colors"
                 >
-                  <Mail className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>hola@jpchacon.com</span>
                 </a>
               </li>

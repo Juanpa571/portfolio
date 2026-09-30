@@ -58,7 +58,8 @@ export const KineticBackgroundV2: React.FC = () => {
     const THEMES: Record<string, ThemePalette> = {
       cyan: { c1: [0, 240, 255], c2: [37, 99, 235], c3: [79, 70, 229] },
       rose: { c1: [244, 63, 94], c2: [190, 18, 60], c3: [76, 5, 25] },
-      emerald: { c1: [16, 185, 129], c2: [5, 150, 105], c3: [2, 44, 34] }
+      emerald: { c1: [16, 185, 129], c2: [5, 150, 105], c3: [2, 44, 34] },
+      platinum: { c1: [210, 218, 228], c2: [148, 163, 184], c3: [45, 55, 72] }
     };
 
     const blendColors = (cA: [number, number, number], cB: [number, number, number], t: number): [number, number, number] => {
@@ -83,6 +84,9 @@ export const KineticBackgroundV2: React.FC = () => {
     let diagHeaderTop = 0;
     let servHeaderTop = 0;
     let projHeaderTop = 0;
+    let procHeaderTop = 0;
+    let faqHeaderTop = 0;
+    let contHeaderTop = 0;
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -113,11 +117,17 @@ export const KineticBackgroundV2: React.FC = () => {
         const diagEl = document.getElementById('diagnostico-header') || document.getElementById('diagnostico');
         const servEl = document.getElementById('servicios-header') || document.getElementById('servicios');
         const projEl = document.getElementById('proyectos-header') || document.getElementById('proyectos');
+        const procEl = document.getElementById('proceso-header') || document.getElementById('proceso');
+        const faqEl = document.getElementById('faq-header') || document.getElementById('faq');
+        const contEl = document.getElementById('contacto-header') || document.getElementById('contacto');
         const scrollY = window.scrollY || window.pageYOffset || 0;
         
         if (diagEl) diagHeaderTop = diagEl.getBoundingClientRect().top + scrollY;
         if (servEl) servHeaderTop = servEl.getBoundingClientRect().top + scrollY;
         if (projEl) projHeaderTop = projEl.getBoundingClientRect().top + scrollY;
+        if (procEl) procHeaderTop = procEl.getBoundingClientRect().top + scrollY;
+        if (faqEl) faqHeaderTop = faqEl.getBoundingClientRect().top + scrollY;
+        if (contEl) contHeaderTop = contEl.getBoundingClientRect().top + scrollY;
         
         measureRAFId = null;
         requestTick();
@@ -164,22 +174,49 @@ export const KineticBackgroundV2: React.FC = () => {
       const scrollBottom = scrollY + innerH;
       const transitionDistance = 380;
       
+      // 1. Hero -> Diagnóstico (Rose)
       if (scrollBottom < diagHeaderTop) return THEMES.cyan;
       if (scrollBottom < diagHeaderTop + transitionDistance) {
         const t = (scrollBottom - diagHeaderTop) / transitionDistance;
         return blendPalettes(THEMES.cyan, THEMES.rose, t);
       }
+      
+      // 2. Diagnóstico -> Servicios (Emerald)
       if (scrollBottom < servHeaderTop) return THEMES.rose;
       if (scrollBottom < servHeaderTop + transitionDistance) {
         const t = (scrollBottom - servHeaderTop) / transitionDistance;
         return blendPalettes(THEMES.rose, THEMES.emerald, t);
       }
+      
+      // 3. Servicios -> Casos de Estudio (Platinum)
       if (projHeaderTop === 0 || scrollBottom < projHeaderTop) return THEMES.emerald;
       if (scrollBottom < projHeaderTop + transitionDistance) {
         const t = (scrollBottom - projHeaderTop) / transitionDistance;
-        return blendPalettes(THEMES.emerald, THEMES.cyan, t);
+        return blendPalettes(THEMES.emerald, THEMES.platinum, t);
       }
-      return THEMES.cyan;
+
+      // 4. Casos de Estudio -> Metodología (Cyan)
+      if (procHeaderTop === 0 || scrollBottom < procHeaderTop) return THEMES.platinum;
+      if (scrollBottom < procHeaderTop + transitionDistance) {
+        const t = (scrollBottom - procHeaderTop) / transitionDistance;
+        return blendPalettes(THEMES.platinum, THEMES.cyan, t);
+      }
+      
+      // 5. Metodología -> FAQ (Platinum)
+      if (faqHeaderTop === 0 || scrollBottom < faqHeaderTop) return THEMES.cyan;
+      if (scrollBottom < faqHeaderTop + transitionDistance) {
+        const t = (scrollBottom - faqHeaderTop) / transitionDistance;
+        return blendPalettes(THEMES.cyan, THEMES.platinum, t);
+      }
+      
+      // 6. FAQ -> Cotización / Contacto (Emerald)
+      if (contHeaderTop === 0 || scrollBottom < contHeaderTop) return THEMES.platinum;
+      if (scrollBottom < contHeaderTop + transitionDistance) {
+        const t = (scrollBottom - contHeaderTop) / transitionDistance;
+        return blendPalettes(THEMES.platinum, THEMES.emerald, t);
+      }
+      
+      return THEMES.emerald;
     };
 
     function render() {
@@ -240,8 +277,11 @@ export const KineticBackgroundV2: React.FC = () => {
       ctx.arc(orb2X, orb2Y, orb2R, 0, Math.PI * 2);
       ctx.fill();
       
-      // El emblema empieza a aparecer apenas bajas 50px y se ve al 100% al bajar 300px
-      const emblemFade = Math.min(Math.max((currentScrollY - 50) / 250, 0), 1);
+      // El emblema aparece a partir de 50px de scroll y se desvanece por completo al llegar al footer
+      const topFade = Math.min(Math.max((currentScrollY - 50) / 250, 0), 1);
+      const distFromBottom = Math.max(maxScroll - currentScrollY, 0);
+      const bottomFade = Math.min(Math.max((distFromBottom - 80) / 400, 0), 1);
+      const emblemFade = topFade * bottomFade;
       if (emblemLoaded && emblemImg && emblemFade > 0 && tintCtx) {
         ctx.save();
         // Ajustamos la posición en móviles para que quede visible

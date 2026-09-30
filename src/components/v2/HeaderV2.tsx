@@ -86,13 +86,13 @@ export const HeaderV2: React.FC<HeaderV2Props> = ({ onNavigateHome }) => {
           aria-label="JP Studios Inicio"
         >
           <picture>
-            <source type="image/webp" srcSet="/logo-horizontal.webp" />
+            <source type="image/webp" srcSet="/logo-horizontal-white.webp" />
             <img 
-              src="/logo-horizontal.webp"
+              src="/logo-horizontal-white.webp"
               alt="JP Studios"
               width={145}
               height={32}
-              className="h-7 sm:h-8 w-auto object-contain filter drop-shadow-[0_2px_12px_rgba(6,182,212,0.18)] transition-all"
+              className="h-7 sm:h-8 w-auto object-contain filter drop-shadow-[0_2px_12px_rgba(255,255,255,0.08)] transition-all"
               loading="eager"
               decoding="async"
             />
@@ -112,12 +112,12 @@ export const HeaderV2: React.FC<HeaderV2Props> = ({ onNavigateHome }) => {
                 key={link.id}
                 href={targetHref} 
                 className={`relative py-1 transition-colors ${
-                  isActive ? 'text-cyan-400 font-semibold' : 'text-slate-300 hover:text-white'
+                  isActive ? 'text-white font-semibold' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 <span>{link.label}</span>
                 {isActive && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-cyan-400 rounded-full" />
+                  <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-white rounded-full" />
                 )}
               </a>
             );
@@ -130,7 +130,7 @@ export const HeaderV2: React.FC<HeaderV2Props> = ({ onNavigateHome }) => {
             href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20quiero%20cotizar%20un%20sitio%20web%20para%20mi%20negocio"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 rounded-lg bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold text-xs sm:text-sm tracking-wide transition-all shadow-sm shadow-black/30 hover:shadow-md flex items-center gap-2 group"
+            className="px-4 py-2 rounded-lg bg-white hover:bg-slate-200 text-slate-950 font-bold text-xs sm:text-sm tracking-wide transition-all shadow-sm shadow-black/30 hover:shadow-md flex items-center gap-2 group"
           >
             <WhatsAppIcon className="w-3.5 h-3.5 fill-current shrink-0" />
             <span>Hablemos</span>
