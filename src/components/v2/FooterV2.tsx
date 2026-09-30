@@ -52,8 +52,8 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
               <img 
                 src="/logo-horizontal-white.webp"
                 alt="JP Studios"
-                width={140}
-                height={30}
+                width="134"
+                height="28"
                 className="h-7 w-auto object-contain filter drop-shadow-[0_2px_10px_rgba(255,255,255,0.08)]"
                 loading="lazy"
                 decoding="async"

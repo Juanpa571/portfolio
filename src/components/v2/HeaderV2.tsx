@@ -90,8 +90,8 @@ export const HeaderV2: React.FC<HeaderV2Props> = ({ onNavigateHome }) => {
             <img 
               src="/logo-horizontal-white.webp"
               alt="JP Studios"
-              width={145}
-              height={32}
+              width="134"
+              height="28"
               className="h-7 sm:h-8 w-auto object-contain filter drop-shadow-[0_2px_12px_rgba(255,255,255,0.08)] transition-all"
               loading="eager"
               decoding="async"
