@@ -19,10 +19,10 @@ export const useSmoothScroll = () => {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // Regla 13: Inicializar EXCLUSIVAMENTE en entornos de escritorio con puntero fino
-    // En móviles y tablets (pointer: coarse), preservar el scroll inercial nativo de 90/120Hz acelerado por GPU
-    const isFinePointer = window.matchMedia('(pointer: fine)').matches;
-    if (!isFinePointer) return;
+    // Abortar de inmediato en pantallas móviles o dispositivos táctiles
+    if (window.matchMedia('(max-width: 768px)').matches || !window.matchMedia('(pointer: fine)').matches) {
+      return;
+    }
 
     let destroyed = false;
     let cleanup: (() => void) | undefined;

@@ -170,7 +170,7 @@ export const FaqV2: React.FC = () => {
       data-ambient-theme="cyan"
       itemScope
       itemType="https://schema.org/FAQPage"
-      className="relative py-28 sm:py-36 lg:py-44 xl:py-48 bg-transparent text-slate-100 overflow-hidden"
+      className="relative py-28 sm:py-36 lg:py-44 xl:py-48 bg-transparent text-slate-100"
     >
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         

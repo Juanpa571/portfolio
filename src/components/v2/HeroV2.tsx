@@ -72,7 +72,7 @@ export const HeroV2: React.FC = () => {
   }, []);
 
   return (
-    <section id="hero" data-ambient-theme="cyan" className="relative min-h-screen pt-32 pb-16 lg:pt-[8.5rem] lg:pb-24 xl:pb-28 overflow-hidden bg-transparent text-slate-100 flex flex-col justify-center">
+    <section id="hero" data-ambient-theme="cyan" className="relative min-h-screen pt-32 pb-16 lg:pt-[8.5rem] lg:pb-24 xl:pb-28 bg-transparent text-slate-100 flex flex-col justify-center">
 
       <div className="relative z-10 w-full max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 my-auto">
         
@@ -185,7 +185,7 @@ export const HeroV2: React.FC = () => {
             {/* Resplandor ambiental de pantalla (Ambilight) que proyecta la luz real de Maranatha */}
             <div 
               aria-hidden="true" 
-              className="absolute -inset-10 bg-gradient-to-tr from-rose-500/[0.12] via-fuchsia-500/[0.08] to-pink-500/[0.10] blur-[150px] rounded-full pointer-events-none" 
+              className="absolute -inset-10 bg-gradient-to-tr from-rose-500/[0.12] via-fuchsia-500/[0.08] to-pink-500/[0.10] blur-[40px] sm:blur-[120px] rounded-full pointer-events-none" 
             />
 
             {/* Objeto visual libre con escala calibrada para llenar el espacio sin desbordar el alto */}
@@ -215,7 +215,7 @@ export const HeroV2: React.FC = () => {
                   srcSet="/hero-showcase-mobile.webp 720w, /hero-showcase-desktop.webp 840w, /hero-showcase.webp 1672w"
                   sizes="(max-width: 768px) 100vw, 840px"
                   alt="Sitio web y catálogo interactivo para Maranatha Papelería en Cali optimizado para vender en laptop y celular por JP Studios"
-                  className="w-full h-auto object-contain cursor-default transition-all duration-300 ease-out [filter:drop-shadow(0px_10px_30px_rgba(180,80,255,0.25))_drop-shadow(0px_25px_50px_rgba(0,0,0,0.8))] hover:[filter:drop-shadow(0px_15px_40px_rgba(180,80,255,0.45))_drop-shadow(0px_0px_50px_rgba(6,182,212,0.30))_drop-shadow(0px_30px_60px_rgba(0,0,0,0.95))] hover:-translate-y-[5px]"
+                  className="w-full h-auto object-contain cursor-default transition-all duration-300 ease-out drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)] sm:[filter:drop-shadow(0px_10px_30px_rgba(180,80,255,0.25))_drop-shadow(0px_25px_50px_rgba(0,0,0,0.8))] hover:sm:[filter:drop-shadow(0px_15px_40px_rgba(180,80,255,0.45))_drop-shadow(0px_0px_50px_rgba(6,182,212,0.30))_drop-shadow(0px_30px_60px_rgba(0,0,0,0.95))] hover:-translate-y-[5px]"
                   style={{
                     imageRendering: 'auto',
                     WebkitBackfaceVisibility: 'hidden',

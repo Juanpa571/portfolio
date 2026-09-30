@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
 // Singleton: inject GlowingEdgeCard CSS once into <head> on first mount
-// Avoids 3× duplicated <style> blocks while keeping CSS non-render-blocking
+// Restricted strictly to pointer: fine devices to prevent mobile GPU shader compilation freezes
 let glowingCardStylesInjected = false;
 function ensureGlowingCardStyles() {
   if (glowingCardStylesInjected || typeof document === 'undefined') return;
@@ -9,11 +9,13 @@ function ensureGlowingCardStyles() {
   const style = document.createElement('style');
   style.setAttribute('data-glowing-card', '');
   style.textContent = `
-.glowing-card-mesh-border{position:absolute;inset:0;border-radius:inherit;z-index:-1;border:1px solid transparent;background:linear-gradient(var(--card-bg) 0 100%) padding-box,linear-gradient(rgb(255 255 255/0%) 0% 100%) border-box,radial-gradient(at 80% 55%,hsla(268,100%,76%,1) 0px,transparent 50%) border-box,radial-gradient(at 69% 34%,hsla(349,100%,74%,1) 0px,transparent 50%) border-box,radial-gradient(at 8% 6%,hsla(136,100%,78%,1) 0px,transparent 50%) border-box,radial-gradient(at 41% 38%,hsla(192,100%,64%,1) 0px,transparent 50%) border-box,radial-gradient(at 86% 85%,hsla(186,100%,74%,1) 0px,transparent 50%) border-box,radial-gradient(at 82% 18%,hsla(52,100%,65%,1) 0px,transparent 50%) border-box,radial-gradient(at 51% 4%,hsla(12,100%,72%,1) 0px,transparent 50%) border-box,linear-gradient(#06b6d4 0 100%) border-box;opacity:calc((var(--pointer-d) - var(--color-sens))/(100 - var(--color-sens)));mask-image:conic-gradient(from var(--pointer-deg) at center,black 25%,transparent 40%,transparent 60%,black 75%);-webkit-mask-image:conic-gradient(from var(--pointer-deg) at center,black 25%,transparent 40%,transparent 60%,black 75%);transition:opacity .25s ease-out}
-.glowing-card-mesh-bg{position:absolute;inset:0;border-radius:inherit;z-index:-1;border:1px solid transparent;background:radial-gradient(at 80% 55%,hsla(268,100%,76%,1) 0px,transparent 50%) padding-box,radial-gradient(at 69% 34%,hsla(349,100%,74%,1) 0px,transparent 50%) padding-box,radial-gradient(at 8% 6%,hsla(136,100%,78%,1) 0px,transparent 50%) padding-box,radial-gradient(at 41% 38%,hsla(192,100%,64%,1) 0px,transparent 50%) padding-box,radial-gradient(at 86% 85%,hsla(186,100%,74%,1) 0px,transparent 50%) padding-box,radial-gradient(at 82% 18%,hsla(52,100%,65%,1) 0px,transparent 50%) padding-box,radial-gradient(at 51% 4%,hsla(12,100%,72%,1) 0px,transparent 50%) padding-box,linear-gradient(#06b6d4 0 100%) padding-box;mask-image:linear-gradient(to bottom,black,black),radial-gradient(ellipse at 50% 50%,black 40%,transparent 65%),radial-gradient(ellipse at 66% 66%,black 5%,transparent 40%),radial-gradient(ellipse at 33% 33%,black 5%,transparent 40%),radial-gradient(ellipse at 66% 33%,black 5%,transparent 40%),radial-gradient(ellipse at 33% 66%,black 5%,transparent 40%),conic-gradient(from var(--pointer-deg) at center,transparent 5%,black 15%,black 85%,transparent 95%);-webkit-mask-image:linear-gradient(to bottom,black,black),radial-gradient(ellipse at 50% 50%,black 40%,transparent 65%),radial-gradient(ellipse at 66% 66%,black 5%,transparent 40%),radial-gradient(ellipse at 33% 33%,black 5%,transparent 40%),radial-gradient(ellipse at 66% 33%,black 5%,transparent 40%),radial-gradient(ellipse at 33% 66%,black 5%,transparent 40%),conic-gradient(from var(--pointer-deg) at center,transparent 5%,black 15%,black 85%,transparent 95%);mask-composite:subtract,add,add,add,add,add,add;-webkit-mask-composite:source-out,destination-over,destination-over,destination-over,destination-over,destination-over,destination-over;opacity:calc((var(--pointer-d) - var(--color-sens))/(100 - var(--color-sens)));mix-blend-mode:var(--blend);transition:opacity .25s ease-out}
-.glowing-card-glow{position:absolute;inset:-40px;pointer-events:none;z-index:1;mask-image:conic-gradient(from var(--pointer-deg) at center,black 2.5%,transparent 10%,transparent 90%,black 97.5%);-webkit-mask-image:conic-gradient(from var(--pointer-deg) at center,black 2.5%,transparent 10%,transparent 90%,black 97.5%);opacity:calc((var(--pointer-d) - var(--glow-sens))/(100 - var(--glow-sens)));mix-blend-mode:var(--glow-blend);transition:opacity .25s ease-out;border-radius:inherit}
-.glowing-card-glow::before{content:"";position:absolute;inset:40px;border-radius:inherit;box-shadow:inset 0 0 0 1px hsl(var(--glow-color)/100%),inset 0 0 1px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 60%)),inset 0 0 3px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 50%)),inset 0 0 6px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 40%)),inset 0 0 15px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 30%)),inset 0 0 25px 2px hsl(var(--glow-color)/calc(var(--glow-boost) + 20%)),inset 0 0 50px 2px hsl(var(--glow-color)/calc(var(--glow-boost) + 10%)),0 0 1px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 60%)),0 0 3px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 50%)),0 0 6px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 40%)),0 0 15px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 30%)),0 0 25px 2px hsl(var(--glow-color)/calc(var(--glow-boost) + 20%)),0 0 50px 2px hsl(var(--glow-color)/calc(var(--glow-boost) + 10%))}
-.group:not(:hover):not(.animating) .glowing-card-mesh-border,.group:not(:hover):not(.animating) .glowing-card-mesh-bg,.group:not(:hover):not(.animating) .glowing-card-glow{opacity:0!important;transition:opacity .75s ease-in-out}`;
+@media (hover: hover) and (pointer: fine) {
+  .glowing-card-mesh-border{position:absolute;inset:0;border-radius:inherit;z-index:-1;border:1px solid transparent;background:linear-gradient(var(--card-bg) 0 100%) padding-box,linear-gradient(rgb(255 255 255/0%) 0% 100%) border-box,radial-gradient(at 80% 55%,hsla(268,100%,76%,1) 0px,transparent 50%) border-box,radial-gradient(at 69% 34%,hsla(349,100%,74%,1) 0px,transparent 50%) border-box,radial-gradient(at 8% 6%,hsla(136,100%,78%,1) 0px,transparent 50%) border-box,radial-gradient(at 41% 38%,hsla(192,100%,64%,1) 0px,transparent 50%) border-box,radial-gradient(at 86% 85%,hsla(186,100%,74%,1) 0px,transparent 50%) border-box,radial-gradient(at 82% 18%,hsla(52,100%,65%,1) 0px,transparent 50%) border-box,radial-gradient(at 51% 4%,hsla(12,100%,72%,1) 0px,transparent 50%) border-box,linear-gradient(#06b6d4 0 100%) border-box;opacity:calc((var(--pointer-d) - var(--color-sens))/(100 - var(--color-sens)));mask-image:conic-gradient(from var(--pointer-deg) at center,black 25%,transparent 40%,transparent 60%,black 75%);-webkit-mask-image:conic-gradient(from var(--pointer-deg) at center,black 25%,transparent 40%,transparent 60%,black 75%);transition:opacity .25s ease-out}
+  .glowing-card-mesh-bg{position:absolute;inset:0;border-radius:inherit;z-index:-1;border:1px solid transparent;background:radial-gradient(at 80% 55%,hsla(268,100%,76%,1) 0px,transparent 50%) padding-box,radial-gradient(at 69% 34%,hsla(349,100%,74%,1) 0px,transparent 50%) padding-box,radial-gradient(at 8% 6%,hsla(136,100%,78%,1) 0px,transparent 50%) padding-box,radial-gradient(at 41% 38%,hsla(192,100%,64%,1) 0px,transparent 50%) padding-box,radial-gradient(at 86% 85%,hsla(186,100%,74%,1) 0px,transparent 50%) padding-box,radial-gradient(at 82% 18%,hsla(52,100%,65%,1) 0px,transparent 50%) padding-box,radial-gradient(at 51% 4%,hsla(12,100%,72%,1) 0px,transparent 50%) padding-box,linear-gradient(#06b6d4 0 100%) padding-box;mask-image:linear-gradient(to bottom,black,black),radial-gradient(ellipse at 50% 50%,black 40%,transparent 65%),radial-gradient(ellipse at 66% 66%,black 5%,transparent 40%),radial-gradient(ellipse at 33% 33%,black 5%,transparent 40%),radial-gradient(ellipse at 66% 33%,black 5%,transparent 40%),radial-gradient(ellipse at 33% 66%,black 5%,transparent 40%),conic-gradient(from var(--pointer-deg) at center,transparent 5%,black 15%,black 85%,transparent 95%);-webkit-mask-image:linear-gradient(to bottom,black,black),radial-gradient(ellipse at 50% 50%,black 40%,transparent 65%),radial-gradient(ellipse at 66% 66%,black 5%,transparent 40%),radial-gradient(ellipse at 33% 33%,black 5%,transparent 40%),radial-gradient(ellipse at 66% 33%,black 5%,transparent 40%),radial-gradient(ellipse at 33% 66%,black 5%,transparent 40%),conic-gradient(from var(--pointer-deg) at center,transparent 5%,black 15%,black 85%,transparent 95%);mask-composite:subtract,add,add,add,add,add,add;-webkit-mask-composite:source-out,destination-over,destination-over,destination-over,destination-over,destination-over,destination-over;opacity:calc((var(--pointer-d) - var(--color-sens))/(100 - var(--color-sens)));mix-blend-mode:var(--blend);transition:opacity .25s ease-out}
+  .glowing-card-glow{position:absolute;inset:-40px;pointer-events:none;z-index:1;mask-image:conic-gradient(from var(--pointer-deg) at center,black 2.5%,transparent 10%,transparent 90%,black 97.5%);-webkit-mask-image:conic-gradient(from var(--pointer-deg) at center,black 2.5%,transparent 10%,transparent 90%,black 97.5%);opacity:calc((var(--pointer-d) - var(--glow-sens))/(100 - var(--glow-sens)));mix-blend-mode:var(--glow-blend);transition:opacity .25s ease-out;border-radius:inherit}
+  .glowing-card-glow::before{content:"";position:absolute;inset:40px;border-radius:inherit;box-shadow:inset 0 0 0 1px hsl(var(--glow-color)/100%),inset 0 0 1px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 60%)),inset 0 0 3px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 50%)),inset 0 0 6px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 40%)),inset 0 0 15px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 30%)),inset 0 0 25px 2px hsl(var(--glow-color)/calc(var(--glow-boost) + 20%)),inset 0 0 50px 2px hsl(var(--glow-color)/calc(var(--glow-boost) + 10%)),0 0 1px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 60%)),0 0 3px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 50%)),0 0 6px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 40%)),0 0 15px 0 hsl(var(--glow-color)/calc(var(--glow-boost) + 30%)),0 0 25px 2px hsl(var(--glow-color)/calc(var(--glow-boost) + 20%)),0 0 50px 2px hsl(var(--glow-color)/calc(var(--glow-boost) + 10%))}
+  .group:not(:hover):not(.animating) .glowing-card-mesh-border,.group:not(:hover):not(.animating) .glowing-card-mesh-bg,.group:not(:hover):not(.animating) .glowing-card-glow{opacity:0!important;transition:opacity .75s ease-in-out}
+}`;
   document.head.appendChild(style);
 }
 
@@ -33,6 +35,7 @@ export interface GlowingEdgeCardProps extends React.HTMLAttributes<HTMLDivElemen
  * 
  * Optimizaciones de JP Studios:
  * - Cumplimiento estricto de la Regla #12: lecturas de geometría desacopladas en rAF (Cero layout thrashing).
+ * - Rendimiento móvil cero-coste: en pantallas táctiles (pointer: coarse) no se renderizan capas GPU de gradiente complejo.
  * - Soporte cross-browser con prefijos `-webkit-mask`.
  * - Compatibilidad fluida con temas oscuros y paletas de marca.
  */
@@ -45,12 +48,20 @@ export const GlowingEdgeCard: React.FC<GlowingEdgeCardProps> = ({
   children,
   ...props 
 }) => {
-  // Inject CSS once (singleton) — not render-blocking, not 3× duplicated
-  ensureGlowingCardStyles();
-
   const cardRef = useRef<HTMLDivElement>(null);
   const rectRef = useRef<DOMRect | null>(null);
   const rAFRef = useRef<number | null>(null);
+  const [isFinePointer, setIsFinePointer] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const fine = window.matchMedia('(pointer: fine)').matches;
+      setIsFinePointer(fine);
+      if (fine) {
+        ensureGlowingCardStyles();
+      }
+    }
+  }, []);
 
   // Funciones matemáticas de precisión geométrica
   const round = (value: number, precision = 2) => Number(value.toFixed(precision));
@@ -149,9 +160,9 @@ export const GlowingEdgeCard: React.FC<GlowingEdgeCardProps> = ({
   return (
     <div 
       ref={cardRef}
-      onPointerEnter={handlePointerEnter}
-      onPointerMove={handlePointerMove}
-      onPointerLeave={handlePointerLeave}
+      onPointerEnter={isFinePointer ? handlePointerEnter : undefined}
+      onPointerMove={isFinePointer ? handlePointerMove : undefined}
+      onPointerLeave={isFinePointer ? handlePointerLeave : undefined}
       className={`relative flex flex-col rounded-[1.75rem] group transition-colors duration-300 ${
         mode === 'light' ? 'light-mode' : 'dark-mode'
       } ${className}`}
@@ -173,16 +184,17 @@ export const GlowingEdgeCard: React.FC<GlowingEdgeCardProps> = ({
       } as React.CSSProperties}
       {...props}
     >
-
-
+      {/* Capas de Fondo Interactivas (Solo en pantallas con ratón / puntero fino) */}
+      {isFinePointer && (
+        <>
+          <div className="glowing-card-mesh-border" aria-hidden="true" />
+          <div className="glowing-card-mesh-bg" aria-hidden="true" />
+          <div className="glowing-card-glow" aria-hidden="true" />
+        </>
+      )}
       
-      {/* Capas de Fondo Interactivas */}
-      <div className="glowing-card-mesh-border" aria-hidden="true" />
-      <div className="glowing-card-mesh-bg" aria-hidden="true" />
-      <div className="glowing-card-glow" aria-hidden="true" />
-      
-      {/* Contenedor Interior de Contenido */}
-      <div className="relative z-10 w-full h-full overflow-hidden bg-[var(--card-bg)] bg-no-repeat rounded-[inherit] border border-white/10">
+      {/* Contenedor Interior de Contenido: flex-1 sin overflow-hidden para evitar cortes en WebKit móvil */}
+      <div className="relative z-10 w-full flex-1 flex flex-col bg-[#0e1015] sm:bg-[var(--card-bg)] bg-no-repeat rounded-[inherit] border border-white/10">
         {children}
       </div>
     </div>

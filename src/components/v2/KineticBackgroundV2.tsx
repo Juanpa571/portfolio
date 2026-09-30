@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 /**
  * KineticBackgroundV2
@@ -6,16 +6,29 @@ import React, { useEffect, useRef } from 'react';
  * Fondo cinético vivo inspirado en Creativeans (presencia monumental de marca)
  * y Haoqi.design (atmósfera cromática fluida y reactiva al scroll).
  * 
- * - Renderizado en GPU mediante HTML5 Canvas ultra-optimizado.
- * - Z-Index garantizado para visibilidad instantánea.
- * - Transición cromática continua basada en distancia de scroll (cero saltos bruscos).
- * - Emblema oficial en cristal 3D con halo prismático y tintado libre de artefactos.
+ * - Renderizado en GPU mediante HTML5 Canvas ultra-optimizado (exclusivo para desktop pointer: fine).
+ * - En pantallas móviles (pointer: coarse): fondo CSS ambiental cero-VRAM que preserva el 100%
+ *   de la memoria de tiles de WebKit y elimina bloqueos de hilo principal.
+ * - Transición cromática continua basada en distancia de scroll.
+ * - Emblema oficial en cristal 3D con halo prismático en desktop.
  * - Prevención estricta de Reflows Forzados (Regla 12).
  */
 export const KineticBackgroundV2: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [isFinePointer, setIsFinePointer] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return window.matchMedia('(pointer: fine)').matches;
+    }
+    return true;
+  });
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const fine = window.matchMedia('(pointer: fine)').matches;
+    setIsFinePointer(fine);
+    if (!fine) return; // En móviles y touchscreens, se omite el canvas por completo
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -34,7 +47,6 @@ export const KineticBackgroundV2: React.FC = () => {
     let mouseY = 0.5;
     let targetMouseX = 0.5;
     let targetMouseY = 0.5;
-    let isFinePointer = false;
 
     // Precarga diferida del activo oficial 3D del emblema en cristal transparente (WebP)
     // No compite con el LCP de la imagen principal durante la carga inicial del Hero
@@ -51,18 +63,11 @@ export const KineticBackgroundV2: React.FC = () => {
       };
     };
 
-    // El emblema en cristal solo se carga bajo demanda cuando el usuario hace scroll hacia abajo (>40px)
-    // Cero consumo de ancho de banda o contención durante la carga inicial del Hero
-
     // Offscreen canvas dedicado para teñir el cristal sin afectar el canvas principal
     const tintCanvas = document.createElement('canvas');
     tintCanvas.width = 512;
     tintCanvas.height = 512;
     const tintCtx = tintCanvas.getContext('2d');
-
-    if (typeof window !== 'undefined') {
-      isFinePointer = window.matchMedia('(pointer: fine)').matches;
-    }
 
     const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
@@ -178,7 +183,6 @@ export const KineticBackgroundV2: React.FC = () => {
       requestTick();
     }
 
-    // Medición diferida: no bloquea el hilo principal durante el renderizado inicial
     window.addEventListener('load', measureSections, { once: true, passive: true });
     window.addEventListener('resize', onResize, { passive: true });
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -187,7 +191,7 @@ export const KineticBackgroundV2: React.FC = () => {
       const scrollY = typeof e.scroll === 'number' ? e.scroll : (window.scrollY || 0);
       currentScrollY = scrollY;
       targetScrollProgress = Math.min(Math.max(currentScrollY / maxScroll, 0), 1);
-      if (isFinePointer && currentScrollY > 40) {
+      if (currentScrollY > 40) {
         loadEmblem();
       }
       requestTick();
@@ -213,71 +217,59 @@ export const KineticBackgroundV2: React.FC = () => {
     }
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!isFinePointer) return;
       targetMouseX = e.clientX / width;
       targetMouseY = e.clientY / height;
       requestTick();
     };
 
-    if (isFinePointer) {
-      window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    }
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
     const rgba = (rgb: [number, number, number], a: number) => 
       `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${a})`;
 
     let time = 0;
 
-    /**
-     * getTargetPalette: Cálculo cromático continuo basado en scroll.
-     * 
-     * - Durante el Hero: 100% Cyan.
-     * - Al asomar "02 - Diagnóstico": Transición suave de 380px de scroll hacia Carmín.
-     * - Durante todo Diagnóstico (incluida la tarjeta de conclusión): 100% Carmín Alerta.
-     * - Al asomar "03 - Pilares del Servicio" y "para vender tus productos": Transición progresiva de 380px hacia Esmeralda.
-     * - Cero saltos bruscos con un solo clic. Cero cambios prematuros.
-     */
     const getTargetPalette = (scrollY: number, innerH: number): ThemePalette => {
       if (scrollY < 80) return THEMES.cyan;
       if (diagHeaderTop === 0 || servHeaderTop === 0) return THEMES.cyan;
 
       const scrollBottom = scrollY + innerH;
-      const transitionDistance = 380; // Distancia en px para una metamorfosis cromática sedosa
+      const transitionDistance = 380;
 
       // 1. Zona Hero
       if (scrollBottom < diagHeaderTop) {
         return THEMES.cyan;
       }
 
-      // 2. Transición Hero -> Diagnóstico (conforme el encabezado entra por abajo)
+      // 2. Transición Hero -> Diagnóstico
       if (scrollBottom < diagHeaderTop + transitionDistance) {
         const t = (scrollBottom - diagHeaderTop) / transitionDistance;
         return blendPalettes(THEMES.cyan, THEMES.rose, t);
       }
 
-      // 3. Zona Diagnóstico Estable (mientras se lee el diagnóstico y la tarjeta de conclusión)
+      // 3. Zona Diagnóstico Estable
       if (scrollBottom < servHeaderTop) {
         return THEMES.rose;
       }
 
-      // 4. Transición Diagnóstico -> Servicios (conforme el encabezado verde entra por abajo)
+      // 4. Transición Diagnóstico -> Servicios
       if (scrollBottom < servHeaderTop + transitionDistance) {
         const t = (scrollBottom - servHeaderTop) / transitionDistance;
         return blendPalettes(THEMES.rose, THEMES.emerald, t);
       }
 
-      // 5. Zona Servicios Estable (mientras se lee la solución y la franja de auditoría)
+      // 5. Zona Servicios Estable
       if (projHeaderTop === 0 || scrollBottom < projHeaderTop) {
         return THEMES.emerald;
       }
 
-      // 6. Transición Servicios -> Casos de Estudio (conforme el encabezado cyan entra por abajo)
+      // 6. Transición Servicios -> Casos de Estudio
       if (scrollBottom < projHeaderTop + transitionDistance) {
         const t = (scrollBottom - projHeaderTop) / transitionDistance;
         return blendPalettes(THEMES.emerald, THEMES.cyan, t);
       }
 
-      // 7. Zona Casos de Estudio & Cierre (Cyan Eléctrico & Azul Cobalto)
+      // 7. Zona Casos de Estudio & Cierre
       return THEMES.cyan;
     };
 
@@ -294,10 +286,8 @@ export const KineticBackgroundV2: React.FC = () => {
       mouseX = lerp(mouseX, targetMouseX, 0.05);
       mouseY = lerp(mouseY, targetMouseY, 0.05);
 
-      // Calcular la paleta objetivo exacta según la posición de scroll
       const targetPalette = getTargetPalette(currentScrollY, height);
 
-      // Interpolación suave y orgánica por fotograma
       curC1[0] = lerp(curC1[0], targetPalette.c1[0], 0.06);
       curC1[1] = lerp(curC1[1], targetPalette.c1[1], 0.06);
       curC1[2] = lerp(curC1[2], targetPalette.c1[2], 0.06);
@@ -354,11 +344,9 @@ export const KineticBackgroundV2: React.FC = () => {
       ctx.fill();
 
       // 4. EL EMBLEMA OFICIAL EN CRISTAL PRISMÁTICO DE JP STUDIOS
-      // En el Hero (scrollProgress < 0.08) permanece oculto para preservar la pureza inicial.
-      // Se revela gradualmente con desenfoque óptico profundo conforme el usuario desciende.
       const emblemFade = Math.min(Math.max((scrollProgress - 0.08) / 0.18, 0), 1);
 
-      if (isFinePointer && emblemLoaded && emblemImg && emblemFade > 0 && tintCtx) {
+      if (emblemLoaded && emblemImg && emblemFade > 0 && tintCtx) {
         ctx.save();
         const brandX = width * 0.52 + mouseDx * 0.35;
         const brandY = height * 0.48 + mouseDy * 0.35;
@@ -370,7 +358,6 @@ export const KineticBackgroundV2: React.FC = () => {
 
         const drawSize = brandSize * breathe;
 
-        // A. Teñir el cristal exclusivamente en el offscreen canvas
         tintCtx.clearRect(0, 0, 512, 512);
         tintCtx.drawImage(emblemImg, 0, 0, 512, 512);
         tintCtx.globalCompositeOperation = 'source-in';
@@ -378,7 +365,6 @@ export const KineticBackgroundV2: React.FC = () => {
         tintCtx.fillRect(0, 0, 512, 512);
         tintCtx.globalCompositeOperation = 'source-over';
 
-        // B. Halo concéntrico suave en el canvas principal
         const ringGrad = ctx.createRadialGradient(0, 0, drawSize * 0.12, 0, 0, drawSize * 0.50);
         ringGrad.addColorStop(0, rgba(c1, 0.20 * emblemFade));
         ringGrad.addColorStop(0.5, rgba(c2, 0.08 * emblemFade));
@@ -388,7 +374,6 @@ export const KineticBackgroundV2: React.FC = () => {
         ctx.arc(0, 0, drawSize * 0.50, 0, Math.PI * 2);
         ctx.fill();
 
-        // C. Proyectar el cristal con desenfoque óptico seguro
         try {
           if ('filter' in ctx) {
             ctx.filter = 'blur(22px)';
@@ -424,9 +409,8 @@ export const KineticBackgroundV2: React.FC = () => {
       ctx.fillStyle = centerMask;
       ctx.fillRect(0, 0, width, height);
 
-      // Convergence check: sleep when nothing is changing (desktop AND mobile)
       const scrollDelta = Math.abs(scrollProgress - targetScrollProgress);
-      const mouseDelta = isFinePointer ? (Math.abs(mouseX - targetMouseX) + Math.abs(mouseY - targetMouseY)) : 0;
+      const mouseDelta = Math.abs(mouseX - targetMouseX) + Math.abs(mouseY - targetMouseY);
       const colorDelta = Math.abs(curC1[0] - targetPalette.c1[0]) +
                          Math.abs(curC1[1] - targetPalette.c1[1]) +
                          Math.abs(curC2[0] - targetPalette.c2[0]) +
@@ -444,7 +428,6 @@ export const KineticBackgroundV2: React.FC = () => {
       }
     }
 
-    // Arranque inicial calibrado tras declarar todas las funciones
     resize();
     measureSections();
     handleScroll();
@@ -465,11 +448,39 @@ export const KineticBackgroundV2: React.FC = () => {
       window.removeEventListener('resize', onResize);
       window.removeEventListener('scroll', handleScroll);
       if (cleanupLenis) cleanupLenis();
-      if (isFinePointer) {
-        window.removeEventListener('mousemove', handleMouseMove);
-      }
+      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
+
+  // En dispositivos móviles (pointer: coarse), renderizar atmósfera CSS pura cero-coste
+  // Cero consumo de VRAM de WebKit, cero contención de tiles, scroll móvil a 120Hz nativos
+  if (!isFinePointer) {
+    return (
+      <div 
+        aria-hidden="true" 
+        className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#060709]"
+      >
+        <div 
+          className="absolute -top-[10%] -right-[15%] w-[480px] h-[480px] rounded-full opacity-30 blur-[70px] pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle, rgba(0, 240, 255, 0.45) 0%, rgba(37, 99, 235, 0.20) 45%, transparent 70%)',
+          }}
+        />
+        <div 
+          className="absolute top-[35%] -left-[20%] w-[420px] h-[420px] rounded-full opacity-25 blur-[65px] pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle, rgba(244, 63, 94, 0.40) 0%, rgba(79, 70, 229, 0.15) 50%, transparent 70%)',
+          }}
+        />
+        <div 
+          className="absolute top-[70%] -right-[10%] w-[450px] h-[450px] rounded-full opacity-25 blur-[70px] pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle, rgba(16, 185, 129, 0.35) 0%, rgba(5, 150, 105, 0.12) 50%, transparent 70%)',
+          }}
+        />
+      </div>
+    );
+  }
 
   return (
     <div 

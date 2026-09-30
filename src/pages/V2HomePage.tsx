@@ -25,7 +25,7 @@ export const V2HomePage: React.FC = () => {
 
       <HeaderV2 />
 
-      <main className="relative z-10">
+      <main className="relative z-10 overflow-x-hidden">
         {/* Bloque 1: Hero Section */}
         <HeroV2 />
 

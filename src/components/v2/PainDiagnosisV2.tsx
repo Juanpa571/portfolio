@@ -7,7 +7,7 @@ export const PainDiagnosisV2: React.FC = () => {
     <section 
       id="diagnostico" 
       data-ambient-theme="rose"
-      className="relative py-28 sm:py-36 lg:py-44 xl:py-48 bg-transparent text-slate-100 overflow-hidden"
+      className="relative py-28 sm:py-36 lg:py-44 xl:py-48 bg-transparent text-slate-100"
     >
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -42,9 +42,9 @@ export const PainDiagnosisV2: React.FC = () => {
           <GlowingEdgeCard
             mode="dark"
             glowColor="349deg 100% 70%"
-            className="h-full"
+            className="flex flex-col h-full"
           >
-            <div className="p-7 sm:p-9 flex flex-col justify-between h-full">
+            <div className="p-7 sm:p-9 flex flex-col justify-between flex-1">
               <div>
                 <h3 className="text-lg sm:text-xl font-extrabold text-white tracking-tight leading-snug mb-6">
                   Clientes perdidos por carga lenta
@@ -90,9 +90,9 @@ export const PainDiagnosisV2: React.FC = () => {
           <GlowingEdgeCard
             mode="dark"
             glowColor="205deg 100% 65%"
-            className="h-full"
+            className="flex flex-col h-full"
           >
-            <div className="p-7 sm:p-9 flex flex-col justify-between h-full">
+            <div className="p-7 sm:p-9 flex flex-col justify-between flex-1">
               <div>
                 <h3 className="text-lg sm:text-xl font-extrabold text-white tracking-tight leading-snug mb-6">
                   Aparecer en Google y Google Maps
@@ -138,9 +138,9 @@ export const PainDiagnosisV2: React.FC = () => {
           <GlowingEdgeCard
             mode="dark"
             glowColor="150deg 100% 60%"
-            className="h-full"
+            className="flex flex-col h-full"
           >
-            <div className="p-7 sm:p-9 flex flex-col justify-between h-full">
+            <div className="p-7 sm:p-9 flex flex-col justify-between flex-1">
               <div>
                 <h3 className="text-lg sm:text-xl font-extrabold text-white tracking-tight leading-snug mb-6">
                   Estructura web para vender productos y servicios

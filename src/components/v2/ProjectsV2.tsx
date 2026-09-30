@@ -16,7 +16,7 @@ export const ProjectsV2: React.FC = () => {
   return (
     <section 
       id="proyectos" 
-      className="relative py-28 sm:py-36 lg:py-44 xl:py-48 bg-transparent text-slate-100 overflow-hidden"
+      className="relative py-28 sm:py-36 lg:py-44 xl:py-48 bg-transparent text-slate-100"
     >
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
