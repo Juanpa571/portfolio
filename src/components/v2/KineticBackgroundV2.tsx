@@ -29,7 +29,14 @@ export const KineticBackgroundV2: React.FC = () => {
     const loadEmblem = () => {
       if (emblemImg) return;
       emblemImg = new Image();
-      emblemImg.src = '/jp-emblem-crystal.webp';
+      
+      // Cargar imagen pre-desenfocada en móviles para evitar usar ctx.filter
+      if (window.innerWidth < 768) {
+        emblemImg.src = '/jp-emblem-crystal-blurred.webp';
+      } else {
+        emblemImg.src = '/jp-emblem-crystal.webp';
+      }
+
       emblemImg.onload = () => {
         emblemLoaded = true;
         requestTick();
@@ -264,13 +271,13 @@ export const KineticBackgroundV2: React.FC = () => {
         ctx.arc(0, 0, drawSize * 0.50, 0, Math.PI * 2);
         ctx.fill();
         
-        try { if ('filter' in ctx) ctx.filter = 'blur(22px)'; } catch (_) {}
+        try { if (!isMobile && 'filter' in ctx) ctx.filter = 'blur(22px)'; } catch (_) {}
         ctx.globalAlpha = 0.38 * emblemFade;
         ctx.drawImage(emblemImg, -drawSize * 0.5, -drawSize * 0.5, drawSize, drawSize);
         ctx.globalAlpha = 0.30 * emblemFade;
         ctx.drawImage(tintCanvas, -drawSize * 0.5, -drawSize * 0.5, drawSize, drawSize);
         
-        try { if ('filter' in ctx) ctx.filter = 'none'; } catch (_) {}
+        try { if (!isMobile && 'filter' in ctx) ctx.filter = 'none'; } catch (_) {}
         ctx.restore();
       }
       
