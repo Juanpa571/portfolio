@@ -225,6 +225,10 @@ export const HeroV2: React.FC = () => {
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
+                  onLoad={() => {
+                    (window as any).__heroLoaded = true;
+                    window.dispatchEvent(new Event('hero-loaded'));
+                  }}
                 />
               </picture>
             </div>

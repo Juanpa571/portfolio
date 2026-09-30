@@ -311,14 +311,31 @@ export const KineticBackgroundV2: React.FC = () => {
       }
     }
 
-    resize();
-    setTimeout(() => {
+    let initialized = false;
+    let fallbackTimeoutId: ReturnType<typeof setTimeout> | null = null;
+
+    // Reemplazamos el setTimeout rígido por sincronización basada en eventos reales del LCP
+    const initCanvas = () => {
+      if (initialized) return;
+      initialized = true;
+      if (fallbackTimeoutId) clearTimeout(fallbackTimeoutId);
+
+      if (window.scrollY > 10 || window.innerWidth < 768) {
+        loadEmblem();
+      }
+      resize();
       measureSections();
-    }, 120);
-    // Forzamos la carga del icono si estamos en móvil para asegurar que se muestre
-    if (window.innerWidth < 768) loadEmblem(); 
-    handleScroll();
-    requestTick();
+      handleScroll();
+      requestTick();
+    };
+
+    if ((window as any).__heroLoaded) {
+      initCanvas();
+    } else {
+      window.addEventListener('hero-loaded', initCanvas, { once: true });
+      // Fallback de seguridad por si el evento ya pasó o demora más de 1.5s
+      fallbackTimeoutId = setTimeout(initCanvas, 1500);
+    }
 
     const onVisibilityChange = () => {
       if (!document.hidden) requestTick();
@@ -329,6 +346,8 @@ export const KineticBackgroundV2: React.FC = () => {
     return () => {
       cancelAnimationFrame(animationFrameId);
       if (measureRAFId !== null) cancelAnimationFrame(measureRAFId);
+      if (fallbackTimeoutId) clearTimeout(fallbackTimeoutId);
+      window.removeEventListener('hero-loaded', initCanvas);
       window.removeEventListener('load', measureSections);
       document.removeEventListener('visibilitychange', onVisibilityChange);
       window.removeEventListener('resize', onResize);
