@@ -79,6 +79,26 @@ export const ProcessV2: React.FC = () => {
     },
   ];
 
+  const [direction, setDirection] = useState<number>(0);
+
+  const stepVariants = {
+    enter: (dir: number) => ({
+      x: dir >= 0 ? 35 : -35,
+      opacity: 0,
+      filter: 'blur(4px)',
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      filter: 'blur(0px)',
+    },
+    exit: (dir: number) => ({
+      x: dir >= 0 ? -35 : 35,
+      opacity: 0,
+      filter: 'blur(4px)',
+    }),
+  };
+
   const isAllCompleted = activeStep > 3;
 
   const handleStepClick = (targetId: number) => {
@@ -89,16 +109,26 @@ export const ProcessV2: React.FC = () => {
       setTimeout(() => setShakeCard3(false), 600);
       return;
     }
+    setDirection(targetId > activeStep ? 1 : -1);
     setActiveStep(targetId);
   };
 
   const handleNext = () => {
     if (activeStep <= 3) {
+      setDirection(1);
       setActiveStep((prev) => prev + 1);
     }
   };
 
+  const handlePrev = () => {
+    if (activeStep > 1) {
+      setDirection(-1);
+      setActiveStep((prev) => prev - 1);
+    }
+  };
+
   const handleReset = () => {
+    setDirection(-1);
     setActiveStep(1);
   };
 
@@ -237,9 +267,147 @@ export const ProcessV2: React.FC = () => {
         </div>
 
         {/* ========================================================= */}
-        {/* GRID DE LAS 3 TARJETAS CON DESBLOQUEO PROGRESIVO          */}
+        {/* ANIMATED STEPPER PARA MÓVIL (SUPERDESIGN INSPIRATION)      */}
         {/* ========================================================= */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+        <div className="md:hidden mb-8">
+          <div className="relative rounded-3xl overflow-hidden bg-white/[0.03] border border-white/[0.08] backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+            <div className="p-6">
+              <AnimatePresence mode="wait" custom={direction}>
+                {isAllCompleted ? (
+                  <motion.div
+                    key="completed"
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.3 }}
+                    className="py-4 text-center space-y-4"
+                  >
+                    <div className="w-14 h-14 mx-auto rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-bold text-2xl shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+                      ✓
+                    </div>
+                    <div className="space-y-1">
+                      <div className="text-[11px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">
+                        Recorrido Completado
+                      </div>
+                      <h3 className="text-xl font-extrabold text-white tracking-tight">
+                        Metodología clara de 14 a 21 días
+                      </h3>
+                    </div>
+                    <p className="text-xs text-slate-300 leading-relaxed max-w-xs mx-auto">
+                      Cada etapa cuenta con entregable garantizado antes de avanzar. Sin sorpresas, intermediarios ni pagos imprevistos.
+                    </p>
+                    <div className="pt-2">
+                      <button
+                        type="button"
+                        onClick={handleReset}
+                        className="px-5 py-2.5 rounded-xl text-xs font-mono font-bold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all cursor-pointer inline-flex items-center gap-1.5"
+                      >
+                        <span>Reiniciar recorrido</span>
+                        <span>↺</span>
+                      </button>
+                    </div>
+                  </motion.div>
+                ) : (
+                  steps
+                    .filter((step) => step.id === activeStep)
+                    .map((item) => (
+                      <motion.div
+                        key={item.id}
+                        custom={direction}
+                        variants={stepVariants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{
+                          x: { type: 'spring', stiffness: 300, damping: 30 },
+                          opacity: { duration: 0.2 },
+                        }}
+                        className="w-full flex flex-col justify-between"
+                      >
+                        {/* Cabecera del paso */}
+                        <div className="pb-5 border-b border-white/[0.06] mb-5 flex items-center justify-between">
+                          <div className={`text-2xl font-black font-mono tracking-tight ${item.accentColor}`}>
+                            {item.phase}
+                          </div>
+                          <span className="text-[11px] font-mono text-cyan-300 bg-cyan-500/10 border border-cyan-500/30 px-2.5 py-0.5 rounded-full font-semibold">
+                            Paso {item.id} de 3
+                          </span>
+                        </div>
+
+                        {/* Título y textos */}
+                        <h3 className="text-xl font-extrabold text-white tracking-tight leading-snug">
+                          {item.title}
+                        </h3>
+
+                        <p className="mt-3 text-sm text-slate-300 font-medium leading-relaxed">
+                          {item.summary}
+                        </p>
+
+                        <p className="mt-3 text-xs text-slate-400 leading-relaxed">
+                          {item.description}
+                        </p>
+
+                        {/* Entregable garantizado */}
+                        <div className="pt-5 mt-6 border-t border-white/[0.06]">
+                          <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-1.5 font-semibold">
+                            Entregable garantizado:
+                          </div>
+                          <div className="flex items-start gap-2.5 text-xs text-slate-200">
+                            <span className={`${item.deliverableIconColor} font-bold shrink-0 mt-0.5`}>
+                              ✓
+                            </span>
+                            <span className="leading-snug">
+                              {item.deliverable}
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Controles integrados en el pie de la tarjeta móvil */}
+                        <div className="pt-6 mt-6 border-t border-white/[0.06] flex items-center justify-between gap-3">
+                          {activeStep > 1 ? (
+                            <button
+                              type="button"
+                              onClick={handlePrev}
+                              className="px-4 py-2.5 rounded-xl text-xs font-mono font-medium text-slate-400 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 transition-all cursor-pointer flex items-center gap-1.5"
+                            >
+                              <span>← Anterior</span>
+                            </button>
+                          ) : (
+                            <div />
+                          )}
+
+                          {activeStep === 3 ? (
+                            <button
+                              type="button"
+                              onClick={handleNext}
+                              className="px-5 py-2.5 rounded-xl text-xs font-mono font-bold bg-emerald-400 hover:bg-emerald-300 text-slate-950 transition-all shadow-[0_0_18px_rgba(16,185,129,0.35)] cursor-pointer flex items-center gap-1.5"
+                            >
+                              <span>Completar proceso</span>
+                              <span>✓</span>
+                            </button>
+                          ) : (
+                            <button
+                              type="button"
+                              onClick={handleNext}
+                              className="px-5 py-2.5 rounded-xl text-xs font-mono font-bold bg-cyan-400 hover:bg-cyan-300 text-slate-950 transition-all shadow-[0_0_18px_rgba(6,182,212,0.3)] cursor-pointer flex items-center gap-1.5"
+                            >
+                              <span>Continuar al Paso {activeStep + 1}</span>
+                              <span>→</span>
+                            </button>
+                          )}
+                        </div>
+                      </motion.div>
+                    ))
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+
+        {/* ========================================================= */}
+        {/* GRID DE LAS 3 TARJETAS CON DESBLOQUEO PROGRESIVO (DESKTOP)*/}
+        {/* ========================================================= */}
+        <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {steps.map((item) => {
             const isUnlocked = activeStep >= item.id;
             const isCurrent = activeStep === item.id;

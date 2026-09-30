@@ -432,114 +432,230 @@ export const ContactV2: React.FC = () => {
                   </div>
                 </div>
 
-                {/* PASO 1: TIPO DE PROYECTO (Grid de 6 tarjetas) */}
+                {/* PASO 1: TIPO DE PROYECTO */}
                 {currentStep === 1 && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
-                    {projectOptions.map((opt) => {
-                      const isSelected = selectedProjectType === opt.id;
+                  <>
+                    {/* Versión Móvil: Lista Horizontal Compacta (Inspirada en la captura V1) */}
+                    <div className="sm:hidden space-y-2.5">
+                      {projectOptions.map((opt) => {
+                        const isSelected = selectedProjectType === opt.id;
 
-                      return (
-                        <div
-                          key={opt.id}
-                          onClick={() => setSelectedProjectType(opt.id)}
-                          className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[160px] select-none group ${
-                            isSelected
-                              ? 'bg-cyan-500/10 border-cyan-400/60 shadow-[0_0_25px_rgba(6,182,212,0.18)] translate-y-[-2px]'
-                              : 'bg-white/[0.02] border-white/[0.08] hover:border-white/20 hover:bg-white/[0.04]'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <OptionIcon
-                              icon={opt.icon}
-                              className={`w-6 h-6 transition-colors duration-200 ${
-                                isSelected ? 'text-cyan-400' : 'text-slate-400 group-hover:text-slate-200'
-                              }`}
-                            />
-                            
+                        return (
+                          <div
+                            key={opt.id}
+                            onClick={() => setSelectedProjectType(opt.id)}
+                            className={`p-3.5 rounded-2xl border transition-all duration-200 cursor-pointer flex items-center justify-between gap-3.5 select-none ${
+                              isSelected
+                                ? 'bg-cyan-500/10 border-cyan-400/70 text-white shadow-[0_0_20px_rgba(6,182,212,0.18)]'
+                                : 'bg-white/[0.02] border-white/[0.08] text-slate-300 hover:border-white/20 hover:bg-white/[0.04]'
+                            }`}
+                          >
+                            <div className="flex items-center gap-3.5 min-w-0">
+                              <div
+                                className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                                  isSelected
+                                    ? 'bg-cyan-400/20 text-cyan-300 border border-cyan-400/40'
+                                    : 'bg-white/[0.04] text-slate-400 border border-white/5'
+                                }`}
+                              >
+                                <OptionIcon icon={opt.icon} className="w-5 h-5" />
+                              </div>
+                              <div className="min-w-0 pr-1">
+                                <p
+                                  className={`text-sm font-bold leading-snug ${
+                                    isSelected ? 'text-white' : 'text-slate-200'
+                                  }`}
+                                >
+                                  {opt.label}
+                                </p>
+                                <p
+                                  className={`text-xs leading-snug mt-0.5 line-clamp-1 ${
+                                    isSelected ? 'text-slate-300' : 'text-slate-400'
+                                  }`}
+                                >
+                                  {opt.description}
+                                </p>
+                              </div>
+                            </div>
+
                             <div
-                              className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all duration-200 ${
-                                isSelected
-                                  ? 'border-cyan-400 bg-cyan-400/20'
-                                  : 'border-white/20 group-hover:border-white/40'
+                              className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
+                                isSelected ? 'border-cyan-400 bg-cyan-400/20' : 'border-white/20'
                               }`}
                             >
-                              {isSelected && (
-                                <span className="w-2 h-2 rounded-full bg-cyan-400" />
-                              )}
+                              {isSelected && <span className="w-2 h-2 rounded-full bg-cyan-400" />}
                             </div>
                           </div>
+                        );
+                      })}
+                    </div>
 
-                          <div className="space-y-1 mt-5">
-                            <p
-                              className={`text-sm sm:text-base font-bold leading-snug transition-colors ${
-                                isSelected ? 'text-white' : 'text-slate-200 group-hover:text-white'
-                              }`}
-                            >
-                              {opt.label}
-                            </p>
-                            <p className="text-xs text-slate-400 leading-relaxed font-normal">
-                              {opt.description}
-                            </p>
+                    {/* Versión Escritorio: Grid de 3 columnas */}
+                    <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
+                      {projectOptions.map((opt) => {
+                        const isSelected = selectedProjectType === opt.id;
+
+                        return (
+                          <div
+                            key={opt.id}
+                            onClick={() => setSelectedProjectType(opt.id)}
+                            className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[160px] select-none group ${
+                              isSelected
+                                ? 'bg-cyan-500/10 border-cyan-400/60 shadow-[0_0_25px_rgba(6,182,212,0.18)] translate-y-[-2px]'
+                                : 'bg-white/[0.02] border-white/[0.08] hover:border-white/20 hover:bg-white/[0.04]'
+                            }`}
+                          >
+                            <div className="flex items-center justify-between">
+                              <OptionIcon
+                                icon={opt.icon}
+                                className={`w-6 h-6 transition-colors duration-200 ${
+                                  isSelected ? 'text-cyan-400' : 'text-slate-400 group-hover:text-slate-200'
+                                }`}
+                              />
+                              
+                              <div
+                                className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all duration-200 ${
+                                  isSelected
+                                    ? 'border-cyan-400 bg-cyan-400/20'
+                                    : 'border-white/20 group-hover:border-white/40'
+                                }`}
+                              >
+                                {isSelected && (
+                                  <span className="w-2 h-2 rounded-full bg-cyan-400" />
+                                )}
+                              </div>
+                            </div>
+
+                            <div className="space-y-1 mt-5">
+                              <p
+                                className={`text-sm sm:text-base font-bold leading-snug transition-colors ${
+                                  isSelected ? 'text-white' : 'text-slate-200 group-hover:text-white'
+                                }`}
+                              >
+                                {opt.label}
+                              </p>
+                              <p className="text-xs text-slate-400 leading-relaxed font-normal">
+                                {opt.description}
+                              </p>
+                            </div>
                           </div>
-                        </div>
-                      );
-                    })}
-                  </div>
+                        );
+                      })}
+                    </div>
+                  </>
                 )}
 
-                {/* PASO 2: SECTOR DEL NEGOCIO (Grid de 6 tarjetas) */}
+                {/* PASO 2: SECTOR DEL NEGOCIO */}
                 {currentStep === 2 && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
-                    {sectorOptions.map((opt) => {
-                      const isSelected = selectedSector === opt.id;
+                  <>
+                    {/* Versión Móvil: Lista Horizontal Compacta (Inspirada en la captura V1) */}
+                    <div className="sm:hidden space-y-2.5">
+                      {sectorOptions.map((opt) => {
+                        const isSelected = selectedSector === opt.id;
 
-                      return (
-                        <div
-                          key={opt.id}
-                          onClick={() => setSelectedSector(opt.id)}
-                          className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[160px] select-none group ${
-                            isSelected
-                              ? 'bg-cyan-500/10 border-cyan-400/60 shadow-[0_0_25px_rgba(6,182,212,0.18)] translate-y-[-2px]'
-                              : 'bg-white/[0.02] border-white/[0.08] hover:border-white/20 hover:bg-white/[0.04]'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <OptionIcon
-                              icon={opt.icon}
-                              className={`w-6 h-6 transition-colors duration-200 ${
-                                isSelected ? 'text-cyan-400' : 'text-slate-400 group-hover:text-slate-200'
-                              }`}
-                            />
-                            
+                        return (
+                          <div
+                            key={opt.id}
+                            onClick={() => setSelectedSector(opt.id)}
+                            className={`p-3.5 rounded-2xl border transition-all duration-200 cursor-pointer flex items-center justify-between gap-3.5 select-none ${
+                              isSelected
+                                ? 'bg-cyan-500/10 border-cyan-400/70 text-white shadow-[0_0_20px_rgba(6,182,212,0.18)]'
+                                : 'bg-white/[0.02] border-white/[0.08] text-slate-300 hover:border-white/20 hover:bg-white/[0.04]'
+                            }`}
+                          >
+                            <div className="flex items-center gap-3.5 min-w-0">
+                              <div
+                                className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                                  isSelected
+                                    ? 'bg-cyan-400/20 text-cyan-300 border border-cyan-400/40'
+                                    : 'bg-white/[0.04] text-slate-400 border border-white/5'
+                                }`}
+                              >
+                                <OptionIcon icon={opt.icon} className="w-5 h-5" />
+                              </div>
+                              <div className="min-w-0 pr-1">
+                                <p
+                                  className={`text-sm font-bold leading-snug ${
+                                    isSelected ? 'text-white' : 'text-slate-200'
+                                  }`}
+                                >
+                                  {opt.label}
+                                </p>
+                                <p
+                                  className={`text-xs leading-snug mt-0.5 line-clamp-1 ${
+                                    isSelected ? 'text-slate-300' : 'text-slate-400'
+                                  }`}
+                                >
+                                  {opt.description}
+                                </p>
+                              </div>
+                            </div>
+
                             <div
-                              className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all duration-200 ${
-                                isSelected
-                                  ? 'border-cyan-400 bg-cyan-400/20'
-                                  : 'border-white/20 group-hover:border-white/40'
+                              className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
+                                isSelected ? 'border-cyan-400 bg-cyan-400/20' : 'border-white/20'
                               }`}
                             >
-                              {isSelected && (
-                                <span className="w-2 h-2 rounded-full bg-cyan-400" />
-                              )}
+                              {isSelected && <span className="w-2 h-2 rounded-full bg-cyan-400" />}
                             </div>
                           </div>
+                        );
+                      })}
+                    </div>
 
-                          <div className="space-y-1 mt-5">
-                            <p
-                              className={`text-sm sm:text-base font-bold leading-snug transition-colors ${
-                                isSelected ? 'text-white' : 'text-slate-200 group-hover:text-white'
-                              }`}
-                            >
-                              {opt.label}
-                            </p>
-                            <p className="text-xs text-slate-400 leading-relaxed font-normal">
-                              {opt.description}
-                            </p>
+                    {/* Versión Escritorio: Grid de 3 columnas */}
+                    <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
+                      {sectorOptions.map((opt) => {
+                        const isSelected = selectedSector === opt.id;
+
+                        return (
+                          <div
+                            key={opt.id}
+                            onClick={() => setSelectedSector(opt.id)}
+                            className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[160px] select-none group ${
+                              isSelected
+                                ? 'bg-cyan-500/10 border-cyan-400/60 shadow-[0_0_25px_rgba(6,182,212,0.18)] translate-y-[-2px]'
+                                : 'bg-white/[0.02] border-white/[0.08] hover:border-white/20 hover:bg-white/[0.04]'
+                            }`}
+                          >
+                            <div className="flex items-center justify-between">
+                              <OptionIcon
+                                icon={opt.icon}
+                                className={`w-6 h-6 transition-colors duration-200 ${
+                                  isSelected ? 'text-cyan-400' : 'text-slate-400 group-hover:text-slate-200'
+                                }`}
+                              />
+                              
+                              <div
+                                className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all duration-200 ${
+                                  isSelected
+                                    ? 'border-cyan-400 bg-cyan-400/20'
+                                    : 'border-white/20 group-hover:border-white/40'
+                                }`}
+                              >
+                                {isSelected && (
+                                  <span className="w-2 h-2 rounded-full bg-cyan-400" />
+                                )}
+                              </div>
+                            </div>
+
+                            <div className="space-y-1 mt-5">
+                              <p
+                                className={`text-sm sm:text-base font-bold leading-snug transition-colors ${
+                                  isSelected ? 'text-white' : 'text-slate-200 group-hover:text-white'
+                                }`}
+                              >
+                                {opt.label}
+                              </p>
+                              <p className="text-xs text-slate-400 leading-relaxed font-normal">
+                                {opt.description}
+                              </p>
+                            </div>
                           </div>
-                        </div>
-                      );
-                    })}
-                  </div>
+                        );
+                      })}
+                    </div>
+                  </>
                 )}
 
                 {/* PASO 3: DATOS DE CONTACTO (Cero fricción, solo Nombre + Teléfono/WhatsApp) */}

@@ -341,13 +341,13 @@ export const ServicesV2: React.FC = () => {
         {/* ========================================================= */}
         {/* FRANJA DE PROTOCOLO Y AUDITORÍA: QA, GEO, SEO & SPEED     */}
         {/* ========================================================= */}
-        <div className="mt-12 sm:mt-16 p-7 sm:p-9 rounded-2xl bg-white/[0.02] border border-white/[0.08] backdrop-blur-sm">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-white/[0.08]">
+        <div className="mt-8 sm:mt-16 p-5 sm:p-8 lg:p-9 rounded-2xl bg-white/[0.02] border border-white/[0.08] backdrop-blur-sm">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 sm:gap-6 pb-4 sm:pb-6 border-b border-white/[0.08]">
             <div className="max-w-2xl">
-              <div className="text-xs font-mono text-slate-400 font-semibold tracking-wider uppercase mb-2">
+              <div className="text-[11px] sm:text-xs font-mono text-slate-400 font-semibold tracking-wider uppercase mb-1 sm:mb-2">
                 Protocolo de Entrega & Garantía Técnica
               </div>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
+              <h3 className="text-lg sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
                 Auditoría exhaustiva antes de publicar
               </h3>
             </div>
@@ -357,43 +357,43 @@ export const ServicesV2: React.FC = () => {
           </div>
 
           {/* 4 Filtros de Auditoría Técnica Exhaustiva */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
-            <div className="space-y-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6 pt-4 sm:pt-6">
+            <div className="space-y-1 sm:space-y-2">
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono text-slate-400 font-bold">01</span>
-                <span className="text-sm font-bold text-white tracking-tight">QA & Control de Calidad</span>
+                <span className="text-xs sm:text-sm font-bold text-white tracking-tight">QA & Control de Calidad</span>
               </div>
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <p className="text-[11px] sm:text-xs text-slate-400 leading-relaxed">
                 Pruebas funcionales en celulares reales (iOS y Android), formularios sin fugas, enlaces validados y navegación táctil sin errores.
               </p>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-1 sm:space-y-2">
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono text-slate-400 font-bold">02</span>
-                <span className="text-sm font-bold text-white tracking-tight">Optimización GEO Local</span>
+                <span className="text-xs sm:text-sm font-bold text-white tracking-tight">Optimización GEO Local</span>
               </div>
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <p className="text-[11px] sm:text-xs text-slate-400 leading-relaxed">
                 Marcado de geolocalización, sincronización con Google Maps y estructura semántica para búsquedas con intención local en tu ciudad.
               </p>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-1 sm:space-y-2">
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono text-slate-400 font-bold">03</span>
-                <span className="text-sm font-bold text-white tracking-tight">SEO Técnico & Schema</span>
+                <span className="text-xs sm:text-sm font-bold text-white tracking-tight">SEO Técnico & Schema</span>
               </div>
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <p className="text-[11px] sm:text-xs text-slate-400 leading-relaxed">
                 Sitemaps XML limpios, etiquetas canónicas, jerarquía de encabezados e indexación en buscadores y motores de respuesta con IA.
               </p>
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-1 sm:space-y-2">
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono text-slate-400 font-bold">04</span>
-                <span className="text-sm font-bold text-white tracking-tight">Auditoría Speed en Vivo</span>
+                <span className="text-xs sm:text-sm font-bold text-white tracking-tight">Auditoría Speed en Vivo</span>
               </div>
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <p className="text-[11px] sm:text-xs text-slate-400 leading-relaxed">
                 Certificación en Google PageSpeed y Core Web Vitals (LCP, FID/INP, CLS) para asegurar que la web cargue en menos de 2.5s en redes 4G.
               </p>
             </div>

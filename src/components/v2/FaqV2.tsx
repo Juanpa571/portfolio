@@ -14,8 +14,8 @@ import { WhatsAppIcon } from '../ui/WhatsAppIcon';
  * - Cero cápsulas flotantes ni clichés decorativos de IA.
  */
 export const FaqV2: React.FC = () => {
-  // El primer acordeón abierto por defecto para dar feedback inmediato al usuario
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  // Acordeones cerrados por defecto
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -218,9 +218,9 @@ export const FaqV2: React.FC = () => {
                   type="button"
                   onClick={() => toggleAccordion(index)}
                   aria-expanded={isOpen}
-                  className="w-full text-left p-6 sm:p-7 flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
+                  className="w-full text-left p-5 sm:p-7 flex items-center justify-between gap-3 sm:gap-4 cursor-pointer focus:outline-none"
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-3 sm:gap-4">
                     <span className="text-xs font-mono text-cyan-400/80 pt-1 shrink-0 font-bold">
                       0{index + 1}
                     </span>
@@ -261,7 +261,7 @@ export const FaqV2: React.FC = () => {
                         itemScope
                         itemProp="acceptedAnswer"
                         itemType="https://schema.org/Answer"
-                        className="px-6 pb-7 sm:px-7 sm:pb-8 pt-2 pl-14 sm:pl-16 border-t border-white/[0.04]"
+                        className="px-5 pb-6 sm:px-7 sm:pb-8 pt-3 pl-11 sm:pl-16 border-t border-white/[0.04]"
                       >
                         <div itemProp="text">
                           {item.content}

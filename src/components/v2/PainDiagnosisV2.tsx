@@ -183,14 +183,14 @@ export const PainDiagnosisV2: React.FC = () => {
         {/* ========================================================= */}
         {/* PANEL COMPARATIVO DE CONTRASTE: EL PUENTE HACIA LA SOLUCIÓN*/}
         {/* ========================================================= */}
-        <div className="mt-14 sm:mt-18 p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-white/[0.03] via-white/[0.02] to-transparent border border-white/[0.08]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="mt-7 sm:mt-14 lg:mt-16 p-5 sm:p-8 lg:p-10 rounded-2xl bg-gradient-to-r from-white/[0.03] via-white/[0.02] to-transparent border border-white/[0.08]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8 items-center">
             
             <div className="lg:col-span-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+              <h3 className="text-lg sm:text-2xl font-bold text-white tracking-tight leading-snug">
                 Folleto decorativo vs. Web para vender
               </h3>
-              <p className="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-300 mt-2 sm:mt-3 leading-relaxed">
                 Mientras una web tradicional tarda 5 segundos en cargar y espera pasivamente a que alguien llene un formulario, una web de alto rendimiento comunica valor en los primeros 3 segundos, aparece primero en Google y convierte el interés del visitante en solicitudes comerciales directas.
               </p>
             </div>
@@ -198,7 +198,7 @@ export const PainDiagnosisV2: React.FC = () => {
             <div className="lg:col-span-4 flex lg:justify-end">
               <a
                 href="#proyectos"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-white/[0.06] hover:bg-white/[0.1] text-white border border-white/10 text-sm font-semibold transition-all flex items-center justify-center gap-2 group"
+                className="w-full sm:w-auto px-5 py-2.5 sm:py-3 rounded-xl bg-white/[0.06] hover:bg-white/[0.1] text-white border border-white/10 text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 group cursor-pointer"
               >
                 <span>Ver cómo lo resuelvo</span>
                 <svg 
