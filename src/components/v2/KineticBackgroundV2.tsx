@@ -1,45 +1,20 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
-/**
- * KineticBackgroundV2
- * 
- * Fondo cinético vivo inspirado en Creativeans (presencia monumental de marca)
- * y Haoqi.design (atmósfera cromática fluida y reactiva al scroll).
- * 
- * - Renderizado en GPU mediante HTML5 Canvas ultra-optimizado (exclusivo para desktop pointer: fine).
- * - En pantallas móviles (pointer: coarse): fondo CSS ambiental cero-VRAM que preserva el 100%
- *   de la memoria de tiles de WebKit y elimina bloqueos de hilo principal.
- * - Transición cromática continua basada en distancia de scroll.
- * - Emblema oficial en cristal 3D con halo prismático en desktop.
- * - Prevención estricta de Reflows Forzados (Regla 12).
- */
 export const KineticBackgroundV2: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const [isFinePointer, setIsFinePointer] = useState<boolean>(() => {
-    if (typeof window !== 'undefined') {
-      return window.matchMedia('(pointer: fine)').matches;
-    }
-    return true;
-  });
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-
-    const fine = window.matchMedia('(pointer: fine)').matches;
-    setIsFinePointer(fine);
-    if (!fine) return; // En móviles y touchscreens, se omite el canvas por completo
-
+    
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext('2d', { alpha: false });
     if (!ctx) return;
-
+    
     let animationFrameId: number;
     let width = 0;
     let height = 0;
     let maxScroll = 1;
-
     let scrollProgress = 0;
     let targetScrollProgress = 0;
     let currentScrollY = 0;
@@ -48,11 +23,9 @@ export const KineticBackgroundV2: React.FC = () => {
     let targetMouseX = 0.5;
     let targetMouseY = 0.5;
 
-    // Precarga diferida del activo oficial 3D del emblema en cristal transparente (WebP)
-    // No compite con el LCP de la imagen principal durante la carga inicial del Hero
     let emblemImg: HTMLImageElement | null = null;
     let emblemLoaded = false;
-
+    
     const loadEmblem = () => {
       if (emblemImg) return;
       emblemImg = new Image();
@@ -63,12 +36,10 @@ export const KineticBackgroundV2: React.FC = () => {
       };
     };
 
-    // Offscreen canvas dedicado para teñir el cristal sin afectar el canvas principal
     const tintCanvas = document.createElement('canvas');
     tintCanvas.width = 512;
     tintCanvas.height = 512;
     const tintCtx = tintCanvas.getContext('2d');
-
     const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
     interface ThemePalette {
@@ -77,23 +48,10 @@ export const KineticBackgroundV2: React.FC = () => {
       c3: [number, number, number];
     }
 
-    // Paletas cromáticas semánticas por bloque
     const THEMES: Record<string, ThemePalette> = {
-      cyan: {
-        c1: [0, 240, 255],     // Cyan Eléctrico (Hero)
-        c2: [37, 99, 235],     // Azul Cobalto
-        c3: [79, 70, 229]      // Violeta Nocturno
-      },
-      rose: {
-        c1: [244, 63, 94],     // Carmín Alerta (Diagnóstico del Dolor)
-        c2: [190, 18, 60],     // Rubí Profundo
-        c3: [76, 5, 25]        // Borgoña Oscuro
-      },
-      emerald: {
-        c1: [16, 185, 129],    // Verde Esmeralda (Ventas & Conversión)
-        c2: [5, 150, 105],     // Esmeralda Medio
-        c3: [2, 44, 34]        // Verde Bosque Profundo
-      }
+      cyan: { c1: [0, 240, 255], c2: [37, 99, 235], c3: [79, 70, 229] },
+      rose: { c1: [244, 63, 94], c2: [190, 18, 60], c3: [76, 5, 25] },
+      emerald: { c1: [16, 185, 129], c2: [5, 150, 105], c3: [2, 44, 34] }
     };
 
     const blendColors = (cA: [number, number, number], cB: [number, number, number], t: number): [number, number, number] => {
@@ -139,7 +97,6 @@ export const KineticBackgroundV2: React.FC = () => {
       }
     }
 
-    // Medición desacoplada mediante rAF para prevenir Layout Thrashing y Forced Reflows (Regla 12)
     let measureRAFId: number | null = null;
     function measureSections() {
       if (measureRAFId !== null) return;
@@ -150,15 +107,11 @@ export const KineticBackgroundV2: React.FC = () => {
         const servEl = document.getElementById('servicios-header') || document.getElementById('servicios');
         const projEl = document.getElementById('proyectos-header') || document.getElementById('proyectos');
         const scrollY = window.scrollY || window.pageYOffset || 0;
-        if (diagEl) {
-          diagHeaderTop = diagEl.getBoundingClientRect().top + scrollY;
-        }
-        if (servEl) {
-          servHeaderTop = servEl.getBoundingClientRect().top + scrollY;
-        }
-        if (projEl) {
-          projHeaderTop = projEl.getBoundingClientRect().top + scrollY;
-        }
+        
+        if (diagEl) diagHeaderTop = diagEl.getBoundingClientRect().top + scrollY;
+        if (servEl) servHeaderTop = servEl.getBoundingClientRect().top + scrollY;
+        if (projEl) projHeaderTop = projEl.getBoundingClientRect().top + scrollY;
+        
         measureRAFId = null;
         requestTick();
       });
@@ -166,11 +119,11 @@ export const KineticBackgroundV2: React.FC = () => {
 
     function handleScroll() {
       currentScrollY = window.scrollY || window.pageYOffset || 0;
-      if (diagHeaderTop === 0) {
-        measureSections();
-      }
+      if (diagHeaderTop === 0) measureSections();
       targetScrollProgress = Math.min(Math.max(currentScrollY / maxScroll, 0), 1);
-      if (currentScrollY > 40) {
+      
+      // En móviles, cargamos el emblema inmediatamente si está en el viewport
+      if (currentScrollY > 10 || window.innerWidth < 768) {
         loadEmblem();
       }
       requestTick();
@@ -187,89 +140,38 @@ export const KineticBackgroundV2: React.FC = () => {
     window.addEventListener('resize', onResize, { passive: true });
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    const onLenisScroll = (e: any) => {
-      const scrollY = typeof e.scroll === 'number' ? e.scroll : (window.scrollY || 0);
-      currentScrollY = scrollY;
-      targetScrollProgress = Math.min(Math.max(currentScrollY / maxScroll, 0), 1);
-      if (currentScrollY > 40) {
-        loadEmblem();
-      }
-      requestTick();
-    };
-
-    let cleanupLenis: (() => void) | null = null;
-    const attachLenis = (lenisInstance: any) => {
-      if (lenisInstance && typeof lenisInstance.on === 'function') {
-        lenisInstance.on('scroll', onLenisScroll);
-        cleanupLenis = () => {
-          if (typeof lenisInstance.off === 'function') {
-            lenisInstance.off('scroll', onLenisScroll);
-          }
-        };
-      }
-    };
-
-    if ((window as any).__lenis) {
-      attachLenis((window as any).__lenis);
-    } else {
-      const onInit = (e: any) => attachLenis(e.detail);
-      window.addEventListener('lenis-init', onInit, { once: true });
-    }
-
     const handleMouseMove = (e: MouseEvent) => {
       targetMouseX = e.clientX / width;
       targetMouseY = e.clientY / height;
       requestTick();
     };
-
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
     const rgba = (rgb: [number, number, number], a: number) => 
       `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${a})`;
-
     let time = 0;
 
     const getTargetPalette = (scrollY: number, innerH: number): ThemePalette => {
       if (scrollY < 80) return THEMES.cyan;
       if (diagHeaderTop === 0 || servHeaderTop === 0) return THEMES.cyan;
-
       const scrollBottom = scrollY + innerH;
       const transitionDistance = 380;
-
-      // 1. Zona Hero
-      if (scrollBottom < diagHeaderTop) {
-        return THEMES.cyan;
-      }
-
-      // 2. Transición Hero -> Diagnóstico
+      
+      if (scrollBottom < diagHeaderTop) return THEMES.cyan;
       if (scrollBottom < diagHeaderTop + transitionDistance) {
         const t = (scrollBottom - diagHeaderTop) / transitionDistance;
         return blendPalettes(THEMES.cyan, THEMES.rose, t);
       }
-
-      // 3. Zona Diagnóstico Estable
-      if (scrollBottom < servHeaderTop) {
-        return THEMES.rose;
-      }
-
-      // 4. Transición Diagnóstico -> Servicios
+      if (scrollBottom < servHeaderTop) return THEMES.rose;
       if (scrollBottom < servHeaderTop + transitionDistance) {
         const t = (scrollBottom - servHeaderTop) / transitionDistance;
         return blendPalettes(THEMES.rose, THEMES.emerald, t);
       }
-
-      // 5. Zona Servicios Estable
-      if (projHeaderTop === 0 || scrollBottom < projHeaderTop) {
-        return THEMES.emerald;
-      }
-
-      // 6. Transición Servicios -> Casos de Estudio
+      if (projHeaderTop === 0 || scrollBottom < projHeaderTop) return THEMES.emerald;
       if (scrollBottom < projHeaderTop + transitionDistance) {
         const t = (scrollBottom - projHeaderTop) / transitionDistance;
         return blendPalettes(THEMES.emerald, THEMES.cyan, t);
       }
-
-      // 7. Zona Casos de Estudio & Cierre
       return THEMES.cyan;
     };
 
@@ -279,92 +181,79 @@ export const KineticBackgroundV2: React.FC = () => {
         isRunning = false;
         return;
       }
-
       time += 0.012;
-
       scrollProgress = lerp(scrollProgress, targetScrollProgress, 0.08);
       mouseX = lerp(mouseX, targetMouseX, 0.05);
       mouseY = lerp(mouseY, targetMouseY, 0.05);
-
+      
       const targetPalette = getTargetPalette(currentScrollY, height);
-
       curC1[0] = lerp(curC1[0], targetPalette.c1[0], 0.06);
       curC1[1] = lerp(curC1[1], targetPalette.c1[1], 0.06);
       curC1[2] = lerp(curC1[2], targetPalette.c1[2], 0.06);
-
       curC2[0] = lerp(curC2[0], targetPalette.c2[0], 0.06);
       curC2[1] = lerp(curC2[1], targetPalette.c2[1], 0.06);
       curC2[2] = lerp(curC2[2], targetPalette.c2[2], 0.06);
-
       curC3[0] = lerp(curC3[0], targetPalette.c3[0], 0.06);
       curC3[1] = lerp(curC3[1], targetPalette.c3[1], 0.06);
       curC3[2] = lerp(curC3[2], targetPalette.c3[2], 0.06);
-
+      
       const c1: [number, number, number] = [Math.round(curC1[0]), Math.round(curC1[1]), Math.round(curC1[2])];
       const c2: [number, number, number] = [Math.round(curC2[0]), Math.round(curC2[1]), Math.round(curC2[2])];
       const c3: [number, number, number] = [Math.round(curC3[0]), Math.round(curC3[1]), Math.round(curC3[2])];
-
-      // 1. Fondo base negro obsidiana puro
+      
       ctx.fillStyle = '#060709';
       ctx.fillRect(0, 0, width, height);
-
+      
       const mouseDx = (mouseX - 0.5) * 100;
       const mouseDy = (mouseY - 0.5) * 80;
-
-      // 2. ORBE PRINCIPAL CROMÁTICO (Atmósfera derecha)
+      
       const orb1X = width * 0.65 + mouseDx + Math.sin(time * 0.9) * 45;
       const orb1Y = height * 0.45 + mouseDy + Math.cos(time * 0.7) * 35;
       const orb1R = Math.max(width * 0.42, 420);
-
       const grad1 = ctx.createRadialGradient(orb1X, orb1Y, 10, orb1X, orb1Y, orb1R);
       grad1.addColorStop(0, rgba(c1, 0.38));
       grad1.addColorStop(0.35, rgba(c2, 0.22));
       grad1.addColorStop(0.7, rgba(c3, 0.08));
       grad1.addColorStop(1, 'rgba(6, 7, 9, 0)');
-
       ctx.fillStyle = grad1;
       ctx.beginPath();
       ctx.arc(orb1X, orb1Y, orb1R, 0, Math.PI * 2);
       ctx.fill();
-
-      // 3. ORBE SECUNDARIO (Atmósfera flotante izquierda)
+      
       const orb2X = width * 0.22 - mouseDx * 0.8 + Math.cos(time * 0.8) * 50;
       const orb2Y = height * 0.62 - mouseDy * 0.8 + Math.sin(time * 1.1) * 40;
       const orb2R = Math.max(width * 0.45, 450);
-
       const grad2 = ctx.createRadialGradient(orb2X, orb2Y, 10, orb2X, orb2Y, orb2R);
       grad2.addColorStop(0, rgba(c2, 0.28));
       grad2.addColorStop(0.4, rgba(c1, 0.14));
       grad2.addColorStop(0.8, rgba(c3, 0.05));
       grad2.addColorStop(1, 'rgba(6, 7, 9, 0)');
-
       ctx.fillStyle = grad2;
       ctx.beginPath();
       ctx.arc(orb2X, orb2Y, orb2R, 0, Math.PI * 2);
       ctx.fill();
-
-      // 4. EL EMBLEMA OFICIAL EN CRISTAL PRISMÁTICO DE JP STUDIOS
+      
       const emblemFade = Math.min(Math.max((scrollProgress - 0.08) / 0.18, 0), 1);
-
       if (emblemLoaded && emblemImg && emblemFade > 0 && tintCtx) {
         ctx.save();
-        const brandX = width * 0.52 + mouseDx * 0.35;
-        const brandY = height * 0.48 + mouseDy * 0.35;
-        const brandSize = Math.min(width, height) * 0.68;
-
+        // Ajustamos la posición en móviles para que quede visible
+        const isMobile = width < 768;
+        const brandX = isMobile ? width * 0.5 : width * 0.52 + mouseDx * 0.35;
+        const brandY = isMobile ? height * 0.6 : height * 0.48 + mouseDy * 0.35;
+        const brandSize = Math.min(width, height) * (isMobile ? 0.85 : 0.68);
+        
         ctx.translate(brandX, brandY);
         const breathe = 1 + Math.sin(time * 0.8) * 0.025;
         ctx.rotate(Math.sin(time * 0.3) * 0.025 + (scrollProgress - 0.5) * 0.12);
-
         const drawSize = brandSize * breathe;
-
+        
         tintCtx.clearRect(0, 0, 512, 512);
         tintCtx.drawImage(emblemImg, 0, 0, 512, 512);
         tintCtx.globalCompositeOperation = 'source-in';
         tintCtx.fillStyle = rgba(c1, 0.85);
         tintCtx.fillRect(0, 0, 512, 512);
         tintCtx.globalCompositeOperation = 'source-over';
-
+        
         const ringGrad = ctx.createRadialGradient(0, 0, drawSize * 0.12, 0, 0, drawSize * 0.50);
         ringGrad.addColorStop(0, rgba(c1, 0.20 * emblemFade));
         ringGrad.addColorStop(0.5, rgba(c2, 0.08 * emblemFade));
@@ -373,48 +262,34 @@ export const KineticBackgroundV2: React.FC = () => {
         ctx.beginPath();
         ctx.arc(0, 0, drawSize * 0.50, 0, Math.PI * 2);
         ctx.fill();
-
-        try {
-          if ('filter' in ctx) {
-            ctx.filter = 'blur(22px)';
-          }
-        } catch (_) {}
+        
+        try { if ('filter' in ctx) ctx.filter = 'blur(22px)'; } catch (_) {}
         ctx.globalAlpha = 0.38 * emblemFade;
         ctx.drawImage(emblemImg, -drawSize * 0.5, -drawSize * 0.5, drawSize, drawSize);
-
         ctx.globalAlpha = 0.30 * emblemFade;
         ctx.drawImage(tintCanvas, -drawSize * 0.5, -drawSize * 0.5, drawSize, drawSize);
-
-        try {
-          if ('filter' in ctx) {
-            ctx.filter = 'none';
-          }
-        } catch (_) {}
+        
+        try { if ('filter' in ctx) ctx.filter = 'none'; } catch (_) {}
         ctx.restore();
       }
-
-      // 5. MÁSCARA ÓPTICA PARA CONTRASTE PERFECTO DEL TEXTO
+      
       const centerMask = ctx.createRadialGradient(
-        width * 0.4,
-        height * 0.5,
-        width * 0.1,
-        width * 0.4,
-        height * 0.5,
-        width * 0.8
+        width * 0.4, height * 0.5, width * 0.1,
+        width * 0.4, height * 0.5, width * 0.8
       );
       centerMask.addColorStop(0, 'rgba(6, 7, 9, 0.40)');
       centerMask.addColorStop(0.6, 'rgba(6, 7, 9, 0.15)');
       centerMask.addColorStop(1, 'rgba(6, 7, 9, 0.60)');
-
       ctx.fillStyle = centerMask;
       ctx.fillRect(0, 0, width, height);
-
+      
       const scrollDelta = Math.abs(scrollProgress - targetScrollProgress);
       const mouseDelta = Math.abs(mouseX - targetMouseX) + Math.abs(mouseY - targetMouseY);
       const colorDelta = Math.abs(curC1[0] - targetPalette.c1[0]) +
                          Math.abs(curC1[1] - targetPalette.c1[1]) +
                          Math.abs(curC2[0] - targetPalette.c2[0]) +
                          Math.abs(curC3[0] - targetPalette.c3[0]);
+                         
       if (scrollDelta > 0.0005 || colorDelta > 1 || mouseDelta > 0.001) {
         animationFrameId = requestAnimationFrame(render);
       } else {
@@ -430,14 +305,15 @@ export const KineticBackgroundV2: React.FC = () => {
 
     resize();
     measureSections();
+    // Forzamos la carga del icono si estamos en móvil para asegurar que se muestre
+    if (window.innerWidth < 768) loadEmblem(); 
     handleScroll();
     requestTick();
 
     const onVisibilityChange = () => {
-      if (!document.hidden) {
-        requestTick();
-      }
+      if (!document.hidden) requestTick();
     };
+
     document.addEventListener('visibilitychange', onVisibilityChange);
 
     return () => {
@@ -447,50 +323,13 @@ export const KineticBackgroundV2: React.FC = () => {
       document.removeEventListener('visibilitychange', onVisibilityChange);
       window.removeEventListener('resize', onResize);
       window.removeEventListener('scroll', handleScroll);
-      if (cleanupLenis) cleanupLenis();
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
-  // En dispositivos móviles (pointer: coarse), renderizar atmósfera CSS pura cero-coste
-  // Cero consumo de VRAM de WebKit, cero contención de tiles, scroll móvil a 120Hz nativos
-  if (!isFinePointer) {
-    return (
-      <div 
-        aria-hidden="true" 
-        className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#060709]"
-      >
-        <div 
-          className="absolute -top-[10%] -right-[15%] w-[480px] h-[480px] rounded-full opacity-30 blur-[70px] pointer-events-none"
-          style={{
-            background: 'radial-gradient(circle, rgba(0, 240, 255, 0.45) 0%, rgba(37, 99, 235, 0.20) 45%, transparent 70%)',
-          }}
-        />
-        <div 
-          className="absolute top-[35%] -left-[20%] w-[420px] h-[420px] rounded-full opacity-25 blur-[65px] pointer-events-none"
-          style={{
-            background: 'radial-gradient(circle, rgba(244, 63, 94, 0.40) 0%, rgba(79, 70, 229, 0.15) 50%, transparent 70%)',
-          }}
-        />
-        <div 
-          className="absolute top-[70%] -right-[10%] w-[450px] h-[450px] rounded-full opacity-25 blur-[70px] pointer-events-none"
-          style={{
-            background: 'radial-gradient(circle, rgba(16, 185, 129, 0.35) 0%, rgba(5, 150, 105, 0.12) 50%, transparent 70%)',
-          }}
-        />
-      </div>
-    );
-  }
-
   return (
-    <div 
-      aria-hidden="true" 
-      className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
-    >
-      <canvas 
-        ref={canvasRef} 
-        className="block w-full h-full"
-      />
+    <div aria-hidden="true" className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      <canvas ref={canvasRef} className="block w-full h-full" />
     </div>
   );
 };
