@@ -497,7 +497,7 @@ for (const page of pages) {
     if (html.includes('<main>')) {
       html = html.replace(/<main>[\s\S]*?<\/main>/i, `<main>${page.mainHtml}</main>`);
     } else {
-      html = html.replace('<div id="root"></div>', `<div id="root"><main>${page.mainHtml}</main></div>`);
+      html = html.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root"><main>${page.mainHtml}</main></div>`);
     }
   }
 

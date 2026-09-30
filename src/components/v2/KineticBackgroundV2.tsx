@@ -305,7 +305,9 @@ export const KineticBackgroundV2: React.FC = () => {
     }
 
     resize();
-    measureSections();
+    setTimeout(() => {
+      measureSections();
+    }, 120);
     // Forzamos la carga del icono si estamos en móvil para asegurar que se muestre
     if (window.innerWidth < 768) loadEmblem(); 
     handleScroll();
