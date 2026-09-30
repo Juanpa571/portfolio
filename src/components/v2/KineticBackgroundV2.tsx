@@ -233,7 +233,8 @@ export const KineticBackgroundV2: React.FC = () => {
       ctx.arc(orb2X, orb2Y, orb2R, 0, Math.PI * 2);
       ctx.fill();
       
-      const emblemFade = Math.min(Math.max((scrollProgress - 0.08) / 0.18, 0), 1);
+      // El emblema empieza a aparecer apenas bajas 50px y se ve al 100% al bajar 300px
+      const emblemFade = Math.min(Math.max((currentScrollY - 50) / 250, 0), 1);
       if (emblemLoaded && emblemImg && emblemFade > 0 && tintCtx) {
         ctx.save();
         // Ajustamos la posición en móviles para que quede visible
