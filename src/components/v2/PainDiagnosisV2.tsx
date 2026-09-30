@@ -115,7 +115,7 @@ export const PainDiagnosisV2: React.FC = () => {
 
               <div className="pt-6 mt-6 border-t border-white/[0.06]">
                 <a
-                  href="/auditar-posicionamiento"
+                  href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20quiero%20auditar%20la%20visibilidad%20de%20mi%20empresa%20en%20Google"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-between w-full px-4 py-3 rounded-xl bg-white/[0.03] hover:bg-sky-500/10 text-slate-300 hover:text-sky-300 border border-white/10 hover:border-sky-500/30 text-xs font-mono transition-all duration-200 group/btn"
