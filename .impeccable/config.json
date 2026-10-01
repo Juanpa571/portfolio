@@ -1,0 +1,20 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "plus jakarta sans",
+        "createdAt": "2026-10-01T06:36:17.836Z",
+        "reason": "User confirmed Plus Jakarta Sans is intentional"
+      },
+      {
+        "rule": "overused-font",
+        "value": "geist",
+        "createdAt": "2026-10-01T06:38:54.145Z",
+        "reason": "User confirmed Geist is intentional for body text"
+      }
+    ]
+  }
+}

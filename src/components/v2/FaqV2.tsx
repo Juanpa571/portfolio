@@ -51,9 +51,13 @@ export const FaqV2: React.FC = () => {
               </span>
             </li>
           </ul>
-          <p className="text-xs sm:text-sm text-slate-400 pt-2 border-t border-white/[0.06]">
-            Antes de iniciar recibes una propuesta técnica formal con alcance exacto y garantía de cumplimiento en 14 a 21 días.
-          </p>
+          <div className="text-xs sm:text-sm text-slate-400 pt-2 border-t border-white/[0.06] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+            <span>Antes de iniciar recibes una propuesta técnica formal con alcance exacto y garantía de cumplimiento en 14 a 21 días.</span>
+            <a href="/cuanto-cuesta-una-pagina-web-en-colombia" className="text-cyan-400 hover:underline font-mono text-xs inline-flex items-center gap-1 shrink-0">
+              <span>Ver desglose completo de precios 2026</span>
+              <span>↗</span>
+            </a>
+          </div>
         </div>
       ),
     },
@@ -183,9 +187,9 @@ export const FaqV2: React.FC = () => {
           </div>
           
           <h2 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-[-0.03em] text-white leading-[1.08]">
-            Respuestas claras:{' '}
+            Precios, tiempos{' '}
             <span className="text-slate-200">
-              precios, tiempos y funcionamiento.
+              y funcionamiento.
             </span>
           </h2>
 

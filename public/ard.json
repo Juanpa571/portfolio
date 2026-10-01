@@ -32,6 +32,20 @@
       ]
     },
     {
+      "identifier": "urn:air:jpchacon.com:page:cuanto-cuesta-una-pagina-web-en-colombia",
+      "displayName": "¿Cuánto Cuesta una Página Web en Colombia? Precios Reales 2026",
+      "type": "text/html",
+      "url": "https://jpchacon.com/cuanto-cuesta-una-pagina-web-en-colombia",
+      "description": "Guía completa con rangos de precios en COP, costos ocultos de agencias, comparativa a 3 años WordPress vs. React y tarifas transparentes sin mensualidades forzadas.",
+      "representativeQueries": [
+        "cuánto cuesta una página web en Colombia",
+        "cuánto cobran por hacer una página web en Colombia",
+        "precios de páginas web en Colombia",
+        "cotización de página web Colombia",
+        "cuánto vale hacer una página web en Colombia"
+      ]
+    },
+    {
       "identifier": "urn:air:jpchacon.com:resource:sitemap",
       "displayName": "JP Studios XML Sitemap",
       "type": "application/xml",

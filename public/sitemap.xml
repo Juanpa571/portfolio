@@ -13,6 +13,18 @@
     <priority>0.95</priority>
   </url>
   <url>
+    <loc>https://jpchacon.com/auditar-posicionamiento</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://jpchacon.com/cuanto-cuesta-una-pagina-web-en-colombia</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
     <loc>https://jpchacon.com/privacidad</loc>
     <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>

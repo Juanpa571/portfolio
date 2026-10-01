@@ -149,9 +149,9 @@ export const ProcessV2: React.FC = () => {
           </div>
           
           <h2 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-[-0.03em] text-white leading-[1.08]">
-            Cómo trabajo:{' '}
+            De la idea a tu web lista{' '}
             <span className="text-cyan-400">
-              de la idea a tu web lista en 3 pasos.
+              en 3 pasos.
             </span>
           </h2>
 
@@ -285,9 +285,9 @@ export const ProcessV2: React.FC = () => {
                       <div className="text-[11px] font-mono uppercase tracking-wider text-sky-400 font-semibold">
                         Recorrido Completado
                       </div>
-                      <h3 className="text-xl font-extrabold text-white tracking-tight">
+                      <p className="text-xl font-extrabold text-white tracking-tight">
                         Metodología clara de 14 a 21 días
-                      </h3>
+                      </p>
                     </div>
                     <p className="text-xs text-slate-300 leading-relaxed max-w-xs mx-auto">
                       Cada etapa cuenta con entregable garantizado antes de avanzar. Sin sorpresas, intermediarios ni pagos imprevistos.
@@ -331,9 +331,9 @@ export const ProcessV2: React.FC = () => {
                         </div>
 
                         {/* Título y textos */}
-                        <h3 className="text-xl font-extrabold text-white tracking-tight leading-snug">
+                        <p className="text-xl font-extrabold text-white tracking-tight leading-snug">
                           {item.title}
-                        </h3>
+                        </p>
 
                         <p className="mt-3 text-sm text-slate-300 font-medium leading-relaxed">
                           {item.summary}
@@ -449,7 +449,7 @@ export const ProcessV2: React.FC = () => {
                         <span>Completado</span>
                       </span>
                     ) : isCurrent ? (
-                      <span className="text-[11px] font-mono text-cyan-300 bg-cyan-500/10 border border-cyan-500/30 px-2.5 py-0.5 rounded-full font-semibold animate-pulse">
+                      <span className="text-[11px] font-mono text-cyan-300 bg-cyan-500/10 border border-cyan-500/30 px-2.5 py-0.5 rounded-full font-semibold">
                         En foco
                       </span>
                     ) : null}
@@ -563,9 +563,9 @@ export const ProcessV2: React.FC = () => {
                   Alerta de atajo detectada
                 </div>
 
-                <h4 className="text-lg sm:text-xl font-bold text-white mb-2">
+                <p className="text-lg sm:text-xl font-bold text-white mb-2">
                   ¡Ey, con calma! Las cosas llevan su proceso ⏳
-                </h4>
+                </p>
 
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
                   ¿Querías saltarte directo al lanzamiento y la gloria sin pasar por la forja del código? 

@@ -101,12 +101,12 @@ export const HeroV2: React.FC = () => {
             </p>
 
             {/* Acciones principales con foco de conversión magnético */}
-            <div className="flex flex-wrap items-center gap-4 pt-1">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1">
               <a
                 href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20quiero%20cotizar%20el%20dise%C3%B1o%20y%20desarrollo%20web%20para%20mi%20negocio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 rounded-lg bg-white hover:bg-slate-100 text-slate-950 font-bold text-sm sm:text-base tracking-wide transition-all duration-200 border border-white hover:border-slate-200 shadow-[0_0_24px_rgba(255,255,255,0.25)] hover:shadow-[0_0_32px_rgba(255,255,255,0.4)] hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2.5 group cursor-pointer"
+                className="px-7 sm:px-8 py-3.5 sm:py-4 rounded-lg bg-white hover:bg-slate-100 text-slate-950 font-bold text-sm sm:text-base tracking-wide transition-all duration-200 border border-white hover:border-slate-200 shadow-[0_0_24px_rgba(255,255,255,0.25)] hover:shadow-[0_0_32px_rgba(255,255,255,0.4)] hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2.5 group cursor-pointer"
               >
                 <WhatsAppIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 fill-current shrink-0" />
                 <span>Solicitar cotización</span>
@@ -121,12 +121,20 @@ export const HeroV2: React.FC = () => {
               </a>
 
               <a
-                href="#proyectos"
-                className="px-6 py-4 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 hover:text-white border border-white/10 hover:border-white/20 text-sm sm:text-base font-medium transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] flex items-center gap-2"
+                href="/cuanto-cuesta-una-pagina-web-en-colombia"
+                className="px-5 sm:px-6 py-3.5 sm:py-4 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-200 hover:text-white border border-white/10 hover:border-white/20 text-sm sm:text-base font-medium transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] flex items-center gap-2 group"
               >
-                <span>Ver proyectos reales</span>
+                <span>Precios 2026</span>
+                <span className="text-slate-400 group-hover:text-cyan-400 transition-colors">↗</span>
+              </a>
+
+              <a
+                href="#proyectos"
+                className="px-4 sm:px-5 py-3.5 sm:py-4 text-slate-400 hover:text-white text-sm sm:text-base font-medium transition-colors flex items-center gap-1.5"
+              >
+                <span>Proyectos</span>
                 <svg 
-                  className="w-4 h-4 text-slate-400" 
+                  className="w-4 h-4 text-slate-500" 
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"

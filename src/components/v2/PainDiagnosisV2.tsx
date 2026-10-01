@@ -20,14 +20,14 @@ export const PainDiagnosisV2: React.FC = () => {
           </div>
           
           <h2 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-[-0.03em] text-white leading-[1.08]">
-            Velocidad de carga y estructura:{' '}
+            Por qué tu página web{' '}
             <span className="text-rose-400">
-              por qué tu página web no genera ventas.
+              no genera ventas.
             </span>
           </h2>
 
           <p className="mt-6 text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-            La mayoría de negocios y empresas no pierden clientes por falta de calidad, sino porque su página web carga demasiado lento en celulares, no aparece cuando buscan sus servicios en Google y no ofrece una ruta clara y directa para cotizar o ponerse en contacto.
+            Velocidad de carga lenta, invisibilidad en Google y fricción de contacto: la mayoría de empresas no pierden clientes por falta de calidad, sino porque su sitio web tarda en responder en celulares, no figura en búsquedas locales y no ofrece una ruta ágil para cotizar.
           </p>
         </div>
 
@@ -115,9 +115,7 @@ export const PainDiagnosisV2: React.FC = () => {
 
               <div className="pt-6 mt-6 border-t border-white/[0.06]">
                 <a
-                  href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20quiero%20auditar%20la%20visibilidad%20de%20mi%20empresa%20en%20Google"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/auditar-posicionamiento"
                   className="inline-flex items-center justify-between w-full px-4 py-3 rounded-xl bg-white/[0.03] hover:bg-sky-500/10 text-slate-300 hover:text-sky-300 border border-white/10 hover:border-sky-500/30 text-xs font-mono transition-all duration-200 group/btn"
                 >
                   <span className="flex items-center gap-2">
@@ -126,7 +124,7 @@ export const PainDiagnosisV2: React.FC = () => {
                     </svg>
                     <span>Auditar mi visibilidad en Google</span>
                   </span>
-                  <span className="text-slate-500 group-hover/btn:text-sky-400 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-all">↗</span>
+                  <span className="text-slate-500 group-hover/btn:text-sky-400 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-all">→</span>
                 </a>
               </div>
             </div>

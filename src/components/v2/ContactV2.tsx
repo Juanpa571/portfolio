@@ -370,9 +370,9 @@ export const ContactV2: React.FC = () => {
                 </div>
 
                 <div className="space-y-3 max-w-md mx-auto">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                  <p className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
                     Solicitud recibida con éxito
-                  </h3>
+                  </p>
                   <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
                     Gracias, <strong className="text-white font-semibold">{name}</strong>. He recibido los detalles de tu proyecto. Revisaré la información y me pondré en contacto contigo hoy mismo.
                   </p>
@@ -408,11 +408,11 @@ export const ContactV2: React.FC = () => {
                     <div className="text-[11px] font-mono uppercase tracking-wider text-emerald-400 font-semibold mb-1">
                       Paso {currentStep} de 3
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
+                    <p className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
                       {currentStep === 1 && '¿Qué tipo de proyecto buscas?'}
                       {currentStep === 2 && '¿Cuál es el sector de tu negocio?'}
                       {currentStep === 3 && '¿A dónde te enviamos la propuesta?'}
-                    </h3>
+                    </p>
                   </div>
 
                   {/* Indicador de barra miniatura */}

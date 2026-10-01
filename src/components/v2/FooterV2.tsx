@@ -21,13 +21,13 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
     <footer className="relative z-10 border-t border-white/10 bg-gradient-to-b from-[#070709]/95 via-[#070709] to-[#070709] backdrop-blur-xl text-slate-300 pt-20 pb-12 font-sans overflow-hidden">
       {/* Difuminado suave de luz ambiental que conecta con la sección anterior */}
       <div 
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[120px] bg-gradient-to-b from-emerald-500/[0.04] to-transparent blur-2xl pointer-events-none -z-0" 
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[120px] bg-gradient-to-b from-white/[0.03] to-transparent blur-2xl pointer-events-none -z-0" 
         aria-hidden="true" 
       />
 
       {/* Luz ambiental sutil inferior */}
       <div 
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-emerald-500/[0.02] blur-[120px] pointer-events-none -z-0" 
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-white/[0.015] blur-[120px] pointer-events-none -z-0" 
         aria-hidden="true" 
       />
 
@@ -66,7 +66,7 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
 
             {/* Estado de disponibilidad técnica */}
             <div className="pt-2 flex items-center gap-2 text-xs font-mono text-slate-400">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span>Disponible para nuevos proyectos en Colombia y el exterior</span>
             </div>
 
@@ -81,7 +81,7 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
                   href="https://www.instagram.com/juanpa_571"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-emerald-400/50 text-slate-300 hover:text-emerald-300 flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-[0_0_16px_rgba(16,185,129,0.25)] group cursor-pointer"
+                  className="w-10 h-10 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/30 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-[0_0_16px_rgba(255,255,255,0.06)] group cursor-pointer"
                   aria-label="Instagram de Juan Pablo Chacón"
                   title="Instagram (@juanpa_571)"
                 >
@@ -97,7 +97,7 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
                   href="https://www.linkedin.com/in/juan-pablo-chacon-034457283/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-emerald-400/50 text-slate-300 hover:text-emerald-300 flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-[0_0_16px_rgba(16,185,129,0.25)] group cursor-pointer"
+                  className="w-10 h-10 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/30 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-[0_0_16px_rgba(255,255,255,0.06)] group cursor-pointer"
                   aria-label="LinkedIn de Juan Pablo Chacón"
                   title="LinkedIn (Juan Pablo Chacón)"
                 >
@@ -113,7 +113,7 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
                   href="https://www.tiktok.com/@juanpa.571"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-emerald-400/50 text-slate-300 hover:text-emerald-300 flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-[0_0_16px_rgba(16,185,129,0.25)] group cursor-pointer"
+                  className="w-10 h-10 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/30 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-[0_0_16px_rgba(255,255,255,0.06)] group cursor-pointer"
                   aria-label="TikTok de Juan Pablo Chacón"
                   title="TikTok (@juanpa.571)"
                 >
@@ -127,7 +127,7 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
                   href="https://github.com/Juanpa571"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-emerald-400/50 text-slate-300 hover:text-emerald-300 flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-[0_0_16px_rgba(16,185,129,0.25)] group cursor-pointer"
+                  className="w-10 h-10 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/30 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-sm hover:shadow-[0_0_16px_rgba(255,255,255,0.06)] group cursor-pointer"
                   aria-label="GitHub de Juan Pablo Chacón"
                   title="GitHub (Juanpa571)"
                 >
@@ -141,9 +141,9 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
 
           {/* COLUMNA 2: NAVEGACIÓN (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-slate-200 font-semibold">
+            <p className="text-xs font-mono uppercase tracking-wider text-slate-200 font-semibold">
               Navegación
-            </h4>
+            </p>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href={getHashHref('#servicios')} className="text-slate-400 hover:text-white transition-colors">
@@ -166,8 +166,18 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
                 </a>
               </li>
               <li>
-                <a href={getHashHref('#contacto')} className="text-slate-400 hover:text-emerald-400 transition-colors">
+                <a href={getHashHref('#contacto')} className="text-slate-400 hover:text-white transition-colors">
                   Cotizador Interactivo
+                </a>
+              </li>
+              <li>
+                <a href="/cuanto-cuesta-una-pagina-web-en-colombia" className="text-slate-400 hover:text-white transition-colors">
+                  Guía de Precios 2026
+                </a>
+              </li>
+              <li>
+                <a href="/auditar-posicionamiento" className="text-slate-400 hover:text-white transition-colors">
+                  Auditoría Google
                 </a>
               </li>
             </ul>
@@ -175,9 +185,9 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
 
           {/* COLUMNA 3: LEGAL (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-slate-200 font-semibold">
+            <p className="text-xs font-mono uppercase tracking-wider text-slate-200 font-semibold">
               Legal
-            </h4>
+            </p>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="/privacidad" className="text-slate-400 hover:text-white transition-colors">
@@ -190,7 +200,7 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
                 </a>
               </li>
               <li>
-                <span className="text-xs text-slate-500 font-mono block pt-1">
+                <span className="text-xs text-slate-400 font-mono block pt-1">
                   Habeas Data • Ley 1581 de 2012
                 </span>
               </li>
@@ -199,27 +209,27 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
 
           {/* COLUMNA 4: CONTACTO DIRECTO (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-slate-200 font-semibold">
+            <p className="text-xs font-mono uppercase tracking-wider text-slate-200 font-semibold">
               Contacto Directo
-            </h4>
+            </p>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <a 
                   href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20quisiera%20consultar%20sobre%20un%20proyecto%20web"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-slate-300 hover:text-emerald-400 transition-colors"
+                  className="inline-flex items-center gap-2 text-slate-300 hover:text-white transition-colors group"
                 >
-                  <WhatsAppIcon className="w-4 h-4 fill-emerald-400 shrink-0" />
+                  <WhatsAppIcon className="w-4 h-4 fill-slate-300 group-hover:fill-white transition-colors shrink-0" />
                   <span>+57 317 737 1301</span>
                 </a>
               </li>
               <li>
                 <a 
                   href="mailto:hola@jpchacon.com"
-                  className="inline-flex items-center gap-2 text-slate-300 hover:text-emerald-400 transition-colors"
+                  className="inline-flex items-center gap-2 text-slate-300 hover:text-white transition-colors group"
                 >
-                  <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <Mail className="w-4 h-4 text-slate-300 group-hover:text-white transition-colors shrink-0" />
                   <span>hola@jpchacon.com</span>
                 </a>
               </li>
@@ -232,13 +242,13 @@ export const FooterV2: React.FC<FooterV2Props> = ({ onNavigateHome }) => {
         </div>
 
         {/* BARRA INFERIOR (COPYRIGHT + CRÉDITOS + VOLVER ARRIBA) */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
-          <p>
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-mono">
+          <p className="text-slate-400">
             © 2026 JP Studios — Juan Pablo Chacón. Todos los derechos reservados.
           </p>
 
           <div className="flex items-center gap-6">
-            <span className="hidden md:inline text-slate-500">
+            <span className="hidden md:inline text-slate-400">
               React 19 • Tailwind CSS • Rendimiento 100/100
             </span>
             <button

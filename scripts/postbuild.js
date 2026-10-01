@@ -232,6 +232,152 @@ const pages = [
       </article>
     `,
   },
+  {
+    route: 'auditar-posicionamiento',
+    title: 'Auditor de Visibilidad en Google | Diagnóstico de Posicionamiento — JP Studios',
+    description: 'Herramienta de auditoría empírica para comprobar si tu página web está indexada en Google, figura en los primeros resultados locales o es invisible para tus clientes.',
+    canonical: 'https://jpchacon.com/auditar-posicionamiento',
+    breadcrumbName: 'Auditoría en Google',
+    faqItems: [
+      {
+        question: '¿Cómo sé si mi página web está indexada en Google?',
+        answer: 'Realizando una búsqueda con el operador site:tuempresa.com en Google. Si Google no arroja resultados, el sitio no está en el índice y ningún cliente podrá encontrarte de forma orgánica.'
+      },
+      {
+        question: '¿Por qué mi empresa no aparece en los primeros lugares de Google Maps?',
+        answer: 'Generalmente se debe a falta de marcado semántico Schema.org (LocalBusiness), inconsistencias en el perfil de Google Business (NAP) o bajas métricas de rendimiento en Core Web Vitals.'
+      }
+    ],
+    h1: 'Auditor de Visibilidad en Google y Diagnóstico de Posicionamiento Local',
+    mainHtml: `
+      <article class="max-w-4xl mx-auto px-6 py-16 sm:py-24 text-left font-sans">
+        <header class="mb-12 border-b border-black/10 pb-8">
+          <a href="/" class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-black/60 hover:text-black mb-6">
+            ← Volver al inicio
+          </a>
+          <h1 class="text-3xl sm:text-5xl font-normal tracking-tight text-black leading-tight mb-4">
+            Auditor de Visibilidad en Google & Diagnóstico Web
+          </h1>
+          <p class="text-sm font-mono text-black/70">Herramienta empírica oficial para evaluar indexación, competencia local en Cali y Core Web Vitals</p>
+        </header>
+
+        <section class="space-y-8 text-sm text-black/80 leading-relaxed">
+          <div>
+            <h2 class="text-lg font-medium text-black mb-2">1. Prueba de Existencia en Googlebot (site:)</h2>
+            <p>
+              Comprueba de forma directa si el motor de búsqueda de Google tiene rastreada e indexada tu URL principal y páginas internas. Sin indexación activa, el tráfico orgánico es cero.
+            </p>
+          </div>
+          <div>
+            <h2 class="text-lg font-medium text-black mb-2">2. Competencia en Google Maps y Búsqueda Local</h2>
+            <p>
+              Evalúa si tu negocio compite en el paquete de 3 resultados destacados de Google Maps en Cali o si la cuota de mercado la capturan competidores con mejor marcado.
+            </p>
+          </div>
+          <div>
+            <h2 class="text-lg font-medium text-black mb-2">3. Marcado de Datos Estructurados (Schema.org)</h2>
+            <p>
+              Verifica si tu sitio provee entidades ricas a motores de búsqueda y asistentes de Inteligencia Artificial (ChatGPT, Gemini, Perplexity).
+            </p>
+          </div>
+          <div>
+            <h2 class="text-lg font-medium text-black mb-2">4. Velocidad Móvil en Google PageSpeed</h2>
+            <p>
+              Mide el First Contentful Paint y la interactividad en dispositivos móviles para evitar pérdidas de conversión por tiempos de carga lentos.
+            </p>
+          </div>
+        </section>
+
+        <footer class="mt-16 pt-8 border-t border-black/10 text-xs text-black/60">
+          <span>JP Studios · Santiago de Cali, Colombia</span> · <span>hola@jpchacon.com</span>
+        </footer>
+      </article>
+    `,
+  },
+  {
+    route: 'cuanto-cuesta-una-pagina-web-en-colombia',
+    title: '¿Cuánto Cuesta una Página Web en Colombia? Precios Reales 2026 — JP Studios',
+    description: 'Descubre cuánto cuesta una página web en Colombia en 2026. Precios reales en COP, costos ocultos de agencias, comparativa WordPress vs. React y tarifas sin mensualidades forzadas.',
+    canonical: 'https://jpchacon.com/cuanto-cuesta-una-pagina-web-en-colombia',
+    breadcrumbName: 'Precios Páginas Web Colombia',
+    faqItems: [
+      {
+        question: '¿Cuánto cobran por hacer una página web en Colombia?',
+        answer: 'En Colombia, el costo promedio de una página web profesional oscila entre $1.500.000 y $4.000.000 COP para desarrollos a la medida optimizados para convertir y posicionar en Google. Existen plantillas básicas desde $400.000 COP y plataformas empresariales complejas que superan los $10.000.000 COP.'
+      },
+      {
+        question: '¿Cuánto vale el hosting y el dominio en Colombia al año?',
+        answer: 'Un dominio comercial (.com o .co) cuesta entre $60.000 y $120.000 COP anuales. El hosting tradicional para WordPress ronda entre $250.000 y $700.000 COP al año. En JP Studios, al construir en React 19 serverless en Cloudflare, el costo de hospedaje es de $0 COP al mes.'
+      },
+      {
+        question: '¿Es obligatorio pagar mensualidades para que mi página web funcione?',
+        answer: 'No. En JP Studios tu página web se entrega con código limpio y arquitectura autosuficiente: es 100% de tu empresa y no requiere pagos mensuales obligatorios para seguir activa. No cobramos tarifas forzadas de permanencia técnica ni licencias recurrentes.'
+      },
+      {
+        question: '¿Qué incluye el servicio de mantenimiento y optimización mensual?',
+        answer: 'Ofrecemos un plan opcional de crecimiento continuo para empresas que buscan un aliado técnico permanente. Incluye monitoreo continuo en Google Search Console y Maps, creación de nuevas secciones comerciales, optimizaciones de velocidad y soporte prioritario directo por WhatsApp.'
+      },
+      {
+        question: '¿Por qué hay páginas de $400.000 y otras de más de $3.000.000?',
+        answer: 'La diferencia reside en la tecnología y el retorno comercial. Una web económica de $400.000 COP suele ser una plantilla prefabricada que tarda más de 5 segundos en celulares y no posiciona en Google. Una web a medida de más de $2.000.000 COP carga en menos de 2 segundos, tiene marcado Schema.org local y convierte visitas en clientes reales.'
+      }
+    ],
+    h1: '¿Cuánto cuesta una página web en Colombia? Precios reales 2026.',
+    mainHtml: `
+      <article class="max-w-4xl mx-auto px-6 py-16 sm:py-24 text-left font-sans">
+        <header class="mb-12 border-b border-black/10 pb-8">
+          <a href="/" class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-black/60 hover:text-black mb-6">
+            ← Volver al inicio
+          </a>
+          <h1 class="text-3xl sm:text-5xl font-normal tracking-tight text-black leading-tight mb-4">
+            ¿Cuánto cuesta una página web en Colombia? Precios reales 2026.
+          </h1>
+          <p class="text-sm font-mono text-black/70">Precios reales de diseño y desarrollo web en Colombia para 2026. Conoce cuánto cobran las agencias, costos adicionales y cuánto invertir según tu empresa.</p>
+        </header>
+
+        <section class="space-y-8 text-sm text-black/80 leading-relaxed">
+          <div>
+            <h2 class="text-xl font-medium text-black mb-3">Precios y tarifas de páginas web en Colombia</h2>
+            <p>
+              En el mercado colombiano existen cuatro categorías principales de inversión:
+            </p>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li><strong>Páginas sencillas y plantillas básicas:</strong> $400.000 – $900.000 COP.</li>
+              <li><strong>Landing pages de alta conversión:</strong> $1.000.000 – $1.800.000 COP.</li>
+              <li><strong>Sitios corporativos y catálogos a medida:</strong> $2.000.000 – $4.000.000 COP.</li>
+              <li><strong>Plataformas empresariales complejas:</strong> $5.000.000 a más de $15.000.000 COP.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-medium text-black mb-3">Los 4 costos ocultos de las agencias tradicionales</h2>
+            <p>
+              Muchas cotizaciones económicas esconden gastos que multiplican el costo real: mensualidades obligatorias de soporte ($200.000 a $500.000 COP/mes), licencias anuales de plugins en dólares, hosting compartido lento que hace perder ventas móviles y el registro indebido del dominio a nombre de la agencia.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-medium text-black mb-3">Libertad técnica y acompañamiento opcional</h2>
+            <p>
+              En JP Studios construimos plataformas en React 19 serverless alojadas en Cloudflare. La web es 100% tuya desde el primer día, con hospedaje de $0 COP mensuales y sin ataduras forzadas. Adicionalmente, ofrecemos planes opcionales de mantenimiento y posicionamiento SEO continuo para empresas que quieren seguir escalando en Google con un aliado técnico dedicado.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl font-medium text-black mb-3">Tarifas transparentes de diseño web en JP Studios</h2>
+            <p>
+              Ofrecemos presupuestos cerrados con entrega garantizada en 14 a 21 días: Landing Page de alto rendimiento ($1.500.000 COP), Web Corporativa y Catálogo a medida ($2.500.000 a $3.500.000 COP) y Plataformas avanzadas desde $4.000.000 COP.
+            </p>
+          </div>
+        </section>
+
+        <footer class="mt-16 pt-8 border-t border-black/10 text-xs text-black/60 flex flex-col sm:flex-row justify-between gap-4">
+          <span>JP Studios · Juan Pablo Chacón · Cali, Colombia</span>
+          <span>hola@jpchacon.com · WhatsApp: +57 317 737 1301</span>
+        </footer>
+      </article>
+    `,
+  },
 ];
 
 for (const page of pages) {

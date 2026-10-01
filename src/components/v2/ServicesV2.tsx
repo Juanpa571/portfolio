@@ -104,7 +104,7 @@ export const ServicesV2: React.FC = () => {
           <h2 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-[-0.03em] text-white leading-[1.08]">
             Desarrollo web a la medida{' '}
             <span className="text-emerald-400">
-              y estructura enfocada en captar clientes.
+              para captar clientes.
             </span>
           </h2>
 
@@ -143,9 +143,6 @@ export const ServicesV2: React.FC = () => {
 
               {/* Columna Central: Título H3 + Explicación */}
               <div className="lg:col-span-5">
-                <div className="text-xs font-mono text-slate-300 font-semibold tracking-wider mb-2">
-                  01 - RENDIMIENTO
-                </div>
                 <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
                   Velocidad de carga optimizada
                 </h3>
@@ -216,9 +213,6 @@ export const ServicesV2: React.FC = () => {
 
               {/* Columna Central: Título H3 + Explicación */}
               <div className="lg:col-span-5">
-                <div className="text-xs font-mono text-slate-300 font-semibold tracking-wider mb-2">
-                  02 - ADQUISICIÓN
-                </div>
                 <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
                   Posicionamiento web orgánico
                 </h3>
@@ -251,13 +245,11 @@ export const ServicesV2: React.FC = () => {
 
                 <div className="pt-6 mt-6 border-t border-white/[0.06]">
                   <a
-                    href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20quiero%20auditar%20la%20visibilidad%20de%20mi%20empresa%20en%20Google"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/auditar-posicionamiento"
                     className="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] text-slate-300 hover:text-white border border-white/10 hover:border-white/20 text-xs font-mono transition-all group"
                   >
                     <span>Auditar visibilidad de mi empresa</span>
-                    <span className="text-slate-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">↗</span>
+                    <span className="text-slate-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">→</span>
                   </a>
                 </div>
               </div>
@@ -289,9 +281,6 @@ export const ServicesV2: React.FC = () => {
 
               {/* Columna Central: Título H3 + Explicación */}
               <div className="lg:col-span-5">
-                <div className="text-xs font-mono text-slate-300 font-semibold tracking-wider mb-2">
-                  03 - CONVERSIÓN
-                </div>
                 <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-snug">
                   Navegación y ventas sin fricción
                 </h3>
