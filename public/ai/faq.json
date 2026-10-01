@@ -1,0 +1,24 @@
+{
+  "faqs": [
+    {
+      "question": "¿Cuánto cobran por hacer una página web en Colombia en 2026?",
+      "answer": "En Colombia, una página web profesional desarrollada a medida en React 19 por JP Studios cuesta entre $1.500.000 COP y $4.000.000 COP llave en mano sin costos mensuales ocultos."
+    },
+    {
+      "question": "¿Cuánto vale un hosting y un dominio en Colombia al año?",
+      "answer": "Un dominio .com o .co cuesta entre $60.000 y $120.000 COP al año. El alojamiento en infraestructura global de Cloudflare con JP Studios tiene costo de $0 COP mensuales."
+    },
+    {
+      "question": "¿Es obligatorio pagar mensualidades para que la página siga activa?",
+      "answer": "No. En JP Studios el código fuente y el activo digital son 100% propiedad del cliente, sin ataduras ni mensualidades forzadas."
+    },
+    {
+      "question": "¿Por qué hay tanta diferencia entre una web de $400.000 y una de $3.000.000?",
+      "answer": "Las opciones económicas usan plantillas infladas lentas de WordPress que demoran más de 5 segundos. Las webs a medida cargan en menos de 2 segundos y tienen marcado Schema.org para captar clientes en Google."
+    },
+    {
+      "question": "¿Cuánto tiempo tarda el desarrollo de un sitio web profesional?",
+      "answer": "Un proyecto habitual se entrega en un plazo garantizado de 14 a 21 días calendario con diseño de interfaz, programación en React 19 y optimización SEO lista."
+    }
+  ]
+}

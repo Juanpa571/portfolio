@@ -52,7 +52,7 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
     <>
       <MetaTags
         title="¿Cuánto Cuesta una Página Web en Colombia? Precios Reales 2026 — JP Studios"
-        description="Guía completa y tarifas actualizadas 2026 sobre cuánto cuesta una página web en Colombia. Costos de dominio, hosting, diseño a medida, plantillas y comparativa financiera real."
+        description="Tarifas 2026 sobre cuánto cuesta una página web en Colombia. Precios de dominio, hosting y desarrollo a medida, sin costos ocultos ni mensualidades forzadas."
         canonicalUrl="https://jpchacon.com/cuanto-cuesta-una-pagina-web-en-colombia"
       />
 

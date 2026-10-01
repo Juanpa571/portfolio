@@ -1,0 +1,16 @@
+{
+  "services": [
+    {
+      "name": "Diseño Web Profesional y Desarrollo en React 19",
+      "description": "Desarrollo frontend a la medida, ultrarrápido con tiempos de carga inferiores a 2 segundos y arquitectura serverless sin constructores visuales pesados."
+    },
+    {
+      "name": "Posicionamiento SEO Local y Marcado Schema.org",
+      "description": "Estructuración técnica semántica para competir en Google Maps y motores de búsqueda con intención comercial local en Colombia."
+    },
+    {
+      "name": "Optimización de Rendimiento Core Web Vitals",
+      "description": "Diagnóstico, optimización y certificación de páginas web para alcanzar puntajes superiores a 90/100 en Google PageSpeed."
+    }
+  ]
+}

@@ -297,7 +297,7 @@ const pages = [
   {
     route: 'cuanto-cuesta-una-pagina-web-en-colombia',
     title: '¿Cuánto Cuesta una Página Web en Colombia? Precios Reales 2026 — JP Studios',
-    description: 'Descubre cuánto cuesta una página web en Colombia en 2026. Precios reales en COP, costos ocultos de agencias, comparativa WordPress vs. React y tarifas sin mensualidades forzadas.',
+    description: 'Tarifas 2026 sobre cuánto cuesta una página web en Colombia. Precios de dominio, hosting y desarrollo a medida, sin costos ocultos ni mensualidades forzadas.',
     canonical: 'https://jpchacon.com/cuanto-cuesta-una-pagina-web-en-colombia',
     breadcrumbName: 'Precios Páginas Web Colombia',
     faqItems: [
@@ -322,57 +322,145 @@ const pages = [
         answer: 'La diferencia reside en la tecnología y el retorno comercial. Una web económica de $400.000 COP suele ser una plantilla prefabricada que tarda más de 5 segundos en celulares y no posiciona en Google. Una web a medida de más de $2.000.000 COP carga en menos de 2 segundos, tiene marcado Schema.org local y convierte visitas en clientes reales.'
       }
     ],
-    h1: '¿Cuánto cuesta una página web en Colombia? Precios reales 2026.',
+    h1: '¿Cuánto cuesta una página web en Colombia? Precios reales y guía completa 2026.',
     mainHtml: `
       <article class="max-w-4xl mx-auto px-6 py-16 sm:py-24 text-left font-sans">
         <header class="mb-12 border-b border-black/10 pb-8">
           <a href="/" class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-black/60 hover:text-black mb-6">
             ← Volver al inicio
           </a>
-          <h1 class="text-3xl sm:text-5xl font-normal tracking-tight text-black leading-tight mb-4">
-            ¿Cuánto cuesta una página web en Colombia? Precios reales 2026.
+          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-black leading-tight mb-4">
+            ¿Cuánto cuesta una página web en Colombia? Precios reales y guía completa 2026.
           </h1>
-          <p class="text-sm font-mono text-black/70">Precios reales de diseño y desarrollo web en Colombia para 2026. Conoce cuánto cobran las agencias, costos adicionales y cuánto invertir según tu empresa.</p>
+          <p class="text-base sm:text-lg text-black/75 leading-relaxed">
+            Guía financiera y técnica actualizada para empresarios y profesionales independientes. Analizamos tarifas de mercado, costos de infraestructura y cómo evitar sobrecostos recurrentes al contratar desarrollo web.
+          </p>
+          <div class="mt-4 pt-4 border-t border-black/10 text-xs font-mono text-black/60 flex flex-wrap gap-4">
+            <span>Por Juan Pablo Chacón</span>
+            <span>•</span>
+            <span>Actualizado: 2026</span>
+            <span>•</span>
+            <span>Lectura técnica: 8 min</span>
+          </div>
         </header>
 
-        <section class="space-y-8 text-sm text-black/80 leading-relaxed">
+        <section class="space-y-12 text-sm sm:text-base text-black/80 leading-relaxed">
           <div>
-            <h2 class="text-xl font-medium text-black mb-3">Precios y tarifas de páginas web en Colombia</h2>
-            <p>
-              En el mercado colombiano existen cuatro categorías principales de inversión:
+            <h2 class="text-2xl font-bold text-black mb-4">¿Qué factores determinan el costo de una página web?</h2>
+            <p class="mb-4">
+              El presupuesto de un sitio web profesional no se define al azar ni por metros cuadrados digitales; responde a cinco componentes técnicos esenciales que determinan la velocidad de carga, la seguridad de las transacciones y la visibilidad orgánica en buscadores:
             </p>
-            <ul class="list-disc pl-5 mt-2 space-y-1">
-              <li><strong>Páginas sencillas y plantillas básicas:</strong> $400.000 – $900.000 COP.</li>
-              <li><strong>Landing pages de alta conversión:</strong> $1.000.000 – $1.800.000 COP.</li>
-              <li><strong>Sitios corporativos y catálogos a medida:</strong> $2.000.000 – $4.000.000 COP.</li>
-              <li><strong>Plataformas empresariales complejas:</strong> $5.000.000 a más de $15.000.000 COP.</li>
-            </ul>
+            <div class="space-y-4">
+              <h3 class="text-lg font-semibold text-black">1. Nombre de dominio (.com o .co)</h3>
+              <p>La dirección exclusiva de tu empresa en internet. Un dominio comercial internacional (.com) o territorial (.co) tiene una inversión estándar de $60.000 a $120.000 COP anuales. Es fundamental que el registro quede siempre a nombre del titular de la empresa y no de la agencia intermediaria.</p>
+
+              <h3 class="text-lg font-semibold text-black">2. Servidor de alojamiento (Hosting)</h3>
+              <p>La infraestructura física donde residen los archivos. Mientras un hosting compartido tradicional en cPanel oscila entre $250.000 y $700.000 COP al año y suele saturarse ante picos de tráfico, las arquitecturas serverless modernas alojadas en redes perimetrales globales permiten servir sitios ultrarrápidos con costo de hospedaje mensual de $0 COP.</p>
+
+              <h3 class="text-lg font-semibold text-black">3. Certificado de seguridad SSL (HTTPS)</h3>
+              <p>Protocolo indispensable para encriptar los datos transmitidos entre el navegador del visitante y el servidor. Garantiza el candado de seguridad obligatorio para no ser penalizado por los navegadores modernos y proteger la privacidad de los formularios.</p>
+
+              <h3 class="text-lg font-semibold text-black">4. Diseño de interfaz (UI/UX) y Programación</h3>
+              <p>El núcleo del desarrollo. La diferencia entre adaptar una plantilla prefabricada con decenas de scripts innecesarios y programar código limpio a medida en React 19 optimizado para cumplir con los estándares de rendimiento establecidos por <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer" class="underline text-black font-medium">Google PageSpeed Insights</a>.</p>
+            </div>
           </div>
 
           <div>
-            <h2 class="text-xl font-medium text-black mb-3">Los 4 costos ocultos de las agencias tradicionales</h2>
-            <p>
-              Muchas cotizaciones económicas esconden gastos que multiplican el costo real: mensualidades obligatorias de soporte ($200.000 a $500.000 COP/mes), licencias anuales de plugins en dólares, hosting compartido lento que hace perder ventas móviles y el registro indebido del dominio a nombre de la agencia.
+            <h2 class="text-2xl font-bold text-black mb-4">Precios del mercado por tipo de página web (2026)</h2>
+            <p class="mb-4">
+              En el mercado actual existen rangos tarifarios claramente diferenciados según el propósito comercial y la tecnología empleada:
             </p>
+            <div class="overflow-x-auto my-6 border border-black/10 rounded-xl">
+              <table class="w-full text-left text-sm">
+                <thead class="bg-black/5 font-semibold text-black border-b border-black/10">
+                  <tr>
+                    <th class="p-3">Tipo de Sitio Web</th>
+                    <th class="p-3">Rango de Inversión</th>
+                    <th class="p-3">Tiempo de Entrega</th>
+                    <th class="p-3">Perfil Recomendado</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-black/10">
+                  <tr>
+                    <td class="p-3 font-medium">Plantilla básica WordPress / Creadores</td>
+                    <td class="p-3">$400.000 – $900.000 COP</td>
+                    <td class="p-3">5 a 10 días</td>
+                    <td class="p-3">Proyectos personales con presupuesto muy limitado.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-medium">Landing Page One-Page de Alta Conversión</td>
+                    <td class="p-3">$1.200.000 – $1.800.000 COP</td>
+                    <td class="p-3">10 a 14 días</td>
+                    <td class="p-3">Campañas publicitarias, servicios específicos y venta directa.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-medium">Sitio Web Corporativo Multi-Página</td>
+                    <td class="p-3">$2.200.000 – $3.800.000 COP</td>
+                    <td class="p-3">14 a 21 días</td>
+                    <td class="p-3">Empresas consolidadas que requieren posicionamiento local en Google.</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-medium">Catálogo Interactivo / Plataforma a Medida</td>
+                    <td class="p-3">$4.000.000 a más de $8.000.000 COP</td>
+                    <td class="p-3">21 a 45 días</td>
+                    <td class="p-3">Empresas con amplio inventario o integraciones complejas.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <div>
-            <h2 class="text-xl font-medium text-black mb-3">Libertad técnica y acompañamiento opcional</h2>
-            <p>
-              En JP Studios construimos plataformas en React 19 serverless alojadas en Cloudflare. La web es 100% tuya desde el primer día, con hospedaje de $0 COP mensuales y sin ataduras forzadas. Adicionalmente, ofrecemos planes opcionales de mantenimiento y posicionamiento SEO continuo para empresas que quieren seguir escalando en Google con un aliado técnico dedicado.
+            <h2 class="text-2xl font-bold text-black mb-4">Costos recurrentes que debes prever en tu presupuesto anual</h2>
+            <p class="mb-4">
+              Un error frecuente al contratar desarrollo web es evaluar únicamente el costo inicial de lanzamiento sin proyectar los gastos de mantenimiento técnico que exige la operación en el tiempo:
             </p>
+            <div class="space-y-3">
+              <p><strong>• Renovación de Dominio y Hospedaje:</strong> Entre $60.000 y $800.000 COP anuales según el proveedor y el tipo de servidor contratado.</p>
+              <p><strong>• Soporte Preventivo y Seguridad:</strong> Actualización periódica de dependencias, copias de seguridad de respaldo y monitoreo de disponibilidad.</p>
+              <p><strong>• Licenciamiento de Herramientas:</strong> Constructores visuales y plugins comerciales que cobran suscripciones anuales en dólares para mantener sus parches de seguridad activos.</p>
+            </div>
           </div>
 
           <div>
-            <h2 class="text-xl font-medium text-black mb-3">Tarifas transparentes de diseño web en JP Studios</h2>
-            <p>
-              Ofrecemos presupuestos cerrados con entrega garantizada en 14 a 21 días: Landing Page de alto rendimiento ($1.500.000 COP), Web Corporativa y Catálogo a medida ($2.500.000 a $3.500.000 COP) y Plataformas avanzadas desde $4.000.000 COP.
+            <h2 class="text-2xl font-bold text-black mb-4">Checklist: 5 preguntas clave antes de contratar un diseñador o agencia</h2>
+            <p class="mb-4">Antes de realizar cualquier anticipo o firmar un contrato comercial, valida estos cinco criterios indispensables de transparencia:</p>
+            <ol class="list-decimal pl-5 space-y-2">
+              <li><strong>¿El dominio y el hosting quedarán registrados a nombre de mi empresa?</strong> Exige ser el titular legal exclusivo de tus credenciales de acceso.</li>
+              <li><strong>¿Cuánto tardará la página web en cargar en celulares con conexión móvil 4G?</strong> Debe certificar tiempos inferiores a 2.5 segundos según métricas Core Web Vitals.</li>
+              <li><strong>¿El proyecto incluye marcado estructurado Schema.org para Google Maps?</strong> Clave para aparecer en el paquete local y ser citado por motores de IA.</li>
+              <li><strong>¿Existen mensualidades obligatorias forzadas para que la web siga activa?</strong> Asegúrate de no quedar atrapado en contratos de permanencia no deseados.</li>
+              <li><strong>¿Me entregarán el código fuente completo al finalizar el desarrollo?</strong> El activo digital debe pertenecer 100% a tu negocio desde el día de entrega.</li>
+            </ol>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-bold text-black mb-4">Tarifas y planes claros en JP Studios</h2>
+            <p class="mb-4">
+              En JP Studios trabajamos bajo un esquema de presupuesto cerrado llave en mano, garantizando entrega en 14 a 21 días sin mensualidades forzadas:
             </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
+              <div class="p-5 border border-black/10 rounded-xl bg-black/[0.02]">
+                <h3 class="font-bold text-black text-lg mb-1">Web One-Page Pro</h3>
+                <div class="text-2xl font-extrabold text-black mb-2">$ 1.500.000 <span class="text-xs font-normal">COP</span></div>
+                <p class="text-xs text-black/70">Diseño directo para captar clientes en celulares con alta velocidad de conversión.</p>
+              </div>
+              <div class="p-5 border border-black/20 rounded-xl bg-black/[0.04]">
+                <h3 class="font-bold text-black text-lg mb-1">Web Corporativa SEO</h3>
+                <div class="text-2xl font-extrabold text-black mb-2">$ 2.500.000 <span class="text-xs font-normal">COP</span></div>
+                <p class="text-xs text-black/70">Múltiples secciones, marcado Schema.org local y optimización para liderar en Google.</p>
+              </div>
+              <div class="p-5 border border-black/10 rounded-xl bg-black/[0.02]">
+                <h3 class="font-bold text-black text-lg mb-1">Catálogo Comercial</h3>
+                <div class="text-2xl font-extrabold text-black mb-2">$ 3.500.000 <span class="text-xs font-normal">COP</span></div>
+                <p class="text-xs text-black/70">Filtro instantáneo de productos y rutas de cotización directa por WhatsApp y correo.</p>
+              </div>
+            </div>
           </div>
         </section>
 
         <footer class="mt-16 pt-8 border-t border-black/10 text-xs text-black/60 flex flex-col sm:flex-row justify-between gap-4">
-          <span>JP Studios · Juan Pablo Chacón · Cali, Colombia</span>
+          <span>JP Studios · Juan Pablo Chacón · Santiago de Cali</span>
           <span>hola@jpchacon.com · WhatsApp: +57 317 737 1301</span>
         </footer>
       </article>
@@ -555,6 +643,10 @@ for (const page of pages) {
   const targetFile = path.join(targetDir, 'index.html');
   fs.writeFileSync(targetFile, html, 'utf-8');
   console.log(`Generated: ${page.route}/index.html`);
+
+  const flatTargetFile = path.join(distDir, `${page.route}.html`);
+  fs.writeFileSync(flatTargetFile, html, 'utf-8');
+  console.log(`Generated: ${page.route}.html`);
 }
 
 // Ensure .well-known/ai-catalog.json, ard.json and ai-catalog.json are present in dist
