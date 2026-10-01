@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+    html, body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #08090C;
+      font-family: 'Geist', sans-serif;
+      color: #F8FAFC;
+    }
+
+    .og-container {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+      display: grid;
+      grid-template-columns: 630px 570px;
+      padding: 60px 64px;
+      background: radial-gradient(circle at 10% 20%, #13151D 0%, #08090C 75%);
+      border: 1px solid #1F222C;
+      overflow: hidden;
+    }
+
+    /* Subtle ambient lighting behind the devices */
+    .devices-glow {
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 520px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(56, 189, 248, 0.04) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Left Column: Brand & Copy */
+    .left-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      z-index: 2;
+    }
+
+    .brand-header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      align-self: flex-start;
+    }
+
+    .tag-location {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #717A8C;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tag-location .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #38BDF8;
+    }
+
+    .main-copy {
+      margin-top: 10px;
+      padding-right: 20px;
+    }
+
+    .heading {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 45px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+    }
+
+    .subheading {
+      font-size: 19px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #94A3B8;
+      max-width: 540px;
+    }
+
+    /* Footer Meta Bar */
+    .footer-bar {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #1A1D27;
+    }
+
+    .footer-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #CBD5E1;
+      letter-spacing: 0.01em;
+    }
+
+    .footer-item .mono-tag {
+      font-family: 'Geist', monospace;
+      font-size: 12px;
+      color: #64748B;
+    }
+
+    /* Right Column: Visual Device Showcase */
+    .right-col {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-right: 24px;
+      z-index: 2;
+    }
+
+    .device-mockup {
+      width: 520px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.75));
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+<body>
+  <div class="og-container">
+    <div class="devices-glow"></div>
+
+    <div class="left-col">
+      <div class="brand-header">
+        <img class="brand-logo" src="d:/projects/portfolio/public/logo-horizontal-white.webp" alt="JP Studios">
+        <div class="tag-location">
+          <span class="dot"></span>
+          Estudio de Ingeniería Web &middot; Cali, Colombia
+        </div>
+      </div>
+
+      <div class="main-copy">
+        <h1 class="heading">
+          Páginas web para vender y liderar en Google.
+        </h1>
+        <p class="subheading">
+          Desarrollo a medida en React 19, arquitectura ultrarrápida 100/100 Core Web Vitals y posicionamiento SEO local.
+        </p>
+      </div>
+
+      <div class="footer-bar">
+        <div class="footer-item">
+          <span class="mono-tag">01</span>
+          <span>jpchacon.com</span>
+        </div>
+        <div class="footer-item">
+          <span class="mono-tag">02</span>
+          <span>React 19 &middot; Rendimiento Puro</span>
+        </div>
+        <div class="footer-item">
+          <span class="mono-tag">03</span>
+          <span>+57 317 737 1301</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-col">
+      <img class="device-mockup" src="d:/projects/portfolio/public/hero-showcase-desktop.webp" alt="JP Studios Projects Showcase">
+    </div>
+  </div>
+</body>
+</html>
