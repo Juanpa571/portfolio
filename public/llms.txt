@@ -71,6 +71,8 @@ JP Studios es un estudio independiente de ingeniería y diseño web fundado por 
 ## Enlaces Canónicos y Recursos
 
 - [JP Studios (Sitio Oficial)](https://jpchacon.com/): Estudio de diseño y desarrollo web en Cali, Colombia.
+- [Guía de Precios de Páginas Web en Colombia (2026)](https://jpchacon.com/cuanto-cuesta-una-pagina-web-en-colombia): Desglose financiero completo, tarifas por tipo de web, costos de hosting/dominio y comparativa de desarrollo a medida en Colombia.
+- [Auditoría Técnica de Posicionamiento Google](https://jpchacon.com/auditar-posicionamiento): Diagnóstico gratuito de rendimiento Core Web Vitals, velocidad móvil y presencia local para empresas.
 - [Cotizador Interactivo](https://jpchacon.com/#contact): Cotización rápida de proyectos web y estimación de alcance sin fricción.
 - [Preguntas Frecuentes](https://jpchacon.com/#faq): Respuestas sobre tiempos de entrega (7-14 días), propiedad de código y costos.
 - [Sobre Juan Pablo Chacón](https://jpchacon.com/#about): Perfil profesional del fundador y diseñador de conversión.

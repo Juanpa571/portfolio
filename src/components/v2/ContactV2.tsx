@@ -355,6 +355,17 @@ export const ContactV2: React.FC = () => {
                   ↗
                 </span>
               </a>
+
+              <div className="pt-2 text-xs text-slate-400 leading-relaxed font-sans">
+                <span>¿Deseas conocer los rangos de inversión de antemano? Consulta la </span>
+                <a
+                  href="/cuanto-cuesta-una-pagina-web-en-colombia"
+                  className="text-slate-300 hover:text-white underline underline-offset-4 decoration-white/30 hover:decoration-white transition-colors font-medium inline-flex items-center gap-1"
+                >
+                  <span>Guía de Precios de Páginas Web en Colombia (2026)</span>
+                  <span className="text-slate-400">↗</span>
+                </a>
+              </div>
             </div>
           </div>
 

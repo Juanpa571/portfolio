@@ -585,8 +585,8 @@ for (const page of pages) {
       "sameAs": [
         "https://www.wikidata.org/wiki/Q51103",
         "https://es.wikipedia.org/wiki/Cali",
-        "https://www.linkedin.com/in/jpchaconm/",
-        "https://github.com/juanpablochacon"
+        "https://www.linkedin.com/in/juan-pablo-chacon-034457283/",
+        "https://github.com/Juanpa571"
       ]
     },
     {

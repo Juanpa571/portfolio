@@ -52,7 +52,7 @@ export const PainDiagnosisV2: React.FC = () => {
 
                 {/* Letra capital numérica + frase destacada */}
                 <div className="flex items-start gap-4 mb-5">
-                  <div className="text-5xl sm:text-6xl font-black font-mono text-rose-400 tracking-tight shrink-0 leading-none select-none">
+                  <div className="text-5xl sm:text-6xl font-black font-sans text-rose-400 tracking-tight shrink-0 leading-none select-none">
                     53%
                   </div>
                   <div className="text-sm sm:text-base font-bold text-white leading-snug">
@@ -100,7 +100,7 @@ export const PainDiagnosisV2: React.FC = () => {
 
                 {/* Letra capital numérica + frase destacada */}
                 <div className="flex items-start gap-4 mb-5">
-                  <div className="text-5xl sm:text-6xl font-black font-mono text-sky-400 tracking-tight shrink-0 leading-none select-none">
+                  <div className="text-5xl sm:text-6xl font-black font-sans text-sky-400 tracking-tight shrink-0 leading-none select-none">
                     75%
                   </div>
                   <div className="text-sm sm:text-base font-bold text-white leading-snug">
@@ -146,7 +146,7 @@ export const PainDiagnosisV2: React.FC = () => {
 
                 {/* Letra capital numérica + frase destacada */}
                 <div className="flex items-start gap-4 mb-5">
-                  <div className="text-5xl sm:text-6xl font-black font-mono text-emerald-400 tracking-tight shrink-0 leading-none select-none">
+                  <div className="text-5xl sm:text-6xl font-black font-sans text-emerald-400 tracking-tight shrink-0 leading-none select-none">
                     &lt; 1%
                   </div>
                   <div className="text-sm sm:text-base font-bold text-white leading-snug">
