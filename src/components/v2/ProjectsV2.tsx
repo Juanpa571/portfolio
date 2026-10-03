@@ -75,7 +75,7 @@ export const ProjectsV2: React.FC = () => {
                 <div className="grid grid-cols-3 gap-4 pt-6 border-t border-white/[0.08]">
                   <div>
                     <div className="text-2xl sm:text-3xl font-black font-mono text-[#FFCC00]">
-                      &lt; 2.6s
+                      &lt; 2.5s
                     </div>
                     <div className="text-xs text-slate-400 mt-1 leading-snug">
                       Carga LCP en redes 4G móviles
@@ -92,11 +92,11 @@ export const ProjectsV2: React.FC = () => {
                   </div>
 
                   <div>
-                    <div className="text-2xl sm:text-3xl font-black font-mono text-sky-400">
-                      100%
+                    <div className="text-xl sm:text-2xl lg:text-3xl font-black font-mono text-sky-400 tracking-tight">
+                      #1 en Cali
                     </div>
                     <div className="text-xs text-slate-400 mt-1 leading-snug">
-                      Indexación semántica en Google
+                      Papelería creativa orgánicamente en &lt; 1 semana
                     </div>
                   </div>
                 </div>
