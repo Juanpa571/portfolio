@@ -32,7 +32,7 @@ export const V2HomePage: React.FC = () => {
     <div className="min-h-screen bg-transparent text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-black relative">
       <MetaTags
         title="Diseño Web Cali & Páginas Web para Vender | JP Studios"
-        description="Estudio de diseño web en Cali y desarrollo a la medida en React. Sitios web y catálogos optimizados para posicionamiento en Google y motores de IA."
+        description="Estudio de diseño web en Cali y páginas para vender. Sitios web y catálogos de alta velocidad optimizados para posicionar en Google y captar clientes."
         canonicalUrl="https://jpchacon.com/"
       />
       

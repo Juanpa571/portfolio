@@ -380,7 +380,7 @@ export const HeaderV2: React.FC<HeaderV2Props> = ({
               rel="noopener noreferrer"
               aria-label={`${ctaText} por WhatsApp`}
               title={`${ctaText} por WhatsApp`}
-              className="px-3.5 sm:px-4 py-2 rounded-lg bg-white hover:bg-slate-200 text-slate-950 font-bold text-xs sm:text-sm tracking-wide transition-all shadow-sm shadow-black/30 hover:shadow-md flex items-center gap-2 group cursor-pointer"
+              className="min-h-[44px] px-3.5 sm:px-4 py-2.5 rounded-lg bg-white hover:bg-slate-200 active:scale-[0.97] text-slate-950 font-bold text-xs sm:text-sm tracking-wide transition-all duration-150 shadow-sm shadow-black/30 hover:shadow-md flex items-center justify-center gap-2 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <WhatsAppIcon className="w-3.5 h-3.5 fill-current shrink-0" aria-hidden="true" />
               <span className="sr-only">{ctaText} por WhatsApp</span>
@@ -390,11 +390,11 @@ export const HeaderV2: React.FC<HeaderV2Props> = ({
               </svg>
             </a>
 
-            {/* Botón Hamburguesa Móvil */}
+            {/* Botón Hamburguesa Móvil con Touch Target Accesible (44x44px) */}
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(true)}
-              className="md:hidden p-2.5 rounded-lg text-slate-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 transition-colors focus:outline-none focus:border-slate-400 cursor-pointer"
+              className="md:hidden min-h-[44px] min-w-[44px] p-2.5 rounded-lg text-slate-300 hover:text-white active:scale-[0.95] bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-white cursor-pointer flex items-center justify-center"
               aria-expanded={isMobileMenuOpen}
               aria-label="Abrir menú de navegación"
             >
@@ -419,7 +419,7 @@ export const HeaderV2: React.FC<HeaderV2Props> = ({
           style={{ backgroundColor: '#070709' }}
           className="md:hidden fixed inset-0 z-[9999] w-full h-[100dvh] flex flex-col justify-between overflow-hidden"
         >
-          {/* Top Bar con Logo y Botón de Cerrar [X] */}
+          {/* Top Bar con Logo y Botón de Cerrar [X] con Touch Target Accesible (44x44px) */}
           <div className="flex items-center justify-between px-5 sm:px-6 h-16 sm:h-20 border-b border-white/[0.08] shrink-0">
             <a 
               href="/" 
@@ -450,7 +450,7 @@ export const HeaderV2: React.FC<HeaderV2Props> = ({
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="p-2.5 rounded-lg text-slate-300 hover:text-white bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 transition-colors focus:outline-none focus:border-slate-400 cursor-pointer flex items-center justify-center"
+              className="min-h-[44px] min-w-[44px] p-2.5 rounded-lg text-slate-300 hover:text-white active:scale-[0.95] bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-white cursor-pointer flex items-center justify-center"
               aria-label="Cerrar menú"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -558,7 +558,7 @@ export const HeaderV2: React.FC<HeaderV2Props> = ({
               aria-label={`${ctaText} por WhatsApp (+57 317 737 1301)`}
               title={`${ctaText} por WhatsApp`}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full py-4 px-4 rounded-xl bg-white hover:bg-slate-200 text-slate-950 font-bold text-sm tracking-wide transition-all shadow-md flex items-center justify-center gap-2.5 cursor-pointer"
+              className="w-full py-4 px-4 rounded-xl bg-white hover:bg-slate-200 active:scale-[0.98] text-slate-950 font-bold text-sm tracking-wide transition-all duration-150 shadow-md flex items-center justify-center gap-2.5 cursor-pointer"
             >
               <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" aria-hidden="true" />
               <span>{ctaText} (+57 317 737 1301)</span>

@@ -95,9 +95,9 @@ export const HeroV2: React.FC = () => {
               </span>
             </h1>
 
-            {/* Texto de soporte calibrado */}
+            {/* Texto de soporte calibrado: Framing de autoridad e ingeniería B2B */}
             <p className="text-sm sm:text-base lg:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl">
-              Estructuro tu sitio para que aparezca tanto en Google (SEO) como en motores de inteligencia artificial (ChatGPT y Gemini), conecte con clientes interesados y multiplique tus oportunidades de venta.
+              Ingeniería web y plataformas a la medida para empresas y profesionales en Cali que no pueden permitirse perder clientes por lentitud o invisibilidad en Google. Sitios ultrarrápidos, optimizados para posicionar en Google (SEO) y motores de IA (ChatGPT y Gemini) y convertir visitas en ventas.
             </p>
 
             {/* Acciones principales con foco de conversión magnético */}
@@ -106,7 +106,7 @@ export const HeroV2: React.FC = () => {
                 href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20quiero%20cotizar%20el%20dise%C3%B1o%20y%20desarrollo%20web%20para%20mi%20negocio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-7 sm:px-8 py-3.5 sm:py-4 rounded-lg bg-white hover:bg-slate-100 text-slate-950 font-bold text-sm sm:text-base tracking-wide transition-all duration-200 border border-white hover:border-slate-200 shadow-[0_0_24px_rgba(255,255,255,0.25)] hover:shadow-[0_0_32px_rgba(255,255,255,0.4)] hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2.5 group cursor-pointer"
+                className="px-7 sm:px-8 py-3.5 sm:py-4 rounded-lg bg-white hover:bg-slate-100 active:scale-[0.97] text-slate-950 font-bold text-sm sm:text-base tracking-wide transition-all duration-150 border border-white hover:border-slate-200 shadow-[0_0_24px_rgba(255,255,255,0.25)] hover:shadow-[0_0_32px_rgba(255,255,255,0.4)] hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2.5 group cursor-pointer"
               >
                 <WhatsAppIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 fill-current shrink-0" />
                 <span>Solicitar cotización</span>
@@ -122,7 +122,7 @@ export const HeroV2: React.FC = () => {
 
               <a
                 href="/cuanto-cuesta-una-pagina-web-en-colombia"
-                className="px-5 sm:px-6 py-3.5 sm:py-4 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-200 hover:text-white border border-white/10 hover:border-white/20 text-sm sm:text-base font-medium transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] flex items-center gap-2 group"
+                className="px-5 sm:px-6 py-3.5 sm:py-4 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] active:scale-[0.97] text-slate-200 hover:text-white border border-white/10 hover:border-white/20 text-sm sm:text-base font-medium transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] flex items-center gap-2 group"
               >
                 <span>Precios 2026</span>
                 <span className="text-slate-400 group-hover:text-cyan-400 transition-colors">↗</span>
@@ -130,7 +130,7 @@ export const HeroV2: React.FC = () => {
 
               <a
                 href="#proyectos"
-                className="px-4 sm:px-5 py-3.5 sm:py-4 text-slate-400 hover:text-white text-sm sm:text-base font-medium transition-colors flex items-center gap-1.5"
+                className="px-4 sm:px-5 py-3.5 sm:py-4 active:scale-[0.97] text-slate-400 hover:text-white text-sm sm:text-base font-medium transition-all duration-150 flex items-center gap-1.5"
               >
                 <span>Proyectos</span>
                 <svg 
@@ -144,13 +144,13 @@ export const HeroV2: React.FC = () => {
               </a>
             </div>
 
-            {/* Fila de Pilares Reales */}
+            {/* Fila de Pilares Reales (Unificados cromáticamente para máxima sobriedad) */}
             <div className="pt-6 sm:pt-8 border-t border-white/[0.08] grid grid-cols-3 gap-6 sm:gap-8">
               <div>
                 <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-cyan-400 tracking-tight">
                   24/7
                 </div>
-                <div className="text-xs sm:text-sm font-bold text-white mt-1">
+                <div className="text-xs sm:text-sm font-bold text-slate-200 mt-1">
                   Visibilidad en Google
                 </div>
                 <div className="text-[11px] sm:text-xs text-slate-400 mt-0.5 leading-snug">
@@ -159,10 +159,10 @@ export const HeroV2: React.FC = () => {
               </div>
 
               <div>
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-emerald-400 tracking-tight">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-cyan-400 tracking-tight">
                   1 Clic
                 </div>
-                <div className="text-xs sm:text-sm font-bold text-white mt-1">
+                <div className="text-xs sm:text-sm font-bold text-slate-200 mt-1">
                   Contacto Directo
                 </div>
                 <div className="text-[11px] sm:text-xs text-slate-400 mt-0.5 leading-snug">
@@ -171,10 +171,10 @@ export const HeroV2: React.FC = () => {
               </div>
 
               <div>
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#FFCC00] tracking-tight">
-                  &lt; 2s
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-cyan-400 tracking-tight">
+                  &lt; 2.5s
                 </div>
-                <div className="text-xs sm:text-sm font-bold text-white mt-1">
+                <div className="text-xs sm:text-sm font-bold text-slate-200 mt-1">
                   Carga Rápida
                 </div>
                 <div className="text-[11px] sm:text-xs text-slate-400 mt-0.5 leading-snug">
@@ -186,14 +186,14 @@ export const HeroV2: React.FC = () => {
           </div>
 
           {/* --------------------------------------------------------- */}
-          {/* COLUMNA DERECHA: IMAGEN CON ESCALA EQUILIBRADA             */}
+          {/* COLUMNA DERECHA: AUTORÍA DIRECTA + MOCKUP DE MARANATHA    */}
           {/* --------------------------------------------------------- */}
-          <div className="lg:col-span-6 xl:col-span-6 relative flex justify-center lg:justify-end items-center">
+          <div className="lg:col-span-6 xl:col-span-6 relative flex flex-col justify-center items-center lg:items-end">
             
-            {/* Resplandor ambiental de pantalla (Ambilight) que proyecta la luz real de Maranatha */}
+            {/* Resplandor ambiental de pantalla (Ambilight orgánico calibrado con la pantalla lavanda) */}
             <div 
               aria-hidden="true" 
-              className="absolute -inset-10 bg-gradient-to-tr from-rose-500/[0.12] via-fuchsia-500/[0.08] to-pink-500/[0.10] blur-[20px] md:blur-[100px] rounded-full pointer-events-none" 
+              className="absolute -inset-10 bg-gradient-to-tr from-violet-500/[0.10] via-cyan-500/[0.05] to-transparent blur-[35px] md:blur-[90px] rounded-full pointer-events-none" 
             />
 
             {/* Objeto visual libre con escala calibrada para llenar el espacio sin desbordar el alto */}
@@ -201,6 +201,41 @@ export const HeroV2: React.FC = () => {
               ref={stageRef}
               className="relative w-full max-w-[760px] lg:max-w-[840px] xl:max-w-[920px] 2xl:max-w-[980px] transition-transform duration-75 ease-out will-change-transform"
             >
+              {/* Micro-ficha de autoría humana situada justo arriba del showcase */}
+              <div className="mb-3.5 flex items-center justify-between gap-3 px-1">
+                <div className="flex items-center gap-3">
+                  <div className="relative shrink-0">
+                    <img
+                      src="/juan-pablo-chacon.jpg"
+                      alt="Juan Pablo Chacón - Desarrollador Web"
+                      width={38}
+                      height={38}
+                      className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover border border-white/20 shadow-md"
+                    />
+                    <span 
+                      className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 rounded-full ring-2 ring-slate-950" 
+                      title="Disponible para proyectos"
+                    />
+                  </div>
+                  <div>
+                    <div className="text-xs sm:text-sm font-bold text-white tracking-tight flex items-center gap-1.5 font-sans">
+                      <span>Juan Pablo Chacón</span>
+                      <span className="text-slate-600 font-normal">/</span>
+                      <span className="text-slate-300 font-sans text-xs font-normal tracking-normal">Desarrollador Web</span>
+                    </div>
+                    <div className="text-xs text-slate-400 font-sans tracking-normal mt-0.5">
+                      Ingeniería y diseño a la medida en Cali
+                    </div>
+                  </div>
+                </div>
+
+                {/* Referencia contextual al proyecto real mostrado */}
+                <div className="hidden sm:flex items-center gap-1.5 text-xs font-sans text-slate-400 tracking-normal">
+                  <span className="w-1.5 h-1.5 rounded-full bg-violet-400/80" />
+                  <span>Caso real: Maranatha</span>
+                </div>
+              </div>
+
               <picture>
                 {/* Móvil optimizado (Pantallas hasta 768px / smartphones Retina) */}
                 <source 
@@ -223,8 +258,8 @@ export const HeroV2: React.FC = () => {
                   src="/hero-showcase-mobile.webp"
                   srcSet="/hero-showcase-sm.webp 400w, /hero-showcase-mobile.webp 720w, /hero-showcase-desktop.webp 840w"
                   sizes="(max-width: 480px) 380px, (max-width: 768px) 100vw, 840px"
-                  alt="Sitio web y catálogo interactivo para Maranatha Papelería en Cali optimizado para vender en laptop y celular por JP Studios"
-                  className="w-full h-auto object-contain cursor-default transition-all duration-300 ease-out md:drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)] md:[filter:drop-shadow(0px_10px_30px_rgba(180,80,255,0.25))_drop-shadow(0px_25px_50px_rgba(0,0,0,0.8))] hover:md:[filter:drop-shadow(0px_15px_40px_rgba(180,80,255,0.45))_drop-shadow(0px_0px_50px_rgba(6,182,212,0.30))_drop-shadow(0px_30px_60px_rgba(0,0,0,0.95))] hover:md:-translate-y-[5px]"
+                  alt="Sitio web y catálogo interactivo para Maranatha Papelería en Cali optimizado para vender en laptop y celular por Juan Pablo Chacón"
+                  className="w-full h-auto object-contain cursor-default transition-all duration-300 ease-out md:drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)] md:[filter:drop-shadow(0px_10px_25px_rgba(167,139,250,0.18))_drop-shadow(0px_25px_50px_rgba(0,0,0,0.85))] hover:md:[filter:drop-shadow(0px_15px_35px_rgba(167,139,250,0.30))_drop-shadow(0px_30px_60px_rgba(0,0,0,0.95))] hover:md:-translate-y-[4px]"
                   style={{
                     imageRendering: 'auto',
                     WebkitBackfaceVisibility: 'hidden',

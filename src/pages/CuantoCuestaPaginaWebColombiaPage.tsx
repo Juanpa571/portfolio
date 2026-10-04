@@ -4,6 +4,9 @@ import { HeaderV2 } from '../components/v2/HeaderV2';
 import { FooterV2 } from '../components/v2/FooterV2';
 import { AuditoriaBackground } from '../components/v2/AuditoriaBackground';
 import { WhatsAppIcon } from '../components/ui/WhatsAppIcon';
+import { PresupuestoRapidoCalculator } from '../components/v2/PresupuestoRapidoCalculator';
+import { RevisionCotizacionCard } from '../components/v2/RevisionCotizacionCard';
+import { VideoAuditoriaCta } from '../components/v2/VideoAuditoriaCta';
 
 interface CuantoCuestaPaginaWebColombiaPageProps {
   onNavigateHome?: () => void;
@@ -121,7 +124,7 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
         <header className="relative z-10 pt-32 pb-12 sm:pt-40 sm:pb-16 max-w-[680px] mx-auto px-4 sm:px-6">
           
           {/* Breadcrumb accesible */}
-          <nav aria-label="Miga de pan" className="mb-6 flex flex-wrap items-center gap-2 text-xs font-mono text-slate-400">
+          <nav aria-label="Miga de pan" className="mb-6 flex flex-wrap items-center gap-2 text-xs font-sans text-slate-400">
             <a href="/" onClick={(e) => { if (onNavigateHome) { e.preventDefault(); onNavigateHome(); } }} className="hover:text-white transition-colors">
               Inicio
             </a>
@@ -134,7 +137,7 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
           </h1>
 
           {/* Byline / Metadatos de autoría y lectura */}
-          <div className="pt-4 pb-6 border-y border-white/[0.08] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-slate-400">
+          <div className="pt-4 pb-6 border-y border-white/[0.08] flex flex-wrap items-center justify-between gap-4 text-xs font-sans text-slate-400">
             <div className="flex items-center gap-3">
               <img
                 src="/juan-pablo-chacon.jpg"
@@ -180,11 +183,11 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
 
           {/* Caja de Tabla de Contenidos (Índice del Artículo) */}
           <nav aria-label="Tabla de contenidos del artículo" className="mt-10 p-6 sm:p-7 rounded-2xl bg-white/[0.015] border border-white/[0.08]">
-            <div className="text-xs font-mono uppercase tracking-wider text-slate-300 font-bold mb-5 flex items-center justify-between">
+            <div className="text-xs font-sans uppercase tracking-wider text-slate-300 font-bold mb-5 flex items-center justify-between">
               <span>En este artículo</span>
               <span className="text-[11px] font-normal text-slate-400">{tableOfContents.length} secciones</span>
             </div>
-            <ol className="flex flex-col gap-3 text-xs sm:text-sm font-mono text-slate-300">
+            <ol className="flex flex-col gap-3 text-xs sm:text-sm font-sans text-slate-300">
               {tableOfContents.map((item, index) => (
                 <li key={item.id}>
                   <a
@@ -319,9 +322,9 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
 
           {/* Tabla Desktop Editorial Dark Platinum */}
           <div className="hidden md:block overflow-x-auto my-8">
-            <table className="w-full text-left border-collapse text-xs lg:text-sm">
+            <table className="w-full text-left border-collapse text-xs lg:text-sm font-sans">
               <thead>
-                <tr className="border-t border-b border-white/15 bg-white/[0.02] text-slate-300 font-mono uppercase text-xs tracking-wider">
+                <tr className="border-t border-b border-white/15 bg-white/[0.02] text-slate-300 font-sans font-semibold text-xs tracking-normal">
                   <th className="py-4 lg:py-5 px-4 lg:px-5 w-[24%]">Tipo de Proyecto</th>
                   <th className="py-4 lg:py-5 px-4 lg:px-5 w-[22%]">Inversión Estimada</th>
                   <th className="py-4 lg:py-5 px-4 lg:px-5 w-[42%]">Alcance y Objetivo Real</th>
@@ -332,15 +335,15 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
                 <tr className="hover:bg-white/[0.02] transition-colors">
                   <td className="py-5 lg:py-6 px-4 lg:px-5">
                     <div className="text-sm font-bold text-white">Plantilla Básica / CMS</div>
-                    <div className="text-xs font-mono text-slate-400 mt-1">Wix / WordPress estándar</div>
+                    <div className="text-xs text-slate-400 mt-1 font-sans">Wix / WordPress estándar</div>
                   </td>
-                  <td className="py-5 lg:py-6 px-4 lg:px-5 font-mono text-white font-semibold whitespace-nowrap">
+                  <td className="py-5 lg:py-6 px-4 lg:px-5 font-sans text-white font-bold whitespace-nowrap">
                     $400.000 – $900.000
                   </td>
                   <td className="py-5 lg:py-6 px-4 lg:px-5 text-slate-300 leading-relaxed text-xs lg:text-sm">
                     Tema prediseñado con textos reemplazados. Para presencia básica de contacto sin requerir velocidad móvil ni posicionamiento SEO.
                   </td>
-                  <td className="py-5 lg:py-6 px-4 lg:px-5 font-mono text-slate-400 text-right whitespace-nowrap">
+                  <td className="py-5 lg:py-6 px-4 lg:px-5 font-sans text-slate-300 text-right whitespace-nowrap">
                     5 – 10 días
                   </td>
                 </tr>
@@ -348,15 +351,15 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
                 <tr className="hover:bg-white/[0.02] transition-colors">
                   <td className="py-5 lg:py-6 px-4 lg:px-5">
                     <div className="text-sm font-bold text-white">Landing Page de Conversión</div>
-                    <div className="text-xs font-mono text-slate-400 mt-1">One-page orientada a ventas</div>
+                    <div className="text-xs text-slate-400 mt-1 font-sans">One-page orientada a ventas</div>
                   </td>
-                  <td className="py-5 lg:py-6 px-4 lg:px-5 font-mono text-white font-semibold whitespace-nowrap">
+                  <td className="py-5 lg:py-6 px-4 lg:px-5 font-sans text-white font-bold whitespace-nowrap">
                     $1.000.000 – $1.800.000
                   </td>
                   <td className="py-5 lg:py-6 px-4 lg:px-5 text-slate-300 leading-relaxed text-xs lg:text-sm">
                     Página única orientada 100% a ventas, botón directo a WhatsApp, carga rápida (&lt;2s) y hosting serverless $0/mes. Ideal para pauta publicitaria.
                   </td>
-                  <td className="py-5 lg:py-6 px-4 lg:px-5 font-mono text-slate-400 text-right whitespace-nowrap">
+                  <td className="py-5 lg:py-6 px-4 lg:px-5 font-sans text-slate-300 text-right whitespace-nowrap">
                     10 – 14 días
                   </td>
                 </tr>
@@ -364,15 +367,15 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
                 <tr className="hover:bg-white/[0.02] transition-colors">
                   <td className="py-5 lg:py-6 px-4 lg:px-5">
                     <div className="text-sm font-bold text-white">Web Corporativa &amp; Catálogo</div>
-                    <div className="text-xs font-mono text-slate-400 mt-1">Multi-página para empresas</div>
+                    <div className="text-xs text-slate-400 mt-1 font-sans">Multi-página para empresas</div>
                   </td>
-                  <td className="py-5 lg:py-6 px-4 lg:px-5 font-mono text-white font-semibold whitespace-nowrap">
+                  <td className="py-5 lg:py-6 px-4 lg:px-5 font-sans text-white font-bold whitespace-nowrap">
                     $2.000.000 – $4.000.000
                   </td>
                   <td className="py-5 lg:py-6 px-4 lg:px-5 text-slate-300 leading-relaxed text-xs lg:text-sm">
-                    Inicio, Servicios, Casos, FAQ, marcado estructurado Schema.org para Google Maps, código React y cero dependencias de plugins. Para liderar en tu sector.
+                    <strong className="text-white font-medium">Incluye todo lo de Landing Page</strong> + arquitectura multi-página (Inicio, Servicios, Casos, FAQ), marcado Schema.org para Google Maps y posicionamiento orgánico.
                   </td>
-                  <td className="py-5 lg:py-6 px-4 lg:px-5 font-mono text-slate-400 text-right whitespace-nowrap">
+                  <td className="py-5 lg:py-6 px-4 lg:px-5 font-sans text-slate-300 text-right whitespace-nowrap">
                     14 – 21 días
                   </td>
                 </tr>
@@ -380,15 +383,15 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
                 <tr className="hover:bg-white/[0.02] transition-colors">
                   <td className="py-5 lg:py-6 px-4 lg:px-5">
                     <div className="text-sm font-bold text-white">Tienda Virtual / Software a Medida</div>
-                    <div className="text-xs font-mono text-slate-400 mt-1">E-commerce avanzado</div>
+                    <div className="text-xs text-slate-400 mt-1 font-sans">E-commerce avanzado</div>
                   </td>
-                  <td className="py-5 lg:py-6 px-4 lg:px-5 font-mono text-white font-semibold whitespace-nowrap">
+                  <td className="py-5 lg:py-6 px-4 lg:px-5 font-sans text-white font-bold whitespace-nowrap">
                     $5.000.000 – $15.000.000+
                   </td>
                   <td className="py-5 lg:py-6 px-4 lg:px-5 text-slate-300 leading-relaxed text-xs lg:text-sm">
-                    Pasarelas de pago automáticas (Wompi, Bold), cotizadores dinámicos, gestión de inventario o integración con sistemas de facturación.
+                    <strong className="text-white font-medium">Incluye todo lo de Web Corporativa</strong> + pasarelas de pago (Wompi, Bold), catálogos transaccionales, cotizadores en vivo o integración de inventario.
                   </td>
-                  <td className="py-5 lg:py-6 px-4 lg:px-5 font-mono text-slate-400 text-right whitespace-nowrap">
+                  <td className="py-5 lg:py-6 px-4 lg:px-5 font-sans text-slate-300 text-right whitespace-nowrap">
                     30 – 60 días
                   </td>
                 </tr>
@@ -397,19 +400,19 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
           </div>
 
           {/* Fichas Móviles Nativas */}
-          <div className="md:hidden space-y-4 mb-6">
+          <div className="md:hidden space-y-4 mb-6 font-sans">
             <div className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.08] space-y-3">
               <div className="flex items-start justify-between gap-2">
                 <div>
                   <div className="text-sm font-bold text-white">Plantilla Básica / CMS</div>
-                  <div className="text-xs font-mono text-slate-400 mt-0.5">Wix / WordPress estándar</div>
+                  <div className="text-xs text-slate-400 mt-0.5 font-sans">Wix / WordPress estándar</div>
                 </div>
-                <div className="text-xs font-mono text-slate-400 shrink-0">5 – 10 días</div>
+                <div className="text-xs text-slate-400 shrink-0 font-sans">5 – 10 días</div>
               </div>
-              <div className="text-xl font-bold font-mono text-white">
+              <div className="text-xl font-bold font-sans text-white">
                 $400.000 – $900.000 <span className="text-xs font-normal text-slate-400">COP</span>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs text-slate-300 leading-relaxed font-normal">
                 Tema prediseñado con textos reemplazados. Para presencia básica de contacto sin requerir velocidad móvil ni posicionamiento SEO.
               </p>
             </div>
@@ -418,14 +421,14 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
               <div className="flex items-start justify-between gap-2">
                 <div>
                   <div className="text-sm font-bold text-white">Landing Page de Conversión</div>
-                  <div className="text-xs font-mono text-slate-400 mt-0.5">One-page orientada a ventas</div>
+                  <div className="text-xs text-slate-400 mt-0.5 font-sans">One-page orientada a ventas</div>
                 </div>
-                <div className="text-xs font-mono text-slate-400 shrink-0">10 – 14 días</div>
+                <div className="text-xs text-slate-400 shrink-0 font-sans">10 – 14 días</div>
               </div>
-              <div className="text-xl font-bold font-mono text-white">
+              <div className="text-xl font-bold font-sans text-white">
                 $1.000.000 – $1.800.000 <span className="text-xs font-normal text-slate-400">COP</span>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs text-slate-300 leading-relaxed font-normal">
                 Página única orientada 100% a ventas, botón directo a WhatsApp, carga rápida (&lt;2s) y hosting serverless $0/mes.
               </p>
             </div>
@@ -434,15 +437,15 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
               <div className="flex items-start justify-between gap-2">
                 <div>
                   <div className="text-sm font-bold text-white">Web Corporativa &amp; Catálogo</div>
-                  <div className="text-xs font-mono text-slate-400 mt-0.5">Multi-página para empresas</div>
+                  <div className="text-xs text-slate-400 mt-0.5 font-sans">Multi-página para empresas</div>
                 </div>
-                <div className="text-xs font-mono text-slate-400 shrink-0">14 – 21 días</div>
+                <div className="text-xs text-slate-400 shrink-0 font-sans">14 – 21 días</div>
               </div>
-              <div className="text-xl font-bold font-mono text-white">
+              <div className="text-xl font-bold font-sans text-white">
                 $2.000.000 – $4.000.000 <span className="text-xs font-normal text-slate-400">COP</span>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                Inicio, Servicios, Casos, FAQ, marcado Schema.org para Google Maps, código React y cero dependencias de plugins.
+              <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                <strong className="text-white font-medium">Incluye todo lo de Landing Page</strong> + arquitectura multi-página (Inicio, Servicios, Casos, FAQ) y marcado Schema.org para posicionar en Google Maps.
               </p>
             </div>
 
@@ -450,18 +453,21 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
               <div className="flex items-start justify-between gap-2">
                 <div>
                   <div className="text-sm font-bold text-white">Tienda Virtual / Software a Medida</div>
-                  <div className="text-xs font-mono text-slate-400 mt-0.5">E-commerce avanzado</div>
+                  <div className="text-xs text-slate-400 mt-0.5 font-sans">E-commerce avanzado</div>
                 </div>
-                <div className="text-xs font-mono text-slate-400 shrink-0">30 – 60 días</div>
+                <div className="text-xs text-slate-400 shrink-0 font-sans">30 – 60 días</div>
               </div>
-              <div className="text-xl font-bold font-mono text-white">
+              <div className="text-xl font-bold font-sans text-white">
                 $5.000.000 – $15.000.000+ <span className="text-xs font-normal text-slate-400">COP</span>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                Pasarelas de pago automáticas (Wompi, Bold), cotizadores dinámicos, gestión de inventario o integraciones personalizadas.
+              <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                <strong className="text-white font-medium">Incluye todo lo de Web Corporativa</strong> + pasarelas de pago (Wompi, Bold), catálogos transaccionales y cotizadores en tiempo real.
               </p>
             </div>
           </div>
+
+          {/* Gancho 1: Micro-Calculadora de Presupuesto Justo en Tiempo Real */}
+          <PresupuestoRapidoCalculator />
 
         </section>
 
@@ -602,6 +608,9 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
 
           </div>
 
+          {/* Gancho 2: Segunda Opinión Técnica / Filtro Anti-Estafas */}
+          <RevisionCotizacionCard />
+
         </section>
 
         {/* ========================================================= */}
@@ -624,13 +633,13 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
             <div className="p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/[0.08] flex flex-col justify-between">
               <div>
                 <div className="text-xl font-bold text-white mb-2">Landing Page</div>
-                <div className="text-2xl font-extrabold font-mono text-white mb-4">
+                <div className="text-2xl font-extrabold font-sans text-white mb-4">
                   $1.500.000 <span className="text-xs text-slate-400 font-normal">COP</span>
                 </div>
-                <p className="text-xs text-slate-300 leading-relaxed mb-6">
+                <p className="text-xs text-slate-300 leading-relaxed mb-6 font-normal">
                   Ideal para campañas de pauta en Meta o Google Ads, venta rápida de un producto o servicio específico y contacto directo a WhatsApp.
                 </p>
-                <ul className="space-y-2 text-xs text-slate-300">
+                <ul className="space-y-2 text-xs text-slate-300 font-normal">
                   <li className="flex items-start gap-2">
                     <span className="text-slate-300 font-bold shrink-0">✓</span>
                     <span>Carga en menos de 2 segundos en celulares</span>
@@ -654,7 +663,7 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
                   href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20quiero%20cotizar%20una%20Landing%20Page%20para%20mi%20negocio"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-white font-semibold text-xs font-mono transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-white font-semibold text-xs font-sans transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
                 >
                   <span>Cotizar Landing Page</span>
                   <span>→</span>
@@ -666,13 +675,13 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
             <div className="p-6 sm:p-7 rounded-2xl bg-white/[0.035] border border-white/25 shadow-[0_0_35px_rgba(255,255,255,0.03)] flex flex-col justify-between">
               <div>
                 <div className="text-xl font-bold text-white mb-2">Web Corporativa &amp; Catálogo</div>
-                <div className="text-2xl font-extrabold font-mono text-white mb-4">
+                <div className="text-2xl font-extrabold font-sans text-white mb-4">
                   $2.500.000 <span className="text-xs text-slate-400 font-normal">a $3.500.000 COP</span>
                 </div>
-                <p className="text-xs text-slate-300 leading-relaxed mb-6">
+                <p className="text-xs text-slate-300 leading-relaxed mb-6 font-normal">
                   Para empresas que buscan liderar búsquedas en Google, aparecer con ficha destacada en Google Maps y motores de IA (ChatGPT, Gemini).
                 </p>
-                <ul className="space-y-2 text-xs text-slate-300">
+                <ul className="space-y-2 text-xs text-slate-300 font-normal">
                   <li className="flex items-start gap-2">
                     <span className="text-white font-bold shrink-0">✓</span>
                     <span>Inicio, Servicios, Casos de Éxito y FAQ</span>
@@ -696,7 +705,7 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
                   href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20quiero%20cotizar%20una%20Web%20Corporativa%20para%20mi%20empresa"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3 rounded-xl bg-white hover:bg-slate-200 text-slate-950 font-bold text-xs tracking-wide transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3 rounded-xl bg-white hover:bg-slate-200 text-slate-950 font-bold text-xs font-sans tracking-wide transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
                 >
                   <WhatsAppIcon className="w-3.5 h-3.5 fill-slate-950 shrink-0" />
                   <span>Hablar con Juan Pablo</span>
@@ -709,7 +718,7 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
             <div className="p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/[0.08] flex flex-col justify-between">
               <div>
                 <div className="text-xl font-bold text-white mb-2">Plataforma a Medida</div>
-                <div className="text-2xl font-extrabold font-mono text-white mb-4">
+                <div className="text-2xl font-extrabold font-sans text-white mb-4">
                   Desde $4.000.000 <span className="text-xs text-slate-400 font-normal">COP</span>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed mb-6">
@@ -859,41 +868,9 @@ export const CuantoCuestaPaginaWebColombiaPage: React.FC<CuantoCuestaPaginaWebCo
         </section>
 
         {/* ========================================================= */}
-        {/* BLOQUE CTA FINAL EDITORIAL                                */}
+        {/* BLOQUE CTA FINAL EDITORIAL (GANCHO 3: VIDEO-AUDITORÍA)     */}
         {/* ========================================================= */}
-        <section className="relative z-10 py-16 sm:py-20 border-t border-white/[0.08] max-w-[680px] mx-auto px-4 sm:px-6 text-center">
-          
-          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-white/[0.04] to-white/[0.01] border border-white/10 space-y-5">
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white max-w-md mx-auto leading-tight">
-              ¿Quieres saber cuánto costaría la web exacta de tu negocio?
-            </h2>
-
-            <p className="text-sm sm:text-base text-slate-300 max-w-sm mx-auto leading-relaxed font-normal">
-              Escríbeme por WhatsApp con una breve descripción de tu actividad comercial o tu sitio actual. Te daré una recomendación técnica sincera y una cotización cerrada sin compromiso.
-            </p>
-
-            <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20le%C3%AD%20tu%20gu%C3%ADa%20de%20precios%20y%20quiero%20cotizar%20un%20sitio%20web%20para%20mi%20negocio"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white hover:bg-slate-200 text-slate-950 font-bold text-xs font-mono tracking-wide transition-all shadow-lg flex items-center justify-center gap-2.5 cursor-pointer"
-              >
-                <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
-                <span>Hablar por WhatsApp (+57 317 737 1301)</span>
-              </a>
-
-              <a
-                href="/auditar-posicionamiento"
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-white font-semibold text-xs font-mono border border-white/15 transition-all flex items-center justify-center gap-2"
-              >
-                <span>Auditar Mi Web Actual en Google</span>
-                <span>→</span>
-              </a>
-            </div>
-          </div>
-
-        </section>
+        <VideoAuditoriaCta />
 
       </main>
 

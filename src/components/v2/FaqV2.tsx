@@ -41,13 +41,13 @@ export const FaqV2: React.FC = () => {
             <li className="flex items-start gap-2.5">
               <span className="text-slate-300 font-bold shrink-0 mt-0.5 font-mono">02.</span>
               <span>
-                <strong className="text-white font-semibold">Sitio Corporativo con Posicionamiento en Google (Desde $2.500.000 COP):</strong> Múltiples secciones, optimización para Google Maps y marcado Schema.org para captar clientes en tu ciudad.
+                <strong className="text-white font-semibold">Sitio Corporativo con Posicionamiento en Google (Desde $2.500.000 COP):</strong> Múltiples secciones, optimización para Google Maps y estructura lista para captar clientes en tu ciudad.
               </span>
             </li>
             <li className="flex items-start gap-2.5">
               <span className="text-slate-300 font-bold shrink-0 mt-0.5 font-mono">03.</span>
               <span>
-                <strong className="text-white font-semibold">Plataformas a medida y Catálogos Comerciales (Desde $4.500.000 COP):</strong> Para empresas que requieren catálogos extensos, filtrado de productos o integraciones con WhatsApp API y CRM.
+                <strong className="text-white font-semibold">Plataformas a medida y Catálogos Comerciales (Desde $4.500.000 COP):</strong> Para empresas que requieren catálogos extensos, filtrado de productos o pedidos directos por WhatsApp para su equipo comercial.
               </span>
             </li>
           </ul>
@@ -71,10 +71,10 @@ export const FaqV2: React.FC = () => {
             En Colombia, el registro anual de un dominio comercial (<code className="text-slate-200 font-mono text-xs px-1.5 py-0.5 rounded bg-white/[0.05]">.com</code> o <code className="text-slate-200 font-mono text-xs px-1.5 py-0.5 rounded bg-white/[0.05]">.com.co</code>) cuesta entre <strong className="text-white font-semibold">$60.000 y $120.000 COP al año</strong>, y lo pagas directamente a registradores oficiales a tu propio nombre.
           </p>
           <p>
-            En JP Studios alojo tu página web en <strong className="text-white font-semibold">redes globales de alto rendimiento (Cloudflare Edge)</strong> con certificado de seguridad SSL incluido. <strong className="text-emerald-400 font-semibold">No cobro mensualidades obligatorias de mantenimiento ni alquiler de código.</strong>
+            En JP Studios alojo tu página web en <strong className="text-white font-semibold">servidores de máxima velocidad y seguridad</strong> con certificado SSL incluido. <strong className="text-cyan-400 font-semibold">No cobro mensualidades obligatorias de mantenimiento ni alquiler de código.</strong>
           </p>
           <p className="text-xs sm:text-sm text-slate-400 pt-2 border-t border-white/[0.06]">
-            El código fuente en React, las credenciales del servidor y la propiedad del dominio son 100% tuyos desde el día de la entrega. Sin letras pequeñas ni contratos de retención.
+            Los archivos de tu web, los accesos del servidor y la propiedad del dominio son 100% tuyos desde el día de la entrega. Sin letras pequeñas ni contratos de retención.
           </p>
         </div>
       ),
@@ -82,23 +82,23 @@ export const FaqV2: React.FC = () => {
     {
       id: 'posicionamiento-google-maps',
       question: '¿Cómo hacer para que mi página web aparezca de primera en Google y Google Maps?',
-      shortAnswer: 'Combinando velocidad real de carga (< 1.5s), marcado de datos estructurados Schema.org y optimización del perfil local de Google Maps.',
+      shortAnswer: 'Combinando velocidad real de carga (< 2s), configuración técnica para Google y optimización del perfil local de Google Maps.',
       content: (
         <div className="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
           <p>
-            Aparecer en las primeras posiciones de Google no se logra con trucos mágicos ni palabras clave amontonadas. Se basa en tres pilares de ingeniería web que Google exige rigurosamente:
+            Aparecer en las primeras posiciones de Google no se logra con trucos mágicos ni palabras clave amontonadas. Se basa en tres pilares que Google premia rigurosamente:
           </p>
           <ul className="space-y-2.5 pt-1">
             <li className="flex items-start gap-2.5">
               <span className="text-slate-300 font-bold shrink-0 mt-0.5">✓</span>
               <span>
-                <strong className="text-white font-semibold">Velocidad de carga sub-segundo (Core Web Vitals):</strong> Google penaliza los sitios lentos de WordPress que tardan más de 3 segundos en abrir. Desarrollo en React 19 para superar las pruebas de PageSpeed con puntuación 90+.
+                <strong className="text-white font-semibold">Velocidad de carga inmediata:</strong> Google penaliza los sitios lentos de WordPress que tardan más de 3 segundos en abrir. Construyo tu página para que cargue en menos de 2 segundos en el celular del cliente y apruebe las pruebas oficiales de Google con nota verde (90-100).
               </span>
             </li>
             <li className="flex items-start gap-2.5">
               <span className="text-slate-300 font-bold shrink-0 mt-0.5">✓</span>
               <span>
-                <strong className="text-white font-semibold">Datos estructurados Schema.org JSON-LD:</strong> Inyecto código semántico que le enseña directamente a Googlebot y a motores de IA (ChatGPT, Gemini, Perplexity) el nombre de tu empresa, ciudad sede, servicios exactos y datos de contacto.
+                <strong className="text-white font-semibold">Configuración para Google y motores de IA:</strong> Registro la información exacta de tu empresa (dirección en Cali, servicios que ofreces, teléfonos y horarios) para que tanto Google como asistentes como ChatGPT entiendan a qué te dedicas y te recomienden a clientes locales.
               </span>
             </li>
             <li className="flex items-start gap-2.5">
@@ -182,7 +182,7 @@ export const FaqV2: React.FC = () => {
         {/* ENCABEZADO EDITORIAL DEL BLOQUE: DUDAS FRECUENTES         */}
         {/* ========================================================= */}
         <div id="faq-header" className="max-w-3xl mb-12 sm:mb-16">
-          <div className="text-xs font-mono tracking-wider text-slate-300 uppercase mb-4">
+          <div className="text-xs font-sans font-medium tracking-wider text-slate-300 uppercase mb-4">
             Preguntas Frecuentes & Inversión
           </div>
           
@@ -284,7 +284,7 @@ export const FaqV2: React.FC = () => {
         {/* ========================================================= */}
         <div className="mt-12 sm:mt-16 rounded-2xl bg-white/[0.02] border border-white/[0.08] p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="max-w-xl">
-            <div className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-1">
+            <div className="text-xs font-sans font-medium uppercase tracking-wider text-slate-400 mb-1">
               ¿Tienes una pregunta específica sobre tu proyecto?
             </div>
             <p className="text-sm sm:text-base font-semibold text-white">
@@ -296,7 +296,7 @@ export const FaqV2: React.FC = () => {
             href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20tengo%20una%20pregunta%20sobre%20el%20dise%C3%B1o%20web%20para%20mi%20empresa"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto shrink-0 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-200 text-slate-950 text-sm font-bold transition-all duration-200 flex items-center justify-center gap-2.5 group cursor-pointer shadow-[0_0_24px_rgba(255,255,255,0.2)] hover:shadow-[0_0_32px_rgba(255,255,255,0.35)] hover:-translate-y-0.5 active:translate-y-0"
+            className="w-full sm:w-auto shrink-0 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-200 active:scale-[0.97] text-slate-950 text-sm font-bold transition-all duration-150 flex items-center justify-center gap-2.5 group cursor-pointer shadow-[0_0_24px_rgba(255,255,255,0.2)] hover:shadow-[0_0_32px_rgba(255,255,255,0.35)] hover:-translate-y-0.5 active:translate-y-0"
           >
             <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
             <span>Hacer una pregunta por WhatsApp</span>

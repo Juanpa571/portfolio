@@ -19,8 +19,6 @@ import { WhatsAppIcon } from '../ui/WhatsAppIcon';
  */
 export const ProcessV2: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(1);
-  const [easterEggActive, setEasterEggActive] = useState<boolean>(false);
-  const [shakeCard3, setShakeCard3] = useState<boolean>(false);
 
   const steps = [
     {
@@ -44,10 +42,10 @@ export const ProcessV2: React.FC = () => {
     {
       id: 2,
       phase: 'DÍAS 4 A 12',
-      stageName: 'Construcción en Código',
-      title: 'Desarrollo a medida en React',
-      summary: 'Programo tu página desde cero con código limpio en React 19, TypeScript y Tailwind CSS.',
-      description: 'Sin plantillas lentas ni plugins pesados de WordPress que ralentizan la carga y se rompen con las actualizaciones. Construyo una interfaz moderna, fiel a la identidad de tu marca y optimizada para celulares y computadores.',
+      stageName: 'Construcción Ágil & Rápida',
+      title: 'Desarrollo web de alta velocidad',
+      summary: 'Construyo tu página desde cero con tecnología moderna ultrarrápida, garantizando una web ligera que nunca se cuelga ni se desconfigura.',
+      description: 'Sin plantillas lentas ni plugins pesados de WordPress que ralentizan la carga y se rompen con las actualizaciones. Construyo una plataforma moderna, fiel a la imagen de tu marca y optimizada para vender en celulares y computadores.',
       deliverable: 'Enlace privado para que pruebes la navegación e interacción en vivo.',
       accentHex: '#38bdf8',
       accentColor: 'text-sky-400',
@@ -62,10 +60,10 @@ export const ProcessV2: React.FC = () => {
     {
       id: 3,
       phase: 'DÍAS 13 A 21',
-      stageName: 'Auditoría & Despliegue',
-      title: 'Auditoría QA, SEO/GEO y despliegue',
-      summary: 'Someto la web a un protocolo exhaustivo de calidad antes de abrirla al público.',
-      description: 'Audito que cargue en menos de 2.5s en redes 4G con PageSpeed. Ejecuto pruebas de control de calidad (QA) en enlaces y navegación móvil, configuro Schema.org y aplico optimización GEO para que Google Maps y buscadores de IA citen y recomienden tu negocio.',
+      stageName: 'Pruebas & Lanzamiento',
+      title: 'Pruebas de calidad, Google y lanzamiento',
+      summary: 'Someto la web a un riguroso control de calidad antes de abrirla a tus clientes.',
+      description: 'Compruebo que la web abra en menos de 2 segundos en celulares. Reviso cada botón, enlace y formulario para que no haya fugas de clientes, y configuro la conexión con Google Maps y motores de búsqueda para que empieces a recibir visitas.',
       deliverable: 'Tu web auditada, desplegada en producción y lista para facturar.',
       accentHex: '#38bdf8',
       accentColor: 'text-sky-400',
@@ -102,13 +100,6 @@ export const ProcessV2: React.FC = () => {
   const isAllCompleted = activeStep > 3;
 
   const handleStepClick = (targetId: number) => {
-    // EASTER EGG: Si intenta saltar al paso 3 desde el paso 1 sin haber pasado por el paso 2
-    if (targetId === 3 && activeStep === 1) {
-      setEasterEggActive(true);
-      setShakeCard3(true);
-      setTimeout(() => setShakeCard3(false), 600);
-      return;
-    }
     setDirection(targetId > activeStep ? 1 : -1);
     setActiveStep(targetId);
   };
@@ -144,7 +135,7 @@ export const ProcessV2: React.FC = () => {
         {/* ENCABEZADO EDITORIAL DEL BLOQUE: METODOLOGÍA Y PLAZOS     */}
         {/* ========================================================= */}
         <div id="proceso-header" className="max-w-3xl mb-12 sm:mb-16">
-          <div className="text-xs font-mono tracking-wider text-cyan-400 uppercase mb-4">
+          <div className="text-xs font-['Geist',sans-serif] font-medium tracking-wider text-cyan-400 uppercase mb-4">
             Metodología y Plazos
           </div>
           
@@ -174,20 +165,21 @@ export const ProcessV2: React.FC = () => {
 
                 return (
                   <React.Fragment key={item.id}>
-                    {/* Botón Indicador */}
+                    {/* Botón Indicador con Touch Target Accesible y Reactividad Táctil */}
                     <button
                       type="button"
                       onClick={() => handleStepClick(item.id)}
-                      className="group/ind flex items-center gap-2.5 focus:outline-none cursor-pointer"
+                      className="group/ind flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 active:scale-[0.96] rounded-xl p-1.5 cursor-pointer min-h-[44px] min-w-[44px] transition-transform duration-150"
                       aria-label={`Ver paso ${item.id}: ${item.title}`}
+                      aria-current={isCurrent ? 'step' : undefined}
                     >
                       <div
-                        className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-mono font-bold text-xs sm:text-sm transition-all duration-300 border ${
+                        className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center font-sans font-bold text-xs sm:text-sm transition-all duration-300 border ${
                           isCompleted
                             ? 'bg-sky-500/20 text-sky-400 border-sky-500/40'
                             : isCurrent
                             ? `bg-white/10 text-white ${item.indicatorActiveBorder}`
-                            : 'bg-white/[0.03] text-slate-500 border-white/10 hover:border-white/20'
+                            : 'bg-white/[0.03] text-slate-400 border-white/10 hover:border-white/20'
                         }`}
                       >
                         {isCompleted ? (
@@ -200,12 +192,12 @@ export const ProcessV2: React.FC = () => {
                       </div>
                       
                       <div className="hidden md:block text-left">
-                        <div className={`text-[10px] font-mono uppercase tracking-wider ${
+                        <div className={`text-[10px] font-sans uppercase tracking-wider ${
                           isCurrent ? `${item.indicatorPhaseColor} font-bold` : isCompleted ? 'text-sky-400 font-semibold' : 'text-slate-500'
                         }`}>
                           {item.phase}
                         </div>
-                        <div className="text-xs font-semibold text-white/90 truncate max-w-[130px]">
+                        <div className="text-xs font-sans font-semibold text-white/90 truncate max-w-[130px]">
                           {item.title.split(' ')[0]} {item.title.split(' ')[1] || ''}
                         </div>
                       </div>
@@ -227,13 +219,13 @@ export const ProcessV2: React.FC = () => {
               })}
             </div>
 
-            {/* Controles de navegación del stepper */}
-            <div className="flex items-center shrink-0 w-full sm:w-auto justify-end border-t sm:border-t-0 pt-3 sm:pt-0 border-white/[0.06]">
+            {/* Controles de navegación del stepper con Touch Target de 44px y respuesta física */}
+            <div className="flex items-center shrink-0 w-full sm:w-auto justify-end border-t sm:border-t-0 pt-3 sm:pt-0 border-white/[0.06] gap-2">
               {isAllCompleted ? (
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="px-5 py-2 rounded-xl text-xs font-mono font-bold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all cursor-pointer flex items-center gap-1.5"
+                  className="min-h-[44px] px-5 py-2.5 rounded-xl text-xs font-sans font-semibold bg-white/10 hover:bg-white/20 active:scale-[0.97] text-white border border-white/20 transition-all duration-150 cursor-pointer flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                 >
                   <span>Reiniciar recorrido</span>
                   <span>↺</span>
@@ -242,18 +234,18 @@ export const ProcessV2: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="px-5 py-2 rounded-xl text-xs font-mono font-bold bg-emerald-400 hover:bg-emerald-300 text-slate-950 transition-all shadow-[0_0_18px_rgba(16,185,129,0.35)] hover:shadow-[0_0_24px_rgba(16,185,129,0.5)] cursor-pointer flex items-center gap-1.5"
+                  className="min-h-[44px] px-5 py-2.5 rounded-xl text-xs font-sans font-semibold bg-emerald-400 hover:bg-emerald-300 active:scale-[0.97] text-slate-950 transition-all duration-150 shadow-[0_0_18px_rgba(16,185,129,0.35)] hover:shadow-[0_0_24px_rgba(16,185,129,0.5)] cursor-pointer flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
                 >
-                  <span>Completar proceso</span>
+                  <span>Finalizar recorrido</span>
                   <span>✓</span>
                 </button>
               ) : (
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="px-5 py-2 rounded-xl text-xs font-mono font-bold bg-cyan-400 hover:bg-cyan-300 text-slate-950 transition-all shadow-[0_0_18px_rgba(6,182,212,0.3)] hover:shadow-[0_0_24px_rgba(6,182,212,0.5)] cursor-pointer flex items-center gap-1.5"
+                  className="min-h-[44px] px-5 py-2.5 rounded-xl text-xs font-sans font-semibold bg-cyan-400 hover:bg-cyan-300 active:scale-[0.97] text-slate-950 transition-all duration-150 shadow-[0_0_18px_rgba(6,182,212,0.3)] hover:shadow-[0_0_24px_rgba(6,182,212,0.5)] cursor-pointer flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                 >
-                  <span>Continuar al siguiente paso</span>
+                  <span>Continuar al paso {activeStep + 1}</span>
                   <span>→</span>
                 </button>
               )}
@@ -282,7 +274,7 @@ export const ProcessV2: React.FC = () => {
                       ✓
                     </div>
                     <div className="space-y-1">
-                      <div className="text-[11px] font-mono uppercase tracking-wider text-sky-400 font-semibold">
+                      <div className="text-[11px] font-sans uppercase tracking-widest text-sky-400 font-semibold">
                         Recorrido Completado
                       </div>
                       <p className="text-xl font-extrabold text-white tracking-tight">
@@ -296,7 +288,7 @@ export const ProcessV2: React.FC = () => {
                       <button
                         type="button"
                         onClick={handleReset}
-                        className="px-5 py-2.5 rounded-xl text-xs font-mono font-bold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all cursor-pointer inline-flex items-center gap-1.5"
+                        className="min-h-[44px] px-5 py-3 rounded-xl text-xs font-sans font-bold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all cursor-pointer inline-flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                       >
                         <span>Reiniciar recorrido</span>
                         <span>↺</span>
@@ -322,10 +314,10 @@ export const ProcessV2: React.FC = () => {
                       >
                         {/* Cabecera del paso */}
                         <div className="pb-5 border-b border-white/[0.06] mb-5 flex items-center justify-between">
-                          <div className={`text-2xl font-black font-mono tracking-tight ${item.accentColor}`}>
+                          <div className={`text-2xl font-extrabold font-sans tracking-tight ${item.accentColor}`}>
                             {item.phase}
                           </div>
-                          <span className="text-[11px] font-mono text-slate-400 font-semibold uppercase tracking-wider">
+                          <span className="text-[11px] font-sans text-slate-400 font-semibold uppercase tracking-widest">
                             Paso {item.id} de 3
                           </span>
                         </div>
@@ -345,7 +337,7 @@ export const ProcessV2: React.FC = () => {
 
                         {/* Entregable garantizado */}
                         <div className="pt-5 mt-6 border-t border-white/[0.06]">
-                          <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-1.5 font-semibold">
+                          <div className="text-[11px] font-sans uppercase tracking-widest text-slate-400 mb-1.5 font-semibold">
                             Entregable garantizado:
                           </div>
                           <div className="flex items-start gap-2.5 text-xs text-slate-200">
@@ -358,13 +350,13 @@ export const ProcessV2: React.FC = () => {
                           </div>
                         </div>
 
-                        {/* Controles integrados en el pie de la tarjeta móvil */}
+                        {/* Controles integrados en el pie de la tarjeta móvil con 44px touch targets */}
                         <div className="pt-6 mt-6 border-t border-white/[0.06] flex items-center justify-between gap-3">
                           {activeStep > 1 ? (
                             <button
                               type="button"
                               onClick={handlePrev}
-                              className="px-4 py-2.5 rounded-xl text-xs font-mono font-medium text-slate-400 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 transition-all cursor-pointer flex items-center gap-1.5"
+                              className="min-h-[44px] px-4 py-3 rounded-xl text-xs font-sans font-medium text-slate-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 transition-all cursor-pointer flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                             >
                               <span>← Anterior</span>
                             </button>
@@ -376,16 +368,16 @@ export const ProcessV2: React.FC = () => {
                             <button
                               type="button"
                               onClick={handleNext}
-                              className="px-5 py-2.5 rounded-xl text-xs font-mono font-bold bg-emerald-400 hover:bg-emerald-300 text-slate-950 transition-all shadow-[0_0_18px_rgba(16,185,129,0.35)] cursor-pointer flex items-center gap-1.5"
+                              className="min-h-[44px] px-5 py-3 rounded-xl text-xs font-sans font-bold bg-emerald-400 hover:bg-emerald-300 text-slate-950 transition-all shadow-[0_0_18px_rgba(16,185,129,0.35)] cursor-pointer flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
                             >
-                              <span>Completar proceso</span>
+                              <span>Finalizar recorrido</span>
                               <span>✓</span>
                             </button>
                           ) : (
                             <button
                               type="button"
                               onClick={handleNext}
-                              className="px-5 py-2.5 rounded-xl text-xs font-mono font-bold bg-cyan-400 hover:bg-cyan-300 text-slate-950 transition-all shadow-[0_0_18px_rgba(6,182,212,0.3)] cursor-pointer flex items-center gap-1.5"
+                              className="min-h-[44px] px-5 py-3 rounded-xl text-xs font-sans font-bold bg-cyan-400 hover:bg-cyan-300 text-slate-950 transition-all shadow-[0_0_18px_rgba(6,182,212,0.3)] cursor-pointer flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                             >
                               <span>Continuar al Paso {activeStep + 1}</span>
                               <span>→</span>
@@ -413,46 +405,41 @@ export const ProcessV2: React.FC = () => {
               <motion.article 
                 key={item.id}
                 layout
-                animate={item.id === 3 && shakeCard3 ? {
-                  x: [0, -10, 10, -8, 8, -4, 4, 0],
-                  borderColor: ['rgba(239,68,68,0.8)', 'rgba(239,68,68,0.4)', 'rgba(255,255,255,0.05)'],
-                } : {}}
-                transition={{ duration: 0.5, ease: 'easeInOut' }}
-                className={`relative rounded-3xl transition-all duration-500 p-7 sm:p-9 flex flex-col justify-between overflow-hidden backdrop-blur-sm ${
+                onClick={() => handleStepClick(item.id)}
+                className={`relative rounded-3xl transition-all duration-300 p-7 sm:p-9 flex flex-col justify-between overflow-hidden backdrop-blur-sm cursor-pointer group ${
                   isCurrent
-                    ? `bg-white/[0.035] ${item.activeBorder} ${item.glowShadow} -translate-y-1`
+                    ? `bg-white/[0.04] ${item.activeBorder} ${item.glowShadow} -translate-y-1`
                     : isCompleted
                     ? 'bg-white/[0.02] border border-emerald-500/30 shadow-[0_0_25px_rgba(16,185,129,0.08)]'
                     : 'bg-[#060709]/80 border border-white/[0.05]'
                 }`}
               >
                 {/* Contenido principal de la tarjeta */}
-                <div 
-                  aria-hidden={!isUnlocked}
-                  className={`transition-all duration-500 ${
+                <div className={`transition-all duration-500 ${
                   isUnlocked 
                     ? 'opacity-100 filter-none' 
-                    : 'opacity-25 filter blur-[5px] select-none pointer-events-none'
+                    : 'opacity-25 filter blur-[4px] pointer-events-none'
                 }`}>
-                  {/* Cabecera del paso: Franja de tiempo como protagonista principal */}
+                  {/* Cabecera del paso: Franja de tiempo + Estado tipográfico sobrio (Sin cápsulas) */}
                   <div className="pb-6 border-b border-white/[0.06] mb-6 flex items-center justify-between">
-                    <div className={`text-2xl sm:text-3xl font-black font-mono tracking-tight ${item.accentColor}`}>
+                    <div className={`text-2xl sm:text-3xl font-extrabold font-sans tracking-tight ${item.accentColor}`}>
                       {item.phase}
                     </div>
 
-                    {/* Estado de la tarjeta */}
+                    {/* Estado tipográfico limpio */}
                     {isCompleted ? (
-                      <span className="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full flex items-center gap-1 font-semibold">
-                        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span>Completado</span>
+                      <span className="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400">
+                        ✓ Completado
                       </span>
                     ) : isCurrent ? (
-                      <span className="text-[11px] font-mono text-cyan-300 bg-cyan-500/10 border border-cyan-500/30 px-2.5 py-0.5 rounded-full font-semibold">
-                        En foco
+                      <span className="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-400">
+                        En Foco
                       </span>
-                    ) : null}
+                    ) : (
+                      <span className="text-xs font-mono font-medium uppercase tracking-wider text-slate-500">
+                        Bloqueado
+                      </span>
+                    )}
                   </div>
 
                   {/* Título y resumen */}
@@ -471,14 +458,10 @@ export const ProcessV2: React.FC = () => {
                 </div>
 
                 {/* Entregable garantizado del paso */}
-                <div 
-                  aria-hidden={!isUnlocked}
-                  className={`pt-6 mt-8 border-t border-white/[0.06] transition-all duration-500 ${
-                  isUnlocked 
-                    ? 'opacity-100 filter-none' 
-                    : 'opacity-25 filter blur-[5px] select-none pointer-events-none'
+                <div className={`pt-6 mt-8 border-t border-white/[0.06] transition-all duration-500 ${
+                  isUnlocked ? 'opacity-100' : 'opacity-25 filter blur-[4px]'
                 }`}>
-                  <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2">
+                  <div className="text-[11px] font-sans uppercase tracking-widest text-slate-400 mb-2 font-semibold">
                     Entregable del paso:
                   </div>
                   <div className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-200">
@@ -491,24 +474,26 @@ export const ProcessV2: React.FC = () => {
                   </div>
                 </div>
 
-                {/* OVERLAY BLOQUEADO (Para pasos futuros) */}
+                {/* Overlay de Bloqueo Progresivo (Con Touch Target de 44px) */}
                 <AnimatePresence>
                   {!isUnlocked && (
                     <motion.div 
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      className="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 text-center bg-black/40 backdrop-blur-[4px]"
+                      transition={{ duration: 0.3 }}
+                      onClick={() => handleStepClick(item.id)}
+                      className="absolute inset-0 z-20 flex flex-col items-center justify-center p-6 text-center bg-black/50 backdrop-blur-[2px] cursor-pointer group/lock"
                     >
-                      <div className="w-12 h-12 rounded-2xl bg-white/[0.05] border border-white/10 flex items-center justify-center mb-3 shadow-xl">
-                        <svg className="w-5 h-5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <div className="w-12 h-12 rounded-2xl bg-white/[0.06] border border-white/10 flex items-center justify-center mb-3 shadow-xl group-hover/lock:scale-105 group-hover/lock:border-cyan-400/40 transition-all">
+                        <svg className="w-5 h-5 text-slate-400 group-hover/lock:text-cyan-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                           <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                         </svg>
                       </div>
 
                       <div className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold mb-1">
-                        Paso {item.id} Bloqueado
+                        Paso 0{item.id} Bloqueado
                       </div>
                       <div className="text-sm font-bold text-white mb-4">
                         {item.phase}
@@ -516,11 +501,14 @@ export const ProcessV2: React.FC = () => {
 
                       <button
                         type="button"
-                        onClick={() => handleStepClick(item.id)}
-                        className="px-4 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] text-white border border-white/15 text-xs font-mono font-medium transition-all hover:scale-105 cursor-pointer flex items-center gap-1.5"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleStepClick(item.id);
+                        }}
+                        className="min-h-[44px] px-4 py-2.5 rounded-xl bg-white/[0.08] hover:bg-white/[0.15] active:scale-[0.96] text-white border border-white/15 hover:border-cyan-400/40 text-xs font-mono font-medium transition-all duration-150 group-hover/lock:scale-105 cursor-pointer flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
                       >
                         <span>Desbloquear paso</span>
-                        <span>↗</span>
+                        <span>→</span>
                       </button>
                     </motion.div>
                   )}
@@ -531,78 +519,11 @@ export const ProcessV2: React.FC = () => {
         </div>
 
         {/* ========================================================= */}
-        {/* EASTER EGG POPUP MODAL: INTENTO DE SALTO INDEBIDO         */}
-        {/* ========================================================= */}
-        <AnimatePresence>
-          {easterEggActive && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md"
-              onClick={() => setEasterEggActive(false)}
-            >
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0, y: 20 }}
-                animate={{ scale: 1, opacity: 1, y: 0 }}
-                exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-                onClick={(e) => e.stopPropagation()}
-                className="max-w-md w-full p-6 sm:p-7 rounded-2xl bg-[#0c0d12] border border-amber-500/30 shadow-[0_0_50px_rgba(245,158,11,0.2)] text-center relative overflow-hidden"
-              >
-                {/* Acento superior de luz */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-[1px] bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
-
-                <div className="w-12 h-12 mx-auto rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center mb-4 text-amber-400">
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                  </svg>
-                </div>
-
-                <div className="text-[11px] font-mono uppercase tracking-wider text-amber-400 mb-1 font-semibold">
-                  Alerta de atajo detectada
-                </div>
-
-                <p className="text-lg sm:text-xl font-bold text-white mb-2">
-                  ¡Ey, con calma! Las cosas llevan su proceso ⏳
-                </p>
-
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
-                  ¿Querías saltarte directo al lanzamiento y la gloria sin pasar por la forja del código? 
-                  Aquí no hago magia barata: primero estructuro, luego programo a medida y finalmente audito y despliego.
-                </p>
-
-                <div className="flex flex-col sm:flex-row items-center gap-3">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setEasterEggActive(false);
-                      setActiveStep(2);
-                    }}
-                    className="w-full sm:flex-1 py-2.5 px-4 rounded-xl text-xs font-mono font-bold bg-[#FFCC00] hover:bg-[#ffe066] text-slate-950 transition-all cursor-pointer shadow-[0_0_15px_rgba(255,204,0,0.3)]"
-                  >
-                    Ver Paso 2 (La Forja) →
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setEasterEggActive(false)}
-                    className="w-full sm:w-auto py-2.5 px-4 rounded-xl text-xs font-mono text-slate-400 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 transition-all cursor-pointer"
-                  >
-                    Entendido 🤝
-                  </button>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* ========================================================= */}
         {/* FRANJA DE COMPROMISO COMERCIAL DIRECTO                     */}
         {/* ========================================================= */}
         <div className="mt-12 sm:mt-16 rounded-2xl bg-white/[0.02] border border-white/[0.08] p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="max-w-2xl">
-            <div className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-1">
+            <div className="text-xs font-sans uppercase tracking-widest text-slate-400 mb-1">
               Garantía de Tiempo y Alcance
             </div>
             <p className="text-sm sm:text-base font-semibold text-white">
@@ -614,7 +535,7 @@ export const ProcessV2: React.FC = () => {
             href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20quiero%20conocer%20los%20tiempos%20y%20proceso%20para%20crear%20la%20p%C3%A1gina%20web%20de%20mi%20empresa"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto shrink-0 px-6 py-3.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] backdrop-blur-md text-white border border-white/20 hover:border-cyan-400/50 text-sm font-bold transition-all duration-200 flex items-center justify-center gap-2.5 group cursor-pointer shadow-[inset_0_1px_0_0_rgba(255,255,255,0.25),0_8px_24px_-4px_rgba(0,0,0,0.5)] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.4),0_0_28px_rgba(6,182,212,0.3)] hover:-translate-y-0.5 active:translate-y-0"
+            className="w-full sm:w-auto shrink-0 min-h-[44px] px-6 py-3.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] active:scale-[0.97] backdrop-blur-md text-white border border-white/20 hover:border-cyan-400/50 text-sm font-bold transition-all duration-150 flex items-center justify-center gap-2.5 group cursor-pointer shadow-[inset_0_1px_0_0_rgba(255,255,255,0.25),0_8px_24px_-4px_rgba(0,0,0,0.5)] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.4),0_0_28px_rgba(6,182,212,0.3)] hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
           >
             <WhatsAppIcon className="w-4 h-4 fill-cyan-400 shrink-0 transition-transform group-hover:scale-110" />
             <span>Consultar disponibilidad de fechas</span>

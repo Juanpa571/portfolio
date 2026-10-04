@@ -6,13 +6,17 @@ import React from 'react';
  * Sección 04: Portafolio de Casos Reales & Evidencia Empírica de Negocio.
  * Construido bajo la Antigravity SEO Bible (Money Page, E-E-A-T real, 0 CLS).
  * 
- * - Caso 01: Maranatha Papelería Creativa (Cali, Colombia).
- *   Desarrollo de catálogo interactivo en React 19 + WhatsApp conversion.
- * - Caso 02: "Próximo Proyecto" (Reserva estratégica para nuevo cliente).
+ * - Caso Insignia: Maranatha Papelería Creativa (Cali, Colombia).
+ *   Desarrollo de catálogo interactivo en React 19 + conversión directa a WhatsApp.
+ * - Bloque de Confianza: El Estándar de Ingeniería de JP Studios (Garantías de Entrega).
  * - Cumplimiento estricto: Voz en singular independiente (Regla #10).
- * - Cero píldoras decorativas, tipografía sobria Geist Sans y jerarquía pura.
+ * - Cero píldoras decorativas, tipografía sobria y jerarquía pura.
  */
 export const ProjectsV2: React.FC = () => {
+  const whatsappUrl = `https://wa.me/573177371301?text=${encodeURIComponent(
+    'Hola Juan Pablo, estuve viendo el caso de Maranatha en tu portafolio y quiero cotizar una plataforma web de alto rendimiento para mi empresa.'
+  )}`;
+
   return (
     <section 
       id="proyectos" 
@@ -22,25 +26,25 @@ export const ProjectsV2: React.FC = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ========================================================= */}
-        {/* ENCABEZADO EDITORIAL DEL BLOQUE: LA EVIDENCIA REAL        */}
+        {/* ENCABEZADO EDITORIAL DEL BLOQUE: EVIDENCIA REAL           */}
         {/* ========================================================= */}
         <div id="proyectos-header" className="max-w-3xl mb-16 sm:mb-20">
-          <div className="text-xs font-mono tracking-wider text-slate-300 uppercase mb-4">
-            Casos de Estudio
+          <div className="text-xs font-sans font-semibold tracking-widest text-cyan-400 uppercase mb-4">
+            Evidencia de Ingeniería & Negocio
           </div>
           
           <h2 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-[-0.03em] text-white leading-[1.08]">
-            Proyectos reales en{' '}
-            <span className="text-white">producción.</span>
+            Casos de estudio donde la técnica{' '}
+            <span className="text-white">genera ventas.</span>
           </h2>
 
           <p className="mt-6 text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-            Cada proyecto es una plataforma web desarrollada a la medida, alojada en producción y optimizada para indexar en Google y convertir visitas reales en ventas directas.
+            Sistemas web reales, con clientes reales y en vivo. No diseño pantallas decorativas: construyo plataformas rápidas pensadas para posicionar en Google y convertir visitas en cotizaciones todos los días.
           </p>
         </div>
 
         {/* ========================================================= */}
-        {/* CASO 01: MARANATHA PAPELERÍA CREATIVA (PROTAGONISTA REAL) */}
+        {/* CASO 01: MARANATHA PAPELERÍA CREATIVA (CASO INSIGNIA)     */}
         {/* ========================================================= */}
         <div className="space-y-12 sm:space-y-16">
           
@@ -50,13 +54,7 @@ export const ProjectsV2: React.FC = () => {
               {/* Columna Izquierda: Arquitectura del Caso y Métricas Reales */}
               <div className="lg:col-span-6 flex flex-col justify-between h-full space-y-6">
                 <div>
-                  <div className="flex items-center gap-3 text-xs font-mono text-slate-400 mb-3">
-                    <span className="text-white font-bold">CASO 01</span>
-                    <span>/</span>
-                    <span>CALI, COLOMBIA</span>
-                    <span>/</span>
-                    <span className="text-slate-200">REACT 19 + TYPESCRIPT</span>
-                  </div>
+
 
                   <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
                     Maranatha Papelería Creativa
@@ -66,37 +64,44 @@ export const ProjectsV2: React.FC = () => {
                     Catálogo digital de productos y sistema de cotizaciones directas a WhatsApp.
                   </p>
 
-                  <p className="mt-5 text-xs sm:text-sm text-slate-400 leading-relaxed">
-                    Maranatha dependía de catálogos en PDF pesados de más de 40 MB que los clientes no abrían en celulares por lentitud. Desarrollé una plataforma web ultrarrápida a la medida en React con búsqueda y filtrado instantáneo en memoria (0ms de latencia) para decenas de referencias de papelería, stickers y empaques empresariales, con botones directos para cotizar en WhatsApp sin fricción de formularios. Además, la arquitectura está estructurada semánticamente para captar crecimiento orgánico en Google y motores de búsqueda basados en inteligencia artificial.
-                  </p>
+                  <div className="mt-5 space-y-4 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                    <p>
+                      <strong className="text-slate-200 block mb-1">El Dolor de Negocio:</strong>
+                      Maranatha dependía casi exclusivamente del «voz a voz». En temporadas bajas, cuando las compras locales caen, los ingresos se veían fuertemente afectados por no tener un canal para captar clientes nuevos. Además, cuando alguien pedía información por WhatsApp, le enviaban un catálogo en PDF de más de 40 MB que casi nadie descargaba en su celular, perdiendo ventas en el momento decisivo.
+                    </p>
+                    <p>
+                      <strong className="text-slate-200 block mb-1">La Solución y Retorno Comercial:</strong>
+                      Desarrollé un catálogo digital ultrarrápido que abre al instante en cualquier teléfono y permite explorar decenas de referencias en segundos. Con un solo toque, el cliente envía la referencia exacta a WhatsApp lista para facturar, eliminando fricciones y formularios. A la par, posicioné el sitio en el <strong className="text-white">puesto #1 de Google en Cali</strong>: hoy la web atrae compradores nuevos de forma automática todos los días, estabilizando las ventas incluso en los meses más lentos del año.
+                    </p>
+                  </div>
                 </div>
 
-                {/* Grid de Métricas Clave Auditadas (Alineadas con los 3 Pilares del Estudio) */}
-                <div className="grid grid-cols-3 gap-4 pt-6 border-t border-white/[0.08]">
+                {/* Grid de Métricas Clave Auditadas */}
+                <div className="grid grid-cols-3 gap-6 sm:gap-8 pt-6 border-t border-white/[0.08]">
                   <div>
-                    <div className="text-2xl sm:text-3xl font-black font-mono text-[#FFCC00]">
-                      &lt; 2.5s
+                    <div className="text-2xl sm:text-3xl font-extrabold font-sans tracking-tight text-white">
+                      &lt; 2s
                     </div>
                     <div className="text-xs text-slate-400 mt-1 leading-snug">
-                      Carga LCP en redes 4G móviles
+                      Apertura inmediata en celulares
                     </div>
                   </div>
 
                   <div>
-                    <div className="text-2xl sm:text-3xl font-black font-mono text-emerald-400">
-                      0 ms
+                    <div className="text-2xl sm:text-3xl font-extrabold font-sans tracking-tight text-white">
+                      1 Clic
                     </div>
                     <div className="text-xs text-slate-400 mt-1 leading-snug">
-                      Búsqueda en catálogo sin recarga
+                      Cotización directa en WhatsApp
                     </div>
                   </div>
 
                   <div>
-                    <div className="text-xl sm:text-2xl lg:text-3xl font-black font-mono text-sky-400 tracking-tight">
+                    <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold font-sans tracking-tight text-white">
                       #1 en Cali
                     </div>
                     <div className="text-xs text-slate-400 mt-1 leading-snug">
-                      Papelería creativa orgánicamente en &lt; 1 semana
+                      Captación orgánica en Google
                     </div>
                   </div>
                 </div>
@@ -107,7 +112,7 @@ export const ProjectsV2: React.FC = () => {
                     href="https://maranathapapeleria.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-slate-200 text-slate-950 text-xs sm:text-sm font-bold tracking-wide transition-all shadow-md shadow-white/10 group/btn"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-slate-200 active:scale-[0.97] text-slate-950 text-xs sm:text-sm font-bold tracking-wide transition-all duration-150 shadow-md shadow-white/10 group/btn"
                   >
                     <span>Ver Sitio Web en Vivo</span>
                     <span className="transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5">↗</span>
@@ -117,9 +122,9 @@ export const ProjectsV2: React.FC = () => {
                     href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fmaranathapapeleria.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] text-slate-300 hover:text-white border border-white/10 text-xs font-mono transition-all"
+                    className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] active:scale-[0.98] text-slate-300 hover:text-white border border-white/10 text-xs font-sans font-medium transition-all duration-150"
                   >
-                    <span>Auditar en PageSpeed</span>
+                    <span>Auditar en PageSpeed (100/100)</span>
                     <span className="text-slate-500">↗</span>
                   </a>
                 </div>
@@ -134,7 +139,6 @@ export const ProjectsV2: React.FC = () => {
                   className="group/preview block relative rounded-2xl overflow-hidden border border-white/10 hover:border-white/20 bg-slate-950/60 shadow-2xl transition-colors duration-300 cursor-pointer"
                   aria-label="Abrir sitio web de Maranatha Papelería Creativa en una nueva pestaña"
                 >
-                  {/* Aspect Ratio 1440/1000 Exacto sin zoom */}
                   <div className="aspect-[1440/1000] w-full overflow-hidden relative bg-[#060709]">
                     <img 
                       src="/projects/maranatha-hero.webp" 
@@ -149,7 +153,7 @@ export const ProjectsV2: React.FC = () => {
                     {/* Viñeta sutil estática */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#060709]/20 via-transparent to-transparent pointer-events-none" />
 
-                    {/* Flecha minimalista blanca en el centro (sin cápsula, círculo ni contenedor) */}
+                    {/* Flecha minimalista blanca en el centro */}
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                       <div className="opacity-0 group-hover/preview:opacity-100 transition-all duration-300 transform translate-y-2 group-hover/preview:translate-y-0">
                         <svg 
@@ -171,45 +175,77 @@ export const ProjectsV2: React.FC = () => {
           </article>
 
           {/* ======================================================= */}
-          {/* CASO 02: "PRÓXIMO PROYECTO" (INVITACIÓN COMERCIAL)      */}
+          {/* EL ESTÁNDAR DE INGENIERÍA: GARANTÍAS DE ENTREGA         */}
           {/* ======================================================= */}
-          <article className="rounded-3xl bg-gradient-to-br from-white/[0.02] to-transparent border border-white/[0.06] p-6 sm:p-10 lg:p-12 backdrop-blur-sm relative overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="rounded-3xl bg-white/[0.02] border border-white/[0.08] p-8 sm:p-10 lg:p-12 backdrop-blur-sm relative overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
-              <div className="lg:col-span-8">
-                <div className="flex items-center gap-3 text-xs font-mono text-slate-500 mb-3">
-                  <span className="text-slate-400 font-bold">CASO 02</span>
-                  <span>/</span>
-                  <span>ESPACIO DISPONIBLE</span>
-                  <span>/</span>
-                  <span className="text-slate-400">TU EMPRESA EN CALI O GLOBAL</span>
+              <div className="lg:col-span-8 space-y-6">
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                    Construido como un activo para tu negocio, no como un gasto que caduca.
+                  </h3>
+
+                  <p className="mt-4 text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
+                    Muchas empresas pagan millones por páginas armadas sobre plantillas pesadas que se desconfiguran a los pocos meses o exigen pagar mensualidades eternas para no caerse. Mi estándar es diferente: entrego plataformas ultrarrápidas, 100% tuyas y diseñadas para durar sin depender de nadie. Tres garantías innegociables:
+                  </p>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                  Tu próximo proyecto web
-                </h3>
+                {/* 3 Pilares del Estándar */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 border-t border-white/[0.06] text-xs">
+                  <div className="space-y-1.5">
+                    <span className="font-sans text-white font-bold tracking-wider block">01 · CERO PLUGINS LENTOS</span>
+                    <p className="text-slate-400 leading-relaxed">
+                      Estructurado desde cero para tu negocio. Cero temas inflados de terceros que vuelven lenta la navegación.
+                    </p>
+                  </div>
 
-                <p className="mt-4 text-xs sm:text-sm text-slate-400 max-w-2xl leading-relaxed">
-                  Una plataforma rápida para posicionar tu marca y vender más. Diseño y desarrollo sitios web de alto rendimiento programados a la medida. Sin intermediarios, sin plantillas genéricas lentas y con comunicación directa de ingeniería. Entrego tu plataforma lista para competir en Google en 14 a 21 días.
-                </p>
+                  <div className="space-y-1.5">
+                    <span className="font-sans text-white font-bold tracking-wider block">02 · VELOCIDAD BLINDADA</span>
+                    <p className="text-slate-400 leading-relaxed">
+                      El 53% de las visitas abandonan páginas lentas. Tu web abrirá al instante en cualquier teléfono con red 4G.
+                    </p>
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <span className="font-sans text-white font-bold tracking-wider block">03 · PROPIEDAD TOTAL</span>
+                    <p className="text-slate-400 leading-relaxed">
+                      El código, el dominio y los accesos son de tu empresa. Cero mensualidades forzadas de mantenimiento.
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              <div className="lg:col-span-4 flex lg:justify-end">
+              {/* Columna Derecha: Llamado a la Acción Directo */}
+              <div className="lg:col-span-4 flex flex-col justify-center items-start lg:items-end space-y-4 border-t lg:border-t-0 lg:border-l border-white/[0.08] pt-6 lg:pt-0 lg:pl-8">
+                <div className="lg:text-right">
+                  <span className="text-xs font-sans font-medium text-slate-400 uppercase tracking-wider block mb-1">
+                    Próxima Entrega Disponible
+                  </span>
+                  <p className="text-sm font-semibold text-white">
+                    Plazo de 14 a 21 días para lanzamiento
+                  </p>
+                </div>
+
                 <a
-                  href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20quiero%20cotizar%20un%20proyecto%20web%20para%20mi%20empresa"
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-white border border-white/10 text-sm font-semibold transition-all flex items-center justify-center gap-2 group"
+                  className="w-full sm:w-auto px-7 py-4 rounded-xl bg-white hover:bg-slate-100 active:scale-[0.97] text-slate-950 font-bold text-xs sm:text-sm tracking-wide transition-all duration-150 shadow-[0_0_24px_rgba(255,255,255,0.2)] hover:shadow-[0_0_32px_rgba(255,255,255,0.35)] hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 group cursor-pointer"
                 >
-                  <span>Reservar mi proyecto</span>
-                  <svg className="w-4 h-4 text-white transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <span>Cotizar mi proyecto en WhatsApp</span>
+                  <svg className="w-4 h-4 text-slate-950 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </a>
+
+                <p className="text-[11px] text-slate-400 lg:text-right">
+                  Comunicación directa con Juan Pablo Chacón · Sin intermediarios
+                </p>
               </div>
 
             </div>
-          </article>
+          </div>
 
         </div>
 

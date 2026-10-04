@@ -122,7 +122,7 @@ export const ContactV2: React.FC = () => {
     {
       id: 'web-scratch',
       label: 'Página Web desde Cero',
-      description: 'Un sitio web completo y personalizado para tu negocio en React 19.',
+      description: 'Un sitio web completo, rápido y elegante para presentar tu empresa y captar clientes.',
       icon: 'globe',
     },
     {
@@ -146,7 +146,7 @@ export const ContactV2: React.FC = () => {
     {
       id: 'redesign',
       label: 'Rediseño de Web Actual',
-      description: 'Reemplaza una web lenta o desactualizada por código de alto rendimiento.',
+      description: 'Reemplaza una web lenta o desactualizada por una moderna que cargue al instante y atraiga clientes.',
       icon: 'refresh',
     },
     {
@@ -320,7 +320,7 @@ export const ContactV2: React.FC = () => {
           {/* ========================================================= */}
           <div className="lg:col-span-4 flex flex-col justify-between self-stretch space-y-10">
             <div id="contacto-header">
-              <div className="text-xs font-mono tracking-wider text-emerald-400 uppercase mb-4">
+              <div className="text-xs font-['Geist',sans-serif] font-medium tracking-wider text-emerald-400 uppercase mb-4">
                 Cotización sin Fricción
               </div>
 
@@ -347,7 +347,7 @@ export const ContactV2: React.FC = () => {
                 href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20quiero%20cotizar%20un%20proyecto%20web%20para%20mi%20empresa"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/10 hover:border-emerald-400/40 text-xs sm:text-sm font-semibold transition-all duration-300 group cursor-pointer"
+                className="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] active:scale-[0.97] text-white border border-white/10 hover:border-emerald-400/40 text-xs sm:text-sm font-semibold transition-all duration-150 group cursor-pointer"
               >
                 <WhatsAppIcon className="w-4 h-4 fill-emerald-400 shrink-0" />
                 <span>Hablemos por WhatsApp</span>
@@ -416,7 +416,7 @@ export const ContactV2: React.FC = () => {
                 {/* Cabecera del Paso Actual */}
                 <div className="space-y-2 mb-8 pb-6 border-b border-white/[0.06] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <div>
-                    <div className="text-[11px] font-mono uppercase tracking-wider text-emerald-400 font-semibold mb-1">
+                    <div className="text-[11px] font-['Geist',sans-serif] uppercase tracking-wider text-emerald-400 font-semibold mb-1">
                       Paso {currentStep} de 3
                     </div>
                     <p className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
@@ -455,13 +455,13 @@ export const ContactV2: React.FC = () => {
                           <div
                             key={opt.id}
                             onClick={() => setSelectedProjectType(opt.id)}
-                            className={`p-3.5 rounded-2xl border transition-all duration-200 cursor-pointer flex items-center justify-between gap-3.5 select-none ${
+                            className={`p-3.5 rounded-2xl border transition-all duration-200 cursor-pointer flex items-center justify-between gap-3.5 ${
                               isSelected
                                 ? 'bg-emerald-500/10 border-emerald-400/70 text-white shadow-[0_0_20px_rgba(16,185,129,0.18)]'
                                 : 'bg-white/[0.02] border-white/[0.08] text-slate-300 hover:border-white/20 hover:bg-white/[0.04]'
                             }`}
                           >
-                            <div className="flex items-center gap-3.5 min-w-0">
+                            <div className="flex items-center gap-3.5 min-w-0 flex-1">
                               <div
                                 className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
                                   isSelected
@@ -471,7 +471,7 @@ export const ContactV2: React.FC = () => {
                               >
                                 <OptionIcon icon={opt.icon} className="w-5 h-5" />
                               </div>
-                              <div className="min-w-0 pr-1">
+                              <div className="min-w-0 flex-1 pr-1">
                                 <p
                                   className={`text-sm font-bold leading-snug ${
                                     isSelected ? 'text-white' : 'text-slate-200'
@@ -480,7 +480,7 @@ export const ContactV2: React.FC = () => {
                                   {opt.label}
                                 </p>
                                 <p
-                                  className={`text-xs leading-snug mt-0.5 line-clamp-1 ${
+                                  className={`text-xs leading-relaxed mt-0.5 ${
                                     isSelected ? 'text-slate-300' : 'text-slate-400'
                                   }`}
                                 >
@@ -510,7 +510,7 @@ export const ContactV2: React.FC = () => {
                           <div
                             key={opt.id}
                             onClick={() => setSelectedProjectType(opt.id)}
-                            className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[160px] select-none group ${
+                            className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[160px] group ${
                               isSelected
                                 ? 'bg-emerald-500/10 border-emerald-400/60 shadow-[0_0_25px_rgba(16,185,129,0.18)] translate-y-[-2px]'
                                 : 'bg-white/[0.02] border-white/[0.08] hover:border-white/20 hover:bg-white/[0.04]'
@@ -568,13 +568,13 @@ export const ContactV2: React.FC = () => {
                           <div
                             key={opt.id}
                             onClick={() => setSelectedSector(opt.id)}
-                            className={`p-3.5 rounded-2xl border transition-all duration-200 cursor-pointer flex items-center justify-between gap-3.5 select-none ${
+                            className={`p-3.5 rounded-2xl border transition-all duration-200 cursor-pointer flex items-center justify-between gap-3.5 ${
                               isSelected
                                 ? 'bg-emerald-500/10 border-emerald-400/70 text-white shadow-[0_0_20px_rgba(16,185,129,0.18)]'
                                 : 'bg-white/[0.02] border-white/[0.08] text-slate-300 hover:border-white/20 hover:bg-white/[0.04]'
                             }`}
                           >
-                            <div className="flex items-center gap-3.5 min-w-0">
+                            <div className="flex items-center gap-3.5 min-w-0 flex-1">
                               <div
                                 className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
                                   isSelected
@@ -584,7 +584,7 @@ export const ContactV2: React.FC = () => {
                               >
                                 <OptionIcon icon={opt.icon} className="w-5 h-5" />
                               </div>
-                              <div className="min-w-0 pr-1">
+                              <div className="min-w-0 flex-1 pr-1">
                                 <p
                                   className={`text-sm font-bold leading-snug ${
                                     isSelected ? 'text-white' : 'text-slate-200'
@@ -593,7 +593,7 @@ export const ContactV2: React.FC = () => {
                                   {opt.label}
                                 </p>
                                 <p
-                                  className={`text-xs leading-snug mt-0.5 line-clamp-1 ${
+                                  className={`text-xs leading-relaxed mt-0.5 ${
                                     isSelected ? 'text-slate-300' : 'text-slate-400'
                                   }`}
                                 >
@@ -623,7 +623,7 @@ export const ContactV2: React.FC = () => {
                           <div
                             key={opt.id}
                             onClick={() => setSelectedSector(opt.id)}
-                            className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[160px] select-none group ${
+                            className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer flex flex-col justify-between min-h-[160px] group ${
                               isSelected
                                 ? 'bg-emerald-500/10 border-emerald-400/60 shadow-[0_0_25px_rgba(16,185,129,0.18)] translate-y-[-2px]'
                                 : 'bg-white/[0.02] border-white/[0.08] hover:border-white/20 hover:bg-white/[0.04]'
@@ -674,7 +674,7 @@ export const ContactV2: React.FC = () => {
                   <div className="space-y-6">
                     {/* Resumen de opciones elegidas */}
                     <div className="flex flex-wrap items-center gap-2.5 text-xs text-slate-400 pb-2">
-                      <span className="font-mono uppercase tracking-wider text-slate-400">
+                      <span className="font-sans font-semibold uppercase tracking-wider text-slate-400">
                         Selección:
                       </span>
                       {currentProjectObj && (
@@ -693,7 +693,7 @@ export const ContactV2: React.FC = () => {
 
                     <form onSubmit={handleSubmit} className="space-y-5">
                       <div className="space-y-2">
-                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-300">
+                        <label className="block text-xs font-sans font-semibold uppercase tracking-wider text-slate-300">
                           Tu nombre o nombre de la empresa
                         </label>
                         <input
@@ -701,12 +701,12 @@ export const ContactV2: React.FC = () => {
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           placeholder="Ej: Carlos Mendoza (Clínica Dental)"
-                          className="w-full px-5 py-3.5 rounded-xl bg-white/[0.04] border border-white/15 focus:border-emerald-400 focus:outline-none text-sm text-white placeholder:text-slate-600 transition-colors shadow-inner"
+                          className="w-full px-5 py-3.5 rounded-xl bg-white/[0.04] border border-white/15 focus:border-emerald-400 focus:outline-none text-sm text-white placeholder:text-slate-600 transition-colors shadow-inner font-sans"
                         />
                       </div>
 
                       <div className="space-y-2">
-                        <label className="block text-xs font-mono uppercase tracking-wider text-slate-300">
+                        <label className="block text-xs font-sans font-semibold uppercase tracking-wider text-slate-300">
                           WhatsApp o Celular de contacto
                         </label>
                         <input
@@ -716,7 +716,7 @@ export const ContactV2: React.FC = () => {
                           value={phone}
                           onChange={(e) => handlePhoneChange(e.target.value)}
                           placeholder="Ej: +57 317 000 0000"
-                          className="w-full px-5 py-3.5 rounded-xl bg-white/[0.04] border border-white/15 focus:border-emerald-400 focus:outline-none text-sm text-white placeholder:text-slate-600 transition-colors shadow-inner"
+                          className="w-full px-5 py-3.5 rounded-xl bg-white/[0.04] border border-white/15 focus:border-emerald-400 focus:outline-none text-sm text-white placeholder:text-slate-600 transition-colors shadow-inner font-sans"
                         />
                       </div>
 
@@ -733,7 +733,7 @@ export const ContactV2: React.FC = () => {
                     <button
                       type="button"
                       onClick={handlePrev}
-                      className="px-5 py-2.5 rounded-xl border border-white/15 text-xs font-mono font-medium text-slate-300 hover:text-white hover:border-white/30 transition-colors cursor-pointer"
+                      className="px-5 py-2.5 rounded-xl border border-white/15 text-xs font-sans font-medium text-slate-300 hover:text-white hover:border-white/30 active:scale-[0.97] transition-all duration-150 cursor-pointer"
                     >
                       ← Anterior
                     </button>
@@ -746,7 +746,7 @@ export const ContactV2: React.FC = () => {
                       type="button"
                       onClick={handleNext}
                       disabled={currentStep === 1 ? !selectedProjectType : !selectedSector}
-                      className="px-6 py-3 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 text-xs font-mono font-bold transition-all shadow-[0_0_18px_rgba(16,185,129,0.3)] hover:shadow-[0_0_24px_rgba(16,185,129,0.5)] cursor-pointer flex items-center gap-2 disabled:opacity-30 disabled:cursor-not-allowed disabled:shadow-none"
+                      className="px-6 py-3 rounded-xl bg-emerald-400 hover:bg-emerald-300 active:scale-[0.97] text-slate-950 text-xs sm:text-sm font-sans font-bold transition-all duration-150 shadow-[0_0_18px_rgba(16,185,129,0.3)] hover:shadow-[0_0_24px_rgba(16,185,129,0.5)] cursor-pointer flex items-center gap-2 disabled:opacity-30 disabled:cursor-not-allowed disabled:shadow-none disabled:active:scale-100"
                     >
                       <span>Siguiente paso</span>
                       <span>→</span>
@@ -756,7 +756,7 @@ export const ContactV2: React.FC = () => {
                       type="button"
                       onClick={handleSubmit}
                       disabled={status === 'submitting'}
-                      className="px-7 py-3 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 text-xs font-mono font-bold transition-all shadow-[0_0_20px_rgba(16,185,129,0.35)] hover:shadow-[0_0_28px_rgba(16,185,129,0.5)] cursor-pointer flex items-center gap-2 disabled:opacity-50"
+                      className="px-7 py-3 rounded-xl bg-emerald-400 hover:bg-emerald-300 active:scale-[0.97] text-slate-950 text-xs sm:text-sm font-sans font-bold transition-all duration-150 shadow-[0_0_20px_rgba(16,185,129,0.35)] hover:shadow-[0_0_28px_rgba(16,185,129,0.5)] cursor-pointer flex items-center gap-2 disabled:opacity-50 disabled:active:scale-100"
                     >
                       <span>{status === 'submitting' ? 'Enviando solicitud...' : 'Enviar y Recibir Propuesta'}</span>
                       <span>→</span>

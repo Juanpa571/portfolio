@@ -5,8 +5,8 @@ export const siteConfig = {
     role: 'Desarrollador Web & Consultor de Conversión',
     location: 'Cali, Colombia',
     timezone: 'America/Bogota',
-    headline: 'Diseño web a la medida en React y estructura enfocada en captar clientes.',
-    description: 'Estudio de diseño y desarrollo web en Cali. Páginas corporativas y landing pages de alta velocidad (React 19) optimizadas para captar clientes en Google y motores de IA.',
+    headline: 'Diseño de páginas web en Cali para vender más.',
+    description: 'Estudio de diseño web en Cali. Páginas corporativas y catálogos de alta velocidad optimizados para captar clientes en Google y motores de IA.',
     contact: {
       email: 'hola@jpchacon.com',
       whatsapp: 'https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto',
