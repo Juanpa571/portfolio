@@ -514,6 +514,9 @@ for (const page of pages) {
     `<meta property="og:url" content="${page.canonical}" />`
   );
 
+  // Remove cross-page hreflang tags inherited from index.html (subpages are monolingual Spanish without localized alternates; prevents conflicting return-tag signals pointing to root)
+  html = html.replace(/<link\s+rel="alternate"\s+hreflang="[^"]*"\s+href="[^"]*"\s*\/?>\s*/gi, '');
+
   // Inject or replace dedicated semantic static content for this subpage
   if (page.mainHtml) {
     if (html.includes('<main>')) {
@@ -587,6 +590,20 @@ for (const page of pages) {
         "https://es.wikipedia.org/wiki/Cali",
         "https://www.linkedin.com/in/juan-pablo-chacon-034457283/",
         "https://github.com/Juanpa571"
+      ],
+      "founder": {
+        "@id": "https://jpchacon.com/#founder"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://jpchacon.com/#founder",
+      "name": "Juan Pablo Chacón",
+      "jobTitle": "Lead Web Engineer & Conversion Designer",
+      "url": "https://jpchacon.com/",
+      "sameAs": [
+        "https://www.linkedin.com/in/juan-pablo-chacon-034457283/",
+        "https://github.com/Juanpa571"
       ]
     },
     {
@@ -617,6 +634,33 @@ for (const page of pages) {
       }
     }
   ];
+
+  // Add Article schema for editorial pricing guide
+  if (page.route === 'cuanto-cuesta-una-pagina-web-en-colombia') {
+    schemaGraph.push({
+      "@type": "Article",
+      "@id": `${page.canonical}#article`,
+      "isPartOf": {
+        "@id": `${page.canonical}#webpage`
+      },
+      "headline": page.h1,
+      "description": page.description,
+      "inLanguage": "es-CO",
+      "mainEntityOfPage": page.canonical,
+      "datePublished": "2026-09-26T12:00:00Z",
+      "dateModified": "2026-10-05T19:00:00Z",
+      "author": {
+        "@type": "Person",
+        "@id": "https://jpchacon.com/#founder",
+        "name": "Juan Pablo Chacón",
+        "url": "https://jpchacon.com/"
+      },
+      "publisher": {
+        "@id": "https://jpchacon.com/#organization"
+      },
+      "image": "https://jpchacon.com/og-image-v3.png"
+    });
+  }
 
   if (page.faqItems && page.faqItems.length > 0) {
     schemaGraph.push({
