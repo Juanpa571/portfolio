@@ -28,3 +28,12 @@
    - El único número oficial de WhatsApp para prospección y contacto de Juan Pablo Chacón es **+57 317 737 1301**. Queda terminantemente prohibido inventar o sugerir cualquier otro número ficticio o placeholder.
    - Remitente oficial: `Juan Pablo Chacón <hola@jpchacon.com>`. Web oficial: `https://jpchacon.com`.
 
+5. **Identidad Unipersonal Estricta (Prohibido Hablar en Plural):**
+   - Juan Pablo Chacón / JP Studios es única y exclusivamente un **estudio independiente operado por una sola persona** ("yo analicé", "yo construyo", "mi enfoque", "diseño y desarrollo").
+   - Queda TERMINANTEMENTE PROHIBIDO hablar en primera persona del plural (*"nosotros hacemos"*, *"nuestro equipo"*, *"resolvemos"*, *"te ofrecemos"*). Toda comunicación, guion, correo, mensaje de WhatsApp o diagnóstico debe redactarse estrictamente en singular, reflejando el trato directo, honesto y transparente de un desarrollador independiente con el cliente.
+
+6. **Métrica Real de Velocidad Web (<2.5s) y Cero Cifras Infladas:**
+   - La métrica oficial, real y verificable de rendimiento de JP Studios es **menos de 2.5 segundos (`< 2.5s`)**.
+   - Queda TERMINANTEMENTE PROHIBIDO inventar o prometer tiempos de carga de *"menos de 1 segundo"*, *"0.8 segundos"* o cualquier otra cifra inflada. Toda referencia a velocidad debe ceñirse con honestidad técnica a la promesa real: **carga rápida en menos de 2.5 segundos (`< 2.5s`)**.
+
+

@@ -65,22 +65,63 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     
-    <!-- Google Fonts Fast Preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&family=Pacifico&display=swap">
+    <!-- Critical Web Fonts Preload (Self-Hosted, Zero Render Blocking, Zero CLS) -->
+    <link rel="preload" href="/fonts/plus-jakarta-sans-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
+    <link rel="preload" href="/fonts/plus-jakarta-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
+    <link rel="preload" href="/fonts/geist-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
+    <link rel="preload" href="/fonts/geist-sans-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
+    <link rel="preload" href="/fonts/geist-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
 
-    <!-- Critical Base CSS for Instant First Contentful Paint -->
+    <!-- Critical Base CSS & Local Font Faces for Instant First Contentful Paint -->
     <style>
+      @font-face {
+        font-family: 'Plus Jakarta Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-display: optional;
+        src: url('/fonts/plus-jakarta-sans-latin-700-normal.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Plus Jakarta Sans';
+        font-style: normal;
+        font-weight: 800;
+        font-display: optional;
+        src: url('/fonts/plus-jakarta-sans-latin-800-normal.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Geist';
+        font-style: normal;
+        font-weight: 400;
+        font-display: optional;
+        src: url('/fonts/geist-sans-latin-400-normal.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Geist';
+        font-style: normal;
+        font-weight: 500;
+        font-display: optional;
+        src: url('/fonts/geist-sans-latin-500-normal.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Geist';
+        font-style: normal;
+        font-weight: 700;
+        font-display: optional;
+        src: url('/fonts/geist-sans-latin-700-normal.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
       body{margin:0;background-color:#070709;color:#f8fafc;font-family:'Geist','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased}
       h1,h2,h3{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif}
     </style>
 
-    <!-- Hero Image Responsive Preload for Instant LCP (Sub-2s mobile) -->
-    <link rel="preload" as="image" href="/hero-showcase-mobile.webp" media="(max-width: 768px)" fetchpriority="high" type="image/webp" />
+    <!-- Hero Image Responsive Preload for Instant LCP -->
+    <link rel="preload" as="image" href="/hero-showcase-sm.webp" media="(max-width: 480px)" fetchpriority="high" type="image/webp" />
+    <link rel="preload" as="image" href="/hero-showcase-mobile.webp" media="(min-width: 481px) and (max-width: 768px)" fetchpriority="high" type="image/webp" />
     <link rel="preload" as="image" href="/hero-showcase-desktop.webp" media="(min-width: 769px)" fetchpriority="high" type="image/webp" />
-    <link rel="preload" as="image" href="/jp-emblem-crystal-blurred.webp" media="(max-width: 767px)" type="image/webp" />
-    <link rel="preload" as="image" href="/jp-emblem-crystal.webp" media="(min-width: 768px)" type="image/webp" />
     <title>Diseño Web Cali | Páginas Web para Vender — JP Studios</title>
     <meta name="description" content="Diseño de páginas web en Cali para vender más. Sitios web y catálogos de alta velocidad optimizados para posicionar de primeros en Google y captar clientes." />
     <meta name="keywords" content="diseño de páginas web en cali, diseño web cali, desarrollo web cali, páginas web cali, páginas web para empresas, páginas web para vender, posicionamiento web cali, cómo crear una página web para mi negocio, cuánto cuesta una página web, JP Studios, Juan Pablo Chacón" />

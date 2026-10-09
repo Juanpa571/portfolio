@@ -263,6 +263,7 @@ export const HeroV2: React.FC = () => {
                   style={{
                     imageRendering: 'auto',
                     WebkitBackfaceVisibility: 'hidden',
+                    aspectRatio: '840 / 473',
                   }}
                   width="840"
                   height="473"
