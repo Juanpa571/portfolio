@@ -241,8 +241,7 @@ export const HeroV2: React.FC = () => {
                 <source 
                   media="(max-width: 768px)"
                   type="image/webp" 
-                  srcSet="/hero-showcase-sm.webp 400w, /hero-showcase-mobile.webp 720w" 
-                  sizes="(max-width: 480px) 380px, (max-width: 768px) 100vw, 840px"
+                  srcSet="/hero-showcase-mobile.webp" 
                   width="720"
                   height="405"
                 />
@@ -256,8 +255,6 @@ export const HeroV2: React.FC = () => {
                 />
                 <img
                   src="/hero-showcase-mobile.webp"
-                  srcSet="/hero-showcase-sm.webp 400w, /hero-showcase-mobile.webp 720w, /hero-showcase-desktop.webp 840w"
-                  sizes="(max-width: 480px) 380px, (max-width: 768px) 100vw, 840px"
                   alt="Sitio web y catálogo interactivo para Maranatha Papelería en Cali optimizado para vender en laptop y celular por Juan Pablo Chacón"
                   className="w-full h-auto object-contain cursor-default transition-all duration-300 ease-out md:drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)] md:[filter:drop-shadow(0px_10px_25px_rgba(167,139,250,0.18))_drop-shadow(0px_25px_50px_rgba(0,0,0,0.85))] hover:md:[filter:drop-shadow(0px_15px_35px_rgba(167,139,250,0.30))_drop-shadow(0px_30px_60px_rgba(0,0,0,0.95))] hover:md:-translate-y-[4px]"
                   style={{

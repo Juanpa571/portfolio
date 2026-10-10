@@ -139,8 +139,8 @@ export const KineticBackgroundV2: React.FC = () => {
       if (diagHeaderTop === 0) measureSections();
       targetScrollProgress = Math.min(Math.max(currentScrollY / maxScroll, 0), 1);
       
-      // En móviles, cargamos el emblema inmediatamente si está en el viewport
-      if (currentScrollY > 10 || window.innerWidth < 768) {
+      // Cargar el emblema de forma diferida únicamente cuando el usuario comience a hacer scroll
+      if (currentScrollY > 30) {
         loadEmblem();
       }
       requestTick();
@@ -360,7 +360,7 @@ export const KineticBackgroundV2: React.FC = () => {
       initialized = true;
       if (fallbackTimeoutId) clearTimeout(fallbackTimeoutId);
 
-      if (window.scrollY > 10 || window.innerWidth < 768) {
+      if (window.scrollY > 30) {
         loadEmblem();
       }
       resize();

@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useState, useEffect } from 'react';
 import { MetaTags } from '../components/seo/MetaTags';
 import { HeaderV2 } from '../components/v2/HeaderV2';
 import { HeroV2 } from '../components/v2/HeroV2';
@@ -28,6 +28,42 @@ const FooterV2 = lazy(() =>
 );
 
 export const V2HomePage: React.FC = () => {
+  const [showBelowFold, setShowBelowFold] = useState(false);
+
+  useEffect(() => {
+    // Si el usuario llega con ancla o ya scrolleó, montar inmediatamente
+    if (typeof window !== 'undefined' && (window.scrollY > 20 || window.location.hash)) {
+      setShowBelowFold(true);
+      return;
+    }
+
+    const triggerMount = () => {
+      setShowBelowFold(true);
+    };
+
+    window.addEventListener('scroll', triggerMount, { once: true, passive: true });
+    window.addEventListener('touchstart', triggerMount, { once: true, passive: true });
+    window.addEventListener('wheel', triggerMount, { once: true, passive: true });
+
+    let idleId: any;
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      idleId = (window as any).requestIdleCallback(triggerMount, { timeout: 7000 });
+    } else {
+      idleId = setTimeout(triggerMount, 6000);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', triggerMount);
+      window.removeEventListener('touchstart', triggerMount);
+      window.removeEventListener('wheel', triggerMount);
+      if (typeof window !== 'undefined' && 'cancelIdleCallback' in window) {
+        (window as any).cancelIdleCallback(idleId);
+      } else {
+        clearTimeout(idleId);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-transparent text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-black relative">
       <MetaTags
@@ -46,8 +82,9 @@ export const V2HomePage: React.FC = () => {
         {/* Bloque 1: Hero Section (Above the Fold - Carga estática síncrona para LCP inmediato) */}
         <HeroV2 />
 
-        {/* Componentes Below-the-Fold envueltos en Suspense */}
-        <Suspense fallback={<div className="min-h-screen bg-transparent" />}>
+        {/* Componentes Below-the-Fold cargados en segundo plano / scroll para blindar LCP y TBT */}
+        {showBelowFold && (
+          <Suspense fallback={<div className="min-h-screen bg-transparent" />}>
           {/* Divisor Minimalista */}
           <div className="w-full border-t border-white/[0.08]" aria-hidden="true" />
 
@@ -86,6 +123,7 @@ export const V2HomePage: React.FC = () => {
 
           <FooterV2 />
         </Suspense>
+        )}
       </main>
     </div>
   );

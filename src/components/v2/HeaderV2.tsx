@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
 export interface HeaderNavLink {
@@ -243,21 +242,14 @@ export const HeaderV2: React.FC<HeaderV2Props> = ({
         }`}
       >
         {/* Hairline de resplandor ambiental reactivo según la sección activa */}
-        <AnimatePresence>
-          {isScrolled && activeSection && (
-            <motion.div
-              key={activeSection}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.8 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4 }}
-              className="absolute bottom-0 left-0 right-0 h-[1px] pointer-events-none"
-              style={{
-                background: activeTheme.headerBorder,
-              }}
-            />
-          )}
-        </AnimatePresence>
+        <div
+          className={`absolute bottom-0 left-0 right-0 h-[1px] pointer-events-none transition-opacity duration-300 ${
+            isScrolled && activeSection ? 'opacity-80' : 'opacity-0'
+          }`}
+          style={{
+            background: activeTheme.headerBorder,
+          }}
+        />
 
         <div className={`mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between transition-all duration-300 ease-out ${
           maxWidth === '5xl'
@@ -330,35 +322,25 @@ export const HeaderV2: React.FC<HeaderV2Props> = ({
                 >
                   {/* Micro-Highlight Pill al pasar el cursor */}
                   {isHovered && !isActive && (
-                    <motion.span
-                      layoutId="navHoverPill"
-                      className="absolute inset-0 rounded-lg bg-white/[0.05] pointer-events-none -z-10"
-                      transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+                    <span
+                      className="absolute inset-0 rounded-lg bg-white/[0.05] pointer-events-none -z-10 transition-colors duration-150"
                     />
                   )}
 
-                  {/* Indicador Activo Dinámico (Se desliza suavemente entre enlaces con resplandor) */}
+                  {/* Indicador Activo Dinámico (Resplandor acorde a la sección) */}
                   {isActive && (
                     <>
                       {/* Aura sutil de fondo detrás del texto */}
-                      <motion.span
-                        layoutId="activeNavBackground"
-                        className="absolute inset-0 rounded-lg pointer-events-none -z-10"
+                      <span
+                        className="absolute inset-0 rounded-lg pointer-events-none -z-10 transition-colors duration-200"
                         style={{ backgroundColor: theme.badgeBg }}
-                        transition={{ type: 'spring', stiffness: 380, damping: 32 }}
                       />
-                      {/* Barra subrayada con física Spring y resplandor acorde a la sección */}
-                      <motion.span
-                        layoutId="activeNavIndicator"
-                        className="absolute -bottom-1 left-1.5 right-1.5 h-[2px] rounded-full pointer-events-none"
+                      {/* Barra subrayada con resplandor acorde a la sección */}
+                      <span
+                        className="absolute -bottom-1 left-1.5 right-1.5 h-[2px] rounded-full pointer-events-none transition-all duration-200"
                         style={{
                           backgroundColor: theme.accentColor,
                           boxShadow: `0 0 10px ${theme.glowColor}, 0 0 2px ${theme.accentColor}`,
-                        }}
-                        transition={{
-                          type: 'spring',
-                          stiffness: 380,
-                          damping: 32,
                         }}
                       />
                     </>

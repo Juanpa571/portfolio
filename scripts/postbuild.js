@@ -553,8 +553,11 @@ for (const page of pages) {
         "JP Studios Diseño Web"
       ],
       "url": "https://jpchacon.com/",
-      "logo": "https://jpchacon.com/logo-horizontal.png",
-      "image": "https://jpchacon.com/og-image-v3.png",
+      "logo": "https://jpchacon.com/google-business-logo.png",
+      "image": [
+        "https://jpchacon.com/google-business-logo.png",
+        "https://jpchacon.com/og-image-v3.png"
+      ],
       "description": "Diseño de páginas web en Cali y desarrollo a medida en React 19. Sitios ultrarrápidos para liderar en Google y multiplicar tus ventas.",
       "telephone": "+573177371301",
       "email": "hola@jpchacon.com",
