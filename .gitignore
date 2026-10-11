@@ -21,12 +21,10 @@ prospectos*
 cali_50_audited.json
 *_audited.json
 *.py
-!scripts/package_netlify.py
 public/pipeline-prospectos.html
 public/pipeline-followup.html
 public/logo_animado.gif
 __pycache__/
-dist-netlify.zip
 scratch_*.png
 crop_*.png
 debug_*.png
