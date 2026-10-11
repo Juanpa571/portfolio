@@ -16,11 +16,13 @@ export const HeroV2: React.FC = () => {
     let rAFId: number;
 
     const handleMouseMove = (e: MouseEvent) => {
-      // Normalizado respecto a la ventana (Cero reflows / cero getBoundingClientRect)
-      const normX = (e.clientX / window.innerWidth) - 0.5;
-      const normY = (e.clientY / window.innerHeight) - 0.5;
-      targetX = normX * 22; // Desplazamiento sutil en px
-      targetY = normY * 16;
+      // Normalizado respecto a la ventana con clamp elíptico seguro (Cero reflows)
+      const rawX = (e.clientX / window.innerWidth) - 0.5;
+      const rawY = (e.clientY / window.innerHeight) - 0.5;
+      const normX = Math.max(-0.5, Math.min(0.5, rawX));
+      const normY = Math.max(-0.5, Math.min(0.5, rawY));
+      targetX = normX * 18; // Desplazamiento sutil controlado en px
+      targetY = normY * 13;
     };
 
     const handleMouseLeave = () => {
@@ -106,7 +108,7 @@ export const HeroV2: React.FC = () => {
                 href="https://wa.me/573177371301?text=Hola%20Juan%20Pablo,%20quiero%20cotizar%20el%20dise%C3%B1o%20y%20desarrollo%20web%20para%20mi%20negocio"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-7 sm:px-8 py-3.5 sm:py-4 rounded-lg bg-white hover:bg-slate-100 active:scale-[0.97] text-slate-950 font-bold text-sm sm:text-base tracking-wide transition-all duration-150 border border-white hover:border-slate-200 shadow-[0_0_24px_rgba(255,255,255,0.25)] hover:shadow-[0_0_32px_rgba(255,255,255,0.4)] hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2.5 group cursor-pointer"
+                className="px-7 sm:px-8 py-3.5 sm:py-4 rounded-lg bg-white hover:bg-slate-100 active:scale-[0.96] active:brightness-95 text-slate-950 font-bold text-sm sm:text-base tracking-wide transition-[transform,box-shadow,background-color] duration-150 ease-out border border-white hover:border-slate-200 shadow-[0_0_24px_rgba(255,255,255,0.25)] hover:shadow-[0_0_32px_rgba(255,255,255,0.4)] hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2.5 group cursor-pointer"
               >
                 <WhatsAppIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 fill-current shrink-0" />
                 <span>Solicitar cotización</span>
@@ -122,7 +124,7 @@ export const HeroV2: React.FC = () => {
 
               <a
                 href="/cuanto-cuesta-una-pagina-web-en-colombia"
-                className="px-5 sm:px-6 py-3.5 sm:py-4 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] active:scale-[0.97] text-slate-200 hover:text-white border border-white/10 hover:border-white/20 text-sm sm:text-base font-medium transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] flex items-center gap-2 group"
+                className="px-5 sm:px-6 py-3.5 sm:py-4 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] active:scale-[0.96] active:brightness-95 text-slate-200 hover:text-white border border-white/10 hover:border-white/20 text-sm sm:text-base font-medium transition-[transform,background-color,border-color,color] duration-150 ease-out hover:-translate-y-0.5 active:translate-y-0 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)] flex items-center gap-2 group"
               >
                 <span>Precios 2026</span>
                 <span className="text-slate-400 group-hover:text-cyan-400 transition-colors">↗</span>
@@ -130,7 +132,7 @@ export const HeroV2: React.FC = () => {
 
               <a
                 href="#proyectos"
-                className="px-4 sm:px-5 py-3.5 sm:py-4 active:scale-[0.97] text-slate-400 hover:text-white text-sm sm:text-base font-medium transition-all duration-150 flex items-center gap-1.5"
+                className="px-4 sm:px-5 py-3.5 sm:py-4 active:scale-[0.96] active:brightness-95 text-slate-400 hover:text-white text-sm sm:text-base font-medium transition-[transform,color] duration-150 ease-out flex items-center gap-1.5"
               >
                 <span>Proyectos</span>
                 <svg 

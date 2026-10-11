@@ -70,7 +70,7 @@ export const PainDiagnosisV2: React.FC = () => {
                   href="https://pagespeed.web.dev/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-between w-full px-4 py-3 rounded-xl bg-white/[0.03] hover:bg-rose-500/10 active:scale-[0.98] text-slate-300 hover:text-rose-300 border border-white/10 hover:border-rose-500/30 text-xs font-sans font-medium transition-all duration-150 group/btn"
+                  className="inline-flex items-center justify-between w-full px-4 py-3 rounded-xl bg-white/[0.03] hover:bg-rose-500/10 active:scale-[0.96] active:brightness-95 text-slate-300 hover:text-rose-300 border border-white/10 hover:border-rose-500/30 text-xs font-sans font-medium transition-[transform,background-color,border-color,color] duration-150 ease-out group/btn"
                 >
                   <span className="flex items-center gap-2">
                     <svg className="w-3.5 h-3.5 text-rose-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -116,7 +116,7 @@ export const PainDiagnosisV2: React.FC = () => {
               <div className="pt-6 mt-6 border-t border-white/[0.06]">
                 <a
                   href="/auditar-posicionamiento"
-                  className="inline-flex items-center justify-between w-full px-4 py-3 rounded-xl bg-white/[0.03] hover:bg-rose-500/10 active:scale-[0.98] text-slate-300 hover:text-rose-300 border border-white/10 hover:border-rose-500/30 text-xs font-sans font-medium transition-all duration-150 group/btn"
+                  className="inline-flex items-center justify-between w-full px-4 py-3 rounded-xl bg-white/[0.03] hover:bg-rose-500/10 active:scale-[0.96] active:brightness-95 text-slate-300 hover:text-rose-300 border border-white/10 hover:border-rose-500/30 text-xs font-sans font-medium transition-[transform,background-color,border-color,color] duration-150 ease-out group/btn"
                 >
                   <span className="flex items-center gap-2">
                     <svg className="w-3.5 h-3.5 text-rose-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -161,14 +161,14 @@ export const PainDiagnosisV2: React.FC = () => {
 
               <div className="pt-6 mt-6 border-t border-white/[0.06]">
                 <a
-                  href="#proyectos"
-                  className="inline-flex items-center justify-between w-full px-4 py-3 rounded-xl bg-white/[0.03] hover:bg-rose-500/10 active:scale-[0.98] text-slate-300 hover:text-rose-300 border border-white/10 hover:border-rose-500/30 text-xs font-sans font-medium transition-all duration-150 group/btn"
+                  href="#contacto"
+                  className="inline-flex items-center justify-between w-full px-4 py-3 rounded-xl bg-white/[0.03] hover:bg-rose-500/10 active:scale-[0.96] active:brightness-95 text-slate-300 hover:text-rose-300 border border-white/10 hover:border-rose-500/30 text-xs font-sans font-medium transition-[transform,background-color,border-color,color] duration-150 ease-out group/btn"
                 >
                   <span className="flex items-center gap-2">
                     <svg className="w-3.5 h-3.5 text-rose-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span>Ver cómo resuelvo la conversión</span>
+                    <span>Probar cotizador de 1 toque a WhatsApp</span>
                   </span>
                   <span className="text-slate-500 group-hover/btn:text-rose-400 group-hover/btn:translate-y-0.5 transition-all">↓</span>
                 </a>

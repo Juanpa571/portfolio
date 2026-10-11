@@ -239,7 +239,7 @@ export const FaqV2: React.FC = () => {
                   </div>
 
                   {/* Icono de expansión minimalista */}
-                  <div className={`w-8 h-8 rounded-xl shrink-0 flex items-center justify-center transition-all duration-300 border ${
+                  <div className={`w-8 h-8 rounded-xl shrink-0 flex items-center justify-center transition-[transform,background-color,border-color,color] duration-300 ease-out origin-center will-change-transform border ${
                     isOpen 
                       ? 'bg-white text-slate-950 border-white rotate-45 shadow-[0_0_15px_rgba(255,255,255,0.4)]' 
                       : 'bg-white/[0.04] text-slate-400 border-white/10 group-hover:text-white'

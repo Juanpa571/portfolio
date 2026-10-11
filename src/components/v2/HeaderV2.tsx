@@ -362,7 +362,7 @@ export const HeaderV2: React.FC<HeaderV2Props> = ({
               rel="noopener noreferrer"
               aria-label={`${ctaText} por WhatsApp`}
               title={`${ctaText} por WhatsApp`}
-              className="min-h-[44px] px-3.5 sm:px-4 py-2.5 rounded-lg bg-white hover:bg-slate-200 active:scale-[0.97] text-slate-950 font-bold text-xs sm:text-sm tracking-wide transition-all duration-150 shadow-sm shadow-black/30 hover:shadow-md flex items-center justify-center gap-2 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              className="min-h-[44px] px-3.5 sm:px-4 py-2.5 rounded-lg bg-white hover:bg-slate-200 active:scale-[0.96] active:brightness-95 text-slate-950 font-bold text-xs sm:text-sm tracking-wide transition-[transform,background-color,box-shadow] duration-150 ease-out shadow-sm shadow-black/30 hover:shadow-md flex items-center justify-center gap-2 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <WhatsAppIcon className="w-3.5 h-3.5 fill-current shrink-0" aria-hidden="true" />
               <span className="sr-only">{ctaText} por WhatsApp</span>
