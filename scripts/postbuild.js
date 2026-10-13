@@ -319,7 +319,7 @@ const pages = [
       },
       {
         question: '¿Por qué hay páginas de $400.000 y otras de más de $3.000.000?',
-        answer: 'La diferencia reside en la tecnología y el retorno comercial. Una web económica de $400.000 COP suele ser una plantilla prefabricada que tarda más de 5 segundos en celulares y no posiciona en Google. Una web a medida de más de $2.000.000 COP carga en menos de 2 segundos, tiene marcado Schema.org local y convierte visitas en clientes reales.'
+        answer: 'La diferencia reside en la tecnología y el retorno comercial. Una web económica de $400.000 COP suele ser una plantilla prefabricada que tarda más de 5 segundos en celulares y no posiciona en Google. Una web a medida de más de $2.000.000 COP carga en menos de 2.5 segundos (< 2.5s), tiene marcado Schema.org local y convierte visitas en clientes reales.'
       }
     ],
     h1: '¿Cuánto cuesta una página web en Colombia? Precios reales y guía completa 2026.',

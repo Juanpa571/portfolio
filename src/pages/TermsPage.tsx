@@ -168,7 +168,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigateHome }) => {
             </p>
             <ul className="space-y-2 pl-4 list-disc text-slate-300">
               <li>
-                <strong className="text-white">Optimización PageSpeed:</strong> Entrego páginas con arquitectura ligera que superan 90 puntos en Google PageSpeed Insights para asegurar tiempos de carga en menos de 1 segundo.
+                <strong className="text-white">Optimización PageSpeed:</strong> Entrego páginas con arquitectura ligera que superan 90 puntos en Google PageSpeed Insights para asegurar tiempos de carga en menos de 2.5 segundos (&lt; 2.5s).
               </li>
               <li>
                 <strong className="text-white">Soporte Correctivo Post-Lanzamiento:</strong> Todos los proyectos incluyen 30 días calendario de garantía técnica para solventar cualquier inconveniente técnico o ajuste atribuible al desarrollo original sin costo adicional.
